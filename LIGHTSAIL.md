@@ -47,15 +47,16 @@ sudo apt-get upgrade
 sudo reboot
 ```
 
+* Login to docker and pull (or just run) the image
 ```
 sudo docker login -u username -p password
 sudo docker pull frosty308/webapps
 ```
-Run the application with your AWS credentials and config information provided as environment variables
+* Run the application with your AWS credentials and config information provided as environment variables
 ```
 sudo docker run -d -e AWS_DEFAULT_REGION=us-west-2 -e AWS_ACCESS_KEY_ID=<keyid> -e  AWS_SECRET_ACCESS_KEY=<key> --rm --name webapp-nginx frosty308/webapps
 ```
-Alternatively you can run the application with your AWS credentials and config information from a mounted file
+* Alternatively you can run the application with your AWS credentials and config information from a mounted file
 ```
 sudo docker run -d -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/root/.aws/credentials:ro --rm --name webapp-nginx frosty308/webapps
 ```
