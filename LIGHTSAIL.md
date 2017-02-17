@@ -7,19 +7,19 @@ to build, test and deploy web applications using any stack.
 
 Setup Steps
 -----------
-Sign up for Amazon Lightsail
+* Sign up for [Amazon Lightsail](https://amazonlightsail.com) or Login to AWS, jump to Lightsail
 
-Generate ssh keys
+* Generate ssh keys
 ```
 ssh-keygen -t rsa
 chmod 400 id_rsa
 cp id_rsa ~/.ssh
 ```
-Create an instance: base OS Ubuntu 16.04
+* Create an instance, select “Base OS” and the option for “Ubuntu 16.04”.
 
-Upload SSH public key: id_rsa.pub
+* Upload SSH public key: id_rsa.pub
 
-Specify launch script to update and install Docker service
+* Specify launch script to update and install Docker service [via David Kryzaniak's blog](https://davekz.com/docker-on-lightsail/)
 ```
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
@@ -33,14 +33,14 @@ sudo apt-get install -y docker-engine
 sudo service docker start
 ```
 
-Start instance and note the static IP address assigned
+* Start instance and note the static IP address assigned
 
-SSH into the instance 
+* SSH into the instance 
 ```
 ssh ubuntu@54.112.119.1
 ```
 
-Update and restart as needed using
+* Update and restart as needed using
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -53,9 +53,9 @@ sudo docker pull frosty308/webapps
 ```
 Run the application with your AWS credentials and config information provided as environment variables
 ```
-sudo docker run -d -e AWS_DEFAULT_REGION=us-west-2 -e AWS_ACCESS_KEY_ID=<keyid> -e  AWS_SECRET_ACCESS_KEY=<key> --rm --name ionu-nginx frosty308/webapps
+sudo docker run -d -e AWS_DEFAULT_REGION=us-west-2 -e AWS_ACCESS_KEY_ID=<keyid> -e  AWS_SECRET_ACCESS_KEY=<key> --rm --name webapp-nginx frosty308/webapps
 ```
 Alternatively you can run the application with your AWS credentials and config information from a mounted file
 ```
-docker run -d -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/root/.aws/credentials:ro --rm --name ionu-nginx frosty308/webapps
+sudo docker run -d -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/root/.aws/credentials:ro --rm --name webapp-nginx frosty308/webapps
 ```
