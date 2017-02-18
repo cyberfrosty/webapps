@@ -1,4 +1,15 @@
+#!/usr/bin python
+# -*- coding: utf-8 -*-
+
+"""
+Copyright (c) 2017 Alan Frost, Inc. All rights reserved.
+
+Classes to access AWS resources
+"""
+
 import boto3
+from botocore.exceptions import ClientError
+
 
 class DynamoDB(object):
     """ Abstract base class for access to AWS DynamoDB.
@@ -89,4 +100,49 @@ class DynamoDB(object):
             return None
 
 
+class SNS(object):
+    """ Abstract base class for access to AWS SNS.
+    """
+    def __init__(self, topic_name):
+        """ Constructor, get AWS resource
+        Args:
+            topic_name: name of the topic
+        """
+        self.sns = boto3.resource('sns')
+        self.topic = None
+        if topic_name is not None:
+            try:
+                self.topic = self.sns.create_topic(Name=topic_name)
+            except ClientError as err:
+                print err
 
+    def publish(self, message):
+        """ Publish a message to our topic.
+        Args:
+            message: text or json
+        """
+        if self.topic is not None:
+            resp = self.topic.publish(Message=message)
+            return resp['MessageId']
+
+    def subscribe(self, protocol, end_point):
+        """ Subscribe to our topic.
+        Args:
+            protocol:  http,https, email, email-json, sms, sqs, application
+            end_point: url, email, phone, arn
+        """
+        if self.topic is not None:
+            response = self.topic.subscribe(Protocol=protocol, Endpoint=end_point)
+            return response
+
+    def send_sms(self, number, message):
+        """ Send an SMS message to the phone number
+        Args:
+            number: phone number (e.g. '+17702233322')
+            message: text
+        """
+        try:
+            response = self.sns.publish(PhoneNumber=number, Message=message)
+            return response
+        except ClientError as err:
+            print err

@@ -1,7 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin python
+# -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2016 IONU Security, Inc. All rights reserved.
+Copyright (c) 2017 Alan Frost, Inc. All rights reserved.
 
 Utility methods
 """
@@ -14,7 +15,7 @@ import simplejson as json
 from Crypto.Hash import SHA, SHA256, HMAC
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 import pyotp
-from eyering import Key
+from crypto import derive_key, encrypt_aes_gcm, decrypt_aes_gcm
 
 # HOTP https://tools.ietf.org/html/rfc4226
 # TOTP https://tools.ietf.org/html/rfc6238
@@ -50,7 +51,7 @@ def decrypt_pii(db_secret, password):
         return None
 
 def encrypt_secret(secret, password):
-    """ Encrypt secret with AESHMAC key derived from password
+    """ Encrypt secret with AES-GCM key derived from password
     Args:
         secret: to be encrypted
         password: to derive key from
@@ -61,11 +62,13 @@ def encrypt_secret(secret, password):
     if len(password) >= 6 and len(secret) >= 4:
         salt = base64.b64encode(os.urandom(16))
         mcf = '$pbkdf2$2500$' + salt + '$$'
-        hkey = Key('hmac', '', 'AES')
-        hkey.derive_key(password, mcf, 512)
-        cipher_text = hkey.encrypt_aes_hmac(secret, base64.b64decode(salt))
-        db_secret = '$pbkdf2$500$' + salt + '$' + base64.b64encode(cipher_text) +'$'
-        return db_secret
+        mcf = derive_key(password, mcf, 256)
+        fields = mcf.split('$')
+        if len(fields) > 4 and fields[1] == 'pbkdf2':
+            key = base64.b64decode(fields[4])
+            cipher_text = encrypt_aes_gcm(key, secret, base64.b64decode(salt))
+            db_secret = '$pbkdf2$500$' + salt + '$' + base64.b64encode(cipher_text) +'$'
+            return db_secret
 
 def decrypt_secret(db_secret, password):
     """ Decrypt secret with AESHMAC key derived from password
@@ -83,10 +86,12 @@ def decrypt_secret(db_secret, password):
             rounds = '2500'
         salt = fields[3]
         mcf = '$pbkdf2$' + rounds + '$' + salt + '$$'
-        hkey = Key('hmac', '', 'AES')
-        hkey.derive_key(password, mcf, 512)
-        secret = hkey.decrypt_aes_hmac(base64.b64decode(fields[4]), base64.b64decode(salt))
-        return secret
+        mcf = derive_key(password, mcf, 256)
+        kfields = mcf.split('$')
+        if len(kfields) > 4 and kfields[1] == 'pbkdf2':
+            key = base64.b64decode(kfields[4])
+            secret = decrypt_aes_gcm(key, base64.b64decode(fields[4]), base64.b64decode(salt))
+            return secret
 
 def generate_otp_secret():
     """ Generate a Google authenticator compatible secret code for either HOTP or TOTP
@@ -295,7 +300,7 @@ def generate_address_code(secret, identifier):
         secret: secret key to use for HMAC
         identifier: username and optionally device id
     Return:
-        16 digit base32 code 
+        16 digit base32 code
     """
     code = os.urandom(5)
     hmac = HMAC.new(secret, code, SHA)
@@ -307,7 +312,7 @@ def validate_address_code(secret, address, identifier):
     """ Validate an address code
     Args:
         secret: secret key to use for HMAC
-        address: 16 digit base32 code 
+        address: 16 digit base32 code
         identifier: username and optionally device id
     Return:
         True if the address code is valid for the user

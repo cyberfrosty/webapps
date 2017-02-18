@@ -1,5 +1,5 @@
-Running Fullstack AWS Web Applications with Amazon Lightsail
-============================================================
+Running AWS Web Applications with Amazon Lightsail
+==================================================
 Amazon Lightsail is an easy and inexpensive way to set up a Virtual Private Server. Access
 to AWS resources from an existing AWS account and migration to a load balanced production
 environment is straightforward. Using Docker with Amazon Lightsail makes it super simple
@@ -15,7 +15,7 @@ ssh-keygen -t rsa
 chmod 400 id_rsa
 cp id_rsa ~/.ssh
 ```
-* Create an instance, select “Base OS” and the option for “Ubuntu 16.04”.
+* Create an instance, select “Base OS” and the option for “Ubuntu 16.04”
 
 * Upload SSH public key: id_rsa.pub
 

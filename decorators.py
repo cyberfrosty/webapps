@@ -16,6 +16,8 @@ def async(func):
         kwargs: argument for function call
     """
     def wrapper(*args, **kwargs):
+        """ Wrap function in thread
+        """
         thr = Thread(target=func, args=args, kwargs=kwargs)
         thr.start()
     return wrapper
