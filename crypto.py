@@ -18,15 +18,15 @@ from cryptography.hazmat.backends import default_backend
 
 def derive_key(password, mcf='', bits=256):
     """ Derive key using PBKDF2 (Password-Based Key Derivation Function2, PKCS #5 v2.0)
-        Accepts MCF format $pbkdf2$2500$salt$keydata or base64/hex encoded raw keydata
-        Pass in keydata for password matching, $pbkdf2$2500$salt$$ for key generation
+        Accepts MCF format $pbkdf2$100000$salt$keydata for validation
+        Use $pbkdf2$100000$salt$$ for key generation with specific iterations and/or salt
         Returns MCF for successful validation (or creation), returns '' for error
     Args:
         user password
-    MCF formatted or base64/hex encoded current value, leave off or empty to create initial
+        MCF formatted value, leave off or empty to create initial
         bits in key
     Return:
-        MCF formatted current value
+        MCF formatted value
     """
 
     key = ''
@@ -72,6 +72,17 @@ def derive_key(password, mcf='', bits=256):
     else:
         return ''
     return '$pbkdf2$' + str(iterations) + '$' + base64.b64encode(salt) + '$' + base64.b64encode(key)
+
+def hash_sha1(message):
+    """ Hash using SHA-1
+    Args:
+        message
+    Return:
+        digest
+    """
+    digest = hashes.Hash(hashes.SHA1(), backend=default_backend())
+    digest.update(message)
+    return digest.finalize()
 
 def hash_sha256(message):
     """ Hash using SHA-256

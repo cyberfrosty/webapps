@@ -15,7 +15,7 @@ import simplejson as json
 from Crypto.Hash import SHA, SHA256, HMAC
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 import pyotp
-from crypto import derive_key, encrypt_aes_gcm, decrypt_aes_gcm
+from crypto import derive_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_sha1
 
 # HOTP https://tools.ietf.org/html/rfc4226
 # TOTP https://tools.ietf.org/html/rfc6238
@@ -335,9 +335,16 @@ def generate_id(size=8, chars='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopq
     """
     return ''.join(random.choice(chars) for x in range(size))
 
+def generate_user_id(username):
+    digest = hash_sha1(username)
+    id = base64.b32encode(digest)
+    return id
+
 def main():
     """ Unit tests
     """
+    print generate_user_id('yuki')
+
     secret = 'Poyj3ZIdLcSEjWagFBj3VQ9x'
     code = generate_code(secret)
     print code
