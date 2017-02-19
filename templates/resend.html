@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+<div class="col-lg-8 col-md-8 col-sm-8">
+<form class="form-signin" role="form" method="post" action="">
+  <h2 class="form-signin-heading">Resend Confirmation Code</h2>
+  {{ form.csrf_token }}
+  <p>
+  {{ form.email(placeholder="email") }}
+    <span class="error">
+      {% if form.email.errors %}
+        {% for error in form.email.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <p>
+  <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Resend Confirmation Code</button>
+</form>
+</div>
+</div>
+{% endblock %}

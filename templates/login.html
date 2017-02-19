@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+<form class="form-signin" role="form" method="post" action="">
+  <h2 class="form-signin-heading">Please sign in</h2>
+  {{ form.csrf_token }}
+  <p>
+  <i class="fa fa-envelope-o fa-fw"></i>
+  {{ form.username(placeholder="Username or email") }}
+    <span class="error">
+      {% if form.username.errors %}
+        {% for error in form.username.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.password(placeholder="Password") }}
+    <span class="error">
+      {% if form.password.errors %}
+        {% for error in form.password.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <p>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  </p>
+  <button class="btn btn-primary" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Login</button>
+  <br/><br/>
+  <p><a href="/register">Need to Sign up?</a></p>
+  <p><a href="/forgot">Forgot your password?</a></p>
+</form>
+</div>
+
+{% endblock %}

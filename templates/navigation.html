@@ -1,0 +1,32 @@
+<!-- Navigation -->
+  <nav class="navbar navbar-light navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+      <button class="navbar-toggle collapsed btn-xs" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+          <i class="fa fa-navicon" aria-hidden="true"></i>
+</button>
+        <a class="navbar-brand" href="/">
+          <img src="{{url_for('static', filename='img/logo.png')}}" style="width: 64px; height: 64;"
+           href="{{ url_for('index') }}"/>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-item nav-link" href="{{url_for('recipes')}}">Recipes</a></li>
+          {% if current_user.confirmed and current_user.is_authenticated %}
+            <li><a class="nav-item nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+          {% elif current_user.is_authenticated %}
+            <li><a class="nav-item nav-link" href="{{ url_for('confirm') }}">Confirm</a></li>
+          {% endif %}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if current_user.is_authenticated %}
+            <li><a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+          {% else %}
+            <li><a class="nav-item nav-link" href="{{ url_for('register') }}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Sign Up</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>

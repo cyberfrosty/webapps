@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+<form class="form-signin" role="form" method="post" action="">
+  <h2 class="form-signin-heading">Change Password</h2>
+
+<form class="form-reset" role="form" method="post" action="">
+  {{ form.csrf_token }}
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.password(placeholder="password") }}
+    <span class="error">
+      {% if form.password.errors %}
+        {% for error in form.password.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.confirm(placeholder="confirm") }}
+    <span class="error">
+      {% if form.confirm.errors %}
+        {% for error in form.confirm.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</button>
+  <br /><br />
+</form>
+</div>
+
+{% endblock %}

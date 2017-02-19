@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+<form class="form-signin" role="form" method="post" action="">
+  <h2 class="form-signin-heading">Request Password Reset</h2>
+  {{ form.csrf_token }}
+  <p>
+  <i class="fa fa-user-o fa-fw"></i>
+  {{ form.email(placeholder="email") }}
+    <span class="error">
+      {% if form.email.errors %}
+        {% for error in form.email.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <p>
+  </p>
+  <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Request Password Reset</button>
+  <br /><br />
+</form>
+</div>
+
+{% endblock %}
