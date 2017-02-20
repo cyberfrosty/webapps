@@ -131,10 +131,10 @@ def generate_hotp_uri(secret, counter, email):
         counter: unique integer value
         email: Authenticator email address
     Return:
-        URI: otpauth://hotp/alice@google.com?secret=JBSWY3DPEHPK3PXP&counter=0&issuer=IONU
+        URI: otpauth://hotp/alice@google.com?secret=JBSWY3DPEHPK3PXP&counter=0&issuer=FROSTY
     """
     hotp = pyotp.HOTP(secret)
-    return hotp.provisioning_uri(email, counter, 'IONU')
+    return hotp.provisioning_uri(email, counter, 'FROSTY')
 
 def generate_totp_code(secret):
     """ Generate a Google authenticator compatible TOTP code
@@ -163,10 +163,10 @@ def generate_totp_uri(secret, email):
         secret: 16 character base32 secret
         email: Authenticator email address
     Return:
-        URI for QR code: otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=IONU
+        URI for QR code: otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=FROSTY
     """
     totp = pyotp.TOTP(secret)
-    return totp.provisioning_uri(email, 'IONU')
+    return totp.provisioning_uri(email, 'FROSTY')
 
 def generate_code(secret):
     """ Generate a random access code, with HMAC, base64 encoded
@@ -357,7 +357,7 @@ def main():
     if validate_code(secret, code[1:]):
         print 'validated'
 
-    confirm_tok = generate_token('yuki@ionu.com', secret, 'confirm')
+    confirm_tok = generate_token('yuki@gmail.com', secret, 'confirm')
     print confirm_tok
     validated, value = validate_token(confirm_tok, secret, 'confirm')
     if validated:
@@ -373,7 +373,7 @@ def main():
     if validated:
         print 'Error, not a reset token'
 
-    confirm_tok = generate_timed_token('yuki@ionu.com', secret, 'confirm')
+    confirm_tok = generate_timed_token('yuki@gmail.com', secret, 'confirm')
     print confirm_tok
     validated, value = validate_timed_token(confirm_tok, secret, 'confirm')
     if validated:
@@ -393,16 +393,16 @@ def main():
     code = generate_hotp_code(secret, 666)
     if validate_hotp_code(secret, code, 666):
         print 'HOTP validated', code
-    print generate_hotp_uri(secret, 666, 'yuki@ionu.com')
+    print generate_hotp_uri(secret, 666, 'yuki@gmail.com')
 
     code = generate_totp_code(secret)
     if validate_totp_code(secret, code):
         print 'TOTP validated', code
-    print generate_totp_uri(secret, 'yuki@ionu.com')
+    print generate_totp_uri(secret, 'yuki@gmail.com')
 
     otp = encrypt_secret(secret, 'madman')
     print decrypt_secret(otp, 'madman')
-    pii = encrypt_pii({'email':'yuki@ionu.com', 'phone':'7754321238'}, 'madman')
+    pii = encrypt_pii({'email':'yuki@gmail.com', 'phone':'7754321238'}, 'madman')
     print decrypt_pii(pii, 'madman')
 
     code = generate_address_code(secret, 'yuki:dev1')

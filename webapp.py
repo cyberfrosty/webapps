@@ -22,9 +22,9 @@ from crypto import derive_key
 from utils import generate_timed_token, validate_timed_token, generate_user_id
 from awsutils import DynamoDB
 USERS = DynamoDB('Users')
-USERS.create_table('Users', 'id')
+#USERS.create_table('Users', 'id')
 SESSIONS = DynamoDB('Sessions')
-SESSIONS.create_table('Users', 'id')
+#SESSIONS.create_table('Sessions', 'id')
 
 MAX_FAILURES = 3
 login_manager = LoginManager()
@@ -40,7 +40,7 @@ application.config['MAIL_USE_SSL'] = True
 application.config['MAIL_USE_TLS'] = False
 application.config['MAIL_USERNAME'] = 'alan@ionu.com'
 application.config['MAIL_PASSWORD'] = ''
-application.config['MAIL_SUBJECT_PREFIX'] = '[IONU]'
+application.config['MAIL_SUBJECT_PREFIX'] = '[FROSTY]'
 application.config['MAIL_SENDER'] = 'alan@ionu.com'
 
 mail = Mail(application)
@@ -52,11 +52,17 @@ login_manager.session_protection = "strong"
 
 @async
 def send_async_email(msg):
+    """ Send an email from a new thread
+    """
     with application.app_context():
         mail.send(msg)
 
 class User(object):
+    """ Class for the current user
+    """
     def __init__(self, username, email, name=None, avatar=None):
+        """ Constructor
+        """
         self._username = username
         self._userid = generate_user_id(username)
         self._name = name
@@ -127,18 +133,26 @@ def next_is_valid(url):
 
 @application.route('/')
 def index():
+    """ Show main landing page
+    """
     return render_template('index.html')
 
 @application.route('/recipes')
 def recipes():
+    """ Show recipes
+    """
     return render_template('recipes.html')
 
-@application.route('/Privacy')
-def Privacy():
-    return render_template('Privacy.html')
+@application.route('/privacy')
+def privacy():
+    """ Show privacy policy
+    """
+    return render_template('privacy.html')
 
 @application.route("/confirm", methods=['GET', 'POST'])
 def confirm():
+    """ Confirm user account creation or action (delete) with emailed token
+    """
     username = request.args.get('username')
     token = request.args.get('token')
     action = request.args.get('action')
@@ -148,26 +162,41 @@ def confirm():
     form.username.data = username
     form.token.data = token
     if form.validate_on_submit():
-        user = load_user(username)
-        if user.is_authenticated:
-            return redirect(url_for('index'))
-        elif user.is_confirmed:
-            return redirect(url_for('login', username=username))
-        elif user.validate_token(token, action):
+        userid = generate_user_id(username)
+        account = USERS.get_item('username', userid)
+        if account is None:
+            return redirect(url_for('register', username=username))
+        session = SESSIONS.get_item('id', userid)
+        if session is None:
+            session = {}
+            session['id'] = userid
+        failures = session.get('failures', 0)
+        validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
+        if validated and value == username:
             if action == 'register':
-                # Update cached user map and identity database
-                #USERS[username].confirmed = True
-                flash('You have confirmed your account. Thanks!')
+                # Update user account status
+                if account['status'][:7] == 'pending':
+                    account['status'] = 'confirmed: ' + time.mktime(datetime.utcnow().timetuple())
+                    USERS.put_item('id', account)
+                    session['failures'] = 0
+                    SESSIONS.put_item('id', session)
+                    flash('You have confirmed your account. Thanks!')
                 return redirect(url_for('login', username=username))
         else:
             flash('The confirmation link is invalid or has expired.')
-            return redirect(url_for('index'))
+            if failures > MAX_FAILURES:
+                return redirect(url_for('index'))
+            session['failures'] = failures + 1
+            SESSIONS.put_item('id', userid)
+            return redirect(url_for('resend', username=username, action=action))
 
     return render_template('confirm.html', form=form)
 
 
 @application.route("/login", methods=['GET', 'POST'])
 def login():
+    """ Login to user account with username/email and password
+    """
     form = LoginForm()
     username = request.args.get('username')
     if username:
@@ -191,7 +220,7 @@ def login():
             else:
                 flash('Unable to validate your credentials.')
                 session['failures'] = failures + 1
-                SESSIONS.put_item('id', userid)
+                SESSIONS.put_item('id', session)
             return redirect(url_for('login', username=username))
 
         print 'validated user'
@@ -212,6 +241,8 @@ def login():
 @application.route("/logout")
 @login_required
 def logout():
+    """ Logout of user account
+    """
     SESSIONS.delete_item('id', current_user.get_id())
     logout_user()
     return redirect(url_for('index'))
@@ -224,16 +255,34 @@ def profile():
 @application.route("/change", methods=['GET', 'POST'])
 @login_required
 def change():
+    """ Change user account password
+    """
     form = ChangePasswordForm()
     return render_template('change.html', form=form)
 
 @application.route("/resend", methods=['GET', 'POST'])
 def resend():
+    """ Regenerate and send an account confirmation code
+    """
+    username = request.args.get('username')
+    action = request.args.get('action')
+    if username is None or action is None:
+        abort(400)
     form = ResendConfirmForm()
+    form.username.data = username
+    form.action.data = action
+    if form.validate_on_submit():
+        token = generate_timed_token(username, application.config['SECRET_KEY'], 'register')
+        send_email(form.email.data, 'Confirm Your Account',
+                   'email/confirm', username=form.username.data, token=token, action='register')
+        flash('A confirmation email has been sent to ' + form.email.data)
+        return redirect(url_for('login', username=form.username.data))
     return render_template('resend.html', form=form)
 
 @application.route("/forgot", methods=['GET', 'POST'])
 def forgot():
+    """ Request a password reset
+    """
     username = request.args.get('username')
     form = PasswordResetRequestForm()
     if form.validate_on_submit():
@@ -246,6 +295,8 @@ def forgot():
 
 @application.route("/reset", methods=['GET', 'POST'])
 def reset():
+    """ Reset user password with emailed token
+    """
     username = request.args.get('username')
     token = request.args.get('token')
     action = request.args.get('action')
@@ -259,6 +310,8 @@ def reset():
 
 @application.route("/register", methods=['GET', 'POST'])
 def register():
+    """ Register for a new user account
+    """
     form = RegistrationForm(request.form)
     username = request.args.get('username')
     if username:
@@ -280,13 +333,12 @@ def register():
         user = User(form.username.data, form.email.data)
         user.is_authenticated = False
         user.is_confirmed = False
-        #db_session.add(user)
+        USERS.put_item('id', info)
         token = generate_timed_token(username, application.config['SECRET_KEY'], 'register')
         send_email(form.email.data, 'Confirm Your Account',
                    'email/confirm', username=form.username.data, token=token, action='register')
         flash('A confirmation email has been sent to ' + form.email.data)
         return redirect(url_for('login', username=form.username.data))
-    print 'validate failed', form.username.data, form.email.data, form.password.data, form.confirm.data
     return render_template('register.html', form=form)
 
 def main():

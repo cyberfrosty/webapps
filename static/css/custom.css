@@ -1,0 +1,181 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html, body {
+  height: 100%;
+}
+
+body {
+  padding-top: 50px;
+}
+footer {
+  padding: 10px 0;
+}
+td {
+  padding: 6px;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color: #f5f5f5}
+th {
+  padding: 8px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  color: black;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0px;
+  margin: 0px auto;
+  height: 55px;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: #e5e5e5;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 40px;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: #e5e5e5;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+code {
+  font-size: 80%;
+}
+
+/* Nav links */
+.nav-link {
+  position: relative;
+  padding: 1rem;
+  font-weight: 500;
+  color: #3d3d3b;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #ffff;
+  background-color: transparent;
+}
+
+/* Active state gets a caret at the bottom */
+.nav-link.active {
+  color: #ffff;
+}
+
+.nav-link.active::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -.3rem;
+  vertical-align: middle;
+  content: "";
+  border-right: .3rem solid transparent;
+  border-bottom: .3rem solid;
+  border-left: .3rem solid transparent;
+}
+
+.form-signin {
+  max-width: 350px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email or username"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.f-b {
+  color: #999;
+  text-align: left;
+  padding: 0 10px;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 1px;
+  line-height: 46px;
+}
+
+.footer-widget-social ul {
+  text-align: right;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.footer-widget-social ul li {
+  display: inline-block;
+  margin-bottom: -8px;
+}
+
+.footer-widget-social a {
+  padding: 10px;
+  float: left;
+  margin: 0 3px;
+}
+
+.footer-widget-social a:hover {
+  background-color: #fff;
+  color: #353e47;
+}
+
