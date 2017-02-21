@@ -49,7 +49,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY . /var/www/app
 
 # Expose the nginx web server port
-EXPOSE 5000
+EXPOSE 8080
 
 # Start nginx and uwsgi via supervisord
 CMD /usr/bin/supervisord
