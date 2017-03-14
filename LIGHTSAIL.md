@@ -26,7 +26,7 @@ sudo apt-get install -y apt-transport-https ca-certificates
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 \
              --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | \
-             sudo tee /etc/apt/sources.list.d/docker.list
+             tee /etc/apt/sources.list.d/docker.list
 sudo apt-get update
 sudo apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual
 sudo apt-get install -y docker-engine
@@ -35,12 +35,12 @@ sudo service docker start
 
 * Start instance and note the static IP address assigned
 
-* SSH into the instance 
+* SSH into the instance, using command line or from AWS console
 ```
-ssh ubuntu@54.112.119.1
+ssh ubuntu@54.86.117.1
 ```
 
-* Update and restart as needed using
+* Update and restart as needed using, stop and reboot can also be done via AWS console
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -49,14 +49,14 @@ sudo reboot
 
 * Login to docker and pull (or just run) the image
 ```
-sudo docker login -u username -p password
-sudo docker pull frosty308/webapps
+docker login -u username -p password
+docker pull frosty308/webapps
 ```
 * Run the application with your AWS credentials and config information provided as environment variables
 ```
-sudo docker run -d -e AWS_DEFAULT_REGION=us-west-2 -e AWS_ACCESS_KEY_ID=<keyid> -e  AWS_SECRET_ACCESS_KEY=<key> --rm --name webapp-nginx frosty308/webapps
+docker run -d -e AWS_DEFAULT_REGION=us-west-2 -e AWS_ACCESS_KEY_ID=<keyid> -e  AWS_SECRET_ACCESS_KEY=<key> -p 8080:80 --name webapp-nginx frosty308/recipes
 ```
 * Alternatively you can run the application with your AWS credentials and config information from a mounted file
 ```
-sudo docker run -d -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/root/.aws/credentials:ro --rm --name webapp-nginx frosty308/webapps
+docker run -d -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/root/.aws/credentials:ro -p 8080:80 --name webapp-nginx frosty308/recipes
 ```

@@ -5,7 +5,7 @@ Web applications
 docker build -t webapp .
 
 ### Run the Docker container
-docker run --rm -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/home/frosty/.aws/credentials:ro --name recipes frosty308/recipes
+docker run --rm -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/home/frosty/.aws/credentials:ro  -p 8080:80 --name recipes frosty308/recipes
 
 ### Various commands to get information and interact
 docker ps
