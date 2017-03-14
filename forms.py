@@ -20,7 +20,12 @@ class UserNameValidator(object):
         self.message = message
 
     def __call__(self, form, field):
-        if re.match(r"[^@]+@[^@]+\.[^@]+", field.data) or re.match(r"^[A-Za-z][A-Za-z0-9\._-]*$", field.data):
+        len = l = field.data and len(field.data) or 0
+        if len == 0:
+            pass
+        elif len < 4 or len > 32:
+            raise ValidationError(self.message)
+        elif re.match(r"[^@]+@[^@]+\.[^@]+", field.data) or re.match(r"^[A-Za-z][A-Za-z0-9\._-]*$", field.data):
             pass
         else:
             raise ValidationError(self.message)
@@ -56,11 +61,7 @@ class ResendConfirmForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     """ Register a new account
     """
-    username = StringField('Username', [
-        validators.InputRequired(message="* Required"),
-        validators.Length(4, 64, message="* Length (4, 64)"),
-        UserNameValidator()
-    ])
+    username = StringField('Username', [UserNameValidator()])
     email = EmailField('Email Address', [
         validators.InputRequired(message="* Required"),
         validators.Email(message="* Invalid")])

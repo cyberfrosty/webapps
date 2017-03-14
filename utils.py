@@ -12,10 +12,9 @@ import base64
 import random
 import time
 import simplejson as json
-from Crypto.Hash import SHA, SHA256, HMAC
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 import pyotp
-from crypto import derive_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_sha1
+from crypto import derive_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_sha256, hmac_sha256
 
 # HOTP https://tools.ietf.org/html/rfc4226
 # TOTP https://tools.ietf.org/html/rfc6238
@@ -171,9 +170,8 @@ def generate_totp_uri(secret, email):
 def generate_code(secret):
     """ Generate a random access code, with HMAC, base64 encoded
     """
-    code = os.urandom(25)
-    hmac = HMAC.new(secret, code, SHA)
-    access_code = base64.b64encode(code + hmac.digest(), '-_')
+    code = os.urandom(28)
+    access_code = base64.b64encode(code + hmac_sha256(secret, code), '-_')
     return access_code
 
 def validate_code(secret, access_code):
@@ -186,8 +184,7 @@ def validate_code(secret, access_code):
         code = access_code
     try:
         code = base64.b64decode(code, '-_')
-        hmac = HMAC.new(secret, code[:25], SHA)
-        return code[25:] == hmac.digest()
+        return code[28:] == hmac_sha256(secret, code[:28])
     except TypeError:
         return False
 
@@ -202,7 +199,7 @@ def get_access_id(access_code):
     else:
         code = access_code
     try:
-        hashed = SHA256.new(data=base64.b64decode(code, '-_')).digest()
+        hashed = hash_sha256(base64.b64decode(code, '-_'))
         index = base64.b64encode(hashed[1:31], '-_')
         return index
     except TypeError:
@@ -303,9 +300,7 @@ def generate_address_code(secret, identifier):
         16 digit base32 code
     """
     code = os.urandom(5)
-    hmac = HMAC.new(secret, code, SHA)
-    hmac.update(identifier)
-    address = base64.b32encode(code + hmac.digest()[:5])
+    address = base64.b32encode(code + hmac_sha256(secret, code + identifier)[:5])
     return address
 
 def validate_address_code(secret, address, identifier):
@@ -324,9 +319,8 @@ def validate_address_code(secret, address, identifier):
         code = address
     try:
         code = base64.b32decode(code)
-        hmac = HMAC.new(secret, code[:5], SHA)
-        hmac.update(identifier)
-        return code[5:] == hmac.digest()[:5]
+        hmac = hmac_sha256(secret, code + identifier)
+        return code[5:] == hmac[:5]
     except TypeError:
         return False
 
@@ -336,9 +330,10 @@ def generate_id(size=8, chars='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopq
     return ''.join(random.choice(chars) for x in range(size))
 
 def generate_user_id(username):
-    digest = hash_sha1(username)
-    id = base64.b32encode(digest)
-    return id
+    """ Generate 48 character base32 user id
+    """
+    digest = hash_sha256(username)
+    return base64.b32encode(digest[0:30])
 
 def main():
     """ Unit tests

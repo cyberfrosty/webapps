@@ -60,13 +60,13 @@ def send_async_email(msg):
 class User(object):
     """ Class for the current user
     """
-    def __init__(self, username, email, name=None, avatar=None):
+    def __init__(self, email, username=None, name=None, avatar=None):
         """ Constructor
         """
-        self._username = username
+        self._email = email
+        self._username = username or email
         self._userid = generate_user_id(username)
         self._name = name
-        self._email = email
         self._avatar = avatar
         self._authenticated = False
         self._confirmed = False
@@ -116,7 +116,7 @@ class User(object):
 @login_manager.user_loader
 def load_user(username):
     account = USERS.get_item('username', generate_user_id(username))
-    user = User(username, account.get('email'), account.get('name'), account.get('avatar'))
+    user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
     return user
 
 def send_email(recipients, subject, template, **kwargs):
@@ -229,7 +229,7 @@ def login():
             session['failures'] = 0
         session['login_at'] = int(time.mktime(datetime.utcnow().timetuple()))
         SESSIONS.put_item('id', session)
-        user = User(username, account.get('email'), account.get('name'), account.get('avatar'))
+        user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
         user.is_authenticated = True
         user.is_confirmed = True
         if login_user(user, remember=form.remember.data):
@@ -313,13 +313,16 @@ def register():
     """ Register for a new user account
     """
     form = RegistrationForm(request.form)
+    email = request.args.get('email')
+    if email:
+        form.email.data = email
     username = request.args.get('username')
     if username:
         form.username.data = username
     if request.method == 'POST' and form.validate_on_submit():
-        if USERS.get_item('username', generate_user_id(form.username.data)):
-            flash('Username ' + form.username.data + ' already taken')
-            return redirect(url_for('register', username=username))
+        if USERS.get_item('username', generate_user_id(form.email.data)):
+            flash('Username ' + form.email.data + ' already taken')
+            return redirect(url_for('register', username=username, email=email))
         # Create json for new user
         info = {'id': generate_user_id(form.username.data),
                 'authentication': 'password',
@@ -330,7 +333,7 @@ def register():
                     'email': form.email.data
                 }
                }
-        user = User(form.username.data, form.email.data)
+        user = User(form.email.data, form.username.data)
         user.is_authenticated = False
         user.is_confirmed = False
         USERS.put_item('id', info)
@@ -354,7 +357,6 @@ def main():
         reason = 'Stopped'
     except (EnvironmentError, RuntimeError) as err:
         reason = err
-        rc = 1
     print reason
 
 if __name__ == '__main__':
