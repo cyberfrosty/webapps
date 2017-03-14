@@ -52,4 +52,4 @@ COPY . /var/www/app
 EXPOSE 8080
 
 # Start nginx and uwsgi via supervisord
-CMD /usr/bin/supervisord
+CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
