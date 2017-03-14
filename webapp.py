@@ -316,7 +316,7 @@ def register():
     username = request.args.get('username')
     if username:
         form.username.data = username
-    if request.method == 'POST': # and form.validate_on_submit():
+    if request.method == 'POST' and form.validate_on_submit():
         if USERS.get_item('username', generate_user_id(form.username.data)):
             flash('Username ' + form.username.data + ' already taken')
             return redirect(url_for('register', username=username))
