@@ -7,6 +7,9 @@
     <h3>Recipes</h3>
   </div>
   <div class="row">
+  {% if recipe %}
+    {{ recipe | safe }}
+  {% else %}
     <h4>Pumpkin Waffles</h4>
     <h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Ingredients<h5>
     <ul>
@@ -23,7 +26,7 @@
        Add egg on edge, beat by itself, add oil and pumpkin, mix to blend, add half
        of the buttermilk and blend. Mix together with flour mixture and remaining
        buttermilk to proper consistancy. Do not overmix.</p>
-
+  {% endif %}
   </div><!--/row-->
 </div><!--/.container-->
 

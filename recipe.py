@@ -10,6 +10,9 @@ Implementation of Recipe manage
 
 import simplejson as json
 
+#from awsutils import DynamoDB
+#RECIPES = DynamoDB('Recipes')
+
 class RecipeManager(object):
     """ Recipe Manager
     """
@@ -57,12 +60,17 @@ class RecipeManager(object):
                     html = self.render_recipe(recipe)
                     if html is not None:
                         print "Loaded " + recipe['title']
+                        return html
         except IOError:
             print 'Load of recipe failed: ' + infile
 
+    def get_recipe(self, recipe_id):
+        """ Load json data for a recipe
+        """
+
     def render_ingredients(self, ingredients):
         if 'title' in ingredients:
-            html = '<h4>' + ingredients['title'] + '</h4>\n<ul>\n'
+            html = '<h5>' + ingredients['title'] + '</h5>\n<ul>\n'
 
         index = 1
         while 'item' + str(index) in ingredients:
@@ -74,13 +82,13 @@ class RecipeManager(object):
             quantity = quantity.replace('3/4', '&frac34;')
             quantity = quantity.replace('1/3', '&#x2153;')
             quantity = quantity.replace('2/3', '&#x2154;')
-            html += '  <li>' + quantity + ' - ' + item.get('ingredient') + '</li>\n'
+            html += '  <li>' + quantity + ' ' + item.get('ingredient') + '</li>\n'
             index += 1
 
         html += '</ul>\n'
         return html
 
-    def render_recipe(self, recipe):
+    def render_recipe(self, recipe, mode='read'):
         """ Render a recipe as HTML
         Args:
             recipe: dictionary
@@ -89,8 +97,8 @@ class RecipeManager(object):
         """
 
         if 'title' in recipe:
-            html = '<h3>' + recipe['title'] + '</h3>\n'
-        html += '<h4><i class="fa fa-snowflake-o" aria-hidden="true"></i> Ingredients</h4>\n'
+            html = '<h4>' + recipe['title'] + '</h4>\n'
+        html += '<h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Ingredients</h5>\n'
         ingredients = recipe['ingredients']
         if 'section1' in ingredients:
             html += self.render_ingredients(ingredients['section1'])
@@ -98,15 +106,24 @@ class RecipeManager(object):
                 html += self.render_ingredients(ingredients['section2'])
         else:
             html += self.render_ingredients(ingredients)
-        html += '<h4><i class="fa fa-snowflake-o" aria-hidden="true"></i> Instructions<h4>\n<ol>\n'
+        html += '<h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Instructions</h5>\n'
+        if mode == 'make':
+            html+= '<ol>\n'
+        else:
+            html+= '<p>\n'
         index = 1
         instructions = recipe.get('instructions')
         while 'step' + str(index) in instructions:
             item = instructions.get('step' + str(index))
-            html += '  <li>' + item + '</li>\n'
+            if mode == 'make':
+                html += '  <li>' + item + '</li>\n'
+            else:
+                html += item + '. '
             index += 1
-        html += '</ol>\n'
-        print html
+        if mode == 'make':
+            html += '</ol>\n'
+        else:
+            html += '</p>\n'
         return html
 
 def main():

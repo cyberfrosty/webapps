@@ -21,16 +21,19 @@ from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm,
 from crypto import derive_key
 from utils import generate_timed_token, validate_timed_token, generate_user_id
 from awsutils import DynamoDB
+from recipe import RecipeManager
+
 USERS = DynamoDB('Users')
 #USERS.create_table('Users', 'id')
 SESSIONS = DynamoDB('Sessions')
 #SESSIONS.create_table('Sessions', 'id')
+recipe_manager = RecipeManager('noneedtomeasure')
 
 MAX_FAILURES = 3
 login_manager = LoginManager()
 application = Flask(__name__, static_url_path="")
 
-application.config['SECRET_KEY'] = 'secret'
+application.config['SECRET_KEY'] = 'super secret key'
 application.config['SSL_DISABLE'] = False
 #application.config['MAIL_SERVER'] = 'mex06.emailsrvr.com'
 application.config['MAIL_SERVER'] = 'secure.emailsrvr.com'
@@ -137,11 +140,16 @@ def index():
     """
     return render_template('index.html')
 
-@application.route('/recipes')
+@application.route('/recipes', methods=['GET'])
 def recipes():
     """ Show recipes
     """
-    return render_template('recipes.html')
+    recipe = request.args.get('recipe')
+    if recipe is not None:
+        html = recipe_manager.load_recipe('recipes.json')
+        return render_template('recipes.html', recipe=html)
+    else:
+        return render_template('recipes.html')
 
 @application.route('/privacy')
 def privacy():
@@ -352,7 +360,7 @@ def main():
         host_ip = sock.getsockname()[0]
         sock.close()
         print 'Web server starting: %s:%d' % (host_ip, 8080)
-        application.run(debug=True, host='0.0.0.0', port=8080, threaded=True)
+        application.run(debug=False, host='0.0.0.0', port=8080, threaded=True)
     except (KeyboardInterrupt, SystemExit):
         reason = 'Stopped'
     except (EnvironmentError, RuntimeError) as err:
