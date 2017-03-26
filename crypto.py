@@ -107,7 +107,7 @@ def hmac_sha256(key, message):
     digest.update(message)
     return digest.finalize()
 
-def decrypt_aes_gcm(key, cipher_text, initial_value, aad=None):
+def decrypt_aes_gcm(key, initial_value, cipher_text, aad=None):
     """ Decrypt using AES-GCM
     Args:
         aes encryption key
@@ -131,7 +131,7 @@ def decrypt_aes_gcm(key, cipher_text, initial_value, aad=None):
     except InvalidTag:
         print 'GCM decryption failed'
 
-def encrypt_aes_gcm(key, plain_text, initial_value, aad=None):
+def encrypt_aes_gcm(key ,initial_value, plain_text, aad=None):
     """ Encrypt using AES-GCM
     Args:
         aes encryption key
