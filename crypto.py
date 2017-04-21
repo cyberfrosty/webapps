@@ -13,8 +13,11 @@ import os
 from cryptography.hazmat.primitives.ciphers import (Cipher, algorithms, modes)
 from cryptography.hazmat.primitives import hashes, hmac
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from cryptography.exceptions import InvalidTag
+from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
+from cryptography.hazmat.primitives.kdf.hkdf import HKDF
+from cryptography.exceptions import InvalidTag, InvalidKey
 from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.backends.openssl import backend
 
 def derive_key(password, mcf='', bits=256):
     """ Derive key using PBKDF2 (Password-Based Key Derivation Function2, PKCS #5 v2.0)
@@ -72,6 +75,62 @@ def derive_key(password, mcf='', bits=256):
     else:
         return ''
     return '$pbkdf2$' + str(iterations) + '$' + base64.b64encode(salt) + '$' + base64.b64encode(key)
+
+def scrypt_key(password, mcf='', bits=512):
+    """
+        RFC 7914 recommends values of r=8 and p=1 while scaling n as appropriate for your system.
+        The scrypt paper suggests a minimum value of n=2**14 for interactive logins (t < 100ms),
+        or n=2**20 for more sensitive files (t < 5s).
+    """
+    if len(mcf) == 0:
+        salt = os.urandom(16) # NIST SP 800-132 recommends 128-bits or longer
+        cost = 2**14
+        kdf = Scrypt(
+            salt=salt,
+            length=bits/8,
+            n=cost,
+            r=8,
+            p=1,
+            backend=default_backend()
+        )
+        key = kdf.derive(password)
+    # Verify key, or derive with specific iterations and/or salt
+    elif mcf[0] == '$':
+        fields = mcf.split('$')
+        if len(fields) > 4 and fields[1] == 'scrypt':
+            if len(fields[2]) == 0:
+                cost = 2**14
+            else:
+                cost = int(fields[2])
+            if len(fields[3]) == 0:
+                salt = os.urandom(16)
+            else:
+                salt = base64.b64decode(fields[3])
+            kdf = Scrypt(
+                salt=salt,
+                length=bits/8,
+                n=cost,
+                r=8,
+                p=1,
+                backend=default_backend()
+            )
+            try:
+                kdf.verify(password, base64.b64decode(fields[4]))
+            except InvalidKey:
+                return ''
+    return '$scrypt$' + str(cost) + '$' + base64.b64encode(salt) + '$' + base64.b64encode(key)
+
+def hkdf_key(key, info, salt=None):
+    if salt is None:
+        salt = os.urandom(32)
+    hkdf = HKDF(
+        algorithm=hashes.SHA256(),
+        length=32,
+        salt=salt,
+        info=info,
+        backend=default_backend()
+    )
+    return hkdf.derive(key)
 
 def hash_sha1(message):
     """ Hash using SHA-1
@@ -131,7 +190,7 @@ def decrypt_aes_gcm(key, initial_value, cipher_text, aad=None):
     except InvalidTag:
         print 'GCM decryption failed'
 
-def encrypt_aes_gcm(key ,initial_value, plain_text, aad=None):
+def encrypt_aes_gcm(key, initial_value, plain_text, aad=None):
     """ Encrypt using AES-GCM
     Args:
         aes encryption key
