@@ -13,115 +13,86 @@ import random
 import time
 import simplejson as json
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
-import pyotp
-from crypto import derive_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_sha256, hmac_sha256
+from cryptography.hazmat.primitives.twofactor.hotp import HOTP
+from cryptography.hazmat.primitives.twofactor.totp import TOTP
+from cryptography.hazmat.primitives.hashes import SHA1
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.twofactor import InvalidToken
+from crypto import derive_key, hkdf_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_sha256, hmac_sha256
 
 # HOTP https://tools.ietf.org/html/rfc4226
 # TOTP https://tools.ietf.org/html/rfc6238
 
-def encrypt_pii(params, password):
+HKDF_SALT = base64.b64decode('MTIzNDU2Nzg5MGFiY2RlZmdoaWprbG1ub3BxcnN0dXY=')
+HDKF_INFO = 'frosty.alan'
+
+def encrypt_pii(secret, params):
     """ Encrypt PII parameters
     Args:
+        secret: to derive key from
         params: dictionary
-        password: to derive key from
     Returns:
-        mcf encoded ciphertext for insert into DB
+        cipher text: bytes
     """
-    pjson = json.dumps(params)
-    pad = len(pjson) % 16
-    if pad > 0:
-        pad = 16 - pad
-    pii = pjson + '               '[0:pad]
-    return encrypt_secret(pii, password)
+    iv = os.urandom(12)
+    key = hkdf_key(secret, HDKF_INFO, HKDF_SALT)
+    cipher_text = iv + encrypt_aes_gcm (key, iv, json.dumps(params))
+    return cipher_text
 
-def decrypt_pii(db_secret, password):
+def decrypt_pii(secret, cipher_text):
     """ Decrypt PII parameters
     Args:
-        mcf encoded ciphertext from DB
-        password: to derive key from
+        secret: to derive key from
+        cipher text: bytes
     Returns:
         params: dictionary
     """
-    pii = decrypt_secret(db_secret, password)
+    key = hkdf_key(secret, HDKF_INFO, HKDF_SALT)
+    plain_text = decrypt_aes_gcm (key, cipher_text[:12], cipher_text[12:])
     try:
-        params = json.loads(pii.strip())
+        params = json.loads(plain_text)
         return params
     except TypeError:
-        return None
-
-def encrypt_secret(secret, password):
-    """ Encrypt secret with AES-GCM key derived from password
-    Args:
-        secret: to be encrypted
-        password: to derive key from
-    Return:
-        encrypted secret for insert into server side DB
-        $pbkdf2$500$2gi/BRPAZ29QI71IOiFQfw==$qdc+0X1ga/NgZR/OZZR+7N8kHqJxK25Gq2XfLu4jGREsBFR5$
-    """
-    if len(password) >= 6 and len(secret) >= 4:
-        salt = base64.b64encode(os.urandom(16))
-        mcf = '$pbkdf2$2500$' + salt + '$$'
-        mcf = derive_key(password, mcf, 256)
-        fields = mcf.split('$')
-        if len(fields) > 4 and fields[1] == 'pbkdf2':
-            key = base64.b64decode(fields[4])
-            cipher_text = encrypt_aes_gcm(key, secret, base64.b64decode(salt))
-            db_secret = '$pbkdf2$500$' + salt + '$' + base64.b64encode(cipher_text) +'$'
-            return db_secret
-
-def decrypt_secret(db_secret, password):
-    """ Decrypt secret with AESHMAC key derived from password
-    Args:
-        password: to derive key from
-        encrypted secret from server side DB
-        $pbkdf2$500$2gi/BRPAZ29QI71IOiFQfw==$qdc+0X1ga/NgZR/OZZR+7N8kHqJxK25Gq2XfLu4jGREsBFR5$
-    Return:
-        secret: decrypted
-    """
-    fields = db_secret.split('$')
-    if len(fields) > 4 and fields[1] == 'pbkdf2':
-        rounds = fields[2]
-        if len(rounds) < 4:
-            rounds = '2500'
-        salt = fields[3]
-        mcf = '$pbkdf2$' + rounds + '$' + salt + '$$'
-        mcf = derive_key(password, mcf, 256)
-        kfields = mcf.split('$')
-        if len(kfields) > 4 and kfields[1] == 'pbkdf2':
-            key = base64.b64decode(kfields[4])
-            secret = decrypt_aes_gcm(key, base64.b64decode(fields[4]), base64.b64decode(salt))
-            return secret
+        pass
+    return None
 
 def generate_otp_secret():
     """ Generate a Google authenticator compatible secret code for either HOTP or TOTP
     Return:
-        secret: 16 character base32 secret
+        secret: 16 character base32 secret (80 bit key)
     """
     chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
     return ''.join(random.choice(chars) for x in range(16))
 
+def verify_hotp_code(secret, code, counter):
+    correct_counter = None
+
+    key = base64.b32decode(secret)
+    hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
+    for count in range(counter, counter + 3):
+        try:
+            hotp.verify(code, count)
+            correct_counter = count
+            break
+        except InvalidToken:
+            pass
+
+    return correct_counter
+
 def generate_hotp_code(secret, counter):
     """ Generate a Google authenticator compatible HOTP code
     Args:
-        secret: 16 character base32 secret
+        secret: 16 character base32 secret (80 bit key)
         counter: unique integer value
     Return:
         code: 6 digit one time use code
     """
-    hotp = pyotp.HOTP(secret)
-    return hotp.at(counter)
 
-def validate_hotp_code(secret, code, counter):
-    """ Validate a Google authenticator compatible HOTP code
-    Args:
-        secret: 16 character base32 secret
-        code: 6 digit one time use code
-        counter: unique integer value
-    Return:
-        True if validation successful
-    """
-    hotp = pyotp.HOTP(secret)
-    return hotp.verify(code, counter)
+    key = base64.b32decode(secret)
+    hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
+    hotp_value = hotp.generate(counter)
+    print hotp_value
+    return hotp_value
 
 def generate_hotp_uri(secret, counter, email):
     """ Generate a Google authenticator compatible QR code provisioning URI
@@ -132,8 +103,9 @@ def generate_hotp_uri(secret, counter, email):
     Return:
         URI: otpauth://hotp/alice@google.com?secret=JBSWY3DPEHPK3PXP&counter=0&issuer=FROSTY
     """
-    hotp = pyotp.HOTP(secret)
-    return hotp.provisioning_uri(email, counter, 'FROSTY')
+    key = base64.b32decode(secret)
+    hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
+    return hotp.get_provisioning_uri(email, counter, 'FROSTY')
 
 def generate_totp_code(secret):
     """ Generate a Google authenticator compatible TOTP code
@@ -142,10 +114,13 @@ def generate_totp_code(secret):
     Return:
         code: 6 digit code that expires in 30 seconds
     """
-    totp = pyotp.TOTP(secret)
-    return totp.now()
+    key = base64.b32decode(secret)
+    totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
+    time_value = time.time()
+    totp_value = totp.generate(time_value)
+    return totp_value
 
-def validate_totp_code(secret, code):
+def verify_totp_code(secret, code):
     """ Validate a Google authenticator compatible TOTP code
     Args:
         secret: 16 character base32 secret
@@ -153,8 +128,16 @@ def validate_totp_code(secret, code):
     Return:
         True if validation successful
     """
-    totp = pyotp.TOTP(secret)
-    return totp.verify(code)
+    key = base64.b32decode(secret)
+    totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
+    time_value = time.time()
+    try:
+        totp.verify(code, time_value)
+        return True
+    except InvalidToken:
+        pass
+    return False
+    
 
 def generate_totp_uri(secret, email):
     """ Generate a Google authenticator compatible QR provisioning URI
@@ -164,8 +147,9 @@ def generate_totp_uri(secret, email):
     Return:
         URI for QR code: otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=FROSTY
     """
-    totp = pyotp.TOTP(secret)
-    return totp.provisioning_uri(email, 'FROSTY')
+    key = base64.b32decode(secret)
+    totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
+    return totp.get_provisioning_uri(email, 'FROSTY')
 
 def generate_code(secret):
     """ Generate a random access code, with HMAC, base64 encoded
@@ -385,20 +369,24 @@ def main():
         print 'Error, timed token expired'
 
     secret = generate_otp_secret()
-    code = generate_hotp_code(secret, 666)
-    if validate_hotp_code(secret, code, 666):
+    counter = 666
+    code = generate_hotp_code(secret, counter)
+    counter = verify_hotp_code(secret, code, counter)
+    if counter == 666:
         print 'HOTP validated', code
+    if verify_hotp_code(secret, code, 667) is not None:
+        print 'HOTP invalidated', code
+    counter = verify_hotp_code(secret, code, 664)
+    print counter
     print generate_hotp_uri(secret, 666, 'yuki@gmail.com')
 
     code = generate_totp_code(secret)
-    if validate_totp_code(secret, code):
+    if verify_totp_code(secret, code):
         print 'TOTP validated', code
     print generate_totp_uri(secret, 'yuki@gmail.com')
 
-    otp = encrypt_secret(secret, 'madman')
-    print decrypt_secret(otp, 'madman')
-    pii = encrypt_pii({'email':'yuki@gmail.com', 'phone':'7754321238'}, 'madman')
-    print decrypt_pii(pii, 'madman')
+    pii = encrypt_pii('madman', {'email':'yuki@gmail.com', 'phone':'7754321238'})
+    print decrypt_pii('madman', pii)
 
     code = generate_address_code(secret, 'yuki:dev1')
     if validate_address_code(secret, code, 'yuki:dev1'):
