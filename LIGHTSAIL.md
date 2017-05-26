@@ -54,9 +54,9 @@ docker pull frosty308/webapps
 ```
 * Run the application with your AWS credentials and config information provided as environment variables
 ```
-docker run -d -e AWS_DEFAULT_REGION=us-west-2 -e AWS_ACCESS_KEY_ID=<keyid> -e  AWS_SECRET_ACCESS_KEY=<key> -p 8080:80 --name webapp-nginx frosty308/recipes
+docker run -d -e AWS_DEFAULT_REGION=us-west-2 -e AWS_ACCESS_KEY_ID=<keyid> -e  AWS_SECRET_ACCESS_KEY=<key> -p 80:80 --name webapp-nginx frosty308/recipes
 ```
 * Alternatively you can run the application with your AWS credentials and config information from a mounted file
 ```
-docker run -d -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/root/.aws/credentials:ro -p 8080:80 --name webapp-nginx frosty308/recipes
+docker run -d -e AWS_DEFAULT_REGION=us-west-2 -v mycredentialsfile:/root/.aws/credentials:ro -p 80:80 --name webapp-nginx frosty308/recipes
 ```
