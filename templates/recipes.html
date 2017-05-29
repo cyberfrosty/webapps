@@ -7,27 +7,42 @@
     <h3>Recipes</h3>
   </div>
   <div class="row">
-  {% if recipe %}
-    {{ recipe | safe }}
-  {% else %}
-    <h4>Pumpkin Waffles</h4>
-    <h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Ingredients<h5>
-    <ul>
-      <li>1 egg</li>
-      <li>&frac14; cup pumpkin</li>
-      <li>&#x2154; cup whole wheat flour</li>
-      <li>1 tsp baking powder</li>
-      <li>1 tbsp pumkin pie spice</li>
-      <li>1 tbsp cooking oil</li>
-      <li>&#x2154; cup buttermilk</li>
-    </ul>
-    <h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Instructions<h5>
-    <p>Combine flour, oats, baking powder and spice in mixing bowl, push to side.
-       Add egg on edge, beat by itself, add oil and pumpkin, mix to blend, add half
-       of the buttermilk and blend. Mix together with flour mixture and remaining
-       buttermilk to proper consistancy. Do not overmix.</p>
-  {% endif %}
+    <div class="col-sm-8">
+      {% if recipe %}
+        {{ recipe | safe }}
+      {% else %}
+        <h4>Pumpkin Waffles</h4>
+        <h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Ingredients<h5>
+        <ul>
+          <li>1 egg</li>
+          <li>&frac14; cup pumpkin</li>
+          <li>&#x2154; cup whole wheat flour</li>
+          <li>1 tsp baking powder</li>
+          <li>1 tbsp pumkin pie spice</li>
+          <li>1 tbsp cooking oil</li>
+          <li>&#x2154; cup buttermilk</li>
+        </ul>
+        <h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Instructions<h5>
+        <p>Combine flour, oats, baking powder and spice in mixing bowl, push to side.
+           Add egg on edge, beat by itself, add oil and pumpkin, mix to blend, add half
+           of the buttermilk and blend. Mix together with flour mixture and remaining
+           buttermilk to proper consistancy. Do not overmix.</p>
+      {% endif %}
+    </div><!--/col-sm-8-->
+    <div class="col-sm-3 col-sm-offset-1">
+      <div class="sidebar-module-inset">
+        <h4>Recipes</h4>
+        <ol class="list-unstyled">
+          <li>Chicken</li>
+          <li>Breakfast</li>
+          <li>Vegetables</li>
+          <li>Salmon</li>
+          <li>Seafood</li>
+          <li>Desert</li>
+        </ol>
+      </div><!--/siderbar-module-inset-->
+    </div><!--/col-sm-3-->
   </div><!--/row-->
-</div><!--/.container-->
+</div><!--/container-->
 
 {% endblock %}
