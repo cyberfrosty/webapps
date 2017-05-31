@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017 Alan Frost, All rights reserved.
+Copyright (c) 2017 Alan Frost. All rights reserved.
 
 Implementation of Web server
 
@@ -28,6 +28,7 @@ USERS = DynamoDB('Users')
 SESSIONS = DynamoDB('Sessions')
 #SESSIONS.create_table('Sessions', 'id')
 recipe_manager = RecipeManager('noneedtomeasure')
+recipe_manager.load_recipes('recipes.json')
 
 MAX_FAILURES = 3
 login_manager = LoginManager()
@@ -35,16 +36,15 @@ application = Flask(__name__, static_url_path="")
 
 application.config['SECRET_KEY'] = 'super secret key'
 application.config['SSL_DISABLE'] = False
-#application.config['MAIL_SERVER'] = 'mex06.emailsrvr.com'
 application.config['MAIL_SERVER'] = 'secure.emailsrvr.com'
-application.config['MAIL_PORT'] = 465 #587
+application.config['MAIL_PORT'] = 465
 application.config['MAIL_DEBUG'] = True
 application.config['MAIL_USE_SSL'] = True
 application.config['MAIL_USE_TLS'] = False
-application.config['MAIL_USERNAME'] = 'alan@ionu.com'
+application.config['MAIL_USERNAME'] = 'alan@cyberfrosty.com'
 application.config['MAIL_PASSWORD'] = ''
 application.config['MAIL_SUBJECT_PREFIX'] = '[FROSTY]'
-application.config['MAIL_SENDER'] = 'alan@ionu.com'
+application.config['MAIL_SENDER'] = 'alan@cyberfrosty.com'
 
 mail = Mail(application)
 login_manager.init_app(application)
@@ -118,7 +118,7 @@ class User(object):
 
 @login_manager.user_loader
 def load_user(username):
-    account = USERS.get_item('username', generate_user_id(username))
+    account = USERS.get_item('id', generate_user_id(username))
     user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
     return user
 
@@ -146,7 +146,7 @@ def recipes():
     """
     recipe = request.args.get('recipe')
     if recipe is not None:
-        html = recipe_manager.load_recipe('recipes.json')
+        html = recipe_manager.get_rendered_recipe(recipe)
         return render_template('recipes.html', recipe=html)
     else:
         return render_template('recipes.html')
@@ -171,7 +171,7 @@ def confirm():
     form.token.data = token
     if form.validate_on_submit():
         userid = generate_user_id(username)
-        account = USERS.get_item('username', userid)
+        account = USERS.get_item('id', userid)
         if account is None:
             return redirect(url_for('register', username=username))
         session = SESSIONS.get_item('id', userid)
@@ -312,8 +312,10 @@ def reset():
         abort(400)
     form = PasswordResetForm()
     if form.validate_on_submit():
-        print 'changing password'
-        return redirect(url_for('login', form=form))
+        validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
+        if validated and value == username:
+            print 'changing password'
+            return redirect(url_for('login', form=form))
     return render_template('reset.html', form=form)
 
 @application.route("/register", methods=['GET', 'POST'])
@@ -328,7 +330,7 @@ def register():
     if username:
         form.username.data = username
     if request.method == 'POST' and form.validate_on_submit():
-        if USERS.get_item('username', generate_user_id(form.email.data)):
+        if USERS.get_item('id', generate_user_id(form.email.data)):
             flash('Username ' + form.email.data + ' already taken')
             return redirect(url_for('register', username=username, email=email))
         # Create json for new user
