@@ -10,6 +10,7 @@ Utility methods
 import os
 import base64
 import random
+import string
 import time
 import simplejson as json
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
@@ -316,8 +317,16 @@ def generate_id(size=8, chars='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopq
 def generate_user_id(username):
     """ Generate 48 character base32 user id
     """
+    # The access code may come in as unicode, which has to be converted before hash
+    if isinstance(username, unicode):
+        username = username.encode('ascii', 'ignore')
     digest = hash_sha256(username)
     return base64.b32encode(digest[0:30])
+
+def contains_only(input_chars, valid_chars):
+    all_chars = string.maketrans('', '')
+    has_only = lambda s, valid_chars: not s.translate(all_chars, valid_chars)
+    return has_only(input_chars, valid_chars)
 
 def main():
     """ Unit tests
