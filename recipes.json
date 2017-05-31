@@ -1,0 +1,73 @@
+[{
+  "title": "Korean Meatballs",
+  "chef": "Alan",
+  "category": ["asian", "dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+      "item1": {"quantity": "1 1/2 lb", "ingredient": "lean ground turkey"},
+      "item2": {"quantity": "1 tsp", "ingredient": "ground ginger"},
+      "item3": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+      "item4": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+      "item5": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+      "item6": {"quantity": "1/2 cup", "ingredient": "Panko"},
+      "item7": {"quantity": "1+ tsp", "ingredient": "garlic salt"},
+      "item8": {"quantity": "1", "ingredient": "egg"},
+      "item9": {"quantity": "3-4", "ingredient": "green onions"}
+    },
+    "section2": {
+      "title":"Spicy Apricot Glaze",
+      "item1": {"quantity": "1/2 cup", "ingredient": "apricot jam"},
+      "item2": {"quantity": "2 tsp", "ingredient": "soy sauce"},
+      "item3": {"quantity": "2 tsp", "ingredient": "Srirachi"}
+    }
+  },
+  "instructions": {
+    "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
+    "step2": "In a large bowl mix all the meatball ingredients, form into 1\" balls, place on baking sheet, cook for 20-25 minutes",
+    "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss until coated",
+    "step4": "Garnish with chopped chives or green ends of onions",
+    "step5": "Serve over noodles or rice"
+  }
+},
+{
+  "title": "Strawberry Pancakes",
+  "chef": "Alan",
+  "category": ["breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "1", "ingredient": "egg"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "diced strawberries"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item6": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "buttermilk"}
+    },
+  "instructions": {
+    "step1": "Combine flour, oats, baking powder and spice in mixing bowl, push to side",
+    "step2": "Add egg on edge, beat by itself, add oil and pumpkin, mix to blend, add half of the buttermilk and blend",
+    "step3": "Mix together with flour mixture and remaining buttermilk to proper consistancy. Do not overmix. Let rest 10-30 minutes",
+    "step4": "Cook in non-stick skillet at 325-350 degrees"
+  }
+},
+{
+  "title": "Pumpkin Waffles",
+  "chef": "Alan",
+  "category": ["breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "1", "ingredient": "egg"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "pumpkin"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item6": {"quantity": "1 tbsp", "ingredient": "pumkin pie spice"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
+    "item8": {"quantity": "2/3 cup", "ingredient": "buttermilk"}
+    },
+  "instructions": {
+    "step1": "Combine flour, oats, baking powder and spice in mixing bowl, push to side",
+    "step2": "Add egg on edge, beat by itself, add oil and pumpkin, mix to blend, add half of the buttermilk and blend",
+    "step3": "Mix together with flour mixture and remaining buttermilk to proper consistancy. Do not overmix. Let rest 10-30 minutes",
+    "step4": "Cook in non-stick waffle iron"
+  }
+}]
