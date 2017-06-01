@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="page-header">
+    <h3>Messages</h3>
+  </div>
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="row">
+        <div class="col-sm-1">
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2">
+          <p>Secret Sender</p>
+        </div>
+        <div class="col-sm-5">
+          <p>This is a secret message from a secret sender to me</p>
+        </div>
+        <div class="col-sm-2">
+          <p>May 25</p>
+        </div>
+      </div>
+    </div><!--/col-sm-10-->
+    <div class="col-sm-2">
+      <div class="sidebar-module-inset">
+        <h4><i class="fa fa-snowflake-o" aria-hidden="true"></i> Actions</h4>
+        <ol class="list-unstyled">
+          <li>Compose</li>
+          <li>Archive</li>
+          <li>Delete</li>
+          <li>Forward</li>
+          <li>Move</li>
+          <li>Reply</li>
+        </ol>
+      </div><!--/siderbar-module-inset-->
+    </div><!--/col-sm-3-->
+  </div><!--/row-->
+</div><!--/container-->
+
+{% endblock %}
