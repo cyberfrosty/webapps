@@ -44,9 +44,9 @@
     "item7": {"quantity": "1/2 cup", "ingredient": "buttermilk"}
     },
   "instructions": {
-    "step1": "Combine flour, oats, baking powder and spice in mixing bowl, push to side",
-    "step2": "Add egg on edge, beat by itself, add oil and pumpkin, mix to blend, add half of the buttermilk and blend",
-    "step3": "Mix together with flour mixture and remaining buttermilk to proper consistancy. Do not overmix. Let rest 10-30 minutes",
+    "step1": "Combine flour, oats, and baking powder in mixing bowl",
+    "step2": "In a seperate bowl beat egg, then add oil and buttermilk and blend thoroughly",
+    "step3": "Add liquid mixture to dry ingredients, adding additional buttermilk to proper consistancy. Do not overmix. Let rest 10-30 minutes",
     "step4": "Cook in non-stick skillet at 325-350 degrees"
   }
 },
@@ -62,12 +62,13 @@
     "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
     "item6": {"quantity": "1 tbsp", "ingredient": "pumkin pie spice"},
     "item7": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
-    "item8": {"quantity": "2/3 cup", "ingredient": "buttermilk"}
+    "item8": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "milk"}
     },
   "instructions": {
-    "step1": "Combine flour, oats, baking powder and spice in mixing bowl, push to side",
-    "step2": "Add egg on edge, beat by itself, add oil and pumpkin, mix to blend, add half of the buttermilk and blend",
-    "step3": "Mix together with flour mixture and remaining buttermilk to proper consistancy. Do not overmix. Let rest 10-30 minutes",
+    "step1": "Combine flour, oats, baking powder and spice in mixing bowl",
+    "step2": "In a seperate bowl beat egg, then mix in oil and pumpkin, add buttermilk and blend thoroughly",
+    "step3": "Add liquid mixture to dry ingredients, adding milk to proper consistancy. Do not overmix. Let rest 10-30 minutes",
     "step4": "Cook in non-stick waffle iron"
   }
 }]

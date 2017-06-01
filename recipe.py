@@ -152,7 +152,7 @@ class RecipeManager(object):
 
         if 'title' in recipe:
             html = '<h4>' + recipe['title'] + '</h4>\n'
-        html += '<h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Ingredients</h5>\n'
+        html += '<h5><i class="fa fa-list-ul" aria-hidden="true"></i> Ingredients</h5>\n'
         ingredients = recipe['ingredients']
         if 'section1' in ingredients:
             html += self.render_ingredients(ingredients['section1'])
@@ -162,7 +162,7 @@ class RecipeManager(object):
                 html += self.render_ingredients(ingredients['section3'])
         else:
             html += self.render_ingredients(ingredients)
-        html += '<h5><i class="fa fa-snowflake-o" aria-hidden="true"></i> Instructions</h5>\n'
+        html += '<h5><i class="fa fa-tasks" aria-hidden="true"></i> Instructions</h5>\n'
         if mode == 'make':
             html += '<ol>\n'
         else:

@@ -145,11 +145,18 @@ def recipes():
     """ Show recipes
     """
     recipe = request.args.get('recipe')
+    category = request.args.get('category')
     if recipe is not None:
         html = recipe_manager.get_rendered_recipe(recipe)
-        return render_template('recipes.html', recipe=html)
+        return render_template('recipes.html', recipe=html, category=category)
     else:
         return render_template('recipes.html')
+
+@application.route('/messages')
+def messages():
+    """ Show messages
+    """
+    return render_template('messages.html')
 
 @application.route('/privacy')
 def privacy():
