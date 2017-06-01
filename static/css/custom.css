@@ -1,14 +1,13 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-html, body {
-  height: 100%;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-  padding-top: 50px;
-}
-footer {
-  padding: 10px 0;
+  padding-top: 35px;
+  padding-bottom: 40px;
 }
 td {
   padding: 6px;
@@ -33,25 +32,22 @@ th {
  * Hide default border to remove 1px line.
  */
 .navbar-fixed-top {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #bebebe;
   position: fixed;
   top: 0px;
   margin: 0px auto;
-  height: 55px;
+  height: 50px;
   padding-right: 15px;
   padding-left: 15px;
   background-color: #e5e5e5;
 }
 
 .footer {
+  border-top: 1px solid #bebebe;
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   height: 40px;
-  padding-right: 15px;
-  padding-left: 15px;
   background-color: #e5e5e5;
 }
 
@@ -98,14 +94,14 @@ th {
 
 /* Sidebar modules for boxing content */
 .sidebar-module {
-  padding: 15px;
+  padding-top: 10px;
   margin: 0 -15px 15px;
 }
 .sidebar-module-inset {
   padding: 15px;
-  background-color: #f5f5f5;
+  background-color: #e5e5e5;
   border-radius: 4px;
-  border-color: #e5e5e5;
+  border-color: #bebebe;
 }
 .sidebar-module-inset p:last-child,
 .sidebar-module-inset ul:last-child,
@@ -115,10 +111,6 @@ th {
 
 /* Custom page CSS
 -------------------------------------------------- */
-
-.container .text-muted {
-  margin: 20px 0;
-}
 
 code {
   font-size: 80%;
@@ -163,9 +155,9 @@ code {
   margin: 0 auto;
 }
 
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
+.form-signin-heading {
+  margin-bottom: 25px;
+  align: center;
 }
 
 .form-signin .checkbox {
@@ -178,25 +170,23 @@ code {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .form-signin .form-control:focus {
   z-index: 2;
 }
 
-.form-signin input[type="email or username"] {
+.form-signin input[type="username"] {
   padding: 10px;
   margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 4px;
 }
 
 .form-signin input[type="password"] {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  padding: 4px;
+  margin-bottom: -1;
+  border-radius: 4px;
 }
 
 .f-b {
@@ -217,13 +207,11 @@ code {
 
 .footer-widget-social ul li {
   display: inline-block;
-  margin-bottom: -8px;
 }
 
 .footer-widget-social a {
   padding: 10px;
   float: right;
-  margin: 0 3px;
 }
 
 .footer-widget-social a:hover {

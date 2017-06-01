@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
-        <img src="{{url_for('static', filename='img/kirigami-snowflake.jpg')}}" style="width: 40px; height: 40;"
+        <img src="{{url_for('static', filename='img/kirigami-snowflake.jpg')}}" width="35" height="35"
          href="{{ url_for('index') }}"/>
       </a>
       <button class="navbar-toggle collapsed btn-xs" type="button" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
@@ -13,6 +13,7 @@
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="nav navbar-nav">
         <li><a class="nav-item nav-link" href="{{url_for('recipes')}}"><i class="fa fa-spoon" aria-hidden="true"></i>&nbsp;Recipes</a></li>
+        <li><a class="nav-item nav-link" href="{{url_for('messages')}}"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Messages</a></li>
         {% if current_user.confirmed and current_user.is_authenticated %}
           <li><a class="nav-item nav-link" href="{{ url_for('profile') }}">Profile</a></li>
         {% elif current_user.is_authenticated %}
