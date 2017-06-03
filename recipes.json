@@ -6,7 +6,7 @@
     "section1": {
       "title": "Meatballs",
       "item1": {"quantity": "1 1/2 lb", "ingredient": "lean ground turkey"},
-      "item2": {"quantity": "1 tsp", "ingredient": "ground ginger"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "ground ginger"},
       "item3": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
       "item4": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
       "item5": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
@@ -31,6 +31,79 @@
   }
 },
 {
+  "title": "Cilantro Chile Lime Shrimp",
+  "chef": "Alan",
+  "category": ["shrimp", "dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1", "ingredient": "small shallot"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "ginger"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "chipotle chilli"},
+    "item4": {"quantity": "1 tsp", "ingredient": "Sriracha"},
+    "item4": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item5": {"quantity": "1 tsp", "ingredient": "thai red chilli paste"},
+    "item6": {"quantity": "1/4 cup", "ingredient": "cilantro"},
+    "item7": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item9": {"quantity": "2/3 lb", "ingredient": "shrimp"},
+    "item10": {"quantity": "1", "ingredient": "lime"},
+    "item11": {"quantity": "1 pkg", "ingredient": "udon, soba or rice noodles"}
+  },
+  "instructions": {
+    "step1": "Peel shrimp under running water, set aside",
+    "step2": "Heat olive oil in wok. Mince ginger, dice shallot and saute in olive oil",
+    "step3": "Add chili's, sesame oil and shrimp, cook for 5 minutes covered, stirring several times to coat shrimp",
+    "step4": "Remove from heat, add cilantro, mix and server over noodles with lime wedge"
+  }
+},
+{
+  "title": "Orange Chicken",
+  "chef": "Alan",
+  "category": ["asian", "chicken", "dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
+    },
+    "section2": {
+      "title":"Veggies",
+      "item1": {"quantity": "1", "ingredient": "orange bell pepper, diced"},
+      "item2": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced"},
+      "item3": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
+      "item4": {"quantity": "2", "ingredient": "pressed garlic cloves, pressed"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, minced"},
+      "item6": {"quantity": "1", "ingredient": "large shallot"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+    },
+    "section3": {
+      "title":"Orange sauce",
+      "item1": {"quantity": "1/2 cup", "ingredient": "orange juice"},
+      "item2": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tsp", "ingredient": "green onions"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine orange suace ingredientes in measuring cup and mix",
+    "step2": "Prepare veggies and place into wok",
+    "step3": "Add oil to large non-stick skillet and pre-heat over medium heat",
+    "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step5": "Place chicken into skillet and turn up heat to medium-high",
+    "step6": "Turn heat to medium for veggies, stirring occasionally and kept covered",
+    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step8": "Add sauce mixture to veggies and bring to low boil",
+    "step9": "Add chicken to mixture, stir to coat evenly, turn off heat, leave covered for a few minutes",
+    "step10": "Serve over rice, garnish with sesame seeds and green onions"
+  }
+},
+{
   "title": "Strawberry Pancakes",
   "chef": "Alan",
   "category": ["breakfast"],
@@ -42,7 +115,7 @@
     "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
     "item6": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
     "item7": {"quantity": "1/2 cup", "ingredient": "buttermilk"}
-    },
+  },
   "instructions": {
     "step1": "Combine flour, oats, and baking powder in mixing bowl",
     "step2": "In a seperate bowl beat egg, then add oil and buttermilk and blend thoroughly",
@@ -64,7 +137,7 @@
     "item7": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
     "item8": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
     "item8": {"quantity": "1/4 cup", "ingredient": "milk"}
-    },
+  },
   "instructions": {
     "step1": "Combine flour, oats, baking powder and spice in mixing bowl",
     "step2": "In a seperate bowl beat egg, then mix in oil and pumpkin, add buttermilk and blend thoroughly",

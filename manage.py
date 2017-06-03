@@ -138,7 +138,7 @@ def stop_http():
 def parse_options():
     """ Parse command line options
     """
-    parser = argparse.ArgumentParser(description='Zuul management app')
+    parser = argparse.ArgumentParser(description='Frosty management app')
     group = parser.add_argument_group('authentication')
     group.add_argument('--user', action="store")
     group.add_argument('--password', action="store")
