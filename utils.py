@@ -27,6 +27,16 @@ from crypto import derive_key, hkdf_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_
 HKDF_SALT = base64.b64decode('MTIzNDU2Nzg5MGFiY2RlZmdoaWprbG1ub3BxcnN0dXY=')
 HDKF_INFO = 'frosty.alan'
 
+def hash_id(user):
+    """ Use an HMAC to generate a user id to keep DB more secure. This prevents someone from
+        looking up users by name or even hash of user name, without using the official API.
+    Args:
+        user name
+    Returns:
+        hex id
+    """
+    return = hmac.new(SERVER_HMAC_SECRET, user, digestmod=hashlib.sha224).hexdigest()
+
 def encrypt_pii(secret, params):
     """ Encrypt PII parameters
     Args:
@@ -203,7 +213,14 @@ def get_ip_address(request):
 
 def merge_dicts(dict1, dict2):
     """ Recursively merge dict2 into dict1
-    """
+    Args:
+        dict1 is the master copy
+        dict2 contains the new/updated fields
+    Returns:
+        True if successful 
+    """ 
+    if not isinstance(dict1, dict) or not isinstance(dict2, dict):
+        return False
     for key in dict2:
         if key in dict1 and isinstance(dict1[key], dict) and isinstance(dict2[key], dict):
             merge_dicts(dict1[key], dict2[key])
