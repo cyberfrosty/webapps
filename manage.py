@@ -4,18 +4,19 @@
 """
 Copyright (c) 2017 Alan Frost. All rights reserved.
 
-Manage.py methods for starting and stopping servers
+Manage.py methods for initialization, starting and stopping servers
 """
 
 import argparse
+import json
 import re
 import subprocess
-import simplejson as json
-from urlparse import urlparse
 from awsutils import DynamoDB
 
 def get_pid(port):
     """ Get pid of running server
+    Args:
+        port that the service is listening on
     """
     try:
         portid = ':' + str(port)
@@ -24,7 +25,7 @@ def get_pid(port):
         #print err + ' not running'
         return None
     except OSError, err:
-        print 'lsof command not found'
+        print 'lsof command not found', err
         return None
 
     try:
@@ -36,29 +37,38 @@ def get_pid(port):
 
 def init_env(config):
     """ Initialize a new environment with database tables, shared storage
+    Args:
+        config dictionary
     """
-    if config.get('database') == 'DynamoDB':
-        identity = DynamoDB(config.get('identity', 'Users'))
-        identity.create_table(config.get('identity', 'Users'), 'id')
-        sesssions = DynamoDB(config.get('sesssions', 'Sessions'))
-        sesssions.create_table(config.get('sesssions', 'Sessions'), 'id')
-        recipes = DynamoDB(config.get('recipes', 'Recipes'))
-        recipes.create_table(config.get('recipes', 'Recipes'), 'id')
+    if config.get('users'):
+        database = DynamoDB(config, config.get('users'))
+        database.create_table('id')
+    if config.get('sessions'):
+        database = DynamoDB(config, config.get('sessions'))
+        database.create_table('id')
+    if config.get('recipes'):
+        database = DynamoDB(config, config.get('recipes'))
+        database.create_table('id')
 
 def load_config(config_file):
     """ Load the config.json file
+    Args:
+        config filename
     """
     config = None
     try:
         with open(config_file) as json_file:
             config = json.load(json_file)
-    except IOError:
-        print 'Config file not loaded: ' + config_file
+    except (IOError, ValueError) as err:
+        print('Load of config file failed:', err.message)
 
     return config
 
 def stop_server(service, port):
     """ Stop server listening on port
+    Args:
+        service name
+        port that the service is listening on
     """
     pid = get_pid(port)
     if pid:
@@ -67,87 +77,46 @@ def stop_server(service, port):
     else:
         print service + ': no process listening on port', port
 
-def start_tcp(config):
-    """ Start TCP server
+def start_rest(config):
+    """ Start REST server
+    Args:
+        config dictionary
     """
-    tcp = config.get('tcp')
-    if tcp:
-        fields = urlparse(tcp)
-        port = fields.port
-        pid = get_pid(port)
-        if pid:
-            print 'TCP: process', pid, 'already listening on port', port
-        else:
-            subprocess.Popen(['python', 'tcpserver.py'])
-    else:
-        print 'TCP: no service in config'
-
-def stop_tcp(config):
-    """ Stop TCP server
-    """
-    tcp = config.get('tcp')
-    if tcp:
-        fields = urlparse(tcp)
-        port = fields.port
-        stop_server('TCP', port)
-    else:
-        print 'TCP: no service in config'
-
-def start_websocket(config):
-    """ Start websocket server for events
-    """
-    websocket = config.get('websocket')
-    if websocket:
-        fields = urlparse(websocket)
-        port = fields.port
-        pid = get_pid(port)
-        if pid:
-            print 'WS: process', pid, 'already listening on port', port
-        else:
-            subprocess.Popen(['python', 'websocket.py'])
-    else:
-        print 'WS: no service in config'
-
-def stop_websocket(config):
-    """ Stop websocket server
-    """
-    websocket = config.get('websocket')
-    if websocket:
-        fields = urlparse(websocket)
-        port = fields.port
-        stop_server('WS', port)
-    else:
-        print 'WS: no service in config'
-
-def start_http():
-    """ Start HTTP server for serving pages
-    """
-    port = '8080'
+    port = config.get('port', 5000)
     pid = get_pid(port)
     if pid:
-        print 'HTTP: process', pid, 'already listening on port', port
+        print 'REST: process', pid, 'already listening on port', port
     else:
-        subprocess.Popen(['python', 'webapp.py'])
+        subprocess.Popen(['python', 'rest.py'])
 
-def stop_http():
-    """ Stop HTTP server
+def stop_rest(config):
+    """ Stop REST server with SIGTERM
+    Args:
+        config dictionary
     """
-    port = '8080'
-    stop_server('HTTP', port)
+    port = config.get('port', 5000)
+    stop_server('REST', port)
 
 def parse_options():
     """ Parse command line options
     """
-    parser = argparse.ArgumentParser(description='Frosty management app')
+    parser = argparse.ArgumentParser(description='Management app')
     group = parser.add_argument_group('authentication')
-    group.add_argument('--user', action="store")
-    group.add_argument('--password', action="store")
+    group.add_argument('-u', '--user', action="store")
+    group.add_argument('-p', '--password', action="store")
     parser.add_argument('--config', action='store', default='config.json', help='config.json')
-    parser.add_argument('--http', action='store_true', help='Start or stop web server')
-    parser.add_argument('--tcp', action='store_true', help='Start or stop TCP server')
-    parser.add_argument('--websocket', action='store_true', help='Start or stop websocket server')
-    parser.add_argument('command', action='store', help='init, start, stop')
+    parser.add_argument('command', action='store', help='init, start, stop, restart')
     return parser.parse_args()
+
+def start_servers(config):
+    """ Start servers
+    """
+    start_rest(config)
+
+def stop_servers(config):
+    """ Stop servers
+    """
+    stop_rest(config)
 
 def main():
     """ Main program
@@ -155,19 +124,12 @@ def main():
     options = parse_options()
     config = load_config(options.config)
     if options.command == 'start':
-        if options.http is True:
-            start_http()
-        if options.tcp is True:
-            start_tcp(config)
-        if options.websocket is True:
-            start_websocket(config)
+        start_servers(config)
     elif options.command == 'stop':
-        if options.http is True:
-            stop_http()
-        if options.tcp is True:
-            stop_tcp(config)
-        if options.websocket is True:
-            stop_websocket(config)
+        stop_servers(config)
+    elif options.command == 'restart':
+        stop_servers(config)
+        start_servers(config)
     elif options.command == 'init':
         init_env(config)
 
