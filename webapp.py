@@ -20,14 +20,14 @@ from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm,
                    PasswordResetRequestForm, PasswordResetForm, ResendConfirmForm)
 from crypto import derive_key
 from utils import generate_timed_token, validate_timed_token, generate_user_id
-from awsutils import DynamoDB
+from awsutils import load_config, DynamoDB
+
+CONFIG = load_config('config.json')
 from recipe import RecipeManager
 
-USERS = DynamoDB('Users')
-#USERS.create_table('Users', 'id')
-SESSIONS = DynamoDB('Sessions')
-#SESSIONS.create_table('Sessions', 'id')
-recipe_manager = RecipeManager('noneedtomeasure')
+USERS = DynamoDB(CONFIG, CONFIG.get('users'))
+SESSIONS = DynamoDB(CONFIG, CONFIG.get('sessions'))
+recipe_manager = RecipeManager(CONFIG)
 recipe_manager.load_recipes('recipes.json')
 
 MAX_FAILURES = 3

@@ -17,10 +17,10 @@ class RecipeManager(object):
     """ Recipe Manager
     """
 
-    def __init__(self, website):
-        self.website = website
+    def __init__(self, config):
+        self.config = config
         self.recipes = {}
-        self.database = DynamoDB('Recipes')
+        self.database = DynamoDB(config, 'Recipes')
 
     def load_recipes(self, infile):
         """ Load json data for recipes

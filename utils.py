@@ -16,7 +16,8 @@ import simplejson as json
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 from cryptography.hazmat.primitives.twofactor.hotp import HOTP
 from cryptography.hazmat.primitives.twofactor.totp import TOTP
-from cryptography.hazmat.primitives.hashes import SHA1
+from cryptography.hazmat.primitives.hashes import SHA1, SHA224
+from cryptography.hazmat.primitives.hmac import HMAC
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.twofactor import InvalidToken
 from crypto import derive_key, hkdf_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_sha256, hmac_sha256
@@ -35,7 +36,9 @@ def hash_id(user):
     Returns:
         hex id
     """
-    return = hmac.new(SERVER_HMAC_SECRET, user, digestmod=hashlib.sha224).hexdigest()
+    hmac = HMAC(key, SHA224(), backend=default_backend())
+    hmac.update(user)
+    return base64.b16encode(hmac.finalize())
 
 def encrypt_pii(secret, params):
     """ Encrypt PII parameters
