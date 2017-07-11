@@ -51,7 +51,7 @@ class RecipeManager(object):
                 "garnish with chopped chives or green ends of onions",
                 "serve over noodles or rice:
               ]
-            }, 
+            },
             ...
             ]
         Args:
@@ -92,7 +92,7 @@ class RecipeManager(object):
         if 'title' in recipe:
             recipe_id = generate_user_id(recipe['title'])
             recipe['id'] = recipe_id
-            return self.database.put_item('id', recipe)
+            return self.database.put_item(recipe)
         else:
             return dict(error='Missing recipe title')
 
@@ -192,7 +192,7 @@ class RecipeManager(object):
         else:
             recipe = self.get_recipe(recipe_id)
             if recipe is not None:
-                return render_recipe(recipe)
+                return self.render_recipe(recipe)
 
 def main():
     """ Unit tests
