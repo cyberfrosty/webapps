@@ -4,7 +4,7 @@
 """
 Copyright (c) 2017 Alan Frost. All rights reserved.
 
-Implementation of Web server
+Implementation of Web server using Flask framework
 
 """
 
@@ -12,7 +12,7 @@ import socket
 from datetime import datetime
 import time
 
-from flask import Flask, request, render_template, redirect, jsonify, abort, flash, url_for
+from flask import Flask, make_response, request, render_template, redirect, jsonify, abort, flash, url_for
 from flask_mail import Mail, Message
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from decorators import async
@@ -21,17 +21,17 @@ from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm,
 from crypto import derive_key
 from utils import generate_timed_token, validate_timed_token, generate_user_id
 from awsutils import load_config, DynamoDB
+from recipe import RecipeManager
 
 CONFIG = load_config('config.json')
-from recipe import RecipeManager
 
 USERS = DynamoDB(CONFIG, CONFIG.get('users'))
 SESSIONS = DynamoDB(CONFIG, CONFIG.get('sessions'))
-recipe_manager = RecipeManager(CONFIG)
-recipe_manager.load_recipes('recipes.json')
+RECIPE_MANAGER = RecipeManager(CONFIG)
+RECIPE_MANAGER.load_recipes('recipes.json')
 
 MAX_FAILURES = 3
-login_manager = LoginManager()
+LOGIN_MANAGER = LoginManager()
 application = Flask(__name__, static_url_path="")
 
 application.config['SECRET_KEY'] = 'super secret key'
@@ -46,11 +46,11 @@ application.config['MAIL_PASSWORD'] = ''
 application.config['MAIL_SUBJECT_PREFIX'] = '[FROSTY]'
 application.config['MAIL_SENDER'] = 'alan@cyberfrosty.com'
 
-mail = Mail(application)
-login_manager.init_app(application)
-login_manager.login_view = "login"
-login_manager.login_message = "Please login to access this page"
-login_manager.session_protection = "strong"
+EMAIL_MANAGER = Mail(application)
+LOGIN_MANAGER.init_app(application)
+LOGIN_MANAGER.login_view = "login"
+LOGIN_MANAGER.login_message = "Please login to access this page"
+LOGIN_MANAGER.session_protection = "strong"
 
 
 @async
@@ -58,7 +58,7 @@ def send_async_email(msg):
     """ Send an email from a new thread
     """
     with application.app_context():
-        mail.send(msg)
+        EMAIL_MANAGER.send(msg)
 
 class User(object):
     """ Class for the current user
@@ -116,13 +116,27 @@ class User(object):
     def get_id(self):
         return self._userid
 
-@login_manager.user_loader
+@LOGIN_MANAGER.user_loader
 def load_user(username):
+    """ Load user account details from database
+    Args:
+        username
+    """
     account = USERS.get_item('id', generate_user_id(username))
-    user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
+    if 'error' in account:
+        user = User('email', 'username')
+    else:
+        user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
     return user
 
 def send_email(recipients, subject, template, **kwargs):
+    """ Send an email
+    Args:
+        list of recipients
+        email subject line
+        template
+        arguments for templating
+    """
     msg = Message(application.config['MAIL_SUBJECT_PREFIX'] + ' ' + subject,
                   sender=application.config['MAIL_SENDER'],
                   recipients=[recipients])
@@ -133,6 +147,78 @@ def send_email(recipients, subject, template, **kwargs):
 def next_is_valid(url):
     print url
     return True
+
+@application.errorhandler(400)
+def bad_request(error):
+    """ Handle HTTP Bad Request error
+    """
+    if error.description:
+        return make_response(jsonify({'error': str(error.description)}), 400)
+    else:
+        return make_response(jsonify({'error': str(error)}), 400)
+
+@application.errorhandler(401)
+def unauthorized(error):
+    """ Handle HTTP Unauthorized error
+    """
+    if error.description:
+        return make_response(jsonify({'error': str(error.description)}), 401)
+    else:
+        return make_response(jsonify({'error': str(error)}), 401)
+
+@application.errorhandler(403)
+def forbidden(error):
+    """ Handle HTTP Forbidden error
+    """
+    if error.description:
+        return make_response(jsonify({'error': str(error.description)}), 403)
+    else:
+        return make_response(jsonify({'error': str(error)}), 403)
+
+@application.errorhandler(404)
+def not_found(error):
+    """ Handle HTTP Not Found error
+    """
+    if error.description:
+        return make_response(jsonify({'error': str(error.description)}), 404)
+    else:
+        return make_response(jsonify({'error': str(error)}), 404)
+
+@application.errorhandler(405)
+def not_allowed(error):
+    """ Handle HTTP Method Not Allowed error
+    """
+    if error.description:
+        return make_response(jsonify({'error': str(error.description)}), 405)
+    else:
+        return make_response(jsonify({'error': str(error)}), 405)
+
+@application.errorhandler(409)
+def resource_exists(error):
+    """ Handle HTTP Conflict error
+    """
+    if error.description:
+        return make_response(jsonify({'error': str(error.description)}), 409)
+    else:
+        return make_response(jsonify({'error': str(error)}), 409)
+
+@application.errorhandler(422)
+def unprocessable_entity(error):
+    """ Handle HTTP Unprocessable entity error
+    """
+    if error.description:
+        return make_response(jsonify({'error': str(error.description)}), 422)
+    else:
+        return make_response(jsonify({'error': str(error)}), 422)
+
+@application.errorhandler(500)
+def server_error(error):
+    """ Handle HTTP Server error
+    """
+    if 'description' in error:
+        return make_response(jsonify({'error': str(error.description)}), 500)
+    else:
+        return make_response(jsonify({'error': str(error)}), 500)
 
 @application.route('/')
 def index():
@@ -147,7 +233,7 @@ def recipes():
     recipe = request.args.get('recipe')
     category = request.args.get('category')
     if recipe is not None:
-        html = recipe_manager.get_rendered_recipe(recipe)
+        html = RECIPE_MANAGER.get_rendered_recipe(recipe)
         return render_template('recipes.html', recipe=html, category=category)
     else:
         return render_template('recipes.html')
@@ -172,7 +258,7 @@ def confirm():
     token = request.args.get('token')
     action = request.args.get('action')
     if username is None or token is None or action is None:
-        abort(400)
+        abort(400, 'Missing user name, token or action')
     form = ConfirmForm()
     form.username.data = username
     form.token.data = token
@@ -192,9 +278,9 @@ def confirm():
                 # Update user account status
                 if account['status'][:7] == 'pending':
                     account['status'] = 'confirmed: ' + time.mktime(datetime.utcnow().timetuple())
-                    USERS.put_item('id', account)
+                    USERS.put_item(account)
                     session['failures'] = 0
-                    SESSIONS.put_item('id', session)
+                    SESSIONS.put_item(session)
                     flash('You have confirmed your account. Thanks!')
                 return redirect(url_for('login', username=username))
         else:
@@ -202,7 +288,7 @@ def confirm():
             if failures > MAX_FAILURES:
                 return redirect(url_for('index'))
             session['failures'] = failures + 1
-            SESSIONS.put_item('id', userid)
+            SESSIONS.put_item(userid)
             return redirect(url_for('resend', username=username, action=action))
 
     return render_template('confirm.html', form=form)
@@ -235,7 +321,7 @@ def login():
             else:
                 flash('Unable to validate your credentials.')
                 session['failures'] = failures + 1
-                SESSIONS.put_item('id', session)
+                SESSIONS.put_item(session)
             return redirect(url_for('login', username=username))
 
         print 'validated user'
@@ -243,7 +329,7 @@ def login():
         if failures > 0:
             session['failures'] = 0
         session['login_at'] = int(time.mktime(datetime.utcnow().timetuple()))
-        SESSIONS.put_item('id', session)
+        SESSIONS.put_item(session)
         user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
         user.is_authenticated = True
         user.is_confirmed = True
@@ -282,7 +368,7 @@ def resend():
     username = request.args.get('username')
     action = request.args.get('action')
     if username is None or action is None:
-        abort(400)
+        abort(400, 'Missing user name or action')
     form = ResendConfirmForm()
     form.username.data = username
     form.action.data = action
@@ -316,7 +402,7 @@ def reset():
     token = request.args.get('token')
     action = request.args.get('action')
     if username is None or token is None or action is None:
-        abort(400)
+        abort(400, 'Missing user name, token or action')
     form = PasswordResetForm()
     if form.validate_on_submit():
         validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
@@ -353,7 +439,7 @@ def register():
         user = User(form.email.data, form.username.data)
         user.is_authenticated = False
         user.is_confirmed = False
-        USERS.put_item('id', info)
+        USERS.put_item(info)
         token = generate_timed_token(username, application.config['SECRET_KEY'], 'register')
         send_email(form.email.data, 'Confirm Your Account',
                    'email/confirm', username=form.username.data, token=token, action='register')
