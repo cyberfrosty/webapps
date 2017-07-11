@@ -1,6 +1,20 @@
 # webapps
 Web applications
 
+### Setup environment
+sudo chown ubuntu /var/www/app
+cp -R * /var/www/app
+
+### Setup Nginx
+rm /etc/nginx/sites-enabled/default
+cp nginx/webapp.conf /etc/nginx/sites-available/
+ln -s /etc/nginx/sites-available/webapp.conf /etc/nginx/sites-enabled/webapp.conf
+cp nginx/uwsgi.ini /var/www/app/
+echo "daemon off;" >> /etc/nginx/nginx.conf
+
+### /etc/rc.local
+/home/ubuntu/.local/bin/uwsgi --ini /var/www/app/uwsgi.ini --uid ubuntu --gid ubuntu --daemonize /var/log/uwsgi.log
+
 ### Build the Docker container
 docker build -t webapp .
 
@@ -13,6 +27,7 @@ docker stop <CONTAINER ID>
 docker inspect <CONTAINER ID>
 docker exec -t -i <CONTAINER ID> /bin/bash
 docker rm $(docker ps -a -f status=exited -q)
+docker network inspect bridge
 
 ### Show images, remove dangling images
 docker images
