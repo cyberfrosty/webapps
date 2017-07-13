@@ -1,4 +1,56 @@
 [{
+  "title": "Ginger Carrots",
+  "chef": "Alan",
+  "category": ["vegatables","dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
+    "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "ginger, fresh grated or minced"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce (optional)"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "teriyaki sauce"}
+  },
+  "instructions": {
+    "step1": "Wash and cut carrots into 1 cm slices, add oil and carrots to wok, cover and heat to 325-350 degrees",
+    "step2": "Cook for 15-20 minutes covered until carrots begin to soften, add shallot, ginger and garlic",
+    "step3": "When carrots are at desired softness, add teriyaki sauce, stir to coat thoroughly and remove from heat"
+  }
+},
+{
+  "title": "Grilled Salmon",
+  "chef": "Alan",
+  "category": ["salmon","dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1+ lbs", "ingredient": "salmon fillets"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
+  },
+  "instructions": {
+    "step1": "Heat non-stick pan or grill to 325-350 degrees",
+    "step2": "Rub seasoning into one side of fillet, cook seasoning side down until half done (~6-8 minutes)",
+    "step3": "Flip and finishing cooking until salmon flakes, do not overcook as it will continue cooking after removing from grill"
+  }
+},
+{
+  "title": "Diced Potatoes",
+  "chef": "Alan",
+  "category": ["breakfast","dinner"],
+  "ingredients": {
+    "item1": {"quantity": "2-3", "ingredient": "large russet or golden potatoes"},
+    "item2": {"quantity": "2-3 tbsp", "ingredient": "cooking oil"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item4": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
+  },
+  "instructions": {
+    "step1": "Wash, then dice potatoes, removing any bruised or bad sections",
+    "step2": "Heat oil in non stick pan to around 325-350 degrees, add potatoes and cover",
+    "step3": "Turn a few times until all sides are browned and potatoes are almost cooked, remove cover",
+    "step4": "Add seasoning to taste, turn to coat, cook for a few minutes, add bread crumbs, turn to coat and remove from heat"
+  }
+},
+{
   "title": "Korean Meatballs",
   "chef": "Alan",
   "category": ["asian", "dinner"],
@@ -6,7 +58,7 @@
     "section1": {
       "title": "Meatballs",
       "item1": {"quantity": "1 1/2 lb", "ingredient": "lean ground turkey"},
-      "item2": {"quantity": "1 tbsp", "ingredient": "ground ginger"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
       "item3": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
       "item4": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
       "item5": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
@@ -35,24 +87,24 @@
   "chef": "Alan",
   "category": ["shrimp", "dinner"],
   "ingredients": {
-    "item1": {"quantity": "1", "ingredient": "small shallot"},
-    "item2": {"quantity": "1 tbsp", "ingredient": "ginger"},
+    "item1": {"quantity": "1", "ingredient": "small shallot, diced"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "ginger, fresh grated or minced"},
     "item3": {"quantity": "1/2 tsp", "ingredient": "chipotle chilli"},
     "item4": {"quantity": "1 tsp", "ingredient": "Sriracha"},
-    "item4": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
-    "item5": {"quantity": "1 tsp", "ingredient": "thai red chilli paste"},
-    "item6": {"quantity": "1/4 cup", "ingredient": "cilantro"},
-    "item7": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-    "item8": {"quantity": "1 tbsp", "ingredient": "olive oil"},
-    "item9": {"quantity": "2/3 lb", "ingredient": "shrimp"},
-    "item10": {"quantity": "1", "ingredient": "lime"},
-    "item11": {"quantity": "1 pkg", "ingredient": "udon, soba or rice noodles"}
+    "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item6": {"quantity": "1 tsp", "ingredient": "thai red chilli paste"},
+    "item7": {"quantity": "1/4 cup", "ingredient": "cilantro"},
+    "item8": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+    "item9": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item10": {"quantity": "2/3 lb", "ingredient": "shrimp"},
+    "item11": {"quantity": "1", "ingredient": "lime"},
+    "item12": {"quantity": "1 pkg", "ingredient": "udon, soba or rice noodles"}
   },
   "instructions": {
     "step1": "Peel shrimp under running water, set aside",
-    "step2": "Heat olive oil in wok. Mince ginger, dice shallot and saute in olive oil",
+    "step2": "Heat olive oil in wok, add shallot and ginger sautee for a minute or two",
     "step3": "Add chili's, sesame oil and shrimp, cook for 5 minutes covered, stirring several times to coat shrimp",
-    "step4": "Remove from heat, add cilantro, mix and server over noodles with lime wedge"
+    "step4": "Remove from heat, add cilantro, mix and serve over noodles with lime wedge"
   }
 },
 {
@@ -71,8 +123,8 @@
       "item1": {"quantity": "1", "ingredient": "orange bell pepper, diced"},
       "item2": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced"},
       "item3": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
-      "item4": {"quantity": "2", "ingredient": "pressed garlic cloves, pressed"},
-      "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, minced"},
+      "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "ginger, fresh grated or minced"},
       "item6": {"quantity": "1", "ingredient": "large shallot"},
       "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
@@ -124,6 +176,27 @@
   }
 },
 {
+  "title": "Buttermilk Waffles",
+  "chef": "Alan",
+  "category": ["breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "1", "ingredient": "egg"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
+    "item8": {"quantity": "3/4 cup", "ingredient": "buttermilk"},
+    "item8": {"quantity": "3 tbsp", "ingredient": "milk"}
+  },
+  "instructions": {
+    "step1": "Combine flour, oats, baking powder and soda in mixing bowl",
+    "step2": "In a seperate bowl beat egg, then mix in oil, add buttermilk and blend thoroughly",
+    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistancy. Do not overmix. Let rest 10-30 minutes",
+    "step4": "Cook in non-stick waffle iron"
+  }
+},
+{
   "title": "Pumpkin Waffles",
   "chef": "Alan",
   "category": ["breakfast"],
@@ -133,15 +206,43 @@
     "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
     "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
     "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
-    "item6": {"quantity": "1 tbsp", "ingredient": "pumkin pie spice"},
-    "item7": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
+    "item6": {"quantity": "1 tsp", "ingredient": "pumkin pie spice"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
     "item8": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
     "item8": {"quantity": "1/4 cup", "ingredient": "milk"}
   },
   "instructions": {
     "step1": "Combine flour, oats, baking powder and spice in mixing bowl",
     "step2": "In a seperate bowl beat egg, then mix in oil and pumpkin, add buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding milk to proper consistancy. Do not overmix. Let rest 10-30 minutes",
+    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistancy. Do not overmix. Let rest 10-30 minutes",
     "step4": "Cook in non-stick waffle iron"
+  }
+},
+{
+  "title": "Apricot Scones",
+  "chef": "Alan",
+  "category": ["breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "2", "ingredient": "eggs"},
+    "item2": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
+    "item3": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
+    "item4": {"quantity": "1 1/2 cups", "ingredient": "white flour"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "sugar"},
+    "item6": {"quantity": "2 tsps", "ingredient": "baking powder"},
+    "item7": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "chilled butter"},
+    "item9": {"quantity": "1/2 cup", "ingredient": "chopped apricots"},
+    "item10": {"quantity": "1/2 cup", "ingredient": "chopped pecans"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 400",
+    "step2": "Mix dry ingredients, cut butter in with pastry knife, add apricots and pecans",
+    "step3": "Whisk eggs and buttermilk, add to dry ingredients and mix just until sticky",
+    "step4": "Turn out dough onto lightly floured surface and knead lightly",
+    "step5": "Pat dough into 9” circle on pan lightly sprayed with cooking oil",
+    "step6": "Cut into 12 wedges, cutting not quite all the way",
+    "step7": "Sprinkle with granular sugar and cinnamon",
+    "step8": "Bake for 20-22 minutes",
+    "step9": "Cut with spatula and place individual scones on cooling rack"
   }
 }]
