@@ -22,7 +22,7 @@
 {
   "title": "Asian Carrots",
   "chef": "Alan",
-  "category": ["vegatables","dinner"],
+  "category": ["asian", "vegatables","dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
@@ -40,9 +40,45 @@
   }
 },
 {
+  "title": "Meatball Marinara",
+  "chef": "Alan",
+  "category": ["italian", "pasta", "turkey", "dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+        "item1": {"quantity": "1 lbs", "ingredient": "ground turkey"},
+        "item2": {"quantity": "1", "ingredient": "egg"},
+        "item3": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"},
+        "item4": {"quantity": "1 tsp", "ingredient": "garlic salt"}
+    },
+    "section2": {
+      "title": "Marinara Sauce",
+        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatos"},
+        "item2": {"quantity": "1 medium can", "ingredient": "diced tomatos"},
+        "item3": {"quantity": "1 small can", "ingredient": "tomato paste"},
+        "item4": {"quantity": "4 tbsp", "ingredient": "olive oil"},
+        "item5": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
+        "item6": {"quantity": "4", "ingredient": "garlic cloves, pressed"},
+        "item7": {"quantity": "1 tbsp", "ingredient": "oregano"},
+        "item8": {"quantity": "2 tbsp", "ingredient": "basil"},
+        "item9": {"quantity": "1 tbsp", "ingredient": "thyme"}
+    }
+  },
+  "instructions": {
+    "step1": "In a large sauce pan, sautee onion over low heat until edges brown",
+    "step2": "Using morter and pestal grind dried herbs, add along with garlic to sauce pan",
+    "step3": "Add tomato products, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
+    "step4": "Combine turkey, egg and garlic salt, mixing thoroughly",
+    "step5": "Add bread crumbs until desired texture is achieved",
+    "step6": "Form into 1\" balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
+    "step7": "Cook for another 20-30 minutes stirring gently",
+    "step8": "Serve over pasta with fresh grated parmesan cheese"
+  }
+},
+{
   "title": "Grilled Salmon",
   "chef": "Alan",
-  "category": ["salmon","dinner"],
+  "category": ["salmon", "dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "salmon fillets"},
     "item2": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
@@ -57,7 +93,7 @@
 {
   "title": "Diced Potatoes",
   "chef": "Alan",
-  "category": ["breakfast","dinner"],
+  "category": ["breakfast", "dinner"],
   "ingredients": {
     "item1": {"quantity": "2-3", "ingredient": "large russet or golden potatoes"},
     "item2": {"quantity": "2-3 tbsp", "ingredient": "cooking oil"},
@@ -75,7 +111,7 @@
 {
   "title": "Korean Meatballs",
   "chef": "Alan",
-  "category": ["asian", "dinner"],
+  "category": ["asian", "turkey", "dinner"],
   "ingredients": {
     "section1": {
       "title": "Meatballs",

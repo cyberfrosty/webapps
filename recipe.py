@@ -62,13 +62,11 @@ class RecipeManager(object):
                 recipes = json.load(json_file)
                 for recipe in recipes:
                     if 'title' in recipe and 'ingredients' in recipe and 'instructions' in recipe:
-                        html = self.render_recipe(recipe)
-                        if html is not None:
-                            recipe_id = generate_user_id(recipe['title'])
-                            print "Loaded " + recipe['title']
-                            self.recipes[recipe_id] = html
-        except IOError:
-            print 'Load of recipe failed: ' + infile
+                        recipe_id = generate_user_id(recipe['title'])
+                        print "Loaded " + recipe['title']
+                        self.recipes[recipe_id] = recipe
+        except (IOError, ValueError) as err:
+            print('Load of recipe file failed:', err.message)
 
     def get_recipe(self, recipe_id):
         """ Load recipe from Database
@@ -184,15 +182,35 @@ class RecipeManager(object):
         return html
 
     def get_rendered_recipe(self, recipe_id):
-        print recipe_id
+        """ Get HTML rendered recipe
+        Args:
+            recipe id or title
+        Returns:
+            HTML for recipe
+        """
         if len(recipe_id) != 48 or not contains_only(recipe_id, '0123456789ABCDEFGHJKMNPQRSTVWXYZ'):
             recipe_id = generate_user_id(recipe_id)
         if recipe_id in self.recipes:
-            return self.recipes[recipe_id]
+            recipe = self.recipes[recipe_id]
         else:
             recipe = self.get_recipe(recipe_id)
-            if recipe is not None:
-                return self.render_recipe(recipe)
+
+        if recipe is not None:
+            return self.render_recipe(recipe)
+
+    def find_recipe_by_category(self, category):
+        """ Find recipes of the specified category (e.g. 'asian')
+        Args:
+            category to search for
+        Returns:
+            list of recipe titles
+        """
+        matches = []
+        for recipe_id in self.recipes:
+            recipe = self.recipes[recipe_id]
+            if 'category' in recipe and category in recipe['category']:
+                matches.append(recipe['title'])
+        return matches
 
 def main():
     """ Unit tests
@@ -202,6 +220,8 @@ def main():
     print manager.get_rendered_recipe('Korean Meatballs')
     print manager.get_rendered_recipe('Pumpkin Waffles')
     print manager.get_rendered_recipe('Strawberry Pancakes')
+    print manager.get_rendered_recipe('Meatball Marinara')
+    print manager.find_recipe_by_category('asian')
 
 if __name__ == '__main__':
     main()
