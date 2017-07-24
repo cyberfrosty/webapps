@@ -7,8 +7,10 @@ Copyright (c) 2017 Alan Frost, Inc. All rights reserved.
 Utility methods
 """
 
+import datetime
 import os
 import base64
+import pytz
 import random
 import string
 import time
@@ -27,11 +29,59 @@ from crypto import derive_key, hkdf_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_
 
 HKDF_SALT = base64.b64decode('MTIzNDU2Nzg5MGFiY2RlZmdoaWprbG1ub3BxcnN0dXY=')
 HDKF_INFO = 'frosty.alan'
+HMAC_INFO = 'FROSTY'
 
-def hash_id(user):
+def create_signed_request(secret, method, uri, params, time_stamp):
+    """ Create a signed HTTP request
+    Args:
+        shared secret
+        HTTP method
+        uri - canonical uri endpoint, 'api/camera.update
+        params - JSON for POST/PUT/PATCH, query string for GET/DELETE
+        time stamp of request
+    """
+    algorithm = 'HMAC_SHA256'
+    key = get_hmac_signing_key(secret, time_stamp)
+    param_hash = base64.b16encode(hmac_sha256(key, params))
+    msg = algorithm + '\n' + time_stamp + '\n' + method + '\n' + uri + '\n' + param_hash
+    signature = base64.b16encode(hmac_sha256(key, msg))
+    return signature
+    #authorization_header = algorithm + ' ' + 'SignedHeaders=' + signed_headers + ', ' + 'Signature=' + signature
+    #if method == 'POST' or method == 'PUT' or method == 'PATCH':
+    #    headers = {'Content-Type':content_type,
+    #               'X--Date':time_stamp,
+    #               'Authorization':authorization_header}
+
+def validate_signed_request(secret, method, uri, params, time_stamp, sig):
+    """ Validate a signed HTTP request
+    Args:
+        shared secret
+        HTTP method
+        uri - canonical uri endpoint, 'api/camera.update
+        params - JSON for POST/PUT/PATCH, query string for GET/DELETE
+        time stamp of request
+        signature to validate
+    """
+    
+    epoch_time = datetime.datetime.strptime(time_stamp, '%Y%m%dT%H%M%SZ')
+    time_diff = int((datetime.datetime.utcnow() -
+                    epoch_time).total_seconds())
+    if time_diff > 10 or time_diff < -10:
+        print time_diff
+        return False
+    algorithm = 'HMAC_SHA256'
+    key = get_hmac_signing_key(secret, time_stamp)
+    param_hash = base64.b16encode(hmac_sha256(key, params))
+    msg = algorithm + '\n' + time_stamp + '\n' + method + '\n' + uri + '\n' + param_hash
+    signature = base64.b16encode(hmac_sha256(key, msg))
+    return signature == sig
+
+
+def hash_id(key, user):
     """ Use an HMAC to generate a user id to keep DB more secure. This prevents someone from
         looking up users by name or even hash of user name, without using the official API.
     Args:
+        HMAC key
         user name
     Returns:
         hex id
@@ -39,6 +89,16 @@ def hash_id(user):
     hmac = HMAC(key, SHA224(), backend=default_backend())
     hmac.update(user)
     return base64.b16encode(hmac.finalize())
+
+def get_hmac_signing_key(key, time_stamp):
+    """ Get a unique signing key from shared secret and time stamp
+    Args:
+        shared secret
+        time stamp
+    Return:
+        32 byte key
+    """
+    return hmac_sha256((HMAC_INFO + key).encode('utf-8'), time_stamp)
 
 def encrypt_pii(secret, params):
     """ Encrypt PII parameters
@@ -50,7 +110,7 @@ def encrypt_pii(secret, params):
     """
     iv = os.urandom(12)
     key = hkdf_key(secret, HDKF_INFO, HKDF_SALT)
-    cipher_text = iv + encrypt_aes_gcm (key, iv, json.dumps(params))
+    cipher_text = iv + encrypt_aes_gcm(key, iv, json.dumps(params))
     return cipher_text
 
 def decrypt_pii(secret, cipher_text):
@@ -62,7 +122,7 @@ def decrypt_pii(secret, cipher_text):
         params: dictionary
     """
     key = hkdf_key(secret, HDKF_INFO, HKDF_SALT)
-    plain_text = decrypt_aes_gcm (key, cipher_text[:12], cipher_text[12:])
+    plain_text = decrypt_aes_gcm(key, cipher_text[:12], cipher_text[12:])
     try:
         params = json.loads(plain_text)
         return params
@@ -151,7 +211,6 @@ def verify_totp_code(secret, code):
     except InvalidToken:
         pass
     return False
-    
 
 def generate_totp_uri(secret, email):
     """ Generate a Google authenticator compatible QR provisioning URI
@@ -177,7 +236,7 @@ def validate_code(secret, access_code):
     """
     # The access code may come in as unicode, which has to be converted before b64decode
     if isinstance(access_code, unicode):
-        code = access_code.encode('ascii', 'ignore')
+        code = access_code.encode('utf-8')
     else:
         code = access_code
     try:
@@ -193,7 +252,7 @@ def get_access_id(access_code):
     """
     # The access code may come in as unicode, which has to be converted before b64decode
     if isinstance(access_code, unicode):
-        code = access_code.encode('ascii', 'ignore')
+        code = access_code.encode('utf-8')
     else:
         code = access_code
     try:
@@ -220,8 +279,8 @@ def merge_dicts(dict1, dict2):
         dict1 is the master copy
         dict2 contains the new/updated fields
     Returns:
-        True if successful 
-    """ 
+        True if successful
+    """
     if not isinstance(dict1, dict) or not isinstance(dict2, dict):
         return False
     for key in dict2:
@@ -319,7 +378,7 @@ def validate_address_code(secret, address, identifier):
     """
     # The address code may come in as unicode, which has to be converted before b64decode
     if isinstance(address, unicode):
-        code = address.encode('ascii', 'ignore')
+        code = address.encode('utf-8')
     else:
         code = address
     try:
@@ -339,7 +398,7 @@ def generate_user_id(username):
     """
     # The access code may come in as unicode, which has to be converted before hash
     if isinstance(username, unicode):
-        username = username.encode('ascii', 'ignore')
+        username = username.encode('utf-8')
     digest = hash_sha256(username)
     return base64.b32encode(digest[0:30])
 
@@ -354,6 +413,19 @@ def main():
     print generate_user_id('yuki')
 
     secret = 'Poyj3ZIdLcSEjWagFBj3VQ9x'
+    time_stamp = datetime.datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')
+    old_time = '20170724T165442Z'
+    print time_stamp
+    sig = create_signed_request(secret, 'GET', 'api/camera.info', 'camera=02:34', time_stamp)
+    if validate_signed_request(secret, 'GET', 'api/camera.info', 'camera=02:34', time_stamp, sig):
+        print 'validated HTTP request'
+    if not validate_signed_request(secret, 'GET', 'api/camera.info', 'camera=42:34', time_stamp, sig):
+        print 'invalid HTTP request parmscheck passed'
+    if not validate_signed_request(secret, 'POST', 'api/camera.info', 'camera=42:34', time_stamp, sig):
+        print 'invalid HTTP request method check passed'
+    if not validate_signed_request(secret, 'POST', 'api/camera.info', 'camera=02:34', old_time, sig):
+        print 'invalid HTTP old timerequest check passed'
+
     code = generate_code(secret)
     print code
     print get_access_id(code)
