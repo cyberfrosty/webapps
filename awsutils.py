@@ -175,6 +175,60 @@ class DynamoDB(object):
         except (IOError, ValueError) as err:
             return {'error': err.message}
 
+class SES(object):
+    """ Utility class for access to AWS SES.
+    """
+    def __init__(self, email_address):
+        """ Constructor, get AWS resource
+        Args:
+            email_address: senders email address
+        """
+        self.ses = boto3.client('ses')
+        self.email_address = email_address
+
+    def send_email(self, to_list, subject, html, text):
+        """ Send an email
+        Args:
+            to: recipient or list of recipients
+            subject: subject line
+            html: HTML formatted message
+            text: Plain text message
+        """
+        #html = 'HTML formatting. <a class="ulink" href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide" target="_blank">SES Developer Guide</a>.'
+        if not isinstance(to_list, list):
+            to_list = [to_list]
+        response = self.ses.send_email(
+            Destination={
+                'BccAddresses': [],
+                'CcAddresses': [],
+                'ToAddresses': to_list,
+            },
+            Message={
+                'Body': {
+                    'Html': {
+                        'Charset': 'UTF-8',
+                        'Data': html,
+                    },
+                    'Text': {
+                        'Charset': 'UTF-8',
+                        'Data': text,
+                    },
+                },
+                'Subject': {
+                    'Charset': 'UTF-8',
+                    'Data': subject,
+                },
+            },
+            ReplyToAddresses=[
+            ],
+            ReturnPath='',
+            ReturnPathArn='',
+            Source=self.email_address,
+            SourceArn='',
+        )
+        print(response)
+
+
 class SNS(object):
     """ Utility class for access to AWS SNS.
     """
