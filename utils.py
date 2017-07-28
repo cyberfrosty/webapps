@@ -7,13 +7,15 @@ Copyright (c) 2017 Alan Frost, Inc. All rights reserved.
 Utility methods
 """
 
-import datetime
+from datetime import datetime
 import os
 import base64
-import pytz
+import re
 import random
 import string
 import time
+import uuid
+import pytz
 import simplejson as json
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 from cryptography.hazmat.primitives.twofactor.hotp import HOTP
@@ -31,19 +33,22 @@ HKDF_SALT = base64.b64decode('MTIzNDU2Nzg5MGFiY2RlZmdoaWprbG1ub3BxcnN0dXY=')
 HDKF_INFO = 'frosty.alan'
 HMAC_INFO = 'FROSTY'
 
-def create_signed_request(secret, method, uri, params, time_stamp):
+def generate_uuid():
+    return uuid.uuid4().urn
+
+def create_signed_request(secret, method, path, params, time_stamp):
     """ Create a signed HTTP request
     Args:
         shared secret
-        HTTP method
-        uri - canonical uri endpoint, 'api/camera.update
+        HTTP method (GET, PUT...)
+        path - HTTP request path with leading slash, e.g., '/api/camera.update'
         params - JSON for POST/PUT/PATCH, query string for GET/DELETE
-        time stamp of request
+        time stamp of request as Unix timestamp (integer seconds since Jan 1, 1970 UTC)
     """
     algorithm = 'HMAC_SHA256'
-    key = get_hmac_signing_key(secret, time_stamp)
-    param_hash = base64.b16encode(hmac_sha256(key, params))
-    msg = algorithm + '\n' + time_stamp + '\n' + method + '\n' + uri + '\n' + param_hash
+    key = get_hmac_signing_key(secret, str(time_stamp))
+    param_hash = base64.b16encode(hash_sha256(params))
+    msg = algorithm + '\n' + str(time_stamp) + '\n' + method + '\n' + path + '\n' + param_hash
     signature = base64.b16encode(hmac_sha256(key, msg))
     return signature
     #authorization_header = algorithm + ' ' + 'SignedHeaders=' + signed_headers + ', ' + 'Signature=' + signature
@@ -52,29 +57,31 @@ def create_signed_request(secret, method, uri, params, time_stamp):
     #               'X--Date':time_stamp,
     #               'Authorization':authorization_header}
 
-def validate_signed_request(secret, method, uri, params, time_stamp, sig):
+def validate_signed_request(secret, method, path, params, time_stamp, signature):
     """ Validate a signed HTTP request
     Args:
         shared secret
-        HTTP method
-        uri - canonical uri endpoint, 'api/camera.update
+        HTTP method (GET, PUT...)
+        path - HTTP request path with leading slash, e.g., '/api/camera.update'
         params - JSON for POST/PUT/PATCH, query string for GET/DELETE
-        time stamp of request
+        time stamp of request as Unix timestamp (integer seconds since Jan 1, 1970 UTC)
         signature to validate
     """
-    
-    epoch_time = datetime.datetime.strptime(time_stamp, '%Y%m%dT%H%M%SZ')
-    time_diff = int((datetime.datetime.utcnow() -
-                    epoch_time).total_seconds())
-    if time_diff > 10 or time_diff < -10:
-        print time_diff
+
+    if not re.match(r'[0-9a-fA-F]{64}', signature):
+        return False
+
+    time_now = int((datetime.now(tz=pytz.utc) -
+                    datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
+    time_diff = time_now - time_stamp
+    if time_diff > 450 or time_diff < -450:
         return False
     algorithm = 'HMAC_SHA256'
-    key = get_hmac_signing_key(secret, time_stamp)
-    param_hash = base64.b16encode(hmac_sha256(key, params))
-    msg = algorithm + '\n' + time_stamp + '\n' + method + '\n' + uri + '\n' + param_hash
-    signature = base64.b16encode(hmac_sha256(key, msg))
-    return signature == sig
+    key = get_hmac_signing_key(secret, str(time_stamp))
+    param_hash = base64.b16encode(hash_sha256(params))
+    msg = algorithm + '\n' + str(time_stamp) + '\n' + method + '\n' + path + '\n' + param_hash
+    signed = base64.b16encode(hmac_sha256(key, msg))
+    return signed == signature
 
 
 def hash_id(key, user):
@@ -403,6 +410,8 @@ def generate_user_id(username):
     return base64.b32encode(digest[0:30])
 
 def contains_only(input_chars, valid_chars):
+    """ Check a string to see if it contains only the specified character set
+    """
     all_chars = string.maketrans('', '')
     has_only = lambda s, valid_chars: not s.translate(all_chars, valid_chars)
     return has_only(input_chars, valid_chars)
@@ -410,12 +419,13 @@ def contains_only(input_chars, valid_chars):
 def main():
     """ Unit tests
     """
+    print generate_uuid()
     print generate_user_id('yuki')
 
     secret = 'Poyj3ZIdLcSEjWagFBj3VQ9x'
-    time_stamp = datetime.datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')
-    old_time = '20170724T165442Z'
-    print time_stamp
+    time_stamp = int((datetime.now(tz=pytz.utc) -
+                      datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
+    old_time = 1477951388
     sig = create_signed_request(secret, 'GET', 'api/camera.info', 'camera=02:34', time_stamp)
     if validate_signed_request(secret, 'GET', 'api/camera.info', 'camera=02:34', time_stamp, sig):
         print 'validated HTTP request'
