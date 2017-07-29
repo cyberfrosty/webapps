@@ -194,7 +194,6 @@ class SES(object):
             html: HTML formatted message
             text: Plain text message
         """
-        #html = 'HTML formatting. <a class="ulink" href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide" target="_blank">SES Developer Guide</a>.'
         if not isinstance(to_list, list):
             to_list = [to_list]
         response = self.ses.send_email(
@@ -219,12 +218,7 @@ class SES(object):
                     'Data': subject,
                 },
             },
-            ReplyToAddresses=[
-            ],
-            ReturnPath='',
-            ReturnPathArn='',
             Source=self.email_address,
-            SourceArn='',
         )
         print(response)
 
@@ -416,3 +410,13 @@ class Route53(object):
         else:
             return self.set_dns_records(route_53_zone_id, public_ip)
 
+
+def main():
+    """ Unit tests
+    """
+    ses = SES('alan@cyberfrosty.com')
+    html = '<a class="ulink" href="http://cyberfrosty.com/recipes" target="_blank">Recipes</a>.'
+    ses.send_email(['frosty.alan@gmail.com'], 'Howdy', html, 'Check out my recipes')
+
+if __name__ == '__main__':
+    main()
