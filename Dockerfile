@@ -1,9 +1,9 @@
 FROM ubuntu:16.04
 
 LABEL maintainer Alan Frost <frosty.alan@gmail.com>
-LABEL com.frosty.version="0.0.1-beta"
+LABEL com.cyberfrosty.version="0.0.1-beta"
 LABEL vendor="Frosty Security"
-LABEL com.frosty.release-date="2017-02-12"
+LABEL com.cyberfrosty.release-date="2017-02-12"
 
 # Nginx, UWSGI Plugin, Python development libraries
 RUN apt-get update && \
