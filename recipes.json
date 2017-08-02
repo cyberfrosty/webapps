@@ -278,8 +278,68 @@
   "instructions": {
     "step1": "Combine flour, oats, and baking powder in mixing bowl",
     "step2": "In a seperate bowl beat egg, then add oil and buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding additional buttermilk to proper consistancy. Do not overmix. Let rest 10-30 minutes",
+    "step3": "Add liquid mixture to dry ingredients, adding additional buttermilk to proper consistency. Do not overmix. Let rest 10-30 minutes",
     "step4": "Cook in non-stick skillet at 325-350 degrees"
+  }
+},
+{
+  "title": "Banana Muffins",
+  "chef": "Alan",
+  "category": ["breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "1", "ingredient": "egg"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "cooking oil"},
+    "item3": {"quantity": "3/4 cup", "ingredient": "buttermilk"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "vanilla"},
+    "item5": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
+    "item6": {"quantity": "1 1/2 cup", "ingredient": "white flour"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "oats and/or muesli"},
+    "item8": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item9": {"quantity": "1 tsp", "ingredient": "baking soda"},
+    "item10": {"quantity": "2", "ingredient": "bananas"},
+    "item11": {"quantity": "1/4 cup", "ingredient": "pecan pieces (optional)"},
+    "item12": {"quantity": "3 tbsp", "ingredient": "milk"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 400 degrees",
+    "step2": "Combine flour, oats, baking powder and soda, pecans in mixing bowl",
+    "step3": "In a 2 cup mixing cup beat egg, then measure in oil, add vanialla and buttermilk, blend thoroughly",
+    "step4": "Mash bananas in a separate bowl",
+    "step5": "Add liquid mixture and bananas to dry ingredients, adding milk to desired consistency. Do not overmix.",
+    "step6": "Spray muffin pan with non-stick spray",
+    "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on tops",
+    "step8": "Bake for 20-22 minutes"
+  }
+},
+{
+  "title": "Pumpkin Muffins",
+  "chef": "Alan",
+  "category": ["breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "1", "ingredient": "egg"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "cooking oil"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "vanilla"},
+    "item5": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
+    "item6": {"quantity": "1 3/4 cup", "ingredient": "white flour"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "oats and/or muesli"},
+    "item8": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item9": {"quantity": "1 tsp", "ingredient": "baking soda"},
+    "item10": {"quantity": "1 tbsp", "ingredient": "pumpkin pie spice"},
+    "item11": {"quantity": "1/2 cup", "ingredient": "pumpkin"},
+    "item12": {"quantity": "1/4 cup", "ingredient": "pecan pieces (optional)"},
+    "item13": {"quantity": "1/4 cup", "ingredient": "chocolate chips (optional)"},
+    "item14": {"quantity": "3 tbsp", "ingredient": "milk"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 400 degrees",
+    "step2": "Combine flour, oats, baking powder and soda in mixing bowl",
+    "step3": "Add pecans and chocolate chips if desired",
+    "step4": "In a 2 cup mixing cup beat egg, then measure in oil, add vanialla and buttermilk, blend thoroughly",
+    "step5": "Add liquid mixture and pumpkin to dry ingredients, adding milk to desired consistency. Do not overmix.",
+    "step6": "Spray muffin pan with non-stick spray",
+    "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on tops",
+    "step8": "Bake for 20-22 minutes"
   }
 },
 {
@@ -288,19 +348,20 @@
   "category": ["breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
-    "item3": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
-    "item4": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
-    "item5": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
-    "item6": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
-    "item7": {"quantity": "3/4 cup", "ingredient": "buttermilk"},
-    "item8": {"quantity": "3 tbsp", "ingredient": "milk"}
+    "item2": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
+    "item3": {"quantity": "3/4 cup", "ingredient": "buttermilk"},
+    "item4": {"quantity": "3 tbsp", "ingredient": "milk"},
+    "item5": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
+    "item6": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item7": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
+    "item8": {"quantity": "1/2 tsp", "ingredient": "baking soda"}
   },
   "instructions": {
     "step1": "Combine flour, oats, baking powder and soda in mixing bowl",
     "step2": "In a seperate bowl beat egg, then mix in oil, add buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistancy. Do not overmix. Let rest 10-30 minutes",
-    "step4": "Cook in non-stick waffle iron"
+    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistency. Do not overmix. Let rest 10-30 minutes",
+    "step4": "Cook in non-stick waffle iron",
+    "step5": "Serve with honey, maple or berry syrup"
   }
 },
 {
@@ -310,19 +371,20 @@
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "1/4 cup", "ingredient": "pumpkin"},
-    "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
-    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
-    "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
-    "item6": {"quantity": "1 tsp", "ingredient": "pumkin pie spice"},
-    "item7": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
-    "item8": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
-    "item9": {"quantity": "1/4 cup", "ingredient": "milk"}
+    "item3": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
+    "item4": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "milk"},
+    "item6": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
+    "item7": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item8": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item9": {"quantity": "1 tsp", "ingredient": "pumpkin pie spice"}
   },
   "instructions": {
     "step1": "Combine flour, oats, baking powder and spice in mixing bowl",
     "step2": "In a seperate bowl beat egg, then mix in oil and pumpkin, add buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistancy. Do not overmix. Let rest 10-30 minutes",
-    "step4": "Cook in non-stick waffle iron"
+    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistency. Do not overmix. Let rest 10-30 minutes",
+    "step4": "Cook in non-stick waffle iron",
+    "step5": "Serve with honey, maple or berry syrup"
   }
 },
 {
@@ -342,7 +404,7 @@
     "item10": {"quantity": "1/2 cup", "ingredient": "chopped pecans"}
   },
   "instructions": {
-    "step1": "Preheat oven to 400",
+    "step1": "Preheat oven to 400 degrees",
     "step2": "Mix dry ingredients, cut butter in with pastry knife, add apricots and pecans",
     "step3": "Whisk eggs and buttermilk, add to dry ingredients and mix just until sticky",
     "step4": "Turn out dough onto lightly floured surface and knead lightly",
