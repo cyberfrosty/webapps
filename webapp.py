@@ -244,6 +244,12 @@ def messages():
     """
     return render_template('messages.html')
 
+@application.route('/vault')
+def vault():
+    """ Show encrypted private content
+    """
+    return render_template('vault.html')
+
 @application.route('/privacy')
 def privacy():
     """ Show privacy policy
