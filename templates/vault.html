@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript">
+  function viewVault() {
+    console.log("viewVault");
+    console.log(hashword("yuki", "madman"));
+    var mcf = deriveKey("madman");
+    var fields = mcf.split("$");
+    if (fields.length > 4 && fields[1] === "pbkdf2") {
+      var key = forge.util.decode64(fields[4]);
+      var ciphertext = encryptAESGCM(key, "secrets in my vault");
+      console.log(decryptAESGCM(key, ciphertext));
+    }
+  }
+</script>
+
+<div class="container">
+  <div class="page-header">
+    <h3>Vault</h3>
+  </div>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#viewVault">View</button>
+  <!-- Modal -->
+  <div id="viewVault" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Unlock Vault</h4>
+        </div>
+        <div class="modal-body">
+          <div>Enter Password:</div>
+            <input id="password" type="password" autocomplete="current-password"/>
+            <button onclick="viewVault()" data-dismiss="modal">Done</button>    
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="row">
+        <div class="col-sm-1">
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-3">
+          <p>Site</p>
+        </div>
+        <div class="col-sm-3">
+          <p>Username</p>
+        </div>
+        <div class="col-sm-3">
+          <p>Password</p>
+        </div>
+      </div>
+    </div><!--/col-sm-10-->
+    <div class="col-sm-2">
+      <div class="sidebar-module-inset">
+        <h4><i class="fa fa-snowflake-o" aria-hidden="true"></i> Actions</h4>
+        <ol class="list-unstyled">
+          <li>Delete</li>
+          <li>Edit</li>
+          <li><button onclick="viewVault()">View</button></li>
+        </ol>
+      </div><!--/siderbar-module-inset-->
+    </div><!--/col-sm-3-->
+  </div><!--/row-->
+</div><!--/container-->
+
+{% endblock %}
