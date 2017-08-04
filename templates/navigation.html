@@ -14,6 +14,7 @@
       <ul class="nav navbar-nav">
         <li><a class="nav-item nav-link" href="{{url_for('recipes')}}"><i class="fa fa-spoon" aria-hidden="true"></i>&nbsp;Recipes</a></li>
         <li><a class="nav-item nav-link" href="{{url_for('messages')}}"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Messages</a></li>
+        <li><a class="nav-item nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Vault</a></li>
         {% if current_user.confirmed and current_user.is_authenticated %}
           <li><a class="nav-item nav-link" href="{{ url_for('profile') }}">Profile</a></li>
         {% elif current_user.is_authenticated %}
