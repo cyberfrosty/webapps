@@ -147,11 +147,11 @@
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "small shallot, diced"},
     "item2": {"quantity": "1 tbsp", "ingredient": "ginger, fresh grated or minced"},
-    "item3": {"quantity": "1/2 tsp", "ingredient": "chipotle chilli"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "thai seasoning"},
     "item4": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
     "item6": {"quantity": "1 tsp", "ingredient": "thai red chilli paste"},
-    "item7": {"quantity": "1/4 cup", "ingredient": "cilantro"},
+    "item7": {"quantity": "1/4 cup", "ingredient": "cilantro (optional)"},
     "item8": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item9": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item10": {"quantity": "2/3 lb", "ingredient": "shrimp"},
@@ -162,7 +162,7 @@
     "step1": "Peel shrimp under running water, set aside",
     "step2": "Heat olive oil in wok, add shallot and ginger sautee for a minute or two",
     "step3": "Add chili's, sesame oil and shrimp, cook for 5 minutes covered, stirring several times to coat shrimp",
-    "step4": "Remove from heat, add cilantro, mix and serve over noodles with lime wedge"
+    "step4": "Remove from heat, add lime juice, cilantro, mix and serve over noodles with lime wedge"
   }
 },
 {
@@ -294,15 +294,17 @@
     "item5": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
     "item6": {"quantity": "1 1/2 cup", "ingredient": "white flour"},
     "item7": {"quantity": "1/2 cup", "ingredient": "oats and/or muesli"},
-    "item8": {"quantity": "1 tsp", "ingredient": "baking powder"},
-    "item9": {"quantity": "1 tsp", "ingredient": "baking soda"},
-    "item10": {"quantity": "2", "ingredient": "bananas"},
-    "item11": {"quantity": "1/4 cup", "ingredient": "pecan pieces (optional)"},
-    "item12": {"quantity": "3 tbsp", "ingredient": "milk"}
+    "item8": {"quantity": "1/4 cup", "ingredient": "white sugar"},
+    "item9": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
+    "item11": {"quantity": "2", "ingredient": "bananas"},
+    "item12: {"quantity": "1/4 cup", "ingredient": "pecaor walnut n pieces (optional)"},
+    "item13: {"quantity": "1/4 cup", "ingredient": "chopped apricots (optional)"},
+    "item14": {"quantity": "3 tbsp", "ingredient": "milk"}
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees",
-    "step2": "Combine flour, oats, baking powder and soda, pecans in mixing bowl",
+    "step2": "Combine flour, oats, sugar, baking powder and soda, (nuts or apricots) in mixing bowl",
     "step3": "In a 2 cup mixing cup beat egg, then measure in oil, add vanialla and buttermilk, blend thoroughly",
     "step4": "Mash bananas in a separate bowl",
     "step5": "Add liquid mixture and bananas to dry ingredients, adding milk to desired consistency. Do not overmix.",
@@ -323,17 +325,18 @@
     "item5": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
     "item6": {"quantity": "1 3/4 cup", "ingredient": "white flour"},
     "item7": {"quantity": "1/2 cup", "ingredient": "oats and/or muesli"},
-    "item8": {"quantity": "1 tsp", "ingredient": "baking powder"},
-    "item9": {"quantity": "1 tsp", "ingredient": "baking soda"},
-    "item10": {"quantity": "1 tbsp", "ingredient": "pumpkin pie spice"},
-    "item11": {"quantity": "1/2 cup", "ingredient": "pumpkin"},
-    "item12": {"quantity": "1/4 cup", "ingredient": "pecan pieces (optional)"},
-    "item13": {"quantity": "1/4 cup", "ingredient": "chocolate chips (optional)"},
-    "item14": {"quantity": "3 tbsp", "ingredient": "milk"}
+    "item8": {"quantity": "1/4 cup", "ingredient": "white sugar"},
+    "item9": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
+    "item11": {"quantity": "1 tbsp", "ingredient": "pumpkin pie spice"},
+    "item12": {"quantity": "1/2 cup", "ingredient": "pumpkin"},
+    "item13": {"quantity": "1/4 cup", "ingredient": "pecan or walnut pieces (optional)"},
+    "item14": {"quantity": "1/4 cup", "ingredient": "chocolate chips (optional)"},
+    "item15": {"quantity": "3 tbsp", "ingredient": "milk"}
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees",
-    "step2": "Combine flour, oats, baking powder and soda in mixing bowl",
+    "step2": "Combine flour, oats, sugar, baking powder and soda in mixing bowl",
     "step3": "Add pecans and chocolate chips if desired",
     "step4": "In a 2 cup mixing cup beat egg, then measure in oil, add vanialla and buttermilk, blend thoroughly",
     "step5": "Add liquid mixture and pumpkin to dry ingredients, adding milk to desired consistency. Do not overmix.",
