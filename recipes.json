@@ -87,7 +87,7 @@
   "instructions": {
     "step1": "Heat non-stick pan or grill to 325-350 degrees",
     "step2": "Rub seasoning into one side of fillet, cook seasoning side down until half done (~6-8 minutes)",
-    "step3": "Flip and finishing cooking until salmon flakes, do not overcook as it will continue cooking after removing from grill"
+    "step3": "Flip and cook just until salmon flakes, do not overcook as it will continue cooking after removing from grill"
   }
 },
 {
@@ -106,6 +106,27 @@
     "step2": "Heat oil in non stick pan to around 325-350 degrees, add potatoes and cover",
     "step3": "Turn a few times until all sides are browned and potatoes are almost cooked, remove cover",
     "step4": "Add seasoning to taste, turn to coat, cook for a few minutes, add bread crumbs, turn to coat and remove from heat"
+  }
+},
+{
+  "title": "Sweet Potato Fries",
+  "chef": "Alan",
+  "category": ["dinner"],
+  "ingredients": {
+    "item1": {"quantity": "2", "ingredient": "large red garnet yams"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "white flour or cornstarch"},
+    "item3": {"quantity": "2-3 tbsp", "ingredient": "olive oil"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
+  },
+  "instructions": {
+    "step1": "Wash, then cut yams into fries, removing any bruised or bad sections",
+    "step2": "Soak yams in cold water for an hour, drain and pat dry",
+    "step3": "Heat oven to 400 degrees, and cover large cooking sheet with foil, spray with non-stick",
+    "step4": "Coat yams with flour or cornstarch using plastic bag",
+    "step5": "In a large mixing bowl drizzle yams with olive oil, sprinkle with seasoning and mix to coat",
+    "step6": "Place evenly on baking sheet and place in oven",
+    "step7": "Cook for 15 minutes, remove from oven, turn fries and cook for 10-15 minutes untils fries are browned"
   }
 },
 {
@@ -298,8 +319,8 @@
     "item9": {"quantity": "1 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
     "item11": {"quantity": "2", "ingredient": "bananas"},
-    "item12: {"quantity": "1/4 cup", "ingredient": "pecaor walnut n pieces (optional)"},
-    "item13: {"quantity": "1/4 cup", "ingredient": "chopped apricots (optional)"},
+    "item12": {"quantity": "1/4 cup", "ingredient": "pecans or walnut pieces (optional)"},
+    "item13": {"quantity": "1/4 cup", "ingredient": "chopped apricots (optional)"},
     "item14": {"quantity": "3 tbsp", "ingredient": "milk"}
   },
   "instructions": {
