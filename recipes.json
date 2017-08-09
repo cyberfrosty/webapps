@@ -222,7 +222,7 @@
     }
   },
   "instructions": {
-    "step1": "Combine orange sauce ingredientes in measuring cup and mix",
+    "step1": "Combine orange sauce ingredients in measuring cup and mix",
     "step2": "Prepare veggies and place into wok",
     "step3": "Add oil to large non-stick skillet and pre-heat over medium heat",
     "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
@@ -271,7 +271,7 @@
     }
   },
   "instructions": {
-    "step1": "Combine sauce ingredientes in measuring cup and mix",
+    "step1": "Combine sauce ingredients in measuring cup and mix",
     "step2": "Prepare veggies and place into wok",
     "step3": "Add oil to large non-stick skillet and pre-heat over medium heat",
     "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
@@ -280,6 +280,50 @@
     "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
     "step8": "Add sauce mixture to veggies and bring to low boil",
     "step9": "Add chicken to mixture, stir to coat evenly, turn off heat, leave covered for a few minutes",
+    "step10": "Serve over rice, garnish with sesame seeds and green onions"
+  }
+},
+{
+  "title": "Sesame Chicken",
+  "chef": "Alan",
+  "category": ["asian", "chicken", "dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
+    },
+    "section2": {
+      "title":"Sauce",
+      "item1": {"quantity": "1 tbsp", "ingredient": "olive and/or canola oil"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Srirachi"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "Black bean sauce"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "Hoisin sauce"},
+      "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item9": {"quantity": "2 tbsp", "ingredient": "ginger, fresh grated or minced"},
+      "item10": {"quantity": "1", "ingredient": "large shallot"},
+      "item11": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced (optional)"}
+    },
+    "section3": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tsp", "ingredient": "cilantro or green onion tops"}
+    }
+  },
+  "instructions": {
+    "step1": "Add oils for sauce, shallots, and mushrooms to wok",
+    "step2": "Combine the remaining sauce ingredients in measuring cup and mix",
+    "step3": "Add oil to large non-stick skillet and pre-heat over medium heat",
+    "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step5": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
+    "step6": "Turn on wok to medium low, stirring occasionally and kept covered",
+    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step8": "Add sauce mixture to wok and bring to low boil",
+    "step9": "Add chicken to wok, stir to coat evenly, turn off heat, leave uncovered for a few minutes",
     "step10": "Serve over rice, garnish with sesame seeds and green onions"
   }
 },
