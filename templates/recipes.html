@@ -37,22 +37,63 @@
     </div><!--/col-sm-8-->
     <div class="col-sm-3 col-sm-offset-1">
       <div class="sidebar-module-inset">
-        <h4><i class="fa fa-snowflake-o" aria-hidden="true"></i> Recipes</h4>
-        <ol class="list-unstyled">
-          <li><a href="/recipes?recipe=Diced%20Potatoes&category=Potatoes">Potatoes</a></li>
-          <li><a href="/recipes?recipe=Apricot%20Scones&category=Breakfast">Scones</a></li>
-          <li><a href="/recipes?recipe=Swedish%20Pancakes&category=Desert">Desert</a></li>
-          <li><a href="/recipes?recipe=Strawberry%20Pancakes&category=Breakfast">Pancakes</a></li>
-          <li><a href="/recipes?recipe=Buttermilk%20Waffles&category=Breakfast">Waffles</a></li>
-          <li><a href="/recipes?recipe=Korean%20Meatballs&category=Turkey">Turkey</a></li>
-          <li><a href="/recipes?recipe=Orange%20Chicken&category=Chicken">Chicken</a></li>
-          <li><a href="/recipes?recipe=Asian%20Carrots&category=Vegetables">Vegetables</li>
-          <li><a href="/recipes?recipe=Grilled%20Salmon&category=Salmon">Salmon</li>
-          <li><a href="/recipes?recipe=Cilantro Chile Lime Shrimp&category=Shrimp">Shrimp</a></li>
-        </ol>
+        <button class="accordion">Chicken</button>
+        <div class="panel">
+          <p><a href="/recipes?recipe=Orange%20Chicken">Orange Chicken</a></p>
+          <p><a href="/recipes?recipe=Szechuan%20Chicken">Szechuan Chicken</a></p>
+          <p><a href="/recipes?recipe=Sesame%20Chicken">Sesame Chicken</a></p>
+          <p><a href="/recipes?recipe=Korean%20Meatballs">Turkey</a></p>
+        </div>
+        <button class="accordion">Breakfast</button>
+        <div class="panel">
+          <a href="/recipes?recipe=Strawberry%20Pancakes">StrawberryPancakes</a><br>
+          <a href="/recipes?recipe=Apricot%20Scones">Apricot Scones</a><br>
+          <a href="/recipes?recipe=Banana Muffins">Buttermilk Waffles</a><br>
+          <a href="/recipes?recipe=Pumpkin Muffins">Pumpkin Waffles</a><br>
+          <a href="/recipes?recipe=Banana Muffins">Banana Muffins</a><br>
+          <a href="/recipes?recipe=Pumpkin Muffins">Pumpkin Muffins</a><br>
+        </div>
+        <button class="accordion">Seafood</button>
+        <div class="panel">
+          <a href="/recipes?recipe=Grilled%20Salmon">Salmon</a><br>
+          <a href="/recipes?recipe=Cilantro Chile Lime Shrimp">Shrimp</a>
+        </div>
+        <button class="accordion">Desert</button>
+        <div class="panel">
+          <a href="/recipes?recipe=Swedish%20Pancakes">Crepes</a>
+        </div>
+        <button class="accordion">Potatoes</button>
+        <div class="panel">
+          <a href="/recipes?recipe=Diced%20Potatoes">Diced Potatoes</a><br>
+          <a href="/recipes?recipe=Sweet Potato Fries">Sweet Potato Fries</a>
+        </div>
+        <button class="accordion">Vegetables</button>
+        <div class="panel">
+          <a href="/recipes?recipe=Asian%20Carrots">Asian Carrots</a>
+        </div>
       </div><!--/siderbar-module-inset-->
     </div><!--/col-sm-3-->
   </div><!--/row-->
 </div><!--/container-->
+
+<script>
+/**
+ * Set up on-click callback for accordian buttons
+ */
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  }
+}
+</script>
 
 {% endblock %}
