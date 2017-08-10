@@ -219,6 +219,7 @@ code {
   color: #353e47;
 }
 
+/* Accordian styles */
 button.accordion {
     background-color: #eee;
     color: #444;
@@ -254,4 +255,18 @@ div.panel {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+.modal-header, h4, .close {
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 15 px;
+}
+.modal-title, h4, .close {
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 15 px;
+}
+.modal-footer {
+    background-color: #f9f9f9;
 }
