@@ -1,14 +1,41 @@
+<!-- Search dialog -->
+<script type="text/javascript">
+  function search() {
+    console.log($("#searchPhrase").val());
+  }
+</script>
+
+<div id="search" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Search</h4>
+      </div>
+      <div class="modal-body">
+        <div>Search:</div>
+          <input id="searchPhrase" type="text"/>
+          <button onclick="search()" data-dismiss="modal">Done</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Navigation -->
 <nav class="navbar navbar-dark navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button class="navbar-toggle collapsed btn-xs" type="button" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+        <i class="fa fa-navicon" aria-hidden="true"></i>
+      </button>
       <a class="navbar-brand" href="/">
         <img src="{{url_for('static', filename='img/kirigami-snowflake.jpg')}}" width="35" height="35"
          href="{{ url_for('index') }}"/>
       </a>
-      <button class="navbar-toggle collapsed btn-xs" type="button" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
-        <i class="fa fa-navicon" aria-hidden="true"></i>
-      </button>
     </div>
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="nav navbar-nav">
@@ -20,17 +47,10 @@
         {% elif current_user.is_authenticated %}
           <li><a class="nav-item nav-link" href="{{ url_for('confirm') }}">Confirm</a></li>
         {% endif %}
+        <li><a class="nav-item nav-link" data-toggle="modal" href="#search"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
         
-      <li><form>
-        <div class="input-group nav-link">
-          <span class="input-group-addon">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </span>
-          <input type="text" class="form-control" placeholder="Search">
-        </div></li>
-      </form>
+      <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
           <li><a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a></li>
         {% else %}
