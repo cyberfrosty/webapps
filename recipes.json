@@ -97,6 +97,41 @@
   }
 },
 {
+  "title": "Pizza",
+  "chef": "Alan",
+  "category": ["italian", "dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Crust",
+        "item1": {"quantity": "1-2 cups", "ingredient": "whole wheat flour"},
+        "item2": {"quantity": "2-3 cups", "ingredient": "white flour"},
+        "item3": {"quantity": "1 pkg", "ingredient": "yeast"},
+        "item4": {"quantity": "2-3 tbsp", "ingredient": "sugar or honey"},
+        "item5": {"quantity": "2-3 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title": "Sauce",
+        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatos"},
+        "item2": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+        "item3": {"quantity": "1 tsp", "ingredient": "oregano"},
+        "item4": {"quantity": "1 tsp", "ingredient": "basil"},
+        "item5": {"quantity": "1 tsp", "ingredient": "thyme"},
+        "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"},
+        "item7": {"quantity": "1 tsp", "ingredient": "mesquite seasoning (optional)"}
+    }
+  },
+  "instructions": {
+    "step1": "Make dough for crust, using bread machine or hand kneaded, coat with olive oil, cover and let rise until double (1-2 hours)",
+    "step2": "In a medium mixing bowl, add crushed tomatos, garlic salt and seasoning",
+    "step3": "Using morter and pestal grind dried herbs, add to sauce mixture and mix, set aside for 20-30 minutes before use",
+    "step4": "Preheat oven to 400 degrees, coat pizza pans with olive oil and sprinkle with corn meal",
+    "step5": "Divide dough in half and form 2 crusts, let rise for 5-10 minutes while oven heats",
+    "step6": "Pre-bake crusts for 10-15 minutes, until some browning starts, make small cuts after 5 minutes to help prevent bubbles",
+    "step7": "Let crust cool for a few minutes, spread with sauce, add toppings and cheese to taste",
+    "step8": "Bake until cheese is starting to brown, cool on rack, cut into slices and enjoy"
+  }
+},
+{
   "title": "Grilled Salmon",
   "chef": "Alan",
   "category": ["salmon", "dinner"],
