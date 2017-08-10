@@ -1,7 +1,7 @@
 [{
   "title": "Swedish Pancakes",
   "chef": "Susan",
-  "category": ["desert"],
+  "category": ["dessert"],
   "ingredients": {
     "item1": {"quantity": "1 cup", "ingredient": "four"},
     "item2": {"quantity": "2 tsp", "ingredient": "sugar"},
@@ -37,6 +37,27 @@
     "step1": "Wash and cut carrots into 1 cm slices, add oil and carrots to wok, cover and heat to 325-350 degrees",
     "step2": "Cook for 15-20 minutes covered until carrots begin to soften, add shallot, ginger and garlic",
     "step3": "When carrots are at desired softness, add teriyaki sauce, stir to coat thoroughly and remove from heat"
+  }
+},
+{
+  "title": "Roasted Cauliflower",
+  "chef": "Alan",
+  "category": ["asian", "vegatables","dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1 head", "ingredient": "Cauliflower"},
+    "item2": {"quantity": "5 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "seasoned bread crumbs"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "cilantro (optional)"},
+    "item8": {"quantity": "1", "ingredient": "lemon or lime cut into wedges (optional)"}
+  },
+  "instructions": {
+    "step1": "Wash and cut/break cauliflower into small florets, add oil and cauliflower to wok",
+    "step2": "Cook for 5-10 minutes covered over medium-high heat until cauliflower begins to brown, stirring a couple times",
+    "step3": "Remove lid and continue to cook, stirring every few minutes until florets turn golden brown",
+    "step4": "Add garlic, seasoning, and bread crumbs, cook for about 1 minute stirring constantly, remove from heat and server with lemon/lime wedges or chopped cilantro"
   }
 },
 {
@@ -176,8 +197,8 @@
     "item8": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item9": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item10": {"quantity": "2/3 lb", "ingredient": "shrimp"},
-    "item11": {"quantity": "1", "ingredient": "lime"},
-    "item12": {"quantity": "1 pkg", "ingredient": "udon, soba or rice noodles"}
+    "item11": {"quantity": "1 pkg", "ingredient": "udon, soba or rice noodles"},
+    "item12": {"quantity": "1", "ingredient": "lime cut into wedges"}
   },
   "instructions": {
     "step1": "Peel shrimp under running water, set aside",
@@ -311,7 +332,7 @@
     "section3": {
       "title":"Garnish",
       "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
-      "item2": {"quantity": "1 tsp", "ingredient": "cilantro or green onion tops"}
+      "item2": {"quantity": "1 tbsp", "ingredient": "cilantro or green onion tops"}
     }
   },
   "instructions": {
