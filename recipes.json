@@ -173,10 +173,10 @@
     "item2": {"quantity": "1/4 cup", "ingredient": "white flour or 2 tbsp cornstarch"},
     "item3": {"quantity": "2-3 tbsp", "ingredient": "olive oil"},
     "item4": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
-    "item4": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
-    "item4": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
-    "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
-    "item5": {"quantity": "1 tsp", "ingredient": "sea salt"}
+    "item5": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
+    "item7": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
+    "item8": {"quantity": "1 tsp", "ingredient": "sea salt"}
   },
   "instructions": {
     "step1": "Wash, then cut yams into fries, removing any bruised or bad sections",
