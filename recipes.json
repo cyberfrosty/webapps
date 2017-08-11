@@ -147,6 +147,24 @@
   }
 },
 {
+  "title": "Salmon Patties",
+  "chef": "Alan",
+  "category": ["salmon", "dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1+ lbs", "ingredient": "leftover seasoned salmon fillets"},
+    "item2": {"quantity": "1", "ingredient": "egg"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "panko bread crumbs"},
+    "item4": {"quantity": "2-3 tbsp", "ingredient": "cooking oil"}
+  },
+  "instructions": {
+    "step1": "Beat egg, add leftover salmon, mix thoroughly, add bread crumbs and form into patties",
+    "step2": "Chill for an hour (optional and patties may be frozen for future use)",
+    "step3": "Heat oil in non-stick pan to 325-350 degrees",
+    "step4": "Add patties to pan, cook uncovered for 5 minutes per side, turning carefully when browned",
+    "step5": "Serve with ranch or favorite sauce"
+  }
+},
+{
   "title": "Thai Baked Salmon",
   "chef": "Alan",
   "category": ["dinner"],
@@ -176,7 +194,7 @@
   "category": ["breakfast", "dinner"],
   "ingredients": {
     "item1": {"quantity": "2-3", "ingredient": "large russet or golden potatoes"},
-    "item2": {"quantity": "2-3 tbsp", "ingredient": "cooking oil"},
+    "item2": {"quantity": "3-4 tbsp", "ingredient": "cooking oil"},
     "item3": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
     "item4": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
