@@ -147,6 +147,30 @@
   }
 },
 {
+  "title": "Thai Baked Salmon",
+  "chef": "Alan",
+  "category": ["dinner"],
+  "ingredients": {
+    "item1": {"quantity": "2+ lbs", "ingredient": "salmon fillet"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
+    "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item4": {"quantity": "1 tsp", "ingredient": "thai seasoning"},
+    "item5": {"quantity": "1 tsp", "ingredient": "thai red chilli paste"},
+    "item6": {"quantity": "1-2 tsp", "ingredient": "Sriracha"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "sweet chilli sauce, hoisin or sweet and sour sauce"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item9": {"quantity": "1/4 cup", "ingredient": "cilantro"},
+    "item10": {"quantity": "1", "ingredient": "lime cut into wedges"}
+  },
+  "instructions": {
+    "step1": "Heat oven to 400 degrees, cover large cooking sheet with foil and spray with non-stick",
+    "step2": "Combine suace ingredients in a bowl and mix thorougly",
+    "step3": "Place salmon fillet on foil, spread sauce mixture evenly",
+    "step4": "Cover with foil, and bake for 15-20 minutes until salmon flakes, remove from oven and let rest 10 minutes",
+    "step5": "Serve with lime wedge and cilantro"
+  }
+},
+{
   "title": "Diced Potatoes",
   "chef": "Alan",
   "category": ["breakfast", "dinner"],
