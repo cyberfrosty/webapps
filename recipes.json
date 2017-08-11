@@ -170,19 +170,23 @@
   "category": ["dinner"],
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "large red garnet yams"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "white flour or cornstarch"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "white flour or 2 tbsp cornstarch"},
     "item3": {"quantity": "2-3 tbsp", "ingredient": "olive oil"},
     "item4": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
-    "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
+    "item4": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
+    "item4": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
+    "item5": {"quantity": "1 tsp", "ingredient": "sea salt"}
   },
   "instructions": {
     "step1": "Wash, then cut yams into fries, removing any bruised or bad sections",
     "step2": "Soak yams in cold water for an hour, drain and pat dry",
-    "step3": "Heat oven to 400 degrees, and cover large cooking sheet with foil, spray with non-stick",
+    "step3": "Heat oven to 400-425 degrees, cover large cooking sheet with foil and spray with non-stick",
     "step4": "Coat yams with flour or cornstarch using plastic bag",
     "step5": "In a large mixing bowl drizzle yams with olive oil, sprinkle with seasoning and mix to coat",
     "step6": "Place evenly on baking sheet and place in oven",
-    "step7": "Cook for 15 minutes, remove from oven, turn fries and cook for 10-15 minutes untils fries are browned"
+    "step7": "Cook for 15 minutes, remove from oven, turn fries and cook for 10-15 minutes untils fries are browned",
+    "step8": "Sprinkle with sea salt and enjoy"
   }
 },
 {
