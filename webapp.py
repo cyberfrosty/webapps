@@ -11,6 +11,8 @@ Implementation of Web server using Flask framework
 import socket
 from datetime import datetime
 import time
+from urlparse import urlparse
+import pytz
 
 from flask import Flask, make_response, request, render_template, redirect, jsonify, abort, flash, url_for
 from flask_mail import Mail, Message
@@ -30,6 +32,9 @@ SESSIONS = DynamoDB(CONFIG, CONFIG.get('sessions'))
 RECIPE_MANAGER = RecipeManager(CONFIG)
 RECIPE_MANAGER.load_recipes('recipes.json')
 
+SERVER_VERSION = '0.1'
+SERVER_START = int((datetime.now(tz=pytz.utc) -
+                    datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
 MAX_FAILURES = 3
 LOGIN_MANAGER = LoginManager()
 application = Flask(__name__, static_url_path="")
@@ -225,6 +230,16 @@ def index():
     """ Show main landing page
     """
     return render_template('index.html')
+
+@application.route('/api/server.info')
+def server_info():
+    """ Return server status information
+    """
+    url_fields = urlparse(request.url)
+    timestamp = int((datetime.now(tz=pytz.utc) -
+                     datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
+    uptime = timestamp - SERVER_START
+    return jsonify({'server': url_fields.netloc, 'version': SERVER_VERSION, 'uptime': uptime})
 
 @application.route('/recipes', methods=['GET'])
 def recipes():
