@@ -6,12 +6,13 @@
   function viewVault() {
     console.log("viewVault");
     console.log(hashword("yuki", "madman"));
-    var mcf = deriveKey("madman");
+    var mcf = deriveKey($("#vpassword").val());
     var fields = mcf.split("$");
     if (fields.length > 4 && fields[1] === "pbkdf2") {
       var key = forge.util.decode64(fields[4]);
       var ciphertext = encryptAESGCM(key, "secrets in my vault");
       console.log(decryptAESGCM(key, ciphertext));
+      document.getElementById("vault").value = decryptAESGCM(key, ciphertext);
     }
   }
 </script>
@@ -20,7 +21,6 @@
   <div class="page-header">
     <h3>Vault</h3>
   </div>
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#viewVault">View</button>
   <!-- Modal -->
   <div id="viewVault" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -31,7 +31,7 @@
         </div>
         <div class="modal-body">
           <div>Enter Password:</div>
-            <input id="password" type="password" autocomplete="current-password"/>
+            <input id="vpassword" type="password" autocomplete="current-password"/>
             <button class="btn btn-primary" type="submit"onclick="viewVault()" data-dismiss="modal"><i class="fa fa-unlock" aria-hidden="true"></i></button>
           </div>
         </div>
@@ -45,14 +45,8 @@
         <div class="col-sm-1">
           <input type="checkbox">
         </div>
-        <div class="col-sm-3">
-          <p>Site</p>
-        </div>
-        <div class="col-sm-3">
-          <p>Username</p>
-        </div>
-        <div class="col-sm-3">
-          <p>Password</p>
+        <div class="col-sm-9">
+          <textarea id="vault">Encrypted content</textarea>
         </div>
       </div>
     </div><!--/col-sm-10-->
@@ -62,11 +56,24 @@
         <ol class="list-unstyled">
           <li>Delete</li>
           <li>Edit</li>
-          <li><button onclick="viewVault()">View</button></li>
+          <li><button type="button" data-toggle="modal" data-target="#viewVault">View</button></li>
         </ol>
       </div><!--/siderbar-module-inset-->
     </div><!--/col-sm-3-->
   </div><!--/row-->
 </div><!--/container-->
+
+<script type="text/javascript">
+  $(document).keyup(function (e) {
+    if ($("vpassword:focus") && (e.keyCode === 13)) {
+       $("#viewVault").modal("hide");
+       e.preventDefault();
+       return false;
+    }
+  });
+  $("body").on("shown.bs.modal", "#viewVault", function () {
+    $("input:visible:enabled:first", this).focus();
+  });
+</script>
 
 {% endblock %}
