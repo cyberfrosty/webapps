@@ -3,7 +3,7 @@
   "chef": "Susan",
   "category": ["dessert"],
   "ingredients": {
-    "item1": {"quantity": "1 cup", "ingredient": "four"},
+    "item1": {"quantity": "1 cup", "ingredient": "flour"},
     "item2": {"quantity": "2 tsp", "ingredient": "sugar"},
     "item3": {"quantity": "3", "ingredient": "eggs"},
     "item4": {"quantity": "2 1/4 cup", "ingredient": "milk"},
@@ -11,7 +11,7 @@
   },
   "instructions": {
     "step1": "Blend ingredients and let sit in fridge for at least 20 minutes",
-    "step2": "Heat crepe or medium non-stick skillet on medium",
+    "step2": "Heat crepe or non-stick skillet on medium heat",
     "step3": "Melt a small amount of butter in pan for each crepe",
     "step4": "Pour batter in pan to desired size",
     "step5": "Cook until edges are golden and crepe is easily flipped",
@@ -22,7 +22,7 @@
 {
   "title": "Asian Carrots",
   "chef": "Alan",
-  "category": ["asian", "vegatables","dinner"],
+  "category": ["asian", "vegetables","dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
@@ -42,7 +42,7 @@
 {
   "title": "Roasted Cauliflower",
   "chef": "Alan",
-  "category": ["asian", "vegatables","dinner"],
+  "category": ["asian", "vegetables","dinner"],
   "ingredients": {
     "item1": {"quantity": "1 head", "ingredient": "Cauliflower"},
     "item2": {"quantity": "5 tbsp", "ingredient": "olive oil"},
@@ -74,8 +74,8 @@
     },
     "section2": {
       "title": "Marinara Sauce",
-        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatos"},
-        "item2": {"quantity": "1 medium can", "ingredient": "diced tomatos"},
+        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
+        "item2": {"quantity": "1 medium can", "ingredient": "diced tomatoes"},
         "item3": {"quantity": "1 small can", "ingredient": "tomato paste"},
         "item4": {"quantity": "4 tbsp", "ingredient": "olive oil"},
         "item5": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
@@ -86,14 +86,14 @@
     }
   },
   "instructions": {
-    "step1": "In a large sauce pan, sautee onion over low heat until edges brown",
-    "step2": "Using morter and pestal grind dried herbs, add along with garlic to sauce pan",
+    "step1": "In a large sauce pan, saute onion over low heat until edges brown",
+    "step2": "Using mortar and pestle grind dried herbs, add along with garlic to sauce pan",
     "step3": "Add tomato products, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
     "step4": "Combine turkey, egg and garlic salt, mixing thoroughly",
     "step5": "Add bread crumbs until desired texture is achieved",
     "step6": "Form into 1\" balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
     "step7": "Cook for another 20-30 minutes stirring gently",
-    "step8": "Serve over pasta with fresh grated parmesan cheese"
+    "step8": "Serve over pasta with fresh grated Parmesan cheese"
   }
 },
 {
@@ -105,13 +105,14 @@
       "title": "Crust",
         "item1": {"quantity": "1-2 cups", "ingredient": "whole wheat flour"},
         "item2": {"quantity": "2-3 cups", "ingredient": "white flour"},
-        "item3": {"quantity": "1 pkg", "ingredient": "yeast"},
+        "item3": {"quantity": "1 tsp", "ingredient": "yeast (same amount for 1 or 2 pizzas)"},
         "item4": {"quantity": "2-3 tbsp", "ingredient": "sugar or honey"},
-        "item5": {"quantity": "2-3 tbsp", "ingredient": "olive oil"}
+        "item5": {"quantity": "2/3 cup", "ingredient": "lukewarm water (per pizza)"},
+        "item6": {"quantity": "2-3 tbsp", "ingredient": "olive oil"}
     },
     "section2": {
       "title": "Sauce",
-        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatos"},
+        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
         "item2": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
         "item3": {"quantity": "1 tsp", "ingredient": "oregano"},
         "item4": {"quantity": "1 tsp", "ingredient": "basil"},
@@ -122,8 +123,8 @@
   },
   "instructions": {
     "step1": "Make dough for crust, using bread machine or hand kneaded, coat with olive oil, cover and let rise until double (1-2 hours)",
-    "step2": "In a medium mixing bowl, add crushed tomatos, garlic salt and seasoning",
-    "step3": "Using morter and pestal grind dried herbs, add to sauce mixture and mix, set aside for 20-30 minutes before use",
+    "step2": "In a medium mixing bowl, add crushed tomatoes, garlic salt and seasoning",
+    "step3": "Using mortar and pestle grind dried herbs, add to sauce mixture and mix, set aside for 20-30 minutes before use",
     "step4": "Preheat oven to 400 degrees, coat pizza pans with olive oil and sprinkle with corn meal",
     "step5": "Divide dough in half and form 2 crusts, let rise for 5-10 minutes while oven heats",
     "step6": "Pre-bake crusts for 10-15 minutes, until some browning starts, make small cuts after 5 minutes to help prevent bubbles",
@@ -172,17 +173,17 @@
     "item1": {"quantity": "2+ lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
     "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-    "item4": {"quantity": "1 tsp", "ingredient": "thai seasoning"},
-    "item5": {"quantity": "1 tsp", "ingredient": "thai red chilli paste"},
+    "item4": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
+    "item5": {"quantity": "1 tsp", "ingredient": "Thai red chili paste"},
     "item6": {"quantity": "1-2 tsp", "ingredient": "Sriracha"},
-    "item7": {"quantity": "1 tbsp", "ingredient": "sweet chilli sauce, hoisin or sweet and sour sauce"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "sweet chili sauce, hoisin or sweet and sour sauce"},
     "item8": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
     "item9": {"quantity": "1/4 cup", "ingredient": "cilantro"},
     "item10": {"quantity": "1", "ingredient": "lime cut into wedges"}
   },
   "instructions": {
     "step1": "Heat oven to 400 degrees, cover large cooking sheet with foil and spray with non-stick",
-    "step2": "Combine suace ingredients in a bowl and mix thorougly",
+    "step2": "Combine sauce ingredients in a bowl and mix thoroughly",
     "step3": "Place salmon fillet on foil, spread sauce mixture evenly",
     "step4": "Cover with foil, and bake for 15-20 minutes until salmon flakes, remove from oven and let rest 10 minutes",
     "step5": "Serve with lime wedge and cilantro"
@@ -227,7 +228,7 @@
     "step4": "Coat yams with flour or cornstarch using plastic bag",
     "step5": "In a large mixing bowl drizzle yams with olive oil, sprinkle with seasoning and mix to coat",
     "step6": "Place evenly on baking sheet and place in oven",
-    "step7": "Cook for 15 minutes, remove from oven, turn fries and cook for 10-15 minutes untils fries are browned",
+    "step7": "Cook for 15 minutes, remove from oven, turn fries and cook for 10-15 minutes until fries are browned",
     "step8": "Sprinkle with sea salt and enjoy"
   }
 },
@@ -270,10 +271,10 @@
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "small shallot, diced"},
     "item2": {"quantity": "1 tbsp", "ingredient": "ginger, fresh grated or minced"},
-    "item3": {"quantity": "1/2 tsp", "ingredient": "thai seasoning"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
     "item4": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
-    "item6": {"quantity": "1 tsp", "ingredient": "thai red chilli paste"},
+    "item6": {"quantity": "1 tsp", "ingredient": "Thai red chili paste"},
     "item7": {"quantity": "1/4 cup", "ingredient": "cilantro (optional)"},
     "item8": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item9": {"quantity": "1 tbsp", "ingredient": "olive oil"},
@@ -283,7 +284,7 @@
   },
   "instructions": {
     "step1": "Peel shrimp under running water, set aside",
-    "step2": "Heat olive oil in wok, add shallot and ginger sautee for a minute or two",
+    "step2": "Heat olive oil in wok, add shallot and ginger saute for a minute or two",
     "step3": "Add chili's, sesame oil and shrimp, cook for 5 minutes covered, stirring several times to coat shrimp",
     "step4": "Remove from heat, add lime juice, cilantro, mix and serve over noodles with lime wedge"
   }
@@ -301,7 +302,7 @@
     },
     "section2": {
       "title":"Veggies",
-      "item1": {"quantity": "1", "ingredient": "orange bell pepper, julienned or diced"},
+      "item1": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
       "item2": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced"},
       "item3": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
       "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
@@ -349,8 +350,8 @@
     },
     "section2": {
       "title":"Veggies",
-      "item1": {"quantity": "1", "ingredient": "green bell pepper, julienned or diced"},
-      "item2": {"quantity": "1", "ingredient": "red bell pepper, julienned or diced"},
+      "item1": {"quantity": "1", "ingredient": "green bell pepper, julienne or diced"},
+      "item2": {"quantity": "1", "ingredient": "red bell pepper, julienne or diced"},
       "item3": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced"},
       "item4": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
       "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
@@ -444,8 +445,8 @@
   },
   "instructions": {
     "step1": "Combine flour, oats, and baking powder in mixing bowl",
-    "step2": "In a seperate bowl beat egg, then add oil and buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding additional buttermilk to proper consistency. Do not overmix. Let rest 10-30 minutes",
+    "step2": "In a separate bowl beat egg, then add oil and buttermilk and blend thoroughly",
+    "step3": "Add liquid mixture to dry ingredients, adding additional buttermilk to proper consistency. Do not over mix. Let rest 10-30 minutes",
     "step4": "Cook in non-stick skillet at 325-350 degrees"
   }
 },
@@ -472,9 +473,9 @@
   "instructions": {
     "step1": "Preheat oven to 400 degrees",
     "step2": "Combine flour, oats, sugar, baking powder and soda, (nuts or apricots) in mixing bowl",
-    "step3": "In a 2 cup mixing cup beat egg, then measure in oil, add vanialla and buttermilk, blend thoroughly",
+    "step3": "In a 2 cup mixing cup beat egg, then measure in oil, add vanilla and buttermilk, blend thoroughly",
     "step4": "Mash bananas in a separate bowl",
-    "step5": "Add liquid mixture and bananas to dry ingredients, adding milk to desired consistency. Do not overmix.",
+    "step5": "Add liquid mixture and bananas to dry ingredients, adding milk to desired consistency. Do not over mix.",
     "step6": "Spray muffin pan with non-stick spray",
     "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on tops",
     "step8": "Bake for 20-22 minutes"
@@ -505,8 +506,8 @@
     "step1": "Preheat oven to 400 degrees",
     "step2": "Combine flour, oats, sugar, baking powder and soda in mixing bowl",
     "step3": "Add pecans and chocolate chips if desired",
-    "step4": "In a 2 cup mixing cup beat egg, then measure in oil, add vanialla and buttermilk, blend thoroughly",
-    "step5": "Add liquid mixture and pumpkin to dry ingredients, adding milk to desired consistency. Do not overmix.",
+    "step4": "In a 2 cup mixing cup beat egg, then measure in oil, add vanilla and buttermilk, blend thoroughly",
+    "step5": "Add liquid mixture and pumpkin to dry ingredients, adding milk to desired consistency. Do not over mix.",
     "step6": "Spray muffin pan with non-stick spray",
     "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on tops",
     "step8": "Bake for 20-22 minutes"
@@ -528,8 +529,8 @@
   },
   "instructions": {
     "step1": "Combine flour, oats, baking powder and soda in mixing bowl",
-    "step2": "In a seperate bowl beat egg, then mix in oil, add buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistency. Do not overmix. Let rest 10-30 minutes",
+    "step2": "In a separate bowl beat egg, then mix in oil, add buttermilk and blend thoroughly",
+    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistency. Do not over mix. Let rest 10-30 minutes",
     "step4": "Cook in non-stick waffle iron",
     "step5": "Serve with honey, maple or berry syrup"
   }
@@ -551,8 +552,8 @@
   },
   "instructions": {
     "step1": "Combine flour, oats, baking powder and spice in mixing bowl",
-    "step2": "In a seperate bowl beat egg, then mix in oil and pumpkin, add buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistency. Do not overmix. Let rest 10-30 minutes",
+    "step2": "In a separate bowl beat egg, then mix in oil and pumpkin, add buttermilk and blend thoroughly",
+    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistency. Do not over mix. Let rest 10-30 minutes",
     "step4": "Cook in non-stick waffle iron",
     "step5": "Serve with honey, maple or berry syrup"
   }
@@ -567,7 +568,7 @@
     "item3": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
     "item4": {"quantity": "1 1/2 cups", "ingredient": "white flour"},
     "item5": {"quantity": "1/4 cup", "ingredient": "sugar"},
-    "item6": {"quantity": "2 tsps", "ingredient": "baking powder"},
+    "item6": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
     "item8": {"quantity": "1/4 cup", "ingredient": "chilled butter"},
     "item9": {"quantity": "1/2 cup", "ingredient": "chopped apricots"},
