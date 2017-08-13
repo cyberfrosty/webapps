@@ -29,9 +29,8 @@
       <button class="navbar-toggle collapsed btn-xs" type="button" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
         <i class="fa fa-navicon" aria-hidden="true"></i>
       </button>
-      <a class="navbar-brand" href="/">
-        <img src="{{url_for('static', filename='img/kirigami-snowflake.jpg')}}" width="35" height="35"
-         href="{{ url_for('index') }}"/>
+      <a class="navbar-brand" href="{{ url_for('index') }}"/>
+        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
       </a>
     </div>
     <div class="collapse navbar-collapse" id="mynavbar">

@@ -7,11 +7,15 @@
     <h3>Frosty Web</h3>
   </div>
   <div class="row">
-    <div class="col-md-8">
-      <p>An image goes here</p>
-    </div>
     <div class="col-md-4">
-      <p>Text goes here</p>
+      <p>Take a look at the recipes page for delicious selection of healthy choices</p>
+    </div>
+    <div class="col-md-8">
+      <img  src="{{url_for("static", filename="img/GlacierLake.jpg")}} alt="Glacier Lake"
+        srcset="{{url_for("static", filename="img/GlacierLake.jpg")}} 1120w,
+                {{url_for("static", filename="img/GlacierLake-medium.jpg")}} 720w,
+                {{url_for("static", filename="img/GlacierLake-small.jpg")}} 400w"
+        sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw"> 
     </div>
   </div>
   <hr/>
