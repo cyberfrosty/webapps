@@ -1,6 +1,7 @@
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
+  box-sizing: border-box;
   position: relative;
   min-height: 100%;
 }
@@ -9,6 +10,26 @@ body {
   padding-top: 35px;
   padding-bottom: 40px;
 }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Layout For Smaller Screens */
+img {
+  display: block;
+  margin: 0 auto 0 auto; /* Centred */
+  width: 100%;
+}
+
+/* Layout For Larger Screens */
+@media screen and (min-width: 40em) {
+  img {
+    padding: 0 2em 0 2em;
+    width: 66.6%;
+  }
+}
+
 td {
   padding: 6px;
   border-bottom: 1px solid #ddd;
