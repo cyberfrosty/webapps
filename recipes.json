@@ -51,20 +51,68 @@
     "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
-    "item8": {"quantity": "1/2 tsp", "ingredient": "tumeric"},
-    "item9": {"quantity": "1/2 tsp", "ingredient": "cardamon"},
-    "item10": {"quantity": "1/2 tsp", "ingredient": "ginger"},
-    "item11": {"quantity": "1/2 cup", "ingredient": "beer, wine or chicken stock"},
-    "item12": {"quantity": "1 tbsp", "ingredient": "vinegar"},
-    "item13": {"quantity": "1 tbsp", "ingredient": "cilantro and/or toasted almond slices (optional)"}
+    "item8": {"quantity": "1/2 tsp", "ingredient": "ginger"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "tumeric"},
+    "item10": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
+    "item11": {"quantity": "1/4 tsp", "ingredient": "coriander"},
+    "item12": {"quantity": "1/4 tsp", "ingredient": "cloves"},
+    "item13": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
+    "item14": {"quantity": "1/4 tsp", "ingredient": "allspice"},
+    "item15": {"quantity": "1/2 cup", "ingredient": "beer, wine or chicken stock"},
+    "item16": {"quantity": "1 tbsp", "ingredient": "vinegar"},
+    "item17": {"quantity": "1 tbsp", "ingredient": "cilantro and/or toasted almond slices (optional)"}
   },
   "instructions": {
-    "step1": "Mix dry spices in mortar or small bowl",
+    "step1": "Mix dry spices in mortar or small bowl (note that Ras El Hanut may be used for most spice)",
     "step2": "Cut meat into 1/2 inch cubes and place into a medium bowl",
     "step3": "Massage meat with the spice rub, then cover with plastic wrap and put into the fridge for a couple of hours – ideally overnight",
-    "step4": "Heat olive oil in medium fry pan and cook meat for 5-10 minutes covered over medium-high heat until outside is to browned",
+    "step4": "Heat olive oil in medium fry pan and cook meat for 5-10 minutes over medium-high heat until outside is browned",
     "step5": "Add liquids, bring to boil, reduce heat and simmer covered for 2 hours, adding liquid if needed",
     "step6": "Remove lid and continue cooking until liquid becomes sauce, remove from heat and serve over rice or couscous with garnish"
+  }
+},
+{
+  "title": "Moroccan Meatballs",
+  "chef": "Alan",
+  "category": ["mediterranean", "dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+        "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+        "item2": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+        "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+        "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+        "item5": {"quantity": "1/2 cup", "ingredient": "Panko"},
+        "item6": {"quantity": "2 tbsp", "ingredient": "coriander, chopped (optional)"},
+        "item7": {"quantity": "1", "ingredient": "egg"}
+    },
+    "section2": {
+      "title": "Moroccan Sauce",
+        "item1": {"quantity": "3 tbsp", "ingredient": "olive oil"},
+        "item2": {"quantity": "1", "ingredient": "onion, chopped)"},
+        "item3": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
+        "item4": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+        "item5": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
+        "item6": {"quantity": "1/2 tsp", "ingredient": "ginger"},
+        "item7": {"quantity": "1/2 tsp", "ingredient": "tumeric"},
+        "item8": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
+        "item9": {"quantity": "1/4 tsp", "ingredient": "coriander"},
+        "item10": {"quantity": "1/4 tsp", "ingredient": "cloves"},
+        "item11": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
+        "item12": {"quantity": "1/4 tsp", "ingredient": "allspice"},
+        "item13": {"quantity": "1/2 cup", "ingredient": "vegatable or chicken stock"},
+        "item14": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
+        "item15": {"quantity": "1 tbsp", "ingredient": "cilantro and/or toasted almond slices (optional)"}
+    }
+  },
+  "instructions": {
+    "step1": "In a large sauce pan, saute onion in olive oil over low heat until edges brown",
+    "step2": "Mix dry spices in mortar or small bowl (note that Ras El Hanut may be used for most spice)",
+    "step3": "Add crushed tomatoes, stock, spices, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
+    "step4": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
+    "step5": "Form into 1\" balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
+    "step7": "Cook for another 20-30 minutes stirring gently",
+    "step6": "Remove from heat and serve over rice or couscous with garnish"
   }
 },
 {
@@ -140,11 +188,10 @@
     "step1": "In a large sauce pan, saute onion over low heat until edges brown",
     "step2": "Using mortar and pestle grind dried herbs, add along with garlic to sauce pan",
     "step3": "Add tomato products, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
-    "step4": "Combine turkey, egg and garlic salt, mixing thoroughly",
-    "step5": "Add bread crumbs until desired texture is achieved",
-    "step6": "Form into 1\" balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
-    "step7": "Cook for another 20-30 minutes stirring gently",
-    "step8": "Serve over pasta with fresh grated Parmesan cheese"
+    "step4": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
+    "step5": "Form into 1\" balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
+    "step6": "Cook for another 20-30 minutes stirring gently",
+    "step7": "Serve over pasta with fresh grated Parmesan cheese"
   }
 },
 {
