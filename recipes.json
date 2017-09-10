@@ -63,6 +63,44 @@
   }
 },
 {
+  "title": "Tacos with Guacamole",
+  "chef": "Alan",
+  "category": ["mexican", "dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Meat Crumbles",
+        "item1": {"quantity": "1 lb", "ingredient": "ground turkey (85-93% lean)"},
+        "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+        "item3": {"quantity": "1/3 cup", "ingredient": "onion, chopped)"},
+        "item4": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
+        "item5": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+        "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+        "item7": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+        "item8": {"quantity": "1 tsp", "ingredient": "oregano"},
+        "item9": {"quantity": "1-2 tsp", "ingredient": "chili powder"},
+        "item10": {"quantity": "1 tsp", "ingredient": "mesquite seasoning (optional)"}
+    },
+    "section2": {
+      "title": "Guacamole",
+        "item1": {"quantity": "1", "ingredient": "avocado"},
+        "item2": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
+        "item3": {"quantity": "2 tbsp", "ingredient": "Pace picante or other salsa"},
+        "item4": {"quantity": "1/4 tsp", "ingredient": "garlic salt"},
+        "item5": {"quantity": "1 or 2", "ingredient": "fresh tomatoes, diced"},
+        "item6": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, diced"}
+    }
+  },
+  "instructions": {
+    "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
+    "step2": "Mix dry spices in mortar or small bowl",
+    "step3": "Add meat to pan and cook until browned, flipping and chopping to make crumbles",
+    "step4": "Add dry spices and mix thoroughly to coat meat crumbles",
+    "step5": "Add garlic and Sambal Oelek or Chili Garlic Sauce, turn off stove heat and mix thoroughly as the pan cools down",
+    "step7": "Serve in a tortilla with cheese, lettuce, tomotoes, cilantro, salsa and guacamole as desired",
+    "step8": "Meat crumbles may be mixed with refried beans or served in a bowl with black beans and rice"
+  }
+},
+{
   "title": "Red Lamb",
   "chef": "Alan",
   "category": ["mediterranean", "dinner"],
