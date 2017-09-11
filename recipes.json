@@ -71,7 +71,7 @@
       "title": "Meat Crumbles",
         "item1": {"quantity": "1 lb", "ingredient": "ground turkey (85-93% lean)"},
         "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
-        "item3": {"quantity": "1/3 cup", "ingredient": "onion, chopped)"},
+        "item3": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
         "item4": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
         "item5": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
         "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
@@ -84,7 +84,7 @@
       "title": "Guacamole",
         "item1": {"quantity": "1", "ingredient": "avocado"},
         "item2": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
-        "item3": {"quantity": "2 tbsp", "ingredient": "Pace picante or other salsa"},
+        "item3": {"quantity": "2 tbsp", "ingredient": "Picante or other salsa"},
         "item4": {"quantity": "1/4 tsp", "ingredient": "garlic salt"},
         "item5": {"quantity": "1 or 2", "ingredient": "fresh tomatoes, diced"},
         "item6": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, diced"}
@@ -96,7 +96,7 @@
     "step3": "Add meat to pan and cook until browned, flipping and chopping to make crumbles",
     "step4": "Add dry spices and mix thoroughly to coat meat crumbles",
     "step5": "Add garlic and Sambal Oelek or Chili Garlic Sauce, turn off stove heat and mix thoroughly as the pan cools down",
-    "step7": "Serve in a tortilla with cheese, lettuce, tomotoes, cilantro, salsa and guacamole as desired",
+    "step7": "Serve in a tortilla with cheese, lettuce, tomatoes, cilantro, salsa and guacamole as desired",
     "step8": "Meat crumbles may be mixed with refried beans or served in a bowl with black beans and rice"
   }
 },
@@ -113,7 +113,7 @@
     "item6": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
     "item8": {"quantity": "1/2 tsp", "ingredient": "ginger"},
-    "item9": {"quantity": "1/2 tsp", "ingredient": "tumeric"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "turmeric"},
     "item10": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
     "item11": {"quantity": "1/4 tsp", "ingredient": "coriander"},
     "item12": {"quantity": "1/4 tsp", "ingredient": "cloves"},
@@ -155,13 +155,13 @@
         "item4": {"quantity": "1/2 tsp", "ingredient": "cumin"},
         "item5": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
         "item6": {"quantity": "1/2 tsp", "ingredient": "ginger"},
-        "item7": {"quantity": "1/2 tsp", "ingredient": "tumeric"},
+        "item7": {"quantity": "1/2 tsp", "ingredient": "turmeric"},
         "item8": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
         "item9": {"quantity": "1/4 tsp", "ingredient": "coriander"},
         "item10": {"quantity": "1/4 tsp", "ingredient": "cloves"},
         "item11": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
         "item12": {"quantity": "1/4 tsp", "ingredient": "allspice"},
-        "item13": {"quantity": "1/2 cup", "ingredient": "vegatable or chicken stock"},
+        "item13": {"quantity": "1/2 cup", "ingredient": "vegetable or chicken stock"},
         "item14": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
         "item15": {"quantity": "1 tbsp", "ingredient": "cilantro and/or toasted almond slices (optional)"}
     }
@@ -215,7 +215,7 @@
   "instructions": {
     "step1": "Using mortar and pestle grind dried herbs and seeds",
     "step2": "Mix all ingredients until evenly distributed, add additional breadcrumbs as needed",
-    "step3": "Pre heat non stick skiilet on medium heat",
+    "step3": "Preheat non stick skillet on medium heat",
     "step4": "Form into patties about 2 inches in diameter and 1/2 inch thick and place into skillet",
     "step5": "Cook for about 5 minutes per side until browned and done"
   }
@@ -286,7 +286,7 @@
     "step3": "Using mortar and pestle grind dried herbs, add to sauce mixture and mix, set aside for 20-30 minutes before use",
     "step4": "Preheat oven to 400 degrees, coat pizza pans with olive oil and sprinkle with corn meal",
     "step5": "Divide dough in half and form 2 crusts, let rise for 5-10 minutes while oven heats",
-    "step6": "Pre-bake crusts for 10-15 minutes, until some browning starts, make small cuts after 5 minutes to help prevent bubbles",
+    "step6": "Pre bake crusts for 10-15 minutes, until some browning starts, make small cuts after 5 minutes to help prevent bubbles",
     "step7": "Let crust cool for a few minutes, spread with sauce, add toppings and cheese to taste",
     "step8": "Bake until cheese is starting to brown, cool on rack, cut into slices and enjoy"
   }
@@ -412,7 +412,7 @@
       "title":"Spicy Apricot Glaze",
       "item1": {"quantity": "1/2 cup", "ingredient": "apricot jam"},
       "item2": {"quantity": "2 tsp", "ingredient": "soy sauce"},
-      "item3": {"quantity": "2 tsp", "ingredient": "Srirachi"}
+      "item3": {"quantity": "2 tsp", "ingredient": "Sriracha"}
     }
   },
   "instructions": {
@@ -486,7 +486,7 @@
   "instructions": {
     "step1": "Combine orange sauce ingredients in measuring cup and mix",
     "step2": "Prepare veggies and place into wok",
-    "step3": "Add oil to large non-stick skillet and pre-heat over medium heat",
+    "step3": "Add oil to large non-stick skillet and preheat over medium heat",
     "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
     "step5": "Place chicken into skillet and turn up heat to medium-high",
     "step6": "Turn heat to medium for veggies, stirring occasionally and kept covered",
@@ -524,7 +524,7 @@
       "item2": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
       "item3": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
       "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Srirachi"}
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Sriracha"}
     },
     "section4": {
       "title":"Garnish",
@@ -535,7 +535,7 @@
   "instructions": {
     "step1": "Combine sauce ingredients in measuring cup and mix",
     "step2": "Prepare veggies and place into wok",
-    "step3": "Add oil to large non-stick skillet and pre-heat over medium heat",
+    "step3": "Add oil to large non-stick skillet and preheat over medium heat",
     "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
     "step5": "Place chicken into skillet and turn up heat to medium-high",
     "step6": "Turn heat to medium for veggies, stirring occasionally and kept covered",
@@ -562,9 +562,9 @@
       "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
       "item3": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
       "item4": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "Srirachi"},
-      "item6": {"quantity": "1 tbsp", "ingredient": "Black bean sauce"},
-      "item7": {"quantity": "1 tbsp", "ingredient": "Hoisin sauce"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "black bean sauce"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "hoisin sauce"},
       "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item9": {"quantity": "2 tbsp", "ingredient": "ginger, fresh grated or minced"},
       "item10": {"quantity": "1", "ingredient": "large shallot"},
@@ -579,7 +579,7 @@
   "instructions": {
     "step1": "Add oils for sauce, shallots, and mushrooms to wok",
     "step2": "Combine the remaining sauce ingredients in measuring cup and mix",
-    "step3": "Add oil to large non-stick skillet and pre-heat over medium heat",
+    "step3": "Add oil to large non-stick skillet and preheat over medium heat",
     "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
     "step5": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
     "step6": "Turn on wok to medium low, stirring occasionally and kept covered",
@@ -636,7 +636,7 @@
     "step4": "Mash bananas in a separate bowl",
     "step5": "Add liquid mixture and bananas to dry ingredients, adding milk to desired consistency. Do not over mix",
     "step6": "Spray muffin pan with non-stick spray",
-    "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on tops",
+    "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on muffin tops",
     "step8": "Bake for 20-22 minutes"
   }
 },
