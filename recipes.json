@@ -51,7 +51,7 @@
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item3": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
-    "item5": {"quantity": "1 tbsp", "ingredient": "ginger, fresh grated or minced"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
     "item6": {"quantity": "2 tbsp", "ingredient": "teriyaki sauce"},
     "item7": {"quantity": "1 tsp", "ingredient": "Chinese or Dijon mustard"},
     "item8": {"quantity": "1/2 tsp", "ingredient": "Red pepper flakes (optional)"}
@@ -86,8 +86,9 @@
         "item2": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
         "item3": {"quantity": "2 tbsp", "ingredient": "Picante or other salsa"},
         "item4": {"quantity": "1/4 tsp", "ingredient": "garlic salt"},
-        "item5": {"quantity": "1 or 2", "ingredient": "fresh tomatoes, diced"},
-        "item6": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, diced"}
+        "item4": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+        "item5": {"quantity": "1 or 2", "ingredient": "fresh tomatoes, diced and drained"},
+        "item6": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
     }
   },
   "instructions": {
@@ -121,7 +122,7 @@
     "item14": {"quantity": "1/4 tsp", "ingredient": "allspice"},
     "item15": {"quantity": "1/2 cup", "ingredient": "beer, wine or chicken stock"},
     "item16": {"quantity": "1 tbsp", "ingredient": "vinegar"},
-    "item17": {"quantity": "1 tbsp", "ingredient": "cilantro and/or toasted almond slices (optional)"}
+    "item17": {"quantity": "1 tbsp", "ingredient": "fresh cilantro and/or toasted almond slices (optional)"}
   },
   "instructions": {
     "step1": "Mix dry spices in mortar or small bowl (note that Ras El Hanut may be used for most spice)",
@@ -163,7 +164,7 @@
         "item12": {"quantity": "1/4 tsp", "ingredient": "allspice"},
         "item13": {"quantity": "1/2 cup", "ingredient": "vegetable or chicken stock"},
         "item14": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
-        "item15": {"quantity": "1 tbsp", "ingredient": "cilantro and/or toasted almond slices (optional)"}
+        "item15": {"quantity": "1 tbsp", "ingredient": "fresh cilantro and/or toasted almond slices (optional)"}
     }
   },
   "instructions": {
@@ -171,7 +172,7 @@
     "step2": "Mix dry spices in mortar or small bowl (note that Ras El Hanut may be used for most spice)",
     "step3": "Add crushed tomatoes, stock, spices, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
     "step4": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
-    "step5": "Form into 1\" balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
+    "step5": "Form into 1 inch balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
     "step6": "Cook for another 20-30 minutes stirring gently, uncovering as desired for sauce consistency",
     "step7": "Remove from heat and serve over rice or couscous with garnish"
   }
@@ -187,7 +188,7 @@
     "item4": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
     "item5": {"quantity": "1/4 cup", "ingredient": "seasoned bread crumbs"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
-    "item7": {"quantity": "1 tbsp", "ingredient": "cilantro (optional)"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"},
     "item8": {"quantity": "1", "ingredient": "lemon or lime cut into wedges (optional)"}
   },
   "instructions": {
@@ -250,7 +251,7 @@
     "step2": "Using mortar and pestle grind dried herbs, add along with garlic to sauce pan",
     "step3": "Add tomato products, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
     "step4": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
-    "step5": "Form into 1\" balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
+    "step5": "Form into 1 inch balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
     "step6": "Cook for another 20-30 minutes stirring gently",
     "step7": "Serve over pasta with fresh grated Parmesan cheese"
   }
@@ -327,7 +328,7 @@
 {
   "title": "Thai Baked Salmon",
   "chef": "Alan",
-  "category": ["dinner"],
+  "category": ["seafood", "dinner"],
   "ingredients": {
     "item1": {"quantity": "2+ lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
@@ -337,7 +338,7 @@
     "item6": {"quantity": "1-2 tsp", "ingredient": "Sriracha"},
     "item7": {"quantity": "1 tbsp", "ingredient": "sweet chili sauce, hoisin or sweet and sour sauce"},
     "item8": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
-    "item9": {"quantity": "1/4 cup", "ingredient": "cilantro"},
+    "item9": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"},
     "item10": {"quantity": "1", "ingredient": "lime cut into wedges"}
   },
   "instructions": {
@@ -417,7 +418,7 @@
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
-    "step2": "In a large bowl mix all the meatball ingredients, form into 1\" balls, place on baking sheet, cook for 20-25 minutes",
+    "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
     "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss until coated",
     "step4": "Garnish with chopped chives or green ends of onions",
     "step5": "Serve over noodles or rice"
@@ -428,13 +429,13 @@
   "chef": "Alan",
   "category": ["shrimp", "dinner"],
   "ingredients": {
-    "item1": {"quantity": "1", "ingredient": "small shallot, diced"},
-    "item2": {"quantity": "1 tbsp", "ingredient": "ginger, fresh grated or minced"},
+    "item1": {"quantity": "1", "ingredient": "small shallot, diced (2 tbsp)"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
     "item3": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
     "item4": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
     "item6": {"quantity": "1 tsp", "ingredient": "Thai red chili paste"},
-    "item7": {"quantity": "1/4 cup", "ingredient": "cilantro (optional)"},
+    "item7": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped (optional)"},
     "item8": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item9": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item10": {"quantity": "2/3 lb", "ingredient": "shrimp"},
@@ -446,6 +447,33 @@
     "step2": "Heat olive oil in wok, add shallot and ginger saute for a minute or two",
     "step3": "Add chili's, sesame oil and shrimp, cook for 5 minutes covered, stirring several times to coat shrimp",
     "step4": "Remove from heat, add lime juice, cilantro, mix and serve over noodles with lime wedge"
+  }
+},
+{
+  "title": "Thai Ginger Soyaki Salmon",
+  "chef": "Alan",
+  "category": ["seafood", "dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
+    "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item4": {"quantity": "1", "ingredient": "small shallot, diced (2 tbsp)"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "Mirin, sherry or white wine"},
+    "item8": {"quantity": "1 tsp", "ingredient": "Sriracha"},
+    "item9": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item10": {"quantity": "2 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
+    "item11": {"quantity": "1 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
+    "item12": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
+    "item13": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
+  },
+  "instructions": {
+    "step1": "Remove skin and cut salmon into 1 inch chunks",
+    "step2": "Combine chili sauces and liquids in measuring cup and mix",
+    "step3": "Heat olive and sesame oil in wok, add shallot and ginger, saute for a minute or two",
+    "step4": "Add thai seasoning, liquid mixture and salmon, cook for 5 minutes covered, stirring gently several times to coat salmon and ensure even cooking",
+    "step5": "Remove from heat as soon as salmon flakes, let rest for a few minutes before serving over rice with sesame seed and cilantro garnish"
   }
 },
 {
@@ -465,7 +493,7 @@
       "item2": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced"},
       "item3": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
       "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item5": {"quantity": "2 tbsp", "ingredient": "ginger, fresh grated or minced"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
       "item6": {"quantity": "1", "ingredient": "large shallot"},
       "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
@@ -514,7 +542,7 @@
       "item3": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced"},
       "item4": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
       "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item6": {"quantity": "2 tbsp", "ingredient": "ginger, fresh grated or minced"},
+      "item6": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
       "item7": {"quantity": "1", "ingredient": "large shallot"},
       "item8": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
@@ -566,14 +594,14 @@
       "item6": {"quantity": "1 tbsp", "ingredient": "black bean sauce"},
       "item7": {"quantity": "1 tbsp", "ingredient": "hoisin sauce"},
       "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item9": {"quantity": "2 tbsp", "ingredient": "ginger, fresh grated or minced"},
+      "item9": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
       "item10": {"quantity": "1", "ingredient": "large shallot"},
       "item11": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced (optional)"}
     },
     "section3": {
       "title":"Garnish",
       "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
-      "item2": {"quantity": "1 tbsp", "ingredient": "cilantro or green onion tops"}
+      "item2": {"quantity": "1 tbsp", "ingredient": "fresh cilantro or green onion tops, chopped"}
     }
   },
   "instructions": {
