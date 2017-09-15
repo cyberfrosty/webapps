@@ -1,7 +1,22 @@
 <!-- Search dialog -->
 <script type="text/javascript">
-  function search() {
-    console.log($("#searchPhrase").val());
+  function searchList() {
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('searchPhrase');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("searchList");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (filter && a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
   }
 </script>
 
@@ -13,9 +28,39 @@
         <h4 class="modal-title">Search</h4>
       </div>
       <div class="modal-body">
-        <div></div>
-          <input id="searchPhrase" type="text"/>
-          <button class="btn btn-primary" type="submit"onclick="search()" data-dismiss="modal"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <div>
+          <input id="searchPhrase" type="text" onkeyup="searchList()" placeholder="Search for recipes.." />
+          <ul id="searchList">
+            <li><a href="/recipes?recipe=Orange%20Chicken&category=Asian">Orange Chicken</a></li>
+            <li><a href="/recipes?recipe=Sesame%20Chicken&category=Asian">Sesame Chicken</a></li>
+            <li><a href="/recipes?recipe=Szechuan%20Chicken&category=Asian">Szechuan Chicken</a></li>
+            <li><a href="/recipes?recipe=Korean%20Meatballs&category=Asian">Korean Meatballs</a></li>
+            <li><a href="/recipes?recipe=Strawberry%20Pancakes&category=Breakfast">StrawberryPancakes</a></li>
+            <li><a href="/recipes?recipe=Apricot%20Scones&category=Breakfast">Apricot Scones</a></li>
+            <li><a href="/recipes?recipe=Buttermilk%20Waffles&category=Breakfast">Buttermilk Waffles</a></li>
+            <li><a href="/recipes?recipe=Pumpkin%20Waffles&category=Breakfast">Pumpkin Waffles</a></li>
+            <li><a href="/recipes?recipe=Banana%20Muffins&category=Breakfast">Banana Muffins</a></li>
+            <li><a href="/recipes?recipe=Pumpkin%20Muffins&category=Breakfast">Pumpkin Muffins</a></li>
+            <li><a href="/recipes?recipe=Turkey%20Sausage&category=Breakfast">Turkey Sausage</a></li>
+            <li><a href="/recipes?recipe=Banana%20Bread&category=Dessert">Banana Bread</a></li>
+            <li><a href="/recipes?recipe=Swedish%20Pancakes&category=Dessert">Crepes</a></li>
+            <li><a href="/recipes?recipe=Fudge%20Brownies&category=Dessert">Fudge Brownies</a></li>
+            <li><a href="/recipes?recipe=Meatball%20Marinara&category=Italian">Meatball Marinara</a></li>
+            <li><a href="/recipes?recipe=Pizza&category=Italian">Pizza</a></li>
+            <li><a href="/recipes?recipe=Moroccan%20Meatballs&category=Mediterranean">Moroccan Meatballs</a></li>
+            <li><a href="/recipes?recipe=Red%20Lamb&category=Mediterranean">Red Lamb</a></li>
+            <li><a href="/recipes?recipe=Roasted%20Cauliflower&category=Mediterranean">Roasted Cauliflower</a></li>
+            <li><a href="/recipes?recipe=Tacos%20with%20Guacamole&category=Mexican">Tacos with Guacamole</a></li>
+            <li><a href="/recipes?recipe=Grilled%20Salmon&category=Seafood">Grilled Salmon</a></li>
+            <li><a href="/recipes?recipe=Cilantro%20Chile%20Lime%20Shrimp&category=Seafood">Chile Lime Shrimp</a></li>
+            <li><a href="/recipes?recipe=Poke%20Bowl&category=Seafood">Poke Bowl</a></li>
+            <li><a href="/recipes?recipe=Salmon%20Patties&category=Seafood">Salmon Patties</a></li>
+            <li><a href="/recipes?recipe=Thai%20Baked%20Salmon&category=Seafood">Thai Baked Salmon</a></li>
+            <li><a href="/recipes?recipe=Thai%20Ginger%20Soyaki%20Salmon&category=Seafood">Thai Ginger Soyaki Salmon</a></li>
+            <li><a href="/recipes?recipe=Asian%20Carrots&category=Vegetables">Asian Carrots</a></li>
+            <li><a href="/recipes?recipe=Diced%20Potatoes&category=Vegetables">Diced Potatoes</a></li>
+            <li><a href="/recipes?recipe=Sweet%20Potato%20Fries&category=Vegetables">Sweet Potato Fries</a></li>
+          </ul>
         </div>
       </div>
     </div>

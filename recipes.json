@@ -1,7 +1,7 @@
 [{
   "title": "Swedish Pancakes",
   "chef": "Susan",
-  "category": ["dessert"],
+  "category": ["Dessert"],
   "ingredients": {
     "item1": {"quantity": "1 cup", "ingredient": "flour"},
     "item2": {"quantity": "2 tsp", "ingredient": "sugar"},
@@ -22,7 +22,7 @@
 {
   "title": "Fudge Brownies",
   "chef": "Susan",
-  "category": ["dessert"],
+  "category": ["Dessert"],
   "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "butter"},
     "item2": {"quantity": "2 ounces", "ingredient": "unsweetened baking chocolate"},
@@ -45,7 +45,7 @@
 {
   "title": "Asian Carrots",
   "chef": "Alan",
-  "category": ["asian", "vegetables","dinner"],
+  "category": ["Asian", "Vegetables","Dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
@@ -65,7 +65,7 @@
 {
   "title": "Tacos with Guacamole",
   "chef": "Alan",
-  "category": ["mexican", "dinner"],
+  "category": ["Mexican", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Meat Crumbles",
@@ -78,7 +78,8 @@
         "item7": {"quantity": "1/2 tsp", "ingredient": "cumin"},
         "item8": {"quantity": "1 tsp", "ingredient": "oregano"},
         "item9": {"quantity": "1-2 tsp", "ingredient": "chili powder"},
-        "item10": {"quantity": "1 tsp", "ingredient": "mesquite seasoning (optional)"}
+        "item10": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
+        "item11": {"quantity": "1 tsp", "ingredient": "mesquite seasoning (optional)"}
     },
     "section2": {
       "title": "Guacamole",
@@ -104,7 +105,7 @@
 {
   "title": "Red Lamb",
   "chef": "Alan",
-  "category": ["mediterranean", "dinner"],
+  "category": ["Mediterranean", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 1/2 pounds", "ingredient": "Lamb or beef, trimmed"},
     "item2": {"quantity": "3 tbsp", "ingredient": "olive oil"},
@@ -136,7 +137,7 @@
 {
   "title": "Moroccan Meatballs",
   "chef": "Alan",
-  "category": ["mediterranean", "dinner"],
+  "category": ["Mediterranean", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Meatballs",
@@ -180,7 +181,7 @@
 {
   "title": "Roasted Cauliflower",
   "chef": "Alan",
-  "category": ["mediterranean", "vegetables", "dinner"],
+  "category": ["Mediterranean", "Vegetables", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 head", "ingredient": "Cauliflower"},
     "item2": {"quantity": "5 tbsp", "ingredient": "olive oil"},
@@ -201,7 +202,7 @@
 {
   "title": "Turkey Sausage",
   "chef": "Alan",
-  "category": ["breakfast", "turkey"],
+  "category": ["Breakfast", "Turkey"],
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "ground turkey (85-93% lean)"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil (only with 93% lean)"},
@@ -224,7 +225,7 @@
 {
   "title": "Meatball Marinara",
   "chef": "Alan",
-  "category": ["italian", "pasta", "turkey", "dinner"],
+  "category": ["Italian", "Pasta", "Turkey", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Meatballs",
@@ -259,7 +260,7 @@
 {
   "title": "Pizza",
   "chef": "Alan",
-  "category": ["italian", "dinner"],
+  "category": ["Italian", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Crust",
@@ -295,7 +296,7 @@
 {
   "title": "Grilled Salmon",
   "chef": "Alan",
-  "category": ["salmon", "dinner"],
+  "category": ["Salmon", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "salmon fillets"},
     "item2": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
@@ -310,11 +311,11 @@
 {
   "title": "Salmon Patties",
   "chef": "Alan",
-  "category": ["salmon", "dinner"],
+  "category": ["Salmon", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "leftover seasoned salmon fillets"},
     "item2": {"quantity": "1", "ingredient": "egg"},
-    "item3": {"quantity": "1/2 cup", "ingredient": "panko bread crumbs"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
     "item4": {"quantity": "2-3 tbsp", "ingredient": "cooking oil"}
   },
   "instructions": {
@@ -328,7 +329,7 @@
 {
   "title": "Thai Baked Salmon",
   "chef": "Alan",
-  "category": ["seafood", "dinner"],
+  "category": ["Seafood", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "2+ lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
@@ -336,7 +337,7 @@
     "item4": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item5": {"quantity": "1 tsp", "ingredient": "Thai red chili paste"},
     "item6": {"quantity": "1-2 tsp", "ingredient": "Sriracha"},
-    "item7": {"quantity": "1 tbsp", "ingredient": "sweet chili sauce, hoisin or sweet and sour sauce"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "sweet chili sauce, Hoisin or sweet and sour sauce"},
     "item8": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
     "item9": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"},
     "item10": {"quantity": "1", "ingredient": "lime cut into wedges"}
@@ -352,7 +353,7 @@
 {
   "title": "Diced Potatoes",
   "chef": "Alan",
-  "category": ["breakfast", "dinner"],
+  "category": ["Breakfast", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "2-3", "ingredient": "large russet or golden potatoes"},
     "item2": {"quantity": "3-4 tbsp", "ingredient": "cooking oil"},
@@ -370,7 +371,7 @@
 {
   "title": "Sweet Potato Fries",
   "chef": "Alan",
-  "category": ["dinner"],
+  "category": ["Dinner"],
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "large red garnet yams"},
     "item2": {"quantity": "1/4 cup", "ingredient": "white flour or 2 tbsp cornstarch"},
@@ -395,7 +396,7 @@
 {
   "title": "Korean Meatballs",
   "chef": "Alan",
-  "category": ["asian", "turkey", "dinner"],
+  "category": ["Asian", "Turkey", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Meatballs",
@@ -427,7 +428,7 @@
 {
   "title": "Poke Bowl",
   "chef": "Alan",
-  "category": ["asian", "seafood", "dinner"],
+  "category": ["Asian", "Seafood", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Poke",
@@ -444,11 +445,11 @@
       "title": "Bowl",
       "item1": {"quantity": "1/2 cup", "ingredient": "cooked brown rice"},
       "item2": {"quantity": "", "ingredient": "seaweed salad"},
-      "item2": {"quantity": "", "ingredient": "sliced avocado"},
-      "item2": {"quantity": "", "ingredient": "sliced cucumber"},
-      "item2": {"quantity": "", "ingredient": "shredded purple cabbage"},
-      "item2": {"quantity": "", "ingredient": "green onions"},
-      "item3": {"quantity": "", "ingredient": "Furikake"}
+      "item3": {"quantity": "", "ingredient": "sliced avocado"},
+      "item4": {"quantity": "", "ingredient": "sliced cucumber"},
+      "item5": {"quantity": "", "ingredient": "shredded purple cabbage"},
+      "item6": {"quantity": "", "ingredient": "green onions"},
+      "item7": {"quantity": "", "ingredient": "Furikake"}
     }
   },
   "instructions": {
@@ -461,7 +462,7 @@
 {
   "title": "Cilantro Chile Lime Shrimp",
   "chef": "Alan",
-  "category": ["shrimp", "dinner"],
+  "category": ["Asian", "Seafood", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "small shallot, diced (2 tbsp)"},
     "item2": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
@@ -486,7 +487,7 @@
 {
   "title": "Thai Ginger Soyaki Salmon",
   "chef": "Alan",
-  "category": ["seafood", "dinner"],
+  "category": ["Asian", "Seafood", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
@@ -513,7 +514,7 @@
 {
   "title": "Orange Chicken",
   "chef": "Alan",
-  "category": ["asian", "chicken", "dinner"],
+  "category": ["Asian", "Chicken", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Chicken",
@@ -561,7 +562,7 @@
 {
   "title": "Szechuan Chicken",
   "chef": "Alan",
-  "category": ["asian", "chicken", "dinner"],
+  "category": ["Asian", "Chicken", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Chicken",
@@ -610,7 +611,7 @@
 {
   "title": "Sesame Chicken",
   "chef": "Alan",
-  "category": ["asian", "chicken", "dinner"],
+  "category": ["Asian", "Chicken", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Chicken",
@@ -626,7 +627,7 @@
       "item4": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
       "item5": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
       "item6": {"quantity": "1 tbsp", "ingredient": "black bean sauce"},
-      "item7": {"quantity": "1 tbsp", "ingredient": "hoisin sauce"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "Hoisin sauce"},
       "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item9": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
       "item10": {"quantity": "1", "ingredient": "large shallot"},
@@ -654,7 +655,7 @@
 {
   "title": "Strawberry Pancakes",
   "chef": "Alan",
-  "category": ["breakfast"],
+  "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "1/4 cup", "ingredient": "diced strawberries"},
@@ -674,7 +675,7 @@
 {
   "title": "Banana Muffins",
   "chef": "Alan",
-  "category": ["breakfast"],
+  "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "1/4 cup", "ingredient": "cooking oil"},
@@ -705,7 +706,7 @@
 {
   "title": "Banana Bread",
   "chef": "Alan",
-  "category": ["dessert"],
+  "category": ["Dessert"],
   "ingredients": {
     "item1": {"quantity": "1 3/4 cups", "ingredient": "white flour"},
     "item2": {"quantity": "1 1/4 tsp", "ingredient": "baking powder"},
@@ -734,7 +735,7 @@
 {
   "title": "Pumpkin Muffins",
   "chef": "Alan",
-  "category": ["breakfast"],
+  "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "1/4 cup", "ingredient": "cooking oil"},
@@ -766,7 +767,7 @@
 {
   "title": "Buttermilk Waffles",
   "chef": "Alan",
-  "category": ["breakfast"],
+  "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
@@ -788,7 +789,7 @@
 {
   "title": "Pumpkin Waffles",
   "chef": "Alan",
-  "category": ["breakfast"],
+  "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "1/4 cup", "ingredient": "pumpkin"},
@@ -811,7 +812,7 @@
 {
   "title": "Apricot Scones",
   "chef": "Alan",
-  "category": ["breakfast"],
+  "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "eggs"},
     "item2": {"quantity": "1/2 cup", "ingredient": "buttermilk"},

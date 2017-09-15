@@ -7,6 +7,20 @@
  */
 
 /**
+ * Initialize search list
+ */
+function searchInit() {
+  var ul, li, i;
+  ul = document.getElementById("searchList");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide until the user initiates a search
+  for (i = 0; i < li.length; i++) {
+    li[i].style.display = "none";
+  }
+}
+
+/**
  * Use HMAC SHA256 to create unique hashed password
  *
  * @param {string} username
