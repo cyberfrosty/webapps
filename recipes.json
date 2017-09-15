@@ -425,6 +425,40 @@
   }
 },
 {
+  "title": "Poke Bowl",
+  "chef": "Alan",
+  "category": ["asian", "seafood", "dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Poke",
+      "item1": {"quantity": "1 lb", "ingredient": "sushi-grade ahi, salmon, or hamachi"},
+      "item2": {"quantity": "2", "ingredient": "green onions"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+      "item4": {"quantity": "2 tsp", "ingredient": "sesame oil"},
+      "item5": {"quantity": "1 tsp", "ingredient": "seasoned rice vinegar or Mirin"},
+      "item6": {"quantity": "1-2 tsp", "ingredient": "Sambal Oelek or Sriracha"},
+      "item6": {"quantity": "1 tsp", "ingredient": "Wasabi (instead of chili or with 1 tsp chili)"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "sesame seeds"}
+    },
+    "section2": {
+      "title": "Bowl",
+      "item1": {"quantity": "1/2 cup", "ingredient": "cooked brown rice"},
+      "item2": {"quantity": "", "ingredient": "seaweed salad"},
+      "item2": {"quantity": "", "ingredient": "sliced avocado"},
+      "item2": {"quantity": "", "ingredient": "sliced cucumber"},
+      "item2": {"quantity": "", "ingredient": "shredded purple cabbage"},
+      "item2": {"quantity": "", "ingredient": "green onions"},
+      "item3": {"quantity": "", "ingredient": "Furikake"}
+    }
+  },
+  "instructions": {
+    "step1": "Cut fish into 2 cm cubes with a sharp knife",
+    "step2": "Combine poke ingredients in a bowl, stir to coat fish and refrigerate for 30 minutes",
+    "step3": "To make a bowl, start with rice cooled to room temperature, then add poke",
+    "step4": "Top with as many ingredients as you want"
+  }
+},
+{
   "title": "Cilantro Chile Lime Shrimp",
   "chef": "Alan",
   "category": ["shrimp", "dinner"],
@@ -650,9 +684,9 @@
     "item6": {"quantity": "1 cup", "ingredient": "white flour"},
     "item7": {"quantity": "1/2 cup", "ingredient": "oats and/or muesli"},
     "item8": {"quantity": "1/4 cup", "ingredient": "white sugar"},
-    "item9": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item9": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
-    "item11": {"quantity": "2", "ingredient": "bananas"},
+    "item11": {"quantity": "1 cup", "ingredient": "ripe bananas"},
     "item12": {"quantity": "1/4 cup", "ingredient": "pecans or walnut pieces (optional)"},
     "item13": {"quantity": "1/4 cup", "ingredient": "chopped apricots (optional)"},
     "item14": {"quantity": "3 tbsp", "ingredient": "milk"}
@@ -669,6 +703,35 @@
   }
 },
 {
+  "title": "Banana Bread",
+  "chef": "Alan",
+  "category": ["dessert"],
+  "ingredients": {
+    "item1": {"quantity": "1 3/4 cups", "ingredient": "white flour"},
+    "item2": {"quantity": "1 1/4 tsp", "ingredient": "baking powder"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
+    "item4": {"quantity": "2/3 cup", "ingredient": "sugar"},
+    "item5": {"quantity": "1/3 cup", "ingredient": "cooking oil"},
+    "item6": {"quantity": "2", "ingredient": "eggs"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "milk"},
+    "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
+    "item9": {"quantity": "1 cup", "ingredient": "ripe bananas"},
+    "item10": {"quantity": "1/4 cup", "ingredient": "pecans or walnut pieces (optional)"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 350 degrees",
+    "step2": "Combine flour, baking powder, baking soda, and sugar in mixing bowl",
+    "step3": "In another mixing bowl beat eggs, oil, and vanilla",
+    "step4": "Mash bananas in a separate bowl",
+    "step5": "Add liquid mixture and bananas to dry ingredients, mixing until smooth. Do not over mix",
+    "step6": "Fold in nuts",
+    "step7": "Spray 8 inch bread pan with non-stick spray",
+    "step8": "Spoon mixture into bread pan",
+    "step9": "Bake for 60-65 minutes, or until toothpick inserted near center comes out clean",
+    "step10": "Cool in pan for 10 minutes, remove from pan and cool. For easier slicing wrap and store overnight."
+  }
+},
+{
   "title": "Pumpkin Muffins",
   "chef": "Alan",
   "category": ["breakfast"],
@@ -681,7 +744,7 @@
     "item6": {"quantity": "1 cup", "ingredient": "white flour"},
     "item7": {"quantity": "1/2 cup", "ingredient": "oats and/or muesli"},
     "item8": {"quantity": "1/3 cup", "ingredient": "white sugar"},
-    "item9": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item9": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
     "item11": {"quantity": "1 tbsp", "ingredient": "pumpkin pie spice"},
     "item12": {"quantity": "1/2 cup", "ingredient": "pumpkin"},
