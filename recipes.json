@@ -43,23 +43,42 @@
   }
 },
 {
-  "title": "Asian Carrots",
+  "title": "Ginger Carrots",
   "chef": "Alan",
   "category": ["Asian", "Vegetables","Dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
-    "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-    "item3": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
     "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
     "item6": {"quantity": "2 tbsp", "ingredient": "teriyaki sauce"},
-    "item7": {"quantity": "1 tsp", "ingredient": "Chinese or Dijon mustard"},
-    "item8": {"quantity": "1/2 tsp", "ingredient": "Red pepper flakes (optional)"}
+    "item7": {"quantity": "1/2 tsp", "ingredient": "Red pepper flakes (optional)"}
   },
   "instructions": {
-    "step1": "Wash and cut carrots into 1 cm slices, add oil and carrots to wok, cover and heat to 325-350 degrees",
-    "step2": "Cook for 15-20 minutes covered until carrots begin to soften, add shallot, ginger and garlic",
-    "step3": "When carrots are at desired softness, add teriyaki sauce, stir to coat thoroughly and remove from heat"
+    "step1": "Wash, trim ends and cut carrots into 1 cm slices",
+    "step2": "In a wok or covered medium sauce pan, saute carrots in olive oil over medium low heat for 15-20 minutes until browned and softening",
+    "step3": "Remove cover, add shallot, ginger and garlic, saute for few minutes",
+    "step3": "Add teriyaki sauce and pepper, stir to coat thoroughly and remove from heat"
+  }
+},
+{
+  "title": "Spicy Cilantro Carrots",
+  "chef": "Alan",
+  "category": ["Mediterranean", "Vegetables","Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
+    "item5": {"quantity": "1 tsp", "ingredient": "Za'atar"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
+    "item7": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"}
+  },
+  "instructions": {
+    "step1": "Wash, trim ends and cut carrots into 1 cm slices",
+    "step2": "In a wok or covered medium sauce pan, saute carrots in olive oil over medium low heat for 15-20 minutes until browned and softening",
+    "step3": "Add spices and stir to coat thoroughly, remove from heat and toss with cilantro"
   }
 },
 {
@@ -115,7 +134,7 @@
     "item6": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
     "item8": {"quantity": "1/2 tsp", "ingredient": "ginger"},
-    "item9": {"quantity": "1/2 tsp", "ingredient": "turmeric"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
     "item10": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
     "item11": {"quantity": "1/4 tsp", "ingredient": "coriander"},
     "item12": {"quantity": "1/4 tsp", "ingredient": "cloves"},
@@ -153,23 +172,24 @@
       "title": "Moroccan Sauce",
         "item1": {"quantity": "3 tbsp", "ingredient": "olive oil"},
         "item2": {"quantity": "1", "ingredient": "onion, chopped)"},
-        "item3": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
-        "item4": {"quantity": "1/2 tsp", "ingredient": "cumin"},
-        "item5": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
-        "item6": {"quantity": "1/2 tsp", "ingredient": "ginger"},
-        "item7": {"quantity": "1/2 tsp", "ingredient": "turmeric"},
-        "item8": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
-        "item9": {"quantity": "1/4 tsp", "ingredient": "coriander"},
-        "item10": {"quantity": "1/4 tsp", "ingredient": "cloves"},
-        "item11": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
-        "item12": {"quantity": "1/4 tsp", "ingredient": "allspice"},
-        "item13": {"quantity": "1/2 cup", "ingredient": "vegetable or chicken stock"},
-        "item14": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
-        "item15": {"quantity": "1 tbsp", "ingredient": "fresh cilantro and/or toasted almond slices (optional)"}
+        "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+        "item4": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
+        "item5": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+        "item6": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
+        "item7": {"quantity": "1/2 tsp", "ingredient": "ginger"},
+        "item8": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
+        "item9": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
+        "item10": {"quantity": "1/4 tsp", "ingredient": "coriander"},
+        "item11": {"quantity": "1/4 tsp", "ingredient": "cloves"},
+        "item12": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
+        "item13": {"quantity": "1/4 tsp", "ingredient": "allspice"},
+        "item14": {"quantity": "1/2 cup", "ingredient": "vegetable or chicken stock"},
+        "item15": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
+        "item16": {"quantity": "1 tbsp", "ingredient": "fresh cilantro and/or toasted almond slices (optional)"}
     }
   },
   "instructions": {
-    "step1": "In a large sauce pan, saute onion in olive oil over low heat until edges brown",
+    "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
     "step2": "Mix dry spices in mortar or small bowl (note that Ras El Hanut may be used for most spice)",
     "step3": "Add crushed tomatoes, stock, spices, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
     "step4": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
@@ -248,7 +268,7 @@
     }
   },
   "instructions": {
-    "step1": "In a large sauce pan, saute onion over low heat until edges brown",
+    "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
     "step2": "Using mortar and pestle grind dried herbs, add along with garlic to sauce pan",
     "step3": "Add tomato products, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
     "step4": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
@@ -507,7 +527,7 @@
     "step1": "Remove skin and cut salmon into 1 inch chunks",
     "step2": "Combine chili sauces and liquids in measuring cup and mix",
     "step3": "Heat olive and sesame oil in wok, add shallot and ginger, saute for a minute or two",
-    "step4": "Add thai seasoning, liquid mixture and salmon, cook for 5 minutes covered, stirring gently several times to coat salmon and ensure even cooking",
+    "step4": "Add Thai seasoning, liquid mixture and salmon, cook for 5 minutes covered, stirring gently several times to coat salmon and ensure even cooking",
     "step5": "Remove from heat as soon as salmon flakes, let rest for a few minutes before serving over rice with sesame seed and cilantro garnish"
   }
 },

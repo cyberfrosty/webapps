@@ -170,6 +170,7 @@ class RecipeManager(object):
         while 'step' + str(index) in instructions:
             item = instructions.get('step' + str(index))
             item = item.replace('degrees', '&#8457;')
+            item = item.replace('saute', 'saut&eacute;')
             if mode == 'make':
                 html += '  <li>' + item + '</li>\n'
             else:
