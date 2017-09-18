@@ -20,6 +20,28 @@
   }
 },
 {
+  "title": "Oven Pancakes",
+  "chef": "Susan",
+  "category": ["Breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "1/4 cup", "ingredient": "flour"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "milk"},
+    "item3": {"quantity": "1", "ingredient": "eggs"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "melted butter"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "cinnamon"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "lemon juice"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "powdered sugar"}
+  },
+  "instructions": {
+    "step1": "Ingredients are for one pancake, make as many as you want by simply adding",
+    "step2": "Preheat oven to 400 degrees",
+    "step3": "Add butter and/or spray 9 inch non-stick cake pans, allowing butter to melt just enough to spread as oven heats",
+    "step4": "In a medium mixing bowl, beat eggs, mix in milk, add cinnamon and flour, mix until",
+    "step5": "Pour batter into pans and cook for 12 minutes",
+    "step6": "Remove from pan, place onto plate, squirt lemon juice evenly and cover with powdered sugar"
+  }
+},
+{
   "title": "Fudge Brownies",
   "chef": "Susan",
   "category": ["Dessert"],
@@ -164,7 +186,7 @@
         "item2": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
         "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
         "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
-        "item5": {"quantity": "1/2 cup", "ingredient": "Panko"},
+        "item5": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
         "item6": {"quantity": "2 tbsp", "ingredient": "coriander, chopped (optional)"},
         "item7": {"quantity": "1", "ingredient": "egg"}
     },
@@ -425,7 +447,7 @@
       "item3": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
       "item4": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
       "item5": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
-      "item6": {"quantity": "1/2 cup", "ingredient": "Panko"},
+      "item6": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
       "item7": {"quantity": "1+ tsp", "ingredient": "garlic salt"},
       "item8": {"quantity": "1", "ingredient": "egg"},
       "item9": {"quantity": "3-4", "ingredient": "green onions"}
@@ -678,7 +700,7 @@
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "diced strawberries"},
+    "item2": {"quantity": "1/3 cup", "ingredient": "diced strawberries and/or blueberries (optional)"},
     "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
     "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
     "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
@@ -688,7 +710,33 @@
   "instructions": {
     "step1": "Combine flour, oats, and baking powder in mixing bowl",
     "step2": "In a separate bowl beat egg, then add oil and buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding additional buttermilk to proper consistency. Do not over mix. Let rest 10-30 minutes",
+    "step3": "Add liquid mixture to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps. Let rest 10-30 minutes, then fold in fruit",
+    "step4": "Cook in non-stick skillet at 325-350 degrees"
+  }
+},
+{
+  "title": "Spicy Pear Pancakes",
+  "chef": "Alan",
+  "category": ["Breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "1", "ingredient": "egg"},
+    "item2": {"quantity": "1/3 cup", "ingredient": "diced pear"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
+    "item7": {"quantity": "1/4 tsp", "ingredient": "ginger"},
+    "item8": {"quantity": "1/4 tsp", "ingredient": "coriander"},
+    "item9": {"quantity": "1/4 tsp", "ingredient": "cloves"},
+    "item10": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
+    "item11": {"quantity": "1/4 tsp", "ingredient": "allspice"},
+    "item12": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
+    "item13": {"quantity": "1/2 cup", "ingredient": "buttermilk"}
+  },
+  "instructions": {
+    "step1": "Combine flour, oats, spices, and baking powder in mixing bowl",
+    "step2": "In a separate bowl beat egg, then add oil and buttermilk and blend thoroughly",
+    "step3": "Add liquid mixture to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps. Let rest 10-30 minutes, then fold in fruit",
     "step4": "Cook in non-stick skillet at 325-350 degrees"
   }
 },
@@ -717,7 +765,8 @@
     "step2": "Combine flour, oats, sugar, baking powder and soda, (nuts or apricots) in mixing bowl",
     "step3": "In a 2 cup mixing cup beat egg, then measure in oil, add vanilla and buttermilk, blend thoroughly",
     "step4": "Mash bananas in a separate bowl",
-    "step5": "Add liquid mixture and bananas to dry ingredients, adding milk to desired consistency. Do not over mix",
+    "step5": "Add liquid mixture and bananas to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps",
+    "step5": "Fold in pecans or apricots if desired",
     "step6": "Spray muffin pan with non-stick spray",
     "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on muffin tops",
     "step8": "Bake for 20-22 minutes"
@@ -744,7 +793,7 @@
     "step2": "Combine flour, baking powder, baking soda, and sugar in mixing bowl",
     "step3": "In another mixing bowl beat eggs, oil, and vanilla",
     "step4": "Mash bananas in a separate bowl",
-    "step5": "Add liquid mixture and bananas to dry ingredients, mixing until smooth. Do not over mix",
+    "step5": "Add liquid mixture and bananas to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps",
     "step6": "Fold in nuts",
     "step7": "Spray 8 inch bread pan with non-stick spray",
     "step8": "Spoon mixture into bread pan",
@@ -776,9 +825,9 @@
   "instructions": {
     "step1": "Preheat oven to 400 degrees",
     "step2": "Combine flour, oats, sugar, baking powder and soda in mixing bowl",
-    "step3": "Add pecans and chocolate chips if desired",
-    "step4": "In a 2 cup mixing cup beat egg, then measure in oil, add vanilla and buttermilk, blend thoroughly",
-    "step5": "Add liquid mixture and pumpkin to dry ingredients, adding milk to desired consistency. Do not over mix",
+    "step3": "In a 2 cup mixing cup beat egg, then measure in oil, add vanilla and buttermilk, blend thoroughly",
+    "step4": "Add liquid mixture and pumpkin to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps",
+    "step5": "Fold in pecans and chocolate chips if desired",
     "step6": "Spray muffin pan with non-stick spray",
     "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on tops",
     "step8": "Bake for 20-22 minutes"
@@ -801,7 +850,7 @@
   "instructions": {
     "step1": "Combine flour, oats, baking powder and soda in mixing bowl",
     "step2": "In a separate bowl beat egg, then mix in oil, add buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistency. Do not over mix. Let rest 10-30 minutes",
+    "step3": "Add liquid mixture to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps. Let rest 10-30 minutes",
     "step4": "Cook in non-stick waffle iron",
     "step5": "Serve with honey, maple or berry syrup"
   }
@@ -824,7 +873,7 @@
   "instructions": {
     "step1": "Combine flour, oats, baking powder and spice in mixing bowl",
     "step2": "In a separate bowl beat egg, then mix in oil and pumpkin, add buttermilk and blend thoroughly",
-    "step3": "Add liquid mixture to dry ingredients, adding milk to desired consistency. Do not over mix. Let rest 10-30 minutes",
+    "step3": "Add liquid mixture to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps. Let rest 10-30 minutes",
     "step4": "Cook in non-stick waffle iron",
     "step5": "Serve with honey, maple or berry syrup"
   }
