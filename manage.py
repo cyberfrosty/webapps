@@ -77,24 +77,24 @@ def stop_server(service, port):
     else:
         print service + ': no process listening on port', port
 
-def start_rest(config):
-    """ Start REST server
+def start_http(config):
+    """ Start HTTP server
     Args:
         config dictionary
     """
-    port = config.get('port', 5000)
+    port = config.get('port', 8080)
     pid = get_pid(port)
     if pid:
-        print 'REST: process', pid, 'already listening on port', port
+        print 'HTTP: process', pid, 'already listening on port', port
     else:
-        subprocess.Popen(['python', 'rest.py'])
+        subprocess.Popen(['python', 'webapp.py'])
 
-def stop_rest(config):
-    """ Stop REST server with SIGTERM
+def stop_http(config):
+    """ Stop HTTP server with SIGTERM
     Args:
         config dictionary
     """
-    port = config.get('port', 5000)
+    port = config.get('port', 8080)
     stop_server('REST', port)
 
 def parse_options():
@@ -111,12 +111,12 @@ def parse_options():
 def start_servers(config):
     """ Start servers
     """
-    start_rest(config)
+    start_http(config)
 
 def stop_servers(config):
     """ Stop servers
     """
-    stop_rest(config)
+    stop_http(config)
 
 def main():
     """ Main program
