@@ -1,5 +1,5 @@
 /**
- * Crypto functions
+ * Crypto and utility functions
  *
  * @author Alan Frost
  *
@@ -19,6 +19,31 @@ function searchInit() {
     li[i].style.display = "none";
   }
 }
+
+// JavaScript form validation utilities
+
+// polyfill for RegExp.escape
+if(!RegExp.escape) {
+  RegExp.escape = function(s) {
+    return String(s).replace(/[\\^$*+?.()|[\]{}]/g, '\\$&');
+  };
+}
+
+function checkPassword(password) {
+  var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  return re.test(password);
+};
+
+function checkUsername(username) {
+  var re = /^([a-zA-Z0-9_-]){4,16}$/;
+  return re.test(username);
+}
+
+function checkEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
 
 /**
  * Use HMAC SHA256 to create unique hashed password

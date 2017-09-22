@@ -3,8 +3,12 @@
 {% block content %}
 
 <h2>User Profile</h2>
-<p>{{ user.get_username() }}</p>
-<p>{{ user.get_name() }}</p>
+<p>
+  <i class="fa fa-user-o fa-fw"></i>
+  {{ user.get_username() }}</p>
+<p>
+  <i class="fa fa-user-secret fa-fw"></i>
+  {{ user.get_name() }}</p>
 <p>
   <i class="fa fa-envelope-o fa-fw"></i>
   {{ user.get_email() }}</p>

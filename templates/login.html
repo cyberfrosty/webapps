@@ -3,30 +3,16 @@
 {% block content %}
 
 <div class="container">
-<form class="form-signin" role="form" method="post" action="">
+<form id="login_form" class="form-signin" role="form" method="POST" action="">
   <h3 class="form-signin-heading">Log In</h3>
   {{ form.csrf_token }}
   <p>
   <i class="fa fa-envelope-o fa-fw"></i>
-  {{ form.username(placeholder="Username or email") }}
-    <span class="error">
-      {% if form.username.errors %}
-        {% for error in form.username.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
+  {{ form.username(id="field_username", placeholder="Username or email") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(placeholder="Password") }}
-    <span class="error">
-      {% if form.password.errors %}
-        {% for error in form.password.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
+  {{ form.password(id="field_password", placeholder="Password") }}
   </p>
   <p>
   <div class="checkbox">

@@ -1,34 +1,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script src="{{url_for('static', filename='js/change.js')}}" type="text/javascript"></script>
 
 <div class="container">
-<form class="form-signin" role="form" method="post" action="">
+<form id="change_password" class="form-signin" role="form" method="post" action="">
   <h3 class="form-signin-heading">Change Password</h3>
 
 <form class="form-reset" role="form" method="post" action="">
   {{ form.csrf_token }}
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(placeholder="password") }}
-    <span class="error">
-      {% if form.password.errors %}
-        {% for error in form.password.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
+  {{ form.password(id="field_password", title="Password must contain at least 6 characters, including UPPER/lowercase and numbers.", placeholder="password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.confirm(placeholder="confirm") }}
-    <span class="error">
-      {% if form.confirm.errors %}
-        {% for error in form.confirm.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
+  {{ form.confirm(id="field_confirm", title="Password must contain at least 6 characters, including UPPER/lowercase and numbers.", placeholder="confirm", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}") }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</button>
   <br /><br />
