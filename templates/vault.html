@@ -68,6 +68,7 @@
     if ($("vpassword:focus") && (e.keyCode === 13)) {
        $("#viewVault").modal("hide");
        e.preventDefault();
+       viewVault();
        return false;
     }
   });
