@@ -29,6 +29,7 @@ def load_config(config_file):
     try:
         with open(config_file) as json_file:
             config = json.load(json_file)
+        print('Loaded', config_file)
     except (IOError, ValueError) as err:
         print('Load of config file failed:', err.message)
 
@@ -120,7 +121,7 @@ class DynamoDB(object):
             response = self.table.get_item(Key={key : value})
             return response['Item']
         except (ClientError, KeyError) as err:
-            return {'error', err.message}
+            return {'error': err.message}
 
     def put_item(self, value):
         """ Create or replace an item in the table.
@@ -171,7 +172,7 @@ class DynamoDB(object):
                             loaded = loaded + 1
                         else:
                             print('Load of user failed: ' + user['id'])
-                return {'message': 'Loaded ' + str(loaded) + ' users'}
+                return {'message': 'Loaded ' + str(loaded) + ' items from ' + infile}
         except (IOError, ValueError) as err:
             return {'error': err.message}
 
