@@ -14,7 +14,7 @@ import time
 from urlparse import urlparse
 import pytz
 
-from flask import Flask, make_response, request, render_template, redirect, jsonify, abort, flash, url_for
+from flask import Flask, make_response, request, render_template, redirect, session, jsonify, abort, flash, url_for, g
 from flask_mail import Mail, Message
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from decorators import async
@@ -50,13 +50,14 @@ application.config['MAIL_USERNAME'] = 'alan@cyberfrosty.com'
 application.config['MAIL_PASSWORD'] = ''
 application.config['MAIL_SUBJECT_PREFIX'] = '[FROSTY]'
 application.config['MAIL_SENDER'] = 'alan@cyberfrosty.com'
+application.config['SESSION_COOKIE_HTTPONLY'] = True
+application.config['REMEMBER_COOKIE_HTTPONLY'] = True
 
 EMAIL_MANAGER = Mail(application)
 LOGIN_MANAGER.init_app(application)
 LOGIN_MANAGER.login_view = "login"
 LOGIN_MANAGER.login_message = "Please login to access this page"
 LOGIN_MANAGER.session_protection = "strong"
-
 
 @async
 def send_async_email(msg):
@@ -68,16 +69,16 @@ def send_async_email(msg):
 class User(object):
     """ Class for the current user
     """
-    def __init__(self, email, username=None, name=None, avatar=None):
+    def __init__(self, email, user=None, name=None, avatar=None):
         """ Constructor
         """
         self._email = email
-        self._username = username or email
-        self._userid = generate_user_id(username)
+        self._user = user or email
+        self._userid = generate_user_id(user)
         self._name = name
         self._avatar = avatar
         self._authenticated = False
-        self._confirmed = False
+        self._active = False
 
     @property
     def is_authenticated(self):
@@ -88,31 +89,27 @@ class User(object):
         self._authenticated = value
 
     @property
-    def is_confirmed(self):
-        return self._confirmed
+    def is_active(self):
+        return self._active
 
-    @is_confirmed.setter
-    def is_confirmed(self, value):
-        self._confirmed = value
+    @is_active.setter
+    def is_active(self, value):
+        self._active = value
 
     def generate_token(self, action):
-        """ Generate timed token, tied to username and action
+        """ Generate timed token, tied to user name and action
         Args:
             action: confirm, reset, delete, etc.
         Return:
             URL safe encoded token
         """
-        return generate_timed_token(self._username, application.config['SECRET_KEY'], action)
+        return generate_timed_token(self._user, application.config['SECRET_KEY'], action)
 
     def validate_token(self, token, action):
         validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
-        if validated and value == self._username:
+        if validated and value == self._user:
             return True
         return False
-
-    @property
-    def is_active(self):
-        return True
 
     @property
     def is_anonymous(self):
@@ -121,18 +118,39 @@ class User(object):
     def get_id(self):
         return self._userid
 
+    def get_username(self):
+        return self._user
+
+    def get_email(self):
+        return self._email
+
+    def get_name(self):
+        return self._name
+
+    def get_avatar(self):
+        return self._avatar
+
 @LOGIN_MANAGER.user_loader
-def load_user(username):
+def load_user(userid):
     """ Load user account details from database
     Args:
         username
     """
-    account = USERS.get_item('id', generate_user_id(username))
-    if 'error' in account:
-        user = User('email', 'username')
-    else:
-        user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
+    mysession = SESSIONS.get_item('id', userid)
+    if 'error' in mysession:
+        account = USERS.get_item('id', userid)
+        if 'error' not in account:
+            print 'loaded user'
+            user = User(account.get('email'), account.get('user'), account.get('name'), account.get('avatar'))
+    elif 'failures' in mysession and mysession.get('failures') == 0:
+            user = User(mysession.get('email'), mysession.get('user'), mysession.get('name'), mysession.get('avatar'))
+            user.is_authenticated = True
+            user.is_active = True
     return user
+
+@LOGIN_MANAGER.unauthorized_handler
+def unauthorized():
+    print 'unauthorized'
 
 def send_email(recipients, subject, template, **kwargs):
     """ Send an email
@@ -148,6 +166,25 @@ def send_email(recipients, subject, template, **kwargs):
     msg.body = render_template(template + '.txt', **kwargs)
     msg.html = render_template(template + '.html', **kwargs)
     send_async_email(msg)
+
+def is_safe_url(target):
+    ref_url = urlparse(request.host_url)
+    test_url = urlparse(urljoin(request.host_url, target))
+    return test_url.scheme in ('http', 'https') and \
+           ref_url.netloc == test_url.netloc
+
+def get_redirect_target():
+    for target in request.values.get('next'), request.referrer:
+        if not target:
+            continue
+        if is_safe_url(target):
+            return target
+
+def redirect_back(endpoint, **values):
+    target = request.form['next']
+    if not target or not is_safe_url(target):
+        target = url_for(endpoint, **values)
+    return redirect(target)
 
 def next_is_valid(url):
     print url
@@ -226,6 +263,7 @@ def server_error(error):
         return make_response(jsonify({'error': str(error)}), 500)
 
 @application.route('/')
+@application.route('/index')
 def index():
     """ Show main landing page
     """
@@ -265,7 +303,7 @@ def vault():
     """
     return render_template('vault.html')
 
-@application.route('/privacy')
+@application.route('/privacy', methods=['GET'])
 def privacy():
     """ Show privacy policy
     """
@@ -319,6 +357,10 @@ def confirm():
 def login():
     """ Login to user account with username/email and password
     """
+    #if current_user and current_user.is_authenticated:
+    #    print 'already logged in'
+        #return redirect(url_for('index'))
+
     form = LoginForm()
     username = request.args.get('username')
     if username:
@@ -330,34 +372,39 @@ def login():
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
             return redirect(url_for('register', username=username))
-        mcf = derive_key(form.password.data, account['mcf'])
-        session = SESSIONS.get_item('id', userid)
-        if session is None:
-            session = {}
-            session['id'] = userid
-        failures = session.get('failures', 0)
+        mcf = derive_key(form.password.data.encode('utf-8'), account['mcf'])
+        mysession = SESSIONS.get_item('id', userid)
+        if 'error' in mysession:
+            del mysession['error']
+            mysession['id'] = userid
+            mysession['user'] = username
+            mysession['email'] = account.get('email')
+            mysession['name'] = account.get('name')
+            mysession['avatar'] = account.get('avatar')
+            mysession['failures'] = 0
+        failures = mysession.get('failures', 0)
         if mcf != account.get('mcf'):
             if failures > MAX_FAILURES:
                 return redirect(url_for('index'))
             else:
                 flash('Unable to validate your credentials.')
-                session['failures'] = failures + 1
-                SESSIONS.put_item(session)
+                mysession['failures'] = failures + 1
+                SESSIONS.put_item(mysession)
             return redirect(url_for('login', username=username))
 
         print 'validated user'
         # Reset failed login counter if needed
         if failures > 0:
-            session['failures'] = 0
-        session['login_at'] = int(time.mktime(datetime.utcnow().timetuple()))
-        SESSIONS.put_item(session)
+            mysession['failures'] = 0
+        mysession['login_at'] = int(time.mktime(datetime.utcnow().timetuple()))
+        SESSIONS.put_item(mysession)
         user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
         user.is_authenticated = True
-        user.is_confirmed = True
+        user.is_active = True
         if login_user(user, remember=form.remember.data):
             flash('Logged in successfully.')
 
-        return redirect(url_for('profile', username=username, name=account.get('name')))
+        return redirect_back('index')
     return render_template('login.html', form=form)
 
 @application.route("/logout")
@@ -459,7 +506,7 @@ def register():
                }
         user = User(form.email.data, form.username.data)
         user.is_authenticated = False
-        user.is_confirmed = False
+        user.is_active = False
         USERS.put_item(info)
         token = generate_timed_token(username, application.config['SECRET_KEY'], 'register')
         send_email(form.email.data, 'Confirm Your Account',
@@ -484,4 +531,5 @@ def main():
     print reason
 
 if __name__ == '__main__':
+    print USERS.load_table('users.json')
     main()
