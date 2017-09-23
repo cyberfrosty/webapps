@@ -150,7 +150,7 @@ def load_user(userid):
 
 @LOGIN_MANAGER.unauthorized_handler
 def unauthorized():
-    print 'unauthorized'
+    abort(401, "You must be logged in to access this page")
 
 def send_email(recipients, subject, template, **kwargs):
     """ Send an email
