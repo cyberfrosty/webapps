@@ -4,20 +4,25 @@
 <script src="{{url_for('static', filename='js/change.js')}}" type="text/javascript"></script>
 
 <div class="container">
-<form id="change_password" class="form-signin" role="form" method="post" action="">
-  <h3 class="form-signin-heading">Change Password</h3>
+<form id="change_form" class="form-signin" role="form" method="post" action="">
+  <center>
+    <h3 class="form-signin-heading">Change Password</h3>
 
 <form class="form-reset" role="form" method="post" action="">
   {{ form.csrf_token }}
   <p>
-  <i class="fa fa-key fa-fw"></i>
-  {{ form.password(id="field_password", title="Password must contain at least 6 characters, including UPPER/lowercase and numbers.", placeholder="password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}") }}
+  {{ form.username(id="username", placeholder="Username or email") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.confirm(id="field_confirm", title="Password must contain at least 6 characters, including UPPER/lowercase and numbers.", placeholder="confirm", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}") }}
+  {{ form.password(id="password", title="Password must contain at least 6 characters, including UPPER/lowercase and numbers.", placeholder="New password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}") }}
   </p>
-  <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</button>
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.confirm(id="confirm", title="Password must contain at least 6 characters, including UPPER/lowercase and numbers.", placeholder="Confirm password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}") }}
+  </p>
+    <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</button>
+  </center>
   <br /><br />
 </form>
 </div>

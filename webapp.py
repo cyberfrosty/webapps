@@ -427,6 +427,10 @@ def change():
     """ Change user account password
     """
     form = ChangePasswordForm()
+    form.username.data = current_user.get_username()
+    if form.validate_on_submit():
+        print form.password.data
+        print form.username.data
     return render_template('change.html', form=form)
 
 @application.route("/resend", methods=['GET', 'POST'])

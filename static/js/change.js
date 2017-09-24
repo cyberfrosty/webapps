@@ -3,7 +3,7 @@
  *
  * @author Alan Frost
  *
- * Copyright (c) 207 Alan Frost
+ * Copyright (c) 2017 Alan Frost
  */
 
   document.addEventListener("DOMContentLoaded", function() {
@@ -22,10 +22,13 @@
         e.preventDefault();
         return;
       }
+      this.password.value = hashPassword(this.username.value, this.password.value);
+      this.confirm.value = this.password.value;
+      return;
     };
 
-    var change_password = document.getElementById("change_password");
-    change_password.addEventListener("submit", checkForm, true);
+    var change_form = document.getElementById("change_form");
+    change_form.addEventListener("submit", checkForm, true);
 
     // HTML5 form validation
 
@@ -36,10 +39,10 @@
     }
 
     if(supports_input_validity()) {
-      var passwordInput = document.getElementById("field_password");
+      var passwordInput = document.getElementById("password");
       passwordInput.setCustomValidity(passwordInput.title);
 
-      var confirmInput = document.getElementById("field_confirm");
+      var confirmInput = document.getElementById("confirm");
 
       // input key handlers
       passwordInput.addEventListener("keyup", function(e) {

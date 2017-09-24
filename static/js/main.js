@@ -30,12 +30,12 @@ if(!RegExp.escape) {
 }
 
 function checkPassword(password) {
-  var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
   return re.test(password);
 };
 
 function checkUsername(username) {
-  var re = /^([a-zA-Z0-9_-]){4,16}$/;
+  var re = /^([a-zA-Z0-9_-]){4,32}$/;
   return re.test(username);
 }
 
@@ -46,13 +46,14 @@ function checkEmail(email) {
 
 
 /**
- * Use HMAC SHA256 to create unique hashed password
+ * Use HMAC SHA256 to create unique hashed password before sending to server to prevent a MITA from seeing
+ * the user's password. The server uses standard PBKDF2 or SCRYPT to hash this.
  *
  * @param {string} username
  * @param {string} password
  * @return {string} hex digest
  */
-function hashword(username, password) {
+function hashPassword(username, password) {
   var hmac = forge.hmac.create();
   hmac.start("sha256", username);
   hmac.update(password);

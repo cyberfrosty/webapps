@@ -3,24 +3,24 @@
 {% block content %}
 
 <div class="container">
-<form class="form-signin" role="form" method="post" action="">
+<form id="register_form" class="form-signin" role="form" method="post" action="">
   <h3 class="form-signin-heading">Sign Up</h3>
   {{ form.csrf_token }}
   <p>
   <i class="fa fa-user-o fa-fw"></i>
-  {{ form.username(id="field_username", placeholder="Username or email", title="Username must be at least 4 characters and contain only letters, numbers and underscores." ) }}
+  {{ form.username(id="username", placeholder="Username or email", title="Username must be at least 4 characters and contain only letters, numbers and underscores." ) }}
   </p>
   <p>
   <i class="fa fa-envelope-o fa-fw"></i>
-  {{ form.email(placeholder="Email addess") }}
+  {{ form.email(id="email", placeholder="Email addess") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(placeholder="Password") }}
+  {{ form.password(id="password", placeholder="Password") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.confirm(placeholder="Confirm password") }}
+  {{ form.confirm(id="confirm", placeholder="Confirm password") }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Sign Up</button>
   <br><br>
