@@ -419,7 +419,10 @@ def logout():
 @application.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
-    return render_template('profile.html', user=current_user)
+    account = USERS.get_item('id', generate_user_id(current_user.get_username()))
+    if not account or 'error' in account:
+        return redirect(url_for('register', username=current_user.get_username()))
+    return render_template('profile.html', account=account)
 
 @application.route("/change", methods=['GET', 'POST'])
 @login_required

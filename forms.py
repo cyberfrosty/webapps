@@ -9,7 +9,7 @@ Implementation of user forms
 """
 import re
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, PasswordField, SubmitField
+from wtforms import BooleanField, HiddenField, PasswordField, StringField, SubmitField
 from wtforms import ValidationError, validators
 from wtforms.fields.html5 import EmailField
 
@@ -35,10 +35,10 @@ class LoginForm(FlaskForm):
     """
     username = StringField('Username or Email', validators=[
         validators.InputRequired(message="* Required"),
-        validators.Length(4, 48)])
+        validators.Length(4, 32)])
     password = PasswordField('Password', validators=[
         validators.InputRequired(message="* Required"),
-        validators.Length(8, 48)])
+        validators.Length(8, 32)])
     remember = BooleanField('Keep me logged in')
     submit = SubmitField('Log In')
 
@@ -75,11 +75,12 @@ class RegistrationForm(FlaskForm):
 class ChangePasswordForm(FlaskForm):
     """ Change password
     """
+    username = HiddenField('Username')
     password = PasswordField('New password', [
         validators.InputRequired(message="* Required"),
         validators.EqualTo('confirm', message='* Passwords must match')
     ])
-    confirm = PasswordField('Verify password', [validators.InputRequired(message="* Required")])
+    confirm = PasswordField('Confirm password', [validators.InputRequired(message="* Required")])
     submit = SubmitField('Change Password')
 
 class PasswordResetRequestForm(FlaskForm):
