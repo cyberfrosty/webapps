@@ -248,12 +248,12 @@
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "ground turkey (85-93% lean)"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil (only with 93% lean)"},
-    "item3": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
-    "item4": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
+    "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
+    "item4": {"quantity": "2 tsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
     "item6": {"quantity": "1/4 tsp", "ingredient": "black pepper (optional)"},
     "item7": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce (optional)"},
-    "item8": {"quantity": "1 tsp", "ingredient": "oregano, fennel, marjoram (optional)"},
+    "item8": {"quantity": "1 tsp", "ingredient": "oregano, fennel, or marjoram (optional)"},
     "item9": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
   },
   "instructions": {
@@ -506,7 +506,7 @@
   "chef": "Alan",
   "category": ["Asian", "Seafood", "Dinner"],
   "ingredients": {
-    "item1": {"quantity": "1", "ingredient": "small shallot, diced (2 tbsp)"},
+    "item1": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
     "item2": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
     "item3": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
     "item4": {"quantity": "1 tsp", "ingredient": "Sriracha"},
@@ -534,16 +534,17 @@
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item3": {"quantity": "1 tbsp", "ingredient": "olive oil"},
-    "item4": {"quantity": "1", "ingredient": "small shallot, diced (2 tbsp)"},
-    "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
-    "item6": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
-    "item7": {"quantity": "1 tbsp", "ingredient": "Mirin, sherry or white wine"},
-    "item8": {"quantity": "1 tsp", "ingredient": "Sriracha"},
-    "item9": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
-    "item10": {"quantity": "2 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
-    "item11": {"quantity": "1 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
-    "item12": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
-    "item13": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
+    "item4": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
+    "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item6": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
+    "item7": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "Mirin, sherry or white wine"},
+    "item9": {"quantity": "1 tsp", "ingredient": "Sriracha"},
+    "item10": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item11": {"quantity": "2-3 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
+    "item12": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+    "item13": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
+    "item14": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
   },
   "instructions": {
     "step1": "Remove skin and cut salmon into 1 inch chunks",
@@ -571,7 +572,7 @@
       "item3": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
       "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
-      "item6": {"quantity": "1", "ingredient": "large shallot"},
+      "item6": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
       "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section3": {
@@ -620,7 +621,7 @@
       "item4": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
       "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item6": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
-      "item7": {"quantity": "1", "ingredient": "large shallot"},
+      "item7": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
       "item8": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section3": {
@@ -672,7 +673,7 @@
       "item7": {"quantity": "1 tbsp", "ingredient": "Hoisin sauce"},
       "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item9": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
-      "item10": {"quantity": "1", "ingredient": "large shallot"},
+      "item10": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
       "item11": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced (optional)"}
     },
     "section3": {
