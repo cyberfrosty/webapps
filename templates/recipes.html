@@ -17,6 +17,8 @@
       {% if recipe %}
         {{ recipe | safe }}
       {% else %}
+        <h4>Family Recipes</h4>
+        <p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon, just healthy and delicious and a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and hot sauce added at the table.
         <h4>Latest Recipes</h4>
         <p><a href="/recipes?recipe=Oven%20Pancakes&category=Breakfast">Oven Pancakes</a> Posted 9/18 by Erika</p>
         <p><a href="/recipes?recipe=Spicy%20Pear%20Pancakes&category=Breakfast">Spicy Pear Pancakes</a> Posted 9/18 by Alan</p>
@@ -77,6 +79,8 @@
         <div class="panel">
           <a href="/recipes?recipe=Ginger%20Carrots&category=Vegetables">Ginger Carrots</a><br>
           <a href="/recipes?recipe=Spicy%20Cilantro%20Carrots&category=Vegetables">Spicy Cilantro Carrots</a><br>
+          <a href="/recipes?recipe=Sesame%20Green%20Beans&category=Vegetables">Sesame Green Beans</a><br>
+          <a href="/recipes?recipe=Spicy%20Green%20Beans&category=Vegetables">Spicy Green Beans</a><br>
           <a href="/recipes?recipe=Diced%20Potatoes&category=Vegetables">Diced Potatoes</a><br>
           <a href="/recipes?recipe=Sweet%20Potato%20Fries&category=Vegetables">Sweet Potato Fries</a>
         </div>
@@ -87,7 +91,7 @@
 
 <script>
 /**
- * Set up on-click callback for accordian buttons
+ * Set up on-click callback for accordion buttons
  */
 var acc = document.getElementsByClassName("accordion");
 var i;

@@ -80,8 +80,50 @@
   "instructions": {
     "step1": "Wash, trim ends and cut carrots into 1 cm slices",
     "step2": "In a wok or covered medium sauce pan, saute carrots in olive oil over medium low heat for 15-20 minutes until browned and softening",
-    "step3": "Remove cover, add shallot, ginger and garlic, saute for few minutes",
+    "step3": "Remove cover, add shallot, ginger and garlic. Saute for few minutes",
     "step3": "Add teriyaki sauce and pepper, stir to coat thoroughly and remove from heat"
+  }
+},
+{
+  "title": "Sesame Green Beans",
+  "chef": "Alan",
+  "category": ["Asian", "Vegetables","Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1 lbs", "ingredient": "Green beans"},
+    "item2": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+    "item4": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+    "item5": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+    "item6": {"quantity": "2 tsp", "ingredient": "sesame seeds"},
+    "item7": {"quantity": "1/4 tsp", "ingredient": "Red pepper flakes (optional)"}
+  },
+  "instructions": {
+    "step1": "Wash, trim ends and cut beans into 3-4 cm pieces, steam until tender",
+    "step2": "In a wok or medium sauce pan, heat sesame oil over medium low heat",
+    "step3": "Add beans and garlic. Saute for a couple minutes",
+    "step4": "Add soy sauce, pepper and sesame seeds, stir to coat thoroughly and remove from heat"
+  }
+},
+{
+  "title": "Spicy Green Beans",
+  "chef": "Alan",
+  "category": ["Asian", "Vegetables","Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1 lbs", "ingredient": "Green beans"},
+    "item2": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "shallot or green onions, diced"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+    "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "soy or teriyaki sauce"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
+    "item8": {"quantity": "2 tsp", "ingredient": "sesame seeds"},
+    "item9": {"quantity": "1/4 tsp", "ingredient": "Red pepper flakes (optional)"}
+  },
+  "instructions": {
+    "step1": "Wash, trim ends and cut beans into 3-4 cm pieces, steam until tender",
+    "step2": "In a wok or medium sauce pan, heat sesame oil over medium low heat",
+    "step3": "Add beans, shallot and garlic. Saute for a couple minutes",
+    "step4": "Add soy sauce, vinegar, chili and sesame seeds, stir to coat thoroughly and remove from heat"
   }
 },
 {
@@ -535,7 +577,7 @@
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item3": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item4": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
-    "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
     "item6": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
     "item7": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item8": {"quantity": "1 tbsp", "ingredient": "Mirin, sherry or white wine"},
