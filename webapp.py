@@ -11,17 +11,17 @@ Implementation of Web server using Flask framework
 import socket
 from datetime import datetime
 import time
-from urlparse import urlparse
+from urlparse import urlparse, urljoin
 import pytz
 
-from flask import Flask, make_response, request, render_template, redirect, session, jsonify, abort, flash, url_for, g
+from flask import Flask, make_response, request, render_template, redirect, session, jsonify, abort, flash, url_for
 from flask_mail import Mail, Message
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from decorators import async
 from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm,
                    PasswordResetRequestForm, PasswordResetForm, ResendConfirmForm)
 from crypto import derive_key
-from utils import generate_timed_token, validate_timed_token, generate_user_id
+from utils import generate_timed_token, validate_timed_token, generate_user_id, preset_password
 from awsutils import load_config, DynamoDB
 from recipe import RecipeManager
 
@@ -74,7 +74,7 @@ class User(object):
         """
         self._email = email
         self._user = user or email
-        self._userid = generate_user_id(user)
+        self._userid = generate_user_id(CONFIG.get('user_id_hmac'), user)
         self._name = name
         self._avatar = avatar
         self._authenticated = False
@@ -97,7 +97,7 @@ class User(object):
         self._active = value
 
     def generate_token(self, action):
-        """ Generate timed token, tied to user name and action
+        """ Generate a timed token, tied to user name and action
         Args:
             action: confirm, reset, delete, etc.
         Return:
@@ -106,6 +106,13 @@ class User(object):
         return generate_timed_token(self._user, application.config['SECRET_KEY'], action)
 
     def validate_token(self, token, action):
+        """ Validate a timed token, tied to user name and action
+        Args:
+            token
+            action: confirm, reset, delete, etc.
+        Return:
+            True or False
+        """
         validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
         if validated and value == self._user:
             return True
@@ -143,13 +150,13 @@ def load_user(userid):
             print 'loaded user'
             user = User(account.get('email'), account.get('user'), account.get('name'), account.get('avatar'))
     elif 'failures' in mysession and mysession.get('failures') == 0:
-            user = User(mysession.get('email'), mysession.get('user'), mysession.get('name'), mysession.get('avatar'))
-            user.is_authenticated = True
-            user.is_active = True
+        user = User(mysession.get('email'), mysession.get('user'), mysession.get('name'), mysession.get('avatar'))
+        user.is_authenticated = True
+        user.is_active = True
     return user
 
 @LOGIN_MANAGER.unauthorized_handler
-def unauthorized():
+def unauthorized_page():
     abort(401, "You must be logged in to access this page")
 
 def send_email(recipients, subject, template, **kwargs):
@@ -322,7 +329,7 @@ def confirm():
     form.username.data = username
     form.token.data = token
     if form.validate_on_submit():
-        userid = generate_user_id(username)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), username)
         account = USERS.get_item('id', userid)
         if account is None:
             return redirect(url_for('register', username=username))
@@ -368,7 +375,7 @@ def login():
     if form.validate_on_submit():
         # Login and validate the user.
         username = form.username.data
-        userid = generate_user_id(username)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), username)
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
             return redirect(url_for('register', username=username))
@@ -419,7 +426,15 @@ def logout():
 @application.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
-    account = USERS.get_item('id', generate_user_id(current_user.get_username()))
+    account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
+    if not account or 'error' in account:
+        return redirect(url_for('register', username=current_user.get_username()))
+    return render_template('profile.html', account=account)
+
+@application.route("/headlines", methods=['GET', 'POST'])
+@login_required
+def headlines():
+    account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
     if not account or 'error' in account:
         return redirect(url_for('register', username=current_user.get_username()))
     return render_template('profile.html', account=account)
@@ -438,7 +453,7 @@ def change():
 
 @application.route("/resend", methods=['GET', 'POST'])
 def resend():
-    """ Regenerate and send an account confirmation code
+    """ Regenerate and send an account invite code
     """
     username = request.args.get('username')
     action = request.args.get('action')
@@ -448,12 +463,27 @@ def resend():
     form.username.data = username
     form.action.data = action
     if form.validate_on_submit():
-        token = generate_timed_token(username, application.config['SECRET_KEY'], 'register')
+        token = generate_timed_token(username, application.config['SECRET_KEY'], 'invite')
         send_email(form.email.data, 'Confirm Your Account',
-                   'email/confirm', username=form.username.data, token=token, action='register')
+                   'email/confirm', username=form.username.data, token=token, action='invite')
         flash('A confirmation email has been sent to ' + form.email.data)
         return redirect(url_for('login', username=form.username.data))
     return render_template('resend.html', form=form)
+
+@application.route("/invite", methods=['GET', 'POST'])
+def invite():
+    """ Invite a new user to join
+    """
+    username = request.args.get('username')
+    form = InviteForm()
+    if form.validate_on_submit():
+        password = generate_random_id(12)
+        mcf = preset_password(form.username.data, password)
+        token = generate_timed_token(username, application.config['SECRET_KEY'], 'invite')
+        send_email(form.email.data, 'Reset Your Password',
+                   'email/confirm', username=form.username.data, token=token, action='invite')
+        return redirect(url_for('index'))
+    return render_template('invite.html', form=form)
 
 @application.route("/forgot", methods=['GET', 'POST'])
 def forgot():
@@ -498,11 +528,11 @@ def register():
     if username:
         form.username.data = username
     if request.method == 'POST' and form.validate_on_submit():
-        if USERS.get_item('id', generate_user_id(form.email.data)):
+        if USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), form.email.data)):
             flash('Username ' + form.email.data + ' already taken')
             return redirect(url_for('register', username=username, email=email))
         # Create json for new user
-        info = {'id': generate_user_id(form.username.data),
+        info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), form.username.data),
                 'authentication': 'password',
                 'mcf': derive_key(form.password.data),
                 'status': 'pending: ' + time.mktime(datetime.utcnow().timetuple()),

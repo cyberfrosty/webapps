@@ -9,11 +9,13 @@ AWS Utility classes for DynamoDB, SNS and Route 53
 
 from __future__ import print_function
 
+import base64
 import hashlib
 import hmac
 import json
 import boto3
 from botocore.exceptions import ClientError
+from utils import preset_password
 
 CONFIG_DNS_TTL = 60 # TTL (Time To Live) in seconds tells DNS servers how long to cache
 CONFIG_DNS_TYPE = 'A' # A record
@@ -53,7 +55,7 @@ class DynamoDB(object):
         self.table_name = table_name
         self.table = self.dynamodb.Table(table_name)
 
-    def hash_id(self, user):
+    def generate_user_id(self, user):
         """ Use an HMAC to generate a user id to keep DB more secure. This prevents someone from
             looking up users by name or even hash of user name, without using the official API.
         Args:
@@ -61,7 +63,12 @@ class DynamoDB(object):
         Returns:
             hex id
         """
-        return hmac.new(self.config.get('hmac_secret'), user, digestmod=hashlib.sha224).hexdigest()
+        digest = hmac.new(
+            self.config.get('user_id_hmac').encode('utf-8'),
+            user.encode('utf-8'),
+            digestmod=hashlib.sha256
+        ).digest()
+        return base64.b32encode(digest[0:30])
 
     def create_table(self, primary_key):
         """ Create a table.
@@ -166,7 +173,10 @@ class DynamoDB(object):
                 for user in users:
                     if 'user' in user and 'shared_secret' in user:
                         if 'id' not in user:
-                            user['id'] = self.hash_id(user['user'])
+                            user['id'] = self.generate_user_id(user['user'])
+                        if 'password' in user:
+                            user['mcf'] = preset_password(user['user'], user['password'])
+                            del user['password']
                         response = self.put_item(user)
                         if response:
                             loaded = loaded + 1

@@ -20,8 +20,7 @@ import simplejson as json
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 from cryptography.hazmat.primitives.twofactor.hotp import HOTP
 from cryptography.hazmat.primitives.twofactor.totp import TOTP
-from cryptography.hazmat.primitives.hashes import SHA1, SHA224
-from cryptography.hazmat.primitives.hmac import HMAC
+from cryptography.hazmat.primitives.hashes import SHA1
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.twofactor import InvalidToken
 from crypto import derive_key, hkdf_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_sha256, hmac_sha256
@@ -34,7 +33,22 @@ HDKF_INFO = 'frosty.alan'
 HMAC_INFO = 'FROSTY'
 
 def generate_uuid():
+    """ Generate a UUID, urn:uuid:239b6f01-51cf-4901-9af3-881f26a99f21
+    """
     return uuid.uuid4().urn
+
+def preset_password(username, password):
+    """ Preset password for a new user or password reset. HMAC is used to protect the actual password so
+        that when passed from browser/app the password is not in clear text, and also ensures that 2 users
+        with the same password do not pass the same value.
+    Args:
+        username
+        password
+    Return:
+        mcf formatted entry for server side authentication
+    """
+    hashword = base64.b16encode(hmac_sha256(username, password)).lower()
+    return derive_key(hashword)
 
 def create_signed_request(secret, method, path, params, time_stamp):
     """ Create a signed HTTP request
@@ -84,19 +98,6 @@ def validate_signed_request(secret, method, path, params, time_stamp, signature)
     return signed == signature
 
 
-def hash_id(key, user):
-    """ Use an HMAC to generate a user id to keep DB more secure. This prevents someone from
-        looking up users by name or even hash of user name, without using the official API.
-    Args:
-        HMAC key
-        user name
-    Returns:
-        hex id
-    """
-    hmac = HMAC(key, SHA224(), backend=default_backend())
-    hmac.update(user)
-    return base64.b16encode(hmac.finalize())
-
 def get_hmac_signing_key(key, time_stamp):
     """ Get a unique signing key from shared secret and time stamp
     Args:
@@ -105,7 +106,7 @@ def get_hmac_signing_key(key, time_stamp):
     Return:
         32 byte key
     """
-    return hmac_sha256((HMAC_INFO + key).encode('utf-8'), time_stamp)
+    return hmac_sha256(HMAC_INFO + key, time_stamp)
 
 def encrypt_pii(secret, params):
     """ Encrypt PII parameters
@@ -146,6 +147,14 @@ def generate_otp_secret():
     return ''.join(random.choice(chars) for x in range(16))
 
 def verify_hotp_code(secret, code, counter):
+    """ Validate a Google authenticator compatible HOTP code
+    Args:
+        secret: 16 character base32 secret
+        code: 6 digit code that expires in 30 seconds
+        counter: matching integer value
+    Return:
+        True if validation successful
+    """
     correct_counter = None
 
     key = base64.b32decode(secret)
@@ -390,23 +399,38 @@ def validate_address_code(secret, address, identifier):
         code = address
     try:
         code = base64.b32decode(code)
-        hmac = hmac_sha256(secret, code + identifier)
-        return code[5:] == hmac[:5]
+        digest = hmac_sha256(secret, code + identifier)
+        return code[5:] == digest[:5]
     except TypeError:
         return False
 
-def generate_id(size=8, chars='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'):
-    """ Generate a id, default is 8 characters base58
+def generate_random_id(size=8, chars='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'):
+    """ Generate a random id, default is 8 characters base58
     """
     return ''.join(random.choice(chars) for x in range(size))
 
-def generate_user_id(username):
-    """ Generate 48 character base32 user id
+def generate_id(user):
+    """ Hash user name to create a unique identifier
+    Args:
+        user name
+    Returns:
+        Generated 48 character base32 user id
     """
-    # The access code may come in as unicode, which has to be converted before hash
-    if isinstance(username, unicode):
-        username = username.encode('utf-8')
-    digest = hash_sha256(username)
+    if isinstance(user, unicode):
+        user = user.encode('utf-8')
+    digest = hash_sha256(user)
+    return base64.b32encode(digest[0:30])
+
+def generate_user_id(key, user):
+    """ Use an HMAC to generate a user id to keep DB more secure. This prevents someone from
+        looking up users by name or even hash of user name, without using the official API.
+    Args:
+        HMAC key
+        user name
+    Returns:
+        Generated 48 character base32 user id
+    """
+    digest = hmac_sha256(key, user)
     return base64.b32encode(digest[0:30])
 
 def contains_only(input_chars, valid_chars):
@@ -420,7 +444,8 @@ def main():
     """ Unit tests
     """
     print generate_uuid()
-    print generate_user_id('yuki')
+    print preset_password('yuki', 'Madman12')
+    print generate_user_id('server secret to derive user id hmac key', 'yuki')
 
     secret = 'Poyj3ZIdLcSEjWagFBj3VQ9x'
     time_stamp = int((datetime.now(tz=pytz.utc) -

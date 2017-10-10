@@ -275,6 +275,8 @@ def hash_sha1(message):
     Return:
         digest
     """
+    if isinstance(message, unicode):
+        message = message.encode('utf-8')
     digest = hashes.Hash(hashes.SHA1(), backend=default_backend())
     digest.update(message)
     return digest.finalize()
@@ -286,6 +288,8 @@ def hash_sha256(message):
     Return:
         digest
     """
+    if isinstance(message, unicode):
+        message = message.encode('utf-8')
     digest = hashes.Hash(hashes.SHA256(), backend=default_backend())
     digest.update(message)
     return digest.finalize()
@@ -298,6 +302,10 @@ def hmac_sha256(key, message):
     Return:
         digest
     """
+    if isinstance(key, unicode):
+        key = key.encode('utf-8')
+    if isinstance(message, unicode):
+        message = message.encode('utf-8')
     digest = hmac.HMAC(key, hashes.SHA256(), backend=default_backend())
     digest.update(message)
     return digest.finalize()
