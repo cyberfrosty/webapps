@@ -11,7 +11,7 @@ Implementation of Recipe manage
 import simplejson as json
 
 from awsutils import DynamoDB
-from utils import generate_user_id, contains_only
+from utils import generate_id, contains_only
 
 class RecipeManager(object):
     """ Recipe Manager
@@ -62,7 +62,7 @@ class RecipeManager(object):
                 recipes = json.load(json_file)
                 for recipe in recipes:
                     if 'title' in recipe and 'ingredients' in recipe and 'instructions' in recipe:
-                        recipe_id = generate_user_id(recipe['title'])
+                        recipe_id = generate_id(recipe['title'])
                         print "Loaded " + recipe['title']
                         self.recipes[recipe_id] = recipe
         except (IOError, ValueError) as err:
@@ -78,7 +78,7 @@ class RecipeManager(object):
         if len(recipe_id) == 48 and contains_only(recipe_id, '0123456789ABCDEFGHJKMNPQRSTVWXYZ'):
             return self.database.get_item('id', recipe_id)
         else:
-            return self.database.get_item('id', generate_user_id(recipe_id))
+            return self.database.get_item('id', generate_id(recipe_id))
 
     def save_recipe(self, recipe):
         """ Save recipe in Database
@@ -88,7 +88,7 @@ class RecipeManager(object):
             dictionary status
         """
         if 'title' in recipe:
-            recipe_id = generate_user_id(recipe['title'])
+            recipe_id = generate_id(recipe['title'])
             recipe['id'] = recipe_id
             return self.database.put_item(recipe)
         else:
@@ -190,7 +190,7 @@ class RecipeManager(object):
             HTML for recipe
         """
         if len(recipe_id) != 48 or not contains_only(recipe_id, '0123456789ABCDEFGHJKMNPQRSTVWXYZ'):
-            recipe_id = generate_user_id(recipe_id)
+            recipe_id = generate_id(recipe_id)
         if recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
         else:

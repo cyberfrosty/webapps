@@ -14,16 +14,18 @@ from wtforms import ValidationError, validators
 from wtforms.fields.html5 import EmailField
 
 class UserNameValidator(object):
+    """ User name validator
+    """
     def __init__(self, message=None):
         if not message:
             message = u'* Invalid'
         self.message = message
 
     def __call__(self, form, field):
-        len = l = field.data and len(field.data) or 0
-        if len == 0:
+        length = field.data and len(field.data) or 0
+        if length == 0:
             pass
-        elif len < 4 or len > 32:
+        elif length < 4 or length > 32:
             raise ValidationError(self.message)
         elif re.match(r"[^@]+@[^@]+\.[^@]+", field.data) or re.match(r"^[A-Za-z][A-Za-z0-9\._-]*$", field.data):
             pass
@@ -41,6 +43,17 @@ class LoginForm(FlaskForm):
         validators.Length(8, 32)])
     remember = BooleanField('Keep me logged in')
     submit = SubmitField('Log In')
+
+class InviteForm(FlaskForm):
+    """ Invite a new user
+    """
+    email = EmailField('Email Address', [
+        validators.InputRequired(message="* Required"),
+        validators.Email(message="* Invalid")])
+    phone = PasswordField('Phone', validators=[
+        validators.InputRequired(message="* Required"),
+        validators.Length(8, 32)])
+    submit = SubmitField('Invite')
 
 class ConfirmForm(FlaskForm):
     """ Confirm account with token
@@ -62,9 +75,13 @@ class RegistrationForm(FlaskForm):
     """ Register a new account
     """
     username = StringField('Username', [UserNameValidator()])
+    token = StringField('Token', [validators.InputRequired(message="* Required")])
     email = EmailField('Email Address', [
         validators.InputRequired(message="* Required"),
         validators.Email(message="* Invalid")])
+    temp_password = PasswordField('Password', validators=[
+        validators.InputRequired(message="* Required"),
+        validators.Length(8, 32)])
     password = PasswordField('New Password', [
         validators.InputRequired(message="* Required"),
         validators.EqualTo('confirm', message='Passwords must match')
