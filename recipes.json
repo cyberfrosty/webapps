@@ -268,7 +268,7 @@
   "category": ["Mediterranean", "Vegetables", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 head", "ingredient": "Cauliflower"},
-    "item2": {"quantity": "5 tbsp", "ingredient": "olive oil"},
+    "item2": {"quantity": "3 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
     "item4": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
     "item5": {"quantity": "1/4 cup", "ingredient": "seasoned bread crumbs"},
@@ -278,9 +278,30 @@
   },
   "instructions": {
     "step1": "Wash and cut/break cauliflower into small florets, add oil and cauliflower to wok",
-    "step2": "Cook for 5-10 minutes covered over medium-high heat until cauliflower begins to brown, stirring a couple times",
+    "step2": "Cook for about 10 minutes covered over medium-high heat until cauliflower begins to brown, stirring a couple times to keep from browning too much",
     "step3": "Remove lid and continue to cook, stirring every few minutes until florets turn golden brown",
     "step4": "Add garlic, seasoning, and bread crumbs, cook for about 1 minute stirring constantly, remove from heat and serve with lemon/lime wedges or chopped cilantro"
+  }
+},
+{
+  "title": "Sauteed Spinach",
+  "chef": "Alan",
+  "category": ["Mediterranean", "Vegetables", "Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "12-16 ounces", "ingredient": "Baby spinach, fresh and washed"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "3-4", "ingredient": "green onions"},
+    "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "black pepper, fresh ground"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "pine nutes (optional)"},
+    "item9": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes (optional)"}
+  },
+  "instructions": {
+    "step1": "In a large sauce pan, saute onion and garlic in olive oil over low heat for 1-2 minutes",
+    "step2": "Add spinach to pan and cook down, adding pine nuts towards the end",
+    "step3": "Add salt, pepper and lemon juice, stir and cook for 1 minute"
   }
 },
 {
