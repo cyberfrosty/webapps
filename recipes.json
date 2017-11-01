@@ -295,7 +295,7 @@
     "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "black pepper, fresh ground"},
     "item7": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
-    "item8": {"quantity": "1/4 cup", "ingredient": "pine nutes (optional)"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "pine nuts (optional)"},
     "item9": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes (optional)"}
   },
   "instructions": {
@@ -631,11 +631,12 @@
     "section2": {
       "title":"Veggies",
       "item1": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
-      "item2": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced"},
+      "item2": {"quantity": "6-8", "ingredient": "shitake or crimini mushrooms, sliced"},
+      "item6": {"quantity": "1", "ingredient": "shallot or  3-4 green onions, diced (2-3 tbsp)"},
       "item3": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
       "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
-      "item6": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
+      "item6": {"quantity": "1 can", "ingredient": "sliced water chestnuts"},
       "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section3": {
@@ -649,7 +650,7 @@
     "section4": {
       "title":"Garnish",
       "item1": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
-      "item2": {"quantity": "1 tsp", "ingredient": "green onions"}
+      "item2": {"quantity": "1 tsp ", "ingredient": "green onion top, thinly sliced"}
     }
   },
   "instructions": {
@@ -988,7 +989,7 @@
   },
   "instructions": {
     "step1": "Measure ingredients into bread machine baking pan, select basic cycle to raise but not cook. Additional white flour may be needed",
-    "step2": "Remove from baking pan, roll to remove bubbles form into loaf and place into bread pan coated with non-stick sray",
+    "step2": "Remove from baking pan, roll to remove bubbles form into loaf and place into bread pan coated with non-stick spray",
     "step3": "Rolls or buns may be made using 60g sections of dough rolled in small amount of cornmeal for extra crunch",
     "step4": "Cover and let rise for about an hour until dough has doubled in size",
     "step5": "Preheat oven to 350 degrees and bake bread for 35 minutes (rolls for 15-20 minutes)",
