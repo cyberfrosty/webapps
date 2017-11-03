@@ -8,6 +8,7 @@ Implementation of Recipe manage
 
 """
 
+import os
 import simplejson as json
 
 from awsutils import DynamoDB
@@ -148,8 +149,17 @@ class RecipeManager(object):
             HTML
         """
 
+        html = ''
         if 'title' in recipe:
-            html = '<h4>' + recipe['title'] + '</h4>\n'
+            title = recipe['title']
+            image = '/img/' + title.replace(' ', '')
+            small = image + '_small.jpg'
+            medium = image + '_medium.jpg'
+            large = image + '.jpg'
+            if os.path.isfile('static' + large):
+                html += '<img  src="' + large + '" alt="' + title + '"' \
+                        'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w"' \
+                        'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
         html += '<h5><i class="fa fa-list-ul" aria-hidden="true"></i> Ingredients</h5>\n'
         ingredients = recipe['ingredients']
         if 'section1' in ingredients:
