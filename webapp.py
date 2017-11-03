@@ -291,10 +291,9 @@ def recipes():
     """ Show recipes
     """
     recipe = request.args.get('recipe')
-    category = request.args.get('category')
     if recipe is not None:
         html = RECIPE_MANAGER.get_rendered_recipe(recipe)
-        return render_template('recipes.html', recipe=html, category=category)
+        return render_template('recipes.html', recipe=html, category=recipe)
     else:
         return render_template('recipes.html')
 

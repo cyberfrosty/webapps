@@ -18,10 +18,19 @@
         {{ recipe | safe }}
       {% else %}
         <h4>Family Recipes</h4>
-        <p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon, just healthy and delicious and a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and hot sauce added at the table.
-        <h4>Latest Recipes</h4>
-        <p><a href="/recipes?recipe=Oven%20Pancakes&category=Breakfast">Oven Pancakes</a> Posted 9/18 by Erika</p>
-        <p><a href="/recipes?recipe=Spicy%20Pear%20Pancakes&category=Breakfast">Spicy Pear Pancakes</a> Posted 9/18 by Alan</p>
+        <p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious and a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.
+        <h4>Moroccan Meatballs with Spicy Cilantro Carrots</h4>
+        <img  src="{{url_for("static", filename="img/MoroccanMeatballs.jpg")}} alt="Moroccan Meatballs with Spicy Cilantro Carrots"
+          srcset="{{url_for("static", filename="img/MoroccanMeatballs.jpg")}} 1120w,
+                  {{url_for("static", filename="img/MoroccanMeatballs_medium.jpg")}} 720w,
+                  {{url_for("static", filename="img/MoroccanMeatballs_small.jpg")}} 400w"
+          sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw"> 
+        <h4>Sesame Chicken</h4>
+        <img  src="{{url_for("static", filename="img/SesameChicken.jpg")}} alt="Sesame Chicken"
+          srcset="{{url_for("static", filename="img/SesameChicken.jpg")}} 1120w,
+                  {{url_for("static", filename="img/SesameChicken_medium.jpg")}} 720w,
+                  {{url_for("static", filename="img/SesameChicken-small.jpg")}} 400w"
+          sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw"> 
       {% endif %}
     </div><!--/col-sm-8-->
     <div class="col-sm-3 col-sm-offset-1">
@@ -64,7 +73,6 @@
         <div class="panel">
           <a href="/recipes?recipe=Moroccan%20Meatballs&category=Mediterranean">Moroccan Meatballs</a><br>
           <a href="/recipes?recipe=Red%20Lamb&category=Mediterranean">Red Lamb</a><br>
-          <a href="/recipes?recipe=Roasted%20Cauliflower&category=Mediterranean">Roasted Cauliflower</a><br>
         </div>
         <button class="accordion">Mexican</button>
         <div class="panel">
@@ -77,11 +85,12 @@
           <a href="/recipes?recipe=Poke%20Bowl&category=Seafood">Poke Bowl</a><br>
           <a href="/recipes?recipe=Salmon%20Patties&category=Seafood">Salmon Patties</a><br>
           <a href="/recipes?recipe=Thai%20Baked%20Salmon&category=Seafood">Thai Baked Salmon</a><br>
-          <a href="/recipes?recipe=Thai%20Ginger%20Soyaki%20Salmon&category=Seafood">Thai Ginger Soyaki Salmon</a>
+          <a href="/recipes?recipe=Thai%20Soyaki%20Salmon&category=Seafood">Thai Soyaki Salmon</a>
         </div>
         <button class="accordion">Vegetables</button>
         <div class="panel">
           <a href="/recipes?recipe=Ginger%20Carrots&category=Vegetables">Ginger Carrots</a><br>
+          <a href="/recipes?recipe=Roasted%20Cauliflower&category=Mediterranean">Roasted Cauliflower</a><br>
           <a href="/recipes?recipe=Spicy%20Cilantro%20Carrots&category=Vegetables">Spicy Cilantro Carrots</a><br>
           <a href="/recipes?recipe=Sesame%20Green%20Beans&category=Vegetables">Sesame Green Beans</a><br>
           <a href="/recipes?recipe=Sauteed%20Spinach&category=Vegetables">Sauteed Spinach</a><br>
