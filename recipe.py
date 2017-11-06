@@ -150,6 +150,7 @@ class RecipeManager(object):
         """
 
         html = ''
+        image = ''
         if 'title' in recipe:
             title = recipe['title']
             image = '/img/' + title.replace(' ', '')
@@ -160,7 +161,7 @@ class RecipeManager(object):
                 html += '<img  src="' + large + '" alt="' + title + '"' \
                         'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w"' \
                         'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
-        html += '<h5><i class="fa fa-list-ul" aria-hidden="true"></i> Ingredients</h5>\n'
+        html += '<h5><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;Ingredients</h5>\n'
         ingredients = recipe['ingredients']
         if 'section1' in ingredients:
             html += self.render_ingredients(ingredients['section1'])
