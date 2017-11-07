@@ -135,7 +135,7 @@ class RecipeManager(object):
                         quantity = quantity.replace('5/8', '&#8541;')
                     else:
                         quantity = quantity.replace('7/8', '&#8542;')
-            html += '  <li>' + quantity + ' ' + item.get('ingredient') + '</li>\n'
+            html += '  <li itemprop="ingredients">' + quantity + ' ' + item.get('ingredient') + '</li>\n'
             index += 1
 
         html += '</ul>\n'
