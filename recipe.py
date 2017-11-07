@@ -152,6 +152,7 @@ class RecipeManager(object):
         image = ''
         html = '<div class="col-sm-8">\n'
         title = recipe['title']
+        html += '<meta itemprop="url" content="https://cyberfrosty.com/recipe.html?recipe=' + title + '" />\n'
         image = '/img/' + title.replace(' ', '')
         small = image + '_small.jpg'
         medium = image + '_medium.jpg'
@@ -166,12 +167,8 @@ class RecipeManager(object):
                 html += '<h5 itemprop="author"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
             if 'yield' in recipe:
                 html += '<h5 itemprop="recipeYield"><i class="fa fa-group" aria-hidden="true"></i>&nbsp;' + recipe['yield'] + '</h5>\n'
-            if 'preptime' in recipe:
-                html += '<h5 itemprop="prepTime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;' + recipe['preptime'] + '</h5>\n'
-            if 'cooktime' in recipe:
-                html += '<li itemprop="cookTime">' + 'Cook time ' + recipe['cooktime'] + '</li>\n'
-            if 'totaltime' in recipe:
-                html += '<li itemprop="totalTime">' + 'Total time ' + recipe['totaltime'] + '</li>\n'
+            if 'time' in recipe:
+                html += '<h5 itemprop="totalTime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;' + recipe['time'] + '</h5>\n'
             html += '</ul>\n'
             html += '</div><!--/col-sm-3-->\n'
             html += '</div><!--/row-->\n'
