@@ -533,28 +533,27 @@
 {
   "title": "Poke Bowl",
   "chef": "Alan",
+  "yield": "Serves 2",
+  "preptime": "15 minutes",
   "category": ["Asian", "Seafood", "Dinner"],
   "ingredients": {
     "section1": {
       "title": "Poke",
-      "item1": {"quantity": "1 lb", "ingredient": "sushi-grade ahi, salmon, or hamachi"},
+      "item1": {"quantity": "1/2 lb", "ingredient": "sushi-grade ahi, salmon, or hamachi"},
       "item2": {"quantity": "2", "ingredient": "green onions"},
-      "item3": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
-      "item4": {"quantity": "2 tsp", "ingredient": "sesame oil"},
-      "item5": {"quantity": "1 tsp", "ingredient": "seasoned rice vinegar or Mirin"},
-      "item6": {"quantity": "1-2 tsp", "ingredient": "Sambal Oelek or Sriracha"},
-      "item6": {"quantity": "1 tsp", "ingredient": "Wasabi (instead of chili or with 1 tsp chili)"},
-      "item7": {"quantity": "1 tbsp", "ingredient": "sesame seeds"}
+      "item3": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+      "item4": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+      "item5": {"quantity": "1 tsp", "ingredient": "Mirin or seasoned rice vinegar"},
+      "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Sriracha"},
+      "item7": {"quantity": "1 tsp", "ingredient": "Wasabi (instead of chili or with 1 tsp chili)"},
+      "item8": {"quantity": "2 tsp", "ingredient": "sesame seeds"}
     },
     "section2": {
       "title": "Bowl",
-      "item1": {"quantity": "1/2 cup", "ingredient": "cooked brown rice"},
-      "item2": {"quantity": "", "ingredient": "seaweed salad"},
-      "item3": {"quantity": "", "ingredient": "sliced avocado"},
-      "item4": {"quantity": "", "ingredient": "sliced cucumber"},
-      "item5": {"quantity": "", "ingredient": "shredded purple cabbage"},
-      "item6": {"quantity": "", "ingredient": "green onions"},
-      "item7": {"quantity": "", "ingredient": "Furikake"}
+      "item1": {"quantity": "1 cup", "ingredient": "cooked brown rice"},
+      "item2": {"quantity": "1 cup", "ingredient": "seaweed salad, or shredded lettuce"},
+      "item3": {"quantity": "1", "ingredient": "sliced avocado, or cucumber"},
+      "item4": {"quantity": "1/2 tsp", "ingredient": "Furikake"}
     }
   },
   "instructions": {

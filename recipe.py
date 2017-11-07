@@ -149,18 +149,36 @@ class RecipeManager(object):
             HTML
         """
 
-        html = ''
         image = ''
-        if 'title' in recipe:
-            title = recipe['title']
-            image = '/img/' + title.replace(' ', '')
-            small = image + '_small.jpg'
-            medium = image + '_medium.jpg'
-            large = image + '.jpg'
-            if os.path.isfile('static' + large):
-                html += '<img  src="' + large + '" alt="' + title + '"' \
-                        'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w"' \
-                        'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
+        html = '<div class="col-sm-8">\n'
+        title = recipe['title']
+        image = '/img/' + title.replace(' ', '')
+        small = image + '_small.jpg'
+        medium = image + '_medium.jpg'
+        large = image + '.jpg'
+        if os.path.isfile('static' + large):
+            html += '<img  itemprop="image" src="' + large + '" alt="' + title + '"' \
+                    'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w"' \
+                    'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
+            html += '</div><!--/col-sm-8-->\n'
+            html += '<div class="col-sm-3">\n'
+            if 'chef' in recipe:
+                html += '<h5 itemprop="author"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
+            if 'yield' in recipe:
+                html += '<h5 itemprop="recipeYield"><i class="fa fa-group" aria-hidden="true"></i>&nbsp;' + recipe['yield'] + '</h5>\n'
+            if 'preptime' in recipe:
+                html += '<h5 itemprop="prepTime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;' + recipe['preptime'] + '</h5>\n'
+            if 'cooktime' in recipe:
+                html += '<li itemprop="cookTime">' + 'Cook time ' + recipe['cooktime'] + '</li>\n'
+            if 'totaltime' in recipe:
+                html += '<li itemprop="totalTime">' + 'Total time ' + recipe['totaltime'] + '</li>\n'
+            html += '</ul>\n'
+            html += '</div><!--/col-sm-3-->\n'
+            html += '</div><!--/row-->\n'
+            html += '<div class="row">\n'
+            html += '<div class="col-sm-8">\n'
+
+
         html += '<h5><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;Ingredients</h5>\n'
         ingredients = recipe['ingredients']
         if 'section1' in ingredients:
@@ -175,7 +193,7 @@ class RecipeManager(object):
         if mode == 'make':
             html += '<ol>\n'
         else:
-            html += '<p>\n'
+            html += '<p itemprop="recipeInstructions">\n'
         index = 1
         instructions = recipe.get('instructions')
         while 'step' + str(index) in instructions:
@@ -191,6 +209,7 @@ class RecipeManager(object):
             html += '</ol>\n'
         else:
             html += '</p>\n'
+
         return html
 
     def get_rendered_recipe(self, recipe_id):
