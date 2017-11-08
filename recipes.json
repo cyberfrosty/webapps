@@ -308,7 +308,7 @@
   "title": "Turkey Sausage",
   "chef": "Alan",
   "yield": "Makes 12-15",
-  "time": "20 minutes",
+  "time": "20 mins",
   "category": ["Breakfast", "Turkey"],
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "ground turkey (85-93% lean)"},
@@ -408,7 +408,7 @@
   "title": "Grilled Salmon",
   "chef": "Alan",
   "yield": "Serves 2",
-  "time": "20 minutes",
+  "time": "20 mins",
   "category": ["Salmon", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "salmon fillets"},
@@ -443,7 +443,7 @@
   "title": "Thai Baked Salmon",
   "chef": "Alan",
   "yield": "Serves 6",
-  "time": "30 minutes",
+  "time": "30 mins",
   "category": ["Seafood", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "2+ lbs", "ingredient": "salmon fillet"},
@@ -512,7 +512,7 @@
   "title": "Korean Meatballs",
   "chef": "Alan",
   "yield": "Serves 4",
-  "time": "45 minutes",
+  "time": "45 mins",
   "category": ["Asian", "Turkey", "Dinner"],
   "ingredients": {
     "section1": {
@@ -546,7 +546,7 @@
   "title": "Poke Bowl",
   "chef": "Alan",
   "yield": "Serves 2",
-  "time": "15 minutes",
+  "time": "15 mins",
   "category": ["Asian", "Seafood", "Dinner"],
   "ingredients": {
     "section1": {
@@ -604,7 +604,7 @@
   "title": "Thai Soyaki Salmon",
   "chef": "Alan",
   "yield": "Serves 4",
-  "time": "30 minutes",
+  "time": "30 mins",
   "category": ["Asian", "Seafood", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
@@ -634,7 +634,7 @@
   "title": "Orange Chicken",
   "chef": "Alan",
   "yield": "Serves 4",
-  "time": "45 minutes",
+  "time": "45 mins",
   "category": ["Asian", "Chicken", "Dinner"],
   "ingredients": {
     "section1": {
