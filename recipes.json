@@ -1,6 +1,7 @@
 [{
   "title": "Swedish Pancakes",
   "chef": "Susan",
+  "yield": "Makes 10-15",
   "category": ["Dessert"],
   "ingredients": {
     "item1": {"quantity": "1 cup", "ingredient": "flour"},
@@ -22,6 +23,8 @@
 {
   "title": "Oven Pancakes",
   "chef": "Susan",
+  "time": "20 mins",
+  "yield": "Makes 1",
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1/4 cup", "ingredient": "flour"},
@@ -44,6 +47,8 @@
 {
   "title": "Fudge Brownies",
   "chef": "Susan",
+  "time": "45 mins",
+  "yield": "Makes 16",
   "category": ["Dessert"],
   "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "butter"},
@@ -67,9 +72,11 @@
 {
   "title": "Ginger Carrots",
   "chef": "Alan",
+  "time": "30 mins",
+  "yield": "Serves 4",
   "category": ["Asian", "Vegetables","Dinner"],
   "ingredients": {
-    "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
+    "item1": {"quantity": "1 lbs", "ingredient": "organic carrots"},
     "item2": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
@@ -87,6 +94,8 @@
 {
   "title": "Sesame Green Beans",
   "chef": "Alan",
+  "time": "20 mins",
+  "yield": "Serves 4",
   "category": ["Asian", "Vegetables","Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "Green beans"},
@@ -107,6 +116,8 @@
 {
   "title": "Spicy Green Beans",
   "chef": "Alan",
+  "time": "20 mins",
+  "yield": "Serves 4",
   "category": ["Asian", "Vegetables","Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "Green beans"},
@@ -129,6 +140,8 @@
 {
   "title": "Spicy Cilantro Carrots",
   "chef": "Alan",
+  "time": "30 mins",
+  "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables","Dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
@@ -148,6 +161,8 @@
 {
   "title": "Tacos with Guacamole",
   "chef": "Alan",
+  "time": "30 mins",
+  "yield": "Serves 4",
   "category": ["Mexican", "Dinner"],
   "ingredients": {
     "section1": {
@@ -188,6 +203,8 @@
 {
   "title": "Red Lamb",
   "chef": "Alan",
+  "time": "2 hours 30 mins",
+  "yield": "Serves 4-6",
   "category": ["Mediterranean", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 1/2 pounds", "ingredient": "Lamb or beef, trimmed"},
@@ -220,6 +237,8 @@
 {
   "title": "Moroccan Meatballs",
   "chef": "Alan",
+  "time": "1 hour",
+  "yield": "Serves 6",
   "category": ["Mediterranean", "Dinner"],
   "ingredients": {
     "section1": {
@@ -265,6 +284,8 @@
 {
   "title": "Roasted Cauliflower",
   "chef": "Alan",
+  "time": "30 minutes",
+  "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 head", "ingredient": "Cauliflower"},
@@ -278,7 +299,7 @@
   },
   "instructions": {
     "step1": "Wash and cut/break cauliflower into small florets, add oil and cauliflower to wok",
-    "step2": "Cook for about 10 minutes covered over medium-high heat until cauliflower begins to brown, stirring a couple times to keep from browning too much",
+    "step2": "Cook for 10-15 minutes covered over medium-high heat until cauliflower begins to brown, stirring a couple times to keep from browning too much",
     "step3": "Remove lid and continue to cook, stirring every few minutes until florets turn golden brown",
     "step4": "Add garlic, seasoning, and bread crumbs, cook for about 1 minute stirring constantly, remove from heat and serve with lemon/lime wedges or chopped cilantro"
   }
@@ -286,6 +307,8 @@
 {
   "title": "Sauteed Spinach",
   "chef": "Alan",
+  "time": "10 minutes",
+  "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "12-16 ounces", "ingredient": "Baby spinach, fresh and washed"},
@@ -332,8 +355,8 @@
 {
   "title": "Meatball Marinara",
   "chef": "Alan",
-  "yield": "Serves 4-6",
   "time": "1 hour",
+  "yield": "Serves 4-6",
   "category": ["Italian", "Pasta", "Turkey", "Dinner"],
   "ingredients": {
     "section1": {
@@ -369,8 +392,8 @@
 {
   "title": "Pizza",
   "chef": "Alan",
-  "yield": "Makes 2 pizzas",
   "time": "3 hours",
+  "yield": "Makes 2 pizzas",
   "category": ["Italian", "Dinner"],
   "ingredients": {
     "section1": {
@@ -407,11 +430,11 @@
 {
   "title": "Grilled Salmon",
   "chef": "Alan",
-  "yield": "Serves 2",
   "time": "20 mins",
+  "yield": "Serves 2",
   "category": ["Salmon", "Dinner"],
   "ingredients": {
-    "item1": {"quantity": "1+ lbs", "ingredient": "salmon fillets"},
+    "item1": {"quantity": "1 lbs", "ingredient": "salmon fillets"},
     "item2": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
     "item3": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
   },
@@ -424,6 +447,8 @@
 {
   "title": "Salmon Patties",
   "chef": "Alan",
+  "time": "20 mins",
+  "yield": "Makes 6-8",
   "category": ["Salmon", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1+ lbs", "ingredient": "leftover seasoned salmon fillets"},
@@ -442,8 +467,8 @@
 {
   "title": "Thai Baked Salmon",
   "chef": "Alan",
-  "yield": "Serves 6",
   "time": "30 mins",
+  "yield": "Serves 6-8",
   "category": ["Seafood", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "2+ lbs", "ingredient": "salmon fillet"},
@@ -684,6 +709,8 @@
 {
   "title": "Szechuan Chicken",
   "chef": "Alan",
+  "yield": "Serves 4",
+  "time": "45 mins",
   "category": ["Asian", "Chicken", "Dinner"],
   "ingredients": {
     "section1": {
@@ -733,6 +760,8 @@
 {
   "title": "Sesame Chicken",
   "chef": "Alan",
+  "yield": "Serves 4",
+  "time": "45 mins",
   "category": ["Asian", "Chicken", "Dinner"],
   "ingredients": {
     "section1": {
@@ -777,6 +806,8 @@
 {
   "title": "Strawberry Pancakes",
   "chef": "Alan",
+  "yield": "Makes 10-12",
+  "time": "45 mins",
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -797,6 +828,8 @@
 {
   "title": "Spicy Pear Pancakes",
   "chef": "Alan",
+  "yield": "Makes 10-12",
+  "time": "45 mins",
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -823,6 +856,8 @@
 {
   "title": "Banana Muffins",
   "chef": "Alan",
+  "yield": "Makes 12",
+  "time": "30 mins",
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -855,6 +890,8 @@
 {
   "title": "Banana Bread",
   "chef": "Alan",
+  "yield": "Makes 1 loaf",
+  "time": "30 mins",
   "category": ["Dessert"],
   "ingredients": {
     "item1": {"quantity": "1 3/4 cups", "ingredient": "white flour"},
@@ -884,6 +921,8 @@
 {
   "title": "Pumpkin Muffins",
   "chef": "Alan",
+  "yield": "Makes 12",
+  "time": "30 mins",
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -916,6 +955,8 @@
 {
   "title": "Buttermilk Waffles",
   "chef": "Alan",
+  "yield": "Makes 5 waffles",
+  "time": "45 mins",
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -938,6 +979,8 @@
 {
   "title": "Pumpkin Waffles",
   "chef": "Alan",
+  "yield": "Makes 5 waffles",
+  "time": "45 mins",
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -961,6 +1004,8 @@
 {
   "title": "Apricot Scones",
   "chef": "Alan",
+  "yield": "Makes 12",
+  "time": "30 mins",
   "category": ["Breakfast"],
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "eggs"},
@@ -989,6 +1034,8 @@
 {
   "title": "Anadama Bread",
   "chef": "Susan",
+  "yield": "Makes 1 loaf",
+  "cooktime": "35 mins",
   "category": ["Bread"],
   "ingredients": {
     "item1": {"quantity": "1 1/2 cups", "ingredient": "water"},

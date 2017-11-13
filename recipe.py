@@ -4,10 +4,11 @@
 """
 Copyright (c) 2017 Alan Frost, All rights reserved.
 
-Implementation of Recipe manage
+Implementation of Recipe manager
 
 """
 
+import re
 import os
 import simplejson as json
 
@@ -141,6 +142,25 @@ class RecipeManager(object):
         html += '</ul>\n'
         return html
 
+    def render_time(self, time_property, time_value):
+        """ Render a recipe time value, and set schema.org properties (ISO 8601 duration)
+        Args:
+            time_property (prepTime, cookTime or totalTime)
+            time_value in minutes or hours
+        Returns:
+            html string
+        """
+        minutes = re.search(r'(\d{1,2}) [Mm]in', time_value)
+        hours = re.search(r'(\d{1,2}) [Hh]our', time_value)
+        duration = 'PT'
+        if hours and hours > 0:
+            duration += str(hours.group(1)) + 'H'
+        if minutes and minutes > 0:
+            duration += str(minutes.group(1)) + 'M'
+        html = '<h5 itemprop="' + time_property + '" datetime="' + duration + '">'
+        html += '<i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
+        return html
+
     def render_recipe(self, recipe, mode='read'):
         """ Render a recipe as HTML
         Args:
@@ -166,9 +186,20 @@ class RecipeManager(object):
             if 'chef' in recipe:
                 html += '<h5 itemprop="author"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
             if 'yield' in recipe:
-                html += '<h5 itemprop="recipeYield"><i class="fa fa-group" aria-hidden="true"></i>&nbsp;' + recipe['yield'] + '</h5>\n'
-            if 'time' in recipe:
-                html += '<h5 itemprop="totalTime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;' + recipe['time'] + '</h5>\n'
+                yields = recipe['yield']
+                if 'Serves' in yields:
+                   icon = '<i class="fa fa-group" aria-hidden="true">'
+                else:
+                   icon = '<i class="fa fa-clone" aria-hidden="true">'
+                html += '<h5 itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</h5>\n'
+            if 'preptime' in recipe:
+                html += self.render_time('prepTime', recipe['preptime'])
+            if 'cooktime' in recipe:
+                html += self.render_time('cookTime', recipe['cooktime'])
+            if 'totaltime' in recipe:
+                html += self.render_time('totalTime', recipe['totaltime'])
+            elif 'time' in recipe:
+                html += self.render_time('totalTime', recipe['time'])
             html += '</ul>\n'
             html += '</div><!--/col-sm-3-->\n'
             html += '</div><!--/row-->\n'
@@ -206,6 +237,9 @@ class RecipeManager(object):
             html += '</ol>\n'
         else:
             html += '</p>\n'
+        if 'notes' in recipe:
+            html += '<h5><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;Notes</h5>\n'
+            html += '<p>' + recipe['notes'] + '</p>/n'
 
         return html
 
@@ -250,6 +284,12 @@ def main():
     print manager.get_rendered_recipe('Strawberry Pancakes')
     print manager.get_rendered_recipe('Meatball Marinara')
     print manager.find_recipe_by_category('asian')
+    print manager.render_time('prepTime', '20 mins')
+    print manager.render_time('prepTime', '20 minutes')
+    print manager.render_time('cookTime', '1 hour')
+    print manager.render_time('totalTime', '3 hours')
+    print manager.render_time('totalTime', '1 hour 20 mins')
+    print manager.render_time('totalTime', '1 hour 20 minutes')
 
 if __name__ == '__main__':
     main()
