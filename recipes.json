@@ -1,4 +1,29 @@
 [{
+  "title": "Chocolate Crunchies",
+  "chef": "Susan",
+  "time": "1 hour 10 minutes",
+  "yield": "Makes 10-15",
+  "category": ["Dessert"],
+  "ingredients": {
+    "item1": {"quantity": "2/3 cup", "ingredient": "crisp rice cereal"},
+    "item2": {"quantity": "2/3 cup", "ingredient": "raisins"},
+    "item3": {"quantity": "2/3 cup", "ingredient": "peanuts, roasted and unsalted"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "coconut, flakes or shredded"},
+    "item5": {"quantity": "2 oz", "ingredient": "dark chocolate (70%)"},
+    "item6": {"quantity": "2 oz", "ingredient": "Ghiradelli dark chocolate melting wafers"},
+    "item7": {"quantity": "1/4 cup", "ingredient": "chocolate chips (optional)"}
+  },
+  "instructions": {
+    "step1": "Melt dark chocolate in medium bowl, being careful to heat only enough to melt",
+    "step2": "Add melting wafers and mix to melt, heating only if needed",
+    "step3": "Combine dry ingredients, mix into chocolate until coated",
+    "step4": "Pour onto parchment lined cookie sheet and spread evenly with spatula",
+    "step5": "Place into fridge for about an hour until cooled",
+    "step6": "Break into cookie sized pieces, keep refrigerated until served"
+  },
+  "notes": "Cashews, pepetas and other nuts may be substituted or mixed with peanuts."
+},
+{
   "title": "Swedish Pancakes",
   "chef": "Susan",
   "yield": "Makes 10-15",
@@ -159,46 +184,80 @@
   }
 },
 {
-  "title": "Tacos with Guacamole",
+  "title": "Guacamole",
   "chef": "Alan",
   "time": "30 mins",
   "yield": "Serves 4",
   "category": ["Mexican", "Dinner"],
   "ingredients": {
-    "section1": {
-      "title": "Meat Crumbles",
-        "item1": {"quantity": "1 lb", "ingredient": "ground turkey (85-93% lean)"},
-        "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
-        "item3": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
-        "item4": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
-        "item5": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
-        "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
-        "item7": {"quantity": "1/2 tsp", "ingredient": "cumin"},
-        "item8": {"quantity": "1 tsp", "ingredient": "oregano"},
-        "item9": {"quantity": "1-2 tsp", "ingredient": "chili powder"},
-        "item10": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
-        "item11": {"quantity": "1 tsp", "ingredient": "mesquite seasoning (optional)"}
-    },
-    "section2": {
-      "title": "Guacamole",
-        "item1": {"quantity": "1", "ingredient": "avocado"},
-        "item2": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
-        "item3": {"quantity": "2 tbsp", "ingredient": "Picante or other salsa"},
-        "item4": {"quantity": "1/4 tsp", "ingredient": "garlic salt"},
-        "item4": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
-        "item5": {"quantity": "1 or 2", "ingredient": "fresh tomatoes, diced and drained"},
-        "item6": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
-    }
+    "item1": {"quantity": "1", "ingredient": "avocado"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "Picante or other salsa"},
+    "item4": {"quantity": "1/4 tsp", "ingredient": "garlic salt"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+    "item6": {"quantity": "1 or 2", "ingredient": "fresh tomatoes, diced and drained"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
   },
   "instructions": {
-    "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
+    "step1": "Cut avocado in half, remove pit, quarter, peel, and mash with a fork",
+    "step2": "Add lemon juice, salsa, salt and pepper, mix well",
+    "step3": "Add tomato and cilantro, mix just enough to combine"
+  }
+},
+{
+  "title": "Meat Crumbles",
+  "chef": "Alan",
+  "time": "30 mins",
+  "yield": "Serves 4",
+  "category": ["Mexican", "Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1 lb", "ingredient": "ground turkey (85-93% lean)"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
+    "item4": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+    "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item7": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+    "item8": {"quantity": "1 tsp", "ingredient": "oregano"},
+    "item9": {"quantity": "1-2 tsp", "ingredient": "chili powder"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
+    "item11": {"quantity": "1 tsp", "ingredient": "mesquite seasoning (optional)"}
+  },
+  "instructions": {
+    "step1": "In a large skillet, saute onion in olive oil over low heat until translucent",
     "step2": "Mix dry spices in mortar or small bowl",
     "step3": "Add meat to pan and cook until browned, flipping and chopping to make crumbles",
     "step4": "Add dry spices and mix thoroughly to coat meat crumbles",
     "step5": "Add garlic and Sambal Oelek or Chili Garlic Sauce, turn off stove heat and mix thoroughly as the pan cools down",
-    "step7": "Serve in a tortilla with cheese, lettuce, tomatoes, cilantro, salsa and guacamole as desired",
-    "step8": "Meat crumbles may be mixed with refried beans or served in a bowl with black beans and rice"
-  }
+    "step6": "Serve in corn or flour tortillas with cheese, lettuce, tomatoes, cilantro, salsa and guacamole as desired"
+  },
+  "notes": "Meat crumbles may be mixed with refried beans, potatoes or served in a bowl with black beans and rice."
+},
+{
+  "title": "Green Chili",
+  "chef": "Susan",
+  "time": "30 mins",
+  "yield": "Serves 6-8",
+  "category": ["Mexican", "Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1 can (12 oz)", "ingredient": "tomatillos, drained"},
+    "item2": {"quantity": "1 can (7 oz)", "ingredient": "whole green chiles, drained"},
+    "item3": {"quantity": "1 jar (12 oz)", "ingredient": "Hatch green chile or salsa"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
+    "item5": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
+    "item6": {"quantity": "3/4 cup", "ingredient": "vegetable or chicken stock"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "water"},
+    "item9": {"quantity": "2 tbsp", "ingredient": "cornmeal"},
+    "item10": {"quantity": "1 lb", "ingredient": "lean pork, cubed (optional)"}
+  },
+  "instructions": {
+    "step1": "In a medium sauce pan, saute onion in olive oil over low heat until translucent, add garlic",
+    "step2": "In a blender combine tomatillos, green chile and stock, add to sauce pan and cook for 30 minutes",
+    "step3": "In a measuring cup mix 1/4 cup water and 2 T cornmeal until no lumps remain, add to sauce for thickening",
+    "step4": "Reduce heat and simmer for 15-30 minutes, while making burritos"
+  },
+  "notes": "When making with pork, saute the meat along with the onion and increase the simmer time to achieve the desired tenderness."
 },
 {
   "title": "Red Lamb",
@@ -475,7 +534,7 @@
     "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
     "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item4": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
-    "item5": {"quantity": "1 tsp", "ingredient": "Thai red chili paste"},
+    "item5": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
     "item6": {"quantity": "1-2 tsp", "ingredient": "Sriracha"},
     "item7": {"quantity": "1 tbsp", "ingredient": "sweet chili sauce, Hoisin or sweet and sour sauce"},
     "item8": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
@@ -610,7 +669,7 @@
     "item3": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
     "item4": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
-    "item6": {"quantity": "1 tsp", "ingredient": "Thai red chili paste"},
+    "item6": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
     "item7": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped (optional)"},
     "item8": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item9": {"quantity": "1 tbsp", "ingredient": "olive oil"},
@@ -820,6 +879,30 @@
   },
   "instructions": {
     "step1": "Combine flour, oats, and baking powder in mixing bowl",
+    "step2": "In a separate bowl beat egg, then add oil and buttermilk and blend thoroughly",
+    "step3": "Add liquid mixture to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps. Let rest 10-30 minutes, then fold in fruit",
+    "step4": "Cook in non-stick skillet at 325-350 degrees"
+  }
+},
+{
+  "title": "Appled Pancakes",
+  "chef": "Alan",
+  "yield": "Makes 10-12",
+  "time": "45 mins",
+  "category": ["Breakfast"],
+  "ingredients": {
+    "item1": {"quantity": "1", "ingredient": "egg"},
+    "item2": {"quantity": "1/2 cup", "ingredient": "grated or finely diced peeled and cored apples"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item5": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item6": {"quantity": "1 tsp", "ingredient": "cinnamon"},
+    "item7": {"quantity": "1-2 tbsp", "ingredient": "sugar"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
+    "item9": {"quantity": "1/2 cup", "ingredient": "buttermilk"}
+  },
+  "instructions": {
+    "step1": "Combine flour, oats, cinnamon, sugar and baking powder in mixing bowl",
     "step2": "In a separate bowl beat egg, then add oil and buttermilk and blend thoroughly",
     "step3": "Add liquid mixture to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps. Let rest 10-30 minutes, then fold in fruit",
     "step4": "Cook in non-stick skillet at 325-350 degrees"

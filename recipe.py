@@ -239,7 +239,7 @@ class RecipeManager(object):
             html += '</p>\n'
         if 'notes' in recipe:
             html += '<h5><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;Notes</h5>\n'
-            html += '<p>' + recipe['notes'] + '</p>/n'
+            html += '<p>' + recipe['notes'] + '</p>\n'
 
         return html
 
