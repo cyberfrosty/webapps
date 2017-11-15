@@ -157,7 +157,7 @@ class RecipeManager(object):
             duration += str(hours.group(1)) + 'H'
         if minutes and minutes > 0:
             duration += str(minutes.group(1)) + 'M'
-        html = '<h5 itemprop="' + time_property + '" datetime="' + duration + '">'
+        html = '<h5><meta itemprop="' + time_property + '" datetime="' + duration + '">'
         html += '<i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
         return html
 
