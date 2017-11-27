@@ -269,6 +269,12 @@ def server_error(error):
     else:
         return make_response(jsonify({'error': str(error)}), 500)
 
+@application.route('/google3dd7b0647e1f4d7a')
+def google_site_verify():
+    """ Google site verification
+    """
+    return render_template('google3dd7b0647e1f4d7a.html')
+
 @application.route('/')
 @application.route('/index')
 def index():
