@@ -24,6 +24,33 @@
   "notes": "Cashews, pepetas and other nuts may be substituted or mixed with peanuts."
 },
 {
+  "title": "Pfeffernusse",
+  "chef": "Erika",
+  "time": "30 minutes",
+  "yield": "Makes 48-60",
+  "category": ["Dessert"],
+  "ingredients": {
+    "item1": {"quantity": "4 cups", "ingredient": "flour"},
+    "item2": {"quantity": "1/2 cup", "ingredient": "sugar"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "cinnamon"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "cloves"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "nutmeg"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "ginger"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "cooking oil"},
+    "item8": {"quantity": "1/3 cup", "ingredient": "molasses"},
+    "item9": {"quantity": "2", "ingredient": "eggs"},
+    "item10": {"quantity": "1/4 cup", "ingredient": "powdered sugar"}
+  },
+  "instructions": {
+    "step1": "Combine dry ingredients in a large mixing bowl",
+    "step2": "In a 2 cup measuring cup, lightly beat eggs, add oil and molasses, stir to combine",
+    "step3": "Add liquid mixture to dry ingredients and mix well, chill for several hours",
+    "step4": "Preheat oven to 350 degrees",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step6": "Bake for 12-14 minutes, cool and coat with powdered sugar"
+  }
+},
+{
   "title": "Swedish Pancakes",
   "chef": "Susan",
   "yield": "Makes 10-15",
@@ -313,7 +340,7 @@
     "section2": {
       "title": "Moroccan Sauce",
         "item1": {"quantity": "3 tbsp", "ingredient": "olive oil"},
-        "item2": {"quantity": "1", "ingredient": "onion, chopped)"},
+        "item2": {"quantity": "1", "ingredient": "onion, chopped"},
         "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
         "item4": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
         "item5": {"quantity": "1/2 tsp", "ingredient": "cumin"},
