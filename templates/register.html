@@ -16,16 +16,20 @@
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(id="password", placeholder="Password") }}
+  {{ form.password(id="password", placeholder="New Password") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
   {{ form.confirm(id="confirm", placeholder="Confirm password") }}
   </p>
+  <p>
+  <i class="fa fa-ticket fa-fw"></i>
+  {{ form.token(id="token", placeholder="Token") }}
+  </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Sign Up</button>
   <br><br>
   <p>By signing up, I agree to the <a href="{{url_for('privacy')}}">Privacy Policy and End User Agreement.</a>
-  <p>Already have an account? <a class="btn btn-primary btn-xs" href="/login">Login</a></p>
+  <p>Already have an account? <a class="btn btn-primary btn-xs" href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a></p>
 </form>
 </div>
 

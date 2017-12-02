@@ -2,20 +2,7 @@
 
 {% block content %}
 
-<script type="text/javascript">
-  function viewVault() {
-    console.log("viewVault");
-    console.log(hashword("yuki", "madman"));
-    var mcf = deriveKey($("#vpassword").val());
-    var fields = mcf.split("$");
-    if (fields.length > 4 && fields[1] === "pbkdf2") {
-      var key = forge.util.decode64(fields[4]);
-      var ciphertext = encryptAESGCM(key, "secrets in my vault");
-      console.log(decryptAESGCM(key, ciphertext));
-      document.getElementById("vault").value = decryptAESGCM(key, ciphertext);
-    }
-  }
-</script>
+<script src="{{url_for('static', filename='js/vault.js')}}" type="text/javascript"></script>
 
 <div class="container">
   <div class="page-header">

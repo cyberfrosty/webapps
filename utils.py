@@ -50,6 +50,17 @@ def preset_password(username, password):
     hashword = base64.b16encode(hmac_sha256(username, password)).lower()
     return derive_key(hashword)
 
+def get_ip_address(request):
+    """ Get the remote IP address if available, 'untrackable' if not
+    Args:
+        request: HTTP request
+    """
+    if 'X-Forwarded-For' in request.headers:
+        remote_addr = request.headers.getlist("X-Forwarded-For")[0].rpartition(' ')[-1]
+    else:
+        remote_addr = request.remote_addr or 'untrackable'
+    return remote_addr
+
 def create_signed_request(secret, method, path, params, time_stamp):
     """ Create a signed HTTP request
     Args:

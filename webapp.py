@@ -8,22 +8,25 @@ Implementation of Web server using Flask framework
 
 """
 
+import logging
 import socket
 from datetime import datetime
 import time
 from urlparse import urlparse, urljoin
 import pytz
 
+from botocore.exceptions import EndpointConnectionError
 from flask import Flask, make_response, request, render_template, redirect, session, jsonify, abort, flash, url_for
 from flask_mail import Mail, Message
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from decorators import async
-from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm,
+from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm, InviteForm,
                    PasswordResetRequestForm, PasswordResetForm, ResendConfirmForm)
 from crypto import derive_key
-from utils import generate_timed_token, validate_timed_token, generate_user_id, preset_password
+from utils import generate_timed_token, validate_timed_token, generate_user_id, generate_random_id, preset_password
 from awsutils import load_config, DynamoDB
 from recipe import RecipeManager
+from vault import VaultManager
 
 CONFIG = load_config('config.json')
 
@@ -31,6 +34,12 @@ USERS = DynamoDB(CONFIG, CONFIG.get('users'))
 SESSIONS = DynamoDB(CONFIG, CONFIG.get('sessions'))
 RECIPE_MANAGER = RecipeManager(CONFIG)
 RECIPE_MANAGER.load_recipes('recipes.json')
+VAULT_MANAGER = VaultManager(CONFIG)
+
+# Log exceptions and errors to /var/log/cyberfrosty.log
+# 2017-05-11 08:29:26,696 ERROR webapp:main [Errno 51] Network is unreachable
+LOGGER = logging.getLogger("CyberFrosty")
+
 
 SERVER_VERSION = '0.1'
 SERVER_START = int((datetime.now(tz=pytz.utc) -
@@ -99,7 +108,7 @@ class User(object):
     def generate_token(self, action):
         """ Generate a timed token, tied to user name and action
         Args:
-            action: confirm, reset, delete, etc.
+            action: confirm, delete, register, reset, etc.
         Return:
             URL safe encoded token
         """
@@ -109,7 +118,7 @@ class User(object):
         """ Validate a timed token, tied to user name and action
         Args:
             token
-            action: confirm, reset, delete, etc.
+            action: confirm, delete, register, reset, etc.
         Return:
             True or False
         """
@@ -157,7 +166,29 @@ def load_user(userid):
 
 @LOGIN_MANAGER.unauthorized_handler
 def unauthorized_page():
-    abort(401, "You must be logged in to access this page")
+    return redirect(url_for('login') + '?next=' + request.path)
+
+def get_parameter(response, param, default=None):
+    """ Get named parameter from url, json or either of two types of form encoding
+    Args:
+        response: dictionary of HTTP response
+        param: key to look for
+    Returns:
+        value or parameter or None
+    """
+    value = response.args.get(param)
+    if not value and response.json:
+        value = response.json.get(param)
+    if not value:
+        content_type = response.headers.get('Content-Type')
+        if content_type:
+            if content_type == 'application/x-www-form-urlencoded' or \
+               content_type.startswith('multipart/form-data'):
+                value = response.form.get(param)
+    if not value:
+        return default
+    else:
+        return value
 
 def send_email(recipients, subject, template, **kwargs):
     """ Send an email
@@ -181,14 +212,14 @@ def is_safe_url(target):
            ref_url.netloc == test_url.netloc
 
 def get_redirect_target():
-    for target in request.values.get('next'), request.referrer:
+    for target in get_parameter(request, 'next'), request.referrer:
         if not target:
             continue
         if is_safe_url(target):
             return target
 
 def redirect_back(endpoint, **values):
-    target = request.form['next']
+    target = get_parameter(request, 'next')
     if not target or not is_safe_url(target):
         target = url_for(endpoint, **values)
     return redirect(target)
@@ -304,16 +335,27 @@ def recipes():
         return render_template('recipes.html')
 
 @application.route('/messages')
+@login_required
 def messages():
     """ Show messages
     """
     return render_template('messages.html')
 
 @application.route('/vault')
+@login_required
 def vault():
     """ Show encrypted private content
     """
-    return render_template('vault.html')
+    account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
+    if not account or 'error' in account:
+        return redirect(url_for('register', username=current_user.get_username()))
+    myvault = account.get('vault')
+    box = request.args.get('box')
+    if box is not None:
+        html = VAULT_MANAGER.get_rendered_box(myvault, box)
+    else:
+        html = VAULT_MANAGER.get_rendered_vault(myvault)
+    return render_template('vault.html', box=html)
 
 @application.route('/privacy', methods=['GET'])
 def privacy():
@@ -325,9 +367,9 @@ def privacy():
 def confirm():
     """ Confirm user account creation or action (delete) with emailed token
     """
-    username = request.args.get('username')
-    token = request.args.get('token')
-    action = request.args.get('action')
+    username = get_parameter(request, 'username')
+    token = get_parameter(request, 'token')
+    action = get_parameter(request, 'action')
     if username is None or token is None or action is None:
         abort(400, 'Missing user name, token or action')
     form = ConfirmForm()
@@ -399,11 +441,13 @@ def login():
             if failures > MAX_FAILURES:
                 return redirect(url_for('index'))
             else:
-                flash('Unable to validate your credentials.')
+                print 'Unable to validate your credentials'
+                flash('Unable to validate your credentials')
                 mysession['failures'] = failures + 1
                 SESSIONS.put_item(mysession)
             return redirect(url_for('login', username=username))
 
+        #EVENT_MANAGER.login_event(request, username)
         print 'validated user'
         # Reset failed login counter if needed
         if failures > 0:
@@ -413,8 +457,7 @@ def login():
         user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
         user.is_authenticated = True
         user.is_active = True
-        if login_user(user, remember=form.remember.data):
-            flash('Logged in successfully.')
+        login_user(user, remember=form.remember.data)
 
         return redirect_back('index')
     return render_template('login.html', form=form)
@@ -431,6 +474,8 @@ def logout():
 @application.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
+    """ Show user account profile
+    """
     account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
     if not account or 'error' in account:
         return redirect(url_for('register', username=current_user.get_username()))
@@ -439,6 +484,8 @@ def profile():
 @application.route("/headlines", methods=['GET', 'POST'])
 @login_required
 def headlines():
+    """ Show headlines
+    """
     account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
     if not account or 'error' in account:
         return redirect(url_for('register', username=current_user.get_username()))
@@ -523,19 +570,27 @@ def reset():
 
 @application.route("/register", methods=['GET', 'POST'])
 def register():
-    """ Register for a new user account
+    """ Register a new user account
     """
     form = RegistrationForm(request.form)
-    email = request.args.get('email')
+    email = get_parameter(request, 'email')
     if email:
         form.email.data = email
-    username = request.args.get('username')
+    username = get_parameter(request, 'username')
     if username:
         form.username.data = username
+    token = get_parameter(request, 'token')
+    if token:
+        form.token.data = token
     if request.method == 'POST' and form.validate_on_submit():
         if USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), form.email.data)):
             flash('Username ' + form.email.data + ' already taken')
             return redirect(url_for('register', username=username, email=email))
+        validated, value = validate_timed_token(token, application.config['SECRET_KEY'], 'register')
+        if validated and value == email:
+            print 'registering new user'
+        else:
+            flash('Invalid or expired token')
         # Create json for new user
         info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), form.username.data),
                 'authentication': 'password',
@@ -554,7 +609,7 @@ def register():
         send_email(form.email.data, 'Confirm Your Account',
                    'email/confirm', username=form.username.data, token=token, action='register')
         flash('A confirmation email has been sent to ' + form.email.data)
-        return redirect(url_for('login', username=form.username.data))
+        return redirect(url_for('confirm', username=form.username.data))
     return render_template('register.html', form=form)
 
 def main():
@@ -569,9 +624,18 @@ def main():
     except (KeyboardInterrupt, SystemExit):
         reason = 'Stopped'
     except (EnvironmentError, RuntimeError) as err:
-        reason = err
+        LOGGER.error(err)
+        reason = str(err)
+    except EndpointConnectionError as err:
+        LOGGER.error(err)
+        reason = str(err)
     print reason
 
 if __name__ == '__main__':
+    LOGGER.setLevel(logging.ERROR)
+    file_handler = logging.FileHandler("cyberfrosty.log")
+    formatter = logging.Formatter('%(asctime)s %(levelname)s cyberfrosty:%(funcName)s %(message)s')
+    file_handler.setFormatter(formatter)
+    LOGGER.addHandler(file_handler)
     print USERS.load_table('users.json')
     main()
