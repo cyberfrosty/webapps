@@ -19,7 +19,7 @@
         <div class="modal-body">
           <div>Enter Password:</div>
             <input id="vpassword" type="password" autocomplete="current-password"/>
-            <button class="btn btn-primary" type="submit"onclick="viewVault()" data-dismiss="modal"><i class="fa fa-unlock" aria-hidden="true"></i></button>
+            <button class="btn btn-primary" type="submit" onclick="viewVault()" data-dismiss="modal"><i class="fa fa-unlock" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>
@@ -50,18 +50,5 @@
   </div><!--/row-->
 </div><!--/container-->
 
-<script type="text/javascript">
-  $(document).keyup(function (e) {
-    if ($("vpassword:focus") && (e.keyCode === 13)) {
-       $("#viewVault").modal("hide");
-       e.preventDefault();
-       viewVault();
-       return false;
-    }
-  });
-  $("body").on("shown.bs.modal", "#viewVault", function () {
-    $("input:visible:enabled:first", this).focus();
-  });
-</script>
 
 {% endblock %}

@@ -46,8 +46,8 @@ function checkEmail(email) {
 
 
 /**
- * Use HMAC SHA256 to create unique hashed password before sending to server to prevent a MITA from seeing
- * the user's password. The server uses standard PBKDF2 or SCRYPT to hash this.
+ * Use HMAC SHA256 to create unique hashed password before sending to server to prevent a MitM from seeing
+ * the user's password. The server then uses PBKDF2 or SCRYPT to hash this for storage.
  *
  * @param {string} username
  * @param {string} password

@@ -8,7 +8,10 @@ Implementation of Vault Manager
 
 """
 
+import os
+import base64
 import simplejson as json
+from crypto import derive_key, decrypt_aes_gcm, encrypt_aes_gcm
 
 class VaultManager(object):
     """ Vault Manager
@@ -37,6 +40,42 @@ class VaultManager(object):
         except (IOError, ValueError) as err:
             print('Load of vault file failed:', err.message)
 
+    def encrypt_vault(self, password):
+        """ Encrypt the vault contents using a key derived from a password
+        Args:
+            password: to encrypt with
+        """
+        mcf = derive_key(password.encode('utf-8'))
+        fields = mcf.split('$')
+        key = base64.b64decode(fields[4])
+        mcf = '$pbkdf2$' + fields[2] + '$' + fields[3] + '$'
+        iv = os.urandom(12)
+        for safebox in self.vault:
+            box = self.vault[safebox]
+            if isinstance(box, dict) and 'contents' in box:
+                box_contents = json.dumps(box['contents'])
+                payload = iv + encrypt_aes_gcm(key, iv, box_contents)
+                box['contents'] = base64.b64encode(payload)
+                self.vault[safebox] = box
+        self.vault['mcf'] = mcf
+
+    def decrypt_vault(self, password):
+        """ Decrypt the vault contents using a key derived from a password
+        Args:
+            password: to decrypt with
+        """
+        if 'mcf' in self.vault:
+            mcf = derive_key(password.encode('utf-8'), self.vault['mcf'])
+            fields = mcf.split('$')
+            key = base64.b64decode(fields[4])
+            print self.vault
+            for safebox in self.vault:
+                box = self.vault[safebox]
+                if isinstance(box, dict) and 'contents' in box:
+                    payload = base64.b64decode(box['contents'])
+                    plaintext = decrypt_aes_gcm(key, payload[:12], payload[12:])
+                    print plaintext
+
     def get_rendered_vault(self, vault):
         """ Render a vault as HTML
         Args:
@@ -48,7 +87,7 @@ class VaultManager(object):
             vault = self.vault
         if vault is not None:
             html = '<ul class="fa-ul">\n'
-            for box in vault.keys():
+            for box in vault:
                 html += '<li><input type="checkbox">' + box + '</li>\n'
             html += '</ul>\n'
         else:
@@ -93,6 +132,8 @@ def main():
     print manager.get_rendered_vault(None)
     print manager.get_rendered_box(None, 'accounts')
     print manager.get_rendered_box(None, 'serial')
+    manager.encrypt_vault('madman')
+    manager.decrypt_vault('madman')
 
 if __name__ == '__main__':
     main()
