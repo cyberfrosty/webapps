@@ -51,6 +51,31 @@
   }
 },
 {
+  "title": "Tuna Noodle",
+  "chef": "Susan",
+  "time": "45 minutes",
+  "yield": "Serves 4-6",
+  "category": ["Dinner", "Seafood"],
+  "ingredients": {
+    "item1": {"quantity": "3 cups", "ingredient": "macaroni (about 8 oz)"},
+    "item2": {"quantity": "1 can", "ingredient": "tuna in water, drained (5-6 oz)"},
+    "item3": {"quantity": "1 can", "ingredient": "cream of mushroom or celery soup (10.5 oz)"},
+    "item4": {"quantity": "1/3 can", "ingredient": "milk (use soup can)"},
+    "item5": {"quantity": "1/2 cup", "ingredient": "cheese, grated (save 2-3 tbsp for topping)"},
+    "item6": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
+    "item7": {"quantity": "1/2 tsp", "ingredient": "garlic or celery powder/salt (optional)"}
+  },
+  "instructions": {
+    "step1": "Bring pot of water to a boil and preheat oven to 350 degrees",
+    "step2": "Cook macaroni al dente, and drain",
+    "step3": "Spray inside of casserole dish with non-stick cooking spray",
+    "step4": "Mix tuna, soup, milk and spices in casserole dish, breaking tuna into desired size chunks",
+    "step5": "Microwave for a few minutes to warm, or increase covered cooking time by 5 minutes",
+    "step6": "Add macaroni and cheese, mix to combine, smooth the surface and sprinkle with bread crumbs and cheese",
+    "step7": "Cook covered for 20 minutes, remove lid and cook for another 10 minutes"
+  }
+},
+{
   "title": "Swedish Pancakes",
   "chef": "Susan",
   "yield": "Makes 10-15",
@@ -503,7 +528,7 @@
   },
   "instructions": {
     "step1": "In a wok or large sauce pan, saute onion in olive oil over low heat until translucent",
-    "step2": "Using mortar and pestle grind dried herbs, add along with garlic and sundried tomotoes to sauce pan",
+    "step2": "Using mortar and pestle grind dried herbs, add along with garlic and sundried tomatoes to sauce pan",
     "step3": "Add canned products, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
     "step4": "Add oil to large non-stick skillet and preheat over medium heat",
     "step5": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
