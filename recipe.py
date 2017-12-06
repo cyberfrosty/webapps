@@ -47,7 +47,7 @@ class RecipeManager(object):
                 "2 tsp": "Srirachi"
               },
               "instructions": [
-                "preheat over to 400, line baking sheet with parchment",
+                "preheat oven to 400 degrees, line baking sheet with parchment",
                 "in a large bowl mix meatball ingredients, form into 1\" balls, cook 20-25 minutes",
                 "in medium bowl mix glaze ingredients, add meatballs and toss until coated",
                 "garnish with chopped chives or green ends of onions",
@@ -161,6 +161,39 @@ class RecipeManager(object):
         html += '<i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
         return html
 
+    def render_instructions(self, instructions, mode):
+        """ Render recipe instructions as HTML
+        Args:
+            instructions: dictionary
+            mode: make or read
+        Returns:
+            HTML
+        """
+
+        html = ''
+        if 'title' in instructions:
+            html += '<h5>' + instructions['title'] + '</h5>\n'
+
+        if mode == 'make':
+            html += '<ol itemprop="recipeInstructions">\n'
+        else:
+            html += '<p itemprop="recipeInstructions">\n'
+        index = 1
+        while 'step' + str(index) in instructions:
+            item = instructions.get('step' + str(index))
+            item = item.replace('degrees', '&#8457;')
+            item = item.replace('saute', 'saut&eacute;')
+            if mode == 'make':
+                html += '  <li>' + item + '</li>\n'
+            else:
+                html += item + '. '
+            index += 1
+        if mode == 'make':
+            html += '</ol>\n'
+        else:
+            html += '</p>\n'
+        return html
+
     def render_recipe(self, recipe, mode='read'):
         """ Render a recipe as HTML
         Args:
@@ -188,9 +221,9 @@ class RecipeManager(object):
             if 'yield' in recipe:
                 yields = recipe['yield']
                 if 'Serves' in yields:
-                   icon = '<i class="fa fa-group" aria-hidden="true">'
+                    icon = '<i class="fa fa-group" aria-hidden="true">'
                 else:
-                   icon = '<i class="fa fa-clone" aria-hidden="true">'
+                    icon = '<i class="fa fa-clone" aria-hidden="true">'
                 html += '<h5 itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</h5>\n'
             if 'preptime' in recipe:
                 html += self.render_time('prepTime', recipe['preptime'])
@@ -218,25 +251,15 @@ class RecipeManager(object):
         else:
             html += self.render_ingredients(ingredients)
         html += '<h5><i class="fa fa-tasks" aria-hidden="true"></i> Instructions</h5>\n'
-        if mode == 'make':
-            html += '<ol>\n'
-        else:
-            html += '<p itemprop="recipeInstructions">\n'
-        index = 1
         instructions = recipe.get('instructions')
-        while 'step' + str(index) in instructions:
-            item = instructions.get('step' + str(index))
-            item = item.replace('degrees', '&#8457;')
-            item = item.replace('saute', 'saut&eacute;')
-            if mode == 'make':
-                html += '  <li>' + item + '</li>\n'
-            else:
-                html += item + '. '
-            index += 1
-        if mode == 'make':
-            html += '</ol>\n'
+        if 'section1' in instructions:
+            html += self.render_instructions(instructions['section1'], mode)
+            if 'section2' in instructions:
+                html += self.render_instructions(instructions['section2'], mode)
+            if 'section3' in instructions:
+                html += self.render_instructions(instructions['section3'], mode)
         else:
-            html += '</p>\n'
+            html += self.render_instructions(instructions, mode)
         if 'notes' in recipe:
             html += '<h5><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;Notes</h5>\n'
             html += '<p>' + recipe['notes'] + '</p>\n'

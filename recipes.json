@@ -24,6 +24,29 @@
   "notes": "Cashews, pepetas and other nuts may be substituted or mixed with peanuts."
 },
 {
+  "title": "Pumpkin Pie",
+  "chef": "Susan",
+  "time": "1 hour",
+  "yield": "Makes 1 pie",
+  "category": ["Dessert"],
+  "ingredients": {
+    "item1": {"quantity": "3 cups", "ingredient": "pumpkin puree"},
+    "item2": {"quantity": "3/4 cup", "ingredient": "honey"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "molasses"},
+    "item4": {"quantity": "3 tsp", "ingredient": "cinnamon"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "cloves"},
+    "item6": {"quantity": "1 1/2 tsp", "ingredient": "ginger"},
+    "item7": {"quantity": "4", "ingredient": "eggs"},
+    "item8": {"quantity": "1 can", "ingredient": "evaporated milk (12 oz)"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 450 degrees",
+    "step2": "Mix ingredients in order given",
+    "step3": "Pour into whole wheat pie shell and bake for 10 minutes",
+    "step4": "Reduce heat to 350 degrees and bake for another 40 minutes or until set"
+  }
+},
+{
   "title": "Pfeffernusse",
   "chef": "Erika",
   "time": "30 minutes",
