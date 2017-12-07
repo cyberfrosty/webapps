@@ -87,8 +87,10 @@ class VaultManager(object):
             vault = self.vault
         if vault is not None:
             html = '<ul class="fa-ul">\n'
-            for box in vault:
-                html += '<li><input type="checkbox">' + box + '</li>\n'
+            for safebox in vault:
+                box = vault[safebox]
+                if isinstance(box, dict) and 'contents' in box:
+                    html += '<li><a href="/vault?box=' + safebox + '">' + safebox + '</a></li>\n'
             html += '</ul>\n'
         else:
             html = '<textarea id="vault">Encrypted content</textarea>'
@@ -109,11 +111,11 @@ class VaultManager(object):
             box = vault[name]
             headings = box['headings']
             contents = box['contents']
-            html = '<table style="width:100%">\n<tr>'
+            html = '<table id="vault" style="width:100%">\n<tr>'
             for heading in headings:
-                html += '  <th>' + heading + '</th>/n'
+                html += '  <th>' + heading + '</th>'
             for item in contents:
-                html += '</tr>\n<tr>\n'
+                html += '</tr>\n<tr>'
                 for heading in headings:
                     if heading in item:
                         html += '  <td>' + item[heading] + '</td>'

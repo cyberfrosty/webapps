@@ -14,11 +14,11 @@
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(id="password", title="Password must contain at least 6 characters, including UPPER/lowercase and numbers.", placeholder="New password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}") }}
+  {{ form.password(id="password", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="New password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.confirm(id="confirm", title="Password must contain at least 6 characters, including UPPER/lowercase and numbers.", placeholder="Confirm password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}") }}
+  {{ form.confirm(id="confirm", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="Confirm password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
   </p>
     <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</button>
   </center>

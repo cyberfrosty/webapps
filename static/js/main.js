@@ -6,6 +6,10 @@
  * Copyright (c) 2017 Alan Frost
  */
 
+$(document).on('click',function() {
+  $('.collapse').collapse('hide');
+})
+
 /**
  * Initialize search list
  */
