@@ -4,13 +4,13 @@
 
 <div class="container" itemscope itemtype="http://schema.org/Recipe">
   <div class="page-header">
-    <h3 itemprop="name">
     {% if category %}
+      <h3 itemprop="name">
       {{ category | safe }}
+      </h3>
     {% else %}
-      Recipes
+      <h3>Latest Recipe</h3>
     {% endif %}
-    </h3>
   </div>
   <div class="row">
       {% if recipe %}
@@ -18,21 +18,9 @@
       {% else %}
         <div class="col-sm-8">
         <h4>Family Recipes</h4>
-        <p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious and a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.
-        <h4>Moroccan Meatballs with Spicy Cilantro Carrots</h4>
-        <img  src="{{url_for("static", filename="img/MoroccanMeatballs.jpg")}} alt="Moroccan Meatballs with Spicy Cilantro Carrots"
-          srcset="{{url_for("static", filename="img/MoroccanMeatballs.jpg")}} 1120w,
-                  {{url_for("static", filename="img/MoroccanMeatballs_medium.jpg")}} 720w,
-                  {{url_for("static", filename="img/MoroccanMeatballs_small.jpg")}} 400w"
-          sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw"> 
-        <h4>Sesame Chicken</h4>
-        <img  src="{{url_for("static", filename="img/SesameChicken.jpg")}} alt="Sesame Chicken"
-          srcset="{{url_for("static", filename="img/SesameChicken.jpg")}} 1120w,
-                  {{url_for("static", filename="img/SesameChicken_medium.jpg")}} 720w,
-                  {{url_for("static", filename="img/SesameChicken-small.jpg")}} 400w"
-          sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw"> 
+        <p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>
       {% endif %}
-    </div><!--/col-sm-8-->
+      </div><!--/col-sm-8-->
     <div class="col-sm-3 col-sm-offset-1">
       <div class="sidebar-module-inset">
         <button class="accordion">Asian</button>

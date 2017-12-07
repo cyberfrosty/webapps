@@ -8,6 +8,7 @@ Implementation of Recipe manager
 
 """
 
+from datetime import datetime
 import re
 import os
 import simplejson as json
@@ -105,7 +106,7 @@ class RecipeManager(object):
         """
 
         if 'title' in ingredients:
-            html = '<h5>' + ingredients['title'] + '</h5>\n<ul>\n'
+            html = '<h5><strong>' + ingredients['title'] + '</strong></h5>\n<ul>\n'
         else:
             html = '<ul>\n'
 
@@ -172,7 +173,7 @@ class RecipeManager(object):
 
         html = ''
         if 'title' in instructions:
-            html += '<h5>' + instructions['title'] + '</h5>\n'
+            html = '<h5><strong>' + instructions['title'] + '</strong></h5>\n'
 
         if mode == 'make':
             html += '<ol itemprop="recipeInstructions">\n'
@@ -233,6 +234,10 @@ class RecipeManager(object):
                 html += self.render_time('totalTime', recipe['totaltime'])
             elif 'time' in recipe:
                 html += self.render_time('totalTime', recipe['time'])
+            if 'date' in recipe:
+                posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
+                html += '<h5 itemprop="datePublished" content="' + posted + '">'
+                html += '<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
             html += '</ul>\n'
             html += '</div><!--/col-sm-3-->\n'
             html += '</div><!--/row-->\n'
@@ -240,7 +245,7 @@ class RecipeManager(object):
             html += '<div class="col-sm-8">\n'
 
 
-        html += '<h5><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;Ingredients</h5>\n'
+        html += '<i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
         ingredients = recipe['ingredients']
         if 'section1' in ingredients:
             html += self.render_ingredients(ingredients['section1'])
@@ -250,7 +255,7 @@ class RecipeManager(object):
                 html += self.render_ingredients(ingredients['section3'])
         else:
             html += self.render_ingredients(ingredients)
-        html += '<h5><i class="fa fa-tasks" aria-hidden="true"></i> Instructions</h5>\n'
+        html += '<i class="fa fa-tasks" aria-hidden="true"></i> <strong>Instructions</strong>\n'
         instructions = recipe.get('instructions')
         if 'section1' in instructions:
             html += self.render_instructions(instructions['section1'], mode)
@@ -261,7 +266,7 @@ class RecipeManager(object):
         else:
             html += self.render_instructions(instructions, mode)
         if 'notes' in recipe:
-            html += '<h5><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;Notes</h5>\n'
+            html += '<i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
             html += '<p>' + recipe['notes'] + '</p>\n'
 
         return html
@@ -280,8 +285,15 @@ class RecipeManager(object):
         else:
             recipe = self.get_recipe(recipe_id)
 
-        if recipe is not None:
+        if recipe is not None and 'error' not in recipe:
             return self.render_recipe(recipe)
+
+    def get_latest_recipe(self):
+        latest = 'Moroccan Meatballs'
+        html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>"
+        html += '<h4 itemprop="name">' + latest + '</h4>\n'
+        html += self.get_rendered_recipe(latest)
+        return html
 
     def find_recipe_by_category(self, category):
         """ Find recipes of the specified category (e.g. 'asian')

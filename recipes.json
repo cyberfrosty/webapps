@@ -1,6 +1,7 @@
 [{
   "title": "Chocolate Crunchies",
   "chef": "Susan",
+  "date": "November 17, 2017",
   "time": "1 hour 10 minutes",
   "yield": "Makes 10-15",
   "category": ["Dessert"],
@@ -26,6 +27,7 @@
 {
   "title": "Pumpkin Pie",
   "chef": "Susan",
+  "date": "November 22, 2017",
   "time": "1 hour",
   "yield": "Makes 1 pie",
   "category": ["Dessert"],
@@ -360,7 +362,7 @@
     "item17": {"quantity": "1 tbsp", "ingredient": "fresh cilantro and/or toasted almond slices (optional)"}
   },
   "instructions": {
-    "step1": "Mix dry spices in mortar or small bowl (note that Ras El Hanut may be used for most spice)",
+    "step1": "Mix dry spices in mortar or small bowl (note that Ras El Hanout may be used for most spice)",
     "step2": "Cut meat into 1/2 inch cubes and place into a medium bowl",
     "step3": "Massage meat with the spice rub, then cover with plastic wrap and put into the fridge for a couple of hours – ideally overnight",
     "step4": "Heat olive oil in medium fry pan and cook meat for 5-10 minutes over medium-high heat until outside is browned",
@@ -371,6 +373,7 @@
 {
   "title": "Moroccan Meatballs",
   "chef": "Alan",
+  "date": "November 17, 2017",
   "time": "1 hour",
   "yield": "Serves 6",
   "category": ["Mediterranean", "Dinner"],
@@ -407,7 +410,7 @@
   },
   "instructions": {
     "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
-    "step2": "Mix dry spices in mortar or small bowl (note that Ras El Hanut may be used for most spice)",
+    "step2": "Mix dry spices in mortar or small bowl (note that Ras El Hanout may be used for most spice)",
     "step3": "Add crushed tomatoes, stock, spices, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
     "step4": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
     "step5": "Form into 1 inch balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
@@ -877,6 +880,72 @@
     "step8": "Add sauce mixture to veggies and bring to low boil",
     "step9": "Add chicken to mixture, stir to coat evenly, turn off heat, leave covered for a few minutes",
     "step10": "Serve over rice, garnish with sesame seeds and green onions"
+  }
+},
+{
+  "title": "Chicken Shawarma",
+  "chef": "Alan",
+  "yield": "Serves 4",
+  "time": "45 mins",
+  "category": ["Mediterranean", "Chicken", "Dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
+    },
+    "section2": {
+      "title":"Marinade",
+      "item1": {"quantity": "1 tbsp", "ingredient": "olive and/or canola oil"},
+      "item2": {"quantity": "1", "ingredient": "shallot, diced (2 tbsp)"},
+      "item3": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
+      "item4": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "lemon juice"},
+      "item6": {"quantity": "1 tsp", "ingredient": "cardamom"},
+      "item7": {"quantity": "1 tsp", "ingredient": "coriander"},
+      "item8": {"quantity": "1 tsp", "ingredient": "cumin"},
+      "item9": {"quantity": "2 tsp", "ingredient": "smoked paprika"},
+      "item10": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Sriracha, or 1 tsp cayenne"}
+    },
+    "section3": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro"}
+    },
+    "section4": {
+      "title":"Yogurt Sauce",
+      "item1": {"quantity": "1/2 cup", "ingredient": "non-fat Greek yogurt"},
+      "item1": {"quantity": "2 tbsp", "ingredient": "tahini"},
+      "item5": {"quantity": "2 tsp", "ingredient": "lemon juice"},
+      "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro"}
+    }
+  },
+  "instructions": {
+    "section1": {
+      "title": "Stir Fry Style",
+      "step1": "Combine yogurt sauce ingredients in a bowl and mix. Cover and put in fridge (will last for several days)",
+      "step2": "Place shallot, garlic and turmeric (if using fresh grated) and 1 tbsp oil into wok",
+      "step3": "Combine remaining sauce ingredients in measuring cup and mix",
+      "step4": "Add oil to large non-stick skillet and preheat over medium heat",
+      "step5": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+      "step6": "Place chicken into skillet and turn up heat to medium-high",
+      "step7": "Turn heat to medium-low for veggies, stirring occasionally and kept covered",
+      "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+      "step9": "Add sauce mixture to veggies, stir and bring to low boil",
+      "step10": "Add chicken to mixture, stir to coat evenly, turn off heat, leave covered for a few minutes",
+      "step11": "Serve over couscous or rice, and garnish with cilantro"
+    },
+    "section2": {
+      "title": "Grilled",
+      "step1": "Combine marinade ingredients in a bowl or large zip-lock bag (skip the shallots and use powder for garlic)",
+      "step2": "Cut chicken into strips, add to marinade and massage to ensure chicken is thoroughly coated",
+      "step3": "Marinate for at least an hour or preferable overnight",
+      "step4": "Combine yogurt sauce ingredients in a bowl and mix. Cover and put in fridge (will last for several days)",
+      "step5": "Heat grill on medium high, cook for 4-5 minutes on each side until nicely charred",
+      "step6": "Remove from grill, drape with foil and let rest for 5 minutes",
+      "step7": "Slice chicken and serve with pita, salad and yogurt sauce"
+    }
   }
 },
 {
