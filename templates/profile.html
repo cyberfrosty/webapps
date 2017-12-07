@@ -3,6 +3,7 @@
 {% block content %}
 
 <h2>User Profile</h2>
+<hr />
 <table>
 {% for key, value in account.iteritems() %}
   <tr>
@@ -13,4 +14,7 @@
    </tr>
 {% endfor %}
 </table>
+<br />
+<a href="/change" class="btn btn-primary" role="button"><i class="fa fa-key fa-fw"></i>&nbsp;Change Password</a>
+<a href="/invite" class="btn btn-primary" role="button"><i class="fa fa-user fa-fw"></i>&nbsp;Invite User</a>
 {% endblock %}

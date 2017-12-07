@@ -8,10 +8,10 @@ Utility methods
 """
 
 from datetime import datetime
+import struct
 import os
 import base64
 import re
-import random
 import string
 import time
 import uuid
@@ -37,6 +37,103 @@ def generate_uuid():
     """
     return uuid.uuid4().urn
 
+# Bitcoin compatible base58 encoding
+# 58 character alphabet used
+alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+
+if bytes == str:  # python2
+    iseq = lambda s: map(ord, s)
+    bseq = lambda s: ''.join(map(chr, s))
+    buffer = lambda s: s
+else:  # python3
+    iseq = lambda s: s
+    bseq = bytes
+    buffer = lambda s: s.buffer
+
+def base58encode_int(i, default_one=True):
+    """Encode an integer using Base58"""
+    if not i and default_one:
+        return alphabet[0]
+    string = ""
+    while i:
+        i, idx = divmod(i, 58)
+        string = alphabet[idx] + string
+    return string
+
+
+def base58encode(v):
+    """Encode a string using Base58"""
+    if not isinstance(v, bytes):
+        raise TypeError("a bytes-like object is required, not '%s'" %
+                        type(v).__name__)
+
+    nPad = len(v)
+    v = v.lstrip(b'\0')
+    nPad -= len(v)
+
+    p, acc = 1, 0
+    for c in iseq(reversed(v)):
+        acc += p * c
+        p = p << 8
+
+    result = base58encode_int(acc, default_one=False)
+
+    return (alphabet[0] * nPad + result)
+
+def base58decode_int(v):
+    """Decode a Base58 encoded string as an integer"""
+
+    if not isinstance(v, str):
+        v = v.decode('ascii')
+
+    decimal = 0
+    for char in v:
+        decimal = decimal * 58 + alphabet.index(char)
+    return decimal
+
+
+def base58decode(v):
+    """Decode a Base58 encoded string"""
+
+    if not isinstance(v, str):
+        v = v.decode('ascii')
+
+    if not isinstance(v, str):
+        raise TypeError("a string-like object is required (also bytes), not '%s'" %
+                        type(v).__name__)
+
+    origlen = len(v)
+    v = v.lstrip(alphabet[0])
+    newlen = len(v)
+
+    acc = base58decode_int(v)
+
+    result = []
+    while acc > 0:
+        acc, mod = divmod(acc, 256)
+        result.append(mod)
+
+    return (b'\0' * (origlen - newlen) + bseq(reversed(result)))
+
+
+def base58encode_check(v):
+    """Encode a string using Base58 with a 4 character checksum"""
+
+    digest = hash_sha256(hash_sha256(v))
+    return base58encode(v + digest[:4])
+
+def base58decode_check(v):
+    """Decode and verify the checksum of a Base58 encoded string"""
+
+    result = base58decode(v)
+    result, check = result[:-4], result[-4:]
+    digest = hash_sha256(hash_sha256(result))
+
+    if check != digest[:4]:
+        raise ValueError("Invalid checksum")
+
+    return result
+
 def preset_password(username, password):
     """ Preset password for a new user or password reset. HMAC is used to protect the actual password so
         that when passed from browser/app the password is not in clear text, and also ensures that 2 users
@@ -49,17 +146,6 @@ def preset_password(username, password):
     """
     hashword = base64.b16encode(hmac_sha256(username, password)).lower()
     return derive_key(hashword)
-
-def get_ip_address(request):
-    """ Get the remote IP address if available, 'untrackable' if not
-    Args:
-        request: HTTP request
-    """
-    if 'X-Forwarded-For' in request.headers:
-        remote_addr = request.headers.getlist("X-Forwarded-For")[0].rpartition(' ')[-1]
-    else:
-        remote_addr = request.remote_addr or 'untrackable'
-    return remote_addr
 
 def create_signed_request(secret, method, path, params, time_stamp):
     """ Create a signed HTTP request
@@ -154,8 +240,7 @@ def generate_otp_secret():
     Return:
         secret: 16 character base32 secret (80 bit key)
     """
-    chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
-    return ''.join(random.choice(chars) for x in range(16))
+    return base64.b32encode(os.urandom(10))
 
 def verify_hotp_code(secret, code, counter):
     """ Validate a Google authenticator compatible HOTP code
@@ -192,7 +277,6 @@ def generate_hotp_code(secret, counter):
     key = base64.b32decode(secret)
     hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
     hotp_value = hotp.generate(counter)
-    print hotp_value
     return hotp_value
 
 def generate_hotp_uri(secret, counter, email):
@@ -415,10 +499,22 @@ def validate_address_code(secret, address, identifier):
     except TypeError:
         return False
 
-def generate_random_id(size=8, chars='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'):
-    """ Generate a random id, default is 8 characters base58
+def generate_random_int():
+    """ Generate a random 32 bit integer
     """
-    return ''.join(random.choice(chars) for x in range(size))
+    values = struct.unpack("I", os.urandom(4))
+    return values[0]
+
+def generate_random58_id(size=8):
+    """ Generate a random id encoded as base58
+    """
+    return base58encode(os.urandom(size * 11 / 8))
+
+def generate_random58_valid(size=8):
+    """ Generate a random id encoded as base58 with 4 byte checksum
+    """
+    return base58encode_check(os.urandom(size * 11 / 8))
+
 
 def generate_id(user):
     """ Hash user name to create a unique identifier
@@ -539,5 +635,10 @@ def main():
     if validate_address_code(secret, code, 'yuki:dev1'):
         print 'Address code validated', code
 
+    print generate_random58_id(8)
+    print generate_random58_id(12)
+    print generate_random58_valid(8)
+    b58code = generate_random58_valid(12)
+    code = base58decode_check(b58code)
 if __name__ == '__main__':
     main()

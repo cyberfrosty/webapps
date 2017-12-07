@@ -23,8 +23,10 @@ from decorators import async
 from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm, InviteForm,
                    PasswordResetRequestForm, PasswordResetForm, ResendConfirmForm)
 from crypto import derive_key
-from utils import generate_timed_token, validate_timed_token, generate_user_id, generate_random_id, preset_password
-from awsutils import load_config, DynamoDB
+from utils import (generate_timed_token, validate_timed_token, generate_user_id,
+                   generate_random58_valid, preset_password, generate_random_int,
+                   generate_otp_secret, generate_hotp_code)
+from awsutils import load_config, DynamoDB, SNS
 from recipe import RecipeManager
 from vault import VaultManager
 
@@ -35,6 +37,7 @@ SESSIONS = DynamoDB(CONFIG, CONFIG.get('sessions'))
 RECIPE_MANAGER = RecipeManager(CONFIG)
 RECIPE_MANAGER.load_recipes('recipes.json')
 VAULT_MANAGER = VaultManager(CONFIG)
+SNS = SNS('FrostyWeb')
 
 # Log exceptions and errors to /var/log/cyberfrosty.log
 # 2017-05-11 08:29:26,696 ERROR webapp:main [Errno 51] Network is unreachable
@@ -74,6 +77,16 @@ def send_async_email(msg):
     """
     with application.app_context():
         EMAIL_MANAGER.send(msg)
+
+@async
+def send_async_text(phone, msg):
+    """ Send a text message from a new thread
+    Args:
+        number: phone number (e.g. '+17702233322')
+        message: text
+    """
+    with application.app_context():
+        SNS.send_sms(phone, msg)
 
 class User(object):
     """ Class for the current user
@@ -350,12 +363,14 @@ def vault():
     if not account or 'error' in account:
         return redirect(url_for('register', username=current_user.get_username()))
     myvault = account.get('vault')
+    mcf = '<p hidden id="mcf">' + myvault.get('mcf', '') + '</p>'
     box = request.args.get('box')
     if box is not None:
+        contents = '<p hidden id="safebox">' + myvault.get('contents', '') + '</p>'
         html = VAULT_MANAGER.get_rendered_box(myvault, box)
     else:
         html = VAULT_MANAGER.get_rendered_vault(myvault)
-    return render_template('vault.html', box=html)
+    return render_template('vault.html', contents=html, mcf=mcf)
 
 @application.route('/privacy', methods=['GET'])
 def privacy():
@@ -505,7 +520,7 @@ def change():
 
 @application.route("/resend", methods=['GET', 'POST'])
 def resend():
-    """ Regenerate and send an account invite code
+    """ Regenerate and send a new confirmation code
     """
     username = request.args.get('username')
     action = request.args.get('action')
@@ -515,26 +530,44 @@ def resend():
     form.username.data = username
     form.action.data = action
     if form.validate_on_submit():
-        token = generate_timed_token(username, application.config['SECRET_KEY'], 'invite')
+        token = generate_timed_token(username, application.config['SECRET_KEY'], action)
         send_email(form.email.data, 'Confirm Your Account',
-                   'email/confirm', username=form.username.data, token=token, action='invite')
+                   'email/confirm', username=form.username.data, token=token, action=action)
         flash('A confirmation email has been sent to ' + form.email.data)
         return redirect(url_for('login', username=form.username.data))
     return render_template('resend.html', form=form)
 
 @application.route("/invite", methods=['GET', 'POST'])
+@login_required
 def invite():
-    """ Invite a new user to join
+    """ Invite a new user to join by providing an email address and phone number for them.
+        An invitation is emailed to the user with a temporary password and a one time code
+        is sent via text message to the phone number.
     """
     username = request.args.get('username')
     form = InviteForm()
     if form.validate_on_submit():
-        password = generate_random_id(12)
-        mcf = preset_password(form.username.data, password)
-        token = generate_timed_token(username, application.config['SECRET_KEY'], 'invite')
-        send_email(form.email.data, 'Reset Your Password',
-                   'email/confirm', username=form.username.data, token=token, action='invite')
-        return redirect(url_for('index'))
+        username = form.email.data
+        if USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), username)):
+            flash('Username ' + username + ' already taken')
+            return redirect(url_for('invite', email=username, phone=form.phone.data))
+        password = generate_random58_valid(10)
+        info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), username),
+                'username': username,
+                'email': username,
+                'authentication': 'password',
+                'mcf': preset_password(username, password),
+                'status': 'invited: ' + time.mktime(datetime.utcnow().timetuple())
+               }
+        USERS.put_item(info)
+        send_email(form.email.data, current_user.get_name() + ' has invited you to Frosty Web',
+                   'email/confirm', username=username, password=password, action='invite')
+        # send SMS
+        secret = generate_otp_secret()
+        counter = generate_random_int()
+        code = generate_hotp_code(secret, counter)
+        send_async_text(form.phone.data, code + ' is your Frosty Web code')
+        return redirect(url_for('profile'))
     return render_template('invite.html', form=form)
 
 @application.route("/forgot", methods=['GET', 'POST'])
@@ -592,16 +625,15 @@ def register():
         else:
             flash('Invalid or expired token')
         # Create json for new user
-        info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), form.username.data),
+        username = form.username.data or form.email.data
+        info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), username),
+                'username': username,
+                'email': form.email.data,
                 'authentication': 'password',
                 'mcf': derive_key(form.password.data),
-                'status': 'pending: ' + time.mktime(datetime.utcnow().timetuple()),
-                'pii': {
-                    'username': form.username.data,
-                    'email': form.email.data
-                }
+                'status': 'pending: ' + time.mktime(datetime.utcnow().timetuple())
                }
-        user = User(form.email.data, form.username.data)
+        user = User(form.email.data, username)
         user.is_authenticated = False
         user.is_active = False
         USERS.put_item(info)
