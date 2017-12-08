@@ -38,94 +38,121 @@ def generate_uuid():
     return uuid.uuid4().urn
 
 # Bitcoin compatible base58 encoding
-# 58 character alphabet used
-alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
-
-if bytes == str:  # python2
-    iseq = lambda s: map(ord, s)
-    bseq = lambda s: ''.join(map(chr, s))
-    buffer = lambda s: s
-else:  # python3
-    iseq = lambda s: s
-    bseq = bytes
-    buffer = lambda s: s.buffer
-
-def base58encode_int(i, default_one=True):
-    """Encode an integer using Base58"""
-    if not i and default_one:
-        return alphabet[0]
-    string = ""
-    while i:
-        i, idx = divmod(i, 58)
-        string = alphabet[idx] + string
-    return string
+B58ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 
 
-def base58encode(v):
-    """Encode a string using Base58"""
-    if not isinstance(v, bytes):
+def base58encode_int(number, default_one=True):
+    """ Encode an integer using base58
+    Args:
+        number: integer toi encode
+    Return:
+        base58 encoded string
+    """
+    if not number and default_one:
+        return B58ALPHABET[0]
+    encoded = ""
+    while number:
+        number, idx = divmod(number, 58)
+        encoded = B58ALPHABET[idx] + encoded
+    return encoded
+
+
+def base58encode(source):
+    """Encode a string using base58
+    Args:
+        string: to encode
+    Return:
+        base58 encoded string
+    """
+    if not isinstance(source, bytes):
         raise TypeError("a bytes-like object is required, not '%s'" %
-                        type(v).__name__)
+                        type(string).__name__)
 
-    nPad = len(v)
-    v = v.lstrip(b'\0')
-    nPad -= len(v)
+    pad = len(source)
+    source = source.lstrip(b'\0')
+    pad -= len(source)
 
-    p, acc = 1, 0
-    for c in iseq(reversed(v)):
-        acc += p * c
-        p = p << 8
+    # Python 2.7 or 3 require different way to construct integer array
+    iseq = lambda s: [ord(ordinal) for ordinal in s] if bytes == str else lambda s: s
+
+    pos, acc = 1, 0
+    for char in iseq(reversed(source)):
+        acc += pos * char
+        pos = pos << 8
 
     result = base58encode_int(acc, default_one=False)
 
-    return (alphabet[0] * nPad + result)
+    return B58ALPHABET[0] * pad + result
 
-def base58decode_int(v):
-    """Decode a Base58 encoded string as an integer"""
+def base58decode_int(source):
+    """ Decode a base58 encoded string as an integer
+    Args:
+        source: string to decode
+    Return:
+        integer value
+    """
 
-    if not isinstance(v, str):
-        v = v.decode('ascii')
+    if not isinstance(source, str):
+        source = source.decode('ascii')
 
     decimal = 0
-    for char in v:
-        decimal = decimal * 58 + alphabet.index(char)
+    for char in source:
+        decimal = decimal * 58 + B58ALPHABET.index(char)
     return decimal
 
 
-def base58decode(v):
-    """Decode a Base58 encoded string"""
+def base58decode(source):
+    """ Decode a base58 encoded string
+    Args:
+        source: string to decode
+    Return:
+        string value
+    """
 
-    if not isinstance(v, str):
-        v = v.decode('ascii')
+    if not isinstance(source, str):
+        source = source.decode('ascii')
 
-    if not isinstance(v, str):
-        raise TypeError("a string-like object is required (also bytes), not '%s'" %
-                        type(v).__name__)
+    if not isinstance(source, str):
+        raise TypeError("a source-like object is required (also bytes), not '%s'" %
+                        type(source).__name__)
 
-    origlen = len(v)
-    v = v.lstrip(alphabet[0])
-    newlen = len(v)
+    origlen = len(source)
+    source = source.lstrip(B58ALPHABET[0])
+    newlen = len(source)
 
-    acc = base58decode_int(v)
+    acc = base58decode_int(source)
 
     result = []
     while acc > 0:
         acc, mod = divmod(acc, 256)
         result.append(mod)
 
-    return (b'\0' * (origlen - newlen) + bseq(reversed(result)))
+    # Python 2.7 or 3 require different way to construct byte array
+    bseq = lambda s: ''.join([chr(char) for char in s]) if bytes == str else bytes
+
+    return b'\0' * (origlen - newlen) + bseq(reversed(result))
 
 
-def base58encode_check(v):
-    """Encode a string using Base58 with a 4 character checksum"""
+def base58encode_check(source):
+    """ Encode a string using Base58 with a 4 character checksum
+    Args:
+        string: to encode
+    Return:
+        base58 encoded string
+    """
 
-    digest = hash_sha256(hash_sha256(v))
-    return base58encode(v + digest[:4])
+    digest = hash_sha256(hash_sha256(source))
+    return base58encode(source + digest[:4])
 
-def base58decode_check(v):
-    """Decode and verify the checksum of a Base58 encoded string"""
+def base58decode_check(source):
+    """ Decode and verify the checksum of a base58 encoded string
+    Args:
+        source: string to decode
+    Return:
+        string value
+    """
 
-    result = base58decode(v)
+    result = base58decode(source)
     result, check = result[:-4], result[-4:]
     digest = hash_sha256(hash_sha256(result))
 
@@ -635,6 +662,10 @@ def main():
     if validate_address_code(secret, code, 'yuki:dev1'):
         print 'Address code validated', code
 
+    code = base58encode("secrect code")
+    print base58decode(code)
+    code = base58encode_check("secrect code")
+    print base58decode_check(code)
     print generate_random58_id(8)
     print generate_random58_id(12)
     print generate_random58_valid(8)
