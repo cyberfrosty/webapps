@@ -29,6 +29,7 @@
   "chef": "Susan",
   "date": "November 22, 2017",
   "time": "1 hour",
+  "image": "https://snowyrangesolutions.com/static/img/PumpkinPie.jpg",
   "yield": "Makes 1 pie",
   "category": ["Dessert"],
   "ingredients": {
@@ -887,6 +888,8 @@
   "chef": "Alan",
   "yield": "Serves 4",
   "time": "45 mins",
+  "date": "December 7, 2017",
+  "image": "https://snowyrangesolutions.com/static/img/ChickenShawarma.jpg",
   "category": ["Mediterranean", "Chicken", "Dinner"],
   "ingredients": {
     "section1": {

@@ -207,11 +207,17 @@ class RecipeManager(object):
         html = '<div class="col-sm-8">\n'
         title = recipe['title']
         html += '<meta itemprop="url" content="https://cyberfrosty.com/recipe.html?recipe=' + title + '" />\n'
-        image = '/img/' + title.replace(' ', '')
-        small = image + '_small.jpg'
-        medium = image + '_medium.jpg'
-        large = image + '.jpg'
-        if os.path.isfile('static' + large):
+        if 'image' in recipe:
+            image, ext = os.path.splitext(recipe['image'])
+            small = image + '_small' + ext
+            medium = image + '_medium' + ext
+            large = image + ext
+        else:
+            image = '/img/' + title.replace(' ', '')
+            small = image + '_small.jpg'
+            medium = image + '_medium.jpg'
+            large = image + '.jpg'
+        if 'image' in recipe or os.path.isfile('static' + large):
             html += '<img  itemprop="image" src="' + large + '" alt="' + title + '"' \
                     'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w"' \
                     'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
@@ -289,7 +295,7 @@ class RecipeManager(object):
             return self.render_recipe(recipe)
 
     def get_latest_recipe(self):
-        latest = 'Moroccan Meatballs'
+        latest = 'Chicken Shawarma'
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>"
         html += '<h4 itemprop="name">' + latest + '</h4>\n'
         html += self.get_rendered_recipe(latest)
