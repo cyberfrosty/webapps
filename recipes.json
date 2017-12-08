@@ -1,6 +1,7 @@
 [{
   "title": "Chocolate Crunchies",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/ChocolateCrunchies.jpg",
   "date": "November 17, 2017",
   "time": "1 hour 10 minutes",
   "yield": "Makes 10-15",
@@ -27,9 +28,9 @@
 {
   "title": "Pumpkin Pie",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/PumpkinPie.jpg",
   "date": "November 22, 2017",
   "time": "1 hour",
-  "image": "https://snowyrangesolutions.com/static/img/PumpkinPie.jpg",
   "yield": "Makes 1 pie",
   "category": ["Dessert"],
   "ingredients": {
@@ -52,6 +53,8 @@
 {
   "title": "Pfeffernusse",
   "chef": "Erika",
+  "image": "https://snowyrangesolutions.com/static/img/Pfeffernusse.jpg",
+  "date": "November 22, 2017",
   "time": "30 minutes",
   "yield": "Makes 48-60",
   "category": ["Dessert"],
@@ -79,6 +82,8 @@
 {
   "title": "Tuna Noodle",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/TunaNoodle.jpg",
+  "date": "December 2, 2017",
   "time": "45 minutes",
   "yield": "Serves 4-6",
   "category": ["Dinner", "Seafood"],
@@ -104,6 +109,7 @@
 {
   "title": "Swedish Pancakes",
   "chef": "Susan",
+  "date": "August 12, 2017",
   "yield": "Makes 10-15",
   "category": ["Dessert"],
   "ingredients": {
@@ -126,6 +132,7 @@
 {
   "title": "Oven Pancakes",
   "chef": "Susan",
+  "date": "August 12, 2017",
   "time": "20 mins",
   "yield": "Makes 1",
   "category": ["Breakfast"],
@@ -150,6 +157,7 @@
 {
   "title": "Fudge Brownies",
   "chef": "Susan",
+  "date": "August 12, 2017",
   "time": "45 mins",
   "yield": "Makes 16",
   "category": ["Dessert"],
@@ -175,6 +183,8 @@
 {
   "title": "Ginger Carrots",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/GingerCarrots.jpg",
+  "date": "August 12, 2017",
   "time": "30 mins",
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables","Dinner"],
@@ -197,6 +207,7 @@
 {
   "title": "Sesame Green Beans",
   "chef": "Alan",
+  "date": "August 12, 2017",
   "time": "20 mins",
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables","Dinner"],
@@ -219,6 +230,7 @@
 {
   "title": "Spicy Green Beans",
   "chef": "Alan",
+  "date": "June 7, 2017",
   "time": "20 mins",
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables","Dinner"],
@@ -243,6 +255,8 @@
 {
   "title": "Spicy Cilantro Carrots",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SpicyCilantroCarrots.jpg",
+  "date": "July 25, 2017",
   "time": "30 mins",
   "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables","Dinner"],
@@ -264,6 +278,7 @@
 {
   "title": "Guacamole",
   "chef": "Alan",
+  "date": "May 14, 2017",
   "time": "30 mins",
   "yield": "Serves 4",
   "category": ["Mexican", "Dinner"],
@@ -285,6 +300,7 @@
 {
   "title": "Meat Crumbles",
   "chef": "Alan",
+  "date": "May 14, 2017",
   "time": "30 mins",
   "yield": "Serves 4",
   "category": ["Mexican", "Dinner"],
@@ -314,6 +330,7 @@
 {
   "title": "Green Chili",
   "chef": "Susan",
+  "date": "August 12, 2017",
   "time": "30 mins",
   "yield": "Serves 6-8",
   "category": ["Mexican", "Dinner"],
@@ -340,6 +357,7 @@
 {
   "title": "Red Lamb",
   "chef": "Alan",
+  "date": "September 29, 2017",
   "time": "2 hours 30 mins",
   "yield": "Serves 4-6",
   "category": ["Mediterranean", "Dinner"],
@@ -374,6 +392,8 @@
 {
   "title": "Moroccan Meatballs",
   "chef": "Alan",
+  "date": "July 30, 2017",
+  "image": "https://snowyrangesolutions.com/static/img/MoroccanMeatballs.jpg",
   "date": "November 17, 2017",
   "time": "1 hour",
   "yield": "Serves 6",
@@ -422,6 +442,8 @@
 {
   "title": "Roasted Cauliflower",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/RoastedCauliflower.jpg",
+  "date": "August 3, 2017",
   "time": "30 minutes",
   "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables", "Dinner"],
@@ -445,6 +467,7 @@
 {
   "title": "Sauteed Spinach",
   "chef": "Alan",
+  "date": "August 3, 2017",
   "time": "10 minutes",
   "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables", "Dinner"],
@@ -468,6 +491,7 @@
 {
   "title": "Turkey Sausage",
   "chef": "Alan",
+  "date": "April 23, 2017",
   "yield": "Makes 12-15",
   "time": "20 mins",
   "category": ["Breakfast", "Turkey"],
@@ -493,6 +517,7 @@
 {
   "title": "Meatball Marinara",
   "chef": "Alan",
+  "date": "April 23, 2017",
   "time": "1 hour",
   "yield": "Serves 4-6",
   "category": ["Italian", "Pasta", "Turkey", "Dinner"],
@@ -530,6 +555,7 @@
 {
   "title": "Mediterranean Chicken",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/MediterraneanChicken.jpg",
   "time": "1 hour",
   "yield": "Serves 4-6",
   "category": ["Mediterranean", "Pasta", "Chicken", "Dinner"],
@@ -747,6 +773,7 @@
 {
   "title": "Poke Bowl",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/PokeBowl.jpg",
   "yield": "Serves 2",
   "time": "15 mins",
   "category": ["Asian", "Seafood", "Dinner"],
@@ -805,6 +832,7 @@
 {
   "title": "Thai Soyaki Salmon",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ThaiSoyakiSalmon.jpg",
   "yield": "Serves 4",
   "time": "30 mins",
   "category": ["Asian", "Seafood", "Dinner"],
@@ -835,6 +863,7 @@
 {
   "title": "Orange Chicken",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/OrangeChicken.jpg",
   "yield": "Serves 4",
   "time": "45 mins",
   "category": ["Asian", "Chicken", "Dinner"],
@@ -1005,6 +1034,7 @@
 {
   "title": "Sesame Chicken",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SesameChicken.jpg",
   "yield": "Serves 4",
   "time": "45 mins",
   "category": ["Asian", "Chicken", "Dinner"],
@@ -1303,6 +1333,7 @@
 {
   "title": "Anadama Bread",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/AnadamaBread.jpg",
   "yield": "Makes 1 loaf",
   "cooktime": "35 mins",
   "category": ["Bread"],
