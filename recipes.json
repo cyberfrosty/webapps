@@ -109,15 +109,21 @@
 {
   "title": "Swedish Pancakes",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/SwedishPancakes.jpg",
+  "preptime": "15 minutes",
+  "cooktime": "15 minutes",
+  "totaltime": "1 hour",
   "date": "August 12, 2017",
-  "yield": "Makes 10-15",
+  "yield": "Makes 12",
   "category": ["Dessert"],
   "ingredients": {
-    "item1": {"quantity": "1 cup", "ingredient": "flour"},
-    "item2": {"quantity": "2 tsp", "ingredient": "sugar"},
-    "item3": {"quantity": "3", "ingredient": "eggs"},
-    "item4": {"quantity": "2 1/4 cup", "ingredient": "milk"},
-    "item5": {"quantity": "2 tbsp", "ingredient": "melted butter"}
+    "item1": {"quantity": "2 1/4 cup", "ingredient": "milk"},
+    "item2": {"quantity": "1 cup", "ingredient": "flour"},
+    "item3": {"quantity": "1/4 tsp", "ingredient": "salt"},
+    "item4": {"quantity": "2 tsp", "ingredient": "sugar"},
+    "item5": {"quantity": "2 tbsp", "ingredient": "nonfat milk powder"},
+    "item6": {"quantity": "3", "ingredient": "eggs"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "melted butter"}
   },
   "instructions": {
     "step1": "Blend ingredients and let sit in fridge for at least 20 minutes",
@@ -127,11 +133,13 @@
     "step5": "Cook until edges are golden and crepe is easily flipped",
     "step6": "Flip and cook half the time on second side",
     "step7": "Serve rolled with lignonberries, jam, sugar and lemon juice, or your favorite inside"
-  }
+  },
+  "notes": "Use 2 eggs, 2/3 cup flour and 1 1/2 cup milk to reduce serving size to 8 pancakes"
 },
 {
   "title": "Oven Pancakes",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/OvenPancakes.jpg",
   "date": "August 12, 2017",
   "time": "20 mins",
   "yield": "Makes 1",
@@ -157,6 +165,7 @@
 {
   "title": "Fudge Brownies",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/FudgeBrownies.jpg",
   "date": "August 12, 2017",
   "time": "45 mins",
   "yield": "Makes 16",
@@ -201,12 +210,13 @@
     "step1": "Wash, trim ends and cut carrots into 1 cm slices",
     "step2": "In a wok or covered medium sauce pan, saute carrots in olive oil over medium low heat for 15-20 minutes until browned and softening",
     "step3": "Remove cover, add shallot, ginger and garlic. Saute for few minutes",
-    "step3": "Add teriyaki sauce and pepper, stir to coat thoroughly and remove from heat"
+    "step4": "Add teriyaki sauce and pepper, stir to coat thoroughly and remove from heat"
   }
 },
 {
   "title": "Sesame Green Beans",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SesameGreenBeans.jpg",
   "date": "August 12, 2017",
   "time": "20 mins",
   "yield": "Serves 4",
@@ -230,6 +240,7 @@
 {
   "title": "Spicy Green Beans",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SpicyGreenBeans.jpg",
   "date": "June 7, 2017",
   "time": "20 mins",
   "yield": "Serves 4",
@@ -491,6 +502,7 @@
 {
   "title": "Turkey Sausage",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/TurkeySausage.jpg",
   "date": "April 23, 2017",
   "yield": "Makes 12-15",
   "time": "20 mins",
@@ -503,12 +515,12 @@
     "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
     "item6": {"quantity": "1/4 tsp", "ingredient": "black pepper (optional)"},
     "item7": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce (optional)"},
-    "item8": {"quantity": "1 tsp", "ingredient": "oregano, fennel, or marjoram (optional)"},
+    "item8": {"quantity": "1 tsp", "ingredient": "oregano, fennel seeds, or marjoram (optional)"},
     "item9": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
   },
   "instructions": {
     "step1": "Using mortar and pestle grind dried herbs and seeds",
-    "step2": "Mix all ingredients until evenly distributed, add additional breadcrumbs as needed",
+    "step2": "Mix all ingredients until evenly distributed, adding additional breadcrumbs as needed",
     "step3": "Preheat non stick skillet on medium heat",
     "step4": "Form into patties about 2 inches in diameter and 1/2 inch thick and place into skillet",
     "step5": "Cook for about 5 minutes per side until browned and done"
@@ -517,6 +529,7 @@
 {
   "title": "Meatball Marinara",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/MeatballMarinara.jpg",
   "date": "April 23, 2017",
   "time": "1 hour",
   "yield": "Serves 4-6",
@@ -633,6 +646,7 @@
 {
   "title": "Grilled Salmon",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/GrilledSalmon.jpg",
   "time": "20 mins",
   "yield": "Serves 2",
   "category": ["Salmon", "Dinner"],
@@ -650,6 +664,7 @@
 {
   "title": "Salmon Patties",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SalmonPatties.jpg",
   "time": "20 mins",
   "yield": "Makes 6-8",
   "category": ["Salmon", "Dinner"],
@@ -670,6 +685,7 @@
 {
   "title": "Thai Baked Salmon",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ThaiBakedSalmon.jpg",
   "time": "30 mins",
   "yield": "Serves 6-8",
   "category": ["Seafood", "Dinner"],
@@ -694,8 +710,34 @@
   }
 },
 {
+  "title": "Red Pepper Hummus",
+  "chef": "Susan",
+  "time": "10 mins",
+  "yield": "Serves 6-8",
+  "category": ["Mediterranean", "Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "2 cans", "ingredient": "chickpeas, drained"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
+    "item3": {"quantity": "4 tbsp", "ingredient": "lemon juice"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "red wine vinegar"},
+    "item5": {"quantity": "1 tsp", "ingredient": "garlic salt"},
+    "item6": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "roasted red peppers"}
+  },
+  "instructions": {
+    "step1": "Add tahini, lemon juice and  vinegar to a food processor and blend until smooth",
+    "step2": "Add 1 can of chickpeas plus the other remaining ingredients and blend until smooth",
+    "step3": "Add 2nd can of chickpeas and blend until smooth",
+    "step4": "Add red peppers and blend until smooth",
+    "step5": "Add additional salt to taste, serve with dusting of paprika or well with chopped red pepper"
+  },
+  "notes": "Hummus will keep for a week in the fridge in an airtight container"
+},
+{
   "title": "Diced Potatoes",
   "chef": "Alan",
+  "time": "40 mins",
+  "yield": "Serves 4-6",
   "category": ["Breakfast", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "2-3", "ingredient": "large russet or golden potatoes"},
@@ -714,6 +756,8 @@
 {
   "title": "Sweet Potato Fries",
   "chef": "Alan",
+  "time": "40 mins",
+  "yield": "Serves 4-6",
   "category": ["Dinner"],
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "large red garnet yams"},
@@ -807,18 +851,20 @@
 {
   "title": "Cilantro Chile Lime Shrimp",
   "chef": "Alan",
+  "yield": "Serves 2",
+  "time": "15 mins",
   "category": ["Asian", "Seafood", "Dinner"],
   "ingredients": {
-    "item1": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
-    "item2": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
-    "item3": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
-    "item4": {"quantity": "1 tsp", "ingredient": "Sriracha"},
-    "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
-    "item6": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
-    "item7": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped (optional)"},
-    "item8": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-    "item9": {"quantity": "1 tbsp", "ingredient": "olive oil"},
-    "item10": {"quantity": "2/3 lb", "ingredient": "shrimp"},
+    "item1": {"quantity": "2/3 lb", "ingredient": "shrimp"},
+    "item2": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
+    "item5": {"quantity": "1 tsp", "ingredient": "Sriracha"},
+    "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item7": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped (optional)"},
+    "item9": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+    "item10": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item11": {"quantity": "1 pkg", "ingredient": "udon, soba or rice noodles"},
     "item12": {"quantity": "1", "ingredient": "lime cut into wedges"}
   },
@@ -876,14 +922,14 @@
     },
     "section2": {
       "title":"Veggies",
-      "item1": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
-      "item2": {"quantity": "6-8", "ingredient": "shitake or crimini mushrooms, sliced"},
-      "item6": {"quantity": "1", "ingredient": "shallot or  3-4 green onions, diced (2-3 tbsp)"},
-      "item3": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
-      "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
-      "item6": {"quantity": "1 can", "ingredient": "sliced water chestnuts"},
-      "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"},
+      "item2": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
+      "item3": {"quantity": "6-8", "ingredient": "shitake or crimini mushrooms, sliced"},
+      "item4": {"quantity": "1", "ingredient": "shallot or  3-4 green onions, diced (2-3 tbsp)"},
+      "item5": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
+      "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
+      "item8": {"quantity": "1 can", "ingredient": "sliced water chestnuts"}
     },
     "section3": {
       "title":"Orange sauce",
@@ -947,10 +993,10 @@
     "section4": {
       "title":"Yogurt Sauce",
       "item1": {"quantity": "1/2 cup", "ingredient": "non-fat Greek yogurt"},
-      "item1": {"quantity": "2 tbsp", "ingredient": "tahini"},
-      "item5": {"quantity": "2 tsp", "ingredient": "lemon juice"},
-      "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
-      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro"}
+      "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
+      "item3": {"quantity": "2 tsp", "ingredient": "lemon juice"},
+      "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "fresh cilantro"}
     }
   },
   "instructions": {
@@ -1180,10 +1226,10 @@
     "step3": "In a 2 cup mixing cup beat egg, then measure in oil, add vanilla and buttermilk, blend thoroughly",
     "step4": "Mash bananas in a separate bowl",
     "step5": "Add liquid mixture and bananas to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps",
-    "step5": "Fold in pecans or apricots if desired",
-    "step6": "Spray muffin pan with non-stick spray",
-    "step7": "Spoon mixture into muffin pan, sprinkle coarse sugar on muffin tops",
-    "step8": "Bake for 20-22 minutes"
+    "step6": "Fold in pecans or apricots if desired",
+    "step7": "Spray muffin pan with non-stick spray",
+    "step8": "Spoon mixture into muffin pan, sprinkle coarse sugar on muffin tops",
+    "step9": "Bake for 20-22 minutes"
   }
 },
 {
@@ -1220,6 +1266,7 @@
 {
   "title": "Pumpkin Muffins",
   "chef": "Alan",
+  "date": "June 17, 2017",
   "yield": "Makes 12",
   "time": "30 mins",
   "category": ["Breakfast"],
@@ -1278,7 +1325,9 @@
 {
   "title": "Pumpkin Waffles",
   "chef": "Alan",
-  "yield": "Makes 5 waffles",
+  "image": "https://snowyrangesolutions.com/static/img/PumpkinWaffles.jpg",
+  "date": "May 5, 2017",
+  "yield": "Makes 5-6 waffles",
   "time": "45 mins",
   "category": ["Breakfast"],
   "ingredients": {
