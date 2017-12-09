@@ -109,15 +109,18 @@
 {
   "title": "Swedish Pancakes",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/SwedishPancakes.jpg",
   "date": "August 12, 2017",
-  "yield": "Makes 10-15",
+  "yield": "Makes 12",
   "category": ["Dessert"],
   "ingredients": {
-    "item1": {"quantity": "1 cup", "ingredient": "flour"},
-    "item2": {"quantity": "2 tsp", "ingredient": "sugar"},
-    "item3": {"quantity": "3", "ingredient": "eggs"},
-    "item4": {"quantity": "2 1/4 cup", "ingredient": "milk"},
-    "item5": {"quantity": "2 tbsp", "ingredient": "melted butter"}
+    "item1": {"quantity": "2 1/4 cup", "ingredient": "milk"},
+    "item2": {"quantity": "1 cup", "ingredient": "flour"},
+    "item3": {"quantity": "1/4 tsp", "ingredient": "salt"},
+    "item4": {"quantity": "2 tsp", "ingredient": "sugar"},
+    "item5": {"quantity": "2 tbsp", "ingredient": "nonfat milk powder"},
+    "item6": {"quantity": "3", "ingredient": "eggs"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "melted butter"}
   },
   "instructions": {
     "step1": "Blend ingredients and let sit in fridge for at least 20 minutes",
@@ -127,11 +130,13 @@
     "step5": "Cook until edges are golden and crepe is easily flipped",
     "step6": "Flip and cook half the time on second side",
     "step7": "Serve rolled with lignonberries, jam, sugar and lemon juice, or your favorite inside"
-  }
+  },
+  "notes": "Use 2 eggs, 2/3 cup flour and 1 1/2 cup milk to reduce serving size to 8 pancakes"
 },
 {
   "title": "Oven Pancakes",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/OvenPancakes.jpg",
   "date": "August 12, 2017",
   "time": "20 mins",
   "yield": "Makes 1",
@@ -157,6 +162,7 @@
 {
   "title": "Fudge Brownies",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/FudgeBrownies.jpg",
   "date": "August 12, 2017",
   "time": "45 mins",
   "yield": "Makes 16",
@@ -207,6 +213,7 @@
 {
   "title": "Sesame Green Beans",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SesameGreenBeans.jpg",
   "date": "August 12, 2017",
   "time": "20 mins",
   "yield": "Serves 4",
@@ -230,6 +237,7 @@
 {
   "title": "Spicy Green Beans",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SpicyGreenBeans.jpg",
   "date": "June 7, 2017",
   "time": "20 mins",
   "yield": "Serves 4",
@@ -491,6 +499,7 @@
 {
   "title": "Turkey Sausage",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/TurkeySausage.jpg",
   "date": "April 23, 2017",
   "yield": "Makes 12-15",
   "time": "20 mins",
@@ -503,12 +512,12 @@
     "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
     "item6": {"quantity": "1/4 tsp", "ingredient": "black pepper (optional)"},
     "item7": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce (optional)"},
-    "item8": {"quantity": "1 tsp", "ingredient": "oregano, fennel, or marjoram (optional)"},
+    "item8": {"quantity": "1 tsp", "ingredient": "oregano, fennel seeds, or marjoram (optional)"},
     "item9": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
   },
   "instructions": {
     "step1": "Using mortar and pestle grind dried herbs and seeds",
-    "step2": "Mix all ingredients until evenly distributed, add additional breadcrumbs as needed",
+    "step2": "Mix all ingredients until evenly distributed, adding additional breadcrumbs as needed",
     "step3": "Preheat non stick skillet on medium heat",
     "step4": "Form into patties about 2 inches in diameter and 1/2 inch thick and place into skillet",
     "step5": "Cook for about 5 minutes per side until browned and done"
@@ -517,6 +526,7 @@
 {
   "title": "Meatball Marinara",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/MeatballMarinara.jpg",
   "date": "April 23, 2017",
   "time": "1 hour",
   "yield": "Serves 4-6",
@@ -633,6 +643,7 @@
 {
   "title": "Grilled Salmon",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/GrilledSalmon.jpg",
   "time": "20 mins",
   "yield": "Serves 2",
   "category": ["Salmon", "Dinner"],
@@ -650,6 +661,7 @@
 {
   "title": "Salmon Patties",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SalmonPatties.jpg",
   "time": "20 mins",
   "yield": "Makes 6-8",
   "category": ["Salmon", "Dinner"],
@@ -670,6 +682,7 @@
 {
   "title": "Thai Baked Salmon",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ThaiBakedSalmon.jpg",
   "time": "30 mins",
   "yield": "Serves 6-8",
   "category": ["Seafood", "Dinner"],
@@ -691,6 +704,28 @@
     "step3": "Place salmon fillet on foil, spread sauce mixture evenly",
     "step4": "Cover with foil, and bake for 15-20 minutes until salmon flakes, remove from oven and let rest 10 minutes",
     "step5": "Serve with lime wedge and cilantro"
+  }
+},
+{
+  "title": "Red Pepper Hummus",
+  "chef": "Alan",
+  "category": ["Mediterranean", "Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "2 cans", "ingredient": "chickpeas, drained"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
+    "item3": {"quantity": "4 tbsp", "ingredient": "lemon juice"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "red wine vinegar"},
+    "item5": {"quantity": "1 tsp", "ingredient": "garlic salt"},
+    "item6": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item8": {"quantity": "1/2 cup", "ingredient": "roasted red peppers"}
+  },
+  "instructions": {
+    "step1": "Add tahini, lemon juice and  vinegar to a food processor and blend for about 1 minute",
+    "step2": "Add 1 can of chickpeas plus the other remaining ingredients and blend until smooth",
+    "step3": "Add 2nd can of chickpeas and blend until smooth",
+    "step4": "Add red peppers and blend until smooth",
+    "step5": "Add additional salt to taste, and enjoy. Hummus will keep for a week in the fridge in an airtight container"
   }
 },
 {
