@@ -34,21 +34,46 @@
   "yield": "Makes 1 pie",
   "category": ["Dessert"],
   "ingredients": {
-    "item1": {"quantity": "3 cups", "ingredient": "pumpkin puree"},
-    "item2": {"quantity": "3/4 cup", "ingredient": "honey"},
-    "item3": {"quantity": "2 tbsp", "ingredient": "molasses"},
-    "item4": {"quantity": "3 tsp", "ingredient": "cinnamon"},
-    "item5": {"quantity": "1/2 tsp", "ingredient": "cloves"},
-    "item6": {"quantity": "1 1/2 tsp", "ingredient": "ginger"},
-    "item7": {"quantity": "4", "ingredient": "eggs"},
-    "item8": {"quantity": "1 can", "ingredient": "evaporated milk (12 oz)"}
+    "section1": {
+      "title": "Pumpkin Filling",
+        "item1": {"quantity": "3 cups", "ingredient": "pumpkin puree"},
+        "item2": {"quantity": "3/4 cup", "ingredient": "honey"},
+        "item3": {"quantity": "2 tbsp", "ingredient": "molasses"},
+        "item4": {"quantity": "3 tsp", "ingredient": "cinnamon"},
+        "item5": {"quantity": "1/2 tsp", "ingredient": "cloves"},
+        "item6": {"quantity": "1 1/2 tsp", "ingredient": "ginger"},
+        "item7": {"quantity": "4", "ingredient": "eggs"},
+        "item8": {"quantity": "1 can", "ingredient": "evaporated milk (12 oz)"}
+    },
+    "section2": {
+      "title": "Pie Shell",
+        "item1": {"quantity": "1 1/3 cups", "ingredient": "whole wheat flour"},
+        "item2": {"quantity": "2 tbsp", "ingredient": "white flour"},
+        "item2": {"quantity": "1/2 tsp", "ingredient": "salt (less or none if using salted butter)"},
+        "item3": {"quantity": "1/2 cup", "ingredient": "butter (well chilled)"},
+        "item4": {"quantity": "4 tbsp", "ingredient": "ice water (an additional 1-2 tbsp may be required)"}
+    }
   },
   "instructions": {
-    "step1": "Preheat oven to 450 degrees",
-    "step2": "Mix ingredients in order given",
-    "step3": "Pour into whole wheat pie shell and bake for 10 minutes",
-    "step4": "Reduce heat to 350 degrees and bake for another 40 minutes or until set"
-  }
+    "section1": {
+      "title": "Pie Shell",
+      "step1": "Add flour and salt to food processor work bowl, pulse to mix",
+      "step2": "Cut butter into chunks, add to food processor work bowl, pulse until mixture resembles coarse meal",
+      "step3": "With machine running steady add ice water slowly through feed hole, stopping as soon as a ball begins to form",
+      "step4": "Form into a ball, flatten into a 6-8 inch circle and dust with white flour",
+      "step5": "Using a rolling pin on a pastry frame or between wax paper sheets roll until about 1/8 in thick and 1 inch larger than pie pan",
+      "step6": "Using rolling pin or by folding in half carefully transfer dough to 9-10 inch pie pan",
+      "step7": "Trim and prepare edge as desired, leaving a little overhang to anchor"
+    },
+    "section2": {
+      "title": "Pumpkin Pie",
+      "step1": "Preheat oven to 450 degrees",
+      "step2": "Mix ingredients in order given",
+      "step3": "Pour into whole wheat pie shell and bake for 10 minutes",
+      "step4": "Reduce heat to 350 degrees and bake for another 40 minutes or until set"
+    }
+  },
+  "notes": "Extra dough makes a tasty treat when rolled up with cinnamon sugar and baked in toaster oven. Pie shell may be prepared ahead of time and stored in the fridge. Foil or crust protector may be used for part of the baking time to help prevent over browning of the edge."
 },
 {
   "title": "Pfeffernusse",
@@ -134,7 +159,7 @@
     "step6": "Flip and cook half the time on second side",
     "step7": "Serve rolled with lignonberries, jam, sugar and lemon juice, or your favorite inside"
   },
-  "notes": "Use 2 eggs, 2/3 cup flour and 1 1/2 cup milk to reduce serving size to 8 pancakes"
+  "notes": "Use 2 eggs, 2/3 cup flour and 1 1/2 cup milk to reduce serving size to 8 pancakes."
 },
 {
   "title": "Oven Pancakes",
@@ -731,7 +756,7 @@
     "step4": "Add red peppers and blend until smooth",
     "step5": "Add additional salt to taste, serve with dusting of paprika or well with chopped red pepper"
   },
-  "notes": "Hummus will keep for a week in the fridge in an airtight container"
+  "notes": "Hummus will keep for a week in the fridge in an airtight container."
 },
 {
   "title": "Diced Potatoes",
