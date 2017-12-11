@@ -4,8 +4,20 @@
 
 <div class="container">
 <form id="register_form" class="form-signin" role="form" method="post" action="">
+  <center>
   <h3 class="form-signin-heading">Sign Up</h3>
   {{ form.csrf_token }}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <font color="red">
+      <ul class="fa-ul">
+      {% for message in messages %}
+        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      </font>
+    {% endif %}
+  {% endwith %}
   <p>
   <i class="fa fa-user-o fa-fw"></i>
   {{ form.username(id="username", placeholder="Username or email", title="Username must be at least 4 characters and contain only letters, numbers and underscores." ) }}
@@ -26,6 +38,7 @@
   <i class="fa fa-ticket fa-fw"></i>
   {{ form.token(id="token", placeholder="Token") }}
   </p>
+  </center>
   <button class="btn btn-primary" type="submit"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Sign Up</button>
   <br><br>
   <p>By signing up, I agree to the <a href="{{url_for('privacy')}}">Privacy Policy and End User Agreement.</a>

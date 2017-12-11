@@ -7,10 +7,22 @@
   <center>
   <h3 class="form-signin-heading">Invite User</h3>
   {{ form.csrf_token }}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <font color="red">
+      <ul class="fa-ul">
+      {% for message in messages %}
+        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      </font>
+    {% endif %}
+  {% endwith %}
   <p>
   <i class="fa fa-envelope-o fa-fw"></i>
   {{ form.email(id="email", placeholder="Email addess") }}
   </p>
+  <p>
   <i class="fa fa-phone fa-fw"></i>
   {{ form.phone(id="phone", placeholder="Phone") }}
   </p>

@@ -4,8 +4,20 @@
 
 <div class="container">
 <form class="form-signin" role="form" method="post" action="">
+  <center>
   <h3 class="form-signin-heading">Request Password Reset</h3>
   {{ form.csrf_token }}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <font color="red">
+      <ul class="fa-ul">
+      {% for message in messages %}
+        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      </font>
+    {% endif %}
+  {% endwith %}
   <p>
   <i class="fa fa-user-o fa-fw"></i>
   {{ form.email(placeholder="email") }}
@@ -20,6 +32,7 @@
   <p>
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Request Password Reset</button>
+  </center>
   <br /><br />
 </form>
 </div>

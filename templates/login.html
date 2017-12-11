@@ -9,6 +9,17 @@
   <center>
   <h3 class="form-signin-heading">Log In</h3>
   {{ form.csrf_token }}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <font color="red">
+      <ul class="fa-ul">
+      {% for message in messages %}
+        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      </font>
+    {% endif %}
+  {% endwith %}
   <p>
   <i class="fa fa-user fa-fw"></i>
   {{ form.username(id="username", placeholder="Username or email") }}

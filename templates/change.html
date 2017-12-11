@@ -6,9 +6,19 @@
 <div class="container">
 <form id="change_form" class="form-signin" role="form" method="post" action="">
   <center>
-    <h3 class="form-signin-heading">Change Password</h3>
-
+  <h3 class="form-signin-heading">Change Password</h3>
   {{ form.csrf_token }}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <font color="red">
+      <ul class="fa-ul">
+      {% for message in messages %}
+        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      </font>
+    {% endif %}
+  {% endwith %}
   <p>
   {{ form.username(id="username", placeholder="Username or email") }}
   </p>
@@ -22,7 +32,6 @@
   </p>
     <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</button>
   </center>
-  <br /><br />
 </form>
 </div>
 

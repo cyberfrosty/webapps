@@ -4,46 +4,31 @@
 
 <div class="container">
 <form class="form-signin" role="form" method="post" action="">
+  <center>
   <h3 class="form-signin-heading">Reset Password</h3>
-
-<form class="form-reset" role="form" method="post" action="">
   {{ form.csrf_token }}
-  <p>
-  <i class="fa fa-qrcode fa-fw"></i>
-  {{ form.token(placeholder="token") }}
-    <span class="error">
-      {% if form.token.errors %}
-        {% for error in form.token.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
-  </p>
-  <p>
-  <p>
-  <i class="fa fa-key fa-fw"></i>
-  {{ form.password(placeholder="password") }}
-    <span class="error">
-      {% if form.password.errors %}
-        {% for error in form.password.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
-  </p>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <font color="red">
+      <ul class="fa-ul">
+      {% for message in messages %}
+        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      </font>
+    {% endif %}
+  {% endwith %}
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.confirm(placeholder="confirm") }}
-    <span class="error">
-      {% if form.confirm.errors %}
-        {% for error in form.confirm.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
+  {{ form.password(id="password", placeholder="Temporary Password") }}
+  </p>
+  <p>
+  <i class="fa fa-ticket fa-fw"></i>
+  {{ form.token(id="token", placeholder="Token") }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-retweet" aria-hidden="true"></i>&nbsp;&nbsp;Reset Password</button>
   <br /><br />
+  </center>
 </form>
 </div>
 
