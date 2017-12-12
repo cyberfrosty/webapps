@@ -25,8 +25,8 @@ from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm,
 from crypto import derive_key
 from utils import (generate_timed_token, validate_timed_token, generate_user_id,
                    generate_random58_valid, preset_password, generate_random_int,
-                   generate_otp_secret, generate_hotp_code)
-from awsutils import load_config, DynamoDB, SNS
+                   generate_otp_secret, generate_hotp_code, get_ip_address, get_user_agent)
+from awsutils import load_config, DynamoDB, SNS, SES
 from recipe import RecipeManager
 from vault import VaultManager
 
@@ -38,6 +38,7 @@ RECIPE_MANAGER = RecipeManager(CONFIG)
 RECIPE_MANAGER.load_recipes('recipes.json')
 VAULT_MANAGER = VaultManager(CONFIG)
 SNS = SNS('FrostyWeb')
+SES = SES('alan@cyberfrosty.com')
 
 # Log exceptions and errors to /var/log/cyberfrosty.log
 # 2017-05-11 08:29:26,696 ERROR webapp:main [Errno 51] Network is unreachable
@@ -75,7 +76,9 @@ LOGIN_MANAGER.session_protection = "strong"
 def send_async_email(msg):
     """ Send an email from a new thread
     """
+    html = '<a class="ulink" href="http://cyberfrosty.com/recipes" target="_blank">Recipes</a>.'
     with application.app_context():
+        SES.send_email(['frosty.alan@gmail.com'], 'Howdy', html, 'Check out my recipes')
         EMAIL_MANAGER.send(msg)
 
 @async
@@ -334,6 +337,7 @@ def server_info():
     timestamp = int((datetime.now(tz=pytz.utc) -
                      datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
     uptime = timestamp - SERVER_START
+    print get_user_agent(request)
     return jsonify({'server': url_fields.netloc, 'version': SERVER_VERSION, 'uptime': uptime})
 
 @application.route('/recipes', methods=['GET'])
@@ -413,7 +417,7 @@ def confirm():
                     flash('You have confirmed your account. Thanks!')
                 return redirect(url_for('login', username=username))
         else:
-            flash('The confirmation link is invalid or has expired.')
+            flash('The confirmation code is invalid or has expired.')
             if failures > MAX_FAILURES:
                 return redirect(url_for('index'))
             session['failures'] = failures + 1
@@ -441,7 +445,8 @@ def login():
         userid = generate_user_id(CONFIG.get('user_id_hmac'), username)
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
-            return redirect(url_for('register', username=username))
+            flash('Unable to validate your credentials')
+            return redirect(url_for('login', username=username))
         mcf = derive_key(form.password.data.encode('utf-8'), account['mcf'])
         mysession = SESSIONS.get_item('id', userid)
         if 'error' in mysession:
@@ -453,22 +458,35 @@ def login():
             mysession['avatar'] = account.get('avatar')
             mysession['failures'] = 0
         failures = mysession.get('failures', 0)
+        if failures > MAX_FAILURES and 'locked_at' in mysession:
+            locktime = int(time.mktime(datetime.utcnow().timetuple())) - mysession['locked_at']
+            if locktime < 1800:
+                flash('Your account is locked')
+                return redirect(url_for('login'))
         if mcf != account.get('mcf'):
+            failures = failures + 1
+            mysession['failures'] = failures
             if failures > MAX_FAILURES:
-                return redirect(url_for('index'))
+                mysession['locked_at'] = int(time.mktime(datetime.utcnow().timetuple()))
+                SESSIONS.put_item(mysession)
+                flash('Your account has been locked')
+                return redirect(url_for('login'))
             else:
-                print 'Unable to validate your credentials'
                 flash('Unable to validate your credentials')
-                mysession['failures'] = failures + 1
                 SESSIONS.put_item(mysession)
             return redirect(url_for('login', username=username))
 
         #EVENT_MANAGER.login_event(request, username)
         print 'validated user'
-        # Reset failed login counter if needed
+        # Reset failed login counter if needed and clear locked
         if failures > 0:
             mysession['failures'] = 0
-        mysession['login_at'] = int(time.mktime(datetime.utcnow().timetuple()))
+            if 'locked_at' in mysession:
+                del mysession['locked_at']
+        #logins = mysession['logins] or []
+        mylogin = {"ip": get_ip_address(request), "from": get_user_agent(request), "at": datetime.today().ctime()}
+        #logins.append(mylogin)
+        mysession['logins'] = mylogin
         SESSIONS.put_item(mysession)
         user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
         user.is_authenticated = True
@@ -492,9 +510,11 @@ def logout():
 def profile():
     """ Show user account profile
     """
-    account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username())
+    account = USERS.get_item('id', userid)
     if not account or 'error' in account:
         return redirect(url_for('register', username=current_user.get_username()))
+    mysession = SESSIONS.get_item('id', userid)
     return render_template('profile.html', account=account)
 
 @application.route("/headlines", methods=['GET', 'POST'])
@@ -513,7 +533,8 @@ def change():
     """ Change user account password
     """
     form = ChangePasswordForm()
-    form.username.data = current_user.get_username()
+    username = request.args.get('username')
+    form.username.data = username or current_user.get_username()
     if form.validate_on_submit():
         print form.password.data
         print form.username.data
@@ -553,19 +574,20 @@ def invite():
             flash('Username ' + username + ' already taken')
             return redirect(url_for('invite', email=username, phone=form.phone.data))
         password = generate_random58_valid(10)
+        secret = generate_otp_secret()
+        counter = generate_random_int()
         info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), username),
                 'username': username,
                 'email': username,
                 'authentication': 'password',
                 'mcf': preset_password(username, password),
+                'otp': secret + ':' + str(counter),
                 'status': 'invited: ' + time.mktime(datetime.utcnow().timetuple())
                }
         USERS.put_item(info)
         send_email(form.email.data, current_user.get_name() + ' has invited you to Frosty Web',
                    'email/confirm', username=username, password=password, action='invite')
         # send SMS
-        secret = generate_otp_secret()
-        counter = generate_random_int()
         code = generate_hotp_code(secret, counter)
         send_async_text(form.phone.data, code + ' is your Frosty Web code')
         return redirect(url_for('profile'))
@@ -587,7 +609,7 @@ def forgot():
 
 @application.route("/reset", methods=['GET', 'POST'])
 def reset():
-    """ Reset user password with emailed token
+    """ Reset user password with emailed temporary password and SMS sent token
     """
     username = request.args.get('username')
     token = request.args.get('token')
@@ -596,10 +618,68 @@ def reset():
         abort(400, 'Missing user name, token or action')
     form = PasswordResetForm()
     if form.validate_on_submit():
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), username)
+        account = USERS.get_item('id', userid)
+        if not account or 'error' in account:
+            flash('Unable to validate your credentials')
+            return redirect(url_for('reset', username=username))
+        mysession = SESSIONS.get_item('id', userid)
+        if 'error' in mysession:
+            del mysession['error']
+            mysession['id'] = userid
+            mysession['user'] = username
+            mysession['email'] = account.get('email')
+            mysession['name'] = account.get('name')
+            mysession['avatar'] = account.get('avatar')
+            mysession['failures'] = 0
+            SESSIONS.put_item(mysession)
+        failures = mysession.get('failures', 0)
+        if failures > MAX_FAILURES and 'locked_at' in mysession:
+            locktime = int(time.mktime(datetime.utcnow().timetuple())) - mysession['locked_at']
+            if locktime < 1800:
+                flash('Your account is locked')
+                return redirect(url_for('reset'))
+
+        # Validate reset code, then password
         validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
         if validated and value == username:
-            print 'changing password'
-            return redirect(url_for('login', form=form))
+            mcf = derive_key(form.password.data.encode('utf-8'), account.get('reset_mcf'))
+            if mcf != account.get('reset_mcf'):
+                if failures > MAX_FAILURES:
+                    mysession['locked_at'] = int(time.mktime(datetime.utcnow().timetuple()))
+                    SESSIONS.put_item(mysession)
+                    flash('Your account has been locked')
+                    return redirect(url_for('reset'))
+                else:
+                    flash('Unable to validate your credentials')
+                    mysession['failures'] = failures + 1
+                    SESSIONS.put_item(mysession)
+                return redirect(url_for('reset', username=username))
+
+            #EVENT_MANAGER.reset_login_event(request, username)
+            # Replace old password with temporary password and redirect to change password
+            account['mcf'] = mcf
+            del account['reset_mcf']
+            USERS.put_item(account)
+
+            print 'validated user'
+            # Reset failed login counter if needed
+            if failures > 0:
+                mysession['failures'] = 0
+                if 'locked_at' in mysession:
+                    del mysession['locked_at']
+            mysession['login_at'] = int(time.mktime(datetime.utcnow().timetuple()))
+            SESSIONS.put_item(mysession)
+            user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
+            user.is_authenticated = True
+            user.is_active = True
+            login_user(user, remember=form.remember.data)
+            return redirect(url_for('change'))
+        else:
+            mysession['failures'] = failures + 1
+            SESSIONS.put_item(mysession)
+            flash('Unable to validate your credentials')
+            return redirect(url_for('reset', username=username))
     return render_template('reset.html', form=form)
 
 @application.route("/register", methods=['GET', 'POST'])

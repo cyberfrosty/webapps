@@ -411,6 +411,29 @@ def get_ip_address(request):
         remote_addr = request.remote_addr or 'untrackable'
     return remote_addr
 
+def get_user_agent(request):
+    """ Get the remote user agent, quick check for common browsers
+    Args:
+        request: HTTP request
+    """
+    if 'User-Agent' in request.headers:
+        remote_agent = request.headers.get('User-Agent')
+        if 'Chrome' in remote_agent:
+            remote_agent = 'Chrome'
+        elif 'Firefox' in remote_agent:
+            remote_agent = 'Firefox'
+        elif 'Dolphin' in remote_agent:
+            remote_agent = 'Dolphin'
+        elif 'Opera' in remote_agent or 'OPR' in remote_agent:
+            remote_agent = 'Opera'
+        elif 'Safari' in remote_agent:
+            remote_agent = 'Safari'
+        elif 'bot' in remote_agent or 'Bot' in remote_agent or 'spider' in remote_agent:
+            remote_agent = 'Bot'
+    else:
+        remote_agent = "No user agent"
+    return remote_agent
+
 def merge_dicts(dict1, dict2):
     """ Recursively merge dict2 into dict1
     Args:
