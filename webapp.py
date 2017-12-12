@@ -515,6 +515,8 @@ def profile():
     if not account or 'error' in account:
         return redirect(url_for('register', username=current_user.get_username()))
     mysession = SESSIONS.get_item('id', userid)
+    if 'logins' in mysession:
+        account['logins'] = mysession['logins']
     return render_template('profile.html', account=account)
 
 @application.route("/headlines", methods=['GET', 'POST'])

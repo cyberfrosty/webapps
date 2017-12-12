@@ -417,19 +417,33 @@ def get_user_agent(request):
         request: HTTP request
     """
     if 'User-Agent' in request.headers:
-        remote_agent = request.headers.get('User-Agent')
-        if 'Chrome' in remote_agent:
-            remote_agent = 'Chrome'
-        elif 'Firefox' in remote_agent:
-            remote_agent = 'Firefox'
-        elif 'Dolphin' in remote_agent:
+        user_agent = request.headers.get('User-Agent')
+        #print user_agent
+        if 'Dolphin' in user_agent:
             remote_agent = 'Dolphin'
-        elif 'Opera' in remote_agent or 'OPR' in remote_agent:
+        elif 'Opera' in user_agent or 'OPR' in user_agent:
             remote_agent = 'Opera'
-        elif 'Safari' in remote_agent:
-            remote_agent = 'Safari'
-        elif 'bot' in remote_agent or 'Bot' in remote_agent or 'spider' in remote_agent:
+        elif 'Firefox' in user_agent or 'FxiOS' in user_agent:
+            remote_agent = 'Firefox'
+        elif 'Chrome' in user_agent:
+            remote_agent = 'Chrome'
+        elif 'bot' in user_agent or 'Bot' in user_agent or 'spider' in user_agent:
             remote_agent = 'Bot'
+        elif 'Safari' in user_agent:
+            remote_agent = 'Safari'
+        else:
+            remote_agent = 'Other'
+
+        if 'Linux' in user_agent:
+            remote_agent += ' Linux'
+        elif 'iPad' in user_agent:
+            remote_agent += ' iPhone'
+        elif 'iPhone' in user_agent:
+            remote_agent += ' iPhone'
+        elif 'Mac OS' in user_agent:
+            remote_agent += ' Mac OS'
+        elif 'Windows' in user_agent:
+            remote_agent += ' Windows'
     else:
         remote_agent = "No user agent"
     return remote_agent

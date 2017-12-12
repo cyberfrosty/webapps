@@ -715,22 +715,22 @@
   "yield": "Serves 6-8",
   "category": ["Seafood", "Dinner"],
   "ingredients": {
-    "item1": {"quantity": "2+ lbs", "ingredient": "salmon fillet"},
+    "item1": {"quantity": "2 lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
     "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item4": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item5": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
     "item6": {"quantity": "1-2 tsp", "ingredient": "Sriracha"},
     "item7": {"quantity": "1 tbsp", "ingredient": "sweet chili sauce, Hoisin or sweet and sour sauce"},
-    "item8": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item8": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item9": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"},
     "item10": {"quantity": "1", "ingredient": "lime cut into wedges"}
   },
   "instructions": {
     "step1": "Heat oven to 400 degrees, cover large cooking sheet with foil and spray with non-stick",
-    "step2": "Combine sauce ingredients in a bowl and mix thoroughly",
+    "step2": "Combine sauce ingredients in a bowl and mix thoroughly into a paste",
     "step3": "Place salmon fillet on foil, spread sauce mixture evenly",
-    "step4": "Cover with foil, and bake for 15-20 minutes until salmon flakes, remove from oven and let rest 10 minutes",
+    "step4": "Cover with foil, and bake for 12-20 minutes until salmon flakes, remove from oven and let rest 10 minutes",
     "step5": "Serve with lime wedge and cilantro"
   }
 },
