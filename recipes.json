@@ -716,8 +716,8 @@
   "category": ["Seafood", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "2 lbs", "ingredient": "salmon fillet"},
-    "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
-    "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger (or 1 tsp powder)"},
+    "item3": {"quantity": "1-2", "ingredient": "garlic cloves, pressed (or 1/2 tsp powder)"},
     "item4": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item5": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
     "item6": {"quantity": "1-2 tsp", "ingredient": "Sriracha"},
@@ -1426,9 +1426,9 @@
   "instructions": {
     "step1": "Measure ingredients into bread machine baking pan, select basic cycle to raise but not cook. Additional white flour may be needed",
     "step2": "Remove from baking pan, roll to remove bubbles form into loaf and place into bread pan coated with non-stick spray",
-    "step3": "Rolls or buns may be made using 60g sections of dough rolled in small amount of cornmeal for extra crunch",
-    "step4": "Cover and let rise for about an hour until dough has doubled in size",
-    "step5": "Preheat oven to 350 degrees and bake bread for 35 minutes (rolls for 15-20 minutes)",
-    "step6": "Remove from pan and place on a cooling rack"
-  }
+    "step3": "Cover and let rise for about an hour until dough has doubled in size",
+    "step4": "Preheat oven to 350 degrees and bake bread for 35 minutes (rolls for 15-20 minutes)",
+    "step5": "Remove from pan and place on a cooling rack"
+  },
+  "notes": "Rolls or buns may be made using 60g portions of dough rolled in small amount of cornmeal for extra crunch."
 }]

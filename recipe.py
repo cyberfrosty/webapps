@@ -159,7 +159,7 @@ class RecipeManager(object):
         if minutes and minutes > 0:
             duration += str(minutes.group(1)) + 'M'
         html = '<h5><meta itemprop="' + time_property + '" datetime="' + duration + '">'
-        html += '<i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
+        html += '<i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
         return html
 
     def render_instructions(self, instructions, mode):
@@ -224,13 +224,13 @@ class RecipeManager(object):
             html += '</div><!--/col-sm-8-->\n'
             html += '<div class="col-sm-3">\n'
             if 'chef' in recipe:
-                html += '<h5 itemprop="author"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
+                html += '<h5 itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
             if 'yield' in recipe:
                 yields = recipe['yield']
                 if 'Serves' in yields:
-                    icon = '<i class="fa fa-group" aria-hidden="true">'
+                    icon = '<i class="fa fa-group fa-fw" aria-hidden="true">'
                 else:
-                    icon = '<i class="fa fa-clone" aria-hidden="true">'
+                    icon = '<i class="fa fa-clone fa-fw" aria-hidden="true">'
                 html += '<h5 itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</h5>\n'
             if 'preptime' in recipe:
                 html += self.render_time('prepTime', recipe['preptime'])
@@ -243,7 +243,7 @@ class RecipeManager(object):
             if 'date' in recipe:
                 posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
                 html += '<h5 itemprop="datePublished" content="' + posted + '">'
-                html += '<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
+                html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
             html += '</ul>\n'
             html += '</div><!--/col-sm-3-->\n'
             html += '</div><!--/row-->\n'
