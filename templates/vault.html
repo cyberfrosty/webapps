@@ -20,6 +20,7 @@
         <div class="modal-body">
           <div>Enter Password:</div>
             <input id="vpassword" type="password" autocomplete="current-password"/>
+            <input id="vbox" type="hidden" value="""/>
             <button class="btn btn-primary" type="submit" onclick="viewVault()" data-dismiss="modal"><i class="fa fa-unlock" aria-hidden="true"></i></button>
           </div>
         </div>
@@ -33,30 +34,8 @@
     {% endif %}
     {% if contents %}
       {{ contents | safe }}
-    {% else %}
-    <div class="col-sm-10">
-      <div class="row">
-        <div class="col-sm-1">
-          <input type="checkbox">
-        </div>
-        <div class="col-sm-9">
-          <textarea id="vault">Encrypted content</textarea>
-        </div>
-      </div>
-    </div><!--/col-sm-10-->
-    <div class="col-sm-2">
-      <div class="sidebar-module-inset">
-        <h4><i class="fa fa-snowflake-o" aria-hidden="true"></i> Actions</h4>
-        <ol class="list-unstyled">
-          <li>Delete</li>
-          <li>Edit</li>
-          <li><button type="button" data-toggle="modal" data-target="#viewVault">View</button></li>
-        </ol>
-      </div><!--/siderbar-module-inset-->
-    </div><!--/col-sm-3-->
     {% endif %}
   </div><!--/row-->
-  <input type=hidden value="{{ mcf or '' }}" name=mcf>
 </div><!--/container-->
 
 

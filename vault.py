@@ -86,14 +86,26 @@ class VaultManager(object):
         if not vault and self.vault:
             vault = self.vault
         if vault is not None:
-            html = '<ul class="fa-ul">\n'
+            contents = []
+            html = '<div class="list-group">\n'
             for safebox in vault:
                 box = vault[safebox]
                 if isinstance(box, dict) and 'contents' in box:
-                    html += '<li><a href="/vault?box=' + safebox + '">' + safebox + '</a></li>\n'
-            html += '</ul>\n'
+                    title = box.get('title', safebox)
+                    icon = box.get('icon', 'fa-eye')
+                    html += '<a class="list-group-item" data-toggle="modal" href="#viewVault" id="' + safebox + '"><i class="fa ' + icon + ' fa-fw" aria-hidden="true"></i>&nbsp;' + title + '</a>'
+                    contents.append((safebox, box.get('contents')))
+                    #html += '<button type="button" data-toggle="modal" data-target="#viewVault">Unlock</button>'
+                    #html += '<li><a href="/vault?box=' + safebox + '">' + safebox + '</a></li>\n'
+            html += '</div>\n'
+            for item in contents:
+                data = item[1] if type(item[1]) is str else json.dumps(item[1])
+                cid = item[0] + '-contents'
+                html += '<div hidden id="' + cid + '">' + data + '</div>\n'
+            html += '<div id="safebox-table"></div>\n'
         else:
             html = '<textarea id="vault">Encrypted content</textarea>'
+        print html
         return html
 
     def get_rendered_box(self, vault, name):
@@ -109,16 +121,16 @@ class VaultManager(object):
             vault = self.vault
         if vault and name in vault:
             box = vault[name]
-            headings = box['headings']
+            headings = box['columns']
             contents = box['contents']
             html = '<table id="vault" style="width:100%">\n<tr>'
             for heading in headings:
-                html += '  <th>' + heading + '</th>'
+                html += '  <th>' + heading['title'] + '</th>'
             for item in contents:
                 html += '</tr>\n<tr>'
                 for heading in headings:
-                    if heading in item:
-                        html += '  <td>' + item[heading] + '</td>'
+                    if heading['field'] in item:
+                        html += '  <td>' + item[heading['field']] + '</td>'
                     else:
                         html += '  <td></td>'
             html += '</tr>\n</table>\n'
@@ -134,8 +146,9 @@ def main():
     print manager.get_rendered_vault(None)
     print manager.get_rendered_box(None, 'accounts')
     print manager.get_rendered_box(None, 'serial')
-    manager.encrypt_vault('madman')
-    manager.decrypt_vault('madman')
+    manager.encrypt_vault('Madman12')
+    print manager.get_rendered_vault(None)
+    manager.decrypt_vault('Madman12')
 
 if __name__ == '__main__':
     main()

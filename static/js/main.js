@@ -6,13 +6,14 @@
  * Copyright (c) 2017 Alan Frost
  */
 
+// Define proto to strip beginning and ending quotes
+String.prototype.unquoted = function (){return this.replace (/(^")|("$)/g, '')}
+
 $(document).on('click',function() {
   $('.collapse').collapse('hide');
 })
 
-/**
- * Initialize search list
- */
+// Initialize search list
 function searchInit() {
   var ul, li, i;
   ul = document.getElementById("searchList");
@@ -124,7 +125,7 @@ function xorKeys(key1, key2, klen) {
  * @param {string} key
  * @param {string} plaintext
  * @param {string} additional authenticated data (optional)
- * @return {string} ciphertext as hex string with iv:ciphertext:tag
+ * @return {string} ciphertext as base64 string with iv:ciphertext:tag
  */
 function encryptAESGCM(key, plaintext, aad) {
   var cipher = forge.cipher.createCipher("AES-GCM", key);
@@ -137,18 +138,18 @@ function encryptAESGCM(key, plaintext, aad) {
   cipher.update(forge.util.createBuffer(plaintext));
   cipher.finish();
   var encrypted = iv + cipher.output.data + cipher.mode.tag.data;
-  return forge.util.binary.hex.encode(encrypted);
+  return forge.util.encode64(encrypted);
 }
 
 /**
  * Decrypt bytes with AES key using GCM mode
  * @param {string} key
- * @param {string} cipherext as hex string with iv:ciphertext:tag
+ * @param {string} cipherext as base64 string with iv:ciphertext:tag
  * @param {string} additional authenticated data (optional)
- * @return {string} plaintext as hex string
+ * @return {string} plaintext as string
  */
 function decryptAESGCM(key, ciphertext, aad) {
-  ciphertext = forge.util.binary.hex.decode(ciphertext);
+  ciphertext = forge.util.decode64(ciphertext);
   var decipher = forge.cipher.createDecipher("AES-GCM", key);
   var iv = ciphertext.slice(0, 12);
   var tag = ciphertext.slice(-16);

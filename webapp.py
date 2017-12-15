@@ -14,6 +14,7 @@ from datetime import datetime
 import time
 from urlparse import urlparse, urljoin
 import pytz
+import simplejson as json
 
 from botocore.exceptions import EndpointConnectionError
 from flask import Flask, make_response, request, render_template, redirect, session, jsonify, abort, flash, url_for
@@ -182,6 +183,9 @@ def load_user(userid):
 
 @LOGIN_MANAGER.unauthorized_handler
 def unauthorized_page():
+    """ Called when @login_required decorator triggers, redirecst to login page and after
+        success redirects back to referring page
+    """
     return redirect(url_for('login') + '?next=' + request.path)
 
 def get_parameter(response, param, default=None):
@@ -222,27 +226,41 @@ def send_email(recipients, subject, template, **kwargs):
     send_async_email(msg)
 
 def is_safe_url(target):
+    """ Ensure that the redirect URL refers to the same host and not to an attackers site.
+    Args:
+        target url
+    Returns:
+        value or parameter or None
+    """
+    # Check for open redirect vulnerability, which allows ///host.com to be parsed as a path
+    if '///' in target:
+        return False
     ref_url = urlparse(request.host_url)
     test_url = urlparse(urljoin(request.host_url, target))
     return test_url.scheme in ('http', 'https') and \
            ref_url.netloc == test_url.netloc
 
 def get_redirect_target():
+    """ Look for the 'next' parameter or use the request object to find the redirect target.
+        This function is used for login and other actions where after success the user is
+        redirected back to the page, from which they were redirected to login first.
+    Returns:
+        redirect URL or None
+    """
     for target in get_parameter(request, 'next'), request.referrer:
-        if not target:
-            continue
-        if is_safe_url(target):
+        if target and is_safe_url(target):
             return target
 
 def redirect_back(endpoint, **values):
+    """ Redirect back to next url, if missing or not safe defaults to endpoint url
+    Args:
+        endpoint url
+        value parameters
+    """
     target = get_parameter(request, 'next')
     if not target or not is_safe_url(target):
         target = url_for(endpoint, **values)
     return redirect(target)
-
-def next_is_valid(url):
-    print url
-    return True
 
 @application.errorhandler(400)
 def bad_request(error):
@@ -368,11 +386,11 @@ def vault():
     if not account or 'error' in account:
         return redirect(url_for('register', username=current_user.get_username()))
     myvault = account.get('vault')
-    mcf = '<p hidden id="mcf">' + myvault.get('mcf', '') + '</p>'
+    mcf = '<div hidden id="mcf">' + myvault.get('mcf', '') + '</div>'
     box = request.args.get('box')
     if box is not None:
-        contents = '<p hidden id="safebox">' + myvault.get('contents', '') + '</p>'
-        html = VAULT_MANAGER.get_rendered_box(myvault, box)
+        mybox = myvault[box]
+        html = '<div hidden id="safebox">' + json.dumps(mybox) + '</div><div id="safebox-table"></div>'
     else:
         html = VAULT_MANAGER.get_rendered_vault(myvault)
     return render_template('vault.html', contents=html, mcf=mcf)
@@ -728,6 +746,8 @@ def register():
     return render_template('register.html', form=form)
 
 def main():
+    """ Main for localhost testing via manage.py (start, stop, restart)
+    """
     reason = 'Normal'
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
