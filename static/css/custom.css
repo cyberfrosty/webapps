@@ -63,6 +63,82 @@ img {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
 
+i/* Remove margins and padding from the list */
+#vaultList {
+    /* Remove default list styling */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+#vaultList ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+#vaultList ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+#vaultList ul li:hover {
+    background: #ddd;
+}
+
+.gal {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+}
+
+.gal img{ width: 100%; padding: 7px 0;}
+
+@media (max-width: 500px) {
+    .gal {
+    -webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+    }
+}
+
+#vaultList ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+
 td {
   padding: 6px;
   border-bottom: 1px solid #ddd;
