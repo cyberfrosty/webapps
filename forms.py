@@ -62,6 +62,17 @@ class ConfirmForm(FlaskForm):
     token = StringField('Token', [validators.InputRequired(message="* Required")])
     submit = SubmitField('Confirm Account')
 
+class UploadForm(FlaskForm):
+    """ Upload an artistic work
+    """
+    filename = StringField('Filename', [validators.Length(2, 128)])
+    name = StringField('Name', [validators.Length(2, 128)])
+    artform = StringField('Artform', [validators.Length(0, 128)])
+    date_created = StringField('Date', [validators.Length(6, 32)])
+    dimensions = StringField('Dimensions', [validators.Length(0, 64)])
+    tags = StringField('Tags', [validators.Length(0, 128)])
+    submit = SubmitField('Upload Image')
+
 class ResendConfirmForm(FlaskForm):
     """ Resend a new confirm account token
     """

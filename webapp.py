@@ -22,7 +22,7 @@ from flask_mail import Mail, Message
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from decorators import async
 from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm, InviteForm,
-                   PasswordResetRequestForm, PasswordResetForm, ResendConfirmForm)
+                   PasswordResetRequestForm, PasswordResetForm, ResendConfirmForm, UploadForm)
 from crypto import derive_key
 from utils import (generate_timed_token, validate_timed_token, generate_user_id,
                    generate_random58_valid, preset_password, generate_random_int,
@@ -369,6 +369,32 @@ def recipes():
     else:
         html = RECIPE_MANAGER.get_latest_recipe()
         return render_template('recipes.html', recipe=html)
+
+@application.route('/gallery')
+def gallery():
+    """ Show gallery
+    """
+    category = request.args.get('category')
+    html = RECIPE_MANAGER.get_rendered_gallery(category)
+    return render_template('gallery.html', gallery=html)
+
+@application.route('/upload', methods=['GET', 'PUT', 'POST', 'PATCH'])
+#@login_required
+def upload():
+    """ Upload an image
+    """
+    #account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
+    #if not account or 'error' in account:
+    #    return redirect(url_for('register', username=current_user.get_username()))
+    form = UploadForm()
+    if form.validate_on_submit():
+        print form.filename.data
+        print form.name.data
+        print form.artform.data
+        print form.date_created.data
+        print form.dimensions.data
+        print form.tags.data
+    return render_template('upload.html', form=form)
 
 @application.route('/messages')
 @login_required

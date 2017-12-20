@@ -315,6 +315,25 @@ class RecipeManager(object):
                 matches.append(recipe['title'])
         return matches
 
+    def get_rendered_gallery(self, category=None):
+        """ Render an image gallery of recipe pictures
+        Args:
+            category to match or None for all
+        Returns:
+            HTML container with image gallery
+        """
+        html = '<div class="gal">\n'
+        for recipe_id in self.recipes:
+            recipe = self.recipes[recipe_id]
+            if category is None or category in recipe['category']:
+                title = recipe['title']
+                image = 'https://snowyrangesolutions.com/static/img/' + title.replace(" ", "") + '.jpg'
+                link = '/recipes?recipe=' + title.replace(" ", "%20") + '&category=' + recipe['category'][0]
+                html += '<a href="' + link + '" title="' + title + '">\n'
+                html += '<img src="' + image + '" alt="' + title + '"></a>\n'
+        html += '</div>\n'
+        return html
+
 def main():
     """ Unit tests
     """
@@ -331,6 +350,8 @@ def main():
     print manager.render_time('totalTime', '3 hours')
     print manager.render_time('totalTime', '1 hour 20 mins')
     print manager.render_time('totalTime', '1 hour 20 minutes')
+    print manager.get_rendered_gallery()
+    print manager.get_rendered_gallery('Asian')
 
 if __name__ == '__main__':
     main()
