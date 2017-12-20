@@ -9,7 +9,7 @@ Implementation of user forms
 """
 import re
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, HiddenField, PasswordField, StringField, SubmitField
+from wtforms import BooleanField, HiddenField, PasswordField, StringField, SubmitField, FileField
 from wtforms import ValidationError, validators
 from wtforms.fields.html5 import EmailField
 
@@ -65,10 +65,10 @@ class ConfirmForm(FlaskForm):
 class UploadForm(FlaskForm):
     """ Upload an artistic work
     """
-    filename = StringField('Filename', [validators.Length(2, 128)])
+    file = FileField('Filename')
     name = StringField('Name', [validators.Length(2, 128)])
     artform = StringField('Artform', [validators.Length(0, 128)])
-    date_created = StringField('Date', [validators.Length(6, 32)])
+    created = StringField('Date', [validators.Length(6, 32)])
     dimensions = StringField('Dimensions', [validators.Length(0, 64)])
     tags = StringField('Tags', [validators.Length(0, 128)])
     submit = SubmitField('Upload Image')

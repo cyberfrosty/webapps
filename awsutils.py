@@ -4,15 +4,17 @@
 """
 Copyright (c) 2017 Alan Frost. All rights reserved.
 
-AWS Utility classes for DynamoDB, SNS and Route 53
+AWS Utility classes for DynamoDB, S3, SES, SNS and Route 53
 """
 
 from __future__ import print_function
 
 import base64
+from datetime import datetime
 import hashlib
 import hmac
-import json
+import pytz
+import simplejson as json
 import boto3
 from botocore.exceptions import ClientError
 from utils import preset_password
@@ -27,7 +29,7 @@ def load_config(config_file):
     Returns:
         dict for success or None for failure
     """
-    config = None
+    config = {}
     try:
         with open(config_file) as json_file:
             config = json.load(json_file)
@@ -420,6 +422,248 @@ class Route53(object):
         # Tell Route 53 to set the DNS record.
         else:
             return self.set_dns_records(route_53_zone_id, public_ip)
+
+class S3(object):
+    """ Base class for access to AWS S3.
+    """
+    def __init__(self):
+        """ Constructor, get AWS resource.
+        """
+        self.sss = boto3.resource('s3')
+
+    def exists(self, bucket):
+        """ Checks to see if the bucket exists
+        Returns:
+            True if bucket exists
+        """
+        exists = True
+        try:
+            self.sss.meta.client.head_bucket(Bucket=bucket)
+        except ClientError as err:
+            # If a client error is thrown, then check that it was a 404 error.
+            # If it was a 404 error, then the bucket does not exist.
+            error_code = int(err.response['Error']['Code'])
+            if error_code == 404:
+                exists = False
+        return exists
+
+    def create_bucket(self, bucket, location='us-west-2'):
+        """ Create a new bucket.
+        Args:
+            bucket: name of the bucket
+            location: region to create bucket
+                ACL='authenticated-read',
+        """
+        if not self.exists(bucket):
+            try:
+                self.sss.create_bucket(
+                    Bucket=bucket,
+                    CreateBucketConfiguration={'LocationConstraint': location},
+                )
+                return dict(status='ok')
+            except ClientError as err:
+                return dict(error=err.message)
+        else:
+            return dict(error='Bucket exists: ' + bucket)
+
+    def delete_bucket(self, bucket):
+        """ Delete a bucket.
+        Args:
+            bucket: name of the bucket
+        """
+        if self.exists(bucket):
+            try:
+                for key in self.sss.Bucket(bucket).objects.all():
+                    key.delete()
+                self.sss.Bucket(bucket).delete()
+                return dict(status='ok')
+            except ClientError as err:
+                return dict(error=err.message)
+
+    def upload_data(self, data, bucket, key):
+        """ Upload a data to bucket.
+        Args:
+            data: textual content
+            bucket: name of the bucket
+            key: name of the file in S3
+        """
+        if self.exists(bucket):
+            try:
+                self.sss.Object(bucket, key).put(Body=data)
+                return dict(status='ok')
+            except ClientError as err:
+                return dict(error=err.message)
+        else:
+            return dict(error='Bucket does not exist')
+
+    def upload_file(self, filename, bucket, key):
+        """ Upload a file to bucket.
+        Args:
+            filename: local filename
+            bucket: name of the bucket
+            key: name of the file in S3
+        """
+        if self.exists(bucket):
+            try:
+                self.sss.Object(bucket, key).put(Body=open(filename, 'rb'))
+                return dict(status='ok')
+            except ClientError as err:
+                return dict(error=err.message)
+        else:
+            return dict(error='Bucket does not exist')
+
+    def download_data(self, bucket, key):
+        """ Download a file from bucket and return contents in memory
+        Args:
+            bucket: name of the bucket
+            key: name of the file in S3
+        Return:
+            tuple (status as dictionary, file contents or None for error)
+        """
+        if self.exists(bucket):
+            try:
+                response = self.sss.Object(bucket, key).get()
+                return dict(status='ok'), response['Body'].read()
+            except ClientError as err:
+                return dict(error=err.message), None
+        else:
+            return dict(error='Bucket does not exist'), None
+
+    def download_file(self, filename, bucket, key):
+        """ Download a file from bucket and store locally
+        Args:
+            filename: local filename
+            bucket: name of the bucket
+            key: name of the file in S3
+        """
+        if self.exists(bucket):
+            try:
+                self.sss.Object(bucket, key).download_file(filename)
+                return dict(status='ok')
+            except ClientError as err:
+                return dict(error=err.message)
+        else:
+            return dict(error='Bucket does not exist')
+
+    def add_notification(self, bucket, arn):
+        """ Add notification to bucket.
+        Args:
+            bucket: name of the bucket
+            arn: SNS topic, SQS queue or Lambda function arn
+            arn:aws:sqs
+        """
+        bucket_notification = self.sss.BucketNotification(bucket)
+        fields = arn.split(':')
+        if fields[2] == 'sqs':
+            bucket_notification.put(
+                NotificationConfiguration={
+                    'QueueConfigurations': [
+                        {
+                            'QueueArn': arn,
+                            'Events': ['s3:ObjectCreated:*', 's3:ObjectRemoved:*'],
+                        }
+                    ]
+                }
+            )
+        elif fields[2] == 'sns':
+            bucket_notification.put(
+                NotificationConfiguration={
+                    'TopicConfigurations': [
+                        {
+                            'TopicArn': arn,
+                            'Events': ['s3:ObjectCreated:*', 's3:ObjectRemoved:*']
+                        }
+                    ],
+                }
+            )
+        else:
+            return dict(error='Unsupported notification: ' + arn)
+        bucket_notification.load()
+
+    def disable_notification(self, bucket):
+        """ Disables all notifications on a bucket.
+        Args:
+            bucket: name of the bucket
+        """
+        bucket_notification = self.sss.BucketNotification(bucket)
+        bucket_notification.put(NotificationConfiguration={})
+        bucket_notification.load()
+
+    def list_buckets(self):
+        """ List all of the buckets for current user.
+        """
+        objects = []
+        for bucket in self.sss.buckets.all():
+            objects.append(bucket.name)
+        return objects
+
+    def list_objects(self, bucket, group, **kwargs):
+        """ List all of the objects for a group in a bucket
+        Args:
+            bucket: name of the bucket
+            group: name of the group
+            kwargs {
+                count: limit on number of entries to return
+                after: return only entries modified on or after specified timestamp
+                before: return only entries modified on or before specified timestamp
+                username: return only entries created by specified username
+                directory: sub directory
+                filter: standard glob pattern like *.doc
+                metadata: 'all', 'content'
+            }
+        """
+        max_count = int(kwargs.pop('count', 100))
+        after = kwargs.pop('after', None)
+        if after:
+            after = datetime.fromtimestamp(float(after), tz=pytz.utc)
+        before = kwargs.pop('before', None)
+        if before:
+            before = datetime.fromtimestamp(float(before), tz=pytz.utc)
+        username = kwargs.pop('username', None)
+        glob = kwargs.pop('filter', None)
+        directory = kwargs.pop('directory', None)
+        verbose = kwargs.pop('metadata', None)
+        count = 0
+        objects = {}
+        if not self.exists(bucket):
+            return dict(error='Bucket does not exist')
+        bucket = self.sss.Bucket(bucket)
+        group += '/'
+        if directory:
+            group += directory
+        try:
+            items = bucket.objects.filter(Prefix=group)
+        except ClientError as err:
+            return dict(error=err.message)
+        for item in items:
+            if after and item.last_modified < after:
+                continue
+            if before and item.last_modified > before:
+                continue
+            else:
+                timestamp = int((item.last_modified -
+                                 datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
+                objects[item.key] = dict(size=item.size,
+                                         timestamp=timestamp)
+            count = count + 1
+            if count >= max_count:
+                break
+        return objects
+
+    def remove_object(self, bucket, key):
+        """ Remove the specified file from the bucket
+        Args:
+            bucket: name of the bucket
+            key: name of the file in S3
+        """
+        if self.exists(bucket):
+            try:
+                self.sss.Object(bucket, key).delete()
+                return dict(status='ok')
+            except ClientError as err:
+                return dict(error=err.message)
+        else:
+            return dict(error='Bucket does not exist')
 
 
 def main():

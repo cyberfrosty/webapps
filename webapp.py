@@ -15,6 +15,7 @@ import time
 from urlparse import urlparse, urljoin
 import pytz
 import simplejson as json
+from werkzeug.utils import secure_filename
 
 from botocore.exceptions import EndpointConnectionError
 from flask import Flask, make_response, request, render_template, redirect, session, jsonify, abort, flash, url_for
@@ -51,24 +52,25 @@ SERVER_START = int((datetime.now(tz=pytz.utc) -
                     datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
 MAX_FAILURES = 3
 LOGIN_MANAGER = LoginManager()
-application = Flask(__name__, static_url_path="")
+APP = Flask(__name__, static_url_path="")
 
-application.config['SECRET_KEY'] = 'super secret key'
-application.config['SSL_DISABLE'] = False
-application.config['MAIL_SERVER'] = 'secure.emailsrvr.com'
-application.config['MAIL_PORT'] = 465
-application.config['MAIL_DEBUG'] = True
-application.config['MAIL_USE_SSL'] = True
-application.config['MAIL_USE_TLS'] = False
-application.config['MAIL_USERNAME'] = 'alan@cyberfrosty.com'
-application.config['MAIL_PASSWORD'] = ''
-application.config['MAIL_SUBJECT_PREFIX'] = '[FROSTY]'
-application.config['MAIL_SENDER'] = 'alan@cyberfrosty.com'
-application.config['SESSION_COOKIE_HTTPONLY'] = True
-application.config['REMEMBER_COOKIE_HTTPONLY'] = True
+APP.config['SECRET_KEY'] = 'super secret key'
+APP.config['SSL_DISABLE'] = False
+APP.config['MAIL_SERVER'] = 'secure.emailsrvr.com'
+APP.config['MAIL_PORT'] = 465
+APP.config['MAIL_DEBUG'] = True
+APP.config['MAIL_USE_SSL'] = True
+APP.config['MAIL_USE_TLS'] = False
+APP.config['MAIL_USERNAME'] = 'alan@cyberfrosty.com'
+APP.config['MAIL_PASSWORD'] = ''
+APP.config['MAIL_SUBJECT_PREFIX'] = '[FROSTY]'
+APP.config['MAIL_SENDER'] = 'alan@cyberfrosty.com'
+APP.config['SESSION_COOKIE_HTTPONLY'] = True
+APP.config['REMEMBER_COOKIE_HTTPONLY'] = True
+APP.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # Limit uploads to 16MB
 
-EMAIL_MANAGER = Mail(application)
-LOGIN_MANAGER.init_app(application)
+EMAIL_MANAGER = Mail(APP)
+LOGIN_MANAGER.init_app(APP)
 LOGIN_MANAGER.login_view = "login"
 LOGIN_MANAGER.login_message = "Please login to access this page"
 LOGIN_MANAGER.session_protection = "strong"
@@ -78,7 +80,7 @@ def send_async_email(msg):
     """ Send an email from a new thread
     """
     html = '<a class="ulink" href="http://cyberfrosty.com/recipes" target="_blank">Recipes</a>.'
-    with application.app_context():
+    with APP.app_context():
         SES.send_email(['frosty.alan@gmail.com'], 'Howdy', html, 'Check out my recipes')
         EMAIL_MANAGER.send(msg)
 
@@ -89,7 +91,7 @@ def send_async_text(phone, msg):
         number: phone number (e.g. '+17702233322')
         message: text
     """
-    with application.app_context():
+    with APP.app_context():
         SNS.send_sms(phone, msg)
 
 class User(object):
@@ -129,7 +131,7 @@ class User(object):
         Return:
             URL safe encoded token
         """
-        return generate_timed_token(self._user, application.config['SECRET_KEY'], action)
+        return generate_timed_token(self._user, APP.config['SECRET_KEY'], action)
 
     def validate_token(self, token, action):
         """ Validate a timed token, tied to user name and action
@@ -139,7 +141,7 @@ class User(object):
         Return:
             True or False
         """
-        validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
+        validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], action)
         if validated and value == self._user:
             return True
         return False
@@ -218,8 +220,8 @@ def send_email(recipients, subject, template, **kwargs):
         template
         arguments for templating
     """
-    msg = Message(application.config['MAIL_SUBJECT_PREFIX'] + ' ' + subject,
-                  sender=application.config['MAIL_SENDER'],
+    msg = Message(APP.config['MAIL_SUBJECT_PREFIX'] + ' ' + subject,
+                  sender=APP.config['MAIL_SENDER'],
                   recipients=[recipients])
     msg.body = render_template(template + '.txt', **kwargs)
     msg.html = render_template(template + '.html', **kwargs)
@@ -230,7 +232,7 @@ def is_safe_url(target):
     Args:
         target url
     Returns:
-        value or parameter or None
+        True if target url is safe
     """
     # Check for open redirect vulnerability, which allows ///host.com to be parsed as a path
     if '///' in target:
@@ -262,7 +264,18 @@ def redirect_back(endpoint, **values):
         target = url_for(endpoint, **values)
     return redirect(target)
 
-@application.errorhandler(400)
+def allowed_file(filename):
+    """ Only allow specific file types to be uploaded
+    Args:
+        filename
+    Returns:
+        True if file type is allowed
+    """
+    extensions = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in extensions
+
+@APP.errorhandler(400)
 def bad_request(error):
     """ Handle HTTP Bad Request error
     """
@@ -271,7 +284,7 @@ def bad_request(error):
     else:
         return make_response(jsonify({'error': str(error)}), 400)
 
-@application.errorhandler(401)
+@APP.errorhandler(401)
 def unauthorized(error):
     """ Handle HTTP Unauthorized error
     """
@@ -280,7 +293,7 @@ def unauthorized(error):
     else:
         return make_response(jsonify({'error': str(error)}), 401)
 
-@application.errorhandler(403)
+@APP.errorhandler(403)
 def forbidden(error):
     """ Handle HTTP Forbidden error
     """
@@ -289,7 +302,7 @@ def forbidden(error):
     else:
         return make_response(jsonify({'error': str(error)}), 403)
 
-@application.errorhandler(404)
+@APP.errorhandler(404)
 def not_found(error):
     """ Handle HTTP Not Found error
     """
@@ -298,7 +311,7 @@ def not_found(error):
     else:
         return make_response(jsonify({'error': str(error)}), 404)
 
-@application.errorhandler(405)
+@APP.errorhandler(405)
 def not_allowed(error):
     """ Handle HTTP Method Not Allowed error
     """
@@ -307,7 +320,7 @@ def not_allowed(error):
     else:
         return make_response(jsonify({'error': str(error)}), 405)
 
-@application.errorhandler(409)
+@APP.errorhandler(409)
 def resource_exists(error):
     """ Handle HTTP Conflict error
     """
@@ -316,7 +329,7 @@ def resource_exists(error):
     else:
         return make_response(jsonify({'error': str(error)}), 409)
 
-@application.errorhandler(422)
+@APP.errorhandler(422)
 def unprocessable_entity(error):
     """ Handle HTTP Unprocessable entity error
     """
@@ -325,7 +338,7 @@ def unprocessable_entity(error):
     else:
         return make_response(jsonify({'error': str(error)}), 422)
 
-@application.errorhandler(500)
+@APP.errorhandler(500)
 def server_error(error):
     """ Handle HTTP Server error
     """
@@ -334,20 +347,20 @@ def server_error(error):
     else:
         return make_response(jsonify({'error': str(error)}), 500)
 
-@application.route('/google3dd7b0647e1f4d7a.html')
+@APP.route('/google3dd7b0647e1f4d7a.html')
 def google_site_verify():
     """ Google site verification
     """
     return render_template('google3dd7b0647e1f4d7a.html')
 
-@application.route('/')
-@application.route('/index')
+@APP.route('/')
+@APP.route('/index')
 def index():
     """ Show main landing page
     """
     return render_template('index.html')
 
-@application.route('/api/server.info')
+@APP.route('/api/server.info')
 def server_info():
     """ Return server status information
     """
@@ -358,7 +371,7 @@ def server_info():
     print get_user_agent(request)
     return jsonify({'server': url_fields.netloc, 'version': SERVER_VERSION, 'uptime': uptime})
 
-@application.route('/recipes', methods=['GET'])
+@APP.route('/recipes', methods=['GET'])
 def recipes():
     """ Show recipes
     """
@@ -370,7 +383,7 @@ def recipes():
         html = RECIPE_MANAGER.get_latest_recipe()
         return render_template('recipes.html', recipe=html)
 
-@application.route('/gallery')
+@APP.route('/gallery')
 def gallery():
     """ Show gallery
     """
@@ -378,32 +391,59 @@ def gallery():
     html = RECIPE_MANAGER.get_rendered_gallery(category)
     return render_template('gallery.html', gallery=html)
 
-@application.route('/upload', methods=['GET', 'PUT', 'POST', 'PATCH'])
+@APP.route('/upload', methods=['GET', 'POST'])
 #@login_required
 def upload():
-    """ Upload an image
+    """ Upload an image with metadata
     """
     #account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
     #if not account or 'error' in account:
     #    return redirect(url_for('register', username=current_user.get_username()))
+    #if 'storage' not in account:
+    #    return redirect(url_for('profile', username=current_user.get_username()))
+    #path = account['storage'] + '/'
     form = UploadForm()
     if form.validate_on_submit():
-        print form.filename.data
-        print form.name.data
-        print form.artform.data
-        print form.date_created.data
-        print form.dimensions.data
-        print form.tags.data
+        content_type = request.headers.get('Content-Type')
+        print content_type
+        print request.files['file']
+        # Handle multipart form encoded data
+        if request.method == 'POST' and content_type and content_type.startswith('multipart/form-data'):
+            content = request.files['file']
+            if not content:
+                abort(400, 'No file content for upload')
+            if content.filename == '':
+                abort(400, 'No file selected for upload')
+            if not allowed_file(content.filename):
+                abort(400, 'Unsupported file type for upload')
+            #path += secure_filename(content.filename)
+            #params = {'file':content.filename, 'filename':path, 'identifier':group}
+
+        if form.tags.data:
+            tags = [tag.strip() for tag in form.tags.data.lower().split(',')]
+        else:
+            tags = []
+        metadata = {'name': form.name.data,
+                    'artform': form.artform.data,
+                    'created': form.created.data,
+                    'dimensions': form.dimensions.data,
+                    'path': secure_filename(content.filename),
+                    'tags': tags}
+        print json.dumps(metadata)
+        #aws3 = S3()
+        #response = aws3.upload_data(content, bucket, path)
+        #if 'error' in response:
+        #    abort(400, response['error'])
     return render_template('upload.html', form=form)
 
-@application.route('/messages')
+@APP.route('/messages')
 @login_required
 def messages():
     """ Show messages
     """
     return render_template('messages.html')
 
-@application.route('/vault')
+@APP.route('/vault')
 @login_required
 def vault():
     """ Show encrypted private content
@@ -421,13 +461,13 @@ def vault():
         html = VAULT_MANAGER.get_rendered_vault(myvault)
     return render_template('vault.html', contents=html, mcf=mcf)
 
-@application.route('/privacy', methods=['GET'])
+@APP.route('/privacy', methods=['GET'])
 def privacy():
     """ Show privacy policy
     """
     return render_template('privacy.html')
 
-@application.route("/confirm", methods=['GET', 'POST'])
+@APP.route("/confirm", methods=['GET', 'POST'])
 def confirm():
     """ Confirm user account creation or action (delete) with emailed token
     """
@@ -449,7 +489,7 @@ def confirm():
             session = {}
             session['id'] = userid
         failures = session.get('failures', 0)
-        validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
+        validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], action)
         if validated and value == username:
             if action == 'register':
                 # Update user account status
@@ -471,7 +511,7 @@ def confirm():
     return render_template('confirm.html', form=form)
 
 
-@application.route("/login", methods=['GET', 'POST'])
+@APP.route("/login", methods=['GET', 'POST'])
 def login():
     """ Login to user account with username/email and password
     """
@@ -540,7 +580,7 @@ def login():
         return redirect_back('index')
     return render_template('login.html', form=form)
 
-@application.route("/logout")
+@APP.route("/logout")
 @login_required
 def logout():
     """ Logout of user account
@@ -549,7 +589,7 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@application.route("/profile", methods=['GET', 'POST'])
+@APP.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
     """ Show user account profile
@@ -563,7 +603,7 @@ def profile():
         account['logins'] = mysession['logins']
     return render_template('profile.html', account=account)
 
-@application.route("/headlines", methods=['GET', 'POST'])
+@APP.route("/headlines", methods=['GET', 'POST'])
 @login_required
 def headlines():
     """ Show headlines
@@ -573,7 +613,7 @@ def headlines():
         return redirect(url_for('register', username=current_user.get_username()))
     return render_template('profile.html', account=account)
 
-@application.route("/change", methods=['GET', 'POST'])
+@APP.route("/change", methods=['GET', 'POST'])
 @login_required
 def change():
     """ Change user account password
@@ -586,7 +626,7 @@ def change():
         print form.username.data
     return render_template('change.html', form=form)
 
-@application.route("/resend", methods=['GET', 'POST'])
+@APP.route("/resend", methods=['GET', 'POST'])
 def resend():
     """ Regenerate and send a new confirmation code
     """
@@ -598,14 +638,14 @@ def resend():
     form.username.data = username
     form.action.data = action
     if form.validate_on_submit():
-        token = generate_timed_token(username, application.config['SECRET_KEY'], action)
+        token = generate_timed_token(username, APP.config['SECRET_KEY'], action)
         send_email(form.email.data, 'Confirm Your Account',
                    'email/confirm', username=form.username.data, token=token, action=action)
         flash('A confirmation email has been sent to ' + form.email.data)
         return redirect(url_for('login', username=form.username.data))
     return render_template('resend.html', form=form)
 
-@application.route("/invite", methods=['GET', 'POST'])
+@APP.route("/invite", methods=['GET', 'POST'])
 @login_required
 def invite():
     """ Invite a new user to join by providing an email address and phone number for them.
@@ -639,7 +679,7 @@ def invite():
         return redirect(url_for('profile'))
     return render_template('invite.html', form=form)
 
-@application.route("/forgot", methods=['GET', 'POST'])
+@APP.route("/forgot", methods=['GET', 'POST'])
 def forgot():
     """ Request a password reset
     """
@@ -647,13 +687,13 @@ def forgot():
     form = PasswordResetRequestForm()
     if form.validate_on_submit():
         print 'requesting password reset'
-        token = generate_timed_token(username, application.config['SECRET_KEY'], 'reset')
+        token = generate_timed_token(username, APP.config['SECRET_KEY'], 'reset')
         send_email(form.email.data, 'Reset Your Password',
                    'email/confirm', username=form.username.data, token=token, action='reset')
         return redirect(url_for('reset', username=username))
     return render_template('forgot.html', form=form)
 
-@application.route("/reset", methods=['GET', 'POST'])
+@APP.route("/reset", methods=['GET', 'POST'])
 def reset():
     """ Reset user password with emailed temporary password and SMS sent token
     """
@@ -687,7 +727,7 @@ def reset():
                 return redirect(url_for('reset'))
 
         # Validate reset code, then password
-        validated, value = validate_timed_token(token, application.config['SECRET_KEY'], action)
+        validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], action)
         if validated and value == username:
             mcf = derive_key(form.password.data.encode('utf-8'), account.get('reset_mcf'))
             if mcf != account.get('reset_mcf'):
@@ -728,7 +768,7 @@ def reset():
             return redirect(url_for('reset', username=username))
     return render_template('reset.html', form=form)
 
-@application.route("/register", methods=['GET', 'POST'])
+@APP.route("/register", methods=['GET', 'POST'])
 def register():
     """ Register a new user account
     """
@@ -746,7 +786,7 @@ def register():
         if USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), form.email.data)):
             flash('Username ' + form.email.data + ' already taken')
             return redirect(url_for('register', username=username, email=email))
-        validated, value = validate_timed_token(token, application.config['SECRET_KEY'], 'register')
+        validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], 'register')
         if validated and value == email:
             print 'registering new user'
         else:
@@ -764,7 +804,7 @@ def register():
         user.is_authenticated = False
         user.is_active = False
         USERS.put_item(info)
-        token = generate_timed_token(username, application.config['SECRET_KEY'], 'register')
+        token = generate_timed_token(username, APP.config['SECRET_KEY'], 'register')
         send_email(form.email.data, 'Confirm Your Account',
                    'email/confirm', username=form.username.data, token=token, action='register')
         flash('A confirmation email has been sent to ' + form.email.data)
@@ -781,7 +821,7 @@ def main():
         host_ip = sock.getsockname()[0]
         sock.close()
         print 'Web server starting: %s:%d' % (host_ip, 8080)
-        application.run(debug=False, host='0.0.0.0', port=8080, threaded=True)
+        APP.run(debug=False, host='0.0.0.0', port=8080, threaded=True)
     except (KeyboardInterrupt, SystemExit):
         reason = 'Stopped'
     except (EnvironmentError, RuntimeError) as err:
