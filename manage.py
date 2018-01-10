@@ -8,9 +8,10 @@ Manage.py methods for initialization, starting and stopping servers
 """
 
 import argparse
-import json
 import re
 import subprocess
+import simplejson as json
+import requests
 from awsutils import DynamoDB
 
 def get_pid(port):
@@ -104,8 +105,9 @@ def parse_options():
     group = parser.add_argument_group('authentication')
     group.add_argument('-u', '--user', action="store")
     group.add_argument('-p', '--password', action="store")
+    parser.add_argument('-s', '--site', action="store", default='https://cyberfrosty.com')
     parser.add_argument('--config', action='store', default='config.json', help='config.json')
-    parser.add_argument('command', action='store', help='init, start, stop, restart')
+    parser.add_argument('command', action='store', help='check, init, start, stop, restart')
     return parser.parse_args()
 
 def start_servers(config):
@@ -118,12 +120,34 @@ def stop_servers(config):
     """
     stop_http(config)
 
+def check_http(site):
+    """ Check a server and measure response time
+    Args:
+        site name to check
+    """
+    url = site + '/api/server.info'
+    try:
+        response = requests.get(url, timeout=3)
+        if response.status_code == 200:
+            try:
+                info = response.json()
+                info['latency'] = response.elapsed.total_seconds()
+            except ValueError as err:
+                info = {'latency': response.elapsed.total_seconds()}
+            print json.dumps(info)
+        else:
+            print response.status_code, response.elapsed.total_seconds()
+    except requests.ConnectionError as err:
+        print err
+
 def main():
     """ Main program
     """
     options = parse_options()
     config = load_config(options.config)
-    if options.command == 'start':
+    if options.command == 'check':
+        check_http(options.site)
+    elif options.command == 'start':
         start_servers(config)
     elif options.command == 'stop':
         stop_servers(config)
