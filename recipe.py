@@ -114,6 +114,7 @@ class RecipeManager(object):
         while 'item' + str(index) in ingredients:
             item = ingredients.get('item' + str(index))
             quantity = item.get('quantity')
+            ingredient = item.get('ingredient')
             fraction = quantity.find('/')
             if fraction != -1:
                 if quantity[fraction + 1] == '2':
@@ -137,7 +138,7 @@ class RecipeManager(object):
                         quantity = quantity.replace('5/8', '&#8541;')
                     else:
                         quantity = quantity.replace('7/8', '&#8542;')
-            html += '  <li itemprop="ingredients">' + quantity + ' ' + item.get('ingredient') + '</li>\n'
+            html += '  <li itemprop="ingredients">' + quantity + ' ' + ingredient + '</li>\n'
             index += 1
 
         html += '</ul>\n'
@@ -254,21 +255,23 @@ class RecipeManager(object):
         html += '<i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
         ingredients = recipe['ingredients']
         if 'section1' in ingredients:
-            html += self.render_ingredients(ingredients['section1'])
-            if 'section2' in ingredients:
-                html += self.render_ingredients(ingredients['section2'])
-            if 'section3' in ingredients:
-                html += self.render_ingredients(ingredients['section3'])
+            section = 'section1'
+            count = 1
+            while section in ingredients:
+                html += self.render_ingredients(ingredients[section])
+                count = count + 1
+                section = 'section' + str(count)
         else:
             html += self.render_ingredients(ingredients)
         html += '<i class="fa fa-tasks" aria-hidden="true"></i> <strong>Instructions</strong>\n'
         instructions = recipe.get('instructions')
         if 'section1' in instructions:
-            html += self.render_instructions(instructions['section1'], mode)
-            if 'section2' in instructions:
-                html += self.render_instructions(instructions['section2'], mode)
-            if 'section3' in instructions:
-                html += self.render_instructions(instructions['section3'], mode)
+            section = 'section1'
+            count = 1
+            while section in instructions:
+                html += self.render_instructions(instructions[section], mode)
+                count = count + 1
+                section = 'section' + str(count)
         else:
             html += self.render_instructions(instructions, mode)
         if 'notes' in recipe:
@@ -295,6 +298,10 @@ class RecipeManager(object):
             return self.render_recipe(recipe)
 
     def get_latest_recipe(self):
+        """ Get HTML rendered latest recipe
+        Returns:
+            HTML for recipe
+        """
         latest = 'Chicken Shawarma'
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>"
         html += '<h4 itemprop="name">' + latest + '</h4>\n'
