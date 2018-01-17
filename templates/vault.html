@@ -10,7 +10,7 @@
   </div>
 
   <!-- Modal -->
-  <div id="viewVault" class="modal fade" role="dialog">
+  <div id="accessVault" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -21,14 +21,15 @@
           <div>Enter Password:</div>
             <input id="vpassword" type="password" autocomplete="current-password"/>
             <input id="vbox" type="hidden" value="""/>
-            <button class="btn btn-primary" type="submit" onclick="viewVault()" data-dismiss="modal"><i class="fa fa-unlock" aria-hidden="true"></i></button>
+            <input id="vkey" type="hidden" value="""/>
+            <button class="btn btn-primary" type="submit" onclick="accessVault()" data-dismiss="modal"><i class="fa fa-unlock" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="safebox-row">
     {% if mcf %}
       {{ mcf | safe }}
     {% endif %}

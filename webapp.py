@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017 Alan Frost. All rights reserved.
+Copyright (c) 2017-2018 Alan Frost. All rights reserved.
 
 Implementation of Web server using Flask framework
 
@@ -810,6 +810,23 @@ def register():
         flash('A confirmation email has been sent to ' + form.email.data)
         return redirect(url_for('confirm', username=form.username.data))
     return render_template('register.html', form=form)
+
+@APP.route("/api/update.vault", methods=['GET', 'POST'])
+@login_required
+def update_vault():
+    """ Update the users vault contents
+    """
+    if not request.json:
+        abort(400, 'Invalid input, json expected')
+    print request.json
+    account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
+    if 'error' in account:
+        abort(422, account['error'])
+    vault = account.get('vault')
+    for key in vault.keys():
+        if key in request.json:
+            return jsonify({'status': 'ok'})
+    abort(404, 'Vault box not found')
 
 def main():
     """ Main for localhost testing via manage.py (start, stop, restart)

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017 Alan Frost, All rights reserved.
+Copyright (c) 2017-2018 Alan Frost, All rights reserved.
 
 Implementation of Vault Manager
 
@@ -87,15 +87,15 @@ class VaultManager(object):
             vault = self.vault
         if vault is not None:
             contents = []
-            html = '<div class="list-group">\n'
+            html = '<div class="list-group" id="safebox-list">\n'
             for safebox in vault:
                 box = vault[safebox]
                 if isinstance(box, dict) and 'contents' in box:
                     title = box.get('title', safebox)
                     icon = box.get('icon', 'fa-eye')
-                    html += '<a class="list-group-item" data-toggle="modal" href="#viewVault" id="' + safebox + '"><i class="fa ' + icon + ' fa-fw" aria-hidden="true"></i>&nbsp;' + title + '</a>'
+                    html += '<a class="list-group-item" data-toggle="modal" href="#accessVault" id="' + safebox + '"><i class="fa ' + icon + ' fa-fw" aria-hidden="true"></i>&nbsp;' + title + '</a>'
                     contents.append((safebox, box.get('contents')))
-                    #html += '<button type="button" data-toggle="modal" data-target="#viewVault">Unlock</button>'
+                    #html += '<button type="button" data-toggle="modal" data-target="#accessVault">Unlock</button>'
                     #html += '<li><a href="/vault?box=' + safebox + '">' + safebox + '</a></li>\n'
             html += '</div>\n'
             for item in contents:
@@ -105,7 +105,6 @@ class VaultManager(object):
             html += '<div id="safebox-table"></div>\n'
         else:
             html = '<textarea id="vault">Encrypted content</textarea>'
-        print html
         return html
 
     def get_rendered_box(self, vault, name):
