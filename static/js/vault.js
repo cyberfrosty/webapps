@@ -85,6 +85,14 @@ function saveTable() {
   };
 }
 
+// Delete selected row(s) from the table
+function deleteRow() {
+  let selectedRows = $("#safebox-table").tabulator("getSelectedRows");
+  selectedRows.forEach(function(row){
+    row.delete();
+  });
+}
+
 function buildTable(box) {
   // Create the tabulator, define the columns
   const mytable = document.getElementById("safebox-table")
@@ -95,8 +103,8 @@ function buildTable(box) {
     let boxlist = document.getElementById('safebox-list')
     boxrow.insertBefore(div, boxlist)
   }
-  $("#safebox-table").tabulator(box.columns);
-  $("#safebox-table").tabulator("setData", box.contents);
+  $("#safebox-table").tabulator({columns:box.columns, data:box.contents, selectable:true});
+  //$("#safebox-table").tabulator("setData", box.contents);
 }
 
 // View the vault or box contents
@@ -116,11 +124,10 @@ function accessVault() {
       try {
         var plaintext = decryptAESGCM(key, ciphertext);
         var box = {}
-        box.columns = {
-          columns:[
+        box.columns = [
             {"title": "Account", "field": "account", "sorter": "string", "editor": "input"},
             {"title": "User Name", "field": "username", "sorter": "string", "editor": "input"},
-            {"title": "Password", "field": "password", "sorter": "string", "editor": "input"}]}
+            {"title": "Password", "field": "password", "sorter": "string", "editor": "input"}]
         box.contents = JSON.parse(plaintext);
         ($("#vkey").val(key));
         buildTable(box);
@@ -129,29 +136,55 @@ function accessVault() {
         div.className = 'row';
         div.style.margin = "12px";
         div.id = 'safebox-buttons';
-        let close = document.createElement("BUTTON");
-        close.id = 'close-vault';
-        close.className = "btn btn-primary";
-        close.style.margin = "12px";
+
+        let button = document.createElement('button');
+        button.id = 'close-vault';
+        button.className = "btn btn-primary";
+        button.style.margin = "12px";
         let icon = document.createElement("I");
         icon.className = "fa fa-close";
         icon.setAttribute('aria-hidden', 'true');
-        close.appendChild(icon);
-        close.appendChild(document.createTextNode("  Close"));
-        close.setAttribute('onclick', 'closeTable()');
-        div.appendChild(close);
+        button.appendChild(icon);
+        button.appendChild(document.createTextNode("  Close"));
+        button.setAttribute('onclick', 'closeTable()');
+        div.appendChild(button);
 
-        let save = document.createElement("BUTTON");
-        save.id = 'save-vault';
-        save.className = "btn btn-primary";
-        save.style.margin = "12px";
+        button = document.createElement('button');
+        button.id = 'save-vault';
+        button.className = "btn btn-primary";
+        button.style.margin = "12px";
         icon = document.createElement("I");
         icon.className = "fa fa-download";
         icon.setAttribute('aria-hidden', 'true');
-        save.appendChild(icon);
-        save.appendChild(document.createTextNode("  Save"));
-        save.setAttribute('onclick', 'saveTable()');
-        div.appendChild(save);
+        button.appendChild(icon);
+        button.appendChild(document.createTextNode("  Save"));
+        button.setAttribute('onclick', 'saveTable()');
+        div.appendChild(button);
+
+        button = document.createElement('button');
+        button.id = 'add-vault';
+        button.className = "btn btn-primary";
+        button.style.margin = "12px";
+        icon = document.createElement("I");
+        icon.className = "fa fa-plus";
+        icon.setAttribute('aria-hidden', 'true');
+        button.appendChild(icon);
+        button.appendChild(document.createTextNode("  Add"));
+        button.setAttribute('onclick', '$("#safebox-table").tabulator("addRow",{})');
+        div.appendChild(button);
+
+        button = document.createElement('button');
+        button.id = 'del-vault';
+        button.className = "btn btn-primary";
+        button.style.margin = "12px";
+        icon = document.createElement("I");
+        icon.className = "fa fa-minus";
+        icon.setAttribute('aria-hidden', 'true');
+        button.appendChild(icon);
+        button.appendChild(document.createTextNode("  Delete"));
+        button.setAttribute('onclick', 'deleteRow()');
+        div.appendChild(button);
+
         document.body.appendChild(div);
       }
       catch(err) {
