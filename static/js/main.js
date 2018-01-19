@@ -90,6 +90,22 @@ function jsonToCSV(data) {
   return csv;
 }   
 
+function makeButton(id, faIcon, text, clickFunc) {
+  let button = document.createElement('button');
+  button.id = id;
+  button.className = "btn btn-primary";
+  button.style.margin = "12px";
+  if (faIcon !== null) {
+    let icon = document.createElement('i');
+    icon.className = "fa " + faIcon;
+    icon.setAttribute('aria-hidden', 'true');
+    button.appendChild(icon);
+  }
+  button.appendChild(document.createTextNode("  " + text));
+  button.setAttribute('onclick', clickFunc);
+  return button;
+}
+
 //this trick will generate a temp "a" tag
 //var link = document.createElement("a");    
 //link.id="lnkDwnldLnk";

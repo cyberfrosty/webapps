@@ -6,8 +6,6 @@
  * Copyright (c) 2017-2018 Alan Frost
  */
 
-var vkey;
-
 document.addEventListener("DOMContentLoaded", function() {
 
   // Toggle checked symbol in safe box list
@@ -122,7 +120,6 @@ function buildTable(box) {
     boxrow.insertBefore(div, boxlist)
   }
   $("#safebox-table").tabulator({columns:box.columns, data:box.contents, selectable:true});
-  //$("#safebox-table").tabulator("setData", box.contents);
 }
 
 // View the vault or box contents
@@ -137,85 +134,47 @@ function accessVault() {
     ciphertext = contents.unquoted();
     const fields = mcf.split("$");
     if (contents && fields.length > 4 && fields[1] === "pbkdf2") {
-      var key = forge.util.decode64(fields[4]);
-      vkey = key;
+      let key = forge.util.decode64(fields[4]);
       try {
         var plaintext = decryptAESGCM(key, ciphertext);
         var box = {}
-        box.columns = [
-            {"title": "Account", "field": "account", "sorter": "string", "editor": "input"},
-            {"title": "User Name", "field": "username", "sorter": "string", "editor": "input"},
-            {"title": "Password", "field": "password", "sorter": "string", "editor": "input"}]
+        const columns = document.getElementById(boxName + "-columns").innerText;
+        box.columns = JSON.parse(columns)
         box.contents = JSON.parse(plaintext);
         ($("#vkey").val(key));
+
+        // Remove old table if shown
+        const mytable = document.getElementById("safebox-table")
+        if (mytable !== null) {
+          $("#safebox-table").tabulator("clearData");
+          mytable.parentElement.removeChild(mytable);
+        }
         buildTable(box);
 
-        let div = document.createElement('div');
-        div.className = 'row';
-        div.style.margin = "12px";
-        div.id = 'safebox-buttons';
+        let div = document.getElementById('safebox-buttons');
+        if (div === null) {
+          div = document.createElement('div');
+          div.className = 'row';
+          div.style.margin = "12px";
+          div.id = 'safebox-buttons';
 
-        let button = document.createElement('button');
-        button.id = 'close-vault';
-        button.className = "btn btn-primary";
-        button.style.margin = "12px";
-        let icon = document.createElement("I");
-        icon.className = "fa fa-close";
-        icon.setAttribute('aria-hidden', 'true');
-        button.appendChild(icon);
-        button.appendChild(document.createTextNode("  Close"));
-        button.setAttribute('onclick', 'closeTable()');
-        div.appendChild(button);
+          let button = makeButton('close-vault', 'fa-close', 'Close', 'closeTable()');
+          div.appendChild(button);
 
-        button = document.createElement('button');
-        button.id = 'save-vault';
-        button.className = "btn btn-primary";
-        button.style.margin = "12px";
-        icon = document.createElement("I");
-        icon.className = "fa fa-download";
-        icon.setAttribute('aria-hidden', 'true');
-        button.appendChild(icon);
-        button.appendChild(document.createTextNode("  Save"));
-        button.setAttribute('onclick', 'saveTable()');
-        div.appendChild(button);
+          button = makeButton('save-vault', 'fa-download', 'Save', 'saveTable()');
+          div.appendChild(button);
 
-        button = document.createElement('button');
-        button.id = 'add-vault';
-        button.className = "btn btn-primary";
-        button.style.margin = "12px";
-        icon = document.createElement("I");
-        icon.className = "fa fa-plus";
-        icon.setAttribute('aria-hidden', 'true');
-        button.appendChild(icon);
-        button.appendChild(document.createTextNode("  Add"));
-        button.setAttribute('onclick', '$("#safebox-table").tabulator("addRow",{})');
-        div.appendChild(button);
+          button = makeButton('add-vault', 'fa-plus', 'Add', '$("#safebox-table").tabulator("addRow",{})');
+          div.appendChild(button);
 
-        button = document.createElement('button');
-        button.id = 'del-vault';
-        button.className = "btn btn-primary";
-        button.style.margin = "12px";
-        icon = document.createElement("I");
-        icon.className = "fa fa-minus";
-        icon.setAttribute('aria-hidden', 'true');
-        button.appendChild(icon);
-        button.appendChild(document.createTextNode("  Delete"));
-        button.setAttribute('onclick', 'deleteRow()');
-        div.appendChild(button);
+          button = makeButton('del-vault', 'fa-minus', 'Delete', 'deleteRow()');
+          div.appendChild(button);
 
-        button = document.createElement('button');
-        button.id = 'import-vault';
-        button.className = "btn btn-primary";
-        button.style.margin = "12px";
-        icon = document.createElement("I");
-        icon.className = "fa fa-upload";
-        icon.setAttribute('aria-hidden', 'true');
-        button.appendChild(icon);
-        button.appendChild(document.createTextNode("  Import"));
-        button.setAttribute('onclick', 'importRows()');
-        div.appendChild(button);
+          button = makeButton('import-vault', 'fa-upload', 'Import', 'importRows()');
+          div.appendChild(button);
 
-        document.body.appendChild(div);
+          document.body.appendChild(div);
+        }
       }
       catch(err) {
         console.log(err)

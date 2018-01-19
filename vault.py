@@ -49,11 +49,11 @@ class VaultManager(object):
         fields = mcf.split('$')
         key = base64.b64decode(fields[4])
         mcf = '$pbkdf2$' + fields[2] + '$' + fields[3] + '$'
-        iv = os.urandom(12)
         for safebox in self.vault:
             box = self.vault[safebox]
             if isinstance(box, dict) and 'contents' in box:
                 box_contents = json.dumps(box['contents'])
+                iv = os.urandom(12)
                 payload = iv + encrypt_aes_gcm(key, iv, box_contents)
                 box['contents'] = base64.b64encode(payload)
                 self.vault[safebox] = box
@@ -87,22 +87,26 @@ class VaultManager(object):
             vault = self.vault
         if vault is not None:
             contents = []
+            columns = []
             html = '<div class="list-group" id="safebox-list">\n'
             for safebox in vault:
                 box = vault[safebox]
                 if isinstance(box, dict) and 'contents' in box:
                     title = box.get('title', safebox)
                     icon = box.get('icon', 'fa-eye')
-                    html += '<a class="list-group-item" data-toggle="modal" href="#accessVault" id="' + safebox + '"><i class="fa ' + icon + ' fa-fw" aria-hidden="true"></i>&nbsp;' + title + '</a>'
+                    html += '<a class="list-group-item" data-toggle="modal" href="#accessVault" id="' + safebox + '"><i class="fa ' + icon + ' fa-fw" aria-hidden="true"></i>&nbsp;' + title + '</a>\n'
                     contents.append((safebox, box.get('contents')))
+                    columns.append((safebox, json.dumps(box.get('columns'))))
                     #html += '<button type="button" data-toggle="modal" data-target="#accessVault">Unlock</button>'
                     #html += '<li><a href="/vault?box=' + safebox + '">' + safebox + '</a></li>\n'
             html += '</div>\n'
+            for item in columns:
+                cid = item[0] + '-columns'
+                html += '<div hidden id="' + cid + '">' + item[1] + '</div>\n'
             for item in contents:
                 data = item[1] if type(item[1]) is str else json.dumps(item[1])
                 cid = item[0] + '-contents'
                 html += '<div hidden id="' + cid + '">' + data + '</div>\n'
-            html += '<div id="safebox-table"></div>\n'
         else:
             html = '<textarea id="vault">Encrypted content</textarea>'
         return html
