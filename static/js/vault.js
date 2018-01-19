@@ -93,6 +93,24 @@ function deleteRow() {
   });
 }
 
+// Export selected row(s) from the table
+function exportRows() {
+  let rows = $("#safebox-table").tabulator("getSelectedRows");
+  // If no rows are selected then get all currently displayed rows
+  if (rows.length === 0) {
+    rows = $("#safebox-table").tabulator("getRows", true);
+  }
+  let items = [];
+  rows.forEach(function(row){
+    items.push(row.getData());
+  });
+  return items;
+}
+
+// Import rows to table
+function importRows() {
+}
+
 function buildTable(box) {
   // Create the tabulator, define the columns
   const mytable = document.getElementById("safebox-table")
@@ -183,6 +201,18 @@ function accessVault() {
         button.appendChild(icon);
         button.appendChild(document.createTextNode("  Delete"));
         button.setAttribute('onclick', 'deleteRow()');
+        div.appendChild(button);
+
+        button = document.createElement('button');
+        button.id = 'import-vault';
+        button.className = "btn btn-primary";
+        button.style.margin = "12px";
+        icon = document.createElement("I");
+        icon.className = "fa fa-upload";
+        icon.setAttribute('aria-hidden', 'true');
+        button.appendChild(icon);
+        button.appendChild(document.createTextNode("  Import"));
+        button.setAttribute('onclick', 'importRows()');
         div.appendChild(button);
 
         document.body.appendChild(div);

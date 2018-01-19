@@ -3,7 +3,7 @@
  *
  * @author Alan Frost
  *
- * Copyright (c) 2017 Alan Frost
+ * Copyright (c) 2017-2018 Alan Frost
  */
 
 // Define proto to strip beginning and ending quotes
@@ -49,6 +49,67 @@ function checkEmail(email) {
   return re.test(email);
 }
 
+// Convert CSV data with headers to JSON array
+function csvToJSON(csv){
+  var lines=csv.split("\n");
+  var items = [];
+  var headers=lines[0].split(",");
+  for(var i=1;i<lines.length;i++){
+    var obj = {};
+    var currentline=lines[i].split(",");
+
+    for(var j=0;j<headers.length;j++){
+      obj[headers[j]] = currentline[j];
+    }
+    items.push(obj);
+  }
+  return items
+}
+
+function jsonToCSV(data) {     
+  //If data is not an object then JSON.parse will parse the JSON string in an object
+  var arrData = typeof data != 'object' ? JSON.parse(data) : data;
+  var csv = '';    
+  var row = '';
+
+  // Extract column labels
+  for (var index in arrData[0]) {
+      row += index + ',';
+  }
+  row = row.slice(0, -1);
+  csv += row + '\n';
+
+  for (var i = 0; i < arrData.length; i++) {
+    row = '';
+    for (var index in arrData[i]) {
+      row += '"' + arrData[i][index] + '",';
+    }
+    row.slice(0, row.length - 1);
+    csv += row + '\n';
+  }
+  return csv;
+}   
+
+//this trick will generate a temp "a" tag
+//var link = document.createElement("a");    
+//link.id="lnkDwnldLnk";
+
+//this part will append the anchor tag and remove it after automatic click
+//document.body.appendChild(link);
+
+//var csv = CSV;  
+//blob = new Blob([csv], { type: 'text/csv' }); 
+//var csvUrl = window.webkitURL.createObjectURL(blob);
+//var filename = 'UserExport.csv';
+//$("#lnkDwnldLnk")
+//.attr({
+//    'download': filename,
+//    'href': csvUrl
+//}); 
+
+//$('#lnkDwnldLnk')[0].click();    
+//document.body.removeChild(link);
+//}
 
 /**
  * Use HMAC SHA256 to create unique hashed password before sending to server to prevent a MitM from seeing

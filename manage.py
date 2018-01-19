@@ -8,11 +8,16 @@ Manage.py methods for initialization, starting and stopping servers
 """
 
 import argparse
+import base64
+import csv
+import os
 import re
+import sys
 import subprocess
 import simplejson as json
 import requests
 from awsutils import DynamoDB
+from crypto import derive_key, encrypt_aes_gcm
 
 def get_pid(port):
     """ Get pid of running server
@@ -51,6 +56,33 @@ def init_env(config):
         database = DynamoDB(config, config.get('recipes'))
         database.create_table('id')
 
+def read_csv(csv_file):
+    """ Read a CSV file
+    Args:
+        csv filename
+    Return:
+        array of row objects
+    """
+    csv_rows = []
+    with open(csv_file) as csvfile:
+        reader = csv.DictReader(csvfile)
+        field = reader.fieldnames
+        for row in reader:
+            csv_rows.extend([{field[i]:row[field[i]] for i in range(len(field))}])
+        return csv_rows
+
+def write_csv(items):
+    """ Write a CSV file
+    Args:
+        dict
+    """
+    image = items[0]
+    fieldnames = image.keys()
+    writer = csv.DictWriter(sys.stdout, fieldnames)
+    writer.writeheader()
+    for item in items:
+        writer.writerow(item)
+
 def load_config(config_file):
     """ Load the config.json file
     Args:
@@ -64,6 +96,27 @@ def load_config(config_file):
         print('Load of config file failed:', err.message)
 
     return config
+
+def import_vault(csv_filename, password):
+    safebox = csv_filename.replace('.csv', '')
+    items = read_csv(csv_filename)
+    if password:
+        mcf = derive_key(password.encode('utf-8'))
+        fields = mcf.split('$')
+        key = base64.b64decode(fields[4])
+        mcf = '$pbkdf2$' + fields[2] + '$' + fields[3] + '$'
+        iv = os.urandom(12)
+        contents = '['
+        for item in items:
+            contents += json.dumps(item) + ','
+        contents = contents[:-1] + ']'
+        payload = iv + encrypt_aes_gcm(key, iv, contents)
+        contents = base64.b64encode(payload)
+        print contents
+        print mcf
+    else:
+        for item in items:
+            print json.dumps(item)
 
 def stop_server(service, port):
     """ Stop server listening on port
@@ -105,6 +158,7 @@ def parse_options():
     group = parser.add_argument_group('authentication')
     group.add_argument('-u', '--user', action="store")
     group.add_argument('-p', '--password', action="store")
+    parser.add_argument('-f', '--file', action="store")
     parser.add_argument('-s', '--site', action="store", default='https://cyberfrosty.com')
     parser.add_argument('--config', action='store', default='config.json', help='config.json')
     parser.add_argument('command', action='store', help='check, init, start, stop, restart')
@@ -154,6 +208,8 @@ def main():
     elif options.command == 'restart':
         stop_servers(config)
         start_servers(config)
+    elif options.command == 'import':
+        import_vault(options.file, options.password)
     elif options.command == 'init':
         init_env(config)
 
