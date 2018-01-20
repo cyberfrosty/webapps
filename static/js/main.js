@@ -95,14 +95,16 @@ function makeButton(id, faIcon, text, clickFunc) {
   button.id = id;
   button.className = "btn btn-primary";
   button.style.margin = "12px";
-  if (faIcon !== null) {
+  if (faIcon) {
     let icon = document.createElement('i');
     icon.className = "fa " + faIcon;
     icon.setAttribute('aria-hidden', 'true');
     button.appendChild(icon);
   }
   button.appendChild(document.createTextNode("  " + text));
-  button.setAttribute('onclick', clickFunc);
+  if (clickFunc) {
+    button.setAttribute('onclick', clickFunc);
+  }
   return button;
 }
 

@@ -106,7 +106,23 @@ function exportRows() {
 }
 
 // Import rows to table
-function importRows() {
+function importData(filelist) {
+  //Retrieve the first (and only!) File from the FileList object
+  if (filelist) {
+    var file = filelist[0]; 
+    if (file) {
+      var reader = new FileReader();
+      reader.onload = function(e) { 
+        let csvdata = e.target.result;
+        console.log( "Read " + file.name + " " + file.size + " bytes");
+        let data = csvToJSON(csvdata);
+        $("#safebox-table").tabulator("addData", data);
+      }
+      reader.readAsText(file);
+    } else { 
+      console.log("Failed to read file");
+    }
+  }
 }
 
 function buildTable(box) {
@@ -170,8 +186,22 @@ function accessVault() {
           button = makeButton('del-vault', 'fa-minus', 'Delete', 'deleteRow()');
           div.appendChild(button);
 
-          button = makeButton('import-vault', 'fa-upload', 'Import', 'importRows()');
+          button = makeButton('import-vault', 'fa-upload', 'Import', null);
+          button.addEventListener("click", function (e) {
+          fileSelect = document.getElementById("fileSelect");
+            if (fileSelect) {
+              fileSelect.click();
+            }
+            e.preventDefault(); // prevent navigation to "#"
+          }, false);
           div.appendChild(button);
+          fileselector = document.createElement('input');
+          fileselector.id = 'fileSelect';
+          fileselector.type = 'file';
+          fileselector.style = 'display:none';
+          fileselector.accept = 'text/csv';
+          fileselector.setAttribute('onchange', 'importData(this.files)');
+          div.appendChild(fileselector);
 
           document.body.appendChild(div);
         }
