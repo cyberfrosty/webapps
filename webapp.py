@@ -28,7 +28,7 @@ from crypto import derive_key
 from utils import (generate_timed_token, validate_timed_token, generate_user_id,
                    generate_random58_valid, preset_password, generate_random_int,
                    generate_otp_secret, generate_hotp_code, get_ip_address, get_user_agent)
-from awsutils import load_config, DynamoDB, SNS, SES
+from awsutils import load_config, DynamoDB, SNS, SES, S3
 from recipe import RecipeManager
 from vault import VaultManager
 
@@ -271,7 +271,7 @@ def allowed_file(filename):
     Returns:
         True if file type is allowed
     """
-    extensions = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+    extensions = set(['csv', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in extensions
 
@@ -396,12 +396,13 @@ def gallery():
 def upload():
     """ Upload an image with metadata
     """
-    #account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
-    #if not account or 'error' in account:
-    #    return redirect(url_for('register', username=current_user.get_username()))
-    #if 'storage' not in account:
-    #    return redirect(url_for('profile', username=current_user.get_username()))
-    #path = account['storage'] + '/'
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username())
+    account = USERS.get_item('id', userid)
+    if not account or 'error' in account:
+        return redirect(url_for('register', username=current_user.get_username()))
+    if 'bucket' not in account:
+        return redirect(url_for('profile', username=current_user.get_username()))
+    path = userid + '/'
     form = UploadForm()
     if form.validate_on_submit():
         content_type = request.headers.get('Content-Type')
@@ -416,7 +417,7 @@ def upload():
                 abort(400, 'No file selected for upload')
             if not allowed_file(content.filename):
                 abort(400, 'Unsupported file type for upload')
-            #path += secure_filename(content.filename)
+            path += secure_filename(content.filename)
             #params = {'file':content.filename, 'filename':path, 'identifier':group}
 
         if form.tags.data:
@@ -427,13 +428,13 @@ def upload():
                     'artform': form.artform.data,
                     'created': form.created.data,
                     'dimensions': form.dimensions.data,
-                    'path': secure_filename(content.filename),
+                    'path': path,
                     'tags': tags}
         print json.dumps(metadata)
-        #aws3 = S3()
-        #response = aws3.upload_data(content, bucket, path)
-        #if 'error' in response:
-        #    abort(400, response['error'])
+        aws3 = S3()
+        response = aws3.upload_data(content, account['bucket'], path)
+        if 'error' in response:
+            abort(400, response['error'])
     return render_template('upload.html', form=form)
 
 @APP.route('/messages')
@@ -822,8 +823,8 @@ def update_vault():
     account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
     if 'error' in account:
         abort(422, account['error'])
-    vault = account.get('vault')
-    for key in vault.keys():
+    myvault = account.get('vault')
+    for key in myvault.keys():
         if key in request.json:
             return jsonify({'status': 'ok'})
     abort(404, 'Vault box not found')
