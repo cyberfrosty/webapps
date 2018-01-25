@@ -364,6 +364,41 @@
   "notes": "Meat crumbles may be mixed with refried beans, potatoes or served in a bowl with black beans and rice."
 },
 {
+  "title": "Cuban Picadillo",
+  "chef": "Doris Hall",
+  "yield": "Serves 6",
+  "time": "1 hour 15 mins",
+  "category": ["Mexican", "Dinner"],
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1", "ingredient": "medium onion, chopped"},
+    "item4": {"quantity": "1", "ingredient": "green bell pepper, chopped"},
+    "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item6": {"quantity": "1 tbsp", "ingredient": "brown sugar"},
+    "item7": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+    "item8": {"quantity": "1/2 tsp", "ingredient": "cloves"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "oregano"},
+    "item11": {"quantity": "1 tsp", "ingredient": "chili powder"},
+    "item12": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
+    "item13": {"quantity": "1/4 cup", "ingredient": "apple cider vinegar"},
+    "item14": {"quantity": "1/2 cup", "ingredient": "Edmundo, Moscato, Chablis or other sweet white wine"},
+    "item15": {"quantity": "1 medium can", "ingredient": "diced tomatoes"},
+    "item16": {"quantity": "1/2 cup", "ingredient": "Stuffed green olives, chopped"},
+    "item17": {"quantity": "1/2 cup", "ingredient": "Raisins"},
+    "item18": {"quantity": "1/2 cup", "ingredient": "Almonds, slivered or sliced and blanched"}
+  },
+  "instructions": {
+    "step1": "In a large skillet, saute onion in olive oil over low heat until translucent",
+    "step2": "In a separate skillet cook meat until browned, flipping and chopping to make crumbles",
+    "step3": "Add green pepper and garlic to onions, saute for a few minutes",
+    "step4": "Add meat and spices, stir to coat",
+    "step5": "Add liquids, olives, almonds and raisins, and simmer for an hour",
+    "step6": "Serve over rice with black beans"
+  }
+},
+{
   "title": "Green Chili",
   "chef": "Susan",
   "date": "August 12, 2017",
