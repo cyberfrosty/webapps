@@ -1,21 +1,27 @@
 <!-- Search dialog -->
 <script type="text/javascript">
-  function searchList() {
-    // Declare variables
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('searchPhrase');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("searchList");
-    li = ul.getElementsByTagName('li');
+  function searchList(event) {
+    var char = event.which || event.keyCode;
+    var input = document.getElementById('searchPhrase');
+    var filter = input.value.toUpperCase();
+    if (char === 13) {
+      console.log('search in progress')
+      $("#search").modal("hide");
+    }
+    else {
+      var a, i;
+      var ul = document.getElementById("searchList");
+      var li = ul.getElementsByTagName('li');
 
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
         if (filter && a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+          li[i].style.display = "";
         } else {
-            li[i].style.display = "none";
+          li[i].style.display = "none";
         }
+      }
     }
   }
 </script>
@@ -29,53 +35,11 @@
       </div>
       <div class="modal-body">
         <div>
-          <input id="searchPhrase" type="text" onkeyup="searchList()" placeholder="Search for recipes.." />
+          <input id="searchPhrase" type="text" onkeyup="searchList(event)" placeholder="Search for recipes.." />
           <ul id="searchList">
-            <li><a href="/recipes?recipe=Orange%20Chicken&category=Asian">Orange Chicken</a></li>
-            <li><a href="/recipes?recipe=Sesame%20Chicken&category=Asian">Sesame Chicken</a></li>
-            <li><a href="/recipes?recipe=Szechuan%20Chicken&category=Asian">Szechuan Chicken</a></li>
-            <li><a href="/recipes?recipe=Korean%20Meatballs&category=Asian">Korean Meatballs</a></li>
-            <li><a href="/recipes?recipe=Anadama%20Bread&category=Bread">Anadama Bread</a></li>
-            <li><a href="/recipes?recipe=Banana%20Bread&category=Bread">Banana Bread</a></li>
-            <li><a href="/recipes?recipe=Oven%20Pancakes&category=Breakfast">Oven Pancakes</a></li>
-            <li><a href="/recipes?recipe=Strawberry%20Pancakes&category=Breakfast">Strawberry Pancakes</a></li>
-            <li><a href="/recipes?recipe=Spicy%20Pear%20Pancakes&category=Breakfast">Spicy Pear Pancakes</a></li>
-            <li><a href="/recipes?recipe=Apple%20Pancakes&category=Breakfast">Apple Pancakes</a></li>
-            <li><a href="/recipes?recipe=Apricot%20Scones&category=Breakfast">Apricot Scones</a></li>
-            <li><a href="/recipes?recipe=Buttermilk%20Waffles&category=Breakfast">Buttermilk Waffles</a></li>
-            <li><a href="/recipes?recipe=Pumpkin%20Waffles&category=Breakfast">Pumpkin Waffles</a></li>
-            <li><a href="/recipes?recipe=Banana%20Muffins&category=Breakfast">Banana Muffins</a></li>
-            <li><a href="/recipes?recipe=Pumpkin%20Muffins&category=Breakfast">Pumpkin Muffins</a></li>
-            <li><a href="/recipes?recipe=Turkey%20Sausage&category=Breakfast">Turkey Sausage</a></li>
-            <li><a href="/recipes?recipe=Chocolate%20Crunchies&category=Dessert">Chocolate Crunchies</a></li>
-            <li><a href="/recipes?recipe=Pfeffernusse&category=Dessert">Pfeffernusse</a></li>
-            <li><a href="/recipes?recipe=Fudge%20Brownies&category=Dessert">Fudge Brownies</a></li>
-            <li><a href="/recipes?recipe=Pumpkin%20Pie&category=Dessert">Pumpkin Pie</a></li>
-            <li><a href="/recipes?recipe=Swedish%20Pancakes&category=Dessert">Swedish Pancakes</a></li>
-            <li><a href="/recipes?recipe=Meatball%20Marinara&category=Italian">Meatball Marinara</a></li>
-            <li><a href="/recipes?recipe=Pizza&category=Italian">Pizza</a></li>
-            <li><a href="/recipes?recipe=Chicken%20Shawarma&category=Mediterranean">Chicken Shawarma</a></li>
-            <li><a href="/recipes?recipe=Moroccan%20Meatballs&category=Mediterranean">Moroccan Meatballs</a></li>
-            <li><a href="/recipes?recipe=Red%20Lamb&category=Mediterranean">Red Lamb</a></li>
-            <li><a href="/recipes?recipe=Red%20Pepper%20Hummus&category=Mediterranean">Red Pepper Hummus</a></li>
-            <li><a href="/recipes?recipe=Guacamole&category=Mexican">Guacamole</a></li>
-            <li><a href="/recipes?recipe=Green%20Chili&category=Mexican">Green Chili</a></li>
-            <li><a href="/recipes?recipe=Meat%20Crumbles&category=Mexican">Meat Crumbles</a></li>
-            <li><a href="/recipes?recipe=Grilled%20Salmon&category=Seafood">Grilled Salmon</a></li>
-            <li><a href="/recipes?recipe=Cilantro%20Chile%20Lime%20Shrimp&category=Seafood">Chile Lime Shrimp</a></li>
-            <li><a href="/recipes?recipe=Poke%20Bowl&category=Seafood">Poke Bowl</a></li>
-            <li><a href="/recipes?recipe=Salmon%20Patties&category=Seafood">Salmon Patties</a></li>
-            <li><a href="/recipes?recipe=Thai%20Baked%20Salmon&category=Seafood">Thai Baked Salmon</a></li>
-            <li><a href="/recipes?recipe=Thai%20Soyaki%20Salmon&category=Seafood">Thai Soyaki Salmon</a></li>
-            <li><a href="/recipes?recipe=Tuna%20Noodle&category=Seafood">Tuna Noodle</a></li>
-            <li><a href="/recipes?recipe=Ginger%20Carrots&category=Vegetables">Ginger Carrots</a></li>
-            <li><a href="/recipes?recipe=Roasted%20Cauliflower&category=Mediterranean">Roasted Cauliflower</a></li>
-            <li><a href="/recipes?recipe=Spicy%20Cilantro%20Carrots&category=Vegetables">Spicy Cilantro Carrots</a></li>
-            <li><a href="/recipes?recipe=Sesame%20Green%20Beans&category=Vegetables">Sesame Green Beans</a></li>
-            <li><a href="/recipes?recipe=Sauteed%20Spinach&category=Vegetables">Sauteed Spinach</a></li>
-            <li><a href="/recipes?recipe=Spicy%20Green%20Beans&category=Vegetables">Spicy Green Beans</a></li>
-            <li><a href="/recipes?recipe=Diced%20Potatoes&category=Vegetables">Diced Potatoes</a></li>
-            <li><a href="/recipes?recipe=Sweet%20Potato%20Fries&category=Vegetables">Sweet Potato Fries</a></li>
+            {% if search %}
+              {{ search | safe }}
+            {% endif %}
           </ul>
         </div>
       </div>
@@ -88,23 +52,33 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <button class="navbar-toggle collapsed btn-xs" type="button" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
-        <i class="fa fa-navicon" aria-hidden="true"></i>
+        <i class="fa fa-navicon fa-2x" aria-hidden="true"></i>
       </button>
-      <a class="navbar-brand" href="{{ url_for('index') }}"/>
-        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-      </a>
+      <button type="button" class="navbar-toggle nav-link" data-toggle="modal" data-target="#search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+      <a class="navbar-toggle nav-link" href="{{url_for('gallery')}}"><i class="fa fa-cubes fa-lg" aria-hidden="true"></i></a>
+      <a class="navbar-toggle nav-link" href="{{url_for('recipes')}}"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></a>
+      <a class="navbar-toggle nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a>
+      <a class="navbar-toggle nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
+      {% if current_user.is_authenticated %}
+        <a class="navbar-toggle nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+        <a class="navbar-toggle nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a>
+      {% else %}
+        <a class="navbar-toggle nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+        <a class="navbar-toggle nav-link" href="{{url_for('login')}}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></a>
+      {% endif %}
+      <a class="navbar-brand" href="{{ url_for('index') }}"/><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
     </div>
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="nav navbar-nav">
+        <li><a class="nav-item nav-link" href="{{url_for('gallery')}}"><i class="fa fa-cubes fa-fw" aria-hidden="true"></i>&nbsp;Gallery</a></li>
         <li><a class="nav-item nav-link" href="{{url_for('recipes')}}"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Recipes</a></li>
         <li><a class="nav-item nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i>&nbsp;Messages</a></li>
         <li><a class="nav-item nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-fw" aria-hidden="true"></i>&nbsp;Vault</a></li>
-        <li><a class="nav-item nav-link" data-toggle="modal" href="#search"><i class="fa fa-search fa-fw" aria-hidden="true"></i>&nbsp;Search</a></li>
       </ul>
         
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
-          <li><a class="nav-item nav-link" href="{{ url_for('profile') }}">{{ current_user.get_username() }}</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;{{ current_user.get_username() }}</a></li>
           <li><a class="nav-item nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>&nbsp;Logout</a></li>
         {% else %}
           <li><a class="nav-item nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;Sign Up</a></li>

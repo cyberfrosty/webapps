@@ -13,6 +13,12 @@ $(document).on('click',function() {
   $('.collapse').collapse('hide');
 })
 
+// Set input focus to search field in modal
+$("body").on("shown.bs.modal", "#search", function (event) {
+  $("input:visible:enabled:first", this).focus();
+});
+
+
 // Initialize search list
 function searchInit() {
   var ul, li, i;
