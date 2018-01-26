@@ -17,31 +17,11 @@ import pytz
 import simplejson as json
 import boto3
 from botocore.exceptions import ClientError
-from utils import preset_password
+from utils import load_config, preset_password
 
 CONFIG_DNS_TTL = 60 # TTL (Time To Live) in seconds tells DNS servers how long to cache
 CONFIG_DNS_TYPE = 'A' # A record
 
-def load_config(config_file):
-    """ Load the config.json file
-    Args:
-        config file path
-    Returns:
-        dict for success or None for failure
-    """
-    config = {}
-    try:
-        with open(config_file) as json_file:
-            config = json.load(json_file)
-        print('Loaded', config_file)
-    except (IOError, ValueError) as err:
-        print('Load of config file failed:', err.message)
-
-    if isinstance(config.get('hmac_secret'), unicode):
-        config['hmac_secret'] = config.get('hmac_secret').encode('ascii', 'ignore')
-    if isinstance(config.get('encryption_secret'), unicode):
-        config['encryption_secret'] = config.get('encryption_secret').encode('ascii', 'ignore')
-    return config
 
 class DynamoDB(object):
     """ Utility class for access to AWS DynamoDB.
@@ -63,7 +43,7 @@ class DynamoDB(object):
         Args:
             user name
         Returns:
-            hex id
+            base32 userid
         """
         digest = hmac.new(
             self.config.get('user_id_hmac').encode('utf-8'),
@@ -480,32 +460,40 @@ class S3(object):
             except ClientError as err:
                 return dict(error=err.message)
 
-    def upload_data(self, data, bucket, key):
+    def upload_data(self, data, bucket, key, metadata=None):
         """ Upload a data to bucket.
         Args:
             data: textual content
             bucket: name of the bucket
             key: name of the file in S3
+            metadata: dict of metadata to store with the object in S3
         """
         if self.exists(bucket):
             try:
-                self.sss.Object(bucket, key).put(Body=data)
+                if metadata:
+                    self.sss.Object(bucket, key).put(Body=data, Metadata=metadata)
+                else:
+                    self.sss.Object(bucket, key).put(Body=data)
                 return dict(status='ok')
             except ClientError as err:
                 return dict(error=err.message)
         else:
             return dict(error='Bucket does not exist')
 
-    def upload_file(self, filename, bucket, key):
+    def upload_file(self, filename, bucket, key, metadata=None):
         """ Upload a file to bucket.
         Args:
             filename: local filename
             bucket: name of the bucket
             key: name of the file in S3
+            metadata: dict of metadata to store with the object in S3
         """
         if self.exists(bucket):
             try:
-                self.sss.Object(bucket, key).put(Body=open(filename, 'rb'))
+                if metadata:
+                    self.sss.Object(bucket, key).put(Body=open(filename, 'rb'), Metadata=metadata)
+                else:
+                    self.sss.Object(bucket, key).put(Body=open(filename, 'rb'))
                 return dict(status='ok')
             except ClientError as err:
                 return dict(error=err.message)
@@ -523,7 +511,7 @@ class S3(object):
         if self.exists(bucket):
             try:
                 response = self.sss.Object(bucket, key).get()
-                return dict(status='ok'), response['Body'].read()
+                return dict(status='ok'), response['Body'].read(), response.get('Metadata')
             except ClientError as err:
                 return dict(error=err.message), None
         else:
@@ -597,58 +585,104 @@ class S3(object):
             objects.append(bucket.name)
         return objects
 
-    def list_objects(self, bucket, group, **kwargs):
-        """ List all of the objects for a group in a bucket
+    def get_matching_s3_objects(self, bucket, prefix, suffix, after, before):
+        """ Generate objects in a bucket matching the requested criteria
         Args:
             bucket: name of the bucket
-            group: name of the group
+            after: return only entries modified on or after specified timestamp
+            before: return only entries modified on or before specified timestamp
+            prefix: return only entries with specifed prefix
+            suffix: return only entries with specifed suffix
+        """
+        if not self.exists(bucket):
+            print('Bucket does not exist')
+            return
+
+        s3client = boto3.client('s3')
+        kwargs = {'Bucket': bucket}
+
+        # If the prefix is a single string (not a tuple of strings), we can
+        # do the filtering directly in the S3 API.
+        if isinstance(prefix, str):
+            kwargs['Prefix'] = prefix
+
+        while True:
+
+            # The S3 API response is a large blob of metadata.
+            # 'Contents' contains information about the listed objects.
+            try:
+                resp = s3client.list_objects_v2(**kwargs)
+            except ClientError as err:
+                print(err.message)
+                return
+
+            try:
+                contents = resp['Contents']
+            except KeyError:
+                return
+
+            for obj in contents:
+                key = obj['Key']
+                last_modified = obj['LastModified']
+                #size = obj['Size']
+                if key.startswith(prefix) and key.endswith(suffix):
+                    if after and last_modified < after:
+                        continue
+                    elif before and last_modified > before:
+                        continue
+                    else:
+                        yield obj
+
+            # The S3 API is paginated, returning up to 1000 keys at a time.
+            # Pass the continuation token into the next response, until we
+            # reach the final page (when this field is missing).
+            try:
+                kwargs['ContinuationToken'] = resp['NextContinuationToken']
+            except KeyError:
+                break
+
+
+    def list_objects(self, bucket, **kwargs):
+        """ List all of the objects in a bucket matching the requested criteria
+        Args:
+            bucket: name of the bucket
             kwargs {
                 count: limit on number of entries to return
                 after: return only entries modified on or after specified timestamp
                 before: return only entries modified on or before specified timestamp
-                username: return only entries created by specified username
-                directory: sub directory
-                filter: standard glob pattern like *.doc
-                metadata: 'all', 'content'
+                prefix: return only entries with specifed prefix
+                suffix: return only entries with specifed suffix
             }
         """
-        max_count = int(kwargs.pop('count', 100))
         after = kwargs.pop('after', None)
         if after:
             after = datetime.fromtimestamp(float(after), tz=pytz.utc)
         before = kwargs.pop('before', None)
         if before:
             before = datetime.fromtimestamp(float(before), tz=pytz.utc)
-        username = kwargs.pop('username', None)
-        glob = kwargs.pop('filter', None)
-        directory = kwargs.pop('directory', None)
-        verbose = kwargs.pop('metadata', None)
-        count = 0
-        objects = {}
-        if not self.exists(bucket):
-            return dict(error='Bucket does not exist')
-        bucket = self.sss.Bucket(bucket)
-        group += '/'
-        if directory:
-            group += directory
-        try:
-            items = bucket.objects.filter(Prefix=group)
-        except ClientError as err:
-            return dict(error=err.message)
-        for item in items:
-            if after and item.last_modified < after:
-                continue
-            if before and item.last_modified > before:
-                continue
-            else:
-                timestamp = int((item.last_modified -
-                                 datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
-                objects[item.key] = dict(size=item.size,
-                                         timestamp=timestamp)
-            count = count + 1
-            if count >= max_count:
-                break
-        return objects
+        prefix = kwargs.pop('prefix', '')
+        suffix = kwargs.pop('suffix', '')
+
+        for obj in self.get_matching_s3_objects(bucket, prefix, suffix, after, before):
+            yield obj['Key']
+
+    def get_metadata(self, bucket, key):
+        """ Get the file metadata
+        Args:
+            bucket: name of the bucket
+            key: name of the file in S3
+        Return:
+            metadata as dict or None
+        """
+        if self.exists(bucket):
+            try:
+                s3client = boto3.client('s3')
+                response = s3client.head_object(Bucket=bucket, Key=key)
+                return dict(status='ok'), response.get('Metadata')
+            except ClientError as err:
+                return dict(error=err.message), None
+        else:
+            return dict(error='Bucket does not exist'), None
 
     def remove_object(self, bucket, key):
         """ Remove the specified file from the bucket
@@ -669,9 +703,12 @@ class S3(object):
 def main():
     """ Unit tests
     """
-    ses = SES('alan@cyberfrosty.com')
-    html = '<a class="ulink" href="http://cyberfrosty.com/recipes" target="_blank">Recipes</a>.'
-    ses.send_email(['frosty.alan@gmail.com'], 'Howdy', html, 'Check out my recipes')
+    #ses = SES('alan@cyberfrosty.com')
+    #html = '<a class="ulink" href="http://cyberfrosty.com/recipes" target="_blank">Recipes</a>.'
+    #ses.send_email(['frosty.alan@gmail.com'], 'Howdy', html, 'Check out my recipes')
+    s3 = S3()
+    #for key in s3.list_objects('snowyrangesolutions.com', **{'prefix':'static/img/', 'suffix':'.jpg'}):
+    #    print(key)
 
 if __name__ == '__main__':
     main()
