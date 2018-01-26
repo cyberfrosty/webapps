@@ -1,6 +1,7 @@
 {
   "users": "Users",
   "sessions": "Sessions",
+  "vault": "Vault",
   "aws_region": "us-west-2",
   "domain": "cyberfrosty.com",
   "hmac_secret": "server secret to derive hmac key",
