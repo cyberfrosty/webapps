@@ -117,6 +117,7 @@ class VaultManager(object):
                     self.vaults[userid] = json.load(json_file)
             except (IOError, ValueError) as err:
                 return {'error': 'Load vault file failed:' + str(err.message)}
+            print('Loaded ' + str(len(self.vaults[userid])))
 
     def encrypt_vault(self, userid, password):
         """ Encrypt the vault contents using a key derived from a password
@@ -236,7 +237,7 @@ def main():
     userid = manager.generate_user_id('yuki')
     manager.load_vault(userid, 'vault.json')
     print(manager.get_vault(userid))
-    manager.post_vault(userid)
+    print(manager.post_vault(userid))
     manager.decrypt_vault(userid, 'Madman12')
     print(manager.get_vault(userid))
     print(manager.get_rendered_vault(None))

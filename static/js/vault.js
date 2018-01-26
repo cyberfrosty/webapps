@@ -59,29 +59,38 @@ function closeTable() {
 }
 
 function saveTable() {
+  var csrftoken = $('meta[name=csrf-token]').attr('content')
+  console.log(csrftoken)
   const mytable = document.getElementById("safebox-table")
   if (mytable === null) {
     console.log('Missing safebox-table element');
   }
   const data = $("#safebox-table").tabulator("getData");
-  console.log(JSON.stringify(data));
   const key = ($("#vkey").val());
   var ciphertext = encryptAESGCM(key, JSON.stringify(data));
-  console.log(ciphertext);
   const boxName = ($("#vbox").val());
   document.getElementById(boxName + "-contents").innerText = ciphertext;
 
   update = '{"' + boxName + '":"' + ciphertext + '"}'
   let xhr = new XMLHttpRequest();
-  xhr.open('post', 'http://localhost:8080/api/update.vault', true);
+  xhr.open('patch', 'http://localhost:8080/vault', true);
   xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+  xhr.setRequestHeader('X-CSRFToken', csrftoken);
 
-  // send the collected data as JSON
-  xhr.send(update);
-
-  xhr.onloadend = function () {
-    // done
+  // Callback to display success or error after POST request is complete
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        console.log('Safebox saved');
+      } else {
+        var json = JSON.parse(xhr.responseText);
+        console.log(json.error);
+      }
+    }
   };
+
+  // Send the encrypted safebox data as JSON
+  xhr.send(update);
 }
 
 // Delete selected row(s) from the table

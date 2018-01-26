@@ -16,6 +16,7 @@ from urlparse import urlparse, urljoin
 import pytz
 import simplejson as json
 from werkzeug.utils import secure_filename
+from flask_wtf.csrf import CSRFProtect
 
 from botocore.exceptions import EndpointConnectionError
 from flask import Flask, make_response, request, render_template, redirect, session, jsonify, abort, flash, url_for
@@ -75,6 +76,7 @@ LOGIN_MANAGER.init_app(APP)
 LOGIN_MANAGER.login_view = "login"
 LOGIN_MANAGER.login_message = "Please login to access this page"
 LOGIN_MANAGER.session_protection = "strong"
+CSRF = CSRFProtect(APP)
 
 @async
 def send_async_email(msg):
@@ -452,22 +454,59 @@ def messages():
 @APP.route('/vault', methods=['GET', 'PATCH', 'POST', 'PUT'])
 @login_required
 def vault():
-    """ Show encrypted private content
+    """ Get or update the vault contents
     """
     userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username())
     myvault = VAULT_MANAGER.get_vault(userid)
-    if not myvault or 'error' in myvault:
-        html = VAULT_MANAGER.get_rendered_vault(None)
-        mcf = '<div hidden id="mcf" />'
-    else:
-        mcf = '<div hidden id="mcf">' + myvault.get('mcf', '') + '</div>'
-        box = request.args.get('box')
-        if box is not None:
-            mybox = myvault[box]
-            html = '<div hidden id="safebox">' + json.dumps(mybox) + '</div><div id="safebox-table"></div>'
+    if request.method == 'GET':
+        if 'error' in myvault:
+            html = VAULT_MANAGER.get_rendered_vault(None)
+            mcf = '<div hidden id="mcf" />'
         else:
-            html = VAULT_MANAGER.get_rendered_vault(myvault)
-    return render_template('vault.html', contents=html, mcf=mcf)
+            mcf = '<div hidden id="mcf">' + myvault.get('mcf', '') + '</div>'
+            box = request.args.get('box')
+            if box is not None:
+                mybox = myvault[box]
+                html = '<div hidden id="safebox">' + json.dumps(mybox) + '</div><div id="safebox-table"></div>'
+            else:
+                html = VAULT_MANAGER.get_rendered_vault(myvault)
+        return render_template('vault.html', contents=html, mcf=mcf)
+
+    elif request.method == 'PATCH' or request.method == 'PUT':
+        if not request.json:
+            abort(400, 'Invalid input, json expected')
+        if 'error' in myvault:
+            abort(404, myvault['error'])
+        for key in myvault.keys():
+            if key in request.json:
+                myvault[key]['contents'] = request.json[key]
+                response = VAULT_MANAGER.post_vault(userid, myvault)
+                if 'error' in response:
+                    abort(422, response['error'])
+                return jsonify(response)
+
+    elif request.method == 'POST':
+        if not request.json:
+            abort(400, 'Invalid input, json expected')
+        if 'error' not in myvault:
+            abort(409, 'Vault already exists')
+        mcf = request.json.get('mcf')
+        box = request.json.get('box')
+        columns = request.json.get('columns')
+        contents = request.json.get('contents') or ''
+        title = request.json.get('title')
+        icon = request.json.get('icon')
+        if not mcf or not box or not columns or type(columns) is not list:
+            abort(422, 'Missing box, columns or mcf')
+        if not title:
+            title = box[:1].upper() + box[1:]
+        if not icon:
+            icon = 'fa-key'
+        myvault = {"mcf": mcf, box: {"title": title, "icon": icon, "columns": columns, "contents": contents}}
+        response = VAULT_MANAGER.post_vault(userid, myvault)
+        if 'error' in response:
+            abort(422, response['error'])
+        return jsonify(response)
 
 @APP.route('/privacy', methods=['GET'])
 def privacy():
@@ -818,23 +857,6 @@ def register():
         flash('A confirmation email has been sent to ' + form.email.data)
         return redirect(url_for('confirm', username=form.username.data))
     return render_template('register.html', form=form)
-
-@APP.route("/api/update.vault", methods=['PATCH', 'POST', 'PUT'])
-@login_required
-def update_vault():
-    """ Update the users vault contents
-    """
-    if not request.json:
-        abort(400, 'Invalid input, json expected')
-    print request.json
-    account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
-    if 'error' in account:
-        abort(422, account['error'])
-    myvault = account.get('vault')
-    for key in myvault.keys():
-        if key in request.json:
-            return jsonify({'status': 'ok'})
-    abort(404, 'Vault box not found')
 
 def main():
     """ Main for localhost testing via manage.py (start, stop, restart)
