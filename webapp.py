@@ -25,10 +25,10 @@ from decorators import async
 from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm, InviteForm,
                    PasswordResetRequestForm, PasswordResetForm, ResendConfirmForm, UploadForm)
 from crypto import derive_key
-from utils import (generate_timed_token, validate_timed_token, generate_user_id,
+from utils import (load_config, generate_timed_token, validate_timed_token, generate_user_id,
                    generate_random58_valid, preset_password, generate_random_int,
                    generate_otp_secret, generate_hotp_code, get_ip_address, get_user_agent)
-from awsutils import load_config, DynamoDB, SNS, SES, S3
+from awsutils import DynamoDB, SNS, SES, S3
 from recipe import RecipeManager
 from vault import VaultManager
 
@@ -38,6 +38,7 @@ USERS = DynamoDB(CONFIG, CONFIG.get('users'))
 SESSIONS = DynamoDB(CONFIG, CONFIG.get('sessions'))
 RECIPE_MANAGER = RecipeManager(CONFIG)
 RECIPE_MANAGER.load_recipes('recipes.json')
+RECIPE_LIST = RECIPE_MANAGER.build_search_list()
 VAULT_MANAGER = VaultManager(CONFIG)
 SNS = SNS('FrostyWeb')
 SES = SES('alan@cyberfrosty.com')
@@ -358,7 +359,7 @@ def google_site_verify():
 def index():
     """ Show main landing page
     """
-    return render_template('index.html')
+    return render_template('index.html', search=RECIPE_LIST)
 
 @APP.route('/api/server.info')
 def server_info():
@@ -378,10 +379,10 @@ def recipes():
     recipe = request.args.get('recipe')
     if recipe is not None:
         html = RECIPE_MANAGER.get_rendered_recipe(recipe)
-        return render_template('recipes.html', recipe=html, category=recipe)
+        return render_template('recipes.html', search=RECIPE_LIST, recipe=html, title=recipe)
     else:
         html = RECIPE_MANAGER.get_latest_recipe()
-        return render_template('recipes.html', recipe=html)
+        return render_template('recipes.html', search=RECIPE_LIST, recipe=html)
 
 @APP.route('/gallery')
 def gallery():
@@ -389,7 +390,11 @@ def gallery():
     """
     category = request.args.get('category')
     html = RECIPE_MANAGER.get_rendered_gallery(category)
-    return render_template('gallery.html', gallery=html)
+    if category:
+        search = RECIPE_MANAGER.build_search_list(category)
+    else:
+        search = RECIPE_LIST
+    return render_template('gallery.html', search=search, gallery=html)
 
 @APP.route('/upload', methods=['GET', 'POST'])
 #@login_required
@@ -444,22 +449,24 @@ def messages():
     """
     return render_template('messages.html')
 
-@APP.route('/vault')
+@APP.route('/vault', methods=['GET', 'PATCH', 'POST', 'PUT'])
 @login_required
 def vault():
     """ Show encrypted private content
     """
-    account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
-    if not account or 'error' in account:
-        return redirect(url_for('register', username=current_user.get_username()))
-    myvault = account.get('vault')
-    mcf = '<div hidden id="mcf">' + myvault.get('mcf', '') + '</div>'
-    box = request.args.get('box')
-    if box is not None:
-        mybox = myvault[box]
-        html = '<div hidden id="safebox">' + json.dumps(mybox) + '</div><div id="safebox-table"></div>'
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username())
+    myvault = VAULT_MANAGER.get_vault(userid)
+    if not myvault or 'error' in myvault:
+        html = VAULT_MANAGER.get_rendered_vault(None)
+        mcf = '<div hidden id="mcf" />'
     else:
-        html = VAULT_MANAGER.get_rendered_vault(myvault)
+        mcf = '<div hidden id="mcf">' + myvault.get('mcf', '') + '</div>'
+        box = request.args.get('box')
+        if box is not None:
+            mybox = myvault[box]
+            html = '<div hidden id="safebox">' + json.dumps(mybox) + '</div><div id="safebox-table"></div>'
+        else:
+            html = VAULT_MANAGER.get_rendered_vault(myvault)
     return render_template('vault.html', contents=html, mcf=mcf)
 
 @APP.route('/privacy', methods=['GET'])
@@ -812,7 +819,7 @@ def register():
         return redirect(url_for('confirm', username=form.username.data))
     return render_template('register.html', form=form)
 
-@APP.route("/api/update.vault", methods=['GET', 'POST'])
+@APP.route("/api/update.vault", methods=['PATCH', 'POST', 'PUT'])
 @login_required
 def update_vault():
     """ Update the users vault contents
@@ -856,5 +863,5 @@ if __name__ == '__main__':
     formatter = logging.Formatter('%(asctime)s %(levelname)s cyberfrosty:%(funcName)s %(message)s')
     file_handler.setFormatter(formatter)
     LOGGER.addHandler(file_handler)
-    print USERS.load_table('users.json')
+    #print USERS.load_table('users.json')
     main()
