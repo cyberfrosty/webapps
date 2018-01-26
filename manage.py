@@ -9,15 +9,14 @@ Manage.py methods for initialization, starting and stopping servers
 
 import argparse
 import base64
-import csv
 import os
 import re
-import sys
 import subprocess
 import simplejson as json
 import requests
 from awsutils import DynamoDB
 from crypto import derive_key, encrypt_aes_gcm
+from utils import load_config, read_csv, write_csv
 
 def get_pid(port):
     """ Get pid of running server
@@ -52,50 +51,12 @@ def init_env(config):
     if config.get('sessions'):
         database = DynamoDB(config, config.get('sessions'))
         database.create_table('id')
+    if config.get('vault'):
+        database = DynamoDB(config, config.get('vault'))
+        database.create_table('id')
     if config.get('recipes'):
         database = DynamoDB(config, config.get('recipes'))
         database.create_table('id')
-
-def read_csv(csv_file):
-    """ Read a CSV file
-    Args:
-        csv filename
-    Return:
-        array of row objects
-    """
-    csv_rows = []
-    with open(csv_file) as csvfile:
-        reader = csv.DictReader(csvfile)
-        field = reader.fieldnames
-        for row in reader:
-            csv_rows.extend([{field[i]:row[field[i]] for i in range(len(field))}])
-        return csv_rows
-
-def write_csv(items):
-    """ Write a CSV file
-    Args:
-        dict
-    """
-    image = items[0]
-    fieldnames = image.keys()
-    writer = csv.DictWriter(sys.stdout, fieldnames)
-    writer.writeheader()
-    for item in items:
-        writer.writerow(item)
-
-def load_config(config_file):
-    """ Load the config.json file
-    Args:
-        config filename
-    """
-    config = None
-    try:
-        with open(config_file) as json_file:
-            config = json.load(json_file)
-    except (IOError, ValueError) as err:
-        print('Load of config file failed:', err.message)
-
-    return config
 
 def import_vault(csv_filename, password):
     safebox = csv_filename.replace('.csv', '')

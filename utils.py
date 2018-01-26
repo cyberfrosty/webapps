@@ -11,8 +11,10 @@ from datetime import datetime
 import struct
 import os
 import base64
+import csv
 import re
 import string
+import sys
 import time
 import uuid
 import pytz
@@ -32,14 +34,62 @@ HKDF_SALT = base64.b64decode('MTIzNDU2Nzg5MGFiY2RlZmdoaWprbG1ub3BxcnN0dXY=')
 HDKF_INFO = 'frosty.alan'
 HMAC_INFO = 'FROSTY'
 
+# Bitcoin compatible base58 encoding
+B58ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+
+
 def generate_uuid():
     """ Generate a UUID, urn:uuid:239b6f01-51cf-4901-9af3-881f26a99f21
     """
     return uuid.uuid4().urn
 
-# Bitcoin compatible base58 encoding
-B58ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+def load_config(config_file):
+    """ Load the config.json file
+    Args:
+        config file path
+    Returns:
+        dict for success or None for failure
+    """
+    config = {}
+    try:
+        with open(config_file) as json_file:
+            config = json.load(json_file)
+        print('Loaded', config_file)
+    except (IOError, ValueError) as err:
+        print('Load of config file failed:', err.message)
 
+    if isinstance(config.get('hmac_secret'), unicode):
+        config['hmac_secret'] = config.get('hmac_secret').encode('utf-8')
+    if isinstance(config.get('encryption_secret'), unicode):
+        config['encryption_secret'] = config.get('encryption_secret').encode('utf-8')
+    return config
+
+def read_csv(csv_file):
+    """ Read a CSV file
+    Args:
+        csv filename
+    Return:
+        array of row objects
+    """
+    csv_rows = []
+    with open(csv_file) as csvfile:
+        reader = csv.DictReader(csvfile)
+        field = reader.fieldnames
+        for row in reader:
+            csv_rows.extend([{field[i]:row[field[i]] for i in range(len(field))}])
+        return csv_rows
+
+def write_csv(items):
+    """ Write a CSV file
+    Args:
+        dict
+    """
+    image = items[0]
+    fieldnames = image.keys()
+    writer = csv.DictWriter(sys.stdout, fieldnames)
+    writer.writeheader()
+    for item in items:
+        writer.writerow(item)
 
 def base58encode_int(number, default_one=True):
     """ Encode an integer using base58
