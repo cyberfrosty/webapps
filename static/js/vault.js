@@ -34,10 +34,11 @@ $("body").on("shown.bs.modal", "#accessVault", function (event) {
 
 // Submit modal action when enter pressed
 $(function(){
-  $('.modal-content').keypress(function(e){
-    if (e.which === 13) {
+  $('.modal-content').keypress(function(event){
+    var char = event.which || event.keyCode;
+    if (char === 13) {
        $("#accessVault").modal("hide");
-       e.preventDefault();
+       event.preventDefault();
        accessVault();
        return false;
     }
@@ -123,6 +124,25 @@ function importData(filelist) {
       console.log("Failed to read file");
     }
   }
+}
+
+// Create a new vault
+function createVault() {
+  // Post dialog to get column headings
+  columns = [{"field": "account", "sorter": "string", "title": "Account"},
+             {"field": "username", "sorter": "string", "title": "User Name"},
+             {"field": "password", "sorter": "string", "title": "Password"},
+             {"field": "notes", "sorter": "string", "title": "Notes"}]
+    // Create the tabulator, define the columns
+  const mytable = document.getElementById("safebox-table")
+  if (mytable === null) {
+    let div =  document.createElement('div');
+    div.id = 'safebox-table'
+    let boxrow = document.getElementById('safebox-row')
+    let boxlist = document.getElementById('safebox-list')
+    boxrow.insertBefore(div, boxlist)
+  }
+  $("#safebox-table").tabulator({columns:columns, selectable:true});
 }
 
 function buildTable(box) {
