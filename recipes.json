@@ -314,10 +314,11 @@
 {
   "title": "Guacamole",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/Guacamole.jpg",
   "date": "May 14, 2017",
   "time": "30 mins",
   "yield": "Serves 4",
-  "category": ["Mexican", "Dinner"],
+  "category": ["Latin", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "avocado"},
     "item2": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
@@ -336,10 +337,11 @@
 {
   "title": "Meat Crumbles",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/MeatCrumbles.jpg",
   "date": "May 14, 2017",
   "time": "30 mins",
   "yield": "Serves 4",
-  "category": ["Mexican", "Dinner"],
+  "category": ["Latin", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 lb", "ingredient": "ground turkey (85-93% lean)"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
@@ -366,9 +368,10 @@
 {
   "title": "Cuban Picadillo",
   "chef": "Doris Hall",
+  "image": "https://snowyrangesolutions.com/static/img/CubanPicadillo.jpg",
   "yield": "Serves 6",
   "time": "1 hour 15 mins",
-  "category": ["Mexican", "Dinner"],
+  "category": ["Latin", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
@@ -401,10 +404,11 @@
 {
   "title": "Green Chili",
   "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/GreenChili.jpg",
   "date": "August 12, 2017",
   "time": "30 mins",
   "yield": "Serves 6-8",
-  "category": ["Mexican", "Dinner"],
+  "category": ["Latin", "Dinner"],
   "ingredients": {
     "item1": {"quantity": "1 can (12 oz)", "ingredient": "tomatillos, drained"},
     "item2": {"quantity": "1 can (7 oz)", "ingredient": "whole green chiles, drained"},
@@ -843,6 +847,7 @@
 {
   "title": "Korean Meatballs",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanMeatballs.jpg",
   "yield": "Serves 4",
   "time": "45 mins",
   "category": ["Asian", "Turkey", "Dinner"],

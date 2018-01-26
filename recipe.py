@@ -71,6 +71,16 @@ class RecipeManager(object):
         except (IOError, ValueError) as err:
             print('Load of recipe file failed:', err.message)
 
+    def build_search_list(self, category = None):
+        """ Build the quick find search list
+        """
+        html = ''
+        for recipe_id in self.recipes:
+            recipe = self.recipes[recipe_id]
+            if category is None or category in recipe['category']:
+                html += '<li><a href="/recipes?recipe=' + recipe['title'].replace(' ', '%20') + '">' + recipe['title'] + '</a></li>'
+        return html
+
     def get_recipe(self, recipe_id):
         """ Load recipe from Database
         Args:
@@ -302,7 +312,7 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = 'Chicken Shawarma'
+        latest = 'Cuban Picadillo'
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>"
         html += '<h4 itemprop="name">' + latest + '</h4>\n'
         html += self.get_rendered_recipe(latest)

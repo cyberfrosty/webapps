@@ -4,9 +4,9 @@
 
 <div class="container" itemscope itemtype="http://schema.org/Recipe">
   <div class="page-header">
-    {% if category %}
+    {% if title %}
       <h3 itemprop="name">
-      {{ category | safe }}
+      {{ title | safe }}
       </h3>
     {% else %}
       <h3>Latest Recipe</h3>
@@ -69,11 +69,12 @@
           <a href="/recipes?recipe=Red%20Pepper%20Hummus&category=Mediterranean">Red Pepper Hummus</a><br>
           <a href="/recipes?recipe=Mediterranean%20Chicken&category=Mediterranean">Mediterranean Chicken</a><br>
         </div>
-        <button class="accordion">Mexican</button>
+        <button class="accordion">Latin</button>
         <div class="panel">
           <a href="/recipes?recipe=Guacamole&category=Mexican">Guacamole</a><br>
           <a href="/recipes?recipe=Green%20Chili&category=Mexican">Green Chili</a><br>
           <a href="/recipes?recipe=Meat%20Crumbles&category=Mexican">Meat Crumbles</a>
+          <a href="/recipes?recipe=Cuban%20Picadillo&category=Mexican">Cuban Picadillo</a>
         </div>
         <button class="accordion">Seafood</button>
         <div class="panel">
