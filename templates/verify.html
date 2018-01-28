@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+<form id="verify_form" class="form-signin" role="form" method="POST" action="">
+  <center>
+  <h3 class="form-signin-heading">Verify Token</h3>
+  {{ form.csrf_token }}
+  {% from "_macros.html" import render_errors %}
+  {{ render_errors(form) }}
+  <p>
+  <i class="fa fa-user-o fa-fw"></i>
+  {{ form.username(id="username", placeholder="Username or email") }}
+  </p>
+  <p>
+  <i class="fa fa-ticket fa-fw"></i>
+  {{ form.token(id="token", placeholder="Token") }}
+  </p>
+  <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Verify</button>
+  <a href="{{ url_for('resend', username=form.username.value, action='verify') }}" class="btn btn-primary" role="button"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;Resend Code</a>
+  </center>
+  <br />
+  <p>Enter the 6 digit token you received via email, SMS or push notification.</p>
+</form>
+</div>
+
+{% endblock %}

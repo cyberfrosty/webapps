@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-<form class="form-signin" role="form" method="post" action="">
+<form id="reset_form" class="form-signin" role="form" method="post" action="">
   <center>
   <h3 class="form-signin-heading">Reset Password</h3>
   {{ form.csrf_token }}
@@ -29,6 +29,8 @@
   <button class="btn btn-primary" type="submit"><i class="fa fa-retweet" aria-hidden="true"></i>&nbsp;&nbsp;Reset Password</button>
   <br /><br />
   </center>
+  <br />
+  <p>Request a password reset.</p>
 </form>
 </div>
 

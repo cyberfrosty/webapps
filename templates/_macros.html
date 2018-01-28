@@ -1,0 +1,11 @@
+{% macro render_errors(form) %}
+  {% if form.errors %}
+    <div class="form-errors">
+      <ul class="fa-ul">
+        {% for field, error in form.errors.items() %}
+          <li><font color="red"><i class="fa fa-exclamation-triangle fa-li fa-lg"></i></font><strong>{{ field }}:</strong> {{ ', '.join(error) }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endmacro %}

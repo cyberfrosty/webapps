@@ -3,9 +3,9 @@
 {% block content %}
 
 <div class="container">
-<form class="form-signin" role="form" method="post" action="">
+<form id="resend_form" class="form-signin" role="form" method="post" action="">
   <center>
-  <h3 class="form-signin-heading">Resend Confirmation Code</h3>
+  <h3 class="form-signin-heading">Resend Code</h3>
   {{ form.csrf_token }}
   {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -19,15 +19,17 @@
     {% endif %}
   {% endwith %}
   <p>
+  {{ form.username(id="username") }}
   <i class="fa fa-envelope-o fa-fw"></i>
   {{ form.email(id="email", placeholder="Email addess") }}
   </p>
+  <p>or</p>
   <p>
   <i class="fa fa-phone fa-fw"></i>
   {{ form.phone(id="phone", placeholder="Phone") }}
   </p>
   <p>
-  <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Resend Confirmation Code</button>
+  <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Resend Code</button>
   </center>
 </form>
 </div>

@@ -19,12 +19,14 @@ from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect
 
 from botocore.exceptions import EndpointConnectionError
-from flask import Flask, make_response, request, render_template, redirect, session, jsonify, abort, flash, url_for
+from flask import (Flask, make_response, request, render_template, redirect, session, jsonify,
+                   abort, flash, url_for)
 from flask_mail import Mail, Message
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from decorators import async
 from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm, InviteForm,
-                   PasswordResetRequestForm, PasswordResetForm, ResendConfirmForm, UploadForm)
+                   VerifyForm, PasswordResetRequestForm, PasswordResetForm, ResendForm,
+                   UploadForm)
 from crypto import derive_key
 from utils import (load_config, generate_timed_token, validate_timed_token, generate_user_id,
                    generate_random58_valid, preset_password, generate_random_int,
@@ -496,7 +498,7 @@ def vault():
         contents = request.json.get('contents') or ''
         title = request.json.get('title')
         icon = request.json.get('icon')
-        if not mcf or not box or not columns or type(columns) is not list:
+        if not mcf or not box or not columns or not isinstance(columns, list):
             abort(422, 'Missing box, columns or mcf')
         if not title:
             title = box[:1].upper() + box[1:]
@@ -636,6 +638,36 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+@APP.route('/verify', methods=['GET', 'POST'])
+@login_required
+def verify():
+    """Powers token validation (not using OneTouch)"""
+    form = VerifyForm(request.form)
+    username = request.args.get('username')
+    form.username.data = username or current_user.get_username()
+
+    # Send a token to our user when they GET this page
+    if request.method == 'GET':
+        #send_authy_token_request(user.authy_id)
+        print 'Sent code'
+
+    if form.validate_on_submit():
+        token = form.token.data
+
+        #verified = verify_authy_token(user.authy_id, str(user_entered_code))
+        #if verified.ok():
+        #    user.authy_status = 'approved'
+        #    db.session.add(user)
+        #    db.session.commit()
+
+        if token == '123456':
+            flash("You're logged in! Thanks for using two factor verification.", 'success')
+            return redirect(url_for('profile'))
+        else:
+            form.errors['Verification'] = ['Code invalid - please try again.']
+
+    return render_template('verify.html', form=form)
+
 @APP.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
@@ -681,13 +713,13 @@ def change():
 
 @APP.route("/resend", methods=['GET', 'POST'])
 def resend():
-    """ Regenerate and send a new confirmation code
+    """ Regenerate and send a new code
     """
     username = request.args.get('username')
     action = request.args.get('action')
     if username is None or action is None:
         abort(400, 'Missing user name or action')
-    form = ResendConfirmForm()
+    form = ResendForm()
     form.username.data = username
     form.action.data = action
     if form.validate_on_submit():

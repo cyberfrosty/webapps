@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-<form class="form-confirm" role="form" method="post" action="">
+<form id="confirm_form" class="form-signin" role="form" method="post" action="">
   <center>
   <h3 class="form-signin-heading">Confirm</h3>
   {{ form.csrf_token }}
@@ -32,6 +32,8 @@
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Confirm</button>
   </center>
+  <br />
+  <p>Enter the 6 digit token you received via email, SMS or push notification.</p>
 </form>
 </div>
 

@@ -7,7 +7,7 @@
 <table>
 {% for key, value in account.iteritems() %}
   <tr>
-    {% if key != 'mcf' and key != 'shared_secret' %}
+    {% if key != 'mcf' and key != 'shared_secret' and key != 'id' %}
       <th> {{ key }} </th>
       <td> {{ value }} </td>
     {% endif %}
@@ -17,4 +17,7 @@
 <br />
 <a href="/change" class="btn btn-primary" role="button"><i class="fa fa-key fa-fw"></i>&nbsp;Change Password</a>
 <a href="/invite" class="btn btn-primary" role="button"><i class="fa fa-user fa-fw"></i>&nbsp;Invite User</a>
+{% if account.authentication == 'password' %}
+{% endif %}
+<a href="/verify" class="btn btn-primary" role="button"><i class="fa fa-lock fa-fw"></i>&nbsp;Enable 2FA</a>
 {% endblock %}

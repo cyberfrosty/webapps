@@ -12,13 +12,14 @@ from flask_wtf import FlaskForm
 from wtforms import BooleanField, HiddenField, PasswordField, StringField, SubmitField, FileField
 from wtforms import ValidationError, validators
 from wtforms.fields.html5 import EmailField
+#import phonenumbers
 
 class UserNameValidator(object):
     """ User name validator
     """
     def __init__(self, message=None):
         if not message:
-            message = u'* Invalid'
+            message = u'* Invalid user name'
         self.message = message
 
     def __call__(self, form, field):
@@ -31,6 +32,30 @@ class UserNameValidator(object):
             pass
         else:
             raise ValidationError(self.message)
+
+class PhoneNumberValidator(object):
+    """ Phone number validator
+    """
+    def __init__(self, message=None):
+        if not message:
+            message = u'* Invalid phone number'
+        self.message = message
+
+    def __call__(self, form, field):
+        length = field.data and len(field.data) or 0
+        if length == 0:
+            pass
+        elif length < 7 or length > 16:
+            raise ValidationError(self.message)
+        #else:
+        #    try:
+        #        input_number = phonenumbers.parse(field.data)
+        #        if not (phonenumbers.is_valid_number(input_number)):
+        #            raise ValidationError(self.message)
+        #    except:
+        #        input_number = phonenumbers.parse("+1"+field.data)
+        #        if not (phonenumbers.is_valid_number(input_number)):
+        #            raise ValidationError(self.message)
 
 class LoginForm(FlaskForm):
     """ Login
@@ -50,17 +75,28 @@ class InviteForm(FlaskForm):
     email = EmailField('Email Address', [
         validators.InputRequired(message="* Required"),
         validators.Email(message="* Invalid")])
-    phone = PasswordField('Phone', validators=[
+    phone = StringField('Phone', validators=[
         validators.InputRequired(message="* Required"),
-        validators.Length(8, 64)])
+        PhoneNumberValidator()])
     submit = SubmitField('Invite')
 
 class ConfirmForm(FlaskForm):
     """ Confirm account with token
     """
     username = StringField('Username', [validators.Length(4, 64)])
-    token = StringField('Token', [validators.InputRequired(message="* Required")])
+    token = StringField('Token', validators=[
+        validators.InputRequired(message="* Required"),
+        validators.Length(min=6, max=10)])
     submit = SubmitField('Confirm Account')
+
+class VerifyForm(FlaskForm):
+    """ Verify 2FA code
+    """
+    username = HiddenField('Username')
+    token = StringField('Token', validators=[
+        validators.InputRequired(message="* Required"),
+        validators.Length(min=6, max=10)])
+    submit = SubmitField('Verify Code')
 
 class UploadForm(FlaskForm):
     """ Upload an artistic work
@@ -73,14 +109,14 @@ class UploadForm(FlaskForm):
     tags = StringField('Tags', [validators.Length(0, 128)])
     submit = SubmitField('Upload Image')
 
-class ResendConfirmForm(FlaskForm):
-    """ Resend a new confirm account token
+class ResendForm(FlaskForm):
+    """ Resend a confirmtion or verification token
     """
-    email = EmailField('Email Address', [
-        validators.InputRequired(message="* Required"),
-        validators.Email(message="* Invalid")
-    ])
-    submit = SubmitField('Resend Account Confirmation')
+    username = HiddenField('Username')
+    action = HiddenField('Action')
+    email = EmailField('Email Address', [validators.Email(message="* Invalid email address")])
+    phone = StringField('phone', [PhoneNumberValidator()])
+    submit = SubmitField('Resend Token')
 
 class RegistrationForm(FlaskForm):
     """ Register a new account
@@ -117,7 +153,7 @@ class PasswordResetRequestForm(FlaskForm):
     """
     email = EmailField('Email Address', [
         validators.InputRequired(message="* Required"),
-        validators.Email(message="* Invalid")
+        validators.Email(message="* Invalid email address")
     ])
     submit = SubmitField('Request Password Reset')
 
