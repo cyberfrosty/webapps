@@ -125,6 +125,22 @@ class DynamoDB(object):
         except (ClientError, KeyError) as err:
             return {'error': err.message}
 
+    def update_item(self, id, key, value):
+        """ Add or replace an item field in the table.
+        Args:
+            value: json item data, which includes table primary key
+        Return:
+            dict
+        """
+        try:
+            self.table.update_item(Key={'id': id},
+                                   UpdateExpression="SET " + key + " = :k",
+                                   ExpressionAttributeValues={':k': value},
+                                   ReturnValues="UPDATED_NEW")
+            return {'message': 'Item updated'}
+        except (ClientError, KeyError) as err:
+            return {'error': err.message}
+
     def load_table(self, infile):
         """ Load json data from a file into table.
         {

@@ -671,6 +671,12 @@ def change():
     if form.validate_on_submit():
         print form.password.data
         print form.username.data
+        mcf = derive_key(form.password.data.encode('utf-8'))
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), form.username.data)
+        response = USERS.update_item(userid, 'mcf', mcf)
+        if 'error' in response:
+            print response
+        return redirect(url_for('profile'))
     return render_template('change.html', form=form)
 
 @APP.route("/resend", methods=['GET', 'POST'])
@@ -885,5 +891,5 @@ if __name__ == '__main__':
     formatter = logging.Formatter('%(asctime)s %(levelname)s cyberfrosty:%(funcName)s %(message)s')
     file_handler.setFormatter(formatter)
     LOGGER.addHandler(file_handler)
-    #print USERS.load_table('users.json')
+    print USERS.load_table('users.json')
     main()
