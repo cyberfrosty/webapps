@@ -12,7 +12,9 @@ from flask_wtf import FlaskForm
 from wtforms import BooleanField, HiddenField, PasswordField, StringField, SubmitField, FileField
 from wtforms import ValidationError, validators
 from wtforms.fields.html5 import EmailField
+
 #import phonenumbers
+#https://github.com/daviddrysdale/python-phonenumbers
 
 class UserNameValidator(object):
     """ User name validator
@@ -151,10 +153,7 @@ class ChangePasswordForm(FlaskForm):
 class PasswordResetRequestForm(FlaskForm):
     """ Request a password reset
     """
-    email = EmailField('Email Address', [
-        validators.InputRequired(message="* Required"),
-        validators.Email(message="* Invalid email address")
-    ])
+    username = StringField('Username', [validators.Length(4, 64)])
     submit = SubmitField('Request Password Reset')
 
 class PasswordResetForm(FlaskForm):
