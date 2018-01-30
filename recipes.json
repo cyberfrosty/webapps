@@ -105,6 +105,35 @@
   }
 },
 {
+  "title": "Andes Chunk Cookies",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/AndesChunkCookies.jpg",
+  "date": "January 22, 2018",
+  "time": "30 minutes",
+  "yield": "Makes 48",
+  "category": ["Dessert"],
+  "ingredients": {
+    "item1": {"quantity": "2 2/3 cups", "ingredient": "flour"},
+    "item2": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item3": {"quantity": "1 tsp", "ingredient": "baking soda"},
+    "item4": {"quantity": "1/2 cup", "ingredient": "butter, softened"},
+    "item5": {"quantity": "1/2 cup", "ingredient": "sugar"},
+    "item6": {"quantity": "3/4 cup", "ingredient": "dark brown sugar"},
+    "item7": {"quantity": "2", "ingredient": "eggs"},
+    "item8": {"quantity": "2 tsp", "ingredient": "vanilla"},
+    "item9": {"quantity": "1 package", "ingredient": "Andes Baking Chunks (10oz)"},
+    "item10": {"quantity": "1/4 cup", "ingredient": "powdered sugar"}
+  },
+  "instructions": {
+    "step1": "Combine flour and baking powders in a bowl",
+    "step2": "Beat butter, sugars, vanilla and eggs until mixed",
+    "step3": "Mix in Andes chunks, then flour mixture, form into a ball and chill for several hours",
+    "step4": "Preheat oven to 350 degrees",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step6": "Bake for 10-12 minutes, cool on pan for 2 minutes and then move to cooling rack"
+  }
+},
+{
   "title": "Tuna Noodle",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/TunaNoodle.jpg",
@@ -791,7 +820,7 @@
   "instructions": {
     "step1": "Add tahini, lemon juice and  vinegar to a food processor and blend until smooth",
     "step2": "Add 1 can of chickpeas plus the other remaining ingredients and blend until smooth",
-    "step3": "Add 2nd can of chickpeas and blend until smooth",
+    "step3": "Add second can of chickpeas and blend until smooth",
     "step4": "Add red peppers and blend until smooth",
     "step5": "Add additional salt to taste, serve with dusting of paprika or well with chopped red pepper"
   },
@@ -855,14 +884,14 @@
     "section1": {
       "title": "Meatballs",
       "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
-      "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
-      "item3": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
-      "item4": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
-      "item5": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
-      "item6": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
-      "item7": {"quantity": "1+ tsp", "ingredient": "garlic salt"},
-      "item8": {"quantity": "1", "ingredient": "egg"},
-      "item9": {"quantity": "3-4", "ingredient": "green onions"}
+      "item2": {"quantity": "2", "ingredient": "eggs"},
+      "item3": {"quantity": "3-4", "ingredient": "green onions"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
+      "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+      "item7": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+      "item8": {"quantity": "1+ tsp", "ingredient": "garlic salt"},
+      "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
     },
     "section2": {
       "title":"Spicy Apricot Glaze",
@@ -877,6 +906,40 @@
     "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss until coated",
     "step4": "Garnish with chopped chives or green ends of onions",
     "step5": "Serve over noodles or rice"
+  }
+},
+{
+  "title": "Firecracker Meatballs",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/FirecrackerMeatballs.jpg",
+  "yield": "Serves 4",
+  "time": "45 mins",
+  "category": ["Latin", "Turkey", "Dinner"],
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+      "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+      "item2": {"quantity": "2", "ingredient": "eggs"},
+      "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+      "item4": {"quantity": "2 tsp", "ingredient": "garlic salt"},
+      "item5": {"quantity": "1 tsp", "ingredient": "onion powder"},
+      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+      "item7": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
+      "item8": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
+      "item9": {"quantity": "1 cup", "ingredient": "Panko bread crumbs"}
+    },
+    "section2": {
+      "title":"Firecracker Sauce",
+      "item1": {"quantity": "1/2 cup", "ingredient": "Frank's Red Hot"},
+      "item2": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "apple cider vinegar"}
+    }
+  },
+  "instructions": {
+    "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
+    "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
+    "step3": "Meanwhile in medium bowl mix sauce ingredients, add cooked meatballs and toss until coated",
+    "step4": "Serve as appetizers or with beans and rice"
   }
 },
 {
@@ -1366,6 +1429,7 @@
 {
   "title": "Buttermilk Waffles",
   "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ButtermilkWaffles.jpg",
   "yield": "Makes 5 waffles",
   "time": "45 mins",
   "category": ["Breakfast"],
@@ -1375,9 +1439,10 @@
     "item3": {"quantity": "3/4 cup", "ingredient": "buttermilk"},
     "item4": {"quantity": "3 tbsp", "ingredient": "milk"},
     "item5": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
-    "item6": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
-    "item7": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
-    "item8": {"quantity": "1/2 tsp", "ingredient": "baking soda"}
+    "item6": {"quantity": "2 tbsp", "ingredient": "white flour"},
+    "item7": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item8": {"quantity": "3/4 tsp", "ingredient": "baking powder"},
+    "item9": {"quantity": "1/4 tsp", "ingredient": "baking soda"}
   },
   "instructions": {
     "step1": "Combine flour, oats, baking powder and soda in mixing bowl",
@@ -1402,9 +1467,10 @@
     "item4": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
     "item5": {"quantity": "1/4 cup", "ingredient": "milk"},
     "item6": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
-    "item7": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
-    "item8": {"quantity": "1 tsp", "ingredient": "baking powder"},
-    "item9": {"quantity": "1 tsp", "ingredient": "pumpkin pie spice"}
+    "item7": {"quantity": "2 tbsp", "ingredient": "white flour"},
+    "item8": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item9": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item10": {"quantity": "1 tsp", "ingredient": "pumpkin pie spice"}
   },
   "instructions": {
     "step1": "Combine flour, oats, baking powder and spice in mixing bowl",
