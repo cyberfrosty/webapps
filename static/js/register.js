@@ -3,15 +3,15 @@
  *
  * @author Alan Frost
  *
- * Copyright (c) 2017 Alan Frost
+ * Copyright (c) 2017-2018 Alan Frost
  */
 
   document.addEventListener("DOMContentLoaded", function() {
     var checkForm = function(e)
     {
-      if(!checkUsername(this.username.value)) {
-        alert("Error: Username must contain only letters, numbers, dashes and underscores and be 4-32 characters long.");
-        this.username.focus();
+      if(!checkEmail(this.email.value)) {
+        alert("Error: The email address you have entered is not valid.");
+        this.email.focus();
         e.preventDefault();
         return;
       }
@@ -28,7 +28,7 @@
         e.preventDefault();
         return;
       }
-      this.password.value = hashPassword(this.username.value, this.password.value);
+      this.password.value = hashPassword(this.email.value, this.password.value);
       this.confirm.value = this.password.value;
       return;
     };
@@ -45,8 +45,8 @@
     }
 
     if(supports_input_validity()) {
-      var usernameInput = document.getElementById("username");
-      usernameInput.setCustomValidity(usernameInput.title);
+      var emailInput = document.getElementById("email");
+      emailInput.setCustomValidity(emailInput.title);
 
       var passwordInput = document.getElementById("password");
       passwordInput.setCustomValidity(passwordInput.title);
@@ -55,8 +55,8 @@
 
       // input key handlers
 
-      usernameInput.addEventListener("keyup", function(e) {
-        usernameInput.setCustomValidity(this.validity.patternMismatch ? usernameInput.title : "");
+      emailInput.addEventListener("keyup", function(e) {
+        emailInput.setCustomValidity(this.validity.patternMismatch ? emailInput.title : "");
       }, false);
 
       passwordInput.addEventListener("keyup", function(e) {

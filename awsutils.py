@@ -169,11 +169,11 @@ class DynamoDB(object):
                 if 'Users' in users:
                     users = users['Users']
                 for user in users:
-                    if 'user' in user and 'shared_secret' in user:
+                    if 'email' in user and 'shared_secret' in user:
                         if 'id' not in user:
-                            user['id'] = self.generate_user_id(user['user'])
+                            user['id'] = self.generate_user_id(user['email'])
                         if 'password' in user:
-                            user['mcf'] = preset_password(user['user'], user['password'])
+                            user['mcf'] = preset_password(user['email'], user['password'])
                             del user['password']
                         response = self.put_item(user)
                         if response:

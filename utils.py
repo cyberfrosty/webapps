@@ -94,7 +94,7 @@ def write_csv(items):
 def base58encode_int(number, default_one=True):
     """ Encode an integer using base58
     Args:
-        number: integer toi encode
+        number: integer to encode
     Return:
         base58 encoded string
     """
@@ -326,7 +326,7 @@ def verify_hotp_code(secret, code, counter):
         code: 6 digit code that expires in 30 seconds
         counter: matching integer value
     Return:
-        True if validation successful
+        Counter value if validation successful or None
     """
     correct_counter = None
 

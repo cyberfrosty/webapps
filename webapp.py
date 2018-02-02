@@ -17,12 +17,13 @@ import pytz
 import simplejson as json
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect
+import jinja2
 
 from botocore.exceptions import EndpointConnectionError
-from flask import (Flask, make_response, request, render_template, redirect, session, jsonify,
+from flask import (Flask, make_response, request, render_template, redirect, jsonify,
                    abort, flash, url_for)
-from flask_mail import Mail, Message
-from flask_login import LoginManager, current_user, login_required, login_user, logout_user
+from flask_login import (LoginManager, current_user, login_required, login_user, logout_user,
+                         fresh_login_required)
 from decorators import async
 from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm, InviteForm,
                    VerifyForm, PasswordResetRequestForm, PasswordResetForm, ResendForm,
@@ -30,10 +31,12 @@ from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm,
 from crypto import derive_key
 from utils import (load_config, generate_timed_token, validate_timed_token, generate_user_id,
                    generate_random58_valid, preset_password, generate_random_int,
-                   generate_otp_secret, generate_hotp_code, get_ip_address, get_user_agent)
+                   generate_otp_secret, generate_hotp_code, generate_totp_code,
+                   verify_hotp_code, verify_totp_code, get_ip_address, get_user_agent)
 from awsutils import DynamoDB, SNS, SES, S3
 from recipe import RecipeManager
 from vault import VaultManager
+from events import EventManager
 
 CONFIG = load_config('config.json')
 
@@ -43,6 +46,7 @@ RECIPE_MANAGER = RecipeManager(CONFIG)
 RECIPE_MANAGER.load_recipes('recipes.json')
 RECIPE_LIST = RECIPE_MANAGER.build_search_list()
 VAULT_MANAGER = VaultManager(CONFIG)
+EVENT_MANAGER = EventManager(CONFIG)
 SNS = SNS('FrostyWeb')
 SES = SES('alan@cyberfrosty.com')
 
@@ -73,7 +77,6 @@ APP.config['SESSION_COOKIE_HTTPONLY'] = True
 APP.config['REMEMBER_COOKIE_HTTPONLY'] = True
 APP.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # Limit uploads to 16MB
 
-EMAIL_MANAGER = Mail(APP)
 LOGIN_MANAGER.init_app(APP)
 LOGIN_MANAGER.login_view = "login"
 LOGIN_MANAGER.login_message = "Please login to access this page"
@@ -81,35 +84,46 @@ LOGIN_MANAGER.session_protection = "strong"
 CSRF = CSRFProtect(APP)
 
 @async
-def send_async_email(msg):
+def send_email(recipients, subject, action, **kwargs):
     """ Send an email from a new thread
+    Args:
+        list of recipients
+        email subject line
+        template
+        arguments for templating
     """
-    html = '<a class="ulink" href="http://cyberfrosty.com/recipes" target="_blank">Recipes</a>.'
+    subject = APP.config['MAIL_SUBJECT_PREFIX'] + subject
+
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader('./templates'))
+    template = env.get_template(action + '_email.txt')
+    text = template.render(**kwargs)
+    template = env.get_template(action + '_email.html')
+    html = template.render(**kwargs)
+
     with APP.app_context():
-        SES.send_email(['frosty.alan@gmail.com'], 'Howdy', html, 'Check out my recipes')
-        EMAIL_MANAGER.send(msg)
+        SES.send_email(recipients, subject, html, text)
 
 @async
-def send_async_text(phone, msg):
+def send_text(phone, msg):
     """ Send a text message from a new thread
     Args:
         number: phone number (e.g. '+17702233322')
         message: text
     """
-    with APP.app_context():
-        SNS.send_sms(phone, msg)
+    #with APP.app_context():
+    #    SNS.send_sms(phone, msg)
+    print msg
 
 class User(object):
     """ Class for the current user
     """
-    def __init__(self, email, user=None, name=None, avatar=None):
+    def __init__(self, email, name=None):
         """ Constructor
         """
+        print email, name
         self._email = email
-        self._user = user or email
-        self._userid = generate_user_id(CONFIG.get('user_id_hmac'), user)
+        self._userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         self._name = name
-        self._avatar = avatar
         self._authenticated = False
         self._active = False
 
@@ -136,7 +150,7 @@ class User(object):
         Return:
             URL safe encoded token
         """
-        return generate_timed_token(self._user, APP.config['SECRET_KEY'], action)
+        return generate_timed_token(self._email, APP.config['SECRET_KEY'], action)
 
     def validate_token(self, token, action):
         """ Validate a timed token, tied to user name and action
@@ -147,7 +161,7 @@ class User(object):
             True or False
         """
         validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], action)
-        if validated and value == self._user:
+        if validated and value == self._email:
             return True
         return False
 
@@ -158,39 +172,34 @@ class User(object):
     def get_id(self):
         return self._userid
 
-    def get_username(self):
-        return self._user
-
     def get_email(self):
         return self._email
 
     def get_name(self):
         return self._name
 
-    def get_avatar(self):
-        return self._avatar
-
 @LOGIN_MANAGER.user_loader
 def load_user(userid):
     """ Load user account details from database
     Args:
-        username
+        userid
     """
-    mysession = SESSIONS.get_item('id', userid)
-    if 'error' in mysession:
+    print userid
+    session = SESSIONS.get_item('id', userid)
+    if 'error' in session:
         account = USERS.get_item('id', userid)
         if 'error' not in account:
             print 'loaded user'
-            user = User(account.get('email'), account.get('user'), account.get('name'), account.get('avatar'))
-    elif 'failures' in mysession and mysession.get('failures') == 0:
-        user = User(mysession.get('email'), mysession.get('user'), mysession.get('name'), mysession.get('avatar'))
+            user = User(account.get('email'), account.get('name'))
+    elif 'failures' in session and session.get('failures') == 0:
+        user = User(session.get('email'), session.get('name'))
         user.is_authenticated = True
         user.is_active = True
     return user
 
 @LOGIN_MANAGER.unauthorized_handler
 def unauthorized_page():
-    """ Called when @login_required decorator triggers, redirecst to login page and after
+    """ Called when @login_required decorator triggers, redirects to login page and after
         success redirects back to referring page
     """
     return redirect(url_for('login') + '?next=' + request.path)
@@ -216,21 +225,6 @@ def get_parameter(response, param, default=None):
         return default
     else:
         return value
-
-def send_email(recipients, subject, template, **kwargs):
-    """ Send an email
-    Args:
-        list of recipients
-        email subject line
-        template
-        arguments for templating
-    """
-    msg = Message(APP.config['MAIL_SUBJECT_PREFIX'] + ' ' + subject,
-                  sender=APP.config['MAIL_SENDER'],
-                  recipients=[recipients])
-    msg.body = render_template(template + '.txt', **kwargs)
-    msg.html = render_template(template + '.html', **kwargs)
-    send_async_email(msg)
 
 def is_safe_url(target):
     """ Ensure that the redirect URL refers to the same host and not to an attackers site.
@@ -405,20 +399,21 @@ def gallery():
 def upload():
     """ Upload an image with metadata
     """
-    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username())
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_email())
     account = USERS.get_item('id', userid)
     if not account or 'error' in account:
-        return redirect(url_for('register', username=current_user.get_username()))
+        return redirect(url_for('register', email=current_user.get_email()))
     if 'bucket' not in account:
-        return redirect(url_for('profile', username=current_user.get_username()))
+        return redirect(url_for('profile', email=current_user.get_email()))
     path = userid + '/'
     form = UploadForm()
     if form.validate_on_submit():
         content_type = request.headers.get('Content-Type')
-        print content_type
+        if not (content_type and content_type.startswith('multipart/form-data')):
+            abort(400, 'Missing or unsupported content type for upload')
         print request.files['file']
         # Handle multipart form encoded data
-        if request.method == 'POST' and content_type and content_type.startswith('multipart/form-data'):
+        if request.method == 'POST':
             content = request.files['file']
             if not content:
                 abort(400, 'No file content for upload')
@@ -454,11 +449,11 @@ def messages():
     return render_template('messages.html')
 
 @APP.route('/vault', methods=['GET', 'PATCH', 'POST', 'PUT'])
-@login_required
+@fresh_login_required
 def vault():
     """ Get or update the vault contents
     """
-    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username())
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_email())
     myvault = VAULT_MANAGER.get_vault(userid)
     if request.method == 'GET':
         if 'error' in myvault:
@@ -469,7 +464,8 @@ def vault():
             box = request.args.get('box')
             if box is not None:
                 mybox = myvault[box]
-                html = '<div hidden id="safebox">' + json.dumps(mybox) + '</div><div id="safebox-table"></div>'
+                html = '<div hidden id="safebox">' + json.dumps(mybox) + '</div>\n'
+                html += '<div id="safebox-table"></div>\n'
             else:
                 html = VAULT_MANAGER.get_rendered_vault(myvault)
         return render_template('vault.html', contents=html, mcf=mcf)
@@ -504,7 +500,8 @@ def vault():
             title = box[:1].upper() + box[1:]
         if not icon:
             icon = 'fa-key'
-        myvault = {"mcf": mcf, box: {"title": title, "icon": icon, "columns": columns, "contents": contents}}
+        myvault = {"mcf": mcf,
+                   box: {"title": title, "icon": icon, "columns": columns, "contents": contents}}
         response = VAULT_MANAGER.post_vault(userid, myvault)
         if 'error' in response:
             abort(422, response['error'])
@@ -520,111 +517,162 @@ def privacy():
 def confirm():
     """ Confirm user account creation or action (delete) with emailed token
     """
-    username = get_parameter(request, 'username')
+    email = get_parameter(request, 'email')
     token = get_parameter(request, 'token')
     action = get_parameter(request, 'action')
-    if username is None or token is None or action is None:
-        abort(400, 'Missing user name, token or action')
     form = ConfirmForm()
-    form.username.data = username
+    form.email.data = email
     form.token.data = token
+    form.action.data = action
     if form.validate_on_submit():
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), username)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         account = USERS.get_item('id', userid)
         if account is None:
-            return redirect(url_for('register', username=username))
+            #delay
+            return redirect(url_for('register', email=email))
         session = SESSIONS.get_item('id', userid)
-        if session is None:
-            session = {}
+        if 'error' in session:
             session['id'] = userid
+            session['email'] = email
+            session['name'] = account.get('name')
+            session['failures'] = 0
         failures = session.get('failures', 0)
+        if failures > MAX_FAILURES and 'locked_at' in session:
+            locktime = int(time.mktime(datetime.utcnow().timetuple())) - session['locked_at']
+            if locktime < 1800:
+                form.errors['Confirm'] = 'Your account is locked'
+                #EVENT_MANAGER.error_event('confirm', userid, form.errors['Confirm'], **agent)
+                return render_template('confirm.html', form=form)
+            else:
+                failures = 0  # Locked time has expired, reset failure counter
+                session['failures'] = 0
+
         validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], action)
-        if validated and value == username:
-            if action == 'register':
+        if validated and value == email:
+            code = form.code.data
+            if 'otp' in account:
+                fields = account['otp'].split(':')
+                secret = fields[0]
+                counter = int(fields[1])
+                counter = verify_hotp_code(secret, code, counter)
+                if counter is None:
+                    form.errors['Confirm'] = 'The confirmation code is invalid or has expired'
+                    if 'error' in session: # An error means no session entry exists
+                        del session['error']
+                        session['failures'] = 1
+                        SESSIONS.put_item(session)
+                    else:
+                        SESSIONS.update_item(userid, 'failures', failures + 1)
+            if action == 'invite':
+                # Update user account status
+                if account['status'][:7] == 'invited':
+                    status = 'confirmed: ' + str(time.mktime(datetime.utcnow().timetuple()))
+                    response = USERS.update_item(userid, 'status', status)
+                    flash('You have confirmed your account. Thanks!')
+                return redirect(url_for('login', email=email))
+            elif action == 'register':
                 # Update user account status
                 if account['status'][:7] == 'pending':
-                    account['status'] = 'confirmed: ' + time.mktime(datetime.utcnow().timetuple())
-                    USERS.put_item(account)
-                    session['failures'] = 0
-                    SESSIONS.put_item(session)
+                    status = 'confirmed: ' + str(time.mktime(datetime.utcnow().timetuple()))
+                    response = USERS.update_item(userid, 'status', status)
                     flash('You have confirmed your account. Thanks!')
-                return redirect(url_for('login', username=username))
+                return redirect(url_for('login', email=email))
         else:
-            flash('The confirmation code is invalid or has expired.')
-            if failures > MAX_FAILURES:
-                return redirect(url_for('index'))
             session['failures'] = failures + 1
-            SESSIONS.put_item(userid)
-            return redirect(url_for('resend', username=username, action=action))
+            if failures == MAX_FAILURES:
+                form.errors['Confirm'] = 'Your account has been locked'
+                session['locked_at'] = int(time.mktime(datetime.utcnow().timetuple()))
+                SESSIONS.put_item(session)
+            else:
+                form.errors['Confirm'] = 'The confirmation link is invalid or has expired'
+                if 'error' in session: # An error means no session entry exists
+                    del session['error']
+                    SESSIONS.put_item(session)
+                else:
+                    SESSIONS.update_item(userid, 'failures', failures + 1)
 
     return render_template('confirm.html', form=form)
 
 
 @APP.route("/login", methods=['GET', 'POST'])
 def login():
-    """ Login to user account with username/email and password
+    """ Login to user account with email and password
     """
-    #if current_user and current_user.is_authenticated:
-    #    print 'already logged in'
-        #return redirect(url_for('index'))
-
     form = LoginForm()
-    username = request.args.get('username')
-    if username:
-        form.username.data = username
+    email = request.args.get('email')
+    if email:
+        form.email.data = email
     if form.validate_on_submit():
         # Login and validate the user.
-        username = form.username.data
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), username)
+        agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
+        email = form.email.data
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
-            flash('Unable to validate your credentials')
-            return redirect(url_for('login', username=username))
-        mcf = derive_key(form.password.data.encode('utf-8'), account['mcf'])
-        mysession = SESSIONS.get_item('id', userid)
-        if 'error' in mysession:
-            del mysession['error']
-            mysession['id'] = userid
-            mysession['user'] = username
-            mysession['email'] = account.get('email')
-            mysession['name'] = account.get('name')
-            mysession['avatar'] = account.get('avatar')
-            mysession['failures'] = 0
-        failures = mysession.get('failures', 0)
-        if failures > MAX_FAILURES and 'locked_at' in mysession:
-            locktime = int(time.mktime(datetime.utcnow().timetuple())) - mysession['locked_at']
+            form.errors['Login'] = 'Unable to validate your credentials'
+            #EVENT_MANAGER.error_event('login', email, form.errors['Login'], **agent)
+            return render_template('login.html', form=form)
+        session = SESSIONS.get_item('id', userid)
+        if 'error' in session:
+            session['id'] = userid
+            session['email'] = email
+            session['name'] = account.get('name')
+            session['failures'] = 0
+        failures = session.get('failures', 0)
+        if failures > MAX_FAILURES and 'locked_at' in session:
+            locktime = int(time.mktime(datetime.utcnow().timetuple())) - session['locked_at']
             if locktime < 1800:
-                flash('Your account is locked')
-                return redirect(url_for('login'))
-        if mcf != account.get('mcf'):
-            failures = failures + 1
-            mysession['failures'] = failures
-            if failures > MAX_FAILURES:
-                mysession['locked_at'] = int(time.mktime(datetime.utcnow().timetuple()))
-                SESSIONS.put_item(mysession)
-                flash('Your account has been locked')
-                return redirect(url_for('login'))
+                form.errors['Login'] = 'Your account is locked'
+                #EVENT_MANAGER.error_event('login', userid, form.errors['Login'], **agent)
+                return render_template('login.html', form=form)
             else:
-                flash('Unable to validate your credentials')
-                SESSIONS.put_item(mysession)
-            return redirect(url_for('login', username=username))
+                failures = 0  # Locked time has expired, reset failure counter
+                session['failures'] = 0
 
-        #EVENT_MANAGER.login_event(request, username)
-        print 'validated user'
+        # Check password
+        mcf = derive_key(form.password.data.encode('utf-8'), account['mcf'])
+        if mcf != account.get('mcf'):
+            if 'error' in session: # An error means no session entry exists
+                del session['error']
+                session['failures'] = 1
+                SESSIONS.put_item(session)
+                form.errors['Login'] = 'Unable to validate your credentials'
+            elif failures > MAX_FAILURES:
+                session['locked_at'] = int(time.mktime(datetime.utcnow().timetuple()))
+                session['failures'] = failures
+                SESSIONS.put_item(session)
+                form.errors['Login'] = 'Your account has been locked'
+            else:
+                SESSIONS.update_item(userid, 'failures', failures)
+                form.errors['Login'] = 'Unable to validate your credentials'
+            #EVENT_MANAGER.error_event('login', userid, form.errors['Login'], **agent)
+            return render_template('login.html', form=form)
+
         # Reset failed login counter if needed and clear locked
         if failures > 0:
-            mysession['failures'] = 0
-            if 'locked_at' in mysession:
-                del mysession['locked_at']
-        #logins = mysession['logins] or []
-        mylogin = {"ip": get_ip_address(request), "from": get_user_agent(request), "at": datetime.today().ctime()}
-        #logins.append(mylogin)
-        mysession['logins'] = mylogin
-        SESSIONS.put_item(mysession)
-        user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
-        user.is_authenticated = True
-        user.is_active = True
-        login_user(user, remember=form.remember.data)
+            session['failures'] = 0
+            if 'locked_at' in session:
+                del session['locked_at']
+        #EVENT_MANAGER.status_event('login', userid, **agent)
+        #logins = session['logins'] or []
+        agent['at'] = datetime.today().ctime()
+        #logins.append(agent)
+        session['logins'] = agent
+        if 'error' in session: # An error means no session entry exists
+            del session['error']
+        SESSIONS.put_item(session)
+        user = User(email, account.get('name'))
+        authentication = account['authentication']
+        if authentication == 'password':
+            user.is_authenticated = True
+            user.is_active = True
+            login_user(user, remember=form.remember.data)
+            print 'validated user'
+        elif authentication == 'password:totp':
+            target = request.args.get('next')
+            if target is None or not is_safe_url(target):
+                target = 'index'
+            return redirect(url_for('verify') + '?next=' + target)
 
         return redirect_back('index')
     return render_template('login.html', form=form)
@@ -635,36 +683,53 @@ def logout():
     """ Logout of user account
     """
     SESSIONS.delete_item('id', current_user.get_id())
+    #EVENT_MANAGER.event('logout', userid, **agent)
     logout_user()
     return redirect(url_for('index'))
 
 @APP.route('/verify', methods=['GET', 'POST'])
 @login_required
 def verify():
-    """Powers token validation (not using OneTouch)"""
+    """ 2FA verification
+    """
     form = VerifyForm(request.form)
-    username = request.args.get('username')
-    form.username.data = username or current_user.get_username()
+    email = request.args.get('email')
+    form.email.data = email or current_user.get_email()
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_email())
+    account = USERS.get_item('id', userid)
+    if not account or 'error' in account:
+        return redirect(url_for('register', email=current_user.get_email()))
+    authentication = account['authentication']
 
     # Send a token to our user when they GET this page
     if request.method == 'GET':
-        #send_authy_token_request(user.authy_id)
-        print 'Sent code'
+        if authentication == 'password:authy':
+            #send_authy_token_request(user.authy_id)
+            print 'Sent code'
+        elif authentication == 'password:totp':
+            code = generate_totp_code(account['otp'])
+            send_text(account['phone'], code + ' is your Frosty Web code')
 
     if form.validate_on_submit():
         token = form.token.data
+        verified = False
 
-        #verified = verify_authy_token(user.authy_id, str(user_entered_code))
-        #if verified.ok():
-        #    user.authy_status = 'approved'
-        #    db.session.add(user)
-        #    db.session.commit()
-
-        if token == '123456':
-            flash("You're logged in! Thanks for using two factor verification.", 'success')
+        if authentication == 'password:authy':
+            if token == '123456':
+                verified = True
+            #verified = verify_authy_token(user.authy_id, str(user_entered_code)).ok()
+        elif authentication == 'password:totp':
+            secret = account.get('otp')
+            verified = verify_totp_code(secret, token)
             return redirect(url_for('profile'))
+
+        if verified:
+            target = request.args.get('next')
+            if target is None or not is_safe_url(target):
+                target = 'profile'
+            return redirect(url_for(target))
         else:
-            form.errors['Verification'] = ['Code invalid - please try again.']
+            form.errors['Verify'] = 'Invalid or expired code'
 
     return render_template('verify.html', form=form)
 
@@ -673,13 +738,13 @@ def verify():
 def profile():
     """ Show user account profile
     """
-    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username())
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_email())
     account = USERS.get_item('id', userid)
     if not account or 'error' in account:
-        return redirect(url_for('register', username=current_user.get_username()))
-    mysession = SESSIONS.get_item('id', userid)
-    if 'logins' in mysession:
-        account['logins'] = mysession['logins']
+        return redirect(url_for('register', email=current_user.get_email()))
+    session = SESSIONS.get_item('id', userid)
+    if 'logins' in session:
+        account['logins'] = session['logins']
     return render_template('profile.html', account=account)
 
 @APP.route("/headlines", methods=['GET', 'POST'])
@@ -687,80 +752,90 @@ def profile():
 def headlines():
     """ Show headlines
     """
-    account = USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_username()))
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_email())
+    account = USERS.get_item('id', userid)
     if not account or 'error' in account:
-        return redirect(url_for('register', username=current_user.get_username()))
+        return redirect(url_for('register', email=current_user.get_email()))
     return render_template('profile.html', account=account)
 
 @APP.route("/change", methods=['GET', 'POST'])
-@login_required
+@fresh_login_required
 def change():
     """ Change user account password
     """
     form = ChangePasswordForm()
-    username = request.args.get('username')
-    form.username.data = username or current_user.get_username()
+    email = request.args.get('email')
+    form.email.data = email or current_user.get_email()
     if form.validate_on_submit():
-        print form.password.data
-        print form.username.data
         mcf = derive_key(form.password.data.encode('utf-8'))
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), form.username.data)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), form.email.data)
         response = USERS.update_item(userid, 'mcf', mcf)
         if 'error' in response:
-            print response
-        return redirect(url_for('profile'))
+            form.errors['Change'] = response['error']
+        else:
+            return redirect(url_for('profile'))
     return render_template('change.html', form=form)
 
 @APP.route("/resend", methods=['GET', 'POST'])
 def resend():
     """ Regenerate and send a new code
     """
-    username = request.args.get('username')
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    email = request.args.get('email')
     action = request.args.get('action')
-    if username is None or action is None:
+    if email is None or action is None:
         abort(400, 'Missing user name or action')
     form = ResendForm()
-    form.username.data = username
+    form.email.data = email
     form.action.data = action
     if form.validate_on_submit():
-        token = generate_timed_token(username, APP.config['SECRET_KEY'], action)
-        send_email(form.email.data, 'Confirm Your Account',
-                   'email/confirm', username=form.username.data, token=token, action=action)
-        flash('A confirmation email has been sent to ' + form.email.data)
-        return redirect(url_for('login', username=form.username.data))
+        action = form.action.data
+        token = generate_timed_token(email, APP.config['SECRET_KEY'], action)
+        link = url_for(action, email=email, token=token, action=action, _external=True)
+        if action == 'reset':
+            send_email(form.email.data, 'Resending token', 'resend',
+                       email=form.email.data, token=token, link=link)
+            flash('A new confirmation code has been sent to ' + form.email.data)
+            return redirect(url_for('confirm', email=form.email.data))
+        #elif form.action.data == 'verify':
     return render_template('resend.html', form=form)
 
 @APP.route("/invite", methods=['GET', 'POST'])
-@login_required
+@fresh_login_required
 def invite():
     """ Invite a new user to join by providing an email address and phone number for them.
         An invitation is emailed to the user with a temporary password and a one time code
         is sent via text message to the phone number.
     """
-    username = request.args.get('username')
     form = InviteForm()
     if form.validate_on_submit():
-        username = form.email.data
-        if USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), username)):
-            flash('Username ' + username + ' already taken')
-            return redirect(url_for('invite', email=username, phone=form.phone.data))
-        password = generate_random58_valid(10)
+        email = form.email.data
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        account = USERS.get_item('id', userid)
+        if account and 'error' not in account:
+            form.errors['Invite'] = 'Email address already in use'
+            return render_template('invite.html', form=form)
+        password = generate_random58_valid(12)
         secret = generate_otp_secret()
         counter = generate_random_int()
-        info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), username),
-                'username': username,
-                'email': username,
+        info = {'id': userid,
+                'email': email,
                 'authentication': 'password',
-                'mcf': preset_password(username, password),
+                'mcf': preset_password(email, password),
                 'otp': secret + ':' + str(counter),
-                'status': 'invited: ' + time.mktime(datetime.utcnow().timetuple())
+                'status': 'invited: ' + str(time.mktime(datetime.utcnow().timetuple()))
                }
         USERS.put_item(info)
+        action = 'invite'
+        token = generate_timed_token(email, APP.config['SECRET_KEY'], action)
+        link = url_for('confirm', email=email, token=token, action=action, _external=True)
         send_email(form.email.data, current_user.get_name() + ' has invited you to Frosty Web',
-                   'email/confirm', username=username, password=password, action='invite')
+                   'invite', email=email, password=password, link=link,
+                   inviter=current_user.get_name())
         # send SMS
         code = generate_hotp_code(secret, counter)
-        send_async_text(form.phone.data, code + ' is your Frosty Web code')
+        send_text(form.phone.data, code + ' is your Frosty Web code')
         return redirect(url_for('profile'))
     return render_template('invite.html', form=form)
 
@@ -768,132 +843,171 @@ def invite():
 def forgot():
     """ Request a password reset
     """
-    username = request.args.get('username')
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    email = request.args.get('email')
     form = PasswordResetRequestForm()
+    form.email.data = email
     if form.validate_on_submit():
         print 'requesting password reset'
-        token = generate_timed_token(username, APP.config['SECRET_KEY'], 'reset')
-        send_email(form.email.data, 'Reset Your Password',
-                   'email/confirm', username=form.username.data, token=token, action='reset')
-        return redirect(url_for('reset', username=username))
+        email = form.email.data
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        account = USERS.get_item('id', userid)
+        if not account or 'error' in account:
+            form.errors['Reset'] = 'Unable to validate your credentials'
+        else:
+            password = generate_random58_valid(12)
+            account['reset_mcf'] = preset_password(email, password)
+            token = generate_timed_token(email, APP.config['SECRET_KEY'], 'reset')
+            if account['authentication'] == 'password:hotp':
+                fields = account['otp'].split(':')
+                secret = fields[0]
+                counter = int(fields[1]) + 1
+                code = generate_hotp_code(secret, counter)
+                response = USERS.update_item(userid, 'otp', secret + ':' + str(counter))
+                send_text(account['phone'], code + ' is your Frosty Web code')
+            elif account['authentication'] == 'password:totp':
+                secret = account['otp']
+                code = generate_totp_code(secret)
+                send_text(account['phone'], code + ' is your Frosty Web code')
+
+            link = url_for('reset', email=email, token=token, action='reset', _external=True)
+            send_email(email, 'Password reset request', 'reset',
+                       email=email, password=password, link=link)
+            return redirect(url_for('reset', email=email, action='reset'))
     return render_template('forgot.html', form=form)
 
 @APP.route("/reset", methods=['GET', 'POST'])
 def reset():
-    """ Reset user password with emailed temporary password and SMS sent token
+    """ Reset user password with emailed temporary password and token plus SMS/push token for 2FA
     """
-    username = request.args.get('username')
-    token = request.args.get('token')
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    email = request.args.get('email')
     action = request.args.get('action')
-    if username is None or token is None or action is None:
+    if email is None or action is None:
         abort(400, 'Missing user name, token or action')
     form = PasswordResetForm()
     if form.validate_on_submit():
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), username)
+        # Login and validate the user.
+        agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
+        email = form.email.data
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         account = USERS.get_item('id', userid)
-        if not account or 'error' in account:
-            flash('Unable to validate your credentials')
-            return redirect(url_for('reset', username=username))
-        mysession = SESSIONS.get_item('id', userid)
-        if 'error' in mysession:
-            del mysession['error']
-            mysession['id'] = userid
-            mysession['user'] = username
-            mysession['email'] = account.get('email')
-            mysession['name'] = account.get('name')
-            mysession['avatar'] = account.get('avatar')
-            mysession['failures'] = 0
-            SESSIONS.put_item(mysession)
-        failures = mysession.get('failures', 0)
-        if failures > MAX_FAILURES and 'locked_at' in mysession:
-            locktime = int(time.mktime(datetime.utcnow().timetuple())) - mysession['locked_at']
+        if 'error' in account or 'reset_mcf' not in account:
+            form.errors['Reset'] = 'Unable to validate your credentials'
+            return render_template('reset.html', form=form)
+        session = SESSIONS.get_item('id', userid)
+        if 'error' in session:
+            session['id'] = userid
+            session['email'] = email
+            session['name'] = account.get('name')
+            session['failures'] = 0
+        failures = session.get('failures', 0)
+        if failures > MAX_FAILURES and 'locked_at' in session:
+            locktime = int(time.mktime(datetime.utcnow().timetuple())) - session['locked_at']
             if locktime < 1800:
-                flash('Your account is locked')
-                return redirect(url_for('reset'))
+                form.errors['Reset'] = 'Your account is locked'
+                #EVENT_MANAGER.error_event('reset', userid, form.errors['Reset'], **agent)
+                return render_template('reset.html', form=form)
+            else:
+                failures = 0  # Locked time has expired, reset failure counter
+                session['failures'] = 0
 
         # Validate reset code, then password
+        token = form.token.data
         validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], action)
-        if validated and value == username:
+        if validated and value == email:
             mcf = derive_key(form.password.data.encode('utf-8'), account.get('reset_mcf'))
             if mcf != account.get('reset_mcf'):
-                if failures > MAX_FAILURES:
-                    mysession['locked_at'] = int(time.mktime(datetime.utcnow().timetuple()))
-                    SESSIONS.put_item(mysession)
-                    flash('Your account has been locked')
-                    return redirect(url_for('reset'))
+                if 'error' in session: # An error means no session entry exists
+                    del session['error']
+                    session['failures'] = 1
+                    SESSIONS.put_item(session)
+                    form.errors['Rest'] = 'Unable to validate your credentials'
+                elif failures > MAX_FAILURES:
+                    session['locked_at'] = int(time.mktime(datetime.utcnow().timetuple()))
+                    session['failures'] = failures
+                    SESSIONS.put_item(session)
+                    form.errors['Reset'] = 'Your account has been locked'
                 else:
-                    flash('Unable to validate your credentials')
-                    mysession['failures'] = failures + 1
-                    SESSIONS.put_item(mysession)
-                return redirect(url_for('reset', username=username))
+                    SESSIONS.update_item(userid, 'failures', failures)
+                    form.errors['Reset'] = 'Unable to validate your credentials'
+                #EVENT_MANAGER.error_event('reset', userid, form.errors['Reset'], **agent)
+                return render_template('reset.html', form=form)
 
-            #EVENT_MANAGER.reset_login_event(request, username)
+            # Reset failed login counter if needed and clear locked
+            session['failures'] = 0
+            if 'locked_at' in session:
+                del session['locked_at']
+            #EVENT_MANAGER.status_event(request, email)
             # Replace old password with temporary password and redirect to change password
             account['mcf'] = mcf
             del account['reset_mcf']
             USERS.put_item(account)
 
             print 'validated user'
-            # Reset failed login counter if needed
-            if failures > 0:
-                mysession['failures'] = 0
-                if 'locked_at' in mysession:
-                    del mysession['locked_at']
-            mysession['login_at'] = int(time.mktime(datetime.utcnow().timetuple()))
-            SESSIONS.put_item(mysession)
-            user = User(account.get('email'), username, account.get('name'), account.get('avatar'))
+            agent['at'] = datetime.today().ctime()
+            session['logins'] = agent
+            if 'error' in session: # An error means no session entry exists
+                del session['error']
+            SESSIONS.put_item(session)
+            user = User(email, account.get('name'))
             user.is_authenticated = True
             user.is_active = True
             login_user(user, remember=form.remember.data)
             return redirect(url_for('change'))
         else:
-            mysession['failures'] = failures + 1
-            SESSIONS.put_item(mysession)
-            flash('Unable to validate your credentials')
-            return redirect(url_for('reset', username=username))
+            SESSIONS.update_item(userid, 'failures', failures + 1)
+            form.errors['Reset'] = 'Unable to validate your credentials'
     return render_template('reset.html', form=form)
 
 @APP.route("/register", methods=['GET', 'POST'])
 def register():
     """ Register a new user account
     """
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     form = RegistrationForm(request.form)
     email = get_parameter(request, 'email')
     if email:
         form.email.data = email
-    username = get_parameter(request, 'username')
-    if username:
-        form.username.data = username
+    name = get_parameter(request, 'name')
+    if name:
+        form.name.data = name
     token = get_parameter(request, 'token')
     if token:
         form.token.data = token
     if request.method == 'POST' and form.validate_on_submit():
-        if USERS.get_item('id', generate_user_id(CONFIG.get('user_id_hmac'), form.email.data)):
-            flash('Username ' + form.email.data + ' already taken')
-            return redirect(url_for('register', username=username, email=email))
+        email = form.email.data
+        token = form.token.data
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        account = USERS.get_item('id', userid)
+        if 'error' not in account:
+            form.errors['Register'] = email + ' is already in use'
+            return render_template('register.html', form=form)
         validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], 'register')
         if validated and value == email:
             print 'registering new user'
         else:
-            flash('Invalid or expired token')
+            form.errors['Register'] = 'Invalid or expired token'
+            return render_template('register.html', form=form)
         # Create json for new user
-        username = form.username.data or form.email.data
-        info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), username),
-                'username': username,
-                'email': form.email.data,
+        info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), email),
+                'email': email,
                 'authentication': 'password',
                 'mcf': derive_key(form.password.data),
-                'status': 'pending: ' + time.mktime(datetime.utcnow().timetuple())
+                'status': 'pending: ' + str(time.mktime(datetime.utcnow().timetuple()))
                }
-        user = User(form.email.data, username)
+        user = User(email, form.name.data)
         user.is_authenticated = False
         user.is_active = False
         USERS.put_item(info)
-        token = generate_timed_token(username, APP.config['SECRET_KEY'], 'register')
-        send_email(form.email.data, 'Confirm Your Account',
-                   'email/confirm', username=form.username.data, token=token, action='register')
+        token = generate_timed_token(email, APP.config['SECRET_KEY'], 'register')
+        send_email(email, 'Confirm Your Account',
+                   'register', email=email, token=token)
         flash('A confirmation email has been sent to ' + form.email.data)
-        return redirect(url_for('confirm', username=form.username.data))
+        return redirect(url_for('confirm', email=email))
     return render_template('register.html', form=form)
 
 def main():
@@ -923,5 +1037,5 @@ if __name__ == '__main__':
     formatter = logging.Formatter('%(asctime)s %(levelname)s cyberfrosty:%(funcName)s %(message)s')
     file_handler.setFormatter(formatter)
     LOGGER.addHandler(file_handler)
-    print USERS.load_table('users.json')
+    #print USERS.load_table('users.json')
     main()

@@ -78,7 +78,7 @@
         
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
-          <li><a class="nav-item nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;{{ current_user.get_username() }}</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;{{ current_user.get_name() }}</a></li>
           <li><a class="nav-item nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>&nbsp;Logout</a></li>
         {% else %}
           <li><a class="nav-item nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;Sign Up</a></li>

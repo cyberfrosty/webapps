@@ -3,9 +3,21 @@
     <div class="form-errors">
       <ul class="fa-ul">
         {% for field, error in form.errors.items() %}
-          <li><font color="red"><i class="fa fa-exclamation-triangle fa-li fa-lg"></i></font><strong>{{ field }}:</strong> {{ ', '.join(error) }}</li>
+          <li><font color="red"><i class="fa fa-exclamation-triangle fa-li fa-lg"></i></font>{{ field }}: {{ error }}</li>
         {% endfor %}
       </ul>
     </div>
   {% endif %}
+{% endmacro %}
+
+{% macro render_messages() %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="fa-ul">
+      {% for message in messages %}
+        <li><i class="fa fa-info-circle fa-li fa-lg"></i>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 {% endmacro %}

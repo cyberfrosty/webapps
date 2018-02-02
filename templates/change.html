@@ -8,19 +8,11 @@
   <center>
   <h3 class="form-signin-heading">Change Password</h3>
   {{ form.csrf_token }}
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <font color="red">
-      <ul class="fa-ul">
-      {% for message in messages %}
-        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
-      {% endfor %}
-      </ul>
-      </font>
-    {% endif %}
-  {% endwith %}
+  {% from "_macros.html" import render_errors, render_messages %}
+  {{ render_errors(form) }}
+  {{ render_messages() }}
   <p>
-  {{ form.username(id="username") }}
+  {{ form.email(id="email") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>

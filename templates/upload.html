@@ -7,17 +7,9 @@
   <center>
   <h3 class="form-signin-heading">Upload Image</h3>
   {{ form.csrf_token }}
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <font color="red">
-      <ul class="fa-ul">
-      {% for message in messages %}
-        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
-      {% endfor %}
-      </ul>
-      </font>
-    {% endif %}
-  {% endwith %}
+  {% from "_macros.html" import render_errors, render_messages %}
+  {{ render_errors(form) }}
+  {{ render_messages() }}
   <p>
   <i class="fa fa-file-image-o fa-fw"></i>
   {{ form.file(id="file", placeholder="Filename", style="display:none;") }}

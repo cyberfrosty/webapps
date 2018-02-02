@@ -7,28 +7,24 @@
   <center>
   <h3 class="form-signin-heading">Sign Up</h3>
   {{ form.csrf_token }}
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <font color="red">
-      <ul class="fa-ul">
-      {% for message in messages %}
-        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
-      {% endfor %}
-      </ul>
-      </font>
-    {% endif %}
-  {% endwith %}
+  {% from "_macros.html" import render_errors, render_messages %}
+  {{ render_errors(form) }}
+  {{ render_messages() }}
   <p>
   <i class="fa fa-user-o fa-fw"></i>
-  {{ form.username(id="username", placeholder="Username or email", title="Username must be at least 4 characters and contain only letters, numbers and underscores." ) }}
+  {{ form.name(id="name", placeholder="Name", title="Name must be at least 2 characters and may not contain any special characters." ) }}
   </p>
   <p>
   <i class="fa fa-envelope-o fa-fw"></i>
-  {{ form.email(id="email", placeholder="Email addess") }}
+  {{ form.email(id="email", placeholder="Email") }}
+  </p>
+  <p>
+  <i class="fa fa-phone fa-fw"></i>
+  {{ form.phone(id="phone", placeholder="Phone") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(id="password", placeholder="New Password") }}
+  {{ form.password(id="password", placeholder="Password") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>

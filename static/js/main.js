@@ -55,7 +55,11 @@ function checkEmail(email) {
   return re.test(email);
 }
 
-// Convert CSV data with headers to JSON array
+/**
+ * Convert CSV data with headers to JSON array
+ *
+ * @param {string} CSV input data
+ */
 function csvToJSON(csv){
   var lines=csv.split("\n");
   var items = [];
@@ -72,8 +76,12 @@ function csvToJSON(csv){
   return items
 }
 
+/**
+ * Convert JSON object or JSON string to CSV
+ *
+ * @param {object|string} JSON input data
+ */
 function jsonToCSV(data) {     
-  //If data is not an object then JSON.parse will parse the JSON string in an object
   var arrData = typeof data != 'object' ? JSON.parse(data) : data;
   var csv = '';    
   var row = '';
@@ -96,6 +104,14 @@ function jsonToCSV(data) {
   return csv;
 }   
 
+/**
+ * Make a button
+ *
+ * @param {string} id
+ * @param {string} Font Awsome icon to use in button
+ * @param {string} display text
+ * @param {func} onclick function
+ */
 function makeButton(id, faIcon, text, clickFunc) {
   let button = document.createElement('button');
   button.id = id;
@@ -136,8 +152,9 @@ function makeButton(id, faIcon, text, clickFunc) {
 //}
 
 /**
- * Use HMAC SHA256 to create unique hashed password before sending to server to prevent a MitM from seeing
- * the user's password. The server then uses PBKDF2 or SCRYPT to hash this for storage.
+ * Use HMAC SHA256 to create unique hashed password before sending to server to prevent a MitM
+ * from seeing * the user's password and also so that the server never has the actual password
+ * either. The server then uses PBKDF2 or SCRYPT to hash this for storage.
  *
  * @param {string} username
  * @param {string} password

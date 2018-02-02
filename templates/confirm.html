@@ -7,33 +7,21 @@
   <center>
   <h3 class="form-signin-heading">Confirm</h3>
   {{ form.csrf_token }}
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <font color="red">
-      <ul class="fa-ul">
-      {% for message in messages %}
-        <li><i class="fa fa-exclamation-triangle fa-li fa-lg"></i>{{ message }}</li>
-      {% endfor %}
-      </ul>
-      </font>
-    {% endif %}
-  {% endwith %}
-  <p>
-  <i class="fa fa-user-o fa-fw"></i>
-  {{ form.username(id="username", placeholder="Username or email") }}
-  </p>
-  <p>
-  <i class="fa fa-key fa-fw"></i>
-  {{ form.password(id="password", placeholder="Password") }}
-  </p>
+  {% from "_macros.html" import render_errors, render_messages %}
+  {{ render_errors(form) }}
+  {{ render_messages() }}
+  {{ form.action(id="action") }}
+  {{ form.email(id="email") }}
+  {{ form.token(id="token") }}
   <p>
   <i class="fa fa-ticket fa-fw"></i>
-  {{ form.token(id="token", placeholder="Token") }}
+  {{ form.code(id="code", placeholder="123456") }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Confirm</button>
   </center>
   <br />
-  <p>Enter the 6 digit token you received via email, SMS or push notification.</p>
+  <p>Enter the 6 digit code you received via email, SMS or push notification.</p>
+  <input type=hidden value="{{ token or '' }}" name=token>
 </form>
 </div>
 

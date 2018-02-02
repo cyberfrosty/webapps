@@ -22,7 +22,7 @@
         e.preventDefault();
         return;
       }
-      this.password.value = hashPassword(this.username.value, this.password.value);
+      this.password.value = hashPassword(this.email.value, this.password.value);
       this.confirm.value = this.password.value;
       return;
     };
