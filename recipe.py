@@ -78,7 +78,7 @@ class RecipeManager(object):
         for recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
             if category is None or category in recipe['category']:
-                html += '<li><a href="/recipes?recipe=' + recipe['title'].replace(' ', '%20') + '">' + recipe['title'] + '</a></li>'
+                html += '<li><a href="/recipes?recipe=' + recipe['title'].replace(' ', '%20') + '">' + recipe['title'] + '</a></li>\n'
         return html
 
     def get_recipe(self, recipe_id):
@@ -262,7 +262,7 @@ class RecipeManager(object):
             html += '<div class="col-sm-8">\n'
 
 
-        html += '<i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
+        html += '<i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
         ingredients = recipe['ingredients']
         if 'section1' in ingredients:
             section = 'section1'
@@ -273,7 +273,7 @@ class RecipeManager(object):
                 section = 'section' + str(count)
         else:
             html += self.render_ingredients(ingredients)
-        html += '<i class="fa fa-tasks" aria-hidden="true"></i> <strong>Instructions</strong>\n'
+        html += '<i class="fa fa-tasks fa-fw" aria-hidden="true"></i> <strong>Instructions</strong>\n'
         instructions = recipe.get('instructions')
         if 'section1' in instructions:
             section = 'section1'
@@ -285,7 +285,7 @@ class RecipeManager(object):
         else:
             html += self.render_instructions(instructions, mode)
         if 'notes' in recipe:
-            html += '<i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
+            html += '<i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
             html += '<p>' + recipe['notes'] + '</p>\n'
 
         return html
