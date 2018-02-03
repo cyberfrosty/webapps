@@ -30,7 +30,24 @@ class UserNameValidator(object):
             pass
         elif length < 4 or length > 64:
             raise ValidationError(self.message)
-        elif re.match(r"[^@]+@[^@]+\.[^@]+", field.data) or re.match(r"^[A-Za-z][A-Za-z0-9\._-]*$", field.data):
+        elif re.match(r'^[A-Za-z][A-Za-z0-9\._-]*$', field.data):
+            pass
+        else:
+            raise ValidationError(self.message)
+
+class PasswordValidator(object):
+    """ Simple password validator for at least 8 characters with a lower, upper and digit
+    """
+    def __init__(self, message=None):
+        if not message:
+            message = u'* Invalid user name'
+        self.message = message
+
+    def __call__(self, form, field):
+        length = field.data and len(field.data) or 0
+        if length < 8 or length > 64:
+            raise ValidationError(self.message)
+        elif re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]){8,}', field.data):
             pass
         else:
             raise ValidationError(self.message)
@@ -119,7 +136,6 @@ class ResendForm(FlaskForm):
     """
     email = HiddenField('Email')
     action = HiddenField('Action')
-    email = EmailField('Email Address', [validators.Email(message="* Invalid email address")])
     phone = StringField('phone', [PhoneNumberValidator()])
     submit = SubmitField('Resend Token')
 
@@ -133,13 +149,12 @@ class RegistrationForm(FlaskForm):
     phone = StringField('Phone', validators=[
         validators.InputRequired(message="* Required"),
         PhoneNumberValidator()])
-    password = PasswordField('New Password', validators=[
+    password = PasswordField('New password', [
         validators.InputRequired(message="* Required"),
-        validators.Length(8, 64)])
-    confirm = PasswordField('Confirm Password', [
-        validators.InputRequired(message="* Required"),
-        validators.EqualTo('confirm', message='Passwords must match')
+        PasswordValidator(),
+        validators.EqualTo('confirm', message='* Passwords must match')
     ])
+    confirm = PasswordField('Confirm password', [validators.InputRequired(message="* Required")])
     token = StringField('Token', [validators.InputRequired(message="* Required")])
     confirm = PasswordField('Verify password', [validators.InputRequired(message="* Required")])
     accept_tos = BooleanField('I accept the TOS', [validators.InputRequired()])
@@ -148,8 +163,9 @@ class ChangePasswordForm(FlaskForm):
     """ Change password
     """
     email = HiddenField('Email')
-    password = PasswordField('New password', [
+    password = PasswordField('New Password', validators=[
         validators.InputRequired(message="* Required"),
+        PasswordValidator(),
         validators.EqualTo('confirm', message='* Passwords must match')
     ])
     confirm = PasswordField('Confirm password', [validators.InputRequired(message="* Required")])
@@ -169,6 +185,7 @@ class PasswordResetForm(FlaskForm):
     token = StringField('Token', [validators.InputRequired(message="* Required")])
     password = PasswordField('New Password', validators=[
         validators.InputRequired(message="* Required"),
+        PasswordValidator(),
         validators.EqualTo('confirm', message='* Passwords must match')
     ])
     confirm = PasswordField('Confirm password', [validators.InputRequired(message="* Required")])

@@ -1,0 +1,7 @@
+<p>{{ email }},
+You have requested a password reset. Click on the following 
+<a href="{{ url_for('reset', email=email, password=password, token=token, action=action, _external=True) }}">link</a>
+to complete this request:
+</p>
+<p>Regards,<br />
+Frosty Web</p>

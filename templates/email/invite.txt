@@ -1,0 +1,12 @@
+{{ email }},
+
+{{ inviter }} has invited you to become a member of the Frosty Web community.
+Please click on or paste the following link to register your account. You may
+be required to enter a 6 digit code sent to your phone as part of the process.
+Your temporary password is {{ password }} which you should change after your first login.
+
+{{ link }}
+
+Regards,
+
+Frosty Web

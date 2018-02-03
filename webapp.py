@@ -30,7 +30,7 @@ from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm,
                    UploadForm)
 from crypto import derive_key
 from utils import (load_config, generate_timed_token, validate_timed_token, generate_user_id,
-                   generate_random58_valid, preset_password, generate_random_int,
+                   generate_random58_id, preset_password, generate_random_int,
                    generate_otp_secret, generate_hotp_code, generate_totp_code,
                    verify_hotp_code, verify_totp_code, get_ip_address, get_user_agent)
 from awsutils import DynamoDB, SNS, SES, S3
@@ -64,15 +64,6 @@ APP = Flask(__name__, static_url_path="")
 
 APP.config['SECRET_KEY'] = 'super secret key'
 APP.config['SSL_DISABLE'] = False
-APP.config['MAIL_SERVER'] = 'secure.emailsrvr.com'
-APP.config['MAIL_PORT'] = 465
-APP.config['MAIL_DEBUG'] = True
-APP.config['MAIL_USE_SSL'] = True
-APP.config['MAIL_USE_TLS'] = False
-APP.config['MAIL_USERNAME'] = 'alan@cyberfrosty.com'
-APP.config['MAIL_PASSWORD'] = ''
-APP.config['MAIL_SUBJECT_PREFIX'] = '[FROSTY]'
-APP.config['MAIL_SENDER'] = 'alan@cyberfrosty.com'
 APP.config['SESSION_COOKIE_HTTPONLY'] = True
 APP.config['REMEMBER_COOKIE_HTTPONLY'] = True
 APP.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # Limit uploads to 16MB
@@ -84,24 +75,22 @@ LOGIN_MANAGER.session_protection = "strong"
 CSRF = CSRFProtect(APP)
 
 @async
-def send_email(recipients, subject, action, **kwargs):
+def send_email(recipient, subject, action, **kwargs):
     """ Send an email from a new thread
     Args:
-        list of recipients
+        recipient
         email subject line
         template
         arguments for templating
     """
-    subject = APP.config['MAIL_SUBJECT_PREFIX'] + subject
-
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('./templates'))
-    template = env.get_template(action + '_email.txt')
+    template = env.get_template('email/' + action + '.txt')
     text = template.render(**kwargs)
-    template = env.get_template(action + '_email.html')
-    html = template.render(**kwargs)
+    template = env.get_template('email/' + action + '.html')
+    html = template.render(title=subject, **kwargs)
 
     with APP.app_context():
-        SES.send_email(recipients, subject, html, text)
+        SES.send_email(recipient, subject, html, text)
 
 @async
 def send_text(phone, msg):
@@ -552,8 +541,9 @@ def confirm():
             code = form.code.data
             if 'otp' in account:
                 fields = account['otp'].split(':')
-                secret = fields[0]
+                secret = fields[0].encode('utf-8')
                 counter = int(fields[1])
+                code = code.encode('utf-8')
                 counter = verify_hotp_code(secret, code, counter)
                 if counter is None:
                     form.errors['Confirm'] = 'The confirmation code is invalid or has expired'
@@ -778,11 +768,12 @@ def change():
 
 @APP.route("/resend", methods=['GET', 'POST'])
 def resend():
-    """ Regenerate and send a new code
+    """ Regenerate and send a new token and/or code
     """
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
-    email = request.args.get('email')
+        email = current_user.get_email()
+    else:
+        email = request.args.get('email')
     action = request.args.get('action')
     if email is None or action is None:
         abort(400, 'Missing user name or action')
@@ -790,12 +781,18 @@ def resend():
     form.email.data = email
     form.action.data = action
     if form.validate_on_submit():
+        email = form.email.data
         action = form.action.data
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        account = USERS.get_item('id', userid)
+        if account is None:
+            #delay
+            return redirect(url_for('register', email=email))
         token = generate_timed_token(email, APP.config['SECRET_KEY'], action)
         link = url_for(action, email=email, token=token, action=action, _external=True)
-        if action == 'reset':
-            send_email(form.email.data, 'Resending token', 'resend',
-                       email=form.email.data, token=token, link=link)
+        if action == 'invite':
+            send_email(email, 'Resending Token', 'resend',
+                       email=email, token=token, link=link, name=account.get('name') or email)
             flash('A new confirmation code has been sent to ' + form.email.data)
             return redirect(url_for('confirm', email=form.email.data))
         #elif form.action.data == 'verify':
@@ -811,16 +808,20 @@ def invite():
     form = InviteForm()
     if form.validate_on_submit():
         email = form.email.data
+        name = form.name.data
+        phone = form.phone.data
         userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         account = USERS.get_item('id', userid)
         if account and 'error' not in account:
             form.errors['Invite'] = 'Email address already in use'
             return render_template('invite.html', form=form)
-        password = generate_random58_valid(12)
+        password = generate_random58_id(12)
         secret = generate_otp_secret()
         counter = generate_random_int()
         info = {'id': userid,
                 'email': email,
+                'phone': phone,
+                'name': name,
                 'authentication': 'password',
                 'mcf': preset_password(email, password),
                 'otp': secret + ':' + str(counter),
@@ -830,9 +831,9 @@ def invite():
         action = 'invite'
         token = generate_timed_token(email, APP.config['SECRET_KEY'], action)
         link = url_for('confirm', email=email, token=token, action=action, _external=True)
-        send_email(form.email.data, current_user.get_name() + ' has invited you to Frosty Web',
+        send_email(email, current_user.get_name() + ' has Invited you to Frosty Web',
                    'invite', email=email, password=password, link=link,
-                   inviter=current_user.get_name())
+                   inviter=current_user.get_name(), name=name or email)
         # send SMS
         code = generate_hotp_code(secret, counter)
         send_text(form.phone.data, code + ' is your Frosty Web code')
@@ -872,8 +873,8 @@ def forgot():
                 send_text(account['phone'], code + ' is your Frosty Web code')
 
             link = url_for('reset', email=email, token=token, action='reset', _external=True)
-            send_email(email, 'Password reset request', 'reset',
-                       email=email, password=password, link=link)
+            send_email(email, 'Reset Password', 'reset',
+                       email=email, password=password, link=link, name=account.get('name') or email)
             return redirect(url_for('reset', email=email, action='reset'))
     return render_template('forgot.html', form=form)
 
@@ -1005,7 +1006,7 @@ def register():
         USERS.put_item(info)
         token = generate_timed_token(email, APP.config['SECRET_KEY'], 'register')
         send_email(email, 'Confirm Your Account',
-                   'register', email=email, token=token)
+                   'register', email=email, token=token, name=account.get('name') or email)
         flash('A confirmation email has been sent to ' + form.email.data)
         return redirect(url_for('confirm', email=email))
     return render_template('register.html', form=form)

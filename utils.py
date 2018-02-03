@@ -211,10 +211,17 @@ def base58decode_check(source):
 
     return result
 
+def check_password(password):
+    """ Simple check for password of at least 8 characters with a lower, upper and digit
+    Args:
+        password
+    """
+    return re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]){8,}', password)
+
 def preset_password(username, password):
-    """ Preset password for a new user or password reset. HMAC is used to protect the actual password so
-        that when passed from browser/app the password is not in clear text, and also ensures that 2 users
-        with the same password do not pass the same value.
+    """ Preset password for a new user or password reset. HMAC is used to protect the actual
+        password so that when passed from browser/app the password is not in clear text, and also
+        ensures that 2 users with the same password do not pass the same value.
     Args:
         username
         password
@@ -622,12 +629,12 @@ def generate_random_int():
 def generate_random58_id(size=8):
     """ Generate a random id encoded as base58
     """
-    return base58encode(os.urandom(size * 11 / 8))
+    return base58encode(os.urandom(size))[0:size]
 
 def generate_random58_valid(size=8):
     """ Generate a random id encoded as base58 with 4 byte checksum
     """
-    return base58encode_check(os.urandom(size * 11 / 8))
+    return base58encode_check(os.urandom(size))
 
 
 def generate_id(user):
@@ -758,5 +765,13 @@ def main():
     print generate_random58_valid(8)
     b58code = generate_random58_valid(12)
     code = base58decode_check(b58code)
+
+    if check_password('abcdefgh'):
+        print 'password check failed for abcdefgh'
+    if check_password('abcDEfgh'):
+        print 'password check failed for abcDEfgh'
+    if check_password('abCd3fgh'):
+        print 'password check passed for abCd3fgh'
+
 if __name__ == '__main__':
     main()
