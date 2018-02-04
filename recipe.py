@@ -229,11 +229,13 @@ class RecipeManager(object):
             medium = image + '_medium.jpg'
             large = image + '.jpg'
         if 'image' in recipe or os.path.isfile('static' + large):
-            html += '<img  itemprop="image" src="' + large + '" alt="' + title + '"' \
-                    'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w"' \
+            html += '<img  itemprop="image" src="' + large + '" alt="' + title + '" ' \
+                    'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w" ' \
                     'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
             html += '</div><!--/col-sm-8-->\n'
             html += '<div class="col-sm-3">\n'
+            if 'description' in recipe:
+                html += '<h5 itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</h5>\n'
             if 'chef' in recipe:
                 html += '<h5 itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
             if 'yield' in recipe:
@@ -255,7 +257,19 @@ class RecipeManager(object):
                 posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
                 html += '<h5 itemprop="datePublished" content="' + posted + '">'
                 html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
-            html += '</ul>\n'
+            if 'rating' in recipe:
+                rating = recipe['rating']
+                html += '<div itemprop="aggregateRating" typeof="aggregateRating">\n'
+                for i in range(5):
+                    if rating >= 1.0:
+                        html += '<span class="fa fa-star star-checked"></span>\n'
+                    elif rating > 0.33:
+                        html += '<span class="fa fa-star-half-o star-checked"></span>\n'
+                    else:
+                        html += '<span class="fa fa-star-o"></span>\n'
+                    rating -= 1.0
+                html+= '<span property="ratingValue">' + str(recipe['rating']) + '</span> (<span property="reviewCount">1</span> review)\n'
+                html += '</div>\n'
             html += '</div><!--/col-sm-3-->\n'
             html += '</div><!--/row-->\n'
             html += '<div class="row">\n'
@@ -285,7 +299,7 @@ class RecipeManager(object):
         else:
             html += self.render_instructions(instructions, mode)
         if 'notes' in recipe:
-            html += '<i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
+            html += '<i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
             html += '<p>' + recipe['notes'] + '</p>\n'
 
         return html
