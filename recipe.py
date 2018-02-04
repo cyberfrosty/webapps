@@ -16,6 +16,242 @@ import simplejson as json
 from awsutils import DynamoDB
 from utils import generate_id, contains_only
 
+def render_ingredients(ingredients):
+    """ Render recipe ingredients as HTML
+    Args:
+        ingredients: dictionary
+    Returns:
+        HTML
+    """
+
+    if 'title' in ingredients:
+        html = '<h5><strong>' + ingredients['title'] + '</strong></h5>\n<ul>\n'
+    else:
+        html = '<ul>\n'
+
+    index = 1
+    while 'item' + str(index) in ingredients:
+        item = ingredients.get('item' + str(index))
+        quantity = item.get('quantity')
+        ingredient = item.get('ingredient')
+        fraction = quantity.find('/')
+        if fraction != -1:
+            if quantity[fraction + 1] == '2':
+                quantity = quantity.replace('1/2', '&frac12;')
+            elif quantity[fraction + 1] == '4':
+                if quantity[fraction - 1] == '1':
+                    quantity = quantity.replace('1/4', '&frac14;')
+                else:
+                    quantity = quantity.replace('3/4', '&frac34;')
+            elif quantity[fraction + 1] == '3':
+                if quantity[fraction - 1] == '1':
+                    quantity = quantity.replace('1/3', '&#8531;')
+                else:
+                    quantity = quantity.replace('2/3', '&#8532;')
+            elif quantity[fraction + 1] == '8':
+                if quantity[fraction - 1] == '1':
+                    quantity = quantity.replace('1/8', '&#8539;')
+                elif quantity[fraction - 1] == '3':
+                    quantity = quantity.replace('3/8', '&#8540;')
+                elif quantity[fraction - 1] == '5':
+                    quantity = quantity.replace('5/8', '&#8541;')
+                else:
+                    quantity = quantity.replace('7/8', '&#8542;')
+        html += '  <li itemprop="ingredients">' + quantity + ' ' + ingredient + '</li>\n'
+        index += 1
+
+    html += '</ul>\n'
+    return html
+
+def add_times(time_value1, time_value2):
+    """ Add preptime and cooktime to make total time
+    Args:
+        time_value in hours and/or minutes (e.g. "15 mins", "1 hour 30 mins")
+    Returns:
+        html string
+    """
+    duration = 0
+    minutes = re.search(r'(\d{1,2}) [Mm]in', time_value1)
+    hours = re.search(r'(\d{1,2}) [Hh]our', time_value1)
+    if hours and hours > 0:
+        duration += int(hours.group(1)) * 60
+    if minutes and minutes > 0:
+        duration += int(minutes.group(1))
+    minutes = re.search(r'(\d{1,2}) [Mm]in', time_value2)
+    hours = re.search(r'(\d{1,2}) [Hh]our', time_value2)
+    if hours and hours > 0:
+        duration += int(hours.group(1)) * 60
+    if minutes and minutes > 0:
+        duration += int(minutes.group(1))
+    if duration >= 120:
+        total_time = '{} hours {} mins'.format(duration / 60, duration % 60)
+    elif duration >= 60:
+        total_time = '1 hour {} mins'.format(duration % 60)
+    else:
+        total_time = '{} mins'.format(duration)
+    return total_time
+
+def render_time(time_property, time_value):
+    """ Render a recipe time value, and set schema.org properties (ISO 8601 duration)
+    Args:
+        time_property (prepTime, cookTime or totalTime)
+        time_value in hours and/or minutes (e.g. "15 mins", "1 hour 30 mins")
+    Returns:
+        html string
+    """
+    minutes = re.search(r'(\d{1,2}) [Mm]in', time_value)
+    hours = re.search(r'(\d{1,2}) [Hh]our', time_value)
+    duration = 'PT'
+    if hours and hours > 0:
+        duration += str(hours.group(1)) + 'H'
+    if minutes and minutes > 0:
+        duration += str(minutes.group(1)) + 'M'
+    if time_property == 'prepTime':
+        time_value = time_value + ' preparation'
+    elif time_property == 'cookTime':
+        time_value = time_value + ' cooking'
+    html = '<h5><meta itemprop="' + time_property + '" datetime="' + duration + '">'
+    html += '<i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
+    return html
+
+def render_instructions(instructions, mode):
+    """ Render recipe instructions as HTML
+    Args:
+        instructions: dictionary
+        mode: make or read
+    Returns:
+        HTML
+    """
+
+    html = ''
+    if 'title' in instructions:
+        html = '<h5><strong>' + instructions['title'] + '</strong></h5>\n'
+
+    if mode == 'make':
+        html += '<ol itemprop="recipeInstructions">\n'
+    else:
+        html += '<p itemprop="recipeInstructions">\n'
+    index = 1
+    while 'step' + str(index) in instructions:
+        item = instructions.get('step' + str(index))
+        item = item.replace('degrees', '&#8457;')
+        item = item.replace('saute', 'saut&eacute;')
+        if mode == 'make':
+            html += '  <li>' + item + '</li>\n'
+        else:
+            html += item + '. '
+        index += 1
+    if mode == 'make':
+        html += '</ol>\n'
+    else:
+        html += '</p>\n'
+    return html
+
+def render_recipe(recipe, mode='read'):
+    """ Render a recipe as HTML
+    Args:
+        recipe: dictionary
+    Returns:
+        HTML
+    """
+
+    image = ''
+    html = '<div class="col-sm-8">\n'
+    title = recipe['title']
+    html += '<meta itemprop="url" content="https://cyberfrosty.com/recipe.html?recipe=' + title + '" />\n'
+    if 'image' in recipe:
+        image, ext = os.path.splitext(recipe['image'])
+        small = image + '_small' + ext
+        medium = image + '_medium' + ext
+        large = image + ext
+    else:
+        image = '/img/' + title.replace(' ', '')
+        small = image + '_small.jpg'
+        medium = image + '_medium.jpg'
+        large = image + '.jpg'
+    if 'image' in recipe or os.path.isfile('static' + large):
+        html += '<img  itemprop="image" src="' + large + '" alt="' + title + '" ' \
+                'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w" ' \
+                'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
+        html += '</div><!--/col-sm-8-->\n'
+        html += '<div class="col-sm-4">\n'
+        if 'description' in recipe:
+            html += '<h5 itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</h5>\n'
+        if 'chef' in recipe:
+            html += '<h5 itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
+        if 'yield' in recipe:
+            yields = recipe['yield']
+            if 'Serves' in yields:
+                icon = '<i class="fa fa-group fa-fw" aria-hidden="true">'
+            else:
+                icon = '<i class="fa fa-clone fa-fw" aria-hidden="true">'
+            html += '<h5 itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</h5>\n'
+        total_time = None
+        if 'preptime' in recipe:
+            html += render_time('prepTime', recipe['preptime'])
+            total_time = recipe['preptime']
+        if 'cooktime' in recipe:
+            html += render_time('cookTime', recipe['cooktime'])
+            total_time = add_times(total_time, recipe['cooktime']) if total_time else recipe['cooktime']
+        if 'totaltime' in recipe:
+            html += render_time('totalTime', recipe['totaltime'])
+        elif 'time' in recipe:
+            html += render_time('totalTime', recipe['time'])
+        elif total_time:
+            html += render_time('totalTime', total_time)
+        if 'date' in recipe:
+            posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
+            html += '<h5 itemprop="datePublished" content="' + posted + '">'
+            html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
+        if 'rating' in recipe:
+            rating = recipe['rating']
+            reviews = 1
+            html += '<h5 itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
+            html += '<meta itemprop="ratingValue" content="' + str(rating) + '">\n'
+            html += '<meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
+            for i in range(5):
+                if rating > 0.75:
+                    html += '<span class="fa fa-star star-checked"></span>\n'
+                elif rating > 0.25:
+                    html += '<span class="fa fa-star-half-o star-checked"></span>\n'
+                else:
+                    html += '<span class="fa fa-star-o"></span>\n'
+                rating -= 1.0
+            html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings</h5>\n'
+        html += '</div><!--/col-sm-4-->\n'
+        html += '</div><!--/row-->\n'
+        html += '<div class="row">\n'
+        html += '<div class="col-sm-8">\n'
+
+
+    html += '<i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
+    ingredients = recipe['ingredients']
+    if 'section1' in ingredients:
+        section = 'section1'
+        count = 1
+        while section in ingredients:
+            html += render_ingredients(ingredients[section])
+            count = count + 1
+            section = 'section' + str(count)
+    else:
+        html += render_ingredients(ingredients)
+    html += '<i class="fa fa-tasks fa-fw" aria-hidden="true"></i> <strong>Instructions</strong>\n'
+    instructions = recipe.get('instructions')
+    if 'section1' in instructions:
+        section = 'section1'
+        count = 1
+        while section in instructions:
+            html += render_instructions(instructions[section], mode)
+            count = count + 1
+            section = 'section' + str(count)
+    else:
+        html += render_instructions(instructions, mode)
+    if 'notes' in recipe:
+        html += '<i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
+        html += '<p>' + recipe['notes'] + '</p>\n'
+
+    return html
+
 class RecipeManager(object):
     """ Recipe Manager
     """
@@ -71,7 +307,7 @@ class RecipeManager(object):
         except (IOError, ValueError) as err:
             print('Load of recipe file failed:', err.message)
 
-    def build_search_list(self, category = None):
+    def build_search_list(self, category=None):
         """ Build the quick find search list
         """
         html = ''
@@ -107,205 +343,6 @@ class RecipeManager(object):
         else:
             return dict(error='Missing recipe title')
 
-    def render_ingredients(self, ingredients):
-        """ Render recipe ingredients as HTML
-        Args:
-            ingredients: dictionary
-        Returns:
-            HTML
-        """
-
-        if 'title' in ingredients:
-            html = '<h5><strong>' + ingredients['title'] + '</strong></h5>\n<ul>\n'
-        else:
-            html = '<ul>\n'
-
-        index = 1
-        while 'item' + str(index) in ingredients:
-            item = ingredients.get('item' + str(index))
-            quantity = item.get('quantity')
-            ingredient = item.get('ingredient')
-            fraction = quantity.find('/')
-            if fraction != -1:
-                if quantity[fraction + 1] == '2':
-                    quantity = quantity.replace('1/2', '&frac12;')
-                elif quantity[fraction + 1] == '4':
-                    if quantity[fraction - 1] == '1':
-                        quantity = quantity.replace('1/4', '&frac14;')
-                    else:
-                        quantity = quantity.replace('3/4', '&frac34;')
-                elif quantity[fraction + 1] == '3':
-                    if quantity[fraction - 1] == '1':
-                        quantity = quantity.replace('1/3', '&#8531;')
-                    else:
-                        quantity = quantity.replace('2/3', '&#8532;')
-                elif quantity[fraction + 1] == '8':
-                    if quantity[fraction - 1] == '1':
-                        quantity = quantity.replace('1/8', '&#8539;')
-                    elif quantity[fraction - 1] == '3':
-                        quantity = quantity.replace('3/8', '&#8540;')
-                    elif quantity[fraction - 1] == '5':
-                        quantity = quantity.replace('5/8', '&#8541;')
-                    else:
-                        quantity = quantity.replace('7/8', '&#8542;')
-            html += '  <li itemprop="ingredients">' + quantity + ' ' + ingredient + '</li>\n'
-            index += 1
-
-        html += '</ul>\n'
-        return html
-
-    def render_time(self, time_property, time_value):
-        """ Render a recipe time value, and set schema.org properties (ISO 8601 duration)
-        Args:
-            time_property (prepTime, cookTime or totalTime)
-            time_value in minutes or hours
-        Returns:
-            html string
-        """
-        minutes = re.search(r'(\d{1,2}) [Mm]in', time_value)
-        hours = re.search(r'(\d{1,2}) [Hh]our', time_value)
-        duration = 'PT'
-        if hours and hours > 0:
-            duration += str(hours.group(1)) + 'H'
-        if minutes and minutes > 0:
-            duration += str(minutes.group(1)) + 'M'
-        html = '<h5><meta itemprop="' + time_property + '" datetime="' + duration + '">'
-        html += '<i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
-        return html
-
-    def render_instructions(self, instructions, mode):
-        """ Render recipe instructions as HTML
-        Args:
-            instructions: dictionary
-            mode: make or read
-        Returns:
-            HTML
-        """
-
-        html = ''
-        if 'title' in instructions:
-            html = '<h5><strong>' + instructions['title'] + '</strong></h5>\n'
-
-        if mode == 'make':
-            html += '<ol itemprop="recipeInstructions">\n'
-        else:
-            html += '<p itemprop="recipeInstructions">\n'
-        index = 1
-        while 'step' + str(index) in instructions:
-            item = instructions.get('step' + str(index))
-            item = item.replace('degrees', '&#8457;')
-            item = item.replace('saute', 'saut&eacute;')
-            if mode == 'make':
-                html += '  <li>' + item + '</li>\n'
-            else:
-                html += item + '. '
-            index += 1
-        if mode == 'make':
-            html += '</ol>\n'
-        else:
-            html += '</p>\n'
-        return html
-
-    def render_recipe(self, recipe, mode='read'):
-        """ Render a recipe as HTML
-        Args:
-            recipe: dictionary
-        Returns:
-            HTML
-        """
-
-        image = ''
-        html = '<div class="col-sm-8">\n'
-        title = recipe['title']
-        html += '<meta itemprop="url" content="https://cyberfrosty.com/recipe.html?recipe=' + title + '" />\n'
-        if 'image' in recipe:
-            image, ext = os.path.splitext(recipe['image'])
-            small = image + '_small' + ext
-            medium = image + '_medium' + ext
-            large = image + ext
-        else:
-            image = '/img/' + title.replace(' ', '')
-            small = image + '_small.jpg'
-            medium = image + '_medium.jpg'
-            large = image + '.jpg'
-        if 'image' in recipe or os.path.isfile('static' + large):
-            html += '<img  itemprop="image" src="' + large + '" alt="' + title + '" ' \
-                    'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w" ' \
-                    'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
-            html += '</div><!--/col-sm-8-->\n'
-            html += '<div class="col-sm-4">\n'
-            if 'description' in recipe:
-                html += '<h5 itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</h5>\n'
-            if 'chef' in recipe:
-                html += '<h5 itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
-            if 'yield' in recipe:
-                yields = recipe['yield']
-                if 'Serves' in yields:
-                    icon = '<i class="fa fa-group fa-fw" aria-hidden="true">'
-                else:
-                    icon = '<i class="fa fa-clone fa-fw" aria-hidden="true">'
-                html += '<h5 itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</h5>\n'
-            if 'preptime' in recipe:
-                html += self.render_time('prepTime', recipe['preptime'])
-            if 'cooktime' in recipe:
-                html += self.render_time('cookTime', recipe['cooktime'])
-            if 'totaltime' in recipe:
-                html += self.render_time('totalTime', recipe['totaltime'])
-            elif 'time' in recipe:
-                html += self.render_time('totalTime', recipe['time'])
-            if 'date' in recipe:
-                posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
-                html += '<h5 itemprop="datePublished" content="' + posted + '">'
-                html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
-            if 'rating' in recipe:
-                rating = recipe['rating']
-                reviews = 1
-                html += '<h5 itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
-                html += '<meta itemprop="ratingValue" content="' + str(rating) + '">\n'
-                html += '<meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
-                for i in range(5):
-                    if rating > 0.75:
-                        html += '<span class="fa fa-star star-checked"></span>\n'
-                    elif rating > 0.25:
-                        html += '<span class="fa fa-star-half-o star-checked"></span>\n'
-                    else:
-                        html += '<span class="fa fa-star-o"></span>\n'
-                    rating -= 1.0
-                html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings</h5>\n'
-            html += '</div><!--/col-sm-4-->\n'
-            html += '</div><!--/row-->\n'
-            html += '<div class="row">\n'
-            html += '<div class="col-sm-8">\n'
-
-
-        html += '<i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
-        ingredients = recipe['ingredients']
-        if 'section1' in ingredients:
-            section = 'section1'
-            count = 1
-            while section in ingredients:
-                html += self.render_ingredients(ingredients[section])
-                count = count + 1
-                section = 'section' + str(count)
-        else:
-            html += self.render_ingredients(ingredients)
-        html += '<i class="fa fa-tasks fa-fw" aria-hidden="true"></i> <strong>Instructions</strong>\n'
-        instructions = recipe.get('instructions')
-        if 'section1' in instructions:
-            section = 'section1'
-            count = 1
-            while section in instructions:
-                html += self.render_instructions(instructions[section], mode)
-                count = count + 1
-                section = 'section' + str(count)
-        else:
-            html += self.render_instructions(instructions, mode)
-        if 'notes' in recipe:
-            html += '<i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
-            html += '<p>' + recipe['notes'] + '</p>\n'
-
-        return html
-
     def get_rendered_recipe(self, recipe_id):
         """ Get HTML rendered recipe
         Args:
@@ -321,7 +358,7 @@ class RecipeManager(object):
             recipe = self.get_recipe(recipe_id)
 
         if recipe is not None and 'error' not in recipe:
-            return self.render_recipe(recipe)
+            return render_recipe(recipe)
 
     def get_latest_recipe(self):
         """ Get HTML rendered latest recipe
@@ -377,12 +414,15 @@ def main():
     print manager.get_rendered_recipe('Strawberry Pancakes')
     print manager.get_rendered_recipe('Meatball Marinara')
     print manager.find_recipe_by_category('asian')
-    print manager.render_time('prepTime', '20 mins')
-    print manager.render_time('prepTime', '20 minutes')
-    print manager.render_time('cookTime', '1 hour')
-    print manager.render_time('totalTime', '3 hours')
-    print manager.render_time('totalTime', '1 hour 20 mins')
-    print manager.render_time('totalTime', '1 hour 20 minutes')
+    print render_time('prepTime', '20 mins')
+    print render_time('prepTime', '20 minutes')
+    print render_time('cookTime', '1 hour')
+    print render_time('totalTime', '3 hours')
+    print render_time('totalTime', '1 hour 20 mins')
+    print render_time('totalTime', '1 hour 20 minutes')
+    print add_times('45 mins', '1 hour 20 minutes')
+    print add_times('45 mins', '25 minutes')
+    print add_times('45 mins', '2 hours')
     print manager.get_rendered_gallery()
     print manager.get_rendered_gallery('Asian')
 
