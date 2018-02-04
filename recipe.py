@@ -259,16 +259,19 @@ class RecipeManager(object):
                 html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
             if 'rating' in recipe:
                 rating = recipe['rating']
-                html += '<h5 itemprop="aggregateRating" ratingValue="' + str(rating) + '" ratingCount="1">\n'
+                reviews = 1
+                html += '<h5 itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
+                html += '<meta itemprop="ratingValue" content="' + str(rating) + '">\n'
+                html += '<meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
                 for i in range(5):
-                    if rating >= 1.0:
+                    if rating > 0.75:
                         html += '<span class="fa fa-star star-checked"></span>\n'
-                    elif rating > 0.33:
+                    elif rating > 0.25:
                         html += '<span class="fa fa-star-half-o star-checked"></span>\n'
                     else:
                         html += '<span class="fa fa-star-o"></span>\n'
                     rating -= 1.0
-                html += ' ' + str(recipe['rating']) + '   (1) user ratings</h5>\n'
+                html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings</h5>\n'
             html += '</div><!--/col-sm-4-->\n'
             html += '</div><!--/row-->\n'
             html += '<div class="row">\n'
