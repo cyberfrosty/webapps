@@ -180,9 +180,14 @@ def load_user(userid):
         if 'error' not in account:
             print 'loaded user'
             user = User(account.get('email'), account.get('name'))
-    elif 'failures' in session and session.get('failures') == 0:
+        else:
+            user = User('anonymous@unknown.com', 'Anonymous')
+            user.is_authenticated = False
+            user.is_active = False
+    else:
         user = User(session.get('email'), session.get('name'))
-        user.is_authenticated = True
+        if session.get('failures', 0) < MAX_FAILURES:
+            user.is_authenticated = True
         user.is_active = True
     return user
 

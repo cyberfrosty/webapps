@@ -97,6 +97,10 @@ i/* Remove margins and padding from the list */
     background: #ddd;
 }
 
+.star-checked {
+    color: orange;
+}
+
 .gal {
     -webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
