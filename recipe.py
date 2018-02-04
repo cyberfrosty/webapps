@@ -233,7 +233,7 @@ class RecipeManager(object):
                     'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w" ' \
                     'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
             html += '</div><!--/col-sm-8-->\n'
-            html += '<div class="col-sm-3">\n'
+            html += '<div class="col-sm-4">\n'
             if 'description' in recipe:
                 html += '<h5 itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</h5>\n'
             if 'chef' in recipe:
@@ -259,7 +259,7 @@ class RecipeManager(object):
                 html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
             if 'rating' in recipe:
                 rating = recipe['rating']
-                html += '<div itemprop="aggregateRating" typeof="aggregateRating">\n'
+                html += '<h5 itemprop="aggregateRating" ratingValue="' + str(rating) + '" ratingCount="1">\n'
                 for i in range(5):
                     if rating >= 1.0:
                         html += '<span class="fa fa-star star-checked"></span>\n'
@@ -268,9 +268,8 @@ class RecipeManager(object):
                     else:
                         html += '<span class="fa fa-star-o"></span>\n'
                     rating -= 1.0
-                html+= '<span property="ratingValue">' + str(recipe['rating']) + '</span> (<span property="reviewCount">1</span> review)\n'
-                html += '</div>\n'
-            html += '</div><!--/col-sm-3-->\n'
+                html += ' ' + str(recipe['rating']) + '   (1) user ratings</h5>\n'
+            html += '</div><!--/col-sm-4-->\n'
             html += '</div><!--/row-->\n'
             html += '<div class="row">\n'
             html += '<div class="col-sm-8">\n'
