@@ -1,4 +1,38 @@
 [{
+  "title": "Spiced Pecans",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/SpicedPecans.jpg",
+  "date": "March 23, 2016",
+  "preptime": "20 minutes",
+  "cooktime": "25 minutes",
+  "yield": "Makes 10-15",
+  "category": ["Dessert"],
+  "description": "Spice coated pecans for the holidays, snacking, or anytime.",
+  "rating": 4.76,
+  "ingredients": {
+    "item1": {"quantity": "4 cups", "ingredient": "pecan halves"},
+    "item2": {"quantity": "1", "ingredient": "egg white"},
+    "item3": {"quantity": "1-2 tsp", "ingredient": "water"},
+    "item4": {"quantity": "1/4 cup", "ingredient": "brown sugar"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "smoked paprika"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "cayenne or &frac34; tsp ancho chili"},
+    "item7": {"quantity": "2 tsp", "ingredient": "salt"},
+    "item8": {"quantity": "1 tsp", "ingredient": "coriander"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "garlic powder"},
+    "item11": {"quantity": "1/4 tsp", "ingredient": "allspice"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 300 degrees",
+    "step2": "Mix dry ingredients with a large mortar and pestle",
+    "step3": "Froth egg white and 1-2 tsp water in large bowl with a wire whisk",
+    "step4": "Mix nuts in egg white until evenly moist",
+    "step5": "Add dry ingredients in two batches, stirring until nuts are coated in spice",
+    "step6": "Spread mixture onto 2 large baking sheets that are lined with parchment paper",
+    "step7": "Cook for 20-25 minutes, rotating pans once to ensure even cooking"
+  }
+},
+{
   "title": "Chocolate Crunchies",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/ChocolateCrunchies.jpg",

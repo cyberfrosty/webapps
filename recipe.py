@@ -176,7 +176,7 @@ def render_recipe(recipe, mode='read'):
         html += '</div><!--/col-sm-8-->\n'
         html += '<div class="col-sm-4">\n'
         if 'description' in recipe:
-            html += '<h5 itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</h5>\n'
+            html += '<h5 itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</h5><br />\n'
         if 'chef' in recipe:
             html += '<h5 itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
         if 'yield' in recipe:
