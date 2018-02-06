@@ -1626,6 +1626,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk whole wheat waffles.",
+  "nutrition": {"calories": 120, "fat": 2, "protein": 6, "carbohydrate": 21, "serving": "1 waffle"},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},

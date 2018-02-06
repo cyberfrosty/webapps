@@ -91,6 +91,28 @@ def add_times(time_value1, time_value2):
         total_time = '{} mins'.format(duration)
     return total_time
 
+def render_nutrition(nutrition):
+    """ Render the nutrition entry
+    Args:
+        nutrition dict
+    Returns:
+        html string
+    """
+    html = '<div itemprop="nutrition" itemscope itemtype="http://schema.org/NutritionInformation">\n'
+    html += '<i class="fa fa-heart-o fa-fw" aria-hidden="true"></i>'
+    if 'calories' in nutrition:
+        html += ' <span itemprop="calories">{} calories</span>'.format(nutrition['calories'])
+    if 'fat' in nutrition:
+        html += ', <span itemprop="fatContent">{}g fat</span>'.format(nutrition['fat'])
+    if 'protein' in nutrition:
+        html += ', <span itemprop="proteinContent">{}g protein</span>'.format(nutrition['protein'])
+    if 'carbohydrate' in nutrition:
+        html += ', <span itemprop="carbohydrateContent">{}g carbs</span>'.format(nutrition['carbohydrate'])
+    if 'sodium' in nutrition:
+        html += ', <span itemprop="carbohydrateContent">{}mg sodium</span>\n'.format(nutrition['sodium'])
+    html += '</div>\n'
+    return html
+
 def render_time(time_property, time_value):
     """ Render a recipe time value, and set schema.org properties (ISO 8601 duration)
     Args:
@@ -110,7 +132,7 @@ def render_time(time_property, time_value):
         time_value = time_value + ' preparation'
     elif time_property == 'cookTime':
         time_value = time_value + ' cooking'
-    html = '<h5><meta itemprop="' + time_property + '" datetime="' + duration + '">'
+    html = '<h5><meta itemprop="' + time_property + '" content="' + duration + '">'
     html += '<i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
     return html
 
@@ -203,6 +225,8 @@ def render_recipe(recipe, mode='read'):
             posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
             html += '<h5 itemprop="datePublished" content="' + posted + '">'
             html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
+        if 'nutrition' in recipe:
+            html += render_nutrition(recipe['nutrition'])
         if 'rating' in recipe:
             rating = recipe['rating']
             reviews = 1

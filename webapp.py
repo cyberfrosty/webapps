@@ -109,7 +109,6 @@ class User(object):
     def __init__(self, email, name=None):
         """ Constructor
         """
-        print email, name
         self._email = email
         self._userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         self._name = name
@@ -173,18 +172,19 @@ def load_user(userid):
     Args:
         userid
     """
-    print userid
     session = SESSIONS.get_item('id', userid)
     if 'error' in session:
         account = USERS.get_item('id', userid)
         if 'error' not in account:
-            print 'loaded user'
+            print 'Loaded user: {} {}'.format(account.get('email'), account.get('name'))
             user = User(account.get('email'), account.get('name'))
         else:
+            print 'Anonymous user'
             user = User('anonymous@unknown.com', 'Anonymous')
             user.is_authenticated = False
             user.is_active = False
     else:
+        print 'Loaded session: {} {}'.format(session.get('email'), session.get('name'))
         user = User(session.get('email'), session.get('name'))
         if session.get('failures', 0) < MAX_FAILURES:
             user.is_authenticated = True
