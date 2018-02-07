@@ -107,9 +107,11 @@ def render_nutrition(nutrition):
     if 'protein' in nutrition:
         html += ', <span itemprop="proteinContent">{}g protein</span>'.format(nutrition['protein'])
     if 'carbohydrate' in nutrition:
-        html += ', <span itemprop="carbohydrateContent">{}g carbs</span>'.format(nutrition['carbohydrate'])
+        html += ', <span itemprop="carbohydrateContent">{}g carb</span>'.format(nutrition['carbohydrate'])
     if 'sodium' in nutrition:
-        html += ', <span itemprop="carbohydrateContent">{}mg sodium</span>\n'.format(nutrition['sodium'])
+        html += ', <span itemprop="carbohydrateContent">{}mg sodium</span>'.format(nutrition['sodium'])
+    if 'serving' in nutrition:
+        html += ', <span itemprop="servingSIze">{}</span>\n'.format(nutrition['serving'])
     html += '</div>\n'
     return html
 
@@ -132,7 +134,7 @@ def render_time(time_property, time_value):
         time_value = time_value + ' preparation'
     elif time_property == 'cookTime':
         time_value = time_value + ' cooking'
-    html = '<h5><meta itemprop="' + time_property + '" content="' + duration + '">'
+    html = '<div><meta itemprop="' + time_property + '" content="' + duration + '">'
     html += '<i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
     return html
 
@@ -198,16 +200,16 @@ def render_recipe(recipe, mode='read'):
         html += '</div><!--/col-sm-8-->\n'
         html += '<div class="col-sm-4">\n'
         if 'description' in recipe:
-            html += '<h5 itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</h5><br />\n'
+            html += '<div itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</div>\n'
         if 'chef' in recipe:
-            html += '<h5 itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</h5>\n'
+            html += '<div itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</div>\n'
         if 'yield' in recipe:
             yields = recipe['yield']
             if 'Serves' in yields:
                 icon = '<i class="fa fa-group fa-fw" aria-hidden="true">'
             else:
                 icon = '<i class="fa fa-clone fa-fw" aria-hidden="true">'
-            html += '<h5 itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</h5>\n'
+            html += '<div itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</div>\n'
         total_time = None
         if 'preptime' in recipe:
             html += render_time('prepTime', recipe['preptime'])
@@ -223,14 +225,14 @@ def render_recipe(recipe, mode='read'):
             html += render_time('totalTime', total_time)
         if 'date' in recipe:
             posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
-            html += '<h5 itemprop="datePublished" content="' + posted + '">'
-            html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</h5>\n'
+            html += '<div itemprop="datePublished" content="' + posted + '">'
+            html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</div>\n'
         if 'nutrition' in recipe:
             html += render_nutrition(recipe['nutrition'])
         if 'rating' in recipe:
             rating = recipe['rating']
             reviews = 1
-            html += '<h5 itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
+            html += '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
             html += '<meta itemprop="ratingValue" content="' + str(rating) + '">\n'
             html += '<meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
             for i in range(5):
@@ -241,7 +243,7 @@ def render_recipe(recipe, mode='read'):
                 else:
                     html += '<span class="fa fa-star-o"></span>\n'
                 rating -= 1.0
-            html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings</h5>\n'
+            html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings</div>\n'
         html += '</div><!--/col-sm-4-->\n'
         html += '</div><!--/row-->\n'
         html += '<div class="row">\n'
