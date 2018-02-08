@@ -55,13 +55,13 @@
       <a class="navbar-toggle nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-navicon fa-lg" aria-hidden="true"></i></a>
         <ul class="dropdown-menu dropdown-menu-right">
         {% if current_user.is_authenticated %}
-          <li><a class="nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-          <li><a class="nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a></li>
-          <li><a class="nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
-          <li><a class="nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> Messages</a></li>
+          <li><a class="nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-fw" aria-hidden="true"></i> Vault</a></li>
+          <li><a class="nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {{ current_user.get_name() }}</a></li>
+          <li><a class="nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Logout</a></li>
         {% else %}
-          <li><a class="nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
-          <li><a class="nav-link" href="{{url_for('login')}}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Sign Up</a></li>
+          <li><a class="nav-link" href="{{url_for('login')}}"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i> Login</a></li>
         {% endif %}
         </ul>
       <button type="button" class="navbar-toggle nav-link" data-toggle="modal" data-target="#search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
@@ -71,22 +71,22 @@
     <div class="collapse navbar-collapse" id="mynavbar">
       <!-- buttons visible on full-size screen only -->
       <ul class="nav navbar-nav">
-        <li><a class="nav-item nav-link" href="{{url_for('gallery')}}"><i class="fa fa-cubes fa-fw" aria-hidden="true"></i>&nbsp;Gallery</a></li>
-        <li><a class="nav-item nav-link" href="{{url_for('recipes')}}"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Recipes</a></li>
+        <li><a class="nav-item nav-link" href="{{url_for('gallery')}}"><i class="fa fa-cubes fa-fw" aria-hidden="true"></i> Gallery</a></li>
+        <li><a class="nav-item nav-link" href="{{url_for('recipes')}}"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i> Recipes</a></li>
         {% if current_user.is_authenticated %}
-        <li><a class="nav-item nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i>&nbsp;Messages</a></li>
-        <li><a class="nav-item nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-fw" aria-hidden="true"></i>&nbsp;Vault</a></li>
+        <li><a class="nav-item nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> Messages</a></li>
+        <li><a class="nav-item nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-fw" aria-hidden="true"></i> Vault</a></li>
         {% endif %}
-        <li><a class="nav-item nav-link" data-toggle="modal" href="#search"><i class="fa fa-search fa-fw" aria-hidden="true"></i>&nbsp;Search</a></li>
+        <li><a class="nav-item nav-link" data-toggle="modal" href="#search"><i class="fa fa-search fa-fw" aria-hidden="true"></i> Search</a></li>
       </ul>
         
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
-          <li><a class="nav-item nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;{{ current_user.get_name() }}</a></li>
-          <li><a class="nav-item nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>&nbsp;Logout</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {{ current_user.get_name() }}</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Logout</a></li>
         {% else %}
-          <li><a class="nav-item nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;Sign Up</a></li>
-          <li><a class="nav-item nav-link" href="{{url_for('login')}}"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i>&nbsp;Login</a></li>
+          <li><a class="nav-item nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Sign Up</a></li>
+          <li><a class="nav-item nav-link" href="{{url_for('login')}}"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i> Login</a></li>
         {% endif %}
       </ul>
     </div>
