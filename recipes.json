@@ -158,7 +158,7 @@
   "totaltime": "3 hours",
   "yield": "Makes 48",
   "category": ["Dessert"],
-  "description": "Mint chocolate chip cookies made with Andes.",
+  "description": "Mint chocolate chip cookies made with Andes mints.",
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "2 2/3 cups", "ingredient": "flour"},
@@ -209,7 +209,8 @@
     "step5": "Microwave for a few minutes to warm, or increase covered cooking time by 5 minutes",
     "step6": "Add macaroni and cheese, mix to combine, smooth the surface and sprinkle with bread crumbs and cheese",
     "step7": "Cook covered for 20 minutes, remove lid and cook for another 10 minutes"
-  }
+  },
+  "notes": "Add a can of salmon for extra protein and variety."
 },
 {
   "title": "Swedish Pancakes",
@@ -726,7 +727,7 @@
   "preptime": "15 minutes",
   "cooktime": "1 hour 10 minutes",
   "yield": "Serves 6",
-  "category": ["Italian", "Pasta", "Turkey", "Dinner"],
+  "category": ["Mediterranean", "Pasta", "Turkey", "Dinner"],
   "description": "Marinara sauce with lean ground turkey meatballs.",
   "rating": 4.8,
   "ingredients": {
@@ -811,7 +812,7 @@
   "cooktime": "20 minutes",
   "totaltime": "3 hours",
   "yield": "Makes 2 pizzas",
-  "category": ["Italian", "Dinner"],
+  "category": ["Mediterranean", "Dinner"],
   "description": "Baked or grilled pizza with whole wheat crust and your favorite toppings.",
   "rating": 4.9,
   "ingredients": {
@@ -1051,7 +1052,7 @@
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
   "time": "45 minutes",
-  "description": "Thai meatballs made with lean ground turkey in a peanut curry sauce.",
+  "description": "Thai meatballs made with lean ground turkey in a red peanut curry sauce.",
   "nutrition": {"calories": 240, "fat": 7, "protein": 31, "carbohydrate": 10, "sodium": 580},
   "category": ["Asian", "Turkey", "Dinner"],
   "rating": 4.5,
@@ -1083,7 +1084,7 @@
   "instructions": {
     "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
-    "step3": "In a meduim suace pan, saute onion in coconut oil over low heat until translucent",
+    "step3": "In a medium sauce pan, saute onion in coconut oil over low heat until translucent",
     "step4": "Add garlic and ginger to onions, saute for a few minutes",
     "step5": "Add Thai seasoning, paste and peanut butter, stir until smooth, reduce heat and simmer for 5 minutes",
     "step6": "Transfer meatballs and sauce to a medium bowl and toss until coated",
@@ -1472,7 +1473,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with diced strawberries and/or blueberries.",
-  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 503, "serving": "4 small pancakes"},
+  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 250, "serving": "4 small pancakes"},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -1500,7 +1501,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with grated apple and spices.",
-  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 503, "serving": "4 small pancakes"},
+  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 250, "serving": "4 small pancakes"},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -1530,7 +1531,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with diced pear and spices.",
-  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 503, "serving": "4 small pancakes"},
+  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 250, "serving": "4 small pancakes"},
   "rating": 4.5,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -1676,7 +1677,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk whole wheat waffles.",
-  "nutrition": {"calories": 333, "fat": 18, "protein": 11, "carbohydrate": 33, "sodium": 503, "serving": "2 waffles"},
+  "nutrition": {"calories": 333, "fat": 18, "protein": 11, "carbohydrate": 33, "sodium": 250, "serving": "2 waffles"},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -1708,7 +1709,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Whole wheat waffles with spiced pumpkin.",
-  "nutrition": {"calories": 344, "fat": 18, "protein": 12, "carbohydrate": 34, "sodium": 503, "serving": "2 waffles"},
+  "nutrition": {"calories": 344, "fat": 18, "protein": 12, "carbohydrate": 34, "sodium": 250, "serving": "2 waffles"},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
