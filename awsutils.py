@@ -722,7 +722,7 @@ def main():
     #ses = SES('alan@cyberfrosty.com')
     #html = '<a class="ulink" href="http://cyberfrosty.com/recipes" target="_blank">Recipes</a>.'
     #ses.send_email(['frosty.alan@gmail.com'], 'Howdy', html, 'Check out my recipes')
-    s3 = S3()
+    #s3 = S3()
     #for key in s3.list_objects('snowyrangesolutions.com', **{'prefix':'static/img/', 'suffix':'.jpg'}):
     #    print(key)
 

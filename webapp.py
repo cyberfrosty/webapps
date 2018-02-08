@@ -862,7 +862,7 @@ def forgot():
         if not account or 'error' in account:
             form.errors['Reset'] = 'Unable to validate your credentials'
         else:
-            password = generate_random58_valid(12)
+            password = generate_random58_id(12)
             account['reset_mcf'] = preset_password(email, password)
             token = generate_timed_token(email, APP.config['SECRET_KEY'], 'reset')
             if account['authentication'] == 'password:hotp':
