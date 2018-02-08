@@ -51,29 +51,32 @@
 <nav class="navbar navbar-dark navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button class="navbar-toggle collapsed btn-xs" type="button" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
-        <i class="fa fa-navicon fa-2x" aria-hidden="true"></i>
-      </button>
+      <a class="navbar-brand" href="{{ url_for('index') }}"/><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
+      <a class="navbar-toggle nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-navicon fa-lg" aria-hidden="true"></i></a>
+        <ul class="dropdown-menu dropdown-menu-right">
+        {% if current_user.is_authenticated %}
+          <li><a class="nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a></li>
+        {% else %}
+          <li><a class="nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="{{url_for('login')}}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></a></li>
+        {% endif %}
+        </ul>
       <button type="button" class="navbar-toggle nav-link" data-toggle="modal" data-target="#search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
       <a class="navbar-toggle nav-link" href="{{url_for('gallery')}}"><i class="fa fa-cubes fa-lg" aria-hidden="true"></i></a>
       <a class="navbar-toggle nav-link" href="{{url_for('recipes')}}"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></a>
-      <a class="navbar-toggle nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a>
-      <a class="navbar-toggle nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
-      {% if current_user.is_authenticated %}
-        <a class="navbar-toggle nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-        <a class="navbar-toggle nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a>
-      {% else %}
-        <a class="navbar-toggle nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-        <a class="navbar-toggle nav-link" href="{{url_for('login')}}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></a>
-      {% endif %}
-      <a class="navbar-brand" href="{{ url_for('index') }}"/><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
     </div>
     <div class="collapse navbar-collapse" id="mynavbar">
+      <!-- buttons visible on full-size screen only -->
       <ul class="nav navbar-nav">
         <li><a class="nav-item nav-link" href="{{url_for('gallery')}}"><i class="fa fa-cubes fa-fw" aria-hidden="true"></i>&nbsp;Gallery</a></li>
         <li><a class="nav-item nav-link" href="{{url_for('recipes')}}"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Recipes</a></li>
+        {% if current_user.is_authenticated %}
         <li><a class="nav-item nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i>&nbsp;Messages</a></li>
         <li><a class="nav-item nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-fw" aria-hidden="true"></i>&nbsp;Vault</a></li>
+        {% endif %}
         <li><a class="nav-item nav-link" data-toggle="modal" href="#search"><i class="fa fa-search fa-fw" aria-hidden="true"></i>&nbsp;Search</a></li>
       </ul>
         
