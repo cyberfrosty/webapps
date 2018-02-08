@@ -309,6 +309,7 @@ class RecipeManager(object):
         """ Build an accordian navigation list
         """
         html = '<div class="sidebar-module-inset">\n'
+        html += '<h5><strong><center>Recipe Navigator</center></strong></h5>\n'
         for category in ['Asian', 'Bread', 'Breakfast', 'Dessert', 'Latin', 'Mediterranean', 'Seafood', 'Vegetables']:
             html += '<button class="accordion">{}</button>\n'.format(category)
             html += '<div class="panel">\n'

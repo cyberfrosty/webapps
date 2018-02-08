@@ -256,22 +256,6 @@ th {
     }
 }
 
-/* Sidebar modules for boxing content */
-.sidebar-module {
-  padding-top: 4px;
-  margin: 0 -8px 8px;
-}
-.sidebar-module-inset {
-  padding: 8px;
-  background-color: #e5e5e5;
-  border-radius: 4px;
-  border-color: #bebebe;
-}
-.sidebar-module-inset p:last-child,
-.sidebar-module-inset ul:last-child,
-.sidebar-module-inset ol:last-child {
-  margin-bottom: 0;
-}
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -385,7 +369,7 @@ code {
   color: #353e47;
 }
 
-/* Accordian styles */
+/* Sidebar modules for boxing content */
 .sidebar-module {
   padding: 15px;
   margin: 0 -15px 15px;
@@ -393,16 +377,23 @@ code {
 
 .sidebar-module-inset {
   padding: 5px;
-  margin: 0 -15px -15px;
+  margin: 0 5px 15px 5px;
   background-color: #d5d5d5;
   border-radius: 4px;
 }
 
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+  margin-bottom: 0;
+}
+
+/* Accordian styles */
 button.accordion {
     background-color: #e5e5e5;
     color: #444;
     cursor: pointer;
-    padding: 4px;
+    padding: 4px 12px;
     margin-bottom: 1;
     width: 100%;
     border: none;
@@ -431,9 +422,15 @@ button.accordion.active:after {
 }
 
 .panel a {
-    padding: 0 12px;
+  padding: 0 16px;
   color: black;
   font-size: 14px;
+}
+
+.panel a:hover {
+  padding: 0 12px;
+  background-color: #fff;
+  color: #353e47;
 }
 
 .panel {
