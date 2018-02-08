@@ -668,7 +668,7 @@
   "preptime": "5 minutes",
   "cooktime": "5 minutes",
   "yield": "Serves 4",
-  "category": ["Mediterranean", "Vegetables", "Dinner"],
+  "category": ["Vegetables", "Dinner"],
   "description": "Spicy and delicious spinach.",
   "rating": 3.5,
   "ingredients": {
@@ -853,7 +853,7 @@
   "preptime": "5 minutes",
   "cooktime": "15 minutes",
   "yield": "Serves 2",
-  "category": ["Salmon", "Dinner"],
+  "category": ["Seafood", "Dinner"],
   "description": "Grilled salmon on the grill or seared in a pan with mesquite.",
   "rating": 4.9,
   "ingredients": {
@@ -874,7 +874,7 @@
   "preptime": "10 minutes",
   "cooktime": "10 minutes",
   "yield": "Makes 6-8",
-  "category": ["Salmon", "Dinner"],
+  "category": ["Seafood", "Dinner"],
   "description": "Salmon cakes from canned or leftovers.",
   "rating": 4.2,
   "ingredients": {

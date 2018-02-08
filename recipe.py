@@ -135,7 +135,7 @@ def render_time(time_property, time_value):
     elif time_property == 'cookTime':
         time_value = time_value + ' cooking'
     html = '<div><meta itemprop="' + time_property + '" content="' + duration + '">'
-    html += '<i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;' + time_value + '</h5>\n'
+    html += '<i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;' + time_value + '</div>\n'
     return html
 
 def render_instructions(instructions, mode):
@@ -171,7 +171,7 @@ def render_instructions(instructions, mode):
         html += '</p>\n'
     return html
 
-def render_recipe(recipe, mode='read'):
+def render_recipe_summary(recipe):
     """ Render a recipe as HTML
     Args:
         recipe: dictionary
@@ -180,7 +180,8 @@ def render_recipe(recipe, mode='read'):
     """
 
     image = ''
-    html = '<div class="col-sm-8">\n'
+    html = '<div class="row recipe">\n'
+    html += '<div class="col-sm-6">\n'
     title = recipe['title']
     html += '<meta itemprop="url" content="https://cyberfrosty.com/recipe.html?recipe=' + title + '" />\n'
     if 'image' in recipe:
@@ -197,8 +198,8 @@ def render_recipe(recipe, mode='read'):
         html += '<img  itemprop="image" src="' + large + '" alt="' + title + '" ' \
                 'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w" ' \
                 'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
-        html += '</div><!--/col-sm-8-->\n'
-        html += '<div class="col-sm-4">\n'
+        html += '</div><!--/col-sm-6-->\n'
+        html += '<div class="col-sm-6">\n'
         if 'description' in recipe:
             html += '<div itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</div>\n'
         if 'chef' in recipe:
@@ -233,50 +234,21 @@ def render_recipe(recipe, mode='read'):
             rating = recipe['rating']
             reviews = 1
             html += '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
-            html += '<meta itemprop="ratingValue" content="' + str(rating) + '">\n'
-            html += '<meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
+            html += '  <meta itemprop="ratingValue" content="' + str(rating) + '">\n'
+            html += '  <meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
             for i in range(5):
                 if rating > 0.75:
-                    html += '<span class="fa fa-star star-checked"></span>\n'
+                    html += '  <span class="fa fa-star star-checked"></span>\n'
                 elif rating > 0.25:
-                    html += '<span class="fa fa-star-half-o star-checked"></span>\n'
+                    html += '  <span class="fa fa-star-half-o star-checked"></span>\n'
                 else:
-                    html += '<span class="fa fa-star-o"></span>\n'
+                    html += '  <span class="fa fa-star-o"></span>\n'
                 rating -= 1.0
-            html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings</div>\n'
-        html += '</div><!--/col-sm-4-->\n'
+            html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings\n</div>\n'
+        html += '</div><!--/col-sm-6-->\n'
         html += '</div><!--/row-->\n'
-        html += '<div class="row">\n'
-        html += '<div class="col-sm-8">\n'
+        return html
 
-
-    html += '<i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
-    ingredients = recipe['ingredients']
-    if 'section1' in ingredients:
-        section = 'section1'
-        count = 1
-        while section in ingredients:
-            html += render_ingredients(ingredients[section])
-            count = count + 1
-            section = 'section' + str(count)
-    else:
-        html += render_ingredients(ingredients)
-    html += '<i class="fa fa-tasks fa-fw" aria-hidden="true"></i> <strong>Instructions</strong>\n'
-    instructions = recipe.get('instructions')
-    if 'section1' in instructions:
-        section = 'section1'
-        count = 1
-        while section in instructions:
-            html += render_instructions(instructions[section], mode)
-            count = count + 1
-            section = 'section' + str(count)
-    else:
-        html += render_instructions(instructions, mode)
-    if 'notes' in recipe:
-        html += '<i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
-        html += '<p>' + recipe['notes'] + '</p>\n'
-
-    return html
 
 class RecipeManager(object):
     """ Recipe Manager
@@ -333,6 +305,23 @@ class RecipeManager(object):
         except (IOError, ValueError) as err:
             print('Load of recipe file failed:', err.message)
 
+    def build_navigation_list(self, category=None):
+        """ Build an accordian navigation list
+        """
+        html = '<div class="sidebar-module-inset">\n'
+        for category in ['Asian', 'Bread', 'Breakfast', 'Dessert', 'Italian', 'Latin', 'Mediterranean', 'Seafood', 'Vegetables']:
+            html += '<button class="accordion">{}</button>\n'.format(category)
+            html += '<div class="panel">\n'
+            for recipe_id in self.recipes:
+                recipe = self.recipes[recipe_id]
+                if category in recipe['category']:
+                    title = recipe['title']
+                    url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
+                    html += '  <a href="{}">{}</a><br>\n'.format(url, title)
+            html += '</div>\n'
+        html += '</div><!--/siderbar-module-inset-->\n'
+        return html
+
     def build_search_list(self, category=None):
         """ Build the quick find search list
         """
@@ -340,7 +329,54 @@ class RecipeManager(object):
         for recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
             if category is None or category in recipe['category']:
-                html += '<li><a href="/recipes?recipe=' + recipe['title'].replace(' ', '%20') + '">' + recipe['title'] + '</a></li>\n'
+                title = recipe['title']
+                url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
+                html += '<li><a href="{}">{}</a></li>\n'.format(url, title)
+        return html
+
+    def render_recipe(self, recipe, mode='read'):
+        """ Render a recipe as HTML
+        Args:
+            recipe: dictionary
+        Returns:
+            HTML
+        """
+
+        html = render_recipe_summary(recipe)
+        html += '<div class="row">\n'
+        html += '<div class="col-sm-8">\n'
+
+        html += '<i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
+        ingredients = recipe['ingredients']
+        if 'section1' in ingredients:
+            section = 'section1'
+            count = 1
+            while section in ingredients:
+                html += render_ingredients(ingredients[section])
+                count = count + 1
+                section = 'section' + str(count)
+        else:
+            html += render_ingredients(ingredients)
+        html += '<i class="fa fa-tasks fa-fw" aria-hidden="true"></i> <strong>Instructions</strong>\n'
+        instructions = recipe.get('instructions')
+        if 'section1' in instructions:
+            section = 'section1'
+            count = 1
+            while section in instructions:
+                html += render_instructions(instructions[section], mode)
+                count = count + 1
+                section = 'section' + str(count)
+        else:
+            html += render_instructions(instructions, mode)
+        if 'notes' in recipe:
+            html += '<i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
+            html += '<p>' + recipe['notes'] + '</p>\n'
+
+        html += '</div><!--/col-sm-8-->\n'
+        html += '<div class="col-sm-4">\n'
+        html += self.build_navigation_list()
+        html += '</div><!--/col-sm-4-->\n'
+        html += '</div><!--/row-->\n'
         return html
 
     def get_recipe(self, recipe_id):
@@ -384,7 +420,7 @@ class RecipeManager(object):
             recipe = self.get_recipe(recipe_id)
 
         if recipe is not None and 'error' not in recipe:
-            return render_recipe(recipe)
+            return self.render_recipe(recipe)
 
     def get_latest_recipe(self):
         """ Get HTML rendered latest recipe
