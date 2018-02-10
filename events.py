@@ -65,51 +65,58 @@ class EventManager(object):
             except (IOError) as err:
                 print('Open of events file failed:', err.message)
 
+    def flush_events(self):
+        """ Flush any unwritten events to the event file
+        """
+        if self.event_file:
+            self.event_file.flush()
+
     def log_event(self, event):
         """ Log an event
         Args:
             event: json dictionary
         """
         if self.event_file:
+            event['ts'] = get_timestamp()
             self.event_file.write(json.dumps(event) + '\n')
 
-    def status_event(self, event_type, uid, **kwargs):
-        """ Make and log a status event
-            event: {"uid": "me", "type": "recipe", "ts": 1472597386, "recipe": "Korean Meatballs"}
+    def web_event(self, action, uid, **kwargs):
+        """ Make and log a web event
+            event: {"uid": "SZO2HM6...", "type": "recipe", "ts": 1472597386, "recipe": "Korean Meatballs"}
         Args:
-            event_type: recipe, change
+            action: recipe, change
             uid: User account identifier
             kwargs: Additional parameters
         """
-        event = {'type': event_type, 'uid': uid, 'ts': get_timestamp()}
+        event = {'type': action, 'uid': uid}
         if kwargs is not None:
             for key, value in kwargs.iteritems():
                 event[key] = value
         self.log_event(event)
 
-    def error_event(self, event_type, uid, message, **kwargs):
+    def error_event(self, action, uid, message, **kwargs):
         """ Make and log an error event
-            event: {"uid": "me", "type": "login", "ts": 1472597386, "error": "Unable to validate"}
+            event: {"uid": "SZO2HM6...", "type": "login", "ts": 1472597386, "error": "Unable to validate"}
         Args:
-            event_type: recipe, change
+            action: login, change
             uid: User account identifier
             message: the error message
             kwargs: Additional parameters
         """
-        event = {'type': event_type, 'uid': uid, 'ts': get_timestamp(), 'error': message}
+        event = {'type': action, 'uid': uid, 'error': message}
         if kwargs is not None:
             for key, value in kwargs.iteritems():
                 event[key] = value
         self.log_event(event)
 
-    def action_event(self, action, account, **kwargs):
+    def action_event(self, action, uid, **kwargs):
         """ Make an action event
         Args:
             action: REST API method
-            account: User account name
+            uid: User account identifier
         Return:
             event: {"eid": "n6uQRCGv", "type": "file.upload", "ts": "1472597386.405150",
-                    "account": "mygroup", "account":"alan"}
+                    "account": "SZO2HM6...", "account":"alan"}
         """
         event = dict(type=action,
                      eid=event_nonce(),
@@ -124,13 +131,13 @@ class EventManager(object):
         """ Make a reply event
         Args:
             nonce: matching id reply is in reponse to
-            account: User account name
+            uid: User account identifier
             kwargs:
                 identifier: identity to send reply to
                 status: ok, read, ...
         Return:
             event: {"eid": "n6uQRCGv", "type": "reply", "ts": 1472597386,
-                    "account": "me", "status": "ok"}
+                    "SZO2HM6...": "me", "status": "ok"}
         """
         event = dict(type='reply',
                      eid=nonce,
