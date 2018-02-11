@@ -10,8 +10,8 @@ Implementation of user forms
 import re
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, HiddenField, PasswordField, StringField, SubmitField, FileField
-from wtforms import ValidationError, validators
-from wtforms.fields.html5 import EmailField
+from wtforms import ValidationError
+from wtforms.validators import Length, InputRequired, Email, EqualTo
 
 #import phonenumbers
 #https://github.com/daviddrysdale/python-phonenumbers
@@ -80,24 +80,24 @@ class LoginForm(FlaskForm):
     """ Login
     """
     email = StringField('Email', validators=[
-        validators.InputRequired(message="* Required"),
-        validators.Email(message="* Invalid")])
+        InputRequired(message="* Required"),
+        Email(message="* Invalid")])
     password = PasswordField('Password', validators=[
-        validators.InputRequired(message="* Required"),
-        validators.Length(8, 64)])
+        InputRequired(message="* Required"),
+        Length(8, 64)])
     remember = BooleanField('Keep me logged in')
     submit = SubmitField('Login')
 
 class InviteForm(FlaskForm):
     """ Invite a new user
     """
-    email = EmailField('Email', [
-        validators.InputRequired(message="* Required"),
-        validators.Email(message="* Invalid")])
+    email = StringField('Email', validators=[
+        InputRequired(message="* Required"),
+        Email(message="* Invalid")])
     phone = StringField('Phone', validators=[
-        validators.InputRequired(message="* Required"),
+        InputRequired(message="* Required"),
         PhoneNumberValidator()])
-    name = StringField('Name', [validators.Length(2, 64)])
+    name = StringField('Name', validators=[Length(2, 64)])
     submit = SubmitField('Invite')
 
 class ConfirmForm(FlaskForm):
@@ -107,8 +107,8 @@ class ConfirmForm(FlaskForm):
     email = HiddenField('Email')
     token = HiddenField('Token')
     code = StringField('Code', validators=[
-        validators.InputRequired(message="* Required"),
-        validators.Length(min=6, max=10)])
+        InputRequired(message="* Required"),
+        Length(min=6, max=10)])
     submit = SubmitField('Confirm Account')
 
 class VerifyForm(FlaskForm):
@@ -116,19 +116,19 @@ class VerifyForm(FlaskForm):
     """
     email = HiddenField('Email')
     token = StringField('Token', validators=[
-        validators.InputRequired(message="* Required"),
-        validators.Length(min=6, max=10)])
+        InputRequired(message="* Required"),
+        Length(min=6, max=10)])
     submit = SubmitField('Verify Code')
 
 class UploadForm(FlaskForm):
     """ Upload an artistic work
     """
     file = FileField('Filename')
-    name = StringField('Name', [validators.Length(2, 128)])
-    artform = StringField('Artform', [validators.Length(0, 128)])
-    created = StringField('Date', [validators.Length(6, 32)])
-    dimensions = StringField('Dimensions', [validators.Length(0, 64)])
-    tags = StringField('Tags', [validators.Length(0, 128)])
+    name = StringField('Name', validators=[Length(2, 128)])
+    artform = StringField('Artform', validators=[Length(0, 128)])
+    created = StringField('Date', validators=[Length(6, 32)])
+    dimensions = StringField('Dimensions', validators=[Length(0, 64)])
+    tags = StringField('Tags', validators=[Length(0, 128)])
     submit = SubmitField('Upload Image')
 
 class ResendForm(FlaskForm):
@@ -142,51 +142,55 @@ class ResendForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     """ Register a new account
     """
-    name = StringField('Name', [validators.Length(2, 64)])
-    email = EmailField('Email Address', [
-        validators.InputRequired(message="* Required"),
-        validators.Email(message="* Invalid")])
+    name = StringField('Name', validators=[Length(2, 64)])
+    email = StringField('Email Address', validators=[
+        InputRequired(message="* Required"),
+        Email(message="* Invalid")])
     phone = StringField('Phone', validators=[
-        validators.InputRequired(message="* Required"),
+        InputRequired(message="* Required"),
         PhoneNumberValidator()])
-    password = PasswordField('New password', [
-        validators.InputRequired(message="* Required"),
+    password = PasswordField('New password', validators=[
+        InputRequired(message="* Required"),
         PasswordValidator(),
-        validators.EqualTo('confirm', message='* Passwords must match')
+        EqualTo('confirm', message='* Passwords must match')
     ])
-    confirm = PasswordField('Confirm password', [validators.InputRequired(message="* Required")])
-    token = StringField('Token', [validators.InputRequired(message="* Required")])
-    confirm = PasswordField('Verify password', [validators.InputRequired(message="* Required")])
-    accept_tos = BooleanField('I accept the TOS', [validators.InputRequired()])
+    confirm = PasswordField('Confirm password', validators=[InputRequired(message="* Required")])
+    token = StringField('Token', validators=[InputRequired(message="* Required")])
+    accept_tos = BooleanField('I accept the TOS', validators=[InputRequired()])
 
 class ChangePasswordForm(FlaskForm):
     """ Change password
     """
     email = HiddenField('Email')
     password = PasswordField('New Password', validators=[
-        validators.InputRequired(message="* Required"),
+        InputRequired(message="* Required"),
         PasswordValidator(),
-        validators.EqualTo('confirm', message='* Passwords must match')
+        EqualTo('confirm', message='* Passwords must match')
     ])
-    confirm = PasswordField('Confirm password', [validators.InputRequired(message="* Required")])
+    confirm = PasswordField('Confirm password', validators=[InputRequired(message="* Required")])
     submit = SubmitField('Change Password')
 
-class PasswordResetRequestForm(FlaskForm):
+class ForgotPasswordForm(FlaskForm):
     """ Request a password reset
     """
-    email = EmailField('Email Address', [
-        validators.InputRequired(message="* Required"),
-        validators.Email(message="* Invalid")])
+    email = StringField('Email Address', validators=[
+        InputRequired(message="* Required"),
+        Email(message="* Invalid")])
     submit = SubmitField('Request Password Reset')
 
-class PasswordResetForm(FlaskForm):
+class ResetPasswordForm(FlaskForm):
     """ Reset a password with token
     """
-    token = StringField('Token', [validators.InputRequired(message="* Required")])
+    email = HiddenField('Email')
+    action = HiddenField('Action')
+    token = HiddenField('Token')
+    temppassword = PasswordField('Password', validators=[
+        InputRequired(message="* Required"),
+        Length(8, 64)])
     password = PasswordField('New Password', validators=[
-        validators.InputRequired(message="* Required"),
+        InputRequired(message="* Required"),
         PasswordValidator(),
-        validators.EqualTo('confirm', message='* Passwords must match')
+        EqualTo('confirm', message='* Passwords must match')
     ])
-    confirm = PasswordField('Confirm password', [validators.InputRequired(message="* Required")])
+    confirm = PasswordField('Confirm password', validators=[InputRequired(message="* Required")])
     submit = SubmitField('Reset Password')
