@@ -7,6 +7,7 @@
 <form id="change_form" class="form-signin" role="form" method="post" action="">
   <center>
   <h3 class="form-signin-heading">Change Password</h3>
+  <hr />
   {{ form.csrf_token }}
   {% from "_macros.html" import render_errors, render_messages %}
   {{ render_errors(form) }}
@@ -16,7 +17,11 @@
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(id="password", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="New password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  {{ form.password(id="password", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="Password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  </p>
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.newpassword(id="newpassword", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="New password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>

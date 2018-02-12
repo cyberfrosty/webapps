@@ -27,7 +27,7 @@ from flask_login import (LoginManager, current_user, login_required, login_user,
                          fresh_login_required)
 from decorators import async
 from forms import (LoginForm, RegistrationForm, ConfirmForm, ChangePasswordForm, InviteForm,
-                   VerifyForm, PasswordResetRequestForm, PasswordResetForm, ResendForm,
+                   VerifyForm, ForgotPasswordForm, ResetPasswordForm, ResendForm,
                    UploadForm)
 from crypto import derive_key
 from utils import (load_config, generate_timed_token, validate_timed_token, generate_user_id,
@@ -81,7 +81,7 @@ def send_email(recipient, subject, action, **kwargs):
     Args:
         recipient
         email subject line
-        template
+        action template
         arguments for templating
     """
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('./templates'))
@@ -374,11 +374,11 @@ def recipes():
 
     recipe = request.args.get('recipe')
     if recipe is not None:
-        EVENT_MANAGER.web_event('recipes', current_user.get_id(), **{"recipe": recipe})
+        EVENT_MANAGER.web_event('recipes', userid, **{"recipe": recipe})
         html = RECIPE_MANAGER.get_rendered_recipe(recipe)
         return render_template('recipes.html', search=RECIPE_LIST, recipe=html, title=recipe)
     else:
-        EVENT_MANAGER.web_event('recipes', current_user.get_id())
+        EVENT_MANAGER.web_event('recipes', userid)
         html = RECIPE_MANAGER.get_latest_recipe()
         return render_template('recipes.html', search=RECIPE_LIST, recipe=html)
 
@@ -520,6 +520,8 @@ def confirm():
     email = get_parameter(request, 'email')
     token = get_parameter(request, 'token')
     action = get_parameter(request, 'action')
+    if email is None or action is None or token is None:
+        abort(400, 'Missing action, token or user name')
     form = ConfirmForm()
     form.email.data = email
     form.token.data = token
@@ -543,10 +545,11 @@ def confirm():
             if locktime < 1800:
                 form.errors['Confirm'] = 'Your account is locked'
                 EVENT_MANAGER.error_event('confirm', userid, form.errors['Confirm'], **agent)
+                form.token.data = ''
                 return render_template('confirm.html', form=form)
             else:
-                failures = 0  # Locked time has expired, reset failure counter
-                session['failures'] = 0
+                failures = 0  # Locked time has expired, reset failure counter to allow one chance
+                session['failures'] = MAX_FAILURES
 
         validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], action)
         if validated and value == email:
@@ -561,25 +564,23 @@ def confirm():
                     errmsg = 'The confirmation code is invalid or has expired'
                     form.errors['Confirm'] = errmsg
                     EVENT_MANAGER.error_event('confirm', userid, errmsg, **agent)
+                    form.token.data = ''
                     if 'error' in session: # An error means no session entry exists
                         del session['error']
                         session['failures'] = 1
                         SESSIONS.put_item(session)
                     else:
-                        SESSIONS.update_item(userid, 'failures', failures + 1)
-            if action == 'invite':
-                # Update user account status
-                if account['status'][:7] == 'invited':
-                    status = 'confirmed: ' + str(time.mktime(datetime.utcnow().timetuple()))
-                    response = USERS.update_item(userid, 'status', status)
-                    flash('You have confirmed your account. Thanks!')
-                return redirect(url_for('login', email=email))
-            elif action == 'register':
-                # Update user account status
-                if account['status'][:7] == 'pending':
-                    status = 'confirmed: ' + str(time.mktime(datetime.utcnow().timetuple()))
-                    response = USERS.update_item(userid, 'status', status)
-                    flash('You have confirmed your account. Thanks!')
+                        SESSIONS.update_item('id', userid, 'failures', failures + 1)
+                elif counter != int(fields[1]):
+                    response = USERS.update_item('id', userid, 'otp', secret + ':' + str(counter))
+
+            # Update user account status
+            if ((action == 'invite' and account['status'][:7] == 'invited') or
+                    (action == 'register' and account['status'][:7] == 'pending')):
+                status = 'confirmed: ' + str(time.mktime(datetime.utcnow().timetuple()))
+                response = USERS.update_item('id', userid, 'status', status)
+                flash('You have confirmed your account. Thanks!')
+                EVENT_MANAGER.web_event('confirm', userid, **agent)
                 return redirect(url_for('login', email=email))
         else:
             session['failures'] = failures + 1
@@ -597,7 +598,8 @@ def confirm():
                     del session['error']
                     SESSIONS.put_item(session)
                 else:
-                    SESSIONS.update_item(userid, 'failures', failures + 1)
+                    SESSIONS.update_item('id', userid, 'failures', failures + 1)
+        form.token.data = ''
 
     return render_template('confirm.html', form=form)
 
@@ -620,6 +622,7 @@ def login():
             errmsg = 'Unable to validate your credentials'
             form.errors['Login'] = errmsg
             EVENT_MANAGER.error_event('login', email, errmsg, **agent)
+            form.password.data = ''
             return render_template('login.html', form=form)
         session = SESSIONS.get_item('id', userid)
         if 'error' in session:
@@ -633,15 +636,17 @@ def login():
             if locktime < 1800:
                 errmsg = 'Your account is locked'
                 form.errors['Login'] = errmsg
+                form.password.data = ''
                 EVENT_MANAGER.error_event('login', userid, errmsg, **agent)
                 return render_template('login.html', form=form)
             else:
-                failures = 0  # Locked time has expired, reset failure counter
-                session['failures'] = 0
+                failures = 0  # Locked time has expired, reset failure counter to allow one chance
+                session['failures'] = MAX_FAILURES
 
         # Check password
         mcf = derive_key(form.password.data.encode('utf-8'), account['mcf'])
         if mcf != account.get('mcf'):
+            failures += 1
             if 'error' in session: # An error means no session entry exists
                 del session['error']
                 session['failures'] = 1
@@ -653,9 +658,10 @@ def login():
                 SESSIONS.put_item(session)
                 errmsg = 'Your account has been locked'
             else:
-                SESSIONS.update_item(userid, 'failures', failures)
+                SESSIONS.update_item('id', userid, 'failures', failures)
                 errmsg = 'Unable to validate your credentials'
             form.errors['Login'] = errmsg
+            form.password.data = ''
             EVENT_MANAGER.error_event('login', userid, errmsg, **agent)
             return render_template('login.html', form=form)
 
@@ -679,7 +685,7 @@ def login():
             user.is_active = True
             login_user(user, remember=form.remember.data)
             print 'validated user'
-        elif authentication == 'password:totp':
+        elif authentication == 'password:sms':
             target = request.args.get('next')
             if target is None or not is_safe_url(target):
                 target = 'index'
@@ -717,7 +723,7 @@ def verify():
         if authentication == 'password:authy':
             #send_authy_token_request(user.authy_id)
             print 'Sent code'
-        elif authentication == 'password:totp':
+        elif authentication == 'password:sms':
             code = generate_totp_code(account['otp'])
             send_text(account['phone'], code + ' is your Frosty Web code')
 
@@ -729,7 +735,7 @@ def verify():
             if token == '123456':
                 verified = True
             #verified = verify_authy_token(user.authy_id, str(user_entered_code)).ok()
-        elif authentication == 'password:totp':
+        elif authentication == 'password:sms':
             secret = account.get('otp')
             verified = verify_totp_code(secret, token)
             return redirect(url_for('profile'))
@@ -770,7 +776,6 @@ def headlines():
     return render_template('profile.html', account=account)
 
 @APP.route("/change", methods=['GET', 'POST'])
-@fresh_login_required
 def change():
     """ Change user account password
     """
@@ -779,15 +784,27 @@ def change():
     form.email.data = email or current_user.get_email()
     if form.validate_on_submit():
         agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
-        mcf = derive_key(form.password.data.encode('utf-8'))
         userid = generate_user_id(CONFIG.get('user_id_hmac'), form.email.data)
-        response = USERS.update_item(userid, 'mcf', mcf)
-        if 'error' in response:
-            form.errors['Change'] = response['error']
-            EVENT_MANAGER.error_event('change', userid, response['error'], **agent)
+        account = USERS.get_item('id', userid)
+        old_mcf = account.get('mcf')
+        mcf = derive_key(form.password.data.encode('utf-8'), old_mcf)
+        if mcf != old_mcf:
+            errmsg = 'Unable to validate your credentials'
+            form.errors['Change'] = errmsg
+            form.password.data = ''
+            form.newpassword.data = ''
+            form.confirm.data = ''
+            EVENT_MANAGER.error_event('change', userid, errmsg, **agent)
         else:
-            EVENT_MANAGER.web_event('change', userid, **agent)
-            return redirect(url_for('profile'))
+            mcf = derive_key(form.newpassword.data.encode('utf-8'))
+            response = USERS.update_item('id', userid, 'mcf', mcf)
+            if 'error' in response:
+                form.errors['Change'] = response['error']
+                EVENT_MANAGER.error_event('change', userid, response['error'], **agent)
+            else:
+                flash('Your password has been changed')
+                EVENT_MANAGER.web_event('change', userid, **agent)
+                return redirect(url_for('profile'))
     return render_template('change.html', form=form)
 
 @APP.route("/resend", methods=['GET', 'POST'])
@@ -817,12 +834,14 @@ def resend():
             return redirect(url_for('register', email=email))
         token = generate_timed_token(email, APP.config['SECRET_KEY'], action)
         link = url_for(action, email=email, token=token, action=action, _external=True)
-        EVENT_MANAGER.web_event('resend', userid, **{"action": action})
+        EVENT_MANAGER.web_event('resend', userid, **agent)
+        name = account.get('name') or email
         if action == 'invite':
-            send_email(email, 'Resending Token', 'resend',
-                       email=email, token=token, link=link, name=account.get('name') or email)
-            flash('A new confirmation code has been sent to ' + form.email.data)
-            return redirect(url_for('confirm', email=form.email.data))
+            intro = 'You have requested a new {} token.'.format(action)
+            send_email(email, 'Resend Token', 'resend',
+                       name=name, intro=intro, token=token, link=link)
+            flash('A new confirmation code has been sent to ' + email)
+            return redirect(url_for('confirm', email=email))
         #elif form.action.data == 'verify':
     return render_template('resend.html', form=form)
 
@@ -860,14 +879,14 @@ def invite():
         USERS.put_item(info)
         action = 'invite'
         token = generate_timed_token(email, APP.config['SECRET_KEY'], action)
-        link = url_for('confirm', email=email, token=token, action=action, _external=True)
-        send_email(email, current_user.get_name() + ' has Invited you to Frosty Web',
-                   'invite', email=email, password=password, link=link,
-                   inviter=current_user.get_name(), name=name or email)
-        EVENT_MANAGER.web_event('invite', current_user.get_id(), **{"email": email})
-        # send SMS
         code = generate_hotp_code(secret, counter)
-        send_text(form.phone.data, code + ' is your Frosty Web code')
+        link = url_for('confirm', email=email, token=token, action=action, _external=True)
+        inviter = current_user.get_name()
+        intro = '{} has Invited you to become a member of the Frosty Web community.'.format(inviter)
+        send_email(email, 'Confirm Account', 'invite',
+                   name=name, intro=intro, link=link, password=password, code=code)
+        flash('{} has been invited'.format(name))
+        EVENT_MANAGER.web_event('invite', current_user.get_id(), **{"email": email})
         return redirect(url_for('profile'))
     return render_template('invite.html', form=form)
 
@@ -878,8 +897,9 @@ def forgot():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     email = request.args.get('email')
-    form = PasswordResetRequestForm()
-    form.email.data = email
+    form = ForgotPasswordForm()
+    if email:
+        form.email.data = email
     if form.validate_on_submit():
         agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
         agent['email'] = email
@@ -892,25 +912,31 @@ def forgot():
             EVENT_MANAGER.error_event('forgot', userid, 'Unregistered email', **agent)
         else:
             password = generate_random58_id(12)
-            account['reset_mcf'] = preset_password(email, password)
-            token = generate_timed_token(email, APP.config['SECRET_KEY'], 'reset')
-            if account['authentication'] == 'password:hotp':
-                fields = account['otp'].split(':')
-                secret = fields[0]
-                counter = int(fields[1]) + 1
-                code = generate_hotp_code(secret, counter)
-                response = USERS.update_item(userid, 'otp', secret + ':' + str(counter))
-                send_text(account['phone'], code + ' is your Frosty Web code')
-            elif account['authentication'] == 'password:totp':
-                secret = account['otp']
-                code = generate_totp_code(secret)
-                send_text(account['phone'], code + ' is your Frosty Web code')
+            reset_mcf = preset_password(email, password)
+            response = USERS.update_item('id', userid, 'reset_mcf', reset_mcf)
+            if 'error' in response:
+                form.errors['Reset'] = 'Unable to validate your credentials'
+                EVENT_MANAGER.error_event('forgot', userid, response['error'], **agent)
+            else:
+                token = generate_timed_token(email, APP.config['SECRET_KEY'], 'reset')
+                if account['authentication'] == 'password:sms':
+                    fields = account['otp'].split(':')
+                    secret = fields[0]
+                    counter = int(fields[1]) + 1
+                    code = generate_hotp_code(secret, counter)
+                    response = USERS.update_item('id', userid, 'otp', secret + ':' + str(counter))
+                    send_text(account['phone'], code + ' is your Frosty Web code')
+                elif account['authentication'] == 'password:authy':
+                    secret = account['otp']
+                    code = generate_totp_code(secret)
+                    send_text(account['phone'], code + ' is your Frosty Web code')
 
-            link = url_for('reset', email=email, token=token, action='reset', _external=True)
-            send_email(email, 'Reset Password', 'reset',
-                       email=email, password=password, link=link, name=account.get('name') or email)
-            EVENT_MANAGER.web_event('forgot', userid, **agent)
-            return redirect(url_for('reset', email=email, action='reset'))
+                link = url_for('reset', email=email, token=token, action='reset', _external=True)
+                intro = 'You have requested a password reset.'
+                send_email(email, 'Reset Password', 'reset',
+                           name=account.get('name'), intro=intro, link=link, password=password)
+                EVENT_MANAGER.web_event('forgot', userid, **agent)
+                return redirect(url_for('reset', email=email, token=token, action='reset'))
     return render_template('forgot.html', form=form)
 
 @APP.route("/reset", methods=['GET', 'POST'])
@@ -919,11 +945,15 @@ def reset():
     """
     if current_user.is_authenticated:
         return redirect(url_for('index'))
-    email = request.args.get('email')
-    action = request.args.get('action')
-    if email is None or action is None:
-        abort(400, 'Missing user name, token or action')
-    form = PasswordResetForm()
+    email = get_parameter(request, 'email')
+    token = get_parameter(request, 'token')
+    action = get_parameter(request, 'action')
+    if email is None or action is None or token is None:
+        abort(400, 'Missing action, token or user namen')
+    form = ResetPasswordForm()
+    form.email.data = email
+    form.token.data = token
+    form.action.data = action
     if form.validate_on_submit():
         # Login and validate the user.
         agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
@@ -952,11 +982,13 @@ def reset():
             if locktime < 1800:
                 form.errors['Reset'] = 'Your account is locked'
                 EVENT_MANAGER.error_event('reset', userid, form.errors['Reset'], **agent)
+                form.password.data = ''
+                form.token.data = ''
                 #delay
                 return render_template('reset.html', form=form)
             else:
-                failures = 0  # Locked time has expired, reset failure counter
-                session['failures'] = 0
+                failures = 0  # Locked time has expired, reset failure counter to allow one chance
+                session['failures'] = MAX_FAILURES
 
         # Validate reset code, then password
         token = form.token.data
@@ -975,9 +1007,11 @@ def reset():
                     SESSIONS.put_item(session)
                     form.errors['Reset'] = 'Your account has been locked'
                 else:
-                    SESSIONS.update_item(userid, 'failures', failures)
+                    SESSIONS.update_item('id', userid, 'failures', failures)
                     form.errors['Reset'] = 'Unable to validate your credentials'
                 EVENT_MANAGER.error_event('reset', userid, form.errors['Reset'], **agent)
+                form.password.data = ''
+                form.token.data = ''
                 #delay
                 return render_template('reset.html', form=form)
 
@@ -1003,9 +1037,12 @@ def reset():
             login_user(user, remember=form.remember.data)
             return redirect(url_for('change'))
         else:
-            SESSIONS.update_item(userid, 'failures', failures + 1)
+            print 'invalid token'
+            SESSIONS.update_item('id', userid, 'failures', failures + 1)
             form.errors['Reset'] = 'Unable to validate your credentials'
             EVENT_MANAGER.error_event('reset', userid, form.errors['Reset'], **agent)
+            form.password.data = ''
+            form.token.data = ''
             #delay
     return render_template('reset.html', form=form)
 
@@ -1029,41 +1066,55 @@ def register():
         agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
         email = form.email.data
         token = form.token.data
+        name = form.name.data
         userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         account = USERS.get_item('id', userid)
         if 'error' not in account:
             form.errors['Register'] = email + ' is already in use'
             EVENT_MANAGER.error_event('register', userid, form.errors['Register'], **agent)
+            form.password.data = ''
+            form.confirm.data = ''
+            form.token.data = ''
             return render_template('register.html', form=form)
         validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], 'register')
         if validated and value == email:
             print 'registering new user'
         else:
             form.errors['Register'] = 'Invalid or expired token'
+            form.password.data = ''
+            form.confirm.data = ''
+            form.token.data = ''
             EVENT_MANAGER.error_event('register', userid, form.errors['Register'], **agent)
             return render_template('register.html', form=form)
         # Create json for new user
+        secret = generate_otp_secret()
+        counter = generate_random_int()
         info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), email),
                 'email': email,
                 'authentication': 'password',
-                'mcf': derive_key(form.password.data),
+                'mcf': derive_key(form.password.data.encode('utf-8')),
+                'otp': secret + ':' + str(counter),
                 'status': 'pending: ' + str(time.mktime(datetime.utcnow().timetuple()))
                }
-        user = User(email, form.name.data)
+        user = User(email, name)
         user.is_authenticated = False
         user.is_active = False
         USERS.put_item(info)
-        token = generate_timed_token(email, APP.config['SECRET_KEY'], 'register')
-        send_email(email, 'Confirm Your Account',
-                   'register', email=email, token=token, name=account.get('name') or email)
+        token = generate_timed_token(email, APP.config['SECRET_KEY'], 'confirm')
+        code = generate_hotp_code(secret, counter)
+        link = url_for('confirm', email=email, token=token, action='register', _external=True)
+        intro = 'You have registered for a new account and need to confirm that it was really you.'
+        send_email(email, 'Confirm Account', 'confirm',
+                   name=name, intro=intro, link=link, code=code)
         flash('A confirmation email has been sent to ' + form.email.data)
-        EVENT_MANAGER.web_event('register', userid)
-        return redirect(url_for('confirm', email=email))
+        EVENT_MANAGER.web_event('register', userid, **agent)
+        return redirect(url_for('confirm', email=email, token=token, action='register'))
     return render_template('register.html', form=form)
 
 def handle_sigterm(signum, frame):
     """ Catch SIGTERM and SIGINT and stop the server by raising an exception
     """
+    print signum, frame
     raise SystemExit('Killed')
 
 def main():

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017 Alan Frost, All rights reserved.
+Copyright (c) 2017-2018 Alan Frost, All rights reserved.
 
 Implementation of user forms
 
@@ -40,17 +40,17 @@ class PasswordValidator(object):
     """
     def __init__(self, message=None):
         if not message:
-            message = u'* Invalid user name'
+            message = u'* Invalid password'
         self.message = message
 
     def __call__(self, form, field):
         length = field.data and len(field.data) or 0
         if length < 8 or length > 64:
             raise ValidationError(self.message)
-        elif re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]){8,}', field.data):
+        elif re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', field.data):
             pass
         else:
-            raise ValidationError(self.message)
+            raise ValidationError('Password must contain at least 8 characters, including UPPER/lowercase and numbers')
 
 class PhoneNumberValidator(object):
     """ Phone number validator
@@ -151,7 +151,6 @@ class RegistrationForm(FlaskForm):
         PhoneNumberValidator()])
     password = PasswordField('New password', validators=[
         InputRequired(message="* Required"),
-        PasswordValidator(),
         EqualTo('confirm', message='* Passwords must match')
     ])
     confirm = PasswordField('Confirm password', validators=[InputRequired(message="* Required")])
@@ -162,9 +161,11 @@ class ChangePasswordForm(FlaskForm):
     """ Change password
     """
     email = HiddenField('Email')
-    password = PasswordField('New Password', validators=[
+    password = PasswordField('Password', validators=[
         InputRequired(message="* Required"),
-        PasswordValidator(),
+        Length(8, 64)])
+    newpassword = PasswordField('New Password', validators=[
+        InputRequired(message="* Required"),
         EqualTo('confirm', message='* Passwords must match')
     ])
     confirm = PasswordField('Confirm password', validators=[InputRequired(message="* Required")])
@@ -189,7 +190,6 @@ class ResetPasswordForm(FlaskForm):
         Length(8, 64)])
     password = PasswordField('New Password', validators=[
         InputRequired(message="* Required"),
-        PasswordValidator(),
         EqualTo('confirm', message='* Passwords must match')
     ])
     confirm = PasswordField('Confirm password', validators=[InputRequired(message="* Required")])

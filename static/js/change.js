@@ -3,27 +3,28 @@
  *
  * @author Alan Frost
  *
- * Copyright (c) 2017 Alan Frost
+ * Copyright (c) 2017-2018 Alan Frost
  */
 
   document.addEventListener("DOMContentLoaded", function() {
     var checkForm = function(e)
     {
-      if(this.password.value != "" && this.password.value == this.confirm.value) {
-        if(!checkPassword(this.password.value)) {
+      if(this.newpassword.value != "" && this.newpassword.value == this.confirm.value) {
+        if(!checkPassword(this.newpassword.value)) {
           alert("The password you have entered is not valid.");
-          this.password.focus();
+          this.newpassword.focus();
           e.preventDefault();
           return;
         }
       } else {
         alert("Error: Please check that you've entered and confirmed your password.");
-        this.password.focus();
+        this.newpassword.focus();
         e.preventDefault();
         return;
       }
       this.password.value = hashPassword(this.email.value, this.password.value);
-      this.confirm.value = this.password.value;
+      this.newpassword.value = hashPassword(this.email.value, this.newpassword.value);
+      this.confirm.value = this.newpassword.value;
       return;
     };
 
@@ -40,13 +41,13 @@
 
     if(supports_input_validity()) {
       var passwordInput = document.getElementById("password");
-      passwordInput.setCustomValidity(passwordInput.title);
-
+      var newpasswordInput = document.getElementById("newpassword");
       var confirmInput = document.getElementById("confirm");
+      newpasswordInput.setCustomValidity(newpasswordInput.title);
 
       // input key handlers
-      passwordInput.addEventListener("keyup", function(e) {
-        this.setCustomValidity(this.validity.patternMismatch ? passwordInput.title : "");
+      newpasswordInput.addEventListener("keyup", function(e) {
+        this.setCustomValidity(this.validity.patternMismatch ? newpasswordInput.title : "");
         if(this.checkValidity()) {
           confirmInput.pattern = RegExp.escape(this.value);
           confirmInput.setCustomValidity(confirmInput.title);
@@ -58,6 +59,10 @@
 
       confirmInput.addEventListener("keyup", function(e) {
         this.setCustomValidity(this.validity.patternMismatch ? confirmInput.title : "");
+      }, false);
+
+      passwordInput.addEventListener("keyup", function(e) {
+        this.setCustomValidity(this.validity.patternMismatch ? passwordInput.title : "");
       }, false);
 
     }
