@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017 Alan Frost. All rights reserved.
+Copyright (c) 2017-2018 Alan Frost. All rights reserved.
 
 Manage.py methods for initialization, starting and stopping servers
 """

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017 Alan Frost, Inc. All rights reserved.
+Copyright (c) 2017-2018 Alan Frost, Inc. All rights reserved.
 
 Utility methods
 """
@@ -216,7 +216,7 @@ def check_password(password):
     Args:
         password
     """
-    return re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]){8,}', password)
+    return re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', password)
 
 def preset_password(username, password):
     """ Preset password for a new user or password reset. HMAC is used to protect the actual
@@ -772,6 +772,8 @@ def main():
         print 'password check failed for abcDEfgh'
     if check_password('abCd3fgh'):
         print 'password check passed for abCd3fgh'
+    if check_password('Madman12'):
+        print 'password check passed for Madman12'
 
 if __name__ == '__main__':
     main()
