@@ -775,7 +775,7 @@
     "section1": {
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
-      "item2": {"quantity": "1/2 cup", "ingredient": "white flour"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
       "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
@@ -1244,7 +1244,7 @@
     "section1": {
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
-      "item2": {"quantity": "1/2 cup", "ingredient": "white flour"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
       "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
@@ -1301,7 +1301,7 @@
     "section1": {
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
-      "item2": {"quantity": "1/2 cup", "ingredient": "white flour"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
       "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
@@ -1372,27 +1372,25 @@
     "section1": {
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
-      "item2": {"quantity": "1/2 cup", "ingredient": "white flour"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
       "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
       "title":"Veggies",
-      "item1": {"quantity": "1", "ingredient": "green bell pepper, julienne or diced"},
-      "item2": {"quantity": "1", "ingredient": "red bell pepper, julienne or diced"},
-      "item3": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced"},
-      "item4": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
-      "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item6": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
-      "item7": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
-      "item8": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item1": {"quantity": "1", "ingredient": "large red bell pepper, julienne or diced"},
+      "item2": {"quantity": "1", "ingredient": "large jalepeno pepper, julienne or diced"},
+      "item3": {"quantity": "1/4 cup", "ingredient": "onion, finely chopped"},
+      "item4": {"quantity": "4", "ingredient": "green onions, diced (2 tbsp)"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
+      "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section3": {
       "title":"Sauce",
-      "item1": {"quantity": "1/2 cup", "ingredient": "chicken stock"},
-      "item2": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
-      "item3": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
-      "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Sriracha"}
+      "item1": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Sriracha"}
     },
     "section4": {
       "title":"Garnish",
@@ -1402,14 +1400,14 @@
   },
   "instructions": {
     "step1": "Combine sauce ingredients in measuring cup and mix",
-    "step2": "Prepare veggies and place into wok",
+    "step2": "Add oil and layer veggies starting with onions, peppers ginger and garlic with in a wok",
     "step3": "Add oil to large non-stick skillet and preheat over medium heat",
     "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
     "step5": "Place chicken into skillet and turn up heat to medium-high",
     "step6": "Turn heat to medium for veggies, stirring occasionally and kept covered",
     "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
     "step8": "Add sauce mixture to veggies and bring to low boil",
-    "step9": "Add chicken to mixture, stir to coat evenly, turn off heat, leave covered for a few minutes",
+    "step9": "Add chicken to wok and stir to coat evenly",
     "step10": "Serve over rice, garnish with sesame seeds and green onions"
   }
 },
