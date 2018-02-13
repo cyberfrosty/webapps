@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container form-filler">
 <form id="verify_form" class="form-signin" role="form" method="POST" action="">
   <center>
-  <h3 class="form-signin-heading">Verify Token</h3>
+  <h3 class="form-signin-heading">Verify Code</h3>
   {{ form.csrf_token }}
   {% from "_macros.html" import render_errors, render_messages %}
   {{ render_errors(form) }}
@@ -16,13 +16,14 @@
   </p>
   <p>
   <i class="fa fa-ticket fa-fw"></i>
-  {{ form.token(id="token", placeholder="Token") }}
+  {{ form.token(id="token", placeholder="Code") }}
   </p>
+  <p />
   <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Verify</button>
-  <a href="{{ url_for('resend', email=form.email.value, action='verify') }}" class="btn btn-primary" role="button"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;Resend Code</a>
+  <a href="{{ url_for('resend', email=form.email.data, action='verify') }}" class="btn btn-primary" role="button"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;Request New Code</a>
+  <p />
+  <p>Enter the 6 digit code from the authenticator, received via email, SMS or push notification.</p>
   </center>
-  <br />
-  <p>Enter the 6 digit token you received via email, SMS or push notification.</p>
 </form>
 </div>
 

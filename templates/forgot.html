@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container form-filler">
 <form id="forgot_form" class="form-signin" role="form" method="post" action="">
   <center>
   <h3 class="form-signin-heading">Request Password Reset</h3>
@@ -11,21 +11,12 @@
   {{ render_errors(form) }}
   {{ render_messages() }}
   <p>
-  <i class="fa fa-user-o fa-fw"></i>
-  {{ form.email(placeholder="email") }}
-    <span class="error">
-      {% if form.email.errors %}
-        {% for error in form.email.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
-  </p>
-  <p>
+  <i class="fa fa-user fa-fw"></i>
+  {{ form.email(id="email", placeholder="Email") }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Request Password Reset</button>
   </center>
-  <br /><br />
+  <p />
 </form>
 </div>
 

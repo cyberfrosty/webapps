@@ -2,8 +2,10 @@
 
 {% block content %}
 
-<h2>User Profile</h2>
+<h3>User Profile</h3>
 <hr />
+{% from "_macros.html" import render_messages %}
+{{ render_messages() }}
 <table>
 {% for key, value in account.iteritems() %}
   <tr>

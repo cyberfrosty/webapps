@@ -2,26 +2,25 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container form-filler">
 <form id="resend_form" class="form-signin" role="form" method="post" action="">
   <center>
-  <h3 class="form-signin-heading">Resend Code</h3>
+  <h3 class="form-signin-heading">Request New Code</h3>
   {{ form.csrf_token }}
   {% from "_macros.html" import render_errors, render_messages %}
   {{ render_errors(form) }}
   {{ render_messages() }}
   <p>
-  {{ form.email(id="email") }}
   <i class="fa fa-envelope-o fa-fw"></i>
   {{ form.email(id="email", placeholder="Email") }}
   </p>
   <p>or</p>
   <p>
   <i class="fa fa-phone fa-fw"></i>
-  {{ form.phone(id="phone", placeholder="Phone") }}
+  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes") }}
   </p>
-  <p>
-  <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Resend Code</button>
+  <p />
+  <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Send Code</button>
   </center>
 </form>
 </div>

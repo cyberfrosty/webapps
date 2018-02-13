@@ -4,7 +4,7 @@
 
 <script src="{{url_for('static', filename='js/login.js')}}" type="text/javascript"></script>
 
-<div class="container">
+<div class="container form-filler">
 <form id="login_form" class="form-signin" role="form" method="POST" action="">
   <center>
   <h3 class="form-signin-heading">Log In</h3>
@@ -26,9 +26,9 @@
   </div>
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Login</button>
-  <br/><br/>
-  <p><a href="/register">Need to Sign up?</a></p>
-  <p><a href="/forgot">Forgot your password?</a></p>
+  <p />
+  <p><a href="/register">Need to Register?</a></p>
+  <p><a href="/forgot">Forgot Password?</a></p>
   <input type=hidden value="{{ next or '' }}" name=next>
   </center>
 </form>

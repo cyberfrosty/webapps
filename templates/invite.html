@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container form-filler">
 <form id="invite_form" class="form-signin" role="form" method="post" action="">
   <center>
   <h3 class="form-signin-heading">Invite User</h3>
@@ -16,16 +16,16 @@
   </p>
   <p>
   <i class="fa fa-phone fa-fw"></i>
-  {{ form.phone(id="phone", placeholder="Phone") }}
+  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes") }}
   </p>
   <p>
   <i class="fa fa-user-o fa-fw"></i>
   {{ form.name(id="name", placeholder="Name", title="Name must be at least 2 characters and may not contain any special characters." ) }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-user" aria-hidden="true"></i>&nbspInvite</button>
-  </center>
-  <br />
+  <p />
   <p>An invitation email and one time code will be sent to the invited user.</p>
+  </center>
 </form>
 </div>
 

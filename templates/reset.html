@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<div class="container">
+<script src="{{url_for('static', filename='js/reset.js')}}" type="text/javascript"></script>
+
+<div class="container form-filler">
 <form id="reset_form" class="form-signin" role="form" method="post" action="">
   <center>
   <h3 class="form-signin-heading">Reset Password</h3>
@@ -10,19 +12,26 @@
   {% from "_macros.html" import render_errors, render_messages %}
   {{ render_errors(form) }}
   {{ render_messages() }}
+  {{ form.action(id="action") }}
+  {{ form.email(id="email") }}
+  {{ form.token(id="token") }}
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(id="password", placeholder="Temporary Password") }}
+  {{ form.temppassword(id="temppassword", placeholder="Temporary Password") }}
   </p>
   <p>
-  <i class="fa fa-ticket fa-fw"></i>
-  {{ form.token(id="token", placeholder="Token") }}
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.password(id="password", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="New password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
   </p>
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.confirm(id="confirm", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="Confirm password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  </p>
+  <p />
   <button class="btn btn-primary" type="submit"><i class="fa fa-retweet" aria-hidden="true"></i>&nbsp;&nbsp;Reset Password</button>
-  <br /><br />
-  </center>
-  <br />
+  <p />
   <p>Request a password reset.</p>
+  </center>
 </form>
 </div>
 

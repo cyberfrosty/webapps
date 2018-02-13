@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container form-filler">
 <form id="upload_form" class="form-signin" role="form" method="post" action="" enctype=multipart/form-data>
   <center>
   <h3 class="form-signin-heading">Upload Image</h3>
@@ -35,7 +35,10 @@
   <i class="fa fa-tags fa-fw"></i>
   {{ form.tags(id="tags", placeholder="tags") }}
   </p>
-    <button class="btn btn-primary" type="submit"><i class="fa fa-upload fa-fw" aria-hidden="true"></i>&nbsp;Upload</button>
+  <p />
+  <button class="btn btn-primary" type="submit"><i class="fa fa-upload fa-fw" aria-hidden="true"></i>&nbsp;Upload</button>
+  <p />
+  <p>Select a JPG, PNG or GIF file containing the visual artwork along with the medium, date, dimensions and any searchable tags.</p>
   </center>
 </form>
 </div>
