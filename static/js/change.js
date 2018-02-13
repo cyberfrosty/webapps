@@ -17,7 +17,7 @@
           return;
         }
       } else {
-        alert("Error: Please check that you've entered and confirmed your password.");
+        alert("The new and confirmed passwords do not match.");
         this.newpassword.focus();
         e.preventDefault();
         return;

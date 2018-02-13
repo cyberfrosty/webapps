@@ -45,6 +45,11 @@ function checkPassword(password) {
   return re.test(password);
 };
 
+function checkName(name) {
+  var re = /^([a-zA-Z ]){2,32}$/;
+  return re.test(name);
+}
+
 function checkUsername(username) {
   var re = /^([a-zA-Z0-9_-]){4,32}$/;
   return re.test(username);
@@ -53,6 +58,25 @@ function checkUsername(username) {
 function checkEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
+}
+
+/**
+ * Check a phone number to see if it is probably ok by stripping spaces, dashes and parens then
+ * checking US numbers for 10 digits and requiring a country code for all others.
+ *
+ * @param {string} CSV phone number
+ */
+function checkPhone(phone) {
+  phone = phone.replace(/[ \-\(\)]/g, '');
+  var re = /^(\d{10})$/;
+  if(phone.startsWith('+')) {
+    if(phone.startsWith('+1')) {
+      re = /^\+(\d{11})$/;
+    } else {
+      re = /^\+(\d{8,24})$/;
+    }
+  }
+  return re.test(phone);
 }
 
 /**

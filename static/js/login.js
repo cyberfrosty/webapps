@@ -17,7 +17,7 @@
           return;
         }
       } else {
-        alert("Error: Please check that you've entered your password.");
+        alert("A password is required.");
         this.password.focus();
         e.preventDefault();
         return;
@@ -26,25 +26,8 @@
       return;
     };
 
-    var change_form = document.getElementById("login_form");
-    change_form.addEventListener("submit", checkForm, true);
-
-    // HTML5 form validation
-
-    var supports_input_validity = function()
-    {
-      var i = document.createElement("input");
-      return "setCustomValidity" in i;
-    }
-
-    if(supports_input_validity()) {
-      var passwordInput = document.getElementById("password");
-      passwordInput.setCustomValidity(passwordInput.title);
-
-      // input key handlers
-      passwordInput.addEventListener("keyup", function(e) {
-        this.setCustomValidity(this.validity.patternMismatch ? passwordInput.title : "");
-      }, false);
-    }
+    var form = document.getElementById("login_form");
+    form.addEventListener("submit", checkForm, true);
+    document.getElementById("password").value = "";
 
   }, false);

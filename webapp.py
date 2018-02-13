@@ -599,6 +599,7 @@ def confirm():
                     SESSIONS.put_item(session)
                 else:
                     SESSIONS.update_item('id', userid, 'failures', failures + 1)
+                return redirect(url_for('resend', email=email, action=action))
         form.token.data = ''
 
     return render_template('confirm.html', form=form)
@@ -883,7 +884,7 @@ def invite():
         link = url_for('confirm', email=email, token=token, action=action, _external=True)
         inviter = current_user.get_name()
         intro = '{} has Invited you to become a member of the Frosty Web community.'.format(inviter)
-        send_email(email, 'Confirm Account', 'invite',
+        send_email(email, 'Accept Invitation', 'invite',
                    name=name, intro=intro, link=link, password=password, code=code)
         flash('{} has been invited'.format(name))
         EVENT_MANAGER.web_event('invite', current_user.get_id(), **{"email": email})
@@ -1065,6 +1066,7 @@ def register():
     if request.method == 'POST' and form.validate_on_submit():
         agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
         email = form.email.data
+        phone = form.phone.data
         token = form.token.data
         name = form.name.data
         userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
@@ -1085,12 +1087,14 @@ def register():
             form.confirm.data = ''
             form.token.data = ''
             EVENT_MANAGER.error_event('register', userid, form.errors['Register'], **agent)
-            return render_template('register.html', form=form)
+            return redirect(url_for('resend', email=email, action='register'))
         # Create json for new user
         secret = generate_otp_secret()
         counter = generate_random_int()
         info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), email),
                 'email': email,
+                'phone': phone,
+                'name': name,
                 'authentication': 'password',
                 'mcf': derive_key(form.password.data.encode('utf-8')),
                 'otp': secret + ':' + str(counter),
@@ -1108,7 +1112,6 @@ def register():
                    name=name, intro=intro, link=link, code=code)
         flash('A confirmation email has been sent to ' + form.email.data)
         EVENT_MANAGER.web_event('register', userid, **agent)
-        return redirect(url_for('confirm', email=email, token=token, action='register'))
     return render_template('register.html', form=form)
 
 def handle_sigterm(signum, frame):
