@@ -57,7 +57,7 @@
         {% if current_user.is_authenticated %}
           <li><a class="nav-link" href="{{url_for('messages')}}"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> Messages</a></li>
           <li><a class="nav-link" href="{{url_for('vault')}}"><i class="fa fa-lock fa-fw" aria-hidden="true"></i> Vault</a></li>
-          <li><a class="nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {{ current_user.get_name() }}</a></li>
+          <li><a class="nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {{ current_user.get_user() }}</a></li>
           <li><a class="nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Logout</a></li>
         {% else %}
           <li><a class="nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Register</a></li>
@@ -82,7 +82,7 @@
         
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
-          <li><a class="nav-item nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {{ current_user.get_name() }}</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('profile') }}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {{ current_user.get_user() }}</a></li>
           <li><a class="nav-item nav-link" href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Logout</a></li>
         {% else %}
           <li><a class="nav-item nav-link" href="{{url_for('register')}}"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Register</a></li>

@@ -5,7 +5,7 @@
 <div class="container form-filler">
 <form id="confirm_form" class="form-signin" role="form" method="post" action="">
   <center>
-  <h3 class="form-signin-heading">Confirm</h3>
+  <h3 class="form-signin-heading">{{ title or 'Confirm' }}</h3>
   {{ form.csrf_token }}
   {% from "_macros.html" import render_errors, render_messages %}
   {{ render_errors(form) }}
@@ -17,11 +17,10 @@
   <i class="fa fa-ticket fa-fw"></i>
   {{ form.code(id="code", placeholder="123456") }}
   </p>
-  <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Confirm</button>
+  <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;{{ title or 'Confirm' }}</button>
   <a href="/resend?action={{ form.action.data }}&email={{ form.email.data }}" class="btn btn-primary" role="button"><i class="fa fa-lock fa-fw"></i>&nbsp;Resend Code</a>
   <p />
   <p>Enter the 6 digit code you received via email, SMS or push notification.</p>
-  <input type=hidden value="{{ token or '' }}" name=token>
   </center>
 </form>
 </div>

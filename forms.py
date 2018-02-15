@@ -97,8 +97,31 @@ class InviteForm(FlaskForm):
     phone = StringField('Phone', validators=[
         InputRequired(message="* Required"),
         PhoneNumberValidator()])
-    name = StringField('Name', validators=[Length(2, 64)])
+    user = StringField('Name', validators=[Length(2, 64)])
     submit = SubmitField('Invite')
+
+class AcceptForm(FlaskForm):
+    """ Accept invitation with token
+    """
+    action = HiddenField('Action')
+    email = HiddenField('Email')
+    token = HiddenField('Token')
+    user = StringField('Name', validators=[Length(2, 64)])
+    phone = StringField('Phone', validators=[
+        InputRequired(message="* Required"),
+        PhoneNumberValidator()])
+    password = PasswordField('Password', validators=[
+        InputRequired(message="* Required"),
+        Length(8, 64)])
+    newpassword = PasswordField('New Password', validators=[
+        InputRequired(message="* Required"),
+        EqualTo('confirm', message='* Passwords must match')
+    ])
+    code = StringField('Code', validators=[
+        InputRequired(message="* Required"),
+        Length(min=6, max=10)])
+    confirm = PasswordField('Confirm password', validators=[InputRequired(message="* Required")])
+    submit = SubmitField('Accept Invitation')
 
 class ConfirmForm(FlaskForm):
     """ Confirm account with token
@@ -124,7 +147,7 @@ class UploadForm(FlaskForm):
     """ Upload an artistic work
     """
     file = FileField('Filename')
-    name = StringField('Name', validators=[Length(2, 128)])
+    title = StringField('Title', validators=[Length(2, 128)])
     artform = StringField('Artform', validators=[Length(0, 128)])
     created = StringField('Date', validators=[Length(6, 32)])
     dimensions = StringField('Dimensions', validators=[Length(0, 64)])
@@ -142,7 +165,7 @@ class ResendForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     """ Register a new account
     """
-    name = StringField('Name', validators=[Length(2, 64)])
+    user = StringField('Name', validators=[Length(2, 64)])
     email = StringField('Email Address', validators=[
         InputRequired(message="* Required"),
         Email(message="* Invalid")])
