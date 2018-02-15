@@ -28,7 +28,7 @@ class UserNameValidator(object):
         length = field.data and len(field.data) or 0
         if length == 0:
             pass
-        elif length < 4 or length > 64:
+        elif length < 2 or length > 32:
             raise ValidationError(self.message)
         elif re.match(r'^[A-Za-z][A-Za-z0-9\._-]*$', field.data):
             pass
@@ -97,7 +97,7 @@ class InviteForm(FlaskForm):
     phone = StringField('Phone', validators=[
         InputRequired(message="* Required"),
         PhoneNumberValidator()])
-    user = StringField('Name', validators=[Length(2, 64)])
+    user = StringField('Name', validators=[Length(2, 32)])
     submit = SubmitField('Invite')
 
 class AcceptForm(FlaskForm):
@@ -106,7 +106,7 @@ class AcceptForm(FlaskForm):
     action = HiddenField('Action')
     email = HiddenField('Email')
     token = HiddenField('Token')
-    user = StringField('Name', validators=[Length(2, 64)])
+    user = StringField('Name', validators=[Length(2, 32)])
     phone = StringField('Phone', validators=[
         InputRequired(message="* Required"),
         PhoneNumberValidator()])

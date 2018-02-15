@@ -178,16 +178,22 @@ def load_user(userid):
     if 'error' in session:
         account = USERS.get_item('id', userid)
         if 'error' not in account:
-            print 'Loaded user: {} {}'.format(account.get('email'), account.get('user'))
-            user = User(account.get('email'), account.get('user'))
+            name = session.get('user')
+            if isinstance(name, unicode):
+                name = name.encode('utf-8')
+            print 'Loaded user: {} {}'.format(account.get('email'), name)
+            user = User(account.get('email'), name)
         else:
             print 'Anonymous user'
             user = User('anonymous@unknown.com', 'Anonymous')
             user.is_authenticated = False
             user.is_active = False
     else:
-        print 'Loaded session: {} {}'.format(session.get('email'), session.get('user'))
-        user = User(session.get('email'), session.get('user'))
+        name = session.get('user')
+        if isinstance(name, unicode):
+            name = name.encode('utf-8')
+        print 'Loaded session: {} {}'.format(session.get('email'), name)
+        user = User(session.get('email'), name)
         user.is_authenticated = session.get('failures', 0) < MAX_FAILURES
         user.is_active = True
     return user

@@ -14,7 +14,7 @@
   {{ render_messages() }}
   <p>
   <i class="fa fa-user-o fa-fw"></i>
-  {{ form.user(id="user", placeholder="Name", title="Name must be at least 2 characters and may not contain any special characters." ) }}
+  {{ form.user(id="user", placeholder="Name", title="Name must be between 2 and 32 characters with no symbols", pattern="^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$") }}
   </p>
   <p>
   <i class="fa fa-envelope-o fa-fw"></i>

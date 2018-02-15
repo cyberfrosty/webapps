@@ -46,8 +46,15 @@ function checkPassword(password) {
 };
 
 function checkName(name) {
-  var re = /^([a-zA-Z ]){2,32}$/;
-  return re.test(name);
+  if(name.length < 2 || name.length > 32) {
+    return false;
+  }
+  else {
+    const temp = document.createElement('div');
+    temp.innerHTML = name;
+    console.log(temp.innerText);
+    return temp.innerText == name;
+  }
 }
 
 function checkUsername(username) {

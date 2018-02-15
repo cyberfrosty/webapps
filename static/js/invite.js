@@ -30,16 +30,16 @@
         e.preventDefault();
         return;
       }
-      if(this.name.value != "") {
-        if(!checkName(this.name.value)) {
-          alert("Names must be 4-32 characters in length with no numbers or special characters.");
-          this.name.focus();
+      if(this.user.value != "") {
+        if(!checkName(this.user.value)) {
+          alert("Names must be 2-32 characters in length with no symbols.");
+          this.user.focus();
           e.preventDefault();
           return;
         }
       } else {
         alert("A valid name is required.");
-        this.name.focus();
+        this.user.focus();
         e.preventDefault();
         return;
       }
