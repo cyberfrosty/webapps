@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="{{url_for('static', filename='js/accept.js')}}" type="text/javascript"></script>
+
+<div class="container form-filler">
+<form id="change_form" class="form-signin" role="form" method="post" action="">
+  <center>
+  <h3 class="form-signin-heading">Accept Invitation</h3>
+  {{ form.csrf_token }}
+  {% from "_macros.html" import render_errors, render_messages %}
+  {{ render_errors(form) }}
+  {{ render_messages() }}
+  {{ form.action(id="action") }}
+  {{ form.email(id="email") }}
+  {{ form.token(id="token") }}
+  <p>
+  <i class="fa fa-user-o fa-fw"></i>
+  {{ form.user(id="user", placeholder="Name", title="Displayed user name must be between 2 and 32 characters with no symbols.", pattern="^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$") }}
+  </p>
+  <p>
+  <i class="fa fa-phone fa-fw"></i>
+  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes.") }}
+  </p>
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.password(id="password", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="Password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  </p>
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.newpassword(id="newpassword", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="New password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  </p>
+  <p>
+  <i class="fa fa-key fa-fw"></i>
+  {{ form.confirm(id="confirm", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="Confirm password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  </p>
+  <p>
+  <i class="fa fa-ticket fa-fw"></i>
+  {{ form.code(id="code", placeholder="123456", pattern="[0-9]{,6}") }}
+  </p>
+    <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Accept Invitation</button>
+  <p>Enter the 6 digit code you received via email, SMS or push notification.</p>
+  </center>
+</form>
+</div>
+
+{% endblock %}

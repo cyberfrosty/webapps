@@ -1,5 +1,5 @@
 /**
- * User registration form validation code
+ * Accept invitation code
  *
  * @author Alan Frost
  *
@@ -17,13 +17,6 @@
           return;
         }
       }
-      if(this.email.value != "") {
-      if(!checkEmail(this.email.value)) {
-        alert("Error: The email address you have entered is not valid.");
-        this.email.focus();
-        e.preventDefault();
-        return;
-      }
       if(this.user.value != "") {
         if(!checkName(this.user.value)) {
           alert("Names must be 2-32 characters in length with no symbols.");
@@ -32,33 +25,32 @@
           return;
         }
       } else {
-        alert("A valid name is required.");
+        alert("A valid user is required.");
         this.user.focus();
         e.preventDefault();
         return;
       }
-      if(this.password.value != "" && this.password.value == this.confirm.value) {
-        if(!checkPassword(this.password.value)) {
+      if(this.newpassword.value != "" && this.newpassword.value == this.confirm.value) {
+        if(!checkPassword(this.newpassword.value)) {
           alert("The password you have entered is not valid.");
-          this.password.focus();
+          this.newpassword.focus();
           e.preventDefault();
           return;
         }
       } else {
-        alert("Error: Please check that you've entered and confirmed your password.");
-        this.password.focus();
+        alert("The new and confirmed passwords do not match.");
+        this.newpassword.focus();
         e.preventDefault();
         return;
       }
       this.password.value = hashPassword(this.email.value, this.password.value);
-      this.confirm.value = this.password.value;
+      this.newpassword.value = hashPassword(this.email.value, this.newpassword.value);
+      this.confirm.value = this.newpassword.value;
       return;
     };
 
-    var form = document.getElementById("register_form");
-    form.addEventListener("submit", checkForm, true);
-    document.getElementById("password").value = "";
-    document.getElementById("confirm").value = "";
+    var change_form = document.getElementById("change_form");
+    change_form.addEventListener("submit", checkForm, true);
 
     // HTML5 form validation
 
@@ -69,22 +61,14 @@
     }
 
     if(supports_input_validity()) {
-      var emailInput = document.getElementById("email");
-      emailInput.setCustomValidity(emailInput.title);
-
       var passwordInput = document.getElementById("password");
-      passwordInput.setCustomValidity(passwordInput.title);
-
+      var newpasswordInput = document.getElementById("newpassword");
       var confirmInput = document.getElementById("confirm");
+      newpasswordInput.setCustomValidity(newpasswordInput.title);
 
       // input key handlers
-
-      emailInput.addEventListener("keyup", function(e) {
-        emailInput.setCustomValidity(this.validity.patternMismatch ? emailInput.title : "");
-      }, false);
-
-      passwordInput.addEventListener("keyup", function(e) {
-        this.setCustomValidity(this.validity.patternMismatch ? passwordInput.title : "");
+      newpasswordInput.addEventListener("keyup", function(e) {
+        this.setCustomValidity(this.validity.patternMismatch ? newpasswordInput.title : "");
         if(this.checkValidity()) {
           confirmInput.pattern = RegExp.escape(this.value);
           confirmInput.setCustomValidity(confirmInput.title);
@@ -98,10 +82,10 @@
         this.setCustomValidity(this.validity.patternMismatch ? confirmInput.title : "");
       }, false);
 
-      var tokenInput = document.getElementById("token");
-      tokenInput.addEventListener("keyup", function(e) {
-        this.setCustomValidity(this.validity.patternMismatch ? tokenInput.title : "");
+      passwordInput.addEventListener("keyup", function(e) {
+        this.setCustomValidity(this.validity.patternMismatch ? passwordInput.title : "");
       }, false);
+
     }
 
   }, false);

@@ -213,27 +213,36 @@ def base58decode_check(source):
     return result
 
 def check_password(password):
-    """ Simple check for password of at least 8 characters with a lower, upper and digit
+    """ Simple password validator for at least 8 characters with a lower, upper and digit
     Args:
         password
     """
     return re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', password)
 
 def check_name(name):
-    """ Simple check to exclude control characters, symbols and non-space separators
+    """ Display name validator, unicode except for control, symbols and non-space separator
     Args:
         name
     """
-    if isinstance(name, unicode):
-        name = name.encode('utf-8')
-    return regex.match(r'^([\p{L}\p{M}\p{N}\p{P}\p{Z}]){2,32}$', name)
+    exclude_set = ('<', '>', '(', ')', '"', '%', '#', '&', '*', '?', '\\', '/')
+    if name[:2] == '\u':
+        name = name.decode('unicode-escape')
+    if regex.match(ur'^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$', name):
+        if isinstance(name, unicode):
+            name = name.encode('utf-8')
+        for chr in name:
+            if chr in exclude_set:
+                return False
+        return True
+    else:
+        return False
 
 def check_username(name):
-    """ Simple check to exclude control characters, symbols and separators
+    """ User name validator, unicode except for control, punctuation, separator or symbols
     Args:
         name
     """
-    return re.match(r'^([\p{L}\p{M}\p{N}\p{P}]){2,32}$', name)
+    return regex.match(r'^([\p{L}\p{Nd}]){2,32}$', name)
 
 def preset_password(username, password):
     """ Preset password for a new user or password reset. HMAC is used to protect the actual
@@ -793,8 +802,8 @@ def main():
         print 'password check passed for Madman12'
 
     for name in ['Hello World', 'John', '\u004a\u006f\u0073\u00e9', "D'Addario", 'John-Doe', 'P.A.M.',
-                 '\u5b8b\u8f1d\u93dc' "' --", '<xss>', '\"', '<script>Bad One</script>',
-                 '\u6843\u4e95\u306f\u308b\u3053', 'Henry Jr. 8th']:
+                 '\u5b8b\u8f1d\u93dc' "' --", '<xss>', '\"', '<script>Bad One</script>', 'Joe?',
+                 '\u6843\u4e95\u306f\u308b\u3053', 'Henry Jr. 8th', '<SQL>', 'Me&You']:
         if not check_name(name):
             print '{} is not a valid name'.format(name)
 if __name__ == '__main__':

@@ -20,7 +20,7 @@ from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect
 import jinja2
 
-from botocore.exceptions import EndpointConnectionError
+from botocore.exceptions import EndpointConnectionError, ClientError
 from flask import (Flask, make_response, request, render_template, redirect, jsonify,
                    abort, flash, url_for)
 from flask_login import (LoginManager, current_user, login_required, login_user, logout_user,
@@ -92,7 +92,10 @@ def send_email(recipient, subject, action, **kwargs):
     html = template.render(title=subject, **kwargs)
 
     with APP.app_context():
-        SES.send_email(recipient, subject, html, text)
+        try:
+            SES.send_email(recipient, subject, html, text)
+        except ClientError as err:
+            print(err.response['Error']['Message'])
 
 @async
 def send_text(phone, msg):
@@ -102,7 +105,10 @@ def send_text(phone, msg):
         message: text
     """
     #with APP.app_context():
-    #    SNS.send_sms(phone, msg)
+    #    try:
+    #        SNS.send_sms(phone, msg)
+    #    except ClientError as err:
+    #        print(err.response['Error']['Message'])
     print msg
 
 class User(object):
@@ -178,10 +184,8 @@ def load_user(userid):
     if 'error' in session:
         account = USERS.get_item('id', userid)
         if 'error' not in account:
-            name = session.get('user')
-            if isinstance(name, unicode):
-                name = name.encode('utf-8')
-            print 'Loaded user: {} {}'.format(account.get('email'), name)
+            name = account.get('user')
+            print 'Loaded user: {}'.format(account.get('email'))
             user = User(account.get('email'), name)
         else:
             print 'Anonymous user'
@@ -190,9 +194,7 @@ def load_user(userid):
             user.is_active = False
     else:
         name = session.get('user')
-        if isinstance(name, unicode):
-            name = name.encode('utf-8')
-        print 'Loaded session: {} {}'.format(session.get('email'), name)
+        print 'Loaded session: {}'.format(session.get('email'))
         user = User(session.get('email'), name)
         user.is_authenticated = session.get('failures', 0) < MAX_FAILURES
         user.is_active = True
@@ -675,7 +677,8 @@ def accept():
                     SESSIONS.put_item(session)
                 else:
                     SESSIONS.update_item('id', userid, 'logins', agent)
-                user = User(email, account.get('user'))
+                username = account.get('user')
+                user = User(email, username)
                 user.is_authenticated = True
                 user.is_active = True
                 login_user(user, remember=False)
@@ -861,7 +864,10 @@ def login():
         if 'error' in session: # An error means no session entry exists
             del session['error']
         SESSIONS.put_item(session)
-        user = User(email, account.get('user'))
+        username = account.get('user')
+      
+        username = account.get('user')
+        user = User(email, username)
         authentication = account['authentication']
         if authentication == 'password':
             user.is_authenticated = True
@@ -1078,7 +1084,8 @@ def invite():
         code = generate_hotp_code(secret, counter)
         link = url_for('accept', email=email, token=token, action=action, _external=True)
         inviter = current_user.get_user()
-        intro = '{} has Invited you to become a member of the Frosty Web community.'.format(inviter)
+        print inviter
+        intro = u'{} has Invited you to become a member of the Frosty Web community.'.format(inviter)
         send_email(email, 'Accept Invitation', 'invite',
                    user=user, intro=intro, link=link, password=password, code=code)
         flash('{} has been invited'.format(user))
@@ -1224,7 +1231,8 @@ def reset():
             if 'error' in session: # An error means no session entry exists
                 del session['error']
             SESSIONS.put_item(session)
-            user = User(email, account.get('user'))
+            username = account.get('user')
+            user = User(email, username)
             user.is_authenticated = True
             user.is_active = True
             login_user(user, remember=form.remember.data)

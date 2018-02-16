@@ -14,7 +14,7 @@
   {{ render_messages() }}
   <p>
   <i class="fa fa-user-o fa-fw"></i>
-  {{ form.user(id="user", placeholder="Name", title="Name must be between 2 and 32 characters with no symbols", pattern="^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$") }}
+  {{ form.user(id="user", placeholder="Name", title="Displayed user name must be between 2 and 32 characters with no symbols.", pattern="^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$") }}
   </p>
   <p>
   <i class="fa fa-envelope-o fa-fw"></i>
@@ -22,7 +22,7 @@
   </p>
   <p>
   <i class="fa fa-phone fa-fw"></i>
-  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes") }}
+  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes.") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
@@ -34,12 +34,16 @@
   </p>
   <p>
   <i class="fa fa-ticket fa-fw"></i>
-  {{ form.token(id="token", placeholder="Token") }}
+  {{ form.token(id="token", placeholder="Token", title="Token that your administrator provided to you.", pattern="^[a-zA-Z0-9]$") }}
+  </p>
+  <p>
+  <div class="checkbox">
+    <label><input type="checkbox" name="accept"> Accept the <a href="{{url_for('privacy')}}">Privacy Policy and End User Agreement.</a></label>
+  </div>
   </p>
   <p />
   <button class="btn btn-primary" type="submit"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Register</button>
   <p />
-  <p>By registering, I agree to the <a href="{{url_for('privacy')}}">Privacy Policy and End User Agreement.</a>
   <p>Already have an account? <a class="btn btn-primary btn-xs" href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a></p>
   </center>
 </form>

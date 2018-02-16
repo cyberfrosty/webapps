@@ -1,5 +1,5 @@
 /**
- * User registration form validation code
+ * User account confirmation form validation code
  *
  * @author Alan Frost
  *
@@ -9,31 +9,9 @@
   document.addEventListener("DOMContentLoaded", function() {
     var checkForm = function(e)
     {
-      if(this.phone.value != "") {
-        if(!checkPhone(this.phone.value)) {
-          alert("US phone numbers must be 10 digits and all others must include +country code.");
-          this.phone.focus();
-          e.preventDefault();
-          return;
-        }
-      }
-      if(this.email.value != "") {
       if(!checkEmail(this.email.value)) {
         alert("Error: The email address you have entered is not valid.");
         this.email.focus();
-        e.preventDefault();
-        return;
-      }
-      if(this.user.value != "") {
-        if(!checkName(this.user.value)) {
-          alert("Names must be 2-32 characters in length with no symbols.");
-          this.user.focus();
-          e.preventDefault();
-          return;
-        }
-      } else {
-        alert("A valid name is required.");
-        this.user.focus();
         e.preventDefault();
         return;
       }
@@ -55,7 +33,7 @@
       return;
     };
 
-    var form = document.getElementById("register_form");
+    var form = document.getElementById("confirm_form");
     form.addEventListener("submit", checkForm, true);
     document.getElementById("password").value = "";
     document.getElementById("confirm").value = "";
@@ -98,10 +76,6 @@
         this.setCustomValidity(this.validity.patternMismatch ? confirmInput.title : "");
       }, false);
 
-      var tokenInput = document.getElementById("token");
-      tokenInput.addEventListener("keyup", function(e) {
-        this.setCustomValidity(this.validity.patternMismatch ? tokenInput.title : "");
-      }, false);
     }
 
   }, false);
