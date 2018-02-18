@@ -18,6 +18,61 @@ $("body").on("shown.bs.modal", "#search", function (event) {
   $("input:visible:enabled:first", this).focus();
 });
 
+// Add an event listener function to an element for a list of events
+function addEventListeners(element, eventList, listener) {
+  for(event of eventList) {
+    element.addEventListener(event, listener, false);
+  }
+}
+
+// Add HTML5 form validation event listeners
+function addHTML5FormValidation(form) {
+  var supports_input_validity = function() {
+    var i = document.createElement("input");
+    return "setCustomValidity" in i;
+  }
+  if(supports_input_validity()) {
+    // Add event listeners and validation to all input fields
+    const eventList = ["change", "keyup", "paste", "input"];
+    const inputList = document.querySelectorAll('input, select');
+    for(let input of inputList) {
+      // When invalid event fires add an error class for css highlight
+      input.addEventListener('invalid', (event) => {
+        input.classList.add('error');
+      }, false);
+
+      // Check validity on blur
+      input.addEventListener('blur', (event) => {
+        input.checkValidity();
+      })
+    
+      // Input event handlers to remove error and check validity on events
+      // Password confirm is handled differently to enforce match
+      if(input.name === 'password') {
+        const confirmInput = document.getElementById("confirm");
+        addEventListeners(input, eventList, function(e) {
+          input.classList.remove('error');
+          input.setCustomValidity(input.validity.patternMismatch ? input.title : "");
+          if(input.checkValidity()) {
+            confirmInput.pattern = RegExp.escape(input.value);
+            confirmInput.setCustomValidity(confirmInput.title);
+          } else { // Set the password confirm pattern to be the new password to ensure they match
+            confirmInput.pattern = input.pattern;
+            confirmInput.setCustomValidity("");
+          }
+        });
+      } else {
+        addEventListeners(input, eventList, function(e) {
+          input.classList.remove('error');
+          input.setCustomValidity(input.validity.patternMismatch ? input.title : "");
+        });
+      }
+    }
+  } else {
+    const form = document.getElementById(form);
+    form.addEventListener("submit", checkForm, true);
+  }
+}
 
 // Initialize search list
 function searchInit() {

@@ -15,13 +15,13 @@
   {{ form.token(id="token") }}
   <p>
   <i class="fa fa-ticket fa-fw"></i>
-  {{ form.code(id="code", placeholder="123456", pattern="[0-9]{,6}") }}
+  {{ form.code(id="code", placeholder="123456", pattern="[0-9]{,6}", required=True) }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;{{ title or 'Confirm' }}</button>
   <a href="/resend?action={{ form.action.data }}&email={{ form.email.data }}" class="btn btn-primary" role="button"><i class="fa fa-lock fa-fw"></i>&nbsp;Resend Code</a>
-  <p />
-  <p>Enter the 6 digit code you received via email, SMS or push notification.</p>
   </center>
+  <hr />
+  <p class="form-info">Enter the 6 digit code you received via email, SMS or push notification.</p>
 </form>
 </div>
 

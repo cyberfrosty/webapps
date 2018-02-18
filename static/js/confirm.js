@@ -38,44 +38,6 @@
     document.getElementById("password").value = "";
     document.getElementById("confirm").value = "";
 
-    // HTML5 form validation
-
-    var supports_input_validity = function()
-    {
-      var i = document.createElement("input");
-      return "setCustomValidity" in i;
-    }
-
-    if(supports_input_validity()) {
-      var emailInput = document.getElementById("email");
-      emailInput.setCustomValidity(emailInput.title);
-
-      var passwordInput = document.getElementById("password");
-      passwordInput.setCustomValidity(passwordInput.title);
-
-      var confirmInput = document.getElementById("confirm");
-
-      // input key handlers
-
-      emailInput.addEventListener("keyup", function(e) {
-        emailInput.setCustomValidity(this.validity.patternMismatch ? emailInput.title : "");
-      }, false);
-
-      passwordInput.addEventListener("keyup", function(e) {
-        this.setCustomValidity(this.validity.patternMismatch ? passwordInput.title : "");
-        if(this.checkValidity()) {
-          confirmInput.pattern = RegExp.escape(this.value);
-          confirmInput.setCustomValidity(confirmInput.title);
-        } else {
-          confirmInput.pattern = this.pattern;
-          confirmInput.setCustomValidity("");
-        }
-      }, false);
-
-      confirmInput.addEventListener("keyup", function(e) {
-        this.setCustomValidity(this.validity.patternMismatch ? confirmInput.title : "");
-      }, false);
-
-    }
+    addHTML5FormValidation('confirm_form')
 
   }, false);

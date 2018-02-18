@@ -134,6 +134,7 @@ class AcceptForm(FlaskForm):
     code = StringField('Code', validators=[
         InputRequired(),
         Length(min=6, max=10)])
+    accept = BooleanField('I accept the TOS', validators=[InputRequired()])
     confirm = PasswordField('Confirm password', validators=[InputRequired()])
     submit = SubmitField('Accept Invitation')
 
@@ -152,7 +153,7 @@ class VerifyForm(FlaskForm):
     """ Verify 2FA code
     """
     email = HiddenField('Email')
-    token = StringField('Token', validators=[
+    code = StringField('Code', validators=[
         InputRequired(),
         Length(min=6, max=10)])
     submit = SubmitField('Verify Code')

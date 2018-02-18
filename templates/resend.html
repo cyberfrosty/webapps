@@ -12,12 +12,12 @@
   {{ render_messages() }}
   <p>
   <i class="fa fa-envelope-o fa-fw"></i>
-  {{ form.email(id="email", placeholder="Email") }}
+  {{ form.email(id="email", placeholder="Email", title="Email address", type="email", required=True) }}
   </p>
   <p>or</p>
   <p>
   <i class="fa fa-phone fa-fw"></i>
-  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes") }}
+  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes.", type="tel") }}
   </p>
   <p />
   <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Send Code</button>

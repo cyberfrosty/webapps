@@ -16,15 +16,15 @@
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.password(id="password", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="Password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  {{ form.oldpassword(id="oldpassword", title="Current password must be entered.", placeholder="Password", pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", required=True) }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.newpassword(id="newpassword", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="New password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  {{ form.password(id="password", title="Password must have at least 8 characters, with UPPER/lowercase and number or special.", placeholder="Password", pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", required=True) }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.confirm(id="confirm", title="Password must contain at least 8 characters, including UPPER/lowercase and numbers.", placeholder="Confirm password", pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}") }}
+  {{ form.confirm(id="confirm", title="Please confirm your new password.", placeholder="Confirm password", pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", required=True) }}
   </p>
     <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</button>
   </center>

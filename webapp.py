@@ -8,6 +8,8 @@ Implementation of Web server using Flask framework
 
 """
 
+from __future__ import print_function
+
 import logging
 import signal
 import socket
@@ -109,7 +111,7 @@ def send_text(phone, msg):
     #        SNS.send_sms(phone, msg)
     #    except ClientError as err:
     #        print(err.response['Error']['Message'])
-    print msg
+    print(msg)
 
 class User(object):
     """ Class for the current user
@@ -185,16 +187,16 @@ def load_user(userid):
         account = USERS.get_item('id', userid)
         if 'error' not in account:
             name = account.get('user')
-            print 'Loaded user: {}'.format(account.get('email'))
+            print('Loaded user: {}'.format(account.get('email')))
             user = User(account.get('email'), name)
         else:
-            print 'Anonymous user'
+            print('Anonymous user')
             user = User('anonymous@unknown.com', 'Anonymous')
             user.is_authenticated = False
             user.is_active = False
     else:
         name = session.get('user')
-        print 'Loaded session: {}'.format(session.get('email'))
+        print('Loaded session: {}'.format(session.get('email')))
         user = User(session.get('email'), name)
         user.is_authenticated = session.get('failures', 0) < MAX_FAILURES
         user.is_active = True
@@ -314,9 +316,10 @@ def check_account_lock(session):
         if 'locked_at' in session:
             locktime = int(time.mktime(datetime.utcnow().timetuple())) - session['locked_at']
             if locktime > LOCK_TIME:
-                failures = MAX_FAILURES  # Locked time has expired, reset failure counter to allow one chance
+                failures = MAX_FAILURES  # Locked time expired, reset failure counter for one chance
         else:
-            SESSIONS.update_item('id', session.get('id'), 'locked_at', int(time.mktime(datetime.utcnow().timetuple())))
+            SESSIONS.update_item('id', session.get('id'),
+                                 'locked_at', int(time.mktime(datetime.utcnow().timetuple())))
     return failures
 
 @APP.errorhandler(400)
@@ -462,7 +465,7 @@ def upload():
         content_type = request.headers.get('Content-Type')
         if not (content_type and content_type.startswith('multipart/form-data')):
             abort(400, 'Missing or unsupported content type for upload')
-        print request.files['file']
+        print(request.files['file'])
         # Handle multipart form encoded data
         if request.method == 'POST':
             content = request.files['file']
@@ -485,7 +488,7 @@ def upload():
                     'dimensions': form.dimensions.data,
                     'path': path,
                     'tags': tags}
-        print json.dumps(metadata)
+        print(json.dumps(metadata))
         aws3 = S3()
         response = aws3.upload_data(content, account['bucket'], path)
         if 'error' in response:
@@ -630,11 +633,11 @@ def accept():
         validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], action)
         if validated and value == email:
             old_mcf = account.get('mcf')
-            mcf = derive_key(form.password.data.encode('utf-8'), old_mcf)
+            mcf = derive_key(form.oldpassword.data.encode('utf-8'), old_mcf)
             if mcf != old_mcf:
                 errmsg = 'Unable to validate your credentials'
             else:
-                mcf = derive_key(form.newpassword.data.encode('utf-8'))
+                mcf = derive_key(form.password.data.encode('utf-8'))
                 response = USERS.update_item('id', userid, 'mcf', mcf)
 
             if not errmsg and 'otp' in account:
@@ -661,13 +664,13 @@ def accept():
                 if user != account.get('user'):
                     response = USERS.update_item('id', userid, 'user', user)
                     if 'error' in response:
-                        print response['error']
+                        print(response['error'])
                 if phone != account.get('phone'):
                     response = USERS.update_item('id', userid, 'phone', phone)
                 created = 'confirmed: ' + datetime.utcnow().strftime('%Y-%m-%d')
                 response = USERS.update_item('id', userid, 'created', created)
                 if 'error' in response:
-                    print response['error']
+                    print(response['error'])
 
                 # Login user (they've entered password, code and changed password)
                 agent['at'] = datetime.today().ctime()
@@ -691,8 +694,8 @@ def accept():
             errmsg = failed_account_attempt(session, failures, failmsg)
 
         if errmsg:
+            form.oldpassword.data = ''
             form.password.data = ''
-            form.newpassword.data = ''
             form.confirm.data = ''
             form.errors['Accept'] = [errmsg]
             EVENT_MANAGER.error_event('accept', userid, errmsg, **agent)
@@ -865,15 +868,13 @@ def login():
             del session['error']
         SESSIONS.put_item(session)
         username = account.get('user')
-      
-        username = account.get('user')
         user = User(email, username)
         authentication = account['authentication']
         if authentication == 'password':
             user.is_authenticated = True
             user.is_active = True
             login_user(user, remember=form.remember.data)
-            print 'validated user'
+            print('validated user')
         elif authentication == 'password:sms':
             target = request.args.get('next')
             if target is None or not is_safe_url(target):
@@ -907,27 +908,27 @@ def verify():
         return redirect(url_for('register', email=current_user.get_email()))
     authentication = account['authentication']
 
-    # Send a token to our user when they GET this page
+    # Send a code to our user when they GET this page
     if request.method == 'GET':
         if authentication == 'password:authy':
             #send_authy_token_request(user.authy_id)
-            print 'Sent code'
+            print('Sent code')
         elif authentication == 'password:sms':
             code = generate_totp_code(account['otp'])
             send_text(account['phone'], code + ' is your Frosty Web code')
 
     # POST - validate form data
     elif form.validate_on_submit():
-        token = form.token.data
+        code = form.code.data
         verified = False
 
         if authentication == 'password:authy':
-            if token == '123456':
+            if code == '123456':
                 verified = True
             #verified = verify_authy_token(user.authy_id, str(user_entered_code)).ok()
         elif authentication == 'password:sms':
             secret = account.get('otp')
-            verified = verify_totp_code(secret, token)
+            verified = verify_totp_code(secret, code)
             return redirect(url_for('profile'))
 
         if verified:
@@ -981,16 +982,16 @@ def change():
         userid = generate_user_id(CONFIG.get('user_id_hmac'), form.email.data)
         account = USERS.get_item('id', userid)
         old_mcf = account.get('mcf')
-        mcf = derive_key(form.password.data.encode('utf-8'), old_mcf)
+        mcf = derive_key(form.oldpassword.data.encode('utf-8'), old_mcf)
         if mcf != old_mcf:
             errmsg = 'Unable to validate your credentials'
             form.errors['Change'] = [errmsg]
+            form.oldpassword.data = ''
             form.password.data = ''
-            form.newpassword.data = ''
             form.confirm.data = ''
             EVENT_MANAGER.error_event('change', userid, errmsg, **agent)
         else:
-            mcf = derive_key(form.newpassword.data.encode('utf-8'))
+            mcf = derive_key(form.password.data.encode('utf-8'))
             response = USERS.update_item('id', userid, 'mcf', mcf)
             if 'error' in response:
                 form.errors['Change'] = [response['error']]
@@ -1084,8 +1085,8 @@ def invite():
         code = generate_hotp_code(secret, counter)
         link = url_for('accept', email=email, token=token, action=action, _external=True)
         inviter = current_user.get_user()
-        print inviter
-        intro = u'{} has Invited you to become a member of the Frosty Web community.'.format(inviter)
+        print(inviter)
+        intro = u'{} has Invited you to join the Frosty Web community.'.format(inviter)
         send_email(email, 'Accept Invitation', 'invite',
                    user=user, intro=intro, link=link, password=password, code=code)
         flash('{} has been invited'.format(user))
@@ -1111,7 +1112,7 @@ def forgot():
         agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
         email = form.email.data
         agent['email'] = email
-        print 'requesting password reset'
+        print('requesting password reset')
         userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
@@ -1225,7 +1226,7 @@ def reset():
             del account['reset_mcf']
             USERS.put_item(account)
 
-            print 'validated user'
+            print('validated user')
             agent['at'] = datetime.today().ctime()
             session['logins'] = agent
             if 'error' in session: # An error means no session entry exists
@@ -1286,7 +1287,7 @@ def register():
             return render_template('register.html', form=form)
         validated, value = validate_timed_token(token, APP.config['SECRET_KEY'], 'register')
         if validated and value == email:
-            print 'registering new user'
+            print('registering new user')
         else:
             errmsg = 'Invalid or expired token'
             form.errors['Register'] = [errmsg]
@@ -1324,7 +1325,8 @@ def register():
 def handle_sigterm(signum, frame):
     """ Catch SIGTERM and SIGINT and stop the server by raising an exception
     """
-    print signum, frame
+    if frame:
+        print(signum)
     raise SystemExit('Killed')
 
 def main():
@@ -1339,7 +1341,7 @@ def main():
         signal.signal(signal.SIGINT, handle_sigterm)
         signal.signal(signal.SIGTERM, handle_sigterm)
 
-        print 'Web server starting: %s:%d' % (host_ip, 8080)
+        print('Web server starting: %s:%d' % (host_ip, 8080))
         EVENT_MANAGER.log_event({'type': 'server.start', 'ip': host_ip})
         APP.run(debug=False, host='0.0.0.0', port=8080, threaded=True)
     except (KeyboardInterrupt, SystemExit):
@@ -1352,7 +1354,7 @@ def main():
         reason = str(err)
     EVENT_MANAGER.log_event({'type': 'server.stop', 'exit': reason})
     EVENT_MANAGER.flush_events()
-    print reason
+    print(reason)
 
 if __name__ == '__main__':
     LOGGER.setLevel(logging.ERROR)
@@ -1360,5 +1362,5 @@ if __name__ == '__main__':
     formatter = logging.Formatter('%(asctime)s %(levelname)s cyberfrosty:%(funcName)s %(message)s')
     file_handler.setFormatter(formatter)
     LOGGER.addHandler(file_handler)
-    #print USERS.load_table('users.json')
+    #print(USERS.load_table('users.json'))
     main()

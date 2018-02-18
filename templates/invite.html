@@ -14,20 +14,20 @@
   {{ render_messages() }}
   <p>
   <i class="fa fa-envelope-o fa-fw"></i>
-  {{ form.email(id="email", placeholder="Email") }}
+  {{ form.email(id="email", placeholder="Email", title="Email address", type="email", required=True) }}
   </p>
   <p>
   <i class="fa fa-phone fa-fw"></i>
-  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes.") }}
+  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes.", type="tel") }}
   </p>
   <p>
   <i class="fa fa-user-o fa-fw"></i>
-  {{ form.user(id="user", placeholder="Name", title="Displayed user name must be between 2 and 32 characters with no symbols.", pattern="^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$") }}
+  {{ form.user(id="user", placeholder="Name", title="Displayed user name must be between 2 and 32 characters with no symbols.", pattern="^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$", required=True) }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-user" aria-hidden="true"></i>&nbspInvite</button>
-  <p />
-  <p>An invitation email and one time code will be sent to the invited user.</p>
   </center>
+  <hr />
+  <p class="form-info">An invitation email and one time code will be sent to the invited user.</p>
 </form>
 </div>
 

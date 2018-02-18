@@ -214,9 +214,12 @@ def base58decode_check(source):
 
 def check_password(password):
     """ Simple password validator for at least 8 characters with a lower, upper and digit
+        Hashed passwords are generally passed from browser and these are 64 hex lowercase
     Args:
         password
     """
+    if len(password) == 64 and re.match(r'[a-f0-9]*', password):
+        return True
     return re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', password)
 
 def check_name(name):
@@ -800,6 +803,8 @@ def main():
         print 'password check passed for abCd3fgh'
     if check_password('Madman12'):
         print 'password check passed for Madman12'
+    if check_password('a167cf3e1d20513b5348941ddef1fdc8a053b755ec458b2b503dd83315fd6c69'):
+        print 'password check passed for a167cf3e1d20513b5348941ddef1fdc8a053b755ec458b2b503dd83315fd6c69'
 
     for name in ['Hello World', 'John', '\u004a\u006f\u0073\u00e9', "D'Addario", 'John-Doe', 'P.A.M.',
                  '\u5b8b\u8f1d\u93dc' "' --", '<xss>', '\"', '<script>Bad One</script>', 'Joe?',

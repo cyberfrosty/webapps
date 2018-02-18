@@ -12,18 +12,18 @@
   {{ render_messages() }}
   <p>
   <i class="fa fa-user-o fa-fw"></i>
-  {{ form.email(id="email", placeholder="Email") }}
+  {{ form.email(id="email", placeholder="Email", title="Email address", type="email", required=True) }}
   </p>
   <p>
   <i class="fa fa-ticket fa-fw"></i>
-  {{ form.token(id="token", placeholder="Code") }}
+  {{ form.code(id="code", placeholder="123456", title="6 digit code", pattern="[0-9]{,6}", required=True) }}
   </p>
   <p />
   <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Verify</button>
   <a href="{{ url_for('resend', email=form.email.data, action='verify') }}" class="btn btn-primary" role="button"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;Request New Code</a>
-  <p />
-  <p>Enter the 6 digit code from the authenticator, received via email, SMS or push notification.</p>
   </center>
+  <hr />
+  <p class="form-info">Enter the 6 digit code from the authenticator, received via email, SMS or push notification.</p>
 </form>
 </div>
 

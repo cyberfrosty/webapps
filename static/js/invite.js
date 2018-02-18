@@ -46,7 +46,6 @@
       return;
     };
 
-    var form = document.getElementById("invite_form");
-    form.addEventListener("submit", checkForm, true);
+    addHTML5FormValidation('invite_form')
 
   }, false);

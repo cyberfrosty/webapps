@@ -26,8 +26,6 @@
       return;
     };
 
-    var form = document.getElementById("login_form");
-    form.addEventListener("submit", checkForm, true);
-    document.getElementById("password").value = "";
+    addHTML5FormValidation('login_form')
 
   }, false);

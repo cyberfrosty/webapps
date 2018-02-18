@@ -14,7 +14,7 @@
   {{ render_messages() }}
   <p>
   <i class="fa fa-user fa-fw"></i>
-  {{ form.email(id="email", placeholder="Email") }}
+  {{ form.email(id="email", placeholder="Email", title="Email address", type="email", required=True) }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
@@ -22,15 +22,15 @@
   </p>
   <p>
   <div class="checkbox">
-    <label><input type="checkbox" value="remember-me"> Remember me</label>
+    <label><input type="checkbox" name="remember-me"> Remember me</label>
   </div>
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Login</button>
-  <p />
-  <p><a href="/register">Need to Register?</a></p>
-  <p><a href="/forgot">Forgot Password?</a></p>
-  <input type=hidden value="{{ next or '' }}" name=next>
   </center>
+  <hr />
+  <p class="form-info"><a href="/register">Need to Register?</a></p>
+  <p class="form-info"><a href="/forgot">Forgot Password?</a></p>
+  <input type=hidden value="{{ next or '' }}" name=next>
 </form>
 </div>
 

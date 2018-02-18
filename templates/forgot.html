@@ -12,7 +12,7 @@
   {{ render_messages() }}
   <p>
   <i class="fa fa-user fa-fw"></i>
-  {{ form.email(id="email", placeholder="Email") }}
+  {{ form.email(id="email", placeholder="Email", title="Email address", type="email", required=True) }}
   </p>
   <button class="btn btn-primary" type="submit"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;&nbsp;Request Password Reset</button>
   </center>

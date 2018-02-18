@@ -344,6 +344,11 @@ code {
   margin-bottom: -1;
   border-radius: 3px;
 }
+.form-signin input[type="email"] {
+  padding: 4px;
+  margin-bottom: -1;
+  border-radius: 3px;
+}
 
 .form-errors {
   background-color: #f6f6f6;
@@ -355,6 +360,25 @@ code {
   align: left;
   text-align: left;
   margin-left: 16px;
+}
+
+.form-info {
+  align: left;
+  text-align: left;
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+
+input.error,
+select.error {
+  outline: none;
+  border-color: red;
+  
+  // Use CSS to visually restore valid fields
+  &:valid {
+    border-style: auto;
+    border-color: inherit;
+  }
 }
 
 .f-b {
