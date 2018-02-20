@@ -16,6 +16,9 @@
                             </tr>
                           </tbody>
                         </table>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Your temporary password is {{ password }} and your code is {{ code }}.</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Your temporary password is {{ password }}.</p>
+{% if code %}
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Your code is {{ code }}.</p>
+{% endif %}
 {% endblock %}
 

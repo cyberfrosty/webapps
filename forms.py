@@ -8,11 +8,11 @@ Implementation of user forms
 
 """
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, HiddenField, PasswordField, StringField, SubmitField, FileField
-from wtforms import ValidationError
-from wtforms.validators import Length, InputRequired, Email, EqualTo
+from wtforms import (BooleanField, HiddenField, PasswordField, StringField, SubmitField,
+                     FileField, ValidationError)
+from wtforms.validators import Length, InputRequired, Email, EqualTo, Regexp
 
-from utils import check_name, check_password, check_username
+from utils import check_name, check_password, check_username, check_phone
 
 #import phonenumbers
 #https://github.com/daviddrysdale/python-phonenumbers
@@ -80,7 +80,9 @@ class PhoneNumberValidator(object):
         length = field.data and len(field.data) or 0
         if length == 0:
             pass
-        elif length < 7 or length > 16:
+        elif check_phone(field.data):
+            pass
+        else:
             raise ValidationError(self.message)
         #else:
         #    try:
@@ -122,19 +124,15 @@ class AcceptForm(FlaskForm):
     email = HiddenField('Email')
     token = HiddenField('Token')
     user = StringField('Name', validators=[InputRequired(), NameValidator()])
-    phone = StringField('Phone', validators=[
-        PhoneNumberValidator()])
-    password = PasswordField('Password', validators=[
+    phone = StringField('Phone', validators=[PhoneNumberValidator()])
+    oldpassword = PasswordField('Password', validators=[
         InputRequired(),
         PasswordValidator()])
-    newpassword = PasswordField('New Password', validators=[
+    password = PasswordField('New Password', validators=[
         InputRequired(),
         EqualTo('confirm', message='Passwords must match')
     ])
-    code = StringField('Code', validators=[
-        InputRequired(),
-        Length(min=6, max=10)])
-    accept = BooleanField('I accept the TOS', validators=[InputRequired()])
+    code = StringField('Code', validators=[InputRequired(),Regexp('^(\d{6,8})$')])
     confirm = PasswordField('Confirm password', validators=[InputRequired()])
     submit = SubmitField('Accept Invitation')
 
@@ -144,18 +142,15 @@ class ConfirmForm(FlaskForm):
     action = HiddenField('Action')
     email = HiddenField('Email')
     token = HiddenField('Token')
-    code = StringField('Code', validators=[
-        InputRequired(),
-        Length(min=6, max=10)])
+    code = StringField('Code', validators=[InputRequired(),Regexp('^(\d{6,8})$')])
     submit = SubmitField('Confirm Account')
 
 class VerifyForm(FlaskForm):
     """ Verify 2FA code
     """
+    action = HiddenField('Action')
     email = HiddenField('Email')
-    code = StringField('Code', validators=[
-        InputRequired(),
-        Length(min=6, max=10)])
+    code = StringField('Code', validators=[InputRequired(),Regexp('^(\d{6,8})$')])
     submit = SubmitField('Verify Code')
 
 class UploadForm(FlaskForm):
@@ -184,8 +179,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email Address', validators=[
         InputRequired(),
         Email()])
-    phone = StringField('Phone', validators=[
-        PhoneNumberValidator()])
+    phone = StringField('Phone', validators=[PhoneNumberValidator()])
     password = PasswordField('New password', validators=[
         InputRequired(),
         PasswordValidator(),
@@ -193,16 +187,15 @@ class RegistrationForm(FlaskForm):
     ])
     confirm = PasswordField('Confirm password', validators=[InputRequired()])
     token = StringField('Token', validators=[InputRequired()])
-    accept = BooleanField('I accept the TOS', validators=[InputRequired()])
 
 class ChangePasswordForm(FlaskForm):
     """ Change password
     """
     email = HiddenField('Email')
-    password = PasswordField('Password', validators=[
+    oldpassword = PasswordField('Password', validators=[
         InputRequired(),
         Length(8, 64)])
-    newpassword = PasswordField('New Password', validators=[
+    password = PasswordField('New Password', validators=[
         InputRequired(),
         PasswordValidator(),
         EqualTo('confirm', message='Passwords must match')

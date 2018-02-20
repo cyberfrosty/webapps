@@ -68,9 +68,6 @@ function addHTML5FormValidation(form) {
         });
       }
     }
-  } else {
-    const form = document.getElementById(form);
-    form.addEventListener("submit", checkForm, true);
   }
 }
 

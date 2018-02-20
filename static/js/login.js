@@ -26,6 +26,11 @@
       return;
     };
 
+    // Add HTML5 form validation to check user input as they fill out and before submit
     addHTML5FormValidation('login_form')
+
+    // Run checkForm function on submit, which does hashPassword and additional checks
+    const form = document.getElementById('login_form');
+    form.addEventListener("submit", checkForm, true);
 
   }, false);

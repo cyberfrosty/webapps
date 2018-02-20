@@ -22,7 +22,7 @@
   </p>
   <p>
   <i class="fa fa-phone fa-fw"></i>
-  {{ form.phone(id="phone", placeholder="Phone", title="Mobile phone number to receive 2FA codes.", type="tel") }}
+  {{ form.phone(id="phone", placeholder="Phone", title="Enter a mobile phone number if you want to receive 2FA codes.", type="tel") }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
@@ -36,17 +36,13 @@
   <i class="fa fa-ticket fa-fw"></i>
   {{ form.token(id="token", placeholder="Token", title="Token that your administrator provided to you.", pattern="^([a-zA-Z0-9]){6,}$", required=True) }}
   </p>
-  <p>
-  <div class="checkbox">
-    <label><input type="checkbox" name="accept", required=True> I accept the <a href="{{url_for('privacy')}}">Privacy Policy and End User Agreement.</a></label>
-  </div>
-  </p>
   <p />
   <button class="btn btn-primary" type="submit"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Register</button>
   <p />
   </center>
   <hr />
-  <p class="form-info">Already have an account? <a class="btn btn-primary btn-xs" href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a></p>
+  <p class="form-info">Already have an account? <a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a></p>
+  <p class="form-info">By signing up, you agree to the <a href="{{url_for('privacy')}}">Privacy Policy and End User Agreement.</p>
 </form>
 </div>
 

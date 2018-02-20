@@ -27,11 +27,14 @@
   <i class="fa fa-key fa-fw"></i>
   {{ form.confirm(id="confirm", title="Please confirm your password.", placeholder="Confmrm password", pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", required=True) }}
   </p>
-  <p />
+  {% if mfa %}
+  <p>
+  <i class="fa fa-ticket fa-fw"></i>
+  {{ form.code(id="code", placeholder="123456", title="6 digit code", pattern="[0-9]{6,8}", required=True) }}
+  </p>
+  {% endif %}
   <button class="btn btn-primary" type="submit"><i class="fa fa-retweet" aria-hidden="true"></i>&nbsp;&nbsp;Reset Password</button>
   </center>
-  <hr />
-  <p class="form-info">Request a password reset.</p>
 </form>
 </div>
 

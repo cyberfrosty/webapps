@@ -33,9 +33,8 @@ from forms import (AcceptForm, ChangePasswordForm, ConfirmForm, ForgotPasswordFo
                    ResendForm, UploadForm)
 from crypto import derive_key
 from utils import (load_config, generate_timed_token, validate_timed_token, generate_user_id,
-                   generate_random58_id, preset_password, generate_random_int,
-                   generate_otp_secret, generate_hotp_code, generate_totp_code,
-                   verify_hotp_code, verify_totp_code, get_ip_address, get_user_agent)
+                   generate_random58_id, preset_password, generate_otp_secret, generate_totp_code,
+                   verify_totp_code, get_ip_address, check_phone, get_user_agent)
 from awsutils import DynamoDB, SNS, SES, S3
 from recipe import RecipeManager
 from vault import VaultManager
@@ -207,7 +206,30 @@ def unauthorized_page():
     """ Called when @login_required decorator triggers, redirects to login page and after
         success redirects back to referring page
     """
-    return redirect(url_for('login') + '?next=' + request.path)
+    return redirect(url_for('login', next=request.path))
+
+def user_authenticated(userid, account, session, agent, action, remember=False):
+    """ User has authenticated, reflect that in session and call login_user
+    """
+    # Reset failed login counter if needed and clear locked
+    session['failures'] = 0
+    if 'locked_at' in session:
+        del session['locked_at']
+    EVENT_MANAGER.web_event(action, userid, **agent)
+    agent['at'] = datetime.today().ctime()
+    if 'error' in session: # An error means no session entry exists
+        del session['error']
+        session['id'] = userid
+        session['email'] = account.get('email')
+        session['user'] = account.get('user')
+        session['logins'] = agent
+        SESSIONS.put_item(session)
+    else:
+        SESSIONS.update_item('id', userid, 'logins', agent)
+    user = User(account.get('email'), account.get('user'))
+    user.is_authenticated = True
+    user.is_active = True
+    login_user(user, remember=remember)
 
 def get_parameter(response, param, default=None):
     """ Get named parameter from url, json or either of two types of form encoding
@@ -573,6 +595,7 @@ def accept():
     """
     errmsg = None
     form = AcceptForm()
+    agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
     # GET - populate form with confirmation data
     if request.method == 'GET':
         email = get_parameter(request, 'email')
@@ -595,9 +618,11 @@ def accept():
                 else:
                     form.user.data = account.get('user')
                     form.phone.data = account.get('phone')
+                if form.phone.data and 'otp' in account:
+                    code = generate_totp_code(account.get('otp'))
+                    send_text(account.get('phone'), code + ' is your Frosty Web code')
         if errmsg:
             form.errors['Accept'] = [errmsg]
-            agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
             EVENT_MANAGER.error_event('accept', email, errmsg, **agent)
 
     # POST - validate form data
@@ -607,8 +632,7 @@ def accept():
         token = form.token.data
         user = form.user.data
         phone = form.phone.data
-        agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
             errmsg = 'Unable to validate your credentials'
@@ -641,13 +665,9 @@ def accept():
                 response = USERS.update_item('id', userid, 'mcf', mcf)
 
             if not errmsg and 'otp' in account:
-                code = form.code.data
-                fields = account['otp'].split(':')
-                secret = fields[0].encode('utf-8')
-                counter = int(fields[1])
-                code = code.encode('utf-8')
-                counter = verify_hotp_code(secret, code, counter)
-                if counter is None:
+                code = form.code.data.encode('utf-8')
+                secret = account.get('otp').encode('utf-8')
+                if not verify_totp_code(secret, code):
                     errmsg = 'The confirmation code is invalid or has expired'
                     form.token.data = ''
                     if 'error' in session: # An error means no session entry exists
@@ -656,8 +676,6 @@ def accept():
                         SESSIONS.put_item(session)
                     else:
                         SESSIONS.update_item('id', userid, 'failures', failures + 1)
-                elif counter != int(fields[1]):
-                    response = USERS.update_item('id', userid, 'otp', secret + ':' + str(counter))
 
             # Update user account status and name/phone if changed from invite
             if not errmsg:
@@ -665,7 +683,7 @@ def accept():
                     response = USERS.update_item('id', userid, 'user', user)
                     if 'error' in response:
                         print(response['error'])
-                if phone != account.get('phone'):
+                if check_phone(phone) and phone != account.get('phone'):
                     response = USERS.update_item('id', userid, 'phone', phone)
                 created = 'confirmed: ' + datetime.utcnow().strftime('%Y-%m-%d')
                 response = USERS.update_item('id', userid, 'created', created)
@@ -673,18 +691,7 @@ def accept():
                     print(response['error'])
 
                 # Login user (they've entered password, code and changed password)
-                agent['at'] = datetime.today().ctime()
-                if 'error' in session: # An error means no session entry exists
-                    del session['error']
-                    session['logins'] = agent
-                    SESSIONS.put_item(session)
-                else:
-                    SESSIONS.update_item('id', userid, 'logins', agent)
-                username = account.get('user')
-                user = User(email, username)
-                user.is_authenticated = True
-                user.is_active = True
-                login_user(user, remember=False)
+                user_authenticated(userid, account, session, agent, 'accept')
 
                 flash('You have confirmed your account. Thanks!')
                 EVENT_MANAGER.web_event('accept', userid, **agent)
@@ -709,6 +716,7 @@ def confirm():
     """ Confirm user account or action (delete) with emailed token and optional SMS code
     """
     errmsg = None
+    agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
     form = ConfirmForm()
     # GET - populate form with confirmation data
     if request.method == 'GET':
@@ -716,7 +724,7 @@ def confirm():
         token = get_parameter(request, 'token')
         action = get_parameter(request, 'action')
         if email is None or action is None or token is None:
-            errmsg = 'No confirmation found'
+            errmsg = 'Unable to validate your credentials'
         else:
             form.email.data = email
             form.token.data = token
@@ -731,7 +739,6 @@ def confirm():
                     errmsg = 'Unable to validate your credentials'
         if errmsg:
             form.errors['Confirm'] = [errmsg]
-            agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
             EVENT_MANAGER.error_event('confirm', email, errmsg, **agent)
 
     # POST - validate form data
@@ -739,8 +746,7 @@ def confirm():
         action = form.action.data
         email = form.email.data
         token = form.token.data
-        agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
             errmsg = 'Unable to validate your credentials'
@@ -765,12 +771,9 @@ def confirm():
         if validated and value == email:
             code = form.code.data
             if 'otp' in account:
-                fields = account['otp'].split(':')
-                secret = fields[0].encode('utf-8')
-                counter = int(fields[1])
+                secret = account.get('opt').encode('utf-8')
                 code = code.encode('utf-8')
-                counter = verify_hotp_code(secret, code, counter)
-                if counter is None:
+                if verify_totp_code(secret, code):
                     errmsg = 'The confirmation code is invalid or has expired'
                     form.token.data = ''
                     if 'error' in session: # An error means no session entry exists
@@ -779,8 +782,6 @@ def confirm():
                         SESSIONS.put_item(session)
                     else:
                         SESSIONS.update_item('id', userid, 'failures', failures + 1)
-                elif counter != int(fields[1]):
-                    response = USERS.update_item('id', userid, 'otp', secret + ':' + str(counter))
 
             # Update user account status
             if not errmsg and action == 'register' and account['created'][:7] == 'pending':
@@ -812,6 +813,7 @@ def confirm():
 def login():
     """ Login to user account with email and password
     """
+    agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
     form = LoginForm()
     # GET - populate form with email if passed
     if request.method == 'GET':
@@ -820,9 +822,8 @@ def login():
     # POST - validate form data
     elif form.validate_on_submit():
         # Login and validate the user.
-        agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
         email = form.email.data
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
             errmsg = 'Unable to validate your credentials'
@@ -854,32 +855,14 @@ def login():
             EVENT_MANAGER.error_event('login', userid, errmsg, **agent)
             return render_template('login.html', form=form)
 
-        # Reset failed login counter if needed and clear locked
-        if failures > 0:
-            session['failures'] = 0
-            if 'locked_at' in session:
-                del session['locked_at']
-        EVENT_MANAGER.web_event('login', userid, **agent)
-        #logins = session['logins'] or []
-        agent['at'] = datetime.today().ctime()
-        #logins.append(agent)
-        session['logins'] = agent
-        if 'error' in session: # An error means no session entry exists
-            del session['error']
-        SESSIONS.put_item(session)
-        username = account.get('user')
-        user = User(email, username)
-        authentication = account['authentication']
-        if authentication == 'password':
-            user.is_authenticated = True
-            user.is_active = True
-            login_user(user, remember=form.remember.data)
+        if account.get('authentication') == 'password':
+            user_authenticated(userid, account, session, agent, 'login', form.remember.data)
             print('validated user')
-        elif authentication == 'password:sms':
+        elif account.get('authentication') == 'password:sms':
             target = request.args.get('next')
             if target is None or not is_safe_url(target):
                 target = 'index'
-            return redirect(url_for('verify') + '?next=' + target)
+            return redirect(url_for('verify', next=target, action='login'))
 
         return redirect_back('index')
     return render_template('login.html', form=form)
@@ -895,33 +878,58 @@ def logout():
     return redirect(url_for('index'))
 
 @APP.route('/verify', methods=['GET', 'POST'])
-@login_required
 def verify():
     """ 2FA verification
     """
-    form = VerifyForm(request.form)
-    email = request.args.get('email')
-    form.email.data = email or current_user.get_email()
-    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_email())
-    account = USERS.get_item('id', userid)
-    if not account or 'error' in account:
-        return redirect(url_for('register', email=current_user.get_email()))
-    authentication = account['authentication']
+    form = VerifyForm()
+    agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
 
-    # Send a code to our user when they GET this page
+    # Send a code to our user when they GET this page, unless there are errors
     if request.method == 'GET':
-        if authentication == 'password:authy':
-            #send_authy_token_request(user.authy_id)
-            print('Sent code')
-        elif authentication == 'password:sms':
-            code = generate_totp_code(account['otp'])
-            send_text(account['phone'], code + ' is your Frosty Web code')
+        email = request.args.get('email') or current_user.get_email()
+        form.email.data = email
+        form.action.data = get_parameter(request, 'action')
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
+        account = USERS.get_item('id', userid)
+        if not account or 'error' in account:
+            return redirect(url_for('register', email=current_user.get_email()))
+        authentication = account.get('authentication')
+        if 'errors' not in form:
+            if authentication == 'password:authy':
+                #send_authy_token_request(user.authy_id)
+                print('Sent Authy code')
+            elif authentication == 'password:sms' and 'phone' in account:
+                code = generate_totp_code(account.get('otp').encode('utf-8'))
+                send_text(account.get('phone'), code + ' is your Frosty Web code')
+            else:
+                form.errors['Verify'] = ['Unable to validate your credentials']
 
     # POST - validate form data
     elif form.validate_on_submit():
+        action = form.action.data
+        agent['action'] = action
         code = form.code.data
-        verified = False
+        email = form.email.data
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
+        account = USERS.get_item('id', userid)
+        if not account or 'error' in account:
+            return redirect(url_for('register', email=current_user.get_email()))
+        authentication = account.get('authentication')
+        session = SESSIONS.get_item('id', userid)
+        if 'error' in session:
+            session['id'] = userid
+            session['email'] = email
+            session['user'] = account.get('user')
 
+        failures = check_account_lock(session)
+        session['failures'] = failures
+        if failures > MAX_FAILURES:
+            errmsg = 'Your account is locked'
+            form.errors['Verify'] = [errmsg]
+            EVENT_MANAGER.error_event('verify', userid, errmsg, **agent)
+            return render_template('verify.html', form=form)
+
+        verified = False
         if authentication == 'password:authy':
             if code == '123456':
                 verified = True
@@ -929,15 +937,20 @@ def verify():
         elif authentication == 'password:sms':
             secret = account.get('otp')
             verified = verify_totp_code(secret, code)
-            return redirect(url_for('profile'))
 
         if verified:
-            target = request.args.get('next')
-            if target is None or not is_safe_url(target):
-                target = 'profile'
-            return redirect(url_for(target))
+            if action == 'login':
+                user_authenticated(userid, account, session, agent, 'login')
+            elif action == 'disable':
+                response = USERS.update_item('id', userid, 'authentication', 'password')
+            elif action == 'enable':
+                response = USERS.update_item('id', userid, 'authentication', 'password:sms')
+            return redirect_back('profile')
         else:
-            form.errors['Verify'] = ['Invalid or expired code']
+            failmsg = 'The code is invalid or has expired'
+            errmsg = failed_account_attempt(session, failures, failmsg)
+            form.errors['Verify'] = [errmsg]
+            EVENT_MANAGER.error_event('verify', userid, errmsg, **agent)
 
     return render_template('verify.html', form=form)
 
@@ -974,12 +987,13 @@ def change():
     form = ChangePasswordForm()
     # GET - populate form with email if passed
     if request.method == 'GET':
-        form.email.data = get_parameter(request, 'email') or current_user.get_email()
+        form.email.data = current_user.get_email()
 
     # POST - validate form data
     elif form.validate_on_submit():
         agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), form.email.data)
+        email = form.email.data
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
         account = USERS.get_item('id', userid)
         old_mcf = account.get('mcf')
         mcf = derive_key(form.oldpassword.data.encode('utf-8'), old_mcf)
@@ -1015,7 +1029,7 @@ def resend():
             email = request.args.get('email')
         action = request.args.get('action')
         if email is None or action is None:
-            errmsg = 'No action or email found'
+            errmsg = 'Invalid or missing parameters'
         else:
             form.email.data = email
             form.action.data = action
@@ -1024,7 +1038,7 @@ def resend():
     elif form.validate_on_submit():
         email = form.email.data
         action = form.action.data
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
             errmsg = 'Unable to validate your credentials'
@@ -1060,6 +1074,11 @@ def invite():
         email = form.email.data
         user = form.user.data
         phone = form.phone.data
+        if check_phone(phone):
+            secret = generate_otp_secret()
+        else:
+            secret = None
+            phone = None
         userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
         account = USERS.get_item('id', userid)
         if account and 'error' not in account:
@@ -1068,24 +1087,24 @@ def invite():
             EVENT_MANAGER.error_event('invite', current_user.get_id(), errmsg, **{"email": email})
             return render_template('invite.html', form=form)
         password = generate_random58_id(12)
-        secret = generate_otp_secret()
-        counter = generate_random_int()
         info = {'id': userid,
                 'email': email,
                 'phone': phone,
                 'user': user,
                 'authentication': 'password',
                 'mcf': preset_password(email, password),
-                'otp': secret + ':' + str(counter),
+                'otp': secret,
                 'created': 'invited: ' + datetime.utcnow().strftime('%Y-%m-%d')
                }
         USERS.put_item(info)
         action = 'invite'
         token = generate_timed_token(email, APP.config['SECRET_KEY'], action)
-        code = generate_hotp_code(secret, counter)
         link = url_for('accept', email=email, token=token, action=action, _external=True)
         inviter = current_user.get_user()
-        print(inviter)
+        if not phone:
+            code = generate_totp_code(secret)
+        else:
+            code = None
         intro = u'{} has Invited you to join the Frosty Web community.'.format(inviter)
         send_email(email, 'Accept Invitation', 'invite',
                    user=user, intro=intro, link=link, password=password, code=code)
@@ -1101,9 +1120,9 @@ def forgot():
     errmsg = None
     if current_user.is_authenticated:
         return redirect(url_for('profile'))
-    form = ForgotPasswordForm()
 
     # GET - populate form with email if passed
+    form = ForgotPasswordForm()
     if request.method == 'GET':
         form.email.data = get_parameter(request, 'email')
 
@@ -1113,7 +1132,7 @@ def forgot():
         email = form.email.data
         agent['email'] = email
         print('requesting password reset')
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
         account = USERS.get_item('id', userid)
         if not account or 'error' in account:
             errmsg = 'Unable to validate your credentials'
@@ -1126,18 +1145,6 @@ def forgot():
                 EVENT_MANAGER.error_event('forgot', userid, response['error'], **agent)
             else:
                 token = generate_timed_token(email, APP.config['SECRET_KEY'], 'reset')
-                if account['authentication'] == 'password:sms':
-                    fields = account['otp'].split(':')
-                    secret = fields[0]
-                    counter = int(fields[1]) + 1
-                    code = generate_hotp_code(secret, counter)
-                    response = USERS.update_item('id', userid, 'otp', secret + ':' + str(counter))
-                    send_text(account['phone'], code + ' is your Frosty Web code')
-                elif account['authentication'] == 'password:authy':
-                    secret = account['otp']
-                    code = generate_totp_code(secret)
-                    send_text(account['phone'], code + ' is your Frosty Web code')
-
                 link = url_for('reset', email=email, token=token, action='reset', _external=True)
                 intro = 'You have requested a password reset.'
                 send_email(email, 'Reset Password', 'reset',
@@ -1157,31 +1164,45 @@ def reset():
         return redirect(url_for('index'))
 
     errmsg = None
+    agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
     form = ResetPasswordForm()
     # GET - populate form with required parameters (these are all hidden fields)
     if request.method == 'GET':
         email = get_parameter(request, 'email')
         token = get_parameter(request, 'token')
         action = get_parameter(request, 'action')
-        if email is None or action is None or token is None:
-            errmsg = 'Missing action, token or user name'
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
+        if email is None or token is None or action != 'reset':
+            EVENT_MANAGER.error_event('reset', userid, 'Invalid parameters', **agent)
+            abort(403, 'Unable to validate your credentials')
+        account = USERS.get_item('id', userid)
+        if 'error' in account:
+            EVENT_MANAGER.error_event('reset', userid, 'Unregistered email', **agent)
+            abort(403, 'Unable to validate your credentials')
+        if 'reset_mcf' not in account:
+            form.errors['Reset'] = ['Unable to validate your credentials']
+            EVENT_MANAGER.error_event('reset', userid, 'No pending reset request', **agent)
+            #delay
+            return render_template('reset.html', form=form)
         form.email.data = email
         form.token.data = token
         form.action.data = action
 
+        # Send a code to our user when they GET this page when using SMS based 2FA
+        if account.get('authentication') == 'password:sms' and 'phone' in account:
+            code = generate_totp_code(account.get('otp'))
+            send_text(account.get('phone'), code + ' is your Frosty Web code')
+
     # POST - validate form data
     elif form.validate_on_submit():
-        agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
         email = form.email.data
         token = form.token.data
         action = form.action.data
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
         account = USERS.get_item('id', userid)
         if 'error' in account:
-            form.errors['Reset'] = ['Unable to validate your credentials']
             EVENT_MANAGER.error_event('reset', userid, 'Unregistered email', **agent)
-            #delay
-            return render_template('reset.html', form=form)
+            abort(403, 'Unable to validate your credentials')
         if 'reset_mcf' not in account:
             form.errors['Reset'] = ['Unable to validate your credentials']
             EVENT_MANAGER.error_event('reset', userid, 'No pending reset request', **agent)
@@ -1216,28 +1237,24 @@ def reset():
                 #delay
                 return render_template('reset.html', form=form)
 
-            # Reset failed login counter if needed and clear locked
-            session['failures'] = 0
-            if 'locked_at' in session:
-                del session['locked_at']
-            EVENT_MANAGER.web_event('reset', userid, **agent)
-            # Replace old password with temporary password and redirect to change password
-            account['mcf'] = mcf
-            del account['reset_mcf']
-            USERS.put_item(account)
+            if account.get('authentication') != 'password':
+                # Replace old password with temporary password and redirect to change password
+                account['mcf'] = mcf
+                del account['reset_mcf']
+                USERS.put_item(account)
+                user_authenticated(userid, account, session, agent, 'reset')
+            else:
+                return redirect(url_for('verify'))
 
-            print('validated user')
-            agent['at'] = datetime.today().ctime()
-            session['logins'] = agent
-            if 'error' in session: # An error means no session entry exists
-                del session['error']
-            SESSIONS.put_item(session)
-            username = account.get('user')
-            user = User(email, username)
-            user.is_authenticated = True
-            user.is_active = True
-            login_user(user, remember=form.remember.data)
-            return redirect(url_for('change'))
+            secret = account.get('otp')
+            verified = verify_totp_code(secret, code)
+            if verified:
+                user_authenticated(userid, account, session, agent, 'reset')
+
+                return redirect(url_for('change'))
+            else:
+                failmsg = 'The code is invalid or has expired'
+                errmsg = failed_account_attempt(session, failures, failmsg)
         else:
             failmsg = 'The reset link is invalid or has expired'
             errmsg = failed_account_attempt(session, failures, failmsg)
@@ -1251,6 +1268,7 @@ def reset():
     if errmsg:
         form.errors['Reset'] = [errmsg]
         EVENT_MANAGER.error_event('reset', userid, errmsg, **agent)
+        form.password.data = ''
     return render_template('reset.html', form=form)
 
 @APP.route("/register", methods=['GET', 'POST'])
@@ -1260,22 +1278,19 @@ def register():
     if current_user.is_authenticated:
         return redirect(url_for('profile'))
     form = RegistrationForm()
-    email = get_parameter(request, 'email')
-    if email:
-        form.email.data = email
-    user = get_parameter(request, 'user')
-    if user:
-        form.user.data = user
-    token = get_parameter(request, 'token')
-    if token:
-        form.token.data = token
+
+    # GET - populate form with email, name and phone if passed
+    if request.method == 'GET':
+        form.email.data = get_parameter(request, 'email')
+        form.user.data = get_parameter(request, 'user')
+        form.phone.data = get_parameter(request, 'phone')
     elif form.validate_on_submit():
         agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
         email = form.email.data
         phone = form.phone.data
         token = form.token.data
-        user = form.user.data
-        userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+        user = sanitize_name(form.user.data)
+        userid = generate_user_id(CONFIG.get('user_id_hmac'), email) if email else 'Unknown'
         account = USERS.get_item('id', userid)
         if 'error' not in account:
             errmsg = 'Email address already in use'
@@ -1297,15 +1312,18 @@ def register():
             EVENT_MANAGER.error_event('register', userid, errmsg, **agent)
             return redirect(url_for('resend', email=email, action='register'))
         # Create json for new user
-        secret = generate_otp_secret()
-        counter = generate_random_int()
+        if check_phone(phone):
+            secret = generate_otp_secret()
+        else:
+            secret = None
+            phone = None
         info = {'id': generate_user_id(CONFIG.get('user_id_hmac'), email),
                 'email': email,
                 'phone': phone,
                 'user': user,
                 'authentication': 'password',
                 'mcf': derive_key(form.password.data.encode('utf-8')),
-                'otp': secret + ':' + str(counter),
+                'otp': secret,
                 'created': 'pending: ' + datetime.utcnow().strftime('%Y-%m-%d')
                }
         user = User(email, user)
@@ -1313,8 +1331,11 @@ def register():
         user.is_active = False
         USERS.put_item(info)
         token = generate_timed_token(email, APP.config['SECRET_KEY'], 'confirm')
-        code = generate_hotp_code(secret, counter)
         link = url_for('confirm', email=email, token=token, action='register', _external=True)
+        if phone:
+            code = generate_totp_code(secret)
+        else:
+            code = None
         intro = 'You have registered for a new account and need to confirm that it was really you.'
         send_email(email, 'Confirm Account', 'confirm',
                    user=user, intro=intro, link=link, code=code)

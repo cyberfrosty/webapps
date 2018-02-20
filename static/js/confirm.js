@@ -38,6 +38,11 @@
     document.getElementById("password").value = "";
     document.getElementById("confirm").value = "";
 
+    // Add HTML5 form validation to check user input as they fill out and before submit
     addHTML5FormValidation('confirm_form')
+
+    // Run checkForm function on submit, which does hashPassword and additional checks
+    const form = document.getElementById('confirm_form');
+    form.addEventListener("submit", checkForm, true);
 
   }, false);

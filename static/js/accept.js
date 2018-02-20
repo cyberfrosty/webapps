@@ -43,12 +43,17 @@
         e.preventDefault();
         return;
       }
-      this.temporary.value = hashPassword(this.email.value, this.temporary.value);
+      this.oldpassword.value = hashPassword(this.email.value, this.oldpassword.value);
       this.password.value = hashPassword(this.email.value, this.password.value);
       this.confirm.value = this.password.value;
       return;
     };
 
+    // Add HTML5 form validation to check user input as they fill out and before submit
     addHTML5FormValidation('accept_form')
+
+    // Run checkForm function on submit, which does hashPassword and additional checks
+    const form = document.getElementById('accept_form');
+    form.addEventListener("submit", checkForm, true);
 
   }, false);
