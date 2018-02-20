@@ -7,18 +7,18 @@ Copyright (c) 2017-2018 Alan Frost, Inc. All rights reserved.
 Utility methods
 """
 
-from datetime import datetime
+from __future__ import print_function
+
 import struct
 import os
 import base64
 import csv
 import re
-import regex
 import string
 import sys
 import time
 import uuid
-import pytz
+import regex
 import simplejson as json
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 from cryptography.hazmat.primitives.twofactor.hotp import HOTP
@@ -33,7 +33,7 @@ from crypto import derive_key, hkdf_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_
 
 HKDF_SALT = base64.b64decode('MTIzNDU2Nzg5MGFiY2RlZmdoaWprbG1ub3BxcnN0dXY=')
 HDKF_INFO = 'frosty.alan'
-HMAC_INFO = 'FROSTY'
+HMAC_INFO = 'FrostyWeb'
 
 # Bitcoin compatible base58 encoding
 B58ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
@@ -222,19 +222,33 @@ def check_password(password):
         return True
     return re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', password)
 
+def sanitize_name(name, size=32):
+    """ Remove potentially dangerous characters and extra whitespace, trim to max length
+    Args:
+        name
+    """
+    if isinstance(name, unicode):
+        name = name.encode('utf-8')
+    name = ''.join(chr for chr in name if chr not in '<>()"%#&*?\\/')
+    name = ' '.join(name.split())
+    if len(name) < size:
+        return name
+    else:
+        return name[:30] + '..'
+
 def check_name(name):
     """ Display name validator, unicode except for control, symbols and non-space separator
     Args:
         name
     """
     exclude_set = ('<', '>', '(', ')', '"', '%', '#', '&', '*', '?', '\\', '/')
-    if name[:2] == '\u':
+    if name[:2] == '\\u':
         name = name.decode('unicode-escape')
     if regex.match(ur'^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$', name):
         if isinstance(name, unicode):
             name = name.encode('utf-8')
-        for chr in name:
-            if chr in exclude_set:
+        for letter in name:
+            if letter in exclude_set:
                 return False
         return True
     else:
@@ -246,6 +260,21 @@ def check_username(name):
         name
     """
     return regex.match(r'^([\p{L}\p{Nd}]){2,32}$', name)
+
+def check_phone(phone):
+    """ Check a phone number to see if it is probably ok by stripping spaces, dashes and parens.
+        Then checking US numbers for 10 digits and requiring a country code for all others.
+
+        Args:
+            phone number to check
+    """
+    phone = ''.join(chr for chr in phone if chr not in ' -()')
+    if phone[0] == '+':
+        if phone[0:2] == '+1':
+            return regex.match(r'^\+(\d{11})$', phone)
+        else:
+            return regex.match(r'^\+(\d{8,24})$', phone)
+    return regex.match(r'^(\d{10})$', phone)
 
 def preset_password(username, password):
     """ Preset password for a new user or password reset. HMAC is used to protect the actual
@@ -295,9 +324,7 @@ def validate_signed_request(secret, method, path, params, time_stamp, signature)
     if not re.match(r'[0-9a-fA-F]{64}', signature):
         return False
 
-    time_now = int((datetime.now(tz=pytz.utc) -
-                    datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
-    time_diff = time_now - time_stamp
+    time_diff = int(time.time()) - time_stamp
     if time_diff > 450 or time_diff < -450:
         return False
     algorithm = 'HMAC_SHA256'
@@ -399,11 +426,11 @@ def generate_hotp_uri(secret, counter, email):
         counter: unique integer value
         email: Authenticator email address
     Return:
-        URI: otpauth://hotp/alice@google.com?secret=JBSWY3DPEHPK3PXP&counter=0&issuer=FROSTY
+        URI: otpauth://hotp/alice@google.com?secret=JBSWY3DPEHPK3PXP&counter=0&issuer=FrostyWeb
     """
     key = base64.b32decode(secret)
     hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
-    return hotp.get_provisioning_uri(email, counter, 'FROSTY')
+    return hotp.get_provisioning_uri(email, counter, 'FrostyWeb')
 
 def generate_totp_code(secret):
     """ Generate a Google authenticator compatible TOTP code
@@ -442,11 +469,11 @@ def generate_totp_uri(secret, email):
         secret: 16 character base32 secret
         email: Authenticator email address
     Return:
-        URI for QR code: otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=FROSTY
+        URI for QR code: otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=FrostyWeb
     """
     key = base64.b32decode(secret)
     totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
-    return totp.get_provisioning_uri(email, 'FROSTY')
+    return totp.get_provisioning_uri(email, 'FrostyWeb')
 
 def generate_code(secret):
     """ Generate a random access code, with HMAC, base64 encoded
@@ -504,7 +531,7 @@ def get_user_agent(request):
     """
     if 'User-Agent' in request.headers:
         user_agent = request.headers.get('User-Agent')
-        #print user_agent
+        #print(user_agent)
         if 'Dolphin' in user_agent:
             remote_agent = 'Dolphin'
         elif 'Opera' in user_agent or 'OPR' in user_agent:
@@ -700,116 +727,123 @@ def contains_only(input_chars, valid_chars):
 def main():
     """ Unit tests
     """
-    print generate_uuid()
-    print preset_password('yuki', 'Madman12')
-    print generate_user_id('server secret to derive user id hmac key', 'yuki')
+    print(generate_uuid())
+    print(preset_password('yuki', 'Madman12'))
+    print(generate_user_id('server secret to derive user id hmac key', 'yuki'))
 
     secret = 'Poyj3ZIdLcSEjWagFBj3VQ9x'
-    time_stamp = int((datetime.now(tz=pytz.utc) -
-                      datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
+    time_stamp = int(time.time())
     old_time = 1477951388
     sig = create_signed_request(secret, 'GET', 'api/camera.info', 'camera=02:34', time_stamp)
     if validate_signed_request(secret, 'GET', 'api/camera.info', 'camera=02:34', time_stamp, sig):
-        print 'validated HTTP request'
+        print('validated HTTP request')
     if not validate_signed_request(secret, 'GET', 'api/camera.info', 'camera=42:34', time_stamp, sig):
-        print 'invalid HTTP request parmscheck passed'
+        print('invalid HTTP request parmscheck passed')
     if not validate_signed_request(secret, 'POST', 'api/camera.info', 'camera=42:34', time_stamp, sig):
-        print 'invalid HTTP request method check passed'
+        print('invalid HTTP request method check passed')
     if not validate_signed_request(secret, 'POST', 'api/camera.info', 'camera=02:34', old_time, sig):
-        print 'invalid HTTP old timerequest check passed'
+        print('invalid HTTP old timerequest check passed')
 
     code = generate_code(secret)
-    print code
-    print get_access_id(code)
+    print(code)
+    print(get_access_id(code))
     if validate_code(secret, code):
-        print 'validated'
+        print('validated')
     code = code[1:] + 'a'
     if validate_code(secret, code):
-        print 'validated'
+        print('validated')
     if validate_code(secret, code[1:]):
-        print 'validated'
+        print('validated')
 
     confirm_tok = generate_token('yuki@gmail.com', secret, 'confirm')
-    print confirm_tok
+    print(confirm_tok)
     validated, value = validate_token(confirm_tok, secret, 'confirm')
     if validated:
-        print value, 'confirmed'
+        print(value, 'confirmed')
     validated, value = validate_token(confirm_tok, secret, 'reset')
     if validated:
-        print 'Error, not a reset token'
+        print('Error, not a reset token')
     validated, value = validate_timed_token(confirm_tok, secret, 'confirm')
     if validated:
-        print 'Error, not a timed token'
+        print('Error, not a timed token')
     confirm_tok = confirm_tok[:-1] + 'l'
     validated, value = validate_token(confirm_tok, secret, 'confirm')
     if validated:
-        print 'Error, not a reset token'
+        print('Error, not a reset token')
 
     confirm_tok = generate_timed_token('yuki@gmail.com', secret, 'confirm')
-    print confirm_tok
+    print(confirm_tok)
     validated, value = validate_timed_token(confirm_tok, secret, 'confirm')
     if validated:
-        print value, 'confirmed'
+        print(value, 'confirmed')
     validated, value = validate_token(confirm_tok, secret, 'confirm')
     if validated:
-        print 'Error, this is a timed token'
+        print('Error, this is a timed token')
     validated, value = validate_timed_token(confirm_tok, secret, 'reset')
     if validated:
-        print 'Error, not a reset token'
+        print('Error, not a reset token')
     time.sleep(2)
     validated, value = validate_timed_token(confirm_tok, secret, 'confirm', expiration=1)
     if validated:
-        print 'Error, timed token expired'
+        print('Error, timed token expired')
 
     secret = generate_otp_secret()
     counter = 666
     code = generate_hotp_code(secret, counter)
     counter = verify_hotp_code(secret, code, counter)
     if counter == 666:
-        print 'HOTP validated', code
+        print('HOTP validated', code)
     if verify_hotp_code(secret, code, 667) is not None:
-        print 'HOTP invalidated', code
+        print('HOTP invalidated', code)
     counter = verify_hotp_code(secret, code, 664)
-    print counter
-    print generate_hotp_uri(secret, 666, 'yuki@gmail.com')
+    print(counter)
+    print(generate_hotp_uri(secret, 666, 'yuki@gmail.com'))
 
     code = generate_totp_code(secret)
     if verify_totp_code(secret, code):
-        print 'TOTP validated', code
-    print generate_totp_uri(secret, 'yuki@gmail.com')
+        print('TOTP validated', code)
+    print(generate_totp_uri(secret, 'yuki@gmail.com'))
 
     pii = encrypt_pii('madman', {'email':'yuki@gmail.com', 'phone':'7754321238'})
-    print decrypt_pii('madman', pii)
+    print(decrypt_pii('madman', pii))
 
     code = generate_address_code(secret, 'yuki:dev1')
     if validate_address_code(secret, code, 'yuki:dev1'):
-        print 'Address code validated', code
+        print('Address code validated', code)
 
     code = base58encode("secrect code")
-    print base58decode(code)
+    print(base58decode(code))
     code = base58encode_check("secrect code")
-    print base58decode_check(code)
-    print generate_random58_id(8)
-    print generate_random58_id(12)
-    print generate_random58_valid(8)
+    print(base58decode_check(code))
+    print(generate_random58_id(8))
+    print(generate_random58_id(12))
+    print(generate_random58_valid(8))
     b58code = generate_random58_valid(12)
     code = base58decode_check(b58code)
 
     if check_password('abcdefgh'):
-        print 'password check failed for abcdefgh'
+        print('password check failed for abcdefgh')
     if check_password('abcDEfgh'):
-        print 'password check failed for abcDEfgh'
+        print('password check failed for abcDEfgh')
     if check_password('abCd3fgh'):
-        print 'password check passed for abCd3fgh'
+        print('password check passed for abCd3fgh')
     if check_password('Madman12'):
-        print 'password check passed for Madman12'
+        print('password check passed for Madman12')
     if check_password('a167cf3e1d20513b5348941ddef1fdc8a053b755ec458b2b503dd83315fd6c69'):
-        print 'password check passed for a167cf3e1d20513b5348941ddef1fdc8a053b755ec458b2b503dd83315fd6c69'
+        print('password check passed for a167cf3e1d20513b5348941ddef1fdc8a053b755ec458b2b503dd83315fd6c69')
 
-    for name in ['Hello World', 'John', '\u004a\u006f\u0073\u00e9', "D'Addario", 'John-Doe', 'P.A.M.',
-                 '\u5b8b\u8f1d\u93dc' "' --", '<xss>', '\"', '<script>Bad One</script>', 'Joe?',
-                 '\u6843\u4e95\u306f\u308b\u3053', 'Henry Jr. 8th', '<SQL>', 'Me&You']:
+    for name in ['Hello World', 'John', u'\u004a\u006f\u0073\u00e9', "D'Addario", 'John-Doe', 'P.A.M.',
+                 u'\u5b8b\u8f1d\u93dc' "' --", '<xss>', '\"', '<script>Bad One</script>', 'Joe?',
+                 u'\u6843\u4e95\u306f\u308b\u3053', 'Henry Jr. 8th', '<SQL>', 'Me&You']:
         if not check_name(name):
-            print '{} is not a valid name'.format(name)
+            print(u'{} is not a valid name'.format(name))
+
+    for phone in ['3077422040', '(970)895-1234', '+1 (766)345-6784', '(08) 82326262', '+61 8 8232-6262',
+                  '+86 (10) 69445464', '+33 6 87 71 23 45']:
+        if not check_phone(phone):
+            print('{} is not a valid phone'.format(phone))
+
+    print(sanitize_name('<script>function addEventListeners(element, eventList, listener) {'))
+
 if __name__ == '__main__':
     main()

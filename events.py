@@ -9,9 +9,8 @@ Utility methods
 
 from __future__ import print_function
 
-from datetime import datetime
+from time import time
 import simplejson as json
-import pytz
 
 from utils import (base58encode_int, generate_random_int)
 
@@ -38,8 +37,7 @@ def get_timestamp():
     Return:
         timestamp: int
     """
-    timestamp = int((datetime.now(tz=pytz.utc) -
-                     datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds())
+    timestamp = int(time())
     return timestamp
 
 def event_nonce():
@@ -163,10 +161,10 @@ class EventManager(object):
         rest = {}
         after = kwargs.pop('after', None)
         if after:
-            after = datetime.fromtimestamp(float(after), tz=pytz.utc)
+            after = int(after)
         before = kwargs.pop('before', None)
         if before:
-            before = datetime.fromtimestamp(float(before), tz=pytz.utc)
+            before = int(before)
         try:
             jevent = json.loads(event)
             if jevent and jevent.get('type') in ACTIONS:
