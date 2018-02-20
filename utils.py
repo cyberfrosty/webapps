@@ -335,7 +335,7 @@ def validate_signed_request(secret, method, path, params, time_stamp, signature)
     return signed == signature
 
 
-def get_hmac_signing_key(key, time_stamp):
+def get_hmac_signing_key(secret, time_stamp):
     """ Get a unique signing key from shared secret and time stamp
     Args:
         shared secret
@@ -343,7 +343,9 @@ def get_hmac_signing_key(key, time_stamp):
     Return:
         32 byte key
     """
-    return hmac_sha256(HMAC_INFO + key, time_stamp)
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
+    return hmac_sha256(HMAC_INFO + secret, time_stamp)
 
 def encrypt_pii(secret, params):
     """ Encrypt PII parameters
@@ -353,6 +355,8 @@ def encrypt_pii(secret, params):
     Returns:
         cipher text: bytes
     """
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
     iv = os.urandom(12)
     key = hkdf_key(secret, HDKF_INFO, HKDF_SALT)
     cipher_text = iv + encrypt_aes_gcm(key, iv, json.dumps(params))
@@ -366,6 +370,8 @@ def decrypt_pii(secret, cipher_text):
     Returns:
         params: dictionary
     """
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
     key = hkdf_key(secret, HDKF_INFO, HKDF_SALT)
     plain_text = decrypt_aes_gcm(key, cipher_text[:12], cipher_text[12:])
     try:
@@ -391,19 +397,21 @@ def verify_hotp_code(secret, code, counter):
     Return:
         Counter value if validation successful or None
     """
-    correct_counter = None
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
+    try:
+        key = base64.b32decode(secret)
+        hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
+        for count in range(counter, counter + 3):
+            try:
+                hotp.verify(code, count)
+                return count
+            except InvalidToken:
+                pass
+    except (ValueError, TypeError):
+        pass
 
-    key = base64.b32decode(secret)
-    hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
-    for count in range(counter, counter + 3):
-        try:
-            hotp.verify(code, count)
-            correct_counter = count
-            break
-        except InvalidToken:
-            pass
-
-    return correct_counter
+    return None
 
 def generate_hotp_code(secret, counter):
     """ Generate a Google authenticator compatible HOTP code
@@ -414,10 +422,16 @@ def generate_hotp_code(secret, counter):
         code: 6 digit one time use code
     """
 
-    key = base64.b32decode(secret)
-    hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
-    hotp_value = hotp.generate(counter)
-    return hotp_value
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
+    try:
+        key = base64.b32decode(secret)
+        hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
+        hotp_value = hotp.generate(counter)
+        return hotp_value
+    except (ValueError, TypeError):
+        pass
+    return None
 
 def generate_hotp_uri(secret, counter, email):
     """ Generate a Google authenticator compatible QR code provisioning URI
@@ -428,9 +442,15 @@ def generate_hotp_uri(secret, counter, email):
     Return:
         URI: otpauth://hotp/alice@google.com?secret=JBSWY3DPEHPK3PXP&counter=0&issuer=FrostyWeb
     """
-    key = base64.b32decode(secret)
-    hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
-    return hotp.get_provisioning_uri(email, counter, 'FrostyWeb')
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
+    try:
+        key = base64.b32decode(secret)
+        hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
+        return hotp.get_provisioning_uri(email, counter, 'FrostyWeb')
+    except (ValueError, TypeError):
+        pass
+    return None
 
 def generate_totp_code(secret):
     """ Generate a Google authenticator compatible TOTP code
@@ -439,11 +459,17 @@ def generate_totp_code(secret):
     Return:
         code: 6 digit code that expires in 30 seconds
     """
-    key = base64.b32decode(secret)
-    totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
-    time_value = time.time()
-    totp_value = totp.generate(time_value)
-    return totp_value
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
+    try:
+        key = base64.b32decode(secret)
+        totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
+        time_value = time.time()
+        totp_value = totp.generate(time_value)
+        return totp_value
+    except (ValueError, TypeError):
+        pass
+    return None
 
 def verify_totp_code(secret, code):
     """ Validate a Google authenticator compatible TOTP code
@@ -453,15 +479,19 @@ def verify_totp_code(secret, code):
     Return:
         True if validation successful
     """
-    key = base64.b32decode(secret)
-    totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
-    time_value = time.time()
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
+    if isinstance(code, unicode):
+        code = code.encode('utf-8')
     try:
+        key = base64.b32decode(secret)
+        totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
+        time_value = time.time()
         totp.verify(code, time_value)
         return True
-    except InvalidToken:
+    except (ValueError, TypeError, InvalidToken):
         pass
-    return False
+    return None
 
 def generate_totp_uri(secret, email):
     """ Generate a Google authenticator compatible QR provisioning URI
@@ -471,13 +501,21 @@ def generate_totp_uri(secret, email):
     Return:
         URI for QR code: otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=FrostyWeb
     """
-    key = base64.b32decode(secret)
-    totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
-    return totp.get_provisioning_uri(email, 'FrostyWeb')
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
+    try:
+        key = base64.b32decode(secret)
+        totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
+        return totp.get_provisioning_uri(email, 'FrostyWeb')
+    except TypeError:
+        pass
+    return None
 
 def generate_code(secret):
     """ Generate a random access code, with HMAC, base64 encoded
     """
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
     code = os.urandom(28)
     access_code = base64.b64encode(code + hmac_sha256(secret, code), '-_')
     return access_code
@@ -486,15 +524,16 @@ def validate_code(secret, access_code):
     """ Validate an access code
     """
     # The access code may come in as unicode, which has to be converted before b64decode
+    if isinstance(secret, unicode):
+        secret = secret.encode('utf-8')
     if isinstance(access_code, unicode):
-        code = access_code.encode('utf-8')
-    else:
-        code = access_code
+        access_code = access_code.encode('utf-8')
     try:
-        code = base64.b64decode(code, '-_')
+        code = base64.b64decode(access_code, '-_')
         return code[28:] == hmac_sha256(secret, code[:28])
     except TypeError:
-        return False
+        pass
+    return None
 
 def get_access_id(access_code):
     """ Hash the access code and generate a DB index
@@ -503,15 +542,14 @@ def get_access_id(access_code):
     """
     # The access code may come in as unicode, which has to be converted before b64decode
     if isinstance(access_code, unicode):
-        code = access_code.encode('utf-8')
-    else:
-        code = access_code
+        access_code = access_code.encode('utf-8')
     try:
-        hashed = hash_sha256(base64.b64decode(code, '-_'))
+        hashed = hash_sha256(base64.b64decode(access_code, '-_'))
         index = base64.b64encode(hashed[1:31], '-_')
         return index
     except TypeError:
-        return None
+        pass
+    return None
 
 def get_ip_address(request):
     """ Get the remote IP address if available, 'untrackable' if not

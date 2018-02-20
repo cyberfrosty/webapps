@@ -33,7 +33,8 @@ def derive_key(password, mcf='', bits=256):
     Return:
         MCF formatted value
     """
-
+    if isinstance(password, unicode):
+        password = password.encode('utf-8')
     key = ''
     salt = ''
     iterations = 100000
@@ -84,6 +85,8 @@ def scrypt_key(password, mcf='', bits=512):
         The scrypt paper suggests a minimum value of n=2**14 for interactive logins (t < 100ms),
         or n=2**20 for more sensitive files (t < 5s).
     """
+    if isinstance(password, unicode):
+        password = password.encode('utf-8')
     if len(mcf) == 0:
         salt = os.urandom(16) # NIST SP 800-132 recommends 128-bits or longer
         cost = 2**14
