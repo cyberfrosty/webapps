@@ -428,7 +428,7 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = 'Cuban Picadillo'
+        latest = 'Thai Meatballs'
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>"
         html += '<h4 itemprop="name">' + latest + '</h4>\n'
         html += self.get_rendered_recipe(latest)

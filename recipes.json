@@ -304,6 +304,38 @@
   }
 },
 {
+  "title": "Blonde Brownies",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/BlondeBrownies.jpg",
+  "date": "February 19, 2018",
+  "preptime": "15 minutes",
+  "cooktime": "25 minutes",
+  "yield": "Makes 32",
+  "category": ["Dessert"],
+  "description": "Blonde brownies with chocolate chips and not too much butter.",
+  "rating": 4.8,
+  "ingredients": {
+    "item1": {"quantity": "2 cups", "ingredient": "all-purpose flour"},
+    "item2": {"quantity": "2 tsp", "ingredient": "baking powder"},
+    "item3": {"quantity": "1/4 tsp", "ingredient": "salt"},
+    "item4": {"quantity": "1/4 cup", "ingredient": "butter"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "canola"},
+    "item6": {"quantity": "2 cups", "ingredient": "brown sugar, packed"},
+    "item7": {"quantity": "2", "ingredient": "eggs"},
+    "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
+    "item9": {"quantity": "2/3 cup", "ingredient": "chocolate chips"},
+    "item10": {"quantity": "1/3 cup", "ingredient": "chopped pecans or walnuts (optional)"}
+  },
+  "instructions": {
+    "step1": "Grease 13x9x2 inch baking pan, preheat oven to 350 degrees",
+    "step2": "In medium bowl combine flour, baking powder and salt",
+    "step3": "Melt butter, stir in sugar, add eggs and vanilla, beat lightly until just blended (do not over mix)",
+    "step4": "Stir in flour, chocolate chips and nuts",
+    "step5": "Spread batter in pan, bake for 25 minutes",
+    "step6": "Cut into bars while still warm"
+  }
+},
+{
   "title": "Ginger Carrots",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/GingerCarrots.jpg",
@@ -869,27 +901,38 @@
   }
 },
 {
-  "title": "Salmon Patties",
+  "title": "Salmon Cakes",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/SalmonPatties.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/SalmonCakes.jpg",
   "preptime": "10 minutes",
   "cooktime": "10 minutes",
   "yield": "Makes 6-8",
   "category": ["Seafood", "Dinner"],
-  "description": "Salmon cakes from canned or leftovers.",
+  "description": "Salmon cakes made from leftovers with a delicious yogurt sauce.",
   "rating": 4.2,
   "ingredients": {
-    "item1": {"quantity": "1+ lbs", "ingredient": "leftover seasoned salmon fillets"},
-    "item2": {"quantity": "1", "ingredient": "egg"},
-    "item3": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
-    "item4": {"quantity": "2-3 tbsp", "ingredient": "cooking oil"}
+    "section1": {
+      "title": "Salmon Cakes",
+        "item1": {"quantity": "1 lb", "ingredient": "leftover seasoned salmon fillets"},
+        "item2": {"quantity": "1", "ingredient": "egg"},
+        "item3": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
+        "item4": {"quantity": "2-3 tbsp", "ingredient": "cooking oil"}
+    },
+    "section2": {
+      "title": "Yogurt Sauce",
+        "item1": {"quantity": "1/2 cup", "ingredient": "Nonfat Greek yogurt"},
+        "item2": {"quantity": "2 tsp", "ingredient": "Ranch seasoning"},
+        "item3": {"quantity": "1/2 tsp", "ingredient": "Lemon pepper"},
+        "item4": {"quantity": "1/2 tsp", "ingredient": "Garlic salt"},
+        "item5": {"quantity": "1/4 tsp", "ingredient": "Dill"}
+    }
   },
   "instructions": {
     "step1": "Beat egg, add leftover salmon, mix thoroughly, add bread crumbs and form into patties",
     "step2": "Chill for an hour (optional and patties may be frozen for future use)",
     "step3": "Heat oil in non-stick pan to 325-350 degrees",
     "step4": "Add patties to pan, cook uncovered for 5 minutes per side, turning carefully when browned",
-    "step5": "Serve with ranch or favorite sauce"
+    "step5": "Serve with yogurt sauce"
   }
 },
 {
@@ -1052,7 +1095,7 @@
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
   "time": "45 minutes",
-  "description": "Thai meatballs made with lean ground turkey in a red peanut curry sauce.",
+  "description": "Thai meatballs made with lean ground turkey in a spicy red peanut curry sauce.",
   "nutrition": {"calories": 240, "fat": 7, "protein": 31, "carbohydrate": 10, "sodium": 580},
   "category": ["Asian", "Turkey", "Dinner"],
   "rating": 4.5,
