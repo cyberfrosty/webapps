@@ -24,7 +24,7 @@
       }
       this.oldpassword.value = hashPassword(this.email.value, this.oldpassword.value);
       this.password.value = hashPassword(this.email.value, this.password.value);
-      this.confirm.value = this.newpassword.value;
+      this.confirm.value = this.password.value;
       return;
     };
 
