@@ -83,6 +83,34 @@ function searchInit() {
   }
 }
 
+// Modal search dialog event handler
+function searchList(event) {
+  var char = event.which || event.keyCode;
+  var input = document.getElementById('searchPhrase');
+  var filter = input.value.toUpperCase();
+  if (char === 13) {
+    $("#search").modal("hide");
+  }
+  else {
+    var a, i;
+    var ul = document.getElementById("searchList");
+    var li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      // When only one search character entered, match on title word start only
+      if (filter && filter.length === 1 && a.innerText.indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else if (filter && filter.length > 1 && a.innerText.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+}
+
 // JavaScript form validation utilities
 
 // polyfill for RegExp.escape
