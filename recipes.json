@@ -478,7 +478,7 @@
   "cooktime": "15 minutes",
   "yield": "Serves 4",
   "category": ["Latin", "Dinner"],
-  "description": "Seasoned ground turkey for burritos, tacos and many other dishes.",
+  "description": "Mexican seasoned lean ground turkey for burritos, tacos and many other dishes.",
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "1 lb", "ingredient": "ground turkey (85-93% lean)"},
@@ -511,7 +511,7 @@
   "preptime": "15 minutes",
   "cooktime": "1 hour 15 minutes",
   "category": ["Latin", "Dinner"],
-  "description": "Cuban style picadillo with ground turkey, almonds, olives, raisins and green pepper.",
+  "description": "Cuban style picadillo made with lean ground turkey, almonds, olives, raisins and green pepper.",
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
@@ -760,7 +760,7 @@
   "cooktime": "1 hour 10 minutes",
   "yield": "Serves 6",
   "category": ["Mediterranean", "Pasta", "Turkey", "Dinner"],
-  "description": "Marinara sauce with lean ground turkey meatballs.",
+  "description": "Marinara sauce and Italian style meatballs made with lean ground turkey.",
   "rating": 4.8,
   "ingredients": {
     "section1": {
@@ -1024,7 +1024,7 @@
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
   "yield": "Serves 4-6",
-  "category": ["Dinner"],
+  "category": ["Vegetables"],
   "description": "Sweet potato fries that are low fat and crunchy.",
   "rating": 4.1,
   "ingredients": {
@@ -1046,7 +1046,8 @@
     "step6": "Place evenly on baking sheet and place in oven",
     "step7": "Cook for 15 minutes, remove from oven, turn fries and cook for 10-15 minutes until fries are browned",
     "step8": "Sprinkle with sea salt and enjoy"
-  }
+  },
+  "notes": "For a different take these can be made like diced potatoes, peel them and be careful as they can burn easily."
 },
 {
   "title": "Korean Meatballs",
@@ -1056,7 +1057,7 @@
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
   "time": "45 minutes",
-  "description": "Sweet and spicy Korean meatballs made with lean ground turkey.",
+  "description": "Sweet and spicy Korean style meatballs made with lean ground turkey.",
   "category": ["Asian", "Turkey", "Dinner"],
   "rating": 4.5,
   "ingredients": {
@@ -1135,6 +1136,62 @@
   }
 },
 {
+  "title": "Greek Meatballs",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/GreekMeatballs.jpg",
+  "yield": "Serves 6",
+  "preptime": "20 minutes",
+  "cooktime": "20 minutes",
+  "date": "February 21, 2018",
+  "description": "Greek meatballs (Keftedes) made with lean ground turkey served with Tzatziki, cucumber and tomato salad",
+  "category": ["Mediterranean", "Turkey", "Dinner"],
+  "rating": 4.3,
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+      "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+      "item2": {"quantity": "1", "ingredient": "eggs"},
+      "item3": {"quantity": "1/4 cup", "ingredient": "red onion, finely chopped"},
+      "item4": {"quantity": "1/4 cup", "ingredient": "fresh parsley, finely chopped"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "fresh mint or spearmint leaves, finely chopped (optional)"},
+      "item6": {"quantity": "2 cloves", "ingredient": "garlic"},
+      "item7": {"quantity": "1 tsp", "ingredient": "oregano"},
+      "item8": {"quantity": "1 tsp", "ingredient": "garlic salt"},
+      "item9": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
+      "item10": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+      "item11": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
+    },
+    "section2": {
+      "title":"Tzatziki Sauce",
+      "item1": {"quantity": "1/2 cup", "ingredient": "Greek yogurt"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "Diced cucumbers, peeled and deseeded"},
+      "item3": {"quantity": "1 clove", "ingredient": "garlic"},
+      "item4": {"quantity": "2 tsp", "ingredient": "lemon juice"},
+      "item5": {"quantity": "1 tsp", "ingredient": "apple cider vinegar"},
+      "item6": {"quantity": "2 tsp", "ingredient": "olive oil"},
+      "item7": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
+      "item8": {"quantity": "1/4 tsp", "ingredient": "black pepper"}
+    },
+    "section3": {
+      "title":"Greek Salad",
+      "item1": {"quantity": "2 cups", "ingredient": "Lettuce"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "Greek feta cheese"},
+      "item3": {"quantity": "1 cup", "ingredient": "Diced cucumbers"},
+      "item4": {"quantity": "1/2 cup", "ingredient": "Tomato wedges"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+      "item6": {"quantity": "2 tsp", "ingredient": "lemon juice"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine Tzatziki sauce ingredients in a small bowl, mix and put in fridge at least 30 minutes before serving",
+    "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
+    "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 15-20 minutes",
+    "step3": "Prepare Greek salad and artistically arrange on festive plates, drizzle with olive oil and lemon juice or vinegar ",
+    "step4": "Serve meatballs on salad with a dollop of Tzatziki sauce and fresh parsley"
+  },
+  "notes": "Slice these and make a delicious pita sandwich with lettuce, cucumber, tomato and peppers."
+},
+{
   "title": "Firecracker Meatballs",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/FirecrackerMeatballs.jpg",
@@ -1142,7 +1199,7 @@
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
   "date": "February 1, 2018",
-  "description": "Spicy buffalo style meatballs make a great appetizer or main course.",
+  "description": "Spicy buffalo style meatballs made with lean ground turkey make a great appetizer or main course.",
   "category": ["Latin", "Turkey", "Dinner"],
   "rating": 3.7,
   "ingredients": {
@@ -1421,7 +1478,7 @@
     "section2": {
       "title":"Veggies",
       "item1": {"quantity": "1", "ingredient": "large red bell pepper, julienne or diced"},
-      "item2": {"quantity": "1", "ingredient": "large jalepeno pepper, julienne or diced"},
+      "item2": {"quantity": "1", "ingredient": "large jalapeno pepper, julienne or diced"},
       "item3": {"quantity": "1/4 cup", "ingredient": "onion, finely chopped"},
       "item4": {"quantity": "4", "ingredient": "green onions, diced (2 tbsp)"},
       "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
