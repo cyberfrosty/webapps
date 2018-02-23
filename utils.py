@@ -144,7 +144,7 @@ def base58decode_int(source):
     """
 
     if not isinstance(source, str):
-        source = source.decode('ascii')
+        source = source.decode('utf-8')
 
     decimal = 0
     for char in source:
@@ -161,7 +161,7 @@ def base58decode(source):
     """
 
     if not isinstance(source, str):
-        source = source.decode('ascii')
+        source = source.decode('utf-8')
 
     if not isinstance(source, str):
         raise TypeError("a source-like object is required (also bytes), not '%s'" %
@@ -241,25 +241,29 @@ def check_name(name):
     Args:
         name
     """
-    exclude_set = ('<', '>', '(', ')', '"', '%', '#', '&', '*', '?', '\\', '/')
-    if name[:2] == '\\u':
-        name = name.decode('unicode-escape')
-    if regex.match(ur'^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$', name):
-        if isinstance(name, unicode):
-            name = name.encode('utf-8')
-        for letter in name:
-            if letter in exclude_set:
-                return False
-        return True
-    else:
-        return False
+    if name is not None:
+        exclude_set = ('<', '>', '(', ')', '"', '%', '#', '&', '*', '?', '\\', '/')
+        if name[:2] == '\\u':
+            name = name.decode('unicode-escape')
+        if regex.match(ur'^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$', name):
+            if isinstance(name, unicode):
+                name = name.encode('utf-8')
+            for letter in name:
+                if letter in exclude_set:
+                    return False
+            return True
+    return False
 
 def check_username(name):
     """ User name validator, unicode except for control, punctuation, separator or symbols
     Args:
         name
+    Return:
+        True or False
     """
-    return regex.match(r'^([\p{L}\p{Nd}]){2,32}$', name)
+    if name is not None:
+        return regex.match(r'^([\p{L}\p{Nd}]){2,32}$', name)
+    return False
 
 def check_phone(phone):
     """ Check a phone number to see if it is probably ok by stripping spaces, dashes and parens.
@@ -268,13 +272,26 @@ def check_phone(phone):
         Args:
             phone number to check
     """
-    phone = ''.join(chr for chr in phone if chr not in ' -()')
-    if phone[0] == '+':
-        if phone[0:2] == '+1':
-            return regex.match(r'^\+(\d{11})$', phone)
-        else:
-            return regex.match(r'^\+(\d{8,24})$', phone)
-    return regex.match(r'^(\d{10})$', phone)
+    if phone is not None:
+        phone = ''.join(chr for chr in phone if chr not in ' -()')
+        if phone[0] == '+':
+            if phone[0:2] == '+1':
+                return regex.match(r'^\+(\d{11})$', phone)
+            else:
+                return regex.match(r'^\+(\d{8,24})$', phone)
+        return regex.match(r'^(\d{10})$', phone)
+    return False
+
+def check_code(code):
+    """ Check for a valid 6 to 8 digit code
+    Args:
+        name
+    Return:
+        True or False
+    """
+    if code is not None:
+        return re.match(r'^[0-9]{6,8}$', code)
+    return False
 
 def preset_password(username, password):
     """ Preset password for a new user or password reset. HMAC is used to protect the actual
@@ -399,6 +416,8 @@ def verify_hotp_code(secret, code, counter):
     """
     if isinstance(secret, unicode):
         secret = secret.encode('utf-8')
+    if isinstance(code, unicode):
+        code = code.encode('utf-8')
     try:
         key = base64.b32decode(secret)
         hotp = HOTP(key, 6, SHA1(), backend=default_backend(), enforce_key_length=False)
@@ -457,14 +476,14 @@ def generate_totp_code(secret):
     Args:
         secret: 16 character base32 secret
     Return:
-        code: 6 digit code that expires in 30 seconds
+        code: 8 digit code that expires in 30 seconds
     """
     if isinstance(secret, unicode):
         secret = secret.encode('utf-8')
     try:
         key = base64.b32decode(secret)
         totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
-        time_value = time.time()
+        time_value = int(time.time())
         totp_value = totp.generate(time_value)
         return totp_value
     except (ValueError, TypeError):
@@ -475,7 +494,7 @@ def verify_totp_code(secret, code):
     """ Validate a Google authenticator compatible TOTP code
     Args:
         secret: 16 character base32 secret
-        code: 6 digit code that expires in 30 seconds
+        code: 8 digit code that expires in 30 seconds
     Return:
         True if validation successful
     """
@@ -486,7 +505,7 @@ def verify_totp_code(secret, code):
     try:
         key = base64.b32decode(secret)
         totp = TOTP(key, 8, SHA1(), 30, backend=default_backend(), enforce_key_length=False)
-        time_value = time.time()
+        time_value = int(time.time())
         totp.verify(code, time_value)
         return True
     except (ValueError, TypeError, InvalidToken):
@@ -666,12 +685,13 @@ def generate_timed_token(value, secret, salt):
     serializer = URLSafeTimedSerializer(secret)
     return serializer.dumps(value, salt=salt)
 
-def validate_timed_token(token, secret, salt, expiration=3600):
-    """ Validate a URL safe signature that expires
+def validate_timed_token(token, secret, salt, expiration=86400):
+    """ Validate a URL safe signature that expires in one day
     Args:
         token: timed token to validate
         secret: secret key to use for signing
         salt: namespace or other known value
+        expiration: valid time in seconds (default 1 day)
     Return:
         (validated, value): if validated == True, then value has the to be signed data
     """
@@ -880,6 +900,10 @@ def main():
                   '+86 (10) 69445464', '+33 6 87 71 23 45']:
         if not check_phone(phone):
             print('{} is not a valid phone'.format(phone))
+
+    for code in ['123456', '12345678', '12345a', None, '123456789', '1234']:
+        if not check_code(code):
+            print('{} is not a valid code'.format(code))
 
     print(sanitize_name('<script>function addEventListeners(element, eventList, listener) {'))
 
