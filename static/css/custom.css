@@ -349,6 +349,11 @@ code {
   margin-bottom: -1;
   border-radius: 3px;
 }
+.form-signin input[type="tel"] {
+  padding: 4px;
+  margin-bottom: -1;
+  border-radius: 3px;
+}
 
 .form-errors {
   background-color: #f6f6f6;
