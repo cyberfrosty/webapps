@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /accept
+Disallow: /admin
+Disallow: /confirm
+Disallow: /forgot
+Disallow: /login
+Disallow: /register
+Disallow: /resend
+Disallow: /reset

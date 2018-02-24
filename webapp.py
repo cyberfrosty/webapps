@@ -578,6 +578,12 @@ def google_site_verify():
     """
     return render_template('google3dd7b0647e1f4d7a.html')
 
+@APP.route('/robots.txt')
+def robots_txt():
+    """ Robots.txt file
+    """
+    return render_template('robots.txt')
+
 @APP.route('/')
 @APP.route('/index')
 def index():
