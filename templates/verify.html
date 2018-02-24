@@ -5,25 +5,24 @@
 <div class="container form-filler">
 <form id="verify_form" class="form-signin" role="form" method="POST" action="">
   <center>
-  <h3 class="form-signin-heading">Verify Code</h3>
+  <h3 class="form-signin-heading">{{ title }}</h3>
   {{ form.csrf_token }}
   {% from "_macros.html" import render_errors, render_messages %}
   {{ render_errors(form) }}
   {{ render_messages() }}
-  <p>
-  <i class="fa fa-user-o fa-fw"></i>
-  {{ form.email(id="email", placeholder="Email", title="Email address", type="email", required=True) }}
-  </p>
+  {{ form.action(id="action") }}
+  {{ form.email(id="email") }}
+  {{ form.phone(id="phone") }}
   <p>
   <i class="fa fa-ticket fa-fw"></i>
   {{ form.code(id="code", placeholder="123456", title="6 digit code", pattern="[0-9]{6,8}", required=True) }}
   </p>
   <p />
   <button class="btn btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Verify</button>
-  <a href="{{ url_for('resend', email=form.email.data, action='verify') }}" class="btn btn-primary" role="button"><i class="fa fa-send-o" aria-hidden="true"></i>&nbsp;Request New Code</a>
   </center>
   <hr />
-  <p class="form-info">Enter the 6 digit code from the authenticator, received via email, SMS or push notification.</p>
+  <p class="form-info">Enter the 6 or 8 digit code from the authenticator, SMS or push notification.</p>
+  <p class="form-info">Expired code? <a href="{{ url_for('resend', email=form.email.data, phone=form.phone.data, action='verify:' ~ form.action.data) }}"><i class="fa fa-send-o" aria-hidden="true"></i> Request new code.</a></p>
 </form>
 </div>
 

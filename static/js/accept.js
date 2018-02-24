@@ -25,7 +25,7 @@
           return;
         }
       } else {
-        alert("A valid user is required.");
+        alert("A valid user name is required.");
         this.user.focus();
         e.preventDefault();
         return;

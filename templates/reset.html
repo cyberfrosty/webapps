@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
 <script src="{{url_for('static', filename='js/reset.js')}}" type="text/javascript"></script>
 
 <div class="container form-filler">
@@ -17,7 +16,7 @@
   {{ form.token(id="token") }}
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.temppassword(id="temppassword", placeholder="Temporary Password", title="Temporary password", required=True) }}
+  {{ form.oldpassword(id="oldpassword", title="Temporary password must be entered.", placeholder="Temporary password", pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", required=True) }}
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
@@ -25,13 +24,15 @@
   </p>
   <p>
   <i class="fa fa-key fa-fw"></i>
-  {{ form.confirm(id="confirm", title="Please confirm your password.", placeholder="Confmrm password", pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", required=True) }}
+  {{ form.confirm(id="confirm", title="Please confirm your password.", placeholder="Confirm password", pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", required=True) }}
   </p>
   {% if mfa %}
   <p>
   <i class="fa fa-ticket fa-fw"></i>
   {{ form.code(id="code", placeholder="123456", title="6 digit code", pattern="[0-9]{6,8}", required=True) }}
   </p>
+  {% else %}
+  {{ form.code(id="code", value="123456", hidden=True, required=True) }}
   {% endif %}
   <button class="btn btn-primary" type="submit"><i class="fa fa-retweet" aria-hidden="true"></i>&nbsp;&nbsp;Reset Password</button>
   </center>

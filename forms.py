@@ -118,7 +118,7 @@ class InviteForm(FlaskForm):
     submit = SubmitField('Invite')
 
 class AcceptForm(FlaskForm):
-    """ Accept invitation with token
+    """ Accept invitation with link token, temporary password and code
     """
     action = HiddenField('Action')
     email = HiddenField('Email')
@@ -132,7 +132,7 @@ class AcceptForm(FlaskForm):
         InputRequired(),
         EqualTo('confirm', message='Passwords must match')
     ])
-    code = StringField('Code', validators=[InputRequired(),Regexp('^(\d{6,8})$')])
+    code = StringField('Code', validators=[InputRequired(), Regexp(r'^(\d{6,8})$')])
     confirm = PasswordField('Confirm password', validators=[InputRequired()])
     submit = SubmitField('Accept Invitation')
 
@@ -142,7 +142,7 @@ class ConfirmForm(FlaskForm):
     action = HiddenField('Action')
     email = HiddenField('Email')
     token = HiddenField('Token')
-    code = StringField('Code', validators=[InputRequired(),Regexp('^(\d{6,8})$')])
+    code = StringField('Code', validators=[InputRequired(), Regexp(r'^(\d{6,8})$')])
     submit = SubmitField('Confirm Account')
 
 class VerifyForm(FlaskForm):
@@ -150,7 +150,8 @@ class VerifyForm(FlaskForm):
     """
     action = HiddenField('Action')
     email = HiddenField('Email')
-    code = StringField('Code', validators=[InputRequired(),Regexp('^(\d{6,8})$')])
+    phone = HiddenField('Phone')
+    code = StringField('Code', validators=[InputRequired(), Regexp(r'^(\d{6,8})$')])
     submit = SubmitField('Verify Code')
 
 class UploadForm(FlaskForm):
@@ -167,10 +168,12 @@ class UploadForm(FlaskForm):
 class ResendForm(FlaskForm):
     """ Resend a confirmtion or verification token
     """
-    email = HiddenField('Email')
     action = HiddenField('Action')
+    email = StringField('Email Address', validators=[
+        InputRequired(),
+        Email()])
     phone = StringField('phone', validators=[PhoneNumberValidator()])
-    submit = SubmitField('Resend Token')
+    submit = SubmitField('Get New Code')
 
 class RegistrationForm(FlaskForm):
     """ Register a new account
@@ -212,12 +215,12 @@ class ForgotPasswordForm(FlaskForm):
     submit = SubmitField('Request Password Reset')
 
 class ResetPasswordForm(FlaskForm):
-    """ Reset a password with token
+    """ Reset a password with link token, temporary password and code
     """
     email = HiddenField('Email')
     action = HiddenField('Action')
     token = HiddenField('Token')
-    temppassword = PasswordField('Password', validators=[
+    oldpassword = PasswordField('Password', validators=[
         InputRequired(),
         Length(8, 64)])
     password = PasswordField('New Password', validators=[
@@ -225,5 +228,6 @@ class ResetPasswordForm(FlaskForm):
         PasswordValidator(),
         EqualTo('confirm', message='Passwords must match')
     ])
+    code = StringField('Code', validators=[InputRequired(), Regexp(r'^(\d{6,8})$')])
     confirm = PasswordField('Confirm password', validators=[InputRequired()])
     submit = SubmitField('Reset Password')

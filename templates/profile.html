@@ -9,7 +9,7 @@
 <table>
 {% for key, value in account.iteritems() %}
   <tr>
-    {% if key not in ['id', 'mcf', 'otp', 'previous_mcf', 'shared_secret'] %}
+    {% if key not in ['id', 'mcf', 'otp', 'reset_mcf', 'shared_secret'] %}
       <th> {{ key }} </th>
       <td> {{ value }} </td>
     {% endif %}
