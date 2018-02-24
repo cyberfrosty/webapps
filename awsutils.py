@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017 Alan Frost. All rights reserved.
+Copyright (c) 2017-2018 Alan Frost. All rights reserved.
 
 AWS Utility classes for DynamoDB, S3, SES, SNS and Route 53
 """
@@ -17,7 +17,7 @@ import pytz
 import simplejson as json
 import boto3
 from botocore.exceptions import ClientError
-from utils import load_config, preset_password
+from utils import preset_password
 
 CONFIG_DNS_TTL = 60 # TTL (Time To Live) in seconds tells DNS servers how long to cache
 CONFIG_DNS_TYPE = 'A' # A record
@@ -55,7 +55,7 @@ class DynamoDB(object):
     def create_table(self, primary_key):
         """ Create a table.
         Args:
-            primary_key: table primary key, e.g. 'username'
+            primary_key: table primary key, e.g. 'id'
         """
         active = False
         try:
@@ -89,7 +89,7 @@ class DynamoDB(object):
     def delete_item(self, key, value):
         """ Delete an item from the table.
         Args:
-            key: table primary key, e.g. 'username'
+            key: table primary key, e.g. 'id'
             value: primary key value to match
         """
         try:
@@ -101,7 +101,7 @@ class DynamoDB(object):
     def get_item(self, key, value):
         """ Get an item from the table.
         Args:
-            key: table primary key, e.g. 'username'
+            key: table primary key, e.g. 'id'
             value: primary key value to match
         Return:
             dict
@@ -125,18 +125,28 @@ class DynamoDB(object):
         except (ClientError, KeyError) as err:
             return {'error': err.message}
 
-    def update_item(self, id, key, value):
-        """ Add or replace an item field in the table.
+    def update_item(self, key, kvalue, field, fvalue):
+        """ Update an item field in the table
+            If the field does not exist it will be added
+            If the field value is None the field will be removed
         Args:
-            value: json item data, which includes table primary key
+            key: table primary key, e.g. 'id'
+            kvalue: primary key value to match
+            field: item field
+            fvalue: field value
         Return:
             dict
         """
         try:
-            self.table.update_item(Key={'id': id},
-                                   UpdateExpression="SET " + key + " = :k",
-                                   ExpressionAttributeValues={':k': value},
-                                   ReturnValues="UPDATED_NEW")
+            if fvalue is None:
+                self.table.update_item(Key={key: kvalue},
+                                       UpdateExpression="REMOVE " + field,
+                                       ReturnValues="NONE")
+            else:
+                self.table.update_item(Key={key: kvalue},
+                                       UpdateExpression="SET " + field + " = :f",
+                                       ExpressionAttributeValues={':f': fvalue},
+                                       ReturnValues="NONE")
             return {'message': 'Item updated'}
         except (ClientError, KeyError) as err:
             return {'error': err.message}
