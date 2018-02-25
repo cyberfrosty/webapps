@@ -162,8 +162,9 @@ def generate_search_list(images):
     html = ''
     for image in images:
         title = image['title']
-        thumb = image['image'].replace('.jpg', '_thumb.jpg')
-        html += '<li><a href="gallery.html?slide=' + str(slide) + '">' + title + '<img src="static/img/' + thumb + '"></a></li>\n'
+        #thumb = image['image'].replace('.jpg', '_thumb.jpg')
+        #html += '<li><a href="gallery.html?slide=' + str(slide) + '">' + title + '<img src="static/img/' + thumb + '"></a></li>\n'
+        html += '<li><a href="gallery.html?slide=' + str(slide) + '">' + title + '</a></li>\n'
         slide += 1
     print(html)
 

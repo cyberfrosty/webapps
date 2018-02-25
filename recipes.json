@@ -1734,7 +1734,7 @@
   "preptime": "15 minutes",
   "cooktime": "60 minutes",
   "category": ["Bread"],
-  "description": "Orange pumpkin bread, made with a whole orange raisins and pecans.",
+  "description": "Orange pumpkin bread, made with a whole orange, raisins and pecans.",
   "rating": 4.4,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "large orange"},
@@ -1749,7 +1749,7 @@
     "item10": {"quantity": "3/4 tsp", "ingredient": "salt"},
     "item11": {"quantity": "1 tsp", "ingredient": "cinnamon"},
     "item12": {"quantity": "1/2 tsp", "ingredient": "cloves"},
-    "item13": {"quantity": "1/2 cup", "ingredient": "raisins, small or chopped"},
+    "item13": {"quantity": "1/2 cup", "ingredient": "raisins"},
     "item14": {"quantity": "1/2 cup", "ingredient": "pecans or walnut pieces (optional)"}
   },
   "instructions": {

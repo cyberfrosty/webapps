@@ -7,34 +7,26 @@ html {
 }
 
 body {
+  background:#fafafa;
   padding-top: 35px;
   padding-bottom: 40px;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+#wrapper { box-shadow:0 0 8px rgba(0,0,0,0.25); }
+#wrapper.well { background:#fff; border-radius:0; }
 
-.gal {
-    -webkit-column-count: 3; /* Chrome, Safari, Opera */
-    -moz-column-count: 3; /* Firefox */
-    column-count: 3;
-}
+*, *:before, *:after { box-sizing: inherit; }
 
 .gal img{ width: 100%; padding: 7px 0;}
 
 .recipe img{ width: 400px; }
 
-.dropdown-menu {
-  background-color: #e5e5e5;
-}
+.dropdown-menu { background-color: #e5e5e5; }
 
-.dropdown-menu li{
-  align: left;
-}
+.dropdown-menu li { align: left; }
 
 /* Layout for phones */
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 414px) {
   img {
     display: block;
     margin: 0 auto 0 auto; /* Centered */
@@ -52,11 +44,11 @@ body {
     -webkit-column-count: 1; /* Chrome, Safari, Opera */
     -moz-column-count: 1; /* Firefox */
     column-count: 1;
-   }
+  }
 }
 
 /* Layout for iPads */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 415px) and (max-width: 768px) {
   img {
     display: block;
     margin: 0 auto 0 auto; /* Centered */
@@ -73,8 +65,18 @@ body {
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
-   }
+  }
 }
+
+/* Layout for larger screen */
+@media (min-width: 769px) {
+  .gal {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+  }
+}
+
 
 #searchPhrase {
     background-image: url('/css/searchicon.png'); /* Add a search icon to input */
@@ -317,12 +319,12 @@ code {
   margin: 0 auto;
   border-radius: 4px;
   background-color: #ffffff;
+  box-shadow:0 0 8px rgba(0,0,0,0.25);
 }
 
 .form-signin-heading {
   align: center;
-  margin-top: 18px;
-  margin-bottom: 12px;
+  padding: 6px;
 }
 
 .form-signin .checkbox {
@@ -371,7 +373,7 @@ code {
   align: left;
   text-align: left;
   margin-left: 16px;
-  margin-bottom: 8px;
+  padding: 6px;
 }
 
 input.error,
