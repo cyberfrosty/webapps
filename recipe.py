@@ -11,6 +11,7 @@ Implementation of Recipe manager
 from datetime import datetime
 import re
 import os
+from urllib import urlencode
 import simplejson as json
 
 from awsutils import DynamoDB
@@ -171,7 +172,7 @@ def render_instructions(instructions, mode):
         html += '</p>\n'
     return html
 
-def render_recipe_summary(recipe):
+def render_recipe_summary(recipe, makeit=False):
     """ Render a recipe as HTML
     Args:
         recipe: dictionary
@@ -183,7 +184,9 @@ def render_recipe_summary(recipe):
     html = '<div class="row recipe">\n'
     html += '<div class="col-sm-6">\n'
     title = recipe['title']
-    html += '<meta itemprop="url" content="https://cyberfrosty.com/recipe.html?recipe=' + title + '" />\n'
+    url = '/recipes?recipe=' + title.replace(' ', '%20')
+    if not makeit:
+        html += '<meta itemprop="url" content="' + url + '" />\n'
     if 'image' in recipe:
         image, ext = os.path.splitext(recipe['image'])
         small = image + '_small' + ext
@@ -245,6 +248,8 @@ def render_recipe_summary(recipe):
                     html += '  <span class="fa fa-star-o"></span>\n'
                 rating -= 1.0
             html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings\n</div>\n'
+        if makeit:
+            html += '<a class="btn btn-primary" href="' + url + '" role="button"><i class="fa fa-external-link" aria-hidden="true"></i> Make it</a>\n'
         html += '</div><!--/col-sm-6-->\n'
         html += '</div><!--/row-->\n'
         return html
@@ -387,10 +392,13 @@ class RecipeManager(object):
         Returns:
             dictionary
         """
-        if len(recipe_id) == 48 and contains_only(recipe_id, '0123456789ABCDEFGHJKMNPQRSTVWXYZ'):
-            return self.database.get_item('id', recipe_id)
+        if len(recipe_id) != 48 or not contains_only(recipe_id, '0123456789ABCDEFGHJKMNPQRSTVWXYZ'):
+            recipe_id = generate_id(recipe_id)
+        if recipe_id in self.recipes:
+            recipe = self.recipes[recipe_id]
         else:
-            return self.database.get_item('id', generate_id(recipe_id))
+            recipe = self.database.get_item('id', recipe_id)
+        return recipe
 
     def save_recipe(self, recipe):
         """ Save recipe in Database
@@ -413,25 +421,22 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        if len(recipe_id) != 48 or not contains_only(recipe_id, '0123456789ABCDEFGHJKMNPQRSTVWXYZ'):
-            recipe_id = generate_id(recipe_id)
-        if recipe_id in self.recipes:
-            recipe = self.recipes[recipe_id]
-        else:
-            recipe = self.get_recipe(recipe_id)
 
+        recipe = self.get_recipe(recipe_id)
         if recipe is not None and 'error' not in recipe:
             return self.render_recipe(recipe)
 
     def get_latest_recipe(self):
-        """ Get HTML rendered latest recipe
+        """ Get HTML rendered recipe summaries for latest postings
         Returns:
             HTML for recipe
         """
-        latest = 'Thai Meatballs'
+        latest = ['Greek Meatballs', 'Orange Pumpkin Bread', 'Thai Meatballs']
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>"
-        html += '<h4 itemprop="name">' + latest + '</h4>\n'
-        html += self.get_rendered_recipe(latest)
+        for item in latest:
+           html += '<br />\n<h3>' + item + '</h3>\n'
+           recipe = self.get_recipe(item)
+           html += render_recipe_summary(recipe, True)
         return html
 
     def find_recipe_by_category(self, category):
