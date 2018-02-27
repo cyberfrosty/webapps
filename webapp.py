@@ -578,6 +578,12 @@ def google_site_verify():
     """
     return render_template('google3dd7b0647e1f4d7a.html')
 
+@APP.route('/pinterest-98ea8.html')
+def pinterst_site_verify():
+    """ Pinterst site verification
+    """
+    return render_template('pinterest-98ea8.html')
+
 @APP.route('/robots.txt')
 def robots_txt():
     """ Robots.txt file
