@@ -1,0 +1,9 @@
+Dear {{ user }},
+
+You have requested a password reset. Click on the following link to complete this request:
+
+{{ link }}
+
+Regards,
+
+Frosty Web
