@@ -90,6 +90,14 @@ function searchList(event) {
   var filter = input.value.toUpperCase();
   if (char === 13) {
     $("#search").modal("hide");
+    if (filter.length > 0) {
+      params = '?query=' + encodeURIComponent(input.value);
+      href = window.location.href;
+      if (window.location.pathname != '/search') {
+        href.replace(window.location.pathname, '/search');
+      }
+      window.location.href = href + params;
+    }
   }
   else {
     var a, i;

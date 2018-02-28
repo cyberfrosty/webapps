@@ -607,6 +607,49 @@ def server_info():
     uptime = time.strftime("%H:%M:%S", time.gmtime(timestamp - SERVER_START))
     return jsonify({'server': url_fields.netloc, 'version': SERVER_VERSION, 'uptime': uptime})
 
+@APP.route('/api/message.email')
+def message_email():
+    """ Send an email message
+    """
+    title = get_parameter(request, 'recipe')
+    email = get_parameter(request, 'email')
+    if title is None or email is None:
+        abort(400, 'Invalid input, recipe and email expected')
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), email)
+    account = USERS.get_item('id', userid)
+    if account and 'error' not in account:
+        recipe = RECIPE_MANAGER.get_recipe(title)
+        if recipe is not None and 'error' not in recipe:
+            image = recipe.get('image')
+            if image:
+                image = image.replace(".jpg", "_small.jpg")
+            link = url_for('recipes', recipe=title.replace(' ', '%20'), _external=True)
+            user = account.get('user') or email
+            inviter = "Frosty" #current_user.get_user()
+            intro = u'{} has shared a recipe for {} with you.'.format(inviter, title)
+            send_email(email, title, 'recipe',
+                       user=user, intro=intro, link=link, image=image, signature='Enjoy<br />,{}'.format(inviter))
+            return jsonify({'message.email': email, 'status': 'ok'})
+    abort(404, 'Recipient or recipe not found')
+
+@APP.route('/search', methods=['GET'])
+def search_recipes():
+    """ Search recipes
+    """
+    query = get_parameter(request, 'query')
+    if query:
+        match = RECIPE_MANAGER.match_recipe_by_category(query)
+        title = 'Search Results ({}, found {})'.format(query, len(match))
+        if len(match) > 0:
+            html = RECIPE_MANAGER.get_recipe_list(match)
+        else:
+            html = '<br />\n<h3>No Matches Found</h3>\n'
+    else:
+        title = 'Search for Recipes by Category or Title'
+        html = '<br />\n'
+
+    return render_template('recipes.html', title=title, search=RECIPE_LIST, recipe=html)
+
 @APP.route('/recipes', methods=['GET'])
 def recipes():
     """ Show recipes
@@ -616,7 +659,7 @@ def recipes():
     else:
         userid = get_ip_address(request)
 
-    recipe = request.args.get('recipe')
+    recipe = get_parameter(request, 'recipe')
     if recipe is not None:
         EVENT_MANAGER.web_event('recipes', userid, **{"recipe": recipe})
         html = RECIPE_MANAGER.get_rendered_recipe(recipe)
@@ -1216,7 +1259,6 @@ def reset():
         return redirect(url_for('index'))
 
     mfa = None
-    errmsg = None
     agent = {"ip": get_ip_address(request), "from": get_user_agent(request)}
     form = ResetPasswordForm()
     # GET - populate form with required parameters (these are all hidden fields)

@@ -477,7 +477,7 @@
   "preptime": "5 minutes",
   "cooktime": "15 minutes",
   "yield": "Serves 4",
-  "category": ["Latin", "Dinner"],
+  "category": ["Latin", "Dinner", "Turkey"],
   "description": "Mexican seasoned lean ground turkey for burritos, tacos and many other dishes.",
   "rating": 4.1,
   "ingredients": {
@@ -511,7 +511,7 @@
   "yield": "Serves 6",
   "preptime": "15 minutes",
   "cooktime": "1 hour 15 minutes",
-  "category": ["Latin", "Dinner"],
+  "category": ["Latin", "Dinner", "Turkey"],
   "description": "Cuban style picadillo made with lean ground turkey, almonds, olives, raisins and green pepper.",
   "rating": 4.8,
   "ingredients": {
@@ -622,7 +622,7 @@
   "preptime": "25 minutes",
   "cooktime": "1 hour",
   "yield": "Serves 6",
-  "category": ["Mediterranean", "Dinner"],
+  "category": ["Mediterranean", "Dinner", "Turkey"],
   "description": "Moroccan spiced sauce with lean ground turkey meatballs.",
   "rating": 5.0,
   "ingredients": {

@@ -73,7 +73,7 @@ function saveTable() {
 
   update = '{"' + boxName + '":"' + ciphertext + '"}'
   let xhr = new XMLHttpRequest();
-  xhr.open('patch', 'http://localhost:8080/vault', true);
+  xhr.open('patch', window.location.href, true);
   xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
   xhr.setRequestHeader('X-CSRFToken', csrftoken);
 

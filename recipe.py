@@ -11,7 +11,6 @@ Implementation of Recipe manager
 from datetime import datetime
 import re
 import os
-from urllib import urlencode
 import simplejson as json
 
 from awsutils import DynamoDB
@@ -426,6 +425,18 @@ class RecipeManager(object):
         if recipe is not None and 'error' not in recipe:
             return self.render_recipe(recipe)
 
+    def get_recipe_list(self, matches):
+        """ Get HTML rendered recipe summaries for search match
+        Returns:
+            HTML for recipe
+        """
+        html = ''
+        for item in matches:
+            html += '<br />\n<h3>' + item + '</h3>\n'
+            recipe = self.get_recipe(item)
+            html += render_recipe_summary(recipe, True)
+        return html
+
     def get_latest_recipe(self):
         """ Get HTML rendered recipe summaries for latest postings
         Returns:
@@ -434,23 +445,25 @@ class RecipeManager(object):
         latest = ['Greek Meatballs', 'Orange Pumpkin Bread', 'Thai Meatballs']
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>"
         for item in latest:
-           html += '<br />\n<h3>' + item + '</h3>\n'
-           recipe = self.get_recipe(item)
-           html += render_recipe_summary(recipe, True)
+            html += '<br />\n<h3>' + item + '</h3>\n'
+            recipe = self.get_recipe(item)
+            html += render_recipe_summary(recipe, True)
         return html
 
-    def find_recipe_by_category(self, category):
+    def match_recipe_by_category(self, category):
         """ Find recipes of the specified category (e.g. 'asian')
         Args:
             category to search for
         Returns:
             list of recipe titles
         """
-        matches = []
+        matches = set()
         for recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
-            if 'category' in recipe and category in recipe['category']:
-                matches.append(recipe['title'])
+            if 'category' in recipe:
+                for item in recipe['category']:
+                    if re.search(category, item, re.IGNORECASE):
+                        matches.add(recipe['title'])
         return matches
 
     def get_rendered_gallery(self, category=None):
@@ -465,7 +478,7 @@ class RecipeManager(object):
             recipe = self.recipes[recipe_id]
             if category is None or category in recipe['category']:
                 title = recipe['title']
-                image = 'https://snowyrangesolutions.com/static/img/' + title.replace(" ", "") + '.jpg'
+                image = 'https://snowyrangesolutions.com/static/img/' + title.replace(" ", "") + '_small.jpg'
                 link = '/recipes?recipe=' + title.replace(" ", "%20") + '&category=' + recipe['category'][0]
                 html += '<a href="' + link + '" title="' + title + '">\n'
                 html += '<img src="' + image + '" alt="' + title + '"></a>\n'
@@ -477,11 +490,12 @@ def main():
     """
     manager = RecipeManager('noneedtomeasure')
     manager.load_recipes('recipes.json')
-    print manager.get_rendered_recipe('Korean Meatballs')
-    print manager.get_rendered_recipe('Pumpkin Waffles')
-    print manager.get_rendered_recipe('Strawberry Pancakes')
-    print manager.get_rendered_recipe('Meatball Marinara')
-    print manager.find_recipe_by_category('asian')
+    print manager.match_recipe_by_category('asian')
+    print manager.match_recipe_by_category('turk')
+    veggies = manager.match_recipe_by_category('veg')
+    med = manager.match_recipe_by_category('med')
+    print veggies.union(med)
+
     print render_time('prepTime', '20 mins')
     print render_time('prepTime', '20 minutes')
     print render_time('cookTime', '1 hour')
@@ -491,8 +505,8 @@ def main():
     print add_times('45 mins', '1 hour 20 minutes')
     print add_times('45 mins', '25 minutes')
     print add_times('45 mins', '2 hours')
-    print manager.get_rendered_gallery()
-    print manager.get_rendered_gallery('Asian')
+    #print manager.get_rendered_gallery()
+    #print manager.get_rendered_gallery('Asian')
 
 if __name__ == '__main__':
     main()
