@@ -106,17 +106,24 @@ function searchList(event) {
     }
   }
   else {
-    var a, i;
+    var a, i, j;
     const ul = document.getElementById("searchList");
     const li = ul.getElementsByTagName('li');
 
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName("a")[0];
-      // When only one search character entered, match on title word start only
-      if (filter && filter.length === 1 && a.innerText.indexOf(filter) > -1) {
-        li[i].style.display = "";
-      } else if (filter && filter.length > 1 && a.innerText.toUpperCase().indexOf(filter) > -1) {
+      let matched = false;
+      if (filter && filter.length > 0) {
+        a = li[i].getElementsByTagName("a")[0];
+        const words = a.innerText.toUpperCase().split(' ');
+        for(j = 0; j < words.length; j++){
+          if (words[j].startsWith(filter)) {
+            matched = true;
+            break;
+          }
+        }
+      }
+      if (matched) {
         li[i].style.display = "";
       } else {
         li[i].style.display = "none";
