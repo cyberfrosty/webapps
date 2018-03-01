@@ -30,7 +30,7 @@ from flask_login import (LoginManager, current_user, login_required, login_user,
 from decorators import async
 from forms import (AcceptForm, ChangePasswordForm, ConfirmForm, ForgotPasswordForm,
                    InviteForm, LoginForm, RegistrationForm, VerifyForm, ResetPasswordForm,
-                   ResendForm, UploadForm)
+                   SearchForm, ResendForm, UploadForm)
 from crypto import derive_key
 from utils import (load_config, generate_timed_token, validate_timed_token, generate_user_id,
                    generate_random58_id, generate_random_int, preset_password,
@@ -632,23 +632,38 @@ def message_email():
             return jsonify({'message.email': email, 'status': 'ok'})
     abort(404, 'Recipient or recipe not found')
 
-@APP.route('/search', methods=['GET'])
+@APP.route('/search', methods=['GET', 'POST'])
 def search_recipes():
     """ Search recipes
     """
-    query = get_parameter(request, 'query')
+    form = SearchForm()
+    # GET - query parameters are in the URL
+    if request.method == 'GET':
+        query = get_parameter(request, 'query')
+    # POST - query parameters are in the form
+    elif form.validate_on_submit():
+        query = form.query.data
+        form.query.data = ''
     if query:
-        match = RECIPE_MANAGER.match_recipe_by_category(query)
-        title = 'Search Results ({}, found {})'.format(query, len(match))
-        if len(match) > 0:
-            html = RECIPE_MANAGER.get_recipe_list(match)
+        phrases = query.split()
+        if len(phrases) == 1:
+            matches = RECIPE_MANAGER.match_recipe_by_category(query)
+            matches = matches.union(RECIPE_MANAGER.match_recipe_by_title(query))
+        elif len(phrases) > 1:
+            matches = set()
+            for phrase in phrases:
+                wmatch = RECIPE_MANAGER.match_recipe_by_category(phrase)
+                wmatch = wmatch.union(RECIPE_MANAGER.match_recipe_by_title(phrase))
+                matches = matches.intersection(wmatch) if len(matches) > 0 else wmatch
+        title = 'Search Results ({}, found {})'.format(query, len(matches))
+        if len(matches) > 0:
+            html = RECIPE_MANAGER.get_recipe_list(matches)
         else:
-            html = '<br />\n<h3>No Matches Found</h3>\n'
+            html = '<br />\n<p>No matches found for search string</p>\n'
     else:
-        title = 'Search for Recipes by Category or Title'
-        html = '<br />\n'
+        html = '<br />\n<p>Search for recipes by name and category</p>\n'
 
-    return render_template('recipes.html', title=title, search=RECIPE_LIST, recipe=html)
+    return render_template('search.html', form=form, search=RECIPE_LIST, results=html)
 
 @APP.route('/recipes', methods=['GET'])
 def recipes():

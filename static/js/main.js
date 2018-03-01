@@ -85,24 +85,30 @@ function searchInit() {
 
 // Modal search dialog event handler
 function searchList(event) {
-  var char = event.which || event.keyCode;
-  var input = document.getElementById('searchPhrase');
-  var filter = input.value.toUpperCase();
+  const char = event.which || event.keyCode;
+  const input = document.getElementById('searchPhrase');
+  const filter = input.value.toUpperCase();
   if (char === 13) {
     $("#search").modal("hide");
     if (filter.length > 0) {
-      params = '?query=' + encodeURIComponent(input.value);
-      href = window.location.href;
+      const params = '?query=' + encodeURIComponent(input.value);
+      let href = window.location.href;
+      // Strip any existing query parameters from url of current page
+      const qmark = href.indexOf('?');
+      if (qmark > 0) {
+          href = href.substring(0, qmark);
+      }
+      // If not already on search page, redirect to the search page
       if (window.location.pathname != '/search') {
-        href.replace(window.location.pathname, '/search');
+        href = href.replace(window.location.pathname, '/search');
       }
       window.location.href = href + params;
     }
   }
   else {
     var a, i;
-    var ul = document.getElementById("searchList");
-    var li = ul.getElementsByTagName('li');
+    const ul = document.getElementById("searchList");
+    const li = ul.getElementsByTagName('li');
 
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {

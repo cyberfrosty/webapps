@@ -94,6 +94,12 @@ class PhoneNumberValidator(object):
         #        if not (phonenumbers.is_valid_number(input_number)):
         #            raise ValidationError(self.message)
 
+class SearchForm(FlaskForm):
+    """ SearchLogin
+    """
+    query = StringField('Query', validators=[InputRequired()])
+    submit = SubmitField('Search')
+
 class LoginForm(FlaskForm):
     """ Login
     """
