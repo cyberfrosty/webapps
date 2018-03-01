@@ -450,20 +450,37 @@ class RecipeManager(object):
             html += render_recipe_summary(recipe, True)
         return html
 
-    def match_recipe_by_category(self, category):
-        """ Find recipes of the specified category (e.g. 'asian')
+    def match_recipe_by_category(self, phrase):
+        """ Find recipes that match the phrase in their categories (e.g. 'veg')
         Args:
-            category to search for
+            phrase to search for
         Returns:
             list of recipe titles
         """
         matches = set()
         for recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
-            if 'category' in recipe:
-                for item in recipe['category']:
-                    if re.search(category, item, re.IGNORECASE):
-                        matches.add(recipe['title'])
+            for item in recipe.get('category'):
+                if re.search(phrase, item, re.IGNORECASE):
+                    matches.add(recipe['title'])
+                    break
+        return matches
+
+    def match_recipe_by_title(self, phrase):
+        """ Find recipes that match the phrase in their title (e.g. 'Thai')
+        Args:
+            phrase to search for
+        Returns:
+            list of recipe titles
+        """
+        matches = set()
+        for recipe_id in self.recipes:
+            recipe = self.recipes[recipe_id]
+            words = recipe.get('title').split()
+            for word in words:
+                if re.search(phrase, word, re.IGNORECASE):
+                    matches.add(recipe['title'])
+                    break
         return matches
 
     def get_rendered_gallery(self, category=None):
@@ -492,6 +509,7 @@ def main():
     manager.load_recipes('recipes.json')
     print manager.match_recipe_by_category('asian')
     print manager.match_recipe_by_category('turk')
+    print manager.match_recipe_by_title('thai')
     veggies = manager.match_recipe_by_category('veg')
     med = manager.match_recipe_by_category('med')
     print veggies.union(med)
