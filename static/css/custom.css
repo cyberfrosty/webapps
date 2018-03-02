@@ -12,12 +12,45 @@ body {
   padding-bottom: 40px;
 }
 
+
 #wrapper { box-shadow:0 0 8px rgba(0,0,0,0.25); }
 #wrapper.well { background:#fff; border-radius:0; }
 
 *, *:before, *:after { box-sizing: inherit; }
 
-.gal img{ width: 100%; padding: 7px 0;}
+.gal figure img {
+  width: 100%;
+  padding: 3px 0;
+  overflow: hidden;
+}
+
+.gal table {
+  padding: 0px;
+  cell-padding: 0px;
+}
+
+.gal td {
+  padding: 2px;
+  border-bottom: none;
+}
+
+figcaption {
+  float: inherit;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: -35px;
+  left: 0;
+  -webkit-box-sizing: border-box; 
+     -moz-box-sizing: border-box; 
+          box-sizing: border-box;
+  width: 100%;
+  padding: 4px;
+  color: #FFF;
+  background: #000000; /* Fallback color */
+  background: rgba(0, 0, 0, .1);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
 
 .recipe img{ width: 400px; }
 

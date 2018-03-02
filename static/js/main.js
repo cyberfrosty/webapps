@@ -92,12 +92,8 @@ function searchList(event) {
     $("#search").modal("hide");
     if (filter.length > 0) {
       const params = '?query=' + encodeURIComponent(input.value);
-      let href = window.location.href;
       // Strip any existing query parameters from url of current page
-      const qmark = href.indexOf('?');
-      if (qmark > 0) {
-          href = href.substring(0, qmark);
-      }
+      let href = window.location.href.split('?')[0];;
       // If not already on search page, redirect to the search page
       if (window.location.pathname != '/search') {
         href = href.replace(window.location.pathname, '/search');

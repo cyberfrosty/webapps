@@ -688,11 +688,13 @@ def recipes():
 def gallery():
     """ Show gallery
     """
-    category = request.args.get('category')
-    html = RECIPE_MANAGER.get_rendered_gallery(category)
+    category = get_parameter(request, 'category')
     if category:
-        search = RECIPE_MANAGER.build_search_list(category)
+        matches = RECIPE_MANAGER.match_recipe_by_category(category)
+        html = RECIPE_MANAGER.get_rendered_gallery(matches)
+        search = RECIPE_MANAGER.build_search_list(matches)
     else:
+        html = RECIPE_MANAGER.get_rendered_gallery()
         search = RECIPE_LIST
     return render_template('gallery.html', search=search, gallery=html)
 

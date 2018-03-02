@@ -327,13 +327,23 @@ class RecipeManager(object):
         html += '</div><!--/siderbar-module-inset-->\n'
         return html
 
-    def build_search_list(self, category=None):
+    def build_search_list(self, matches=None):
         """ Build the quick find search list
+        Args:
+            set of recipe titles
+        Returns:
+            html for quick search list
         """
         html = ''
-        for recipe_id in self.recipes:
-            recipe = self.recipes[recipe_id]
-            if category is None or category in recipe['category']:
+        if matches:
+            for item in matches:
+                recipe = self.get_recipe(item)
+                title = recipe['title']
+                url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
+                html += '<li><a href="{}">{}</a></li>\n'.format(url, title)
+        else:
+            for recipe_id in self.recipes:
+                recipe = self.recipes[recipe_id]
                 title = recipe['title']
                 url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
                 html += '<li><a href="{}">{}</a></li>\n'.format(url, title)
@@ -427,14 +437,32 @@ class RecipeManager(object):
 
     def get_recipe_list(self, matches):
         """ Get HTML rendered recipe summaries for search match
+        Args
+            set of recipe titles
         Returns:
             HTML for recipe
         """
         html = ''
-        for item in matches:
-            html += '<br />\n<h3>' + item + '</h3>\n'
-            recipe = self.get_recipe(item)
-            html += render_recipe_summary(recipe, True)
+        if len(matches) < 3:
+            for item in matches:
+                html += '<br />\n<h3>' + item + '</h3>\n'
+                recipe = self.get_recipe(item)
+                html += render_recipe_summary(recipe, True)
+        else:
+            html = '<div class="gal">\n'
+            for item in matches:
+                recipe = self.get_recipe(item)
+                title = recipe['title']
+                image = 'https://snowyrangesolutions.com/static/img/' + title.replace(" ", "") + '_small.jpg'
+                html += '<table><tr><td>\n'
+                html += '<figure>\n'
+                html += '<figcaption>' + title + '</figcaption>\n'
+                link = '/recipes?recipe=' + title.replace(" ", "%20")
+                html += '<a href="' + link + '" title="' + title + '">\n'
+                html += '<img src="' + image + '" alt="' + title + '"></a>\n'
+                html += '</figure>\n'
+                html += '</td></tr></table>\n'
+            html += '</div>\n'
         return html
 
     def get_latest_recipe(self):
@@ -483,23 +511,30 @@ class RecipeManager(object):
                     break
         return matches
 
-    def get_rendered_gallery(self, category=None):
+    def get_rendered_gallery(self, matches=None):
         """ Render an image gallery of recipe pictures
         Args:
-            category to match or None for all
+            set of titles
         Returns:
             HTML container with image gallery
         """
-        html = '<div class="gal">\n'
-        for recipe_id in self.recipes:
-            recipe = self.recipes[recipe_id]
-            if category is None or category in recipe['category']:
+        if matches:
+            html = self.get_recipe_list(matches)
+        else:
+            html = '<div class="gal">\n'
+            for recipe_id in self.recipes:
+                recipe = self.recipes[recipe_id]
                 title = recipe['title']
                 image = 'https://snowyrangesolutions.com/static/img/' + title.replace(" ", "") + '_small.jpg'
-                link = '/recipes?recipe=' + title.replace(" ", "%20") + '&category=' + recipe['category'][0]
+                html += '<table><tr><td>\n'
+                html += '<figure>\n'
+                html += '<figcaption>' + title + '</figcaption>\n'
+                link = '/recipes?recipe=' + title.replace(" ", "%20")
                 html += '<a href="' + link + '" title="' + title + '">\n'
                 html += '<img src="' + image + '" alt="' + title + '"></a>\n'
-        html += '</div>\n'
+                html += '</figure>\n'
+                html += '</td></tr></table>\n'
+            html += '</div>\n'
         return html
 
 def main():
