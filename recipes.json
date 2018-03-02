@@ -6,7 +6,7 @@
   "preptime": "20 minutes",
   "cooktime": "25 minutes",
   "yield": "Makes 10-15",
-  "category": ["Dessert"],
+  "category": ["Nuts", "Dessert"],
   "description": "Spice coated pecans for the holidays, snacking, or anytime.",
   "rating": 4.76,
   "ingredients": {
@@ -40,7 +40,7 @@
   "preptime": "10 minutes",
   "totaltime": "1 hour 10 minutes",
   "yield": "Makes 10-15",
-  "category": ["Dessert"],
+  "category": ["Chocolate", "Dessert"],
   "description": "Deliciously crunchy chocolate treats for after dinner or with coffee.",
   "rating": 4.4,
   "ingredients": {
@@ -70,7 +70,7 @@
   "preptime": "20 minutes",
   "cooktime": "1 hour",
   "yield": "Makes 1 pie",
-  "category": ["Dessert"],
+  "category": ["Pie", "Dessert"],
   "description": "Whole wheat crust and traditionally spiced pumpkin filling.",
   "rating": 4.6,
   "ingredients": {
@@ -124,7 +124,7 @@
   "cooktime": "15 minutes",
   "totaltime": "3 hours",
   "yield": "Makes 48-60",
-  "category": ["Dessert"],
+  "category": ["Cookies"],
   "description": "German Pfeffernusse cookies.",
   "rating": 4.6,
   "ingredients": {
@@ -157,7 +157,7 @@
   "cooktime": "12 minutes",
   "totaltime": "3 hours",
   "yield": "Makes 48",
-  "category": ["Dessert"],
+  "category": ["Cookies"],
   "description": "Mint chocolate chip cookies made with Andes mints.",
   "rating": 4.1,
   "ingredients": {
@@ -221,7 +221,7 @@
   "cooktime": "15 minutes",
   "totaltime": "1 hour",
   "yield": "Makes 12",
-  "category": ["Dessert"],
+  "category": ["Crepes", "Dessert"],
   "description": "Swedish pancakes (or crepes), rolled up with your favorite fillings.",
   "rating": 4.7,
   "ingredients": {
@@ -281,7 +281,7 @@
   "preptime": "15 minutes",
   "cooktime": "30 minutes",
   "yield": "Makes 16",
-  "category": ["Dessert"],
+  "category": ["Chocolate", "Dessert"],
   "description": "Decedent fudge brownies with chocolate chips and not too much butter.",
   "rating": 4.8,
   "ingredients": {
@@ -311,7 +311,7 @@
   "preptime": "15 minutes",
   "cooktime": "25 minutes",
   "yield": "Makes 32",
-  "category": ["Dessert"],
+  "category": ["Chocolate", "Dessert"],
   "description": "Blonde brownies with chocolate chips and not too much butter.",
   "rating": 4.8,
   "ingredients": {
@@ -343,7 +343,7 @@
   "preptime": "5 minutes",
   "cooktime": "20 minutes",
   "yield": "Serves 4",
-  "category": ["Asian", "Vegetables","Dinner"],
+  "category": ["Asian", "Vegetables"],
   "description": "Asian style carrots with ginger and teriyaki.",
   "rating": 4.2,
   "ingredients": {
@@ -370,7 +370,7 @@
   "preptime": "5 minutes",
   "cooktime": "10 minutes",
   "yield": "Serves 4",
-  "category": ["Asian", "Vegetables","Dinner"],
+  "category": ["Asian", "Vegetables"],
   "description": "Asian style green beans with sesame seeds.",
   "rating": 4.2,
   "ingredients": {
@@ -397,7 +397,7 @@
   "preptime": "10 minutes",
   "cooktime": "10 minutes",
   "yield": "Serves 4",
-  "category": ["Asian", "Vegetables","Dinner"],
+  "category": ["Asian", "Vegetables"],
   "description": "Spicy Asian style green beans with sesame seeds.",
   "rating": 4.2,
   "ingredients": {
@@ -426,7 +426,7 @@
   "preptime": "5 minutes",
   "cooktime": "20 minutes",
   "yield": "Serves 4",
-  "category": ["Mediterranean", "Vegetables","Dinner"],
+  "category": ["Mediterranean", "Vegetables"],
   "description": "Spicy Mediterranean style carrots with cilantro.",
   "rating": 4.2,
   "ingredients": {
@@ -452,7 +452,7 @@
   "preptime": "5 minutes",
   "yield": "Serves 4",
   "description": "Your basic guacamole as you like.",
-  "category": ["Latin", "Dinner"],
+  "category": ["Latin", "Mexican", "Appetizer"],
   "rating": 4.4,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "avocado"},
@@ -477,7 +477,7 @@
   "preptime": "5 minutes",
   "cooktime": "15 minutes",
   "yield": "Serves 4",
-  "category": ["Latin", "Dinner", "Turkey"],
+  "category": ["Latin", "Mexican", "Turkey"],
   "description": "Mexican seasoned lean ground turkey for burritos, tacos and many other dishes.",
   "rating": 4.1,
   "ingredients": {
@@ -511,7 +511,7 @@
   "yield": "Serves 6",
   "preptime": "15 minutes",
   "cooktime": "1 hour 15 minutes",
-  "category": ["Latin", "Dinner", "Turkey"],
+  "category": ["Latin", "Cuban", "Turkey"],
   "description": "Cuban style picadillo made with lean ground turkey, almonds, olives, raisins and green pepper.",
   "rating": 4.8,
   "ingredients": {
@@ -551,7 +551,7 @@
   "preptime": "10 minutes",
   "cooktime": "30 minutes",
   "yield": "Serves 6-8",
-  "category": ["Latin", "Dinner"],
+  "category": ["Latin", "Mexican"],
   "description": "Vegetarian green chile or with pork if preferred.",
   "rating": 4.8,
   "ingredients": {
@@ -583,7 +583,7 @@
   "cooktime": "2 hours",
   "time": "2 hours 30 minutes",
   "yield": "Serves 4-6",
-  "category": ["Mediterranean", "Dinner"],
+  "category": ["Mediterranean", "Moroccan"],
   "description": "Moroccan spiced lamb chunks.",
   "rating": 4.8,
   "ingredients": {
@@ -622,7 +622,7 @@
   "preptime": "25 minutes",
   "cooktime": "1 hour",
   "yield": "Serves 6",
-  "category": ["Mediterranean", "Dinner", "Turkey"],
+  "category": ["Mediterranean", "Moroccan", "Turkey"],
   "description": "Moroccan spiced sauce with lean ground turkey meatballs.",
   "rating": 5.0,
   "ingredients": {
@@ -674,7 +674,7 @@
   "preptime": "10 minutes",
   "cooktime": "20 minutes",
   "yield": "Serves 4",
-  "category": ["Mediterranean", "Vegetables", "Dinner"],
+  "category": ["Mediterranean", "Vegetables"],
   "description": "Pan roasted cauliflower.",
   "rating": 4.6,
   "ingredients": {
@@ -702,7 +702,7 @@
   "preptime": "5 minutes",
   "cooktime": "5 minutes",
   "yield": "Serves 4",
-  "category": ["Vegetables", "Dinner"],
+  "category": ["Vegetables"],
   "description": "Spicy and delicious spinach.",
   "rating": 3.5,
   "ingredients": {
@@ -760,7 +760,7 @@
   "preptime": "15 minutes",
   "cooktime": "1 hour 10 minutes",
   "yield": "Serves 6",
-  "category": ["Mediterranean", "Pasta", "Turkey", "Dinner"],
+  "category": ["Mediterranean", "Pasta", "Turkey", "Italian"],
   "description": "Marinara sauce and Italian style meatballs made with lean ground turkey.",
   "rating": 4.8,
   "ingredients": {
@@ -802,7 +802,7 @@
   "preptime": "15 minutes",
   "cooktime": "45 minutes",
   "yield": "Serves 4-6",
-  "category": ["Mediterranean", "Pasta", "Chicken", "Dinner"],
+  "category": ["Mediterranean", "Pasta", "Chicken"],
   "description": "Stir fry Mediterranean chicken with roasted red peppers, artichokes and sun dried tomatoes.",
   "rating": 4.3,
   "ingredients": {
@@ -810,7 +810,7 @@
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
       "title": "Veggies",
@@ -847,7 +847,7 @@
   "cooktime": "20 minutes",
   "totaltime": "3 hours",
   "yield": "Makes 2 pizzas",
-  "category": ["Mediterranean", "Dinner"],
+  "category": ["Mediterranean", "Italian"],
   "description": "Baked or grilled pizza with whole wheat crust and your favorite toppings.",
   "rating": 4.9,
   "ingredients": {
@@ -890,7 +890,7 @@
   "preptime": "5 minutes",
   "cooktime": "15 minutes",
   "yield": "Serves 2",
-  "category": ["Seafood", "Dinner"],
+  "category": ["Seafood"],
   "description": "Grilled salmon on the grill or seared in a pan with mesquite.",
   "rating": 4.9,
   "ingredients": {
@@ -912,7 +912,7 @@
   "preptime": "10 minutes",
   "cooktime": "10 minutes",
   "yield": "Makes 6-8",
-  "category": ["Seafood", "Dinner"],
+  "category": ["Seafood"],
   "description": "Salmon cakes made from leftovers with a delicious yogurt sauce.",
   "rating": 4.2,
   "ingredients": {
@@ -949,7 +949,7 @@
   "cooktime": "15 minutes",
   "totaltime": "35 minutes",
   "yield": "Serves 6-8",
-  "category": ["Seafood", "Dinner"],
+  "category": ["Seafood", "Thai"],
   "description": "Spicy Thai seasoned salmon baked in foil.",
   "rating": 4.9,
   "ingredients": {
@@ -979,7 +979,7 @@
   "date": "January 8, 2017",
   "preptime": "10 minutes",
   "yield": "Serves 6-8",
-  "category": ["Mediterranean", "Dinner"],
+  "category": ["Mediterranean", "Appetizer"],
   "description": "Homemade hummus with canned or cooked chickpeas.",
   "rating": 4.6,
   "ingredients": {
@@ -1008,7 +1008,7 @@
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
   "yield": "Serves 4-6",
-  "category": ["Breakfast", "Dinner"],
+  "category": ["Breakfast"],
   "description": "Home fries, low fat, crunchy and delicious.",
   "rating": 4.1,
   "ingredients": {
@@ -1068,7 +1068,7 @@
   "cooktime": "25 minutes",
   "time": "45 minutes",
   "description": "Sweet and spicy Korean style meatballs made with lean ground turkey.",
-  "category": ["Asian", "Turkey", "Dinner"],
+  "category": ["Asian", "Turkey"],
   "rating": 4.5,
   "ingredients": {
     "section1": {
@@ -1087,7 +1087,7 @@
       "title":"Spicy Apricot Glaze",
       "item1": {"quantity": "1/2 cup", "ingredient": "apricot jam"},
       "item2": {"quantity": "2 tsp", "ingredient": "soy sauce"},
-      "item3": {"quantity": "2 tsp", "ingredient": "Sriracha"}
+      "item3": {"quantity": "1 tbsp", "ingredient": "Gochujang"}
     }
   },
   "instructions": {
@@ -1109,7 +1109,7 @@
   "time": "45 minutes",
   "description": "Thai meatballs made with lean ground turkey in a spicy red peanut curry sauce.",
   "nutrition": {"calories": 240, "fat": 7, "protein": 31, "carbohydrate": 10, "sodium": 580},
-  "category": ["Asian", "Turkey", "Dinner"],
+  "category": ["Asian", "Turkey"],
   "rating": 4.5,
   "ingredients": {
     "section1": {
@@ -1156,7 +1156,7 @@
   "cooktime": "20 minutes",
   "date": "February 21, 2018",
   "description": "Greek meatballs (Keftedes) made with lean ground turkey served with Tzatziki, cucumber and tomato salad",
-  "category": ["Mediterranean", "Turkey", "Dinner"],
+  "category": ["Mediterranean", "Turkey"],
   "rating": 4.3,
   "ingredients": {
     "section1": {
@@ -1213,7 +1213,7 @@
   "cooktime": "25 minutes",
   "date": "February 1, 2018",
   "description": "Spicy buffalo style meatballs made with lean ground turkey make a great appetizer or main course.",
-  "category": ["Latin", "Turkey", "Dinner"],
+  "category": ["Latin", "Turkey"],
   "rating": 3.7,
   "ingredients": {
     "section1": {
@@ -1243,13 +1243,47 @@
   }
 },
 {
+  "title": "Korean Tofu",
+  "chef": "\ubbfc\uc120",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanTofu.jpg",
+  "date": "February 25, 2018",
+  "yield": "Serves 4",
+  "preptime": "10 minutes",
+  "cooktime": "10 minutes",
+  "time": "20 minutes",
+  "description": "Sweet and spicy Korean tofu",
+  "category": ["Asian", "Tofu"],
+  "rating": 4.5,
+  "ingredients": {
+    "item1": {"quantity": "1 lb", "ingredient": "Tofu"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "starch (or flour)"},
+    "item3": {"quantity": "4 tbsp", "ingredient": "peanut, olive, or canola oil"},
+    "item4": {"quantity": "3-4", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "onion"},
+    "item6": {"quantity": "3 tbsp", "ingredient": "ketchup"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "honey"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "Gochujang"},
+    "item9": {"quantity": "3 tbsp", "ingredient": "water"},
+    "item10": {"quantity": "3-4", "ingredient": "green onions"}
+  },
+  "instructions": {
+    "step1": "Cut tofu into chunks, and drain on a paper towl",
+    "step2": "Place starch into a plastic bag, add tofu and shake to coat",
+    "step3": "Add 3 tbsp oil to medium non-stick skillet and preheat over medium heat",
+    "step4": "Place tofu into skillet and turn up heat to medium-high",
+    "step5": "Meanwhile in another pan, saute onion and garlic until starting to brown",
+    "step6": "Add the ketchup, honey, Gochujang and water, bring to a boil",
+    "step7": "Mix to coat tofu with sauce, serve over rice and garnish with green onions"
+  }
+},
+{
   "title": "Poke Bowl",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/PokeBowl.jpg",
   "date": "July 21, 2017",
   "yield": "Serves 2",
   "preptime": "15 minutes",
-  "category": ["Asian", "Seafood", "Dinner"],
+  "category": ["Asian", "Seafood"],
   "description": "Hawaiian style poke bowl.",
   "rating": 4.3,
   "ingredients": {
@@ -1287,7 +1321,7 @@
   "yield": "Serves 2",
   "preptime": "25 minutes",
   "cooktime": "5 minutes",
-  "category": ["Asian", "Seafood", "Dinner"],
+  "category": ["Asian", "Seafood", "Thai"],
   "description": "Stir fry spicy chile lime shrimp with cilantro.",
   "rating": 4.7,
   "ingredients": {
@@ -1320,7 +1354,7 @@
   "preptime": "10 minutes",
   "cooktime": "10 minutes",
   "time": "30 minutes",
-  "category": ["Asian", "Seafood", "Dinner"],
+  "category": ["Asian", "Seafood"],
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
@@ -1354,7 +1388,7 @@
   "yield": "Serves 4",
   "preptime": "20 minutes",
   "cooktime": "20 minutes",
-  "category": ["Asian", "Chicken", "Dinner"],
+  "category": ["Asian", "Chicken"],
   "description": "Stir fry orange chicken loaded with veggies.",
   "rating": 4.7,
   "ingredients": {
@@ -1362,7 +1396,7 @@
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
       "title":"Veggies",
@@ -1411,7 +1445,7 @@
   "preptime": "20 minutes",
   "cooktime": "10 minutes",
   "totaltime": "2 hours 35 minutes",
-  "category": ["Mediterranean", "Chicken", "Dinner"],
+  "category": ["Mediterranean", "Chicken"],
   "description": "Traditional grilled chicken shawarma or try it as a stir fry.",
   "rating": 4.7,
   "ingredients": {
@@ -1483,7 +1517,7 @@
   "preptime": "15 minutes",
   "cooktime": "15 minutes",
   "time": "45 minutes",
-  "category": ["Asian", "Chicken", "Dinner"],
+  "category": ["Asian", "Chicken"],
   "description": "Stir fry Szechuan chicken loaded with veggies.",
   "rating": 4.4,
   "ingredients": {
@@ -1537,7 +1571,7 @@
   "yield": "Serves 4",
   "preptime": "15 minutes",
   "cooktime": "15 minutes",
-  "category": ["Asian", "Chicken", "Dinner"],
+  "category": ["Asian", "Chicken"],
   "description": "Stir fry sesame chicken with mushrooms.",
   "rating": 3.8,
   "ingredients": {
