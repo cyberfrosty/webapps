@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+  <br />
+  <div class="container">
+    <form id="search_form" class="form-signin" role="form" method="POST" action="">
+    {{ form.csrf_token }}
+      <div>
+      <button class="btn btn-primary" type="submit"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+      {{ form.query(id="query", placeholder="Search recipes", title="Search recipes", type="text", style="width: 85%; float: right", required=True) }}
+      </div>
+    </form>
+  </div>
+  {% if results %}
+    {{ results | safe }}
+  {% endif %}
+</div><!--/container-->
+
+{% endblock %}
+
