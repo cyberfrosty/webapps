@@ -556,7 +556,7 @@
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1 can (12 oz)", "ingredient": "tomatillos, drained"},
-    "item2": {"quantity": "1 can (7 oz)", "ingredient": "whole green chiles, drained"},
+    "item2": {"quantity": "1 can (7 oz)", "ingredient": "whole green chilies, drained"},
     "item3": {"quantity": "1 jar (12 oz)", "ingredient": "Hatch green chile or salsa"},
     "item4": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
     "item5": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
@@ -776,7 +776,7 @@
         "item1": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
         "item2": {"quantity": "1 medium can", "ingredient": "diced tomatoes"},
         "item3": {"quantity": "1 small can", "ingredient": "tomato paste"},
-        "item4": {"quantity": "4 tbsp", "ingredient": "olive oil"},
+        "item4": {"quantity": "2 tbsp", "ingredient": "olive oil"},
         "item5": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
         "item6": {"quantity": "4", "ingredient": "garlic cloves, pressed"},
         "item7": {"quantity": "1 tbsp", "ingredient": "oregano"},
@@ -1013,7 +1013,7 @@
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "2-3", "ingredient": "large russet or golden potatoes"},
-    "item2": {"quantity": "3-4 tbsp", "ingredient": "cooking oil"},
+    "item2": {"quantity": "3 tbsp", "ingredient": "cooking oil"},
     "item3": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
     "item4": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
@@ -1080,14 +1080,15 @@
       "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
       "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
       "item7": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
-      "item8": {"quantity": "1+ tsp", "ingredient": "garlic salt"},
+      "item8": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
       "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
     },
     "section2": {
       "title":"Spicy Apricot Glaze",
       "item1": {"quantity": "1/2 cup", "ingredient": "apricot jam"},
-      "item2": {"quantity": "2 tsp", "ingredient": "soy sauce"},
-      "item3": {"quantity": "1 tbsp", "ingredient": "Gochujang"}
+      "item2": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5)"}
     }
   },
   "instructions": {
@@ -1095,6 +1096,52 @@
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
     "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss until coated",
     "step4": "Garnish with chopped chives or green ends of onions",
+    "step5": "Serve over noodles or rice"
+  }
+},
+{
+  "title": "Mongolian Meatballs",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanMeatballs.jpg",
+  "date": "March 7, 2018",
+  "yield": "Serves 6",
+  "preptime": "10 minutes",
+  "cooktime": "25 minutes",
+  "time": "45 minutes",
+  "description": "Sweet and spicy Mongolian style meatballs made with lean ground turkey.",
+  "category": ["Asian", "Turkey"],
+  "rating": 4.5,
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+      "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+      "item2": {"quantity": "2", "ingredient": "eggs"},
+      "item3": {"quantity": "3-4", "ingredient": "green onions"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
+      "item5": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u9ec4\u9152) or dry sherry"},
+      "item8": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+      "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
+    },
+    "section2": {
+      "title":"Mongolian Glaze",
+      "item1": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item3": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
+      "item4": {"quantity": "2-3 tbsp", "ingredient": "Soyaki or teriyaki sauce and 1 tsp ginger"},
+      "item5": {"quantity": "1/2 cup", "ingredient": "water"},
+      "item6": {"quantity": "2 tbsp", "ingredient": "hoisin"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
+      "item8": {"quantity": "1 tsp", "ingredient": "red chili powder"}
+    }
+  },
+  "instructions": {
+    "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
+    "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 15-20 minutes",
+    "step3": "Meanwhile in medium sauce pan mix glaze ingredients, and simmer for 8-10 minutes until sauce begins to thicken",
+    "step4": "Add cooked meatballs and toss until coated",
+    "step4": "Garnish with green onions ans sesame seeds",
     "step5": "Serve over noodles or rice"
   }
 },
@@ -1262,12 +1309,12 @@
     "item5": {"quantity": "1/4 cup", "ingredient": "onion"},
     "item6": {"quantity": "3 tbsp", "ingredient": "ketchup"},
     "item7": {"quantity": "2 tbsp", "ingredient": "honey"},
-    "item8": {"quantity": "1 tbsp", "ingredient": "Gochujang"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5)"},
     "item9": {"quantity": "3 tbsp", "ingredient": "water"},
     "item10": {"quantity": "3-4", "ingredient": "green onions"}
   },
   "instructions": {
-    "step1": "Cut tofu into chunks, and drain on a paper towl",
+    "step1": "Cut tofu into chunks, and drain on a paper towel",
     "step2": "Place starch into a plastic bag, add tofu and shake to coat",
     "step3": "Add 3 tbsp oil to medium non-stick skillet and preheat over medium heat",
     "step4": "Place tofu into skillet and turn up heat to medium-high",
@@ -1364,7 +1411,7 @@
     "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
     "item6": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
     "item7": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
-    "item8": {"quantity": "1 tbsp", "ingredient": "Mirin, sherry or white wine"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u9ec4\u9152) or dry sherry"},
     "item9": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item10": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
     "item11": {"quantity": "2-3 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
@@ -1453,7 +1500,7 @@
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
       "title":"Marinade",
@@ -1525,7 +1572,7 @@
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
       "title":"Veggies",
@@ -1552,8 +1599,8 @@
   },
   "instructions": {
     "step1": "Combine sauce ingredients in measuring cup and mix",
-    "step2": "Add oil and layer veggies starting with onions, peppers ginger and garlic with in a wok",
-    "step3": "Add oil to large non-stick skillet and preheat over medium heat",
+    "step2": "Add 2 tbsp oil to a wok, then layer onion, peppers, garlic and ginger",
+    "step3": "Add 2 tbsp oil to large non-stick skillet and preheat over medium heat",
     "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
     "step5": "Place chicken into skillet and turn up heat to medium-high",
     "step6": "Turn heat to medium for veggies, stirring occasionally and kept covered",
@@ -1579,7 +1626,7 @@
       "title": "Chicken",
       "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "4 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
     "section2": {
       "title":"Sauce",
@@ -1612,6 +1659,52 @@
     "step8": "Add sauce mixture to wok and bring to low boil",
     "step9": "Add chicken to wok, stir to coat evenly, turn off heat, leave uncovered for a few minutes",
     "step10": "Serve over rice, garnish with sesame seeds and green onions"
+  }
+},
+{
+  "title": "Kadai Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SesameChicken.jpg",
+  "date": "March 3, 2018",
+  "yield": "Serves 4",
+  "preptime": "15 minutes",
+  "cooktime": "15 minutes",
+  "category": ["Asian", "Chicken", "Indian"],
+  "description": "Healthy variation on a traditional Indian stir fry chicken (Kadai).",
+  "rating": 3.8,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+    },
+    "section2": {
+      "title":"Sauce",
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"},
+      "item2": {"quantity": "1", "ingredient": "onion, diced"},
+      "item3": {"quantity": "1", "ingredient": "bell pepper, diced"},
+      "item4": {"quantity": "1", "ingredient": "large jalapeno pepper, diced"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
+      "item6": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
+      "item7": {"quantity": "1/2 cup", "ingredient": "non-fat yogurt"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "tomato paste"},
+      "item8": {"quantity": "1 tsp", "ingredient": "coriander"},
+      "item9": {"quantity": "1 tsp", "ingredient": "cumin"},
+      "item10": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
+      "item11": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"}
+    }
+  },
+  "instructions": {
+    "step1": "Add 2 tbsp oil to a wok, then layer onion, peppers, garlic and ginger",
+    "step2": "Combine the remaining sauce ingredients in a small bowl",
+    "step3": "Add 2 tbsp oil to large non-stick skillet and preheat over medium heat",
+    "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step5": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
+    "step6": "Turn on wok to medium, stirring occasionally and kept covered",
+    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step8": "Add sauce mixture to wok and stir to coat, then add chicken and stir fry for 2 minutes",
+    "step9": "Serve over rice, garnish with cilantro and thinly sliced green chilies"
   }
 },
 {
