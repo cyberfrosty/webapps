@@ -1340,9 +1340,9 @@
       "item2": {"quantity": "2", "ingredient": "green onions"},
       "item3": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item4": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-      "item5": {"quantity": "1 tsp", "ingredient": "Mirin or seasoned rice vinegar"},
+      "item5": {"quantity": "1 tsp", "ingredient": "Mirin (\u5473\u9182) or seasoned rice vinegar"},
       "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Sriracha"},
-      "item7": {"quantity": "1 tsp", "ingredient": "Wasabi (instead of chili or with 1 tsp chili)"},
+      "item7": {"quantity": "1 tsp", "ingredient": "Wasabi (\u308f\u3055\u3073)"},
       "item8": {"quantity": "2 tsp", "ingredient": "sesame seeds"}
     },
     "section2": {
@@ -1350,7 +1350,7 @@
       "item1": {"quantity": "1 cup", "ingredient": "cooked brown rice"},
       "item2": {"quantity": "1 cup", "ingredient": "seaweed salad, or shredded lettuce"},
       "item3": {"quantity": "1", "ingredient": "sliced avocado, or cucumber"},
-      "item4": {"quantity": "1/2 tsp", "ingredient": "Furikake"}
+      "item4": {"quantity": "1/2 tsp", "ingredient": "Furikake (\u3075\u308a\u304b\u3051)"}
     }
   },
   "instructions": {
@@ -1664,14 +1664,14 @@
 {
   "title": "Kadai Chicken",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/SesameChicken.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/KadaiChicken.jpg",
   "date": "March 3, 2018",
   "yield": "Serves 4",
   "preptime": "15 minutes",
   "cooktime": "15 minutes",
   "category": ["Asian", "Chicken", "Indian"],
-  "description": "Healthy variation on a traditional Indian stir fry chicken (Kadai).",
-  "rating": 3.8,
+  "description": "Healthy variation on a North Indian style chicken curry (Kadai/Karahi).",
+  "rating": 4.6,
   "ingredients": {
     "section1": {
       "title": "Chicken",
@@ -1682,30 +1682,37 @@
     "section2": {
       "title":"Sauce",
       "item1": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"},
-      "item2": {"quantity": "1", "ingredient": "onion, diced"},
-      "item3": {"quantity": "1", "ingredient": "bell pepper, diced"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
+      "item3": {"quantity": "1", "ingredient": "yellow bell pepper, diced"},
       "item4": {"quantity": "1", "ingredient": "large jalapeno pepper, diced"},
       "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
       "item6": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
       "item7": {"quantity": "1/2 cup", "ingredient": "non-fat yogurt"},
-      "item7": {"quantity": "1 tbsp", "ingredient": "tomato paste"},
-      "item8": {"quantity": "1 tsp", "ingredient": "coriander"},
-      "item9": {"quantity": "1 tsp", "ingredient": "cumin"},
-      "item10": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
-      "item11": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"}
+      "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste"},
+      "item9": {"quantity": "2 tsp", "ingredient": "cumin"},
+      "item10": {"quantity": "1 tsp", "ingredient": "coriander"},
+      "item11": {"quantity": "1/2 tsp", "ingredient": "cardomom"},
+      "item12": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
+      "item13": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
+      "item14": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
+      "item15": {"quantity": "1/4 tsp", "ingredient": "cloves"},
+      "item16": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
+      "item17": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"}
     }
   },
   "instructions": {
     "step1": "Add 2 tbsp oil to a wok, then layer onion, peppers, garlic and ginger",
-    "step2": "Combine the remaining sauce ingredients in a small bowl",
-    "step3": "Add 2 tbsp oil to large non-stick skillet and preheat over medium heat",
+    "step2": "Combine yogurt, tomato paste, cinnamon and cloves in a small bowl",
+    "step3": "Add 2 tbsp oil to a large non-stick skillet and preheat over medium heat",
     "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
     "step5": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
-    "step6": "Turn on wok to medium, stirring occasionally and kept covered",
+    "step6": "Turn on wok to medium, let onion cook for 5 minutes, then add spices and stir occasionally and kept covered",
     "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
-    "step8": "Add sauce mixture to wok and stir to coat, then add chicken and stir fry for 2 minutes",
-    "step9": "Serve over rice, garnish with cilantro and thinly sliced green chilies"
-  }
+    "step8": "Add chicken to wok, stir to coat chicken, and cook for 2 minutes",
+    "step9": "Add yogurt mixture to wok. stir to coat everything, and cook for 2 minutes",
+    "step10": "Serve over rice, garnish with cilantro, coriander leaves or thinly sliced peppers"
+  },
+  "notes": "Use 2 T of garam masala instead of individual spices if you have it and prefer to."
 },
 {
   "title": "Strawberry Pancakes",
