@@ -74,7 +74,7 @@ def read_csv(csv_file):
     """
     csv_rows = []
     with open(csv_file) as csvfile:
-        reader = csv.DictReader(csvfile)
+        reader = csv.DictReader(csvfile, skipinitialspace=True)
         field = reader.fieldnames
         for row in reader:
             csv_rows.extend([{field[i]:row[field[i]] for i in range(len(field))}])

@@ -14,7 +14,10 @@ import os
 import simplejson as json
 
 from awsutils import DynamoDB
-from utils import generate_id, contains_only
+from utils import generate_id, contains_only, read_csv
+
+TBSP2CUP = 0.0625
+TSP2CUP = 0.020833
 
 def render_ingredients(ingredients):
     """ Render recipe ingredients as HTML
@@ -109,7 +112,7 @@ def render_nutrition(nutrition):
     if 'carbohydrate' in nutrition:
         html += ', <span itemprop="carbohydrateContent">{}g carb</span>'.format(nutrition['carbohydrate'])
     if 'sodium' in nutrition:
-        html += ', <span itemprop="carbohydrateContent">{}mg sodium</span>'.format(nutrition['sodium'])
+        html += ', <span itemprop="sodiumContent">{}mg sodium</span>'.format(nutrition['sodium'])
     if 'serving' in nutrition:
         html += ', <span itemprop="servingSIze">{}</span>\n'.format(nutrition['serving'])
     html += '</div>\n'
@@ -261,6 +264,7 @@ class RecipeManager(object):
     def __init__(self, config):
         self.config = config
         self.recipes = {}
+        self.ingredients = {}
         self.database = DynamoDB(config, 'Recipes')
 
     def load_recipes(self, infile):
@@ -308,6 +312,72 @@ class RecipeManager(object):
                         self.recipes[recipe_id] = recipe
         except (IOError, ValueError) as err:
             print('Load of recipe file failed:', err.message)
+
+    def load_nutrition(self, csvfile='nutrition.csv'):
+        nutrition = read_csv(csvfile)
+        for ingredient in nutrition:
+            self.ingredients[ingredient['item']] = ingredient
+
+    def count_calories(self, title):
+        calories = 0.0
+        fat = 0.0
+        carbohydrate = 0.0
+        protein = 0.0
+        sodium = 0.0
+        index = 1
+        recipe = self.get_recipe(title)
+        if not recipe or 'error' in recipe:
+            print 'Recipe not found: {}'.format(title)
+        serves, people = recipe.get('yield').split()
+        if serves == 'Serves':
+            factor = 1.0 / float(people)
+        ingredients = recipe.get('ingredients')
+        while 'item' + str(index) in ingredients:
+            item = ingredients.get('item' + str(index))
+            measure = item.get('quantity').split()
+            if len(measure) > 2:
+                quantity = float(measure[0])
+                measure = measure[1:]
+            else:
+                quantity = 0.0
+            if measure[0] == '1':
+                quantity += 1.0
+            elif measure[0] == '3/4':
+                quantity += 0.75
+            elif measure[0] == '2/3':
+                quantity += 0.667
+            elif measure[0] == '1/2':
+                quantity += 0.5
+            elif measure[0] == '1/3':
+                quantity += 0.333
+            elif measure[0] == '1/4':
+                quantity += 0.25
+            else:
+                quantity += float(measure[0])
+            item = item.get('ingredient')
+            if item not in self.ingredients:
+                print item
+            else:
+                ingredient = self.ingredients.get(item)
+                serving, size = ingredient.get('serving').split()
+                if len(measure) > 1 and measure[1] != size:
+                    if measure[1] == 'tbsp' and size == 'cup':
+                        quantity *= TBSP2CUP
+                    elif measure[1] == 'tbsp' and size == 'tsp':
+                        quantity *= 3
+                    elif measure[1] == 'tsp' and size == 'tbsp':
+                        quantity /= 3
+                else:
+                    quantity = quantity / float(serving)
+                scale = factor * quantity
+                calories += scale * float(ingredient.get('calories'))
+                fat += scale * float(ingredient.get('fat'))
+                carbohydrate += scale * float(ingredient.get('carbohydrate'))
+                protein += scale * float(ingredient.get('protein'))
+                sodium += scale * float(ingredient.get('sodium'))
+            index += 1
+        return {'calories': int(calories), 'fat': int(fat), 'carbohydrate': int(carbohydrate),
+                'protein': int(protein), 'sodium': int(sodium)}
 
     def build_navigation_list(self, category=None):
         """ Build an accordian navigation list
@@ -470,8 +540,8 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = ['Greek Meatballs', 'Orange Pumpkin Bread', 'Thai Meatballs']
-        html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table.</p>"
+        latest = ['Kadai Chicken', 'Greek Meatballs', 'Orange Pumpkin Bread', 'Thai Meatballs']
+        html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table. Nutrition information is calculated from USDA database or package labels.</p>"
         for item in latest:
             html += '<br />\n<h3>' + item + '</h3>\n'
             recipe = self.get_recipe(item)
@@ -542,6 +612,7 @@ def main():
     """
     manager = RecipeManager('noneedtomeasure')
     manager.load_recipes('recipes.json')
+    manager.load_nutrition('nutrition.csv')
     print manager.match_recipe_by_category('asian')
     print manager.match_recipe_by_category('turk')
     print manager.match_recipe_by_title('thai')
@@ -560,6 +631,7 @@ def main():
     print add_times('45 mins', '2 hours')
     #print manager.get_rendered_gallery()
     #print manager.get_rendered_gallery('Asian')
+    print manager.count_calories('Pumpkin Waffles')
 
 if __name__ == '__main__':
     main()

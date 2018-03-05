@@ -134,7 +134,7 @@
     "item4": {"quantity": "1/2 tsp", "ingredient": "cloves"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "nutmeg"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "ginger"},
-    "item7": {"quantity": "1/2 cup", "ingredient": "cooking oil"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "canola oil"},
     "item8": {"quantity": "1/3 cup", "ingredient": "molasses"},
     "item9": {"quantity": "2", "ingredient": "eggs"},
     "item10": {"quantity": "1/4 cup", "ingredient": "powdered sugar"}
@@ -552,12 +552,12 @@
   "cooktime": "30 minutes",
   "yield": "Serves 6-8",
   "category": ["Latin", "Mexican"],
-  "description": "Vegetarian green chile or with pork if preferred.",
+  "description": "Vegetarian green chili or with pork if preferred.",
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1 can (12 oz)", "ingredient": "tomatillos, drained"},
     "item2": {"quantity": "1 can (7 oz)", "ingredient": "whole green chilies, drained"},
-    "item3": {"quantity": "1 jar (12 oz)", "ingredient": "Hatch green chile or salsa"},
+    "item3": {"quantity": "1 jar (12 oz)", "ingredient": "Hatch green chili or salsa"},
     "item4": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
     "item5": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
     "item6": {"quantity": "3/4 cup", "ingredient": "vegetable or chicken stock"},
@@ -568,7 +568,7 @@
   },
   "instructions": {
     "step1": "In a medium sauce pan, saute onion in olive oil over low heat until translucent, add garlic",
-    "step2": "In a blender combine tomatillos, green chile and stock, add to sauce pan and cook for 30 minutes",
+    "step2": "In a blender combine tomatillos, green chili and stock, add to sauce pan and cook for 30 minutes",
     "step3": "In a measuring cup mix 1/4 cup water and 2 T cornmeal until no lumps remain, add to sauce for thickening",
     "step4": "Reduce heat and simmer for 15-30 minutes, while making burritos"
   },
@@ -681,7 +681,7 @@
     "item1": {"quantity": "1 head", "ingredient": "Cauliflower"},
     "item2": {"quantity": "3 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
-    "item4": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item5": {"quantity": "1/4 cup", "ingredient": "seasoned bread crumbs"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
     "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"},
@@ -890,12 +890,13 @@
   "preptime": "5 minutes",
   "cooktime": "15 minutes",
   "yield": "Serves 2",
+  "nutrition": {"carbohydrate": 0, "protein": 40, "calories": 412, "fat": 27, "sodium": 557},
   "category": ["Seafood"],
   "description": "Grilled salmon on the grill or seared in a pan with mesquite.",
   "rating": 4.9,
   "ingredients": {
-    "item1": {"quantity": "1 lbs", "ingredient": "salmon fillets"},
-    "item2": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item1": {"quantity": "14 oz", "ingredient": "salmon fillet"},
+    "item2": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
     "item3": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
   },
   "instructions": {
@@ -921,7 +922,7 @@
         "item1": {"quantity": "1 lb", "ingredient": "leftover seasoned salmon fillets"},
         "item2": {"quantity": "1", "ingredient": "egg"},
         "item3": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
-        "item4": {"quantity": "2-3 tbsp", "ingredient": "cooking oil"}
+        "item4": {"quantity": "2-3 tbsp", "ingredient": "canola oil"}
     },
     "section2": {
       "title": "Yogurt Sauce",
@@ -1013,8 +1014,8 @@
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "2-3", "ingredient": "large russet or golden potatoes"},
-    "item2": {"quantity": "3 tbsp", "ingredient": "cooking oil"},
-    "item3": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item2": {"quantity": "3 tbsp", "ingredient": "canola oil"},
+    "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
     "item4": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
   },
@@ -1040,7 +1041,7 @@
     "item1": {"quantity": "2", "ingredient": "large red garnet yams"},
     "item2": {"quantity": "1/4 cup", "ingredient": "white flour or 2 tbsp cornstarch"},
     "item3": {"quantity": "2-3 tbsp", "ingredient": "olive oil"},
-    "item4": {"quantity": "1 tbsp", "ingredient": "mesquite seasoning"},
+    "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item5": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
     "item6": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
@@ -1173,7 +1174,7 @@
     },
     "section2": {
       "title":"Curry Sauce",
-      "item1": {"quantity": "1 tbsp", "ingredient": "coconut oil"},
+      "item1": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
       "item2": {"quantity": "1/2 cup", "ingredient": "onion, finely chopped"},
       "item3": {"quantity": "2 cloves", "ingredient": "garlic"},
       "item4": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
@@ -1222,7 +1223,7 @@
     },
     "section2": {
       "title":"Tzatziki Sauce",
-      "item1": {"quantity": "1/2 cup", "ingredient": "Greek yogurt"},
+      "item1": {"quantity": "1/2 cup", "ingredient": "non-fat Greek yogurt"},
       "item2": {"quantity": "1/2 cup", "ingredient": "Diced cucumbers, peeled and deseeded"},
       "item3": {"quantity": "1 clove", "ingredient": "garlic"},
       "item4": {"quantity": "2 tsp", "ingredient": "lemon juice"},
@@ -1369,7 +1370,7 @@
   "preptime": "25 minutes",
   "cooktime": "5 minutes",
   "category": ["Asian", "Seafood", "Thai"],
-  "description": "Stir fry spicy chile lime shrimp with cilantro.",
+  "description": "Stir fry spicy chili lime shrimp with cilantro.",
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "2/3 lb", "ingredient": "shrimp"},
@@ -1381,13 +1382,13 @@
     "item7": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
     "item8": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped (optional)"},
     "item9": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-    "item10": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item10": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
     "item11": {"quantity": "1 pkg", "ingredient": "udon, soba or rice noodles"},
     "item12": {"quantity": "1", "ingredient": "lime cut into wedges"}
   },
   "instructions": {
     "step1": "Peel shrimp under running water, set aside",
-    "step2": "Heat olive oil in wok, add shallot and ginger saute for a minute or two",
+    "step2": "Heat coconut oil in wok, add shallot and ginger saute for a minute or two",
     "step3": "Add chili's, sesame oil and shrimp, cook for 5 minutes covered, stirring several times to coat shrimp",
     "step4": "Remove from heat, add lime juice, cilantro, mix and serve over noodles with lime wedge"
   }
@@ -1406,7 +1407,7 @@
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-    "item3": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
     "item4": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
     "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
     "item6": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
@@ -1422,7 +1423,7 @@
   "instructions": {
     "step1": "Remove skin and cut salmon into 1 inch chunks",
     "step2": "Combine chili sauces and liquids in measuring cup and mix",
-    "step3": "Heat olive and sesame oil in wok, add shallot and ginger, saute for a minute or two",
+    "step3": "Heat coconut and sesame oil in wok, add shallot and ginger, saute for a minute or two",
     "step4": "Add Thai seasoning, liquid mixture and salmon, cook for 5-10 minutes covered, stirring gently several times to coat salmon and ensure even cooking",
     "step5": "Remove from heat as soon as salmon flakes, let rest for a few minutes before serving over rice with sesame seed and cilantro garnish"
   }
@@ -1691,7 +1692,7 @@
       "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste"},
       "item9": {"quantity": "2 tsp", "ingredient": "cumin"},
       "item10": {"quantity": "1 tsp", "ingredient": "coriander"},
-      "item11": {"quantity": "1/2 tsp", "ingredient": "cardomom"},
+      "item11": {"quantity": "1/2 tsp", "ingredient": "cardamom"},
       "item12": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
       "item13": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
       "item14": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
@@ -1702,17 +1703,18 @@
   },
   "instructions": {
     "step1": "Add 2 tbsp oil to a wok, then layer onion, peppers, garlic and ginger",
-    "step2": "Combine yogurt, tomato paste, cinnamon and cloves in a small bowl",
-    "step3": "Add 2 tbsp oil to a large non-stick skillet and preheat over medium heat",
-    "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
-    "step5": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
-    "step6": "Turn on wok to medium, let onion cook for 5 minutes, then add spices and stir occasionally and kept covered",
-    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
-    "step8": "Add chicken to wok, stir to coat chicken, and cook for 2 minutes",
-    "step9": "Add yogurt mixture to wok. stir to coat everything, and cook for 2 minutes",
-    "step10": "Serve over rice, garnish with cilantro, coriander leaves or thinly sliced peppers"
+    "step2": "Mix dry spices in mortar or small bowl (note that garam masala may be used)",
+    "step3": "Combine yogurt and tomato paste in a small bowl",
+    "step4": "Add 2 tbsp oil to a large non-stick skillet and preheat over medium heat",
+    "step5": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step6": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
+    "step7": "Turn on wok to medium, let onion cook for 5 minutes, then add spices and stir occasionally and kept covered",
+    "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step9": "Add chicken to wok, stir to coat chicken, and cook for 2 minutes",
+    "step10": "Add yogurt mixture to wok. stir to coat everything, and cook for 2 minutes",
+    "step11": "Serve over rice, garnish with cilantro, coriander leaves or thinly sliced peppers"
   },
-  "notes": "Use 2 T of garam masala instead of individual spices if you have it and prefer to."
+  "notes": "Garam masala may be used instead of individual spices (2 tbsp)."
 },
 {
   "title": "Strawberry Pancakes",
@@ -1725,15 +1727,15 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with diced strawberries and/or blueberries.",
-  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 250, "serving": "4 small pancakes"},
+  "nutrition": {"carbohydrate": 36, "protein": 12, "calories": 295, "fat": 11, "sodium": 223},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "1/3 cup", "ingredient": "diced strawberries and/or blueberries (optional)"},
+    "item2": {"quantity": "1/3 cup", "ingredient": "diced strawberries"},
     "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
-    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "rolled oats"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
-    "item6": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
+    "item6": {"quantity": "1 tbsp", "ingredient": "canola oil"},
     "item7": {"quantity": "1/2 cup", "ingredient": "buttermilk"}
   },
   "instructions": {
@@ -1742,7 +1744,8 @@
     "step3": "Add liquid mixture to dry ingredients, mixing just enough to combine, adding milk to proper consistency. Do not over mix, as you want small lumps. Let rest 10-30 minutes, then fold in fruit",
     "step4": "Cook in non-stick skillet at 325-350 degrees",
     "step5": "Serve with berry or maple syrup"
-  }
+  },
+  "notes": "This recipe works for plain buttermilk pancakes and blueberry pancakes are always delicious."
 },
 {
   "title": "Apple Pancakes",
@@ -1755,17 +1758,17 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with grated apple and spices.",
-  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 250, "serving": "4 small pancakes"},
+  "nutrition": {"carbohydrate": 44, "protein": 11, "calories": 324, "fat": 11, "sodium": 223},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "1/2 cup", "ingredient": "grated or finely diced peeled and cored apples"},
+    "item2": {"quantity": "1/3 cup", "ingredient": "grated apple"},
     "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
-    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "rolled oats"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
     "item6": {"quantity": "1 tsp", "ingredient": "cinnamon"},
-    "item7": {"quantity": "1-2 tbsp", "ingredient": "sugar"},
-    "item8": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "sugar"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "canola oil"},
     "item9": {"quantity": "1/2 cup", "ingredient": "buttermilk"}
   },
   "instructions": {
@@ -1787,13 +1790,13 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with diced pear and spices.",
-  "nutrition": {"calories": 272, "fat": 11, "protein": 11, "carbohydrate": 34, "sodium": 250, "serving": "4 small pancakes"},
+  "nutrition": {"carbohydrate": 34, "protein": 11, "calories": 288, "fat": 11, "sodium": 223},
   "rating": 4.5,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "1/3 cup", "ingredient": "diced pear"},
+    "item2": {"quantity": "1/3 cup", "ingredient": "pear, cored and diced"},
     "item3": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
-    "item4": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item4": {"quantity": "1/3 cup", "ingredient": "rolled oats"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
     "item7": {"quantity": "1/4 tsp", "ingredient": "ginger"},
@@ -1801,7 +1804,7 @@
     "item9": {"quantity": "1/4 tsp", "ingredient": "cloves"},
     "item10": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
     "item11": {"quantity": "1/4 tsp", "ingredient": "allspice"},
-    "item12": {"quantity": "1 tbsp", "ingredient": "cooking oil"},
+    "item12": {"quantity": "1 tbsp", "ingredient": "canola oil"},
     "item13": {"quantity": "1/2 cup", "ingredient": "buttermilk"}
   },
   "instructions": {
@@ -1825,18 +1828,18 @@
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "cooking oil"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "canola oil"},
     "item3": {"quantity": "3/4 cup", "ingredient": "buttermilk (or 1/2 cup milk)"},
     "item4": {"quantity": "1 tbsp", "ingredient": "vanilla"},
     "item5": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
     "item6": {"quantity": "1 cup", "ingredient": "white flour"},
-    "item7": {"quantity": "1/2 cup", "ingredient": "oats and/or muesli"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "rolled oats"},
     "item8": {"quantity": "1/4 cup", "ingredient": "white sugar"},
     "item9": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
-    "item11": {"quantity": "1 cup", "ingredient": "ripe bananas"},
+    "item11": {"quantity": "1 cup", "ingredient": "bananas, ripe"},
     "item12": {"quantity": "1/4 cup", "ingredient": "pecans or walnut pieces (optional)"},
-    "item13": {"quantity": "1/4 cup", "ingredient": "chopped apricots (optional)"},
+    "item13": {"quantity": "1/4 cup", "ingredient": "dried apricots, chopped (optional)"},
     "item14": {"quantity": "3 tbsp", "ingredient": "milk"}
   },
   "instructions": {
@@ -1867,7 +1870,7 @@
     "item2": {"quantity": "1 1/4 tsp", "ingredient": "baking powder"},
     "item3": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
     "item4": {"quantity": "2/3 cup", "ingredient": "sugar"},
-    "item5": {"quantity": "1/3 cup", "ingredient": "cooking oil"},
+    "item5": {"quantity": "1/3 cup", "ingredient": "canola oil"},
     "item6": {"quantity": "2", "ingredient": "eggs"},
     "item7": {"quantity": "2 tbsp", "ingredient": "milk"},
     "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
@@ -1900,7 +1903,7 @@
   "rating": 4.4,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "large orange"},
-    "item2": {"quantity": "1/3 cup", "ingredient": "cooking oil"},
+    "item2": {"quantity": "1/3 cup", "ingredient": "canola oil"},
     "item3": {"quantity": "1 cup", "ingredient": "sugar"},
     "item4": {"quantity": "2", "ingredient": "eggs"},
     "item5": {"quantity": "1 cup", "ingredient": "canned pumpkin"},
@@ -1942,12 +1945,12 @@
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "cooking oil"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "canola oil"},
     "item3": {"quantity": "1/2 cup", "ingredient": "milk"},
     "item4": {"quantity": "1 tbsp", "ingredient": "vanilla"},
     "item5": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
     "item6": {"quantity": "1 cup", "ingredient": "white flour"},
-    "item7": {"quantity": "1/2 cup", "ingredient": "oats and/or muesli"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "rolled oats"},
     "item8": {"quantity": "1/3 cup", "ingredient": "white sugar"},
     "item9": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
@@ -1979,16 +1982,16 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk whole wheat waffles.",
-  "nutrition": {"calories": 333, "fat": 18, "protein": 11, "carbohydrate": 33, "sodium": 250, "serving": "2 waffles"},
+  "nutrition": {"carbohydrate": 42, "protein": 14, "calories": 403, "fat": 19, "sodium": 274},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "canola oil"},
     "item3": {"quantity": "3/4 cup", "ingredient": "buttermilk"},
     "item4": {"quantity": "3 tbsp", "ingredient": "milk"},
     "item5": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
     "item6": {"quantity": "2 tbsp", "ingredient": "white flour"},
-    "item7": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item7": {"quantity": "1/3 cup", "ingredient": "rolled oats"},
     "item8": {"quantity": "1/2 tsp", "ingredient": "baking powder"}
   },
   "instructions": {
@@ -2010,17 +2013,17 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Whole wheat waffles with spiced pumpkin.",
-  "nutrition": {"calories": 344, "fat": 18, "protein": 12, "carbohydrate": 34, "sodium": 250, "serving": "2 waffles"},
+  "nutrition": {"carbohydrate": 42, "protein": 14, "calories": 405, "fat": 19, "sodium": 246},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "pumpkin"},
-    "item3": {"quantity": "2 tbsp", "ingredient": "cooking oil"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "canned pumpkin"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "canola oil"},
     "item4": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
     "item5": {"quantity": "1/4 cup", "ingredient": "milk"},
     "item6": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
     "item7": {"quantity": "2 tbsp", "ingredient": "white flour"},
-    "item8": {"quantity": "1/3 cup", "ingredient": "oats and/or muesli"},
+    "item8": {"quantity": "1/3 cup", "ingredient": "rolled oats"},
     "item9": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "pumpkin pie spice"}
   },
@@ -2051,16 +2054,16 @@
     "item5": {"quantity": "1/4 cup", "ingredient": "sugar"},
     "item6": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
-    "item8": {"quantity": "1/4 cup", "ingredient": "chilled butter"},
-    "item9": {"quantity": "1/2 cup", "ingredient": "chopped apricots"},
-    "item10": {"quantity": "1/2 cup", "ingredient": "chopped pecans"}
+    "item8": {"quantity": "1/4 cup", "ingredient": "butter, chilled"},
+    "item9": {"quantity": "1/2 cup", "ingredient": "dried apricots, chopped"},
+    "item10": {"quantity": "1/2 cup", "ingredient": "pecans, chopped"}
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees",
     "step2": "Mix dry ingredients, cut butter in with pastry knife, add apricots and pecans",
     "step3": "Whisk eggs and buttermilk, add to dry ingredients and mix just until sticky",
     "step4": "Turn out dough onto lightly floured surface and knead lightly",
-    "step5": "Pat dough into 9” circle on pan lightly sprayed with cooking oil",
+    "step5": "Pat dough into 9” circle on pan lightly sprayed with canola oil",
     "step6": "Cut into 12 wedges, cutting not quite all the way",
     "step7": "Sprinkle with granular sugar and cinnamon",
     "step8": "Bake for 20-22 minutes",
@@ -2084,7 +2087,7 @@
     "item2": {"quantity": "1/4 cup", "ingredient": "nonfat dry milk or buttermilk"},
     "item3": {"quantity": "1 1/2 tsp", "ingredient": "salt"},
     "item4": {"quantity": "1/4 cup", "ingredient": "molasses"},
-    "item5": {"quantity": "2 tbsp", "ingredient": "vegetable oil"},
+    "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
     "item6": {"quantity": "2 3/4 cups", "ingredient": "whole wheat flour"},
     "item7": {"quantity": "1 cup", "ingredient": "white flour"},
     "item8": {"quantity": "1/2 cup", "ingredient": "cornmeal"},
