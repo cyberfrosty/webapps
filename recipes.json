@@ -195,7 +195,7 @@
   "ingredients": {
     "item1": {"quantity": "3 cups", "ingredient": "macaroni (about 8 oz)"},
     "item2": {"quantity": "1 can", "ingredient": "tuna in water, drained (5-6 oz)"},
-    "item3": {"quantity": "1 can", "ingredient": "cream of mushroom or celery soup (10.5 oz)"},
+    "item3": {"quantity": "1 can", "ingredient": "cream of mushroom soup, or celery soup (10.5 oz)"},
     "item4": {"quantity": "1/3 can", "ingredient": "milk (use soup can)"},
     "item5": {"quantity": "1/2 cup", "ingredient": "cheese, grated (save 2-3 tbsp for topping)"},
     "item6": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
@@ -286,7 +286,7 @@
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "butter"},
-    "item2": {"quantity": "2 ounces", "ingredient": "unsweetened baking chocolate"},
+    "item2": {"quantity": "2 oz", "ingredient": "unsweetened baking chocolate"},
     "item3": {"quantity": "1 cup", "ingredient": "sugar"},
     "item4": {"quantity": "2", "ingredient": "eggs"},
     "item5": {"quantity": "1 tsp", "ingredient": "vanilla"},
@@ -345,15 +345,16 @@
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables"],
   "description": "Asian style carrots with ginger and teriyaki.",
+  "nutrition": {"carbohydrate": 10, "protein": 1, "calories": 87, "fat": 4, "sodium": 408},
   "rating": 4.2,
   "ingredients": {
-    "item1": {"quantity": "1 lbs", "ingredient": "organic carrots"},
+    "item1": {"quantity": "6", "ingredient": "carrots, organic (360g)"},
     "item2": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
-    "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
     "item6": {"quantity": "2 tbsp", "ingredient": "teriyaki sauce"},
-    "item7": {"quantity": "1/2 tsp", "ingredient": "Red pepper flakes (optional)"}
+    "item7": {"quantity": "1/2 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
     "step1": "Wash, trim ends and cut carrots into 1 cm slices",
@@ -372,15 +373,16 @@
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables"],
   "description": "Asian style green beans with sesame seeds.",
+  "nutrition": {"carbohydrate": 7, "protein": 2, "calories": 73, "fat": 4, "sodium": 251},
   "rating": 4.2,
   "ingredients": {
-    "item1": {"quantity": "1 lbs", "ingredient": "Green beans"},
+    "item1": {"quantity": "4 cups", "ingredient": "green beans, about 1 lb"},
     "item2": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
     "item3": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
     "item4": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
     "item5": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
     "item6": {"quantity": "2 tsp", "ingredient": "sesame seeds"},
-    "item7": {"quantity": "1/4 tsp", "ingredient": "Red pepper flakes (optional)"}
+    "item7": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
     "step1": "Wash, trim ends and cut beans into 3-4 cm pieces, steam until tender",
@@ -399,17 +401,18 @@
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables"],
   "description": "Spicy Asian style green beans with sesame seeds.",
+  "nutrition": {"carbohydrate": 9, "protein": 2, "calories": 82, "fat": 4, "sodium": 411},
   "rating": 4.2,
   "ingredients": {
-    "item1": {"quantity": "1 lbs", "ingredient": "Green beans"},
+    "item1": {"quantity": "4 cups", "ingredient": "green beans, about 1 lb"},
     "item2": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-    "item3": {"quantity": "1 tbsp", "ingredient": "shallot or green onions, diced"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
     "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-    "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
-    "item6": {"quantity": "2 tbsp", "ingredient": "soy or teriyaki sauce"},
+    "item5": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
     "item7": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
     "item8": {"quantity": "2 tsp", "ingredient": "sesame seeds"},
-    "item9": {"quantity": "1/4 tsp", "ingredient": "Red pepper flakes (optional)"}
+    "item9": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
     "step1": "Wash, trim ends and cut beans into 3-4 cm pieces, steam until tender",
@@ -428,9 +431,10 @@
   "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables"],
   "description": "Spicy Mediterranean style carrots with cilantro.",
+  "nutrition": {"carbohydrate": 9, "protein": 0, "calories": 97, "fat": 6, "sodium": 63},
   "rating": 4.2,
   "ingredients": {
-    "item1": {"quantity": "1+ lbs", "ingredient": "organic carrots"},
+    "item1": {"quantity": "6", "ingredient": "carrots, organic (360g)"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item4": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
@@ -460,7 +464,7 @@
     "item3": {"quantity": "2 tbsp", "ingredient": "Picante or other salsa"},
     "item4": {"quantity": "1/4 tsp", "ingredient": "garlic salt"},
     "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
-    "item6": {"quantity": "1 or 2", "ingredient": "fresh tomatoes, diced and drained"},
+    "item6": {"quantity": "1 or 2", "ingredient": "tomatoes, diced and drained"},
     "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
   },
   "instructions": {
@@ -481,24 +485,24 @@
   "description": "Mexican seasoned lean ground turkey for burritos, tacos and many other dishes.",
   "rating": 4.1,
   "ingredients": {
-    "item1": {"quantity": "1 lb", "ingredient": "ground turkey (85-93% lean)"},
+    "item1": {"quantity": "1 lbs", "ingredient": "ground turkey, (85-93% lean)"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
-    "item4": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
-    "item5": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
-    "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+    "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item8": {"quantity": "1 tsp", "ingredient": "oregano"},
-    "item9": {"quantity": "1-2 tsp", "ingredient": "chili powder"},
-    "item10": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
-    "item11": {"quantity": "1 tsp", "ingredient": "mesquite seasoning (optional)"}
+    "item9": {"quantity": "2 tsp", "ingredient": "chili powder"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper, (optional)"},
+    "item11": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
   },
   "instructions": {
     "step1": "In a large skillet, saute onion in olive oil over low heat until translucent",
     "step2": "Mix dry spices in mortar or small bowl",
     "step3": "Add meat to pan and cook until browned, flipping and chopping to make crumbles",
     "step4": "Add dry spices and mix thoroughly to coat meat crumbles",
-    "step5": "Add garlic and Sambal Oelek or Chili Garlic Sauce, turn off stove heat and mix thoroughly as the pan cools down",
+    "step5": "Add garlic and Sambal Oelek, turn off stove heat and mix thoroughly as the pan cools down",
     "step6": "Serve in corn or flour tortillas with cheese, lettuce, tomatoes, cilantro, salsa and guacamole as desired"
   },
   "notes": "Meat crumbles may be mixed with refried beans, potatoes or served in a bowl with black beans and rice."
@@ -513,20 +517,21 @@
   "cooktime": "1 hour 15 minutes",
   "category": ["Latin", "Cuban", "Turkey"],
   "description": "Cuban style picadillo made with lean ground turkey, almonds, olives, raisins and green pepper.",
+  "nutrition": {"carbohydrate": 1, "protein": 22, "calories": 225, "fat": 14, "sodium": 217},
   "rating": 4.8,
   "ingredients": {
-    "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+    "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey, (85-93% lean)"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1", "ingredient": "medium onion, chopped"},
     "item4": {"quantity": "1", "ingredient": "green bell pepper, chopped"},
     "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item6": {"quantity": "1 tbsp", "ingredient": "brown sugar"},
-    "item7": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+    "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
     "item8": {"quantity": "1/2 tsp", "ingredient": "cloves"},
     "item9": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item10": {"quantity": "1/2 tsp", "ingredient": "oregano"},
     "item11": {"quantity": "1 tsp", "ingredient": "chili powder"},
-    "item12": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
+    "item12": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper, (optional)"},
     "item13": {"quantity": "1/4 cup", "ingredient": "apple cider vinegar"},
     "item14": {"quantity": "1/2 cup", "ingredient": "Edmundo, Moscato, Chablis or other sweet white wine"},
     "item15": {"quantity": "1 medium can", "ingredient": "diced tomatoes"},
@@ -559,7 +564,7 @@
     "item2": {"quantity": "1 can (7 oz)", "ingredient": "whole green chilies, drained"},
     "item3": {"quantity": "1 jar (12 oz)", "ingredient": "Hatch green chili or salsa"},
     "item4": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
-    "item5": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item6": {"quantity": "3/4 cup", "ingredient": "vegetable or chicken stock"},
     "item7": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item8": {"quantity": "1/4 cup", "ingredient": "water"},
@@ -595,7 +600,7 @@
     "item6": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
     "item8": {"quantity": "1/2 tsp", "ingredient": "ginger"},
-    "item9": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "turmeric, or 2 tsp fresh grated"},
     "item10": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
     "item11": {"quantity": "1/4 tsp", "ingredient": "coriander"},
     "item12": {"quantity": "1/4 tsp", "ingredient": "cloves"},
@@ -603,7 +608,7 @@
     "item14": {"quantity": "1/4 tsp", "ingredient": "allspice"},
     "item15": {"quantity": "1/2 cup", "ingredient": "beer, wine or chicken stock"},
     "item16": {"quantity": "1 tbsp", "ingredient": "vinegar"},
-    "item17": {"quantity": "1 tbsp", "ingredient": "fresh cilantro and/or toasted almond slices (optional)"}
+    "item17": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, or toasted almond slices (optional)"}
   },
   "instructions": {
     "step1": "Mix dry spices in mortar or small bowl (note that Ras El Hanout may be used for most spice)",
@@ -629,8 +634,8 @@
     "section1": {
       "title": "Meatballs",
         "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
-        "item2": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
-        "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+        "item2": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+        "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
         "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
         "item5": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
         "item6": {"quantity": "2 tbsp", "ingredient": "coriander, chopped (optional)"},
@@ -645,15 +650,15 @@
         "item5": {"quantity": "1/2 tsp", "ingredient": "cumin"},
         "item6": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
         "item7": {"quantity": "1/2 tsp", "ingredient": "ginger"},
-        "item8": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
+        "item8": {"quantity": "1/2 tsp", "ingredient": "turmeric, or 2 tsp fresh grated"},
         "item9": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
         "item10": {"quantity": "1/4 tsp", "ingredient": "coriander"},
         "item11": {"quantity": "1/4 tsp", "ingredient": "cloves"},
         "item12": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
         "item13": {"quantity": "1/4 tsp", "ingredient": "allspice"},
         "item14": {"quantity": "1/2 cup", "ingredient": "vegetable or chicken stock"},
-        "item15": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
-        "item16": {"quantity": "1 tbsp", "ingredient": "fresh cilantro and/or toasted almond slices (optional)"}
+        "item15": {"quantity": "28 oz", "ingredient": "crushed tomatoes"},
+        "item16": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, or toasted almond slices (optional)"}
     }
   },
   "instructions": {
@@ -676,16 +681,17 @@
   "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables"],
   "description": "Pan roasted cauliflower.",
+  "nutrition": {"carbohydrate": 10, "protein": 3, "calories": 155, "fat": 10, "sodium": 254},
   "rating": 4.6,
   "ingredients": {
-    "item1": {"quantity": "1 head", "ingredient": "Cauliflower"},
+    "item1": {"quantity": "1 head", "ingredient": "cauliflower"},
     "item2": {"quantity": "3 tbsp", "ingredient": "olive oil"},
-    "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+    "item3": {"quantity": "1 clove", "ingredient": "garlic, pressed"},
     "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item5": {"quantity": "1/4 cup", "ingredient": "seasoned bread crumbs"},
-    "item6": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper (optional)"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper, (optional)"},
     "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"},
-    "item8": {"quantity": "1", "ingredient": "lemon or lime cut into wedges (optional)"}
+    "item8": {"quantity": "1", "ingredient": "lime, cut into wedges (optional)"}
   },
   "instructions": {
     "step1": "Wash and cut/break cauliflower into small florets, add oil and cauliflower to wok",
@@ -706,15 +712,15 @@
   "description": "Spicy and delicious spinach.",
   "rating": 3.5,
   "ingredients": {
-    "item1": {"quantity": "12-16 ounces", "ingredient": "Baby spinach, fresh and washed"},
+    "item1": {"quantity": "12-16 oz", "ingredient": "Baby spinach, fresh and washed"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "3-4", "ingredient": "green onions"},
-    "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item4": {"quantity": "2 cloves", "ingredient": "garlic, pressed"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
-    "item6": {"quantity": "1/2 tsp", "ingredient": "black pepper, fresh ground"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
     "item7": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
-    "item8": {"quantity": "1/4 cup", "ingredient": "pine nuts (optional)"},
-    "item9": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes (optional)"}
+    "item8": {"quantity": "1/4 cup", "ingredient": "pine nuts, (optional)"},
+    "item9": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
     "step1": "In a large sauce pan, saute onion and garlic in olive oil over low heat for 1-2 minutes",
@@ -739,8 +745,8 @@
     "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
     "item4": {"quantity": "2 tsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
-    "item6": {"quantity": "1/4 tsp", "ingredient": "black pepper (optional)"},
-    "item7": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce (optional)"},
+    "item6": {"quantity": "1/4 tsp", "ingredient": "black pepper, (optional)"},
+    "item7": {"quantity": "1 tsp", "ingredient": "Sambal Oelek, (optional)"},
     "item8": {"quantity": "1 tsp", "ingredient": "oregano, fennel seeds, or marjoram (optional)"},
     "item9": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
   },
@@ -822,7 +828,7 @@
         "item6": {"quantity": "1 12-14 ounce can", "ingredient": "diced tomatoes"},
         "item7": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
         "item8": {"quantity": "2 tbsp", "ingredient": "Italian seasoning"},
-        "item9": {"quantity": "2 tbsp", "ingredient": "fresh basil (optional)"}
+        "item9": {"quantity": "2 tbsp", "ingredient": "fresh basil, chopped (optional)"}
     }
   },
   "instructions": {
@@ -868,7 +874,7 @@
         "item4": {"quantity": "1 tsp", "ingredient": "basil"},
         "item5": {"quantity": "1 tsp", "ingredient": "thyme"},
         "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"},
-        "item7": {"quantity": "1 tsp", "ingredient": "mesquite seasoning (optional)"}
+        "item7": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
     }
   },
   "instructions": {
@@ -926,11 +932,11 @@
     },
     "section2": {
       "title": "Yogurt Sauce",
-        "item1": {"quantity": "1/2 cup", "ingredient": "Nonfat Greek yogurt"},
-        "item2": {"quantity": "2 tsp", "ingredient": "Ranch seasoning"},
-        "item3": {"quantity": "1/2 tsp", "ingredient": "Lemon pepper"},
-        "item4": {"quantity": "1/2 tsp", "ingredient": "Garlic salt"},
-        "item5": {"quantity": "1/4 tsp", "ingredient": "Dill"}
+        "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
+        "item2": {"quantity": "2 tsp", "ingredient": "ranch seasoning"},
+        "item3": {"quantity": "1/2 tsp", "ingredient": "lemon pepper"},
+        "item4": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
+        "item5": {"quantity": "1/4 tsp", "ingredient": "dill"}
     }
   },
   "instructions": {
@@ -955,7 +961,7 @@
   "rating": 4.9,
   "ingredients": {
     "item1": {"quantity": "2 lbs", "ingredient": "salmon fillet"},
-    "item2": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger (or 1 tsp powder)"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
     "item3": {"quantity": "1-2", "ingredient": "garlic cloves, pressed (or 1/2 tsp powder)"},
     "item4": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item5": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
@@ -990,7 +996,7 @@
     "item4": {"quantity": "1 tbsp", "ingredient": "red wine vinegar"},
     "item5": {"quantity": "1 tsp", "ingredient": "garlic salt"},
     "item6": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
-    "item7": {"quantity": "1/2 cup", "ingredient": "roasted red peppers (optional)"}
+    "item7": {"quantity": "1/2 cup", "ingredient": "roasted red peppers, (optional)"}
   },
   "instructions": {
     "step1": "Add tahini, lemon juice and  vinegar to a food processor and blend until smooth",
@@ -1077,10 +1083,10 @@
       "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
       "item2": {"quantity": "2", "ingredient": "eggs"},
       "item3": {"quantity": "3-4", "ingredient": "green onions"},
-      "item4": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
-      "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
+      "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
       "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
-      "item7": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+      "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
       "item8": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
       "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
     },
@@ -1118,11 +1124,11 @@
       "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
       "item2": {"quantity": "2", "ingredient": "eggs"},
       "item3": {"quantity": "3-4", "ingredient": "green onions"},
-      "item4": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
       "item5": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
-      "item6": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"},
       "item7": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u9ec4\u9152) or dry sherry"},
-      "item8": {"quantity": "1/4 tsp", "ingredient": "fresh ground black pepper"},
+      "item8": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
       "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
     },
     "section2": {
@@ -1166,9 +1172,9 @@
       "item2": {"quantity": "2", "ingredient": "eggs"},
       "item3": {"quantity": "1/2 cup", "ingredient": "onion, minced"},
       "item4": {"quantity": "3 cloves", "ingredient": "garlic"},
-      "item5": {"quantity": "3 tbsp", "ingredient": "cilantro"},
-      "item6": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
-      "item7": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+      "item5": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
+      "item7": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
       "item8": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
       "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
     },
@@ -1177,7 +1183,7 @@
       "item1": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
       "item2": {"quantity": "1/2 cup", "ingredient": "onion, finely chopped"},
       "item3": {"quantity": "2 cloves", "ingredient": "garlic"},
-      "item4": {"quantity": "1 tbsp", "ingredient": "fresh grated or minced ginger"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
       "item5": {"quantity": "3 tbsp", "ingredient": "Thai red curry paste"},
       "item6": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
       "item7": {"quantity": "1/2 cup", "ingredient": "peanut butter"},
@@ -1268,7 +1274,7 @@
       "title": "Meatballs",
       "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
       "item2": {"quantity": "2", "ingredient": "eggs"},
-      "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+      "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
       "item4": {"quantity": "2 tsp", "ingredient": "garlic salt"},
       "item5": {"quantity": "1 tsp", "ingredient": "onion powder"},
       "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
@@ -1374,11 +1380,11 @@
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "2/3 lb", "ingredient": "shrimp"},
-    "item2": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
-    "item3": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
     "item4": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
     "item5": {"quantity": "1 tsp", "ingredient": "Sriracha"},
-    "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
     "item7": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
     "item8": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped (optional)"},
     "item9": {"quantity": "1 tsp", "ingredient": "sesame oil"},
@@ -1408,13 +1414,13 @@
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item3": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
-    "item4": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
+    "item4": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
     "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
-    "item6": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
+    "item6": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
     "item7": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item8": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u9ec4\u9152) or dry sherry"},
     "item9": {"quantity": "1 tsp", "ingredient": "Sriracha"},
-    "item10": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"},
+    "item10": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
     "item11": {"quantity": "2-3 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
     "item12": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
     "item13": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
@@ -1451,10 +1457,10 @@
       "item1": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"},
       "item2": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
       "item3": {"quantity": "6-8", "ingredient": "shitake or crimini mushrooms, sliced"},
-      "item4": {"quantity": "1", "ingredient": "shallot or  3-4 green onions, diced (2-3 tbsp)"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
       "item5": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
       "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item7": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
       "item8": {"quantity": "1 can", "ingredient": "sliced water chestnuts"}
     },
     "section3": {
@@ -1463,7 +1469,7 @@
       "item2": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
       "item3": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
       "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"}
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"}
     },
     "section4": {
       "title":"Garnish",
@@ -1506,9 +1512,9 @@
     "section2": {
       "title":"Marinade",
       "item1": {"quantity": "1 tbsp", "ingredient": "olive and/or canola oil"},
-      "item2": {"quantity": "1", "ingredient": "shallot, diced (2 tbsp)"},
+      "item2": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
       "item3": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
-      "item4": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
+      "item4": {"quantity": "1/2 tsp", "ingredient": "turmeric, or 2 tsp fresh grated"},
       "item5": {"quantity": "2 tbsp", "ingredient": "lemon juice"},
       "item6": {"quantity": "1 tsp", "ingredient": "cardamom"},
       "item7": {"quantity": "1 tsp", "ingredient": "coriander"},
@@ -1518,7 +1524,7 @@
     },
     "section3": {
       "title":"Garnish",
-      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro"}
+      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
     },
     "section4": {
       "title":"Yogurt Sauce",
@@ -1526,7 +1532,7 @@
       "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
       "item3": {"quantity": "2 tsp", "ingredient": "lemon juice"},
       "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "fresh cilantro"}
+      "item5": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
     }
   },
   "instructions": {
@@ -1580,8 +1586,8 @@
       "item1": {"quantity": "1", "ingredient": "large red bell pepper, julienne or diced"},
       "item2": {"quantity": "1", "ingredient": "large jalapeno pepper, julienne or diced"},
       "item3": {"quantity": "1/4 cup", "ingredient": "onion, finely chopped"},
-      "item4": {"quantity": "4", "ingredient": "green onions, diced (2 tbsp)"},
-      "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
+      "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
       "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
     },
@@ -1639,14 +1645,14 @@
       "item6": {"quantity": "1 tbsp", "ingredient": "black bean sauce"},
       "item7": {"quantity": "1 tbsp", "ingredient": "Hoisin sauce"},
       "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item9": {"quantity": "2 tbsp", "ingredient": "fresh ginger, grated or minced"},
-      "item10": {"quantity": "1", "ingredient": "shallot or green onions, diced (2 tbsp)"},
+      "item9": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item10": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
       "item11": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced (optional)"}
     },
     "section3": {
       "title":"Garnish",
       "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
-      "item2": {"quantity": "1 tbsp", "ingredient": "fresh cilantro or green onion tops, chopped"}
+      "item2": {"quantity": "1 tbsp", "ingredient": "green onion, chopped"}
     }
   },
   "instructions": {
@@ -1686,7 +1692,7 @@
       "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
       "item3": {"quantity": "1", "ingredient": "yellow bell pepper, diced"},
       "item4": {"quantity": "1", "ingredient": "large jalapeno pepper, diced"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, grated or minced"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
       "item6": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
       "item7": {"quantity": "1/2 cup", "ingredient": "non-fat yogurt"},
       "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste"},
@@ -1694,11 +1700,11 @@
       "item10": {"quantity": "1 tsp", "ingredient": "coriander"},
       "item11": {"quantity": "1/2 tsp", "ingredient": "cardamom"},
       "item12": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
-      "item13": {"quantity": "1/2 tsp", "ingredient": "turmeric (or 1 tbsp fresh grated)"},
+      "item13": {"quantity": "1/2 tsp", "ingredient": "turmeric, or 2 tsp fresh grated"},
       "item14": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
       "item15": {"quantity": "1/4 tsp", "ingredient": "cloves"},
       "item16": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
-      "item17": {"quantity": "2 tsp", "ingredient": "Sambal Oelek or Chili Garlic Sauce"}
+      "item17": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"}
     }
   },
   "instructions": {

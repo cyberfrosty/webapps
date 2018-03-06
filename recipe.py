@@ -354,21 +354,23 @@ class RecipeManager(object):
                 quantity += 0.25
             else:
                 quantity += float(measure[0])
-            item = item.get('ingredient')
+            item = item.get('ingredient').split(',')[0]
             if item not in self.ingredients:
                 print item
             else:
                 ingredient = self.ingredients.get(item)
                 serving, size = ingredient.get('serving').split()
                 if len(measure) > 1 and measure[1] != size:
-                    if measure[1] == 'tbsp' and size == 'cup':
+                    if measure[1] == 'tbsp' and size[:3] == 'cup':
                         quantity *= TBSP2CUP
                     elif measure[1] == 'tbsp' and size == 'tsp':
                         quantity *= 3
                     elif measure[1] == 'tsp' and size == 'tbsp':
                         quantity /= 3
-                else:
-                    quantity = quantity / float(serving)
+                    elif measure[1] == 'lbs' and size == 'oz':
+                        quantity *= 16
+                quantity = quantity / float(serving)
+                print 'quantity {}, serving {}, factor {}'.format(quantity, serving, factor)
                 scale = factor * quantity
                 calories += scale * float(ingredient.get('calories'))
                 fat += scale * float(ingredient.get('fat'))
@@ -541,7 +543,7 @@ class RecipeManager(object):
             HTML for recipe
         """
         latest = ['Kadai Chicken', 'Greek Meatballs', 'Orange Pumpkin Bread', 'Thai Meatballs']
-        html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table. Nutrition information is calculated from USDA database or package labels.</p>"
+        html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table. Simple recipes that are quick to make and great as leftovers so you can enjoy life outside the kitchen. Nutrition information is calculated from USDA database and specific package labels.</p>"
         for item in latest:
             html += '<br />\n<h3>' + item + '</h3>\n'
             recipe = self.get_recipe(item)
@@ -631,7 +633,8 @@ def main():
     print add_times('45 mins', '2 hours')
     #print manager.get_rendered_gallery()
     #print manager.get_rendered_gallery('Asian')
-    print manager.count_calories('Pumpkin Waffles')
+    print json.dumps(manager.count_calories('Meat Crumbles'))
+    print json.dumps(manager.count_calories('Spicy Cilantro Carrots'))
 
 if __name__ == '__main__':
     main()
