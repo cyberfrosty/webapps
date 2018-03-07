@@ -107,10 +107,10 @@ def render_nutrition(nutrition):
         html += ' <span itemprop="calories">{} calories</span>'.format(nutrition['calories'])
     if 'fat' in nutrition:
         html += ', <span itemprop="fatContent">{}g fat</span>'.format(nutrition['fat'])
-    if 'protein' in nutrition:
-        html += ', <span itemprop="proteinContent">{}g protein</span>'.format(nutrition['protein'])
     if 'carbohydrate' in nutrition:
         html += ', <span itemprop="carbohydrateContent">{}g carb</span>'.format(nutrition['carbohydrate'])
+    if 'protein' in nutrition:
+        html += ', <span itemprop="proteinContent">{}g protein</span>'.format(nutrition['protein'])
     if 'sodium' in nutrition:
         html += ', <span itemprop="sodiumContent">{}mg sodium</span>'.format(nutrition['sodium'])
     if 'serving' in nutrition:
@@ -359,8 +359,11 @@ class RecipeManager(object):
         index = 1
         while 'item' + str(index) in ingredients:
             item = ingredients.get('item' + str(index))
-            name = item.get('ingredient')
             measure = item.get('quantity').split()
+            name = item.get('ingredient').split(',')[0]
+            paren = name.find('(')
+            if paren > 1:
+                name = name[0:paren-1]
             if len(measure) > 2:
                 quantity = float(measure[0])
                 measure = measure[1:]
@@ -388,11 +391,11 @@ class RecipeManager(object):
                 measure[1] = 'cup'
             else:
                 quantity += float(measure[0])
-            item = item.get('ingredient').split(',')[0]
-            if item not in self.ingredients:
-                print item
+
+            if name not in self.ingredients:
+                print name
             else:
-                ingredient = self.ingredients.get(item)
+                ingredient = self.ingredients.get(name)
                 serving = ingredient.get('serving')
                 if not serving.isdigit():
                     serving, size = serving.split()
@@ -408,7 +411,7 @@ class RecipeManager(object):
                         elif measure[1] == 'lbs' and size == 'oz':
                             quantity *= 16
                 quantity = quantity / float(serving)
-                #print '{} quantity {}, serving {}, factor {}'.format(quantity, serving, factor, name)
+                print '{} quantity {}, serving {}, factor {}'.format(quantity, serving, factor, name)
                 scale = factor * quantity
                 calories += scale * float(ingredient.get('calories'))
                 fat += scale * float(ingredient.get('fat'))
@@ -672,9 +675,8 @@ def main():
     print add_times('45 mins', '2 hours')
     #print manager.get_rendered_gallery()
     #print manager.get_rendered_gallery('Asian')
-    print json.dumps(manager.count_calories('Moroccan Meatballs'))
-    print json.dumps(manager.count_calories('Meat Crumbles'))
-    print json.dumps(manager.count_calories('Cuban Picadillo'))
+    print json.dumps(manager.count_calories('Meatball Marinara'))
+    print json.dumps(manager.count_calories('Mediterranean Chicken'))
 
 if __name__ == '__main__':
     main()

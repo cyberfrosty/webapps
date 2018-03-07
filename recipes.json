@@ -692,7 +692,7 @@
   "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables"],
   "description": "Pan roasted cauliflower.",
-  "nutrition": {"carbohydrate": 10, "protein": 3, "calories": 155, "fat": 10, "sodium": 254},
+  "nutrition": {"carbohydrate": 11, "protein": 3, "calories": 156, "fat": 11, "sodium": 254},
   "rating": 4.6,
   "ingredients": {
     "item1": {"quantity": "1 head", "ingredient": "cauliflower"},
@@ -720,17 +720,18 @@
   "cooktime": "5 minutes",
   "yield": "Serves 4",
   "category": ["Vegetables"],
-  "description": "Spicy and delicious spinach.",
+  "description": "Sauteed spinach with pine nuts.",
+  "nutrition": {"carbohydrate": 4, "protein": 3, "calories": 132, "fat": 13, "sodium": 32},
   "rating": 3.5,
   "ingredients": {
-    "item1": {"quantity": "8 oz", "ingredient": "Baby spinach, fresh and washed"},
+    "item1": {"quantity": "5 cups", "ingredient": "spinach, fresh and washed"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "3", "ingredient": "green onions, chopped"},
     "item4": {"quantity": "2 cloves", "ingredient": "garlic, pressed"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
-    "item7": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
-    "item8": {"quantity": "1/4 cup", "ingredient": "pine nuts, (optional)"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "lemon juice"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "pine nuts"},
     "item9": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
@@ -749,6 +750,7 @@
   "cooktime": "10 minutes",
   "category": ["Breakfast", "Turkey"],
   "description": "Breakfast sausage patties made with lean ground turkey.",
+  "nutrition": {"carbohydrate": 2, "protein": 8, "calories": 92, "fat": 5, "sodium": 176},
   "rating": 4.5,
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
@@ -779,14 +781,14 @@
   "yield": "Serves 6",
   "category": ["Mediterranean", "Pasta", "Turkey", "Italian"],
   "description": "Marinara sauce and Italian style meatballs made with lean ground turkey.",
+  "nutrition": {"carbohydrate": 27, "protein": 21, "calories": 342, "fat": 13, "sodium": 823},
   "rating": 4.8,
   "ingredients": {
     "section1": {
       "title": "Meatballs",
         "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
         "item2": {"quantity": "1", "ingredient": "egg"},
-        "item3": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"},
-        "item4": {"quantity": "1 tsp", "ingredient": "garlic salt"}
+        "item3": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
     },
     "section2": {
       "title": "Marinara Sauce",
@@ -821,6 +823,7 @@
   "yield": "Serves 4",
   "category": ["Mediterranean", "Pasta", "Chicken"],
   "description": "Stir fry Mediterranean chicken with roasted red peppers, artichokes and sun dried tomatoes.",
+  "nutrition": {"carbohydrate": 25, "protein": 37, "calories": 454, "fat": 22, "sodium": 486},
   "rating": 4.3,
   "ingredients": {
     "section1": {
@@ -834,8 +837,8 @@
         "item1": {"quantity": "3 tbsp", "ingredient": "olive oil"},
         "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
         "item3": {"quantity": "1/3 cup", "ingredient": "sun dried tomatoes"},
-        "item4": {"quantity": "1 medium jar", "ingredient": "roasted red pepper, drained and diced (15oz)"},
-        "item5": {"quantity": "1 medium can", "ingredient": "artichoke hearts, drained and diced (15oz)"},
+        "item4": {"quantity": "8 oz", "ingredient": "roasted red peppers, drained and chopped (12oz jar)"},
+        "item5": {"quantity": "8 oz", "ingredient": "marinated artichoke hearts, drained and chopped (15oz jar)"},
         "item6": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
         "item7": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
         "item8": {"quantity": "2 tbsp", "ingredient": "Italian seasoning"},
@@ -1087,6 +1090,7 @@
   "cooktime": "25 minutes",
   "time": "45 minutes",
   "description": "Sweet and spicy Korean style meatballs made with lean ground turkey.",
+  "nutrition": {"carbohydrate": 25, "protein": 25, "calories": 305, "fat": 12, "sodium": 324},
   "category": ["Asian", "Turkey"],
   "rating": 4.5,
   "ingredients": {
@@ -1148,7 +1152,7 @@
       "item1": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
       "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item4": {"quantity": "2 tbsp", "ingredient": "Soyaki or teriyaki sauce and 1 tsp ginger"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "Soyaki, or teriyaki sauce and 1 tsp ginger"},
       "item5": {"quantity": "1/2 cup", "ingredient": "water"},
       "item6": {"quantity": "2 tbsp", "ingredient": "hoisin"},
       "item7": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
@@ -1421,6 +1425,8 @@
   "cooktime": "10 minutes",
   "time": "30 minutes",
   "category": ["Asian", "Seafood"],
+  "description": "Tender chunks of salmon in a spicy ginger teriyaki sauce",
+  "nutrition": {"carbohydrate": 6, "protein": 36, "calories": 433, "fat": 29, "sodium": 516},
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
@@ -1433,7 +1439,7 @@
     "item8": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u9ec4\u9152) or dry sherry"},
     "item9": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item10": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
-    "item11": {"quantity": "2 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
+    "item11": {"quantity": "2 tbsp", "ingredient": "Soyaki, or teriyaki sauce and 1 tsp ginger"},
     "item12": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
     "item13": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
     "item14": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
