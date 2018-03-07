@@ -73,9 +73,9 @@ function addHTML5FormValidation(form) {
 
 // Initialize search list
 function searchInit() {
-  var ul, li, i;
-  ul = document.getElementById("searchList");
-  li = ul.getElementsByTagName('li');
+  var i;
+  const ul = document.getElementById("searchList");
+  const li = ul.getElementsByTagName('li');
 
   // Loop through all list items, and hide until the user initiates a search
   for (i = 0; i < li.length; i++) {
@@ -88,6 +88,8 @@ function searchList(event) {
   const char = event.which || event.keyCode;
   const input = document.getElementById('searchPhrase');
   const filter = input.value.toUpperCase();
+  let displayed = 0;
+  const max_shown = 10; // Never show more than 10 items in dropdown
   if (char === 13) {
     $("#search").modal("hide");
     if (filter.length > 0) {
@@ -109,7 +111,7 @@ function searchList(event) {
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {
       let matched = false;
-      if (filter && filter.length > 0) {
+      if (displayed < max_shown && filter && filter.length > 0) {
         a = li[i].getElementsByTagName("a")[0];
         const words = a.innerText.toUpperCase().split(' ');
         for(j = 0; j < words.length; j++){
@@ -121,6 +123,7 @@ function searchList(event) {
       }
       if (matched) {
         li[i].style.display = "";
+        displayed = displayed + 1;
       } else {
         li[i].style.display = "none";
       }
