@@ -319,21 +319,47 @@ class RecipeManager(object):
             self.ingredients[ingredient['item']] = ingredient
 
     def count_calories(self, title):
+        recipe = self.get_recipe(title)
+        if not recipe or 'error' in recipe:
+            print 'Recipe not found: {}'.format(title)
+            return
+        serves, people = recipe.get('yield').split()
+        factor = 1.0 / float(people)
+        ingredients = recipe.get('ingredients')
+        if 'section1' in ingredients:
+            nutrition = {'calories': 0.0, 'fat': 0.0, 'carbohydrate': 0.0,
+                         'protein': 0.0, 'sodium': 0.0}
+            section = 'section1'
+            count = 1
+            while section in ingredients:
+                section_nutrition = self.count_nutrition(ingredients[section], factor)
+                nutrition['calories'] += section_nutrition['calories']
+                nutrition['fat'] += section_nutrition['fat']
+                nutrition['carbohydrate'] += section_nutrition['carbohydrate']
+                nutrition['protein'] += section_nutrition['protein']
+                nutrition['sodium'] += section_nutrition['sodium']
+                count = count + 1
+                section = 'section' + str(count)
+        else:
+            nutrition = self.count_nutrition(ingredients, factor)
+
+        nutrition['calories'] = int(round(nutrition['calories']))
+        nutrition['fat'] = int(round(nutrition['fat']))
+        nutrition['carbohydrate'] = int(round(nutrition['carbohydrate']))
+        nutrition['protein'] = int(round(nutrition['protein']))
+        nutrition['sodium'] = int(round(nutrition['sodium']))
+        return nutrition
+
+    def count_nutrition(self, ingredients, factor):
         calories = 0.0
         fat = 0.0
         carbohydrate = 0.0
         protein = 0.0
         sodium = 0.0
         index = 1
-        recipe = self.get_recipe(title)
-        if not recipe or 'error' in recipe:
-            print 'Recipe not found: {}'.format(title)
-        serves, people = recipe.get('yield').split()
-        if serves == 'Serves':
-            factor = 1.0 / float(people)
-        ingredients = recipe.get('ingredients')
         while 'item' + str(index) in ingredients:
             item = ingredients.get('item' + str(index))
+            name = item.get('ingredient')
             measure = item.get('quantity').split()
             if len(measure) > 2:
                 quantity = float(measure[0])
@@ -352,6 +378,14 @@ class RecipeManager(object):
                 quantity += 0.333
             elif measure[0] == '1/4':
                 quantity += 0.25
+            elif len(measure) > 1 and (measure[1] == 'can' or measure[1] == 'jar'):
+                if measure[0] == 'small':
+                    quantity *= 0.75  # 6oz can
+                elif measure[0] == 'medium':
+                    quantity *= 1.75  # 14oz can
+                elif measure[0] == 'large':
+                    quantity *= 3.5  # 28oz can
+                measure[1] = 'cup'
             else:
                 quantity += float(measure[0])
             item = item.get('ingredient').split(',')[0]
@@ -359,27 +393,32 @@ class RecipeManager(object):
                 print item
             else:
                 ingredient = self.ingredients.get(item)
-                serving, size = ingredient.get('serving').split()
-                if len(measure) > 1 and measure[1] != size:
-                    if measure[1] == 'tbsp' and size[:3] == 'cup':
-                        quantity *= TBSP2CUP
-                    elif measure[1] == 'tbsp' and size == 'tsp':
-                        quantity *= 3
-                    elif measure[1] == 'tsp' and size == 'tbsp':
-                        quantity /= 3
-                    elif measure[1] == 'lbs' and size == 'oz':
-                        quantity *= 16
+                serving = ingredient.get('serving')
+                if not serving.isdigit():
+                    serving, size = serving.split()
+                    if len(measure) > 1 and measure[1] != size:
+                        if measure[1] == 'tbsp' and size[:3] == 'cup':
+                            quantity *= TBSP2CUP
+                        elif measure[1] == 'cup' and size == 'tbsp':
+                            quantity /= TBSP2CUP
+                        elif measure[1] == 'tbsp' and size == 'tsp':
+                            quantity *= 3
+                        elif measure[1] == 'tsp' and size == 'tbsp':
+                            quantity /= 3
+                        elif measure[1] == 'lbs' and size == 'oz':
+                            quantity *= 16
                 quantity = quantity / float(serving)
-                print 'quantity {}, serving {}, factor {}'.format(quantity, serving, factor)
+                #print '{} quantity {}, serving {}, factor {}'.format(quantity, serving, factor, name)
                 scale = factor * quantity
                 calories += scale * float(ingredient.get('calories'))
                 fat += scale * float(ingredient.get('fat'))
                 carbohydrate += scale * float(ingredient.get('carbohydrate'))
                 protein += scale * float(ingredient.get('protein'))
                 sodium += scale * float(ingredient.get('sodium'))
+                #print '{} {} {} {} {}'.format(calories, fat, carbohydrate, protein, sodium)
             index += 1
-        return {'calories': int(calories), 'fat': int(fat), 'carbohydrate': int(carbohydrate),
-                'protein': int(protein), 'sodium': int(sodium)}
+        return {'calories': calories, 'fat': fat, 'carbohydrate': carbohydrate,
+                'protein': protein, 'sodium': sodium}
 
     def build_navigation_list(self, category=None):
         """ Build an accordian navigation list
@@ -633,8 +672,9 @@ def main():
     print add_times('45 mins', '2 hours')
     #print manager.get_rendered_gallery()
     #print manager.get_rendered_gallery('Asian')
+    print json.dumps(manager.count_calories('Moroccan Meatballs'))
     print json.dumps(manager.count_calories('Meat Crumbles'))
-    print json.dumps(manager.count_calories('Spicy Cilantro Carrots'))
+    print json.dumps(manager.count_calories('Cuban Picadillo'))
 
 if __name__ == '__main__':
     main()

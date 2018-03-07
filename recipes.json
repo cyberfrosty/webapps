@@ -5,14 +5,15 @@
   "date": "March 23, 2016",
   "preptime": "20 minutes",
   "cooktime": "25 minutes",
-  "yield": "Makes 10-15",
+  "yield": "Serves 40",
   "category": ["Nuts", "Dessert"],
   "description": "Spice coated pecans for the holidays, snacking, or anytime.",
+  "nutrition": {"carbohydrate": 3, "protein": 1, "calories": 74, "fat": 7, "sodium": 118},
   "rating": 4.76,
   "ingredients": {
-    "item1": {"quantity": "4 cups", "ingredient": "pecan halves"},
+    "item1": {"quantity": "4 cups", "ingredient": "pecans, halves"},
     "item2": {"quantity": "1", "ingredient": "egg white"},
-    "item3": {"quantity": "1-2 tsp", "ingredient": "water"},
+    "item3": {"quantity": "2 tsp", "ingredient": "water"},
     "item4": {"quantity": "1/4 cup", "ingredient": "brown sugar"},
     "item5": {"quantity": "1/4 cup", "ingredient": "smoked paprika"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "cayenne or &frac34; tsp ancho chili"},
@@ -25,7 +26,7 @@
   "instructions": {
     "step1": "Preheat oven to 300 degrees",
     "step2": "Mix dry ingredients with a large mortar and pestle",
-    "step3": "Froth egg white and 1-2 tsp water in large bowl with a wire whisk",
+    "step3": "Froth egg white and 2 tsp water in large bowl with a wire whisk",
     "step4": "Mix nuts in egg white until evenly moist",
     "step5": "Add dry ingredients in two batches, stirring until nuts are coated in spice",
     "step6": "Spread mixture onto 2 large baking sheets that are lined with parchment paper",
@@ -39,18 +40,19 @@
   "date": "November 17, 2017",
   "preptime": "10 minutes",
   "totaltime": "1 hour 10 minutes",
-  "yield": "Makes 10-15",
+  "yield": "Makes 20",
   "category": ["Chocolate", "Dessert"],
   "description": "Deliciously crunchy chocolate treats for after dinner or with coffee.",
+  "nutrition": {"carbohydrate": 13, "protein": 2, "calories": 112, "fat": 16, "sodium": 8},
   "rating": 4.4,
   "ingredients": {
-    "item1": {"quantity": "2/3 cup", "ingredient": "crisp rice or corn flakes"},
+    "item1": {"quantity": "2/3 cup", "ingredient": "crisp rice cereal, or corn flakes"},
     "item2": {"quantity": "2/3 cup", "ingredient": "raisins"},
     "item3": {"quantity": "2/3 cup", "ingredient": "peanuts, roasted and unsalted"},
     "item4": {"quantity": "1/3 cup", "ingredient": "coconut, flakes or shredded"},
-    "item5": {"quantity": "2 oz", "ingredient": "dark chocolate (70%)"},
+    "item5": {"quantity": "2 oz", "ingredient": "dark chocolate, (70%)"},
     "item6": {"quantity": "2 oz", "ingredient": "Ghiradelli dark chocolate melting wafers"},
-    "item7": {"quantity": "1/4 cup", "ingredient": "chocolate chips (optional)"}
+    "item7": {"quantity": "1/4 cup", "ingredient": "chocolate chips, (optional)"}
   },
   "instructions": {
     "step1": "Melt dark chocolate in medium bowl, being careful to heat only enough to melt",
@@ -90,7 +92,7 @@
         "item1": {"quantity": "1 1/3 cups", "ingredient": "whole wheat flour"},
         "item2": {"quantity": "2 tbsp", "ingredient": "white flour"},
         "item2": {"quantity": "1/2 tsp", "ingredient": "salt (less or none if using salted butter)"},
-        "item3": {"quantity": "1/2 cup", "ingredient": "butter (well chilled)"},
+        "item3": {"quantity": "1/2 cup", "ingredient": "butter, (well chilled)"},
         "item4": {"quantity": "4 tbsp", "ingredient": "ice water (an additional 1-2 tbsp may be required)"}
     }
   },
@@ -123,9 +125,10 @@
   "preptime": "10 minutes",
   "cooktime": "15 minutes",
   "totaltime": "3 hours",
-  "yield": "Makes 48-60",
+  "yield": "Makes 48",
   "category": ["Cookies"],
   "description": "German Pfeffernusse cookies.",
+  "nutrition": {"carbohydrate": 12, "protein": 1, "calories": 79, "fat": 3, "sodium": 4},
   "rating": 4.6,
   "ingredients": {
     "item1": {"quantity": "4 cups", "ingredient": "flour"},
@@ -159,6 +162,7 @@
   "yield": "Makes 48",
   "category": ["Cookies"],
   "description": "Mint chocolate chip cookies made with Andes mints.",
+  "nutrition": {"carbohydrate": 12, "protein": 1, "calories": 100, "fat": 21, "sodium": 41},
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "2 2/3 cups", "ingredient": "flour"},
@@ -169,7 +173,7 @@
     "item6": {"quantity": "3/4 cup", "ingredient": "dark brown sugar"},
     "item7": {"quantity": "2", "ingredient": "eggs"},
     "item8": {"quantity": "2 tsp", "ingredient": "vanilla"},
-    "item9": {"quantity": "1 package", "ingredient": "Andes Baking Chunks (10oz)"},
+    "item9": {"quantity": "10 oz", "ingredient": "Andes baking chips, 1 package"},
     "item10": {"quantity": "1/4 cup", "ingredient": "powdered sugar"}
   },
   "instructions": {
@@ -188,7 +192,7 @@
   "date": "December 2, 2017",
   "preptime": "20 minutes",
   "cooktime": "30 minutes",
-  "yield": "Serves 4-6",
+  "yield": "Serves 6",
   "category": ["Dinner", "Seafood"],
   "description": "Tuna noodle casserole.",
   "rating": 4.2,
@@ -223,6 +227,7 @@
   "yield": "Makes 12",
   "category": ["Crepes", "Dessert"],
   "description": "Swedish pancakes (or crepes), rolled up with your favorite fillings.",
+  "nutrition": {"carbohydrate": 44, "protein": 4, "calories": 225, "fat": 3, "sodium": 40},
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "2 1/4 cup", "ingredient": "milk"},
@@ -231,7 +236,7 @@
     "item4": {"quantity": "2 tsp", "ingredient": "sugar"},
     "item5": {"quantity": "2 tbsp", "ingredient": "nonfat milk powder"},
     "item6": {"quantity": "3", "ingredient": "eggs"},
-    "item7": {"quantity": "2 tbsp", "ingredient": "melted butter"}
+    "item7": {"quantity": "2 tbsp", "ingredient": "butter, melted"}
   },
   "instructions": {
     "step1": "Blend ingredients and let sit in fridge for at least 30 minutes",
@@ -254,12 +259,13 @@
   "yield": "Makes 1",
   "category": ["Breakfast"],
   "description": "Oven baked pancakes with fresh lemon juice and powdered sugar.",
+  "nutrition": {"carbohydrate": 41, "protein": 11, "calories": 390, "fat": 18, "sodium": 107},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1/4 cup", "ingredient": "flour"},
     "item2": {"quantity": "1/4 cup", "ingredient": "milk"},
-    "item3": {"quantity": "1", "ingredient": "eggs"},
-    "item4": {"quantity": "1 tbsp", "ingredient": "melted butter"},
+    "item3": {"quantity": "1", "ingredient": "egg"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "butter, melted"},
     "item5": {"quantity": "1/4 tsp", "ingredient": "cinnamon"},
     "item6": {"quantity": "2 tbsp", "ingredient": "lemon juice"},
     "item7": {"quantity": "2 tbsp", "ingredient": "powdered sugar"}
@@ -283,6 +289,7 @@
   "yield": "Makes 16",
   "category": ["Chocolate", "Dessert"],
   "description": "Decedent fudge brownies with chocolate chips and not too much butter.",
+  "nutrition": {"carbohydrate": 24, "protein": 4, "calories": 214, "fat": 13, "sodium": 9},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "butter"},
@@ -291,8 +298,8 @@
     "item4": {"quantity": "2", "ingredient": "eggs"},
     "item5": {"quantity": "1 tsp", "ingredient": "vanilla"},
     "item6": {"quantity": "1/3 cup", "ingredient": "chocolate chips"},
-    "item7": {"quantity": "1/3 cup", "ingredient": "chopped pecans or walnuts (optional)"},
-    "item8": {"quantity": "3/4 cup", "ingredient": "all-purpose flour"}
+    "item7": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"},
+    "item8": {"quantity": "3/4 cup", "ingredient": "white flour"}
   },
   "instructions": {
     "step1": "Grease 8x2x2 inch baking pan, preheat oven to 350 degrees",
@@ -313,18 +320,19 @@
   "yield": "Makes 32",
   "category": ["Chocolate", "Dessert"],
   "description": "Blonde brownies with chocolate chips and not too much butter.",
+  "nutrition": {"carbohydrate": 25, "protein": 1, "calories": 167, "fat": 6, "sodium": 38},
   "rating": 4.8,
   "ingredients": {
-    "item1": {"quantity": "2 cups", "ingredient": "all-purpose flour"},
+    "item1": {"quantity": "2 cups", "ingredient": "white flour"},
     "item2": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item3": {"quantity": "1/4 tsp", "ingredient": "salt"},
     "item4": {"quantity": "1/4 cup", "ingredient": "butter"},
-    "item5": {"quantity": "1/4 cup", "ingredient": "canola"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "canola oil"},
     "item6": {"quantity": "2 cups", "ingredient": "brown sugar, packed"},
     "item7": {"quantity": "2", "ingredient": "eggs"},
     "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
     "item9": {"quantity": "2/3 cup", "ingredient": "chocolate chips"},
-    "item10": {"quantity": "1/3 cup", "ingredient": "chopped pecans or walnuts (optional)"}
+    "item10": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"}
   },
   "instructions": {
     "step1": "Grease 13x9x2 inch baking pan, preheat oven to 350 degrees",
@@ -457,14 +465,15 @@
   "yield": "Serves 4",
   "description": "Your basic guacamole as you like.",
   "category": ["Latin", "Mexican", "Appetizer"],
+  "nutrition": {"carbohydrate": 5, "protein": 1, "calories": 87, "fat": 7, "sodium": 5},
   "rating": 4.4,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "avocado"},
-    "item2": {"quantity": "1 tbsp", "ingredient": "lemon or lime juice"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "lemon juice, or lime juice"},
     "item3": {"quantity": "2 tbsp", "ingredient": "Picante or other salsa"},
     "item4": {"quantity": "1/4 tsp", "ingredient": "garlic salt"},
     "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
-    "item6": {"quantity": "1 or 2", "ingredient": "tomatoes, diced and drained"},
+    "item6": {"quantity": "1", "ingredient": "tomato, diced and drained"},
     "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
   },
   "instructions": {
@@ -483,10 +492,11 @@
   "yield": "Serves 4",
   "category": ["Latin", "Mexican", "Turkey"],
   "description": "Mexican seasoned lean ground turkey for burritos, tacos and many other dishes.",
+  "nutrition": {"carbohydrate": 2, "protein": 22, "calories": 195, "fat": 11, "sodium": 218},
   "rating": 4.1,
   "ingredients": {
-    "item1": {"quantity": "1 lbs", "ingredient": "ground turkey, (85-93% lean)"},
-    "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
     "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
@@ -517,12 +527,12 @@
   "cooktime": "1 hour 15 minutes",
   "category": ["Latin", "Cuban", "Turkey"],
   "description": "Cuban style picadillo made with lean ground turkey, almonds, olives, raisins and green pepper.",
-  "nutrition": {"carbohydrate": 1, "protein": 22, "calories": 225, "fat": 14, "sodium": 217},
+  "nutrition": {"carbohydrate": 21, "protein": 26, "calories": 351, "fat": 18, "sodium": 457},
   "rating": 4.8,
   "ingredients": {
-    "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey, (85-93% lean)"},
+    "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
-    "item3": {"quantity": "1", "ingredient": "medium onion, chopped"},
+    "item3": {"quantity": "1 cup", "ingredient": "onion, chopped"},
     "item4": {"quantity": "1", "ingredient": "green bell pepper, chopped"},
     "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item6": {"quantity": "1 tbsp", "ingredient": "brown sugar"},
@@ -533,11 +543,11 @@
     "item11": {"quantity": "1 tsp", "ingredient": "chili powder"},
     "item12": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper, (optional)"},
     "item13": {"quantity": "1/4 cup", "ingredient": "apple cider vinegar"},
-    "item14": {"quantity": "1/2 cup", "ingredient": "Edmundo, Moscato, Chablis or other sweet white wine"},
-    "item15": {"quantity": "1 medium can", "ingredient": "diced tomatoes"},
-    "item16": {"quantity": "1/2 cup", "ingredient": "Stuffed green olives, chopped"},
-    "item17": {"quantity": "1/2 cup", "ingredient": "Raisins"},
-    "item18": {"quantity": "1/2 cup", "ingredient": "Almonds, slivered or sliced and blanched"}
+    "item14": {"quantity": "1/2 cup", "ingredient": "Edmundo wine, (Moscato, Chablis or other sweet white wine)"},
+    "item15": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
+    "item16": {"quantity": "1/2 cup", "ingredient": "stuffed green olives, chopped"},
+    "item17": {"quantity": "1/2 cup", "ingredient": "raisins"},
+    "item18": {"quantity": "1/2 cup", "ingredient": "almonds, slivered or sliced and blanched"}
   },
   "instructions": {
     "step1": "In a large skillet, saute onion in olive oil over low heat until translucent",
@@ -555,7 +565,7 @@
   "date": "August 12, 2017",
   "preptime": "10 minutes",
   "cooktime": "30 minutes",
-  "yield": "Serves 6-8",
+  "yield": "Serves 6",
   "category": ["Latin", "Mexican"],
   "description": "Vegetarian green chili or with pork if preferred.",
   "rating": 4.8,
@@ -565,11 +575,11 @@
     "item3": {"quantity": "1 jar (12 oz)", "ingredient": "Hatch green chili or salsa"},
     "item4": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
     "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-    "item6": {"quantity": "3/4 cup", "ingredient": "vegetable or chicken stock"},
+    "item6": {"quantity": "3/4 cup", "ingredient": "reduced sodium chicken stock"},
     "item7": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item8": {"quantity": "1/4 cup", "ingredient": "water"},
     "item9": {"quantity": "2 tbsp", "ingredient": "cornmeal"},
-    "item10": {"quantity": "1 lb", "ingredient": "lean pork, cubed (optional)"}
+    "item10": {"quantity": "1 lbs", "ingredient": "lean pork, cubed (optional)"}
   },
   "instructions": {
     "step1": "In a medium sauce pan, saute onion in olive oil over low heat until translucent, add garlic",
@@ -587,7 +597,7 @@
   "preptime": "15 minutes",
   "cooktime": "2 hours",
   "time": "2 hours 30 minutes",
-  "yield": "Serves 4-6",
+  "yield": "Serves 6",
   "category": ["Mediterranean", "Moroccan"],
   "description": "Moroccan spiced lamb chunks.",
   "rating": 4.8,
@@ -629,11 +639,12 @@
   "yield": "Serves 6",
   "category": ["Mediterranean", "Moroccan", "Turkey"],
   "description": "Moroccan spiced sauce with lean ground turkey meatballs.",
+  "nutrition": {"carbohydrate": 19, "protein": 26, "calories": 357, "fat": 17, "sodium": 790},
   "rating": 5.0,
   "ingredients": {
     "section1": {
       "title": "Meatballs",
-        "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+        "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
         "item2": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
         "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
         "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
@@ -656,8 +667,8 @@
         "item11": {"quantity": "1/4 tsp", "ingredient": "cloves"},
         "item12": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
         "item13": {"quantity": "1/4 tsp", "ingredient": "allspice"},
-        "item14": {"quantity": "1/2 cup", "ingredient": "vegetable or chicken stock"},
-        "item15": {"quantity": "28 oz", "ingredient": "crushed tomatoes"},
+        "item14": {"quantity": "1/2 cup", "ingredient": "reduced sodium chicken stock"},
+        "item15": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
         "item16": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, or toasted almond slices (optional)"}
     }
   },
@@ -712,9 +723,9 @@
   "description": "Spicy and delicious spinach.",
   "rating": 3.5,
   "ingredients": {
-    "item1": {"quantity": "12-16 oz", "ingredient": "Baby spinach, fresh and washed"},
+    "item1": {"quantity": "8 oz", "ingredient": "Baby spinach, fresh and washed"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
-    "item3": {"quantity": "3-4", "ingredient": "green onions"},
+    "item3": {"quantity": "3", "ingredient": "green onions, chopped"},
     "item4": {"quantity": "2 cloves", "ingredient": "garlic, pressed"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
@@ -733,14 +744,14 @@
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/TurkeySausage.jpg",
   "date": "April 23, 2017",
-  "yield": "Makes 12-15",
+  "yield": "Makes 12",
   "preptime": "5 minutes",
   "cooktime": "10 minutes",
   "category": ["Breakfast", "Turkey"],
   "description": "Breakfast sausage patties made with lean ground turkey.",
   "rating": 4.5,
   "ingredients": {
-    "item1": {"quantity": "1 lbs", "ingredient": "ground turkey (85-93% lean)"},
+    "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil (only with 93% lean)"},
     "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
     "item4": {"quantity": "2 tsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
@@ -772,16 +783,16 @@
   "ingredients": {
     "section1": {
       "title": "Meatballs",
-        "item1": {"quantity": "1 lbs", "ingredient": "ground turkey (85-93% lean)"},
+        "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
         "item2": {"quantity": "1", "ingredient": "egg"},
         "item3": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"},
         "item4": {"quantity": "1 tsp", "ingredient": "garlic salt"}
     },
     "section2": {
       "title": "Marinara Sauce",
-        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
-        "item2": {"quantity": "1 medium can", "ingredient": "diced tomatoes"},
-        "item3": {"quantity": "1 small can", "ingredient": "tomato paste"},
+        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatoes, (28oz)"},
+        "item2": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
+        "item3": {"quantity": "1 small can", "ingredient": "tomato paste, (6oz)"},
         "item4": {"quantity": "2 tbsp", "ingredient": "olive oil"},
         "item5": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
         "item6": {"quantity": "4", "ingredient": "garlic cloves, pressed"},
@@ -807,25 +818,25 @@
   "date": "June 14, 2016",
   "preptime": "15 minutes",
   "cooktime": "45 minutes",
-  "yield": "Serves 4-6",
+  "yield": "Serves 4",
   "category": ["Mediterranean", "Pasta", "Chicken"],
   "description": "Stir fry Mediterranean chicken with roasted red peppers, artichokes and sun dried tomatoes.",
   "rating": 4.3,
   "ingredients": {
     "section1": {
       "title": "Chicken",
-      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "canola oil, or olive oil"}
     },
     "section2": {
       "title": "Veggies",
         "item1": {"quantity": "3 tbsp", "ingredient": "olive oil"},
         "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
         "item3": {"quantity": "1/3 cup", "ingredient": "sun dried tomatoes"},
-        "item4": {"quantity": "1 12 ounce can", "ingredient": "roasted red pepper, drained and diced"},
-        "item5": {"quantity": "1 12-14 ounce can", "ingredient": "artichoke hearts, drained and diced"},
-        "item6": {"quantity": "1 12-14 ounce can", "ingredient": "diced tomatoes"},
+        "item4": {"quantity": "1 medium jar", "ingredient": "roasted red pepper, drained and diced (15oz)"},
+        "item5": {"quantity": "1 medium can", "ingredient": "artichoke hearts, drained and diced (15oz)"},
+        "item6": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
         "item7": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
         "item8": {"quantity": "2 tbsp", "ingredient": "Italian seasoning"},
         "item9": {"quantity": "2 tbsp", "ingredient": "fresh basil, chopped (optional)"}
@@ -859,16 +870,16 @@
   "ingredients": {
     "section1": {
       "title": "Crust",
-        "item1": {"quantity": "1-2 cups", "ingredient": "whole wheat flour"},
-        "item2": {"quantity": "2-3 cups", "ingredient": "white flour"},
+        "item1": {"quantity": "1 1/2 cups", "ingredient": "whole wheat flour"},
+        "item2": {"quantity": "2 1/2 cups", "ingredient": "white flour"},
         "item3": {"quantity": "1 tsp", "ingredient": "yeast (same amount for 1 or 2 pizzas)"},
-        "item4": {"quantity": "2-3 tbsp", "ingredient": "sugar or honey"},
+        "item4": {"quantity": "2 tbsp", "ingredient": "sugar or honey"},
         "item5": {"quantity": "2/3 cup", "ingredient": "lukewarm water (per pizza)"},
-        "item6": {"quantity": "2-3 tbsp", "ingredient": "olive oil"}
+        "item6": {"quantity": "2 tbsp", "ingredient": "olive oil"}
     },
     "section2": {
       "title": "Sauce",
-        "item1": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
+        "item1": {"quantity": "1 can", "ingredient": "crushed tomatoes (28 oz)"},
         "item2": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
         "item3": {"quantity": "1 tsp", "ingredient": "oregano"},
         "item4": {"quantity": "1 tsp", "ingredient": "basil"},
@@ -918,14 +929,14 @@
   "date": "October 29, 2017",
   "preptime": "10 minutes",
   "cooktime": "10 minutes",
-  "yield": "Makes 6-8",
+  "yield": "Makes 8",
   "category": ["Seafood"],
   "description": "Salmon cakes made from leftovers with a delicious yogurt sauce.",
   "rating": 4.2,
   "ingredients": {
     "section1": {
       "title": "Salmon Cakes",
-        "item1": {"quantity": "1 lb", "ingredient": "leftover seasoned salmon fillets"},
+        "item1": {"quantity": "1 1/2 lbs", "ingredient": "leftover seasoned salmon fillets"},
         "item2": {"quantity": "1", "ingredient": "egg"},
         "item3": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
         "item4": {"quantity": "2-3 tbsp", "ingredient": "canola oil"}
@@ -945,7 +956,8 @@
     "step3": "Heat oil in non-stick pan to 325-350 degrees",
     "step4": "Add patties to pan, cook uncovered for 5 minutes per side, turning carefully when browned",
     "step5": "Serve with yogurt sauce"
-  }
+  },
+  "notes": "If using plain or lightly seasoned fillet add garlic, ginger, and spices to taste."
 },
 {
   "title": "Thai Baked Salmon",
@@ -955,17 +967,17 @@
   "preptime": "10 minutes",
   "cooktime": "15 minutes",
   "totaltime": "35 minutes",
-  "yield": "Serves 6-8",
+  "yield": "Serves 6",
   "category": ["Seafood", "Thai"],
   "description": "Spicy Thai seasoned salmon baked in foil.",
   "rating": 4.9,
   "ingredients": {
     "item1": {"quantity": "2 lbs", "ingredient": "salmon fillet"},
     "item2": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
-    "item3": {"quantity": "1-2", "ingredient": "garlic cloves, pressed (or 1/2 tsp powder)"},
+    "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item4": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item5": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
-    "item6": {"quantity": "1-2 tsp", "ingredient": "Sriracha"},
+    "item6": {"quantity": "2 tsp", "ingredient": "Sriracha"},
     "item7": {"quantity": "1 tbsp", "ingredient": "sweet chili sauce, Hoisin or sweet and sour sauce"},
     "item8": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item9": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"},
@@ -985,7 +997,7 @@
   "image": "https://snowyrangesolutions.com/static/img/Hummus.jpg",
   "date": "January 8, 2017",
   "preptime": "10 minutes",
-  "yield": "Serves 6-8",
+  "yield": "Serves 8",
   "category": ["Mediterranean", "Appetizer"],
   "description": "Homemade hummus with canned or cooked chickpeas.",
   "rating": 4.6,
@@ -995,7 +1007,7 @@
     "item3": {"quantity": "4 tbsp", "ingredient": "lemon juice"},
     "item4": {"quantity": "1 tbsp", "ingredient": "red wine vinegar"},
     "item5": {"quantity": "1 tsp", "ingredient": "garlic salt"},
-    "item6": {"quantity": "1-2", "ingredient": "garlic cloves, pressed"},
+    "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item7": {"quantity": "1/2 cup", "ingredient": "roasted red peppers, (optional)"}
   },
   "instructions": {
@@ -1014,12 +1026,12 @@
   "date": "August 3, 2017",
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
-  "yield": "Serves 4-6",
+  "yield": "Serves 4",
   "category": ["Breakfast"],
   "description": "Home fries, low fat, crunchy and delicious.",
   "rating": 4.1,
   "ingredients": {
-    "item1": {"quantity": "2-3", "ingredient": "large russet or golden potatoes"},
+    "item1": {"quantity": "2", "ingredient": "large russet or golden potatoes"},
     "item2": {"quantity": "3 tbsp", "ingredient": "canola oil"},
     "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
     "item4": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
@@ -1039,14 +1051,14 @@
   "date": "October 12, 2017",
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
-  "yield": "Serves 4-6",
+  "yield": "Serves 4",
   "category": ["Vegetables"],
   "description": "Sweet potato fries that are low fat and crunchy.",
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "large red garnet yams"},
     "item2": {"quantity": "1/4 cup", "ingredient": "white flour or 2 tbsp cornstarch"},
-    "item3": {"quantity": "2-3 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item5": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
     "item6": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
@@ -1080,14 +1092,14 @@
   "ingredients": {
     "section1": {
       "title": "Meatballs",
-      "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+      "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
       "item2": {"quantity": "2", "ingredient": "eggs"},
-      "item3": {"quantity": "3-4", "ingredient": "green onions"},
+      "item3": {"quantity": "4", "ingredient": "green onions"},
       "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
       "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
       "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
       "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
-      "item8": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
+      "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
     },
     "section2": {
@@ -1121,11 +1133,11 @@
   "ingredients": {
     "section1": {
       "title": "Meatballs",
-      "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+      "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
       "item2": {"quantity": "2", "ingredient": "eggs"},
-      "item3": {"quantity": "3-4", "ingredient": "green onions"},
+      "item3": {"quantity": "4", "ingredient": "green onions, chopped"},
       "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
-      "item5": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
+      "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item6": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"},
       "item7": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u9ec4\u9152) or dry sherry"},
       "item8": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
@@ -1135,8 +1147,8 @@
       "title":"Mongolian Glaze",
       "item1": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-      "item3": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
-      "item4": {"quantity": "2-3 tbsp", "ingredient": "Soyaki or teriyaki sauce and 1 tsp ginger"},
+      "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "Soyaki or teriyaki sauce and 1 tsp ginger"},
       "item5": {"quantity": "1/2 cup", "ingredient": "water"},
       "item6": {"quantity": "2 tbsp", "ingredient": "hoisin"},
       "item7": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
@@ -1168,7 +1180,7 @@
   "ingredients": {
     "section1": {
       "title": "Meatballs",
-      "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+      "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
       "item2": {"quantity": "2", "ingredient": "eggs"},
       "item3": {"quantity": "1/2 cup", "ingredient": "onion, minced"},
       "item4": {"quantity": "3 cloves", "ingredient": "garlic"},
@@ -1215,8 +1227,8 @@
   "ingredients": {
     "section1": {
       "title": "Meatballs",
-      "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
-      "item2": {"quantity": "1", "ingredient": "eggs"},
+      "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
+      "item2": {"quantity": "1", "ingredient": "egg"},
       "item3": {"quantity": "1/4 cup", "ingredient": "red onion, finely chopped"},
       "item4": {"quantity": "1/4 cup", "ingredient": "fresh parsley, finely chopped"},
       "item5": {"quantity": "1 tbsp", "ingredient": "fresh mint or spearmint leaves, finely chopped (optional)"},
@@ -1229,7 +1241,7 @@
     },
     "section2": {
       "title":"Tzatziki Sauce",
-      "item1": {"quantity": "1/2 cup", "ingredient": "non-fat Greek yogurt"},
+      "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
       "item2": {"quantity": "1/2 cup", "ingredient": "Diced cucumbers, peeled and deseeded"},
       "item3": {"quantity": "1 clove", "ingredient": "garlic"},
       "item4": {"quantity": "2 tsp", "ingredient": "lemon juice"},
@@ -1272,7 +1284,7 @@
   "ingredients": {
     "section1": {
       "title": "Meatballs",
-      "item1": {"quantity": "1 1/2 lb", "ingredient": "ground turkey (85-93% lean)"},
+      "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
       "item2": {"quantity": "2", "ingredient": "eggs"},
       "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
       "item4": {"quantity": "2 tsp", "ingredient": "garlic salt"},
@@ -1309,16 +1321,16 @@
   "category": ["Asian", "Tofu"],
   "rating": 4.5,
   "ingredients": {
-    "item1": {"quantity": "1 lb", "ingredient": "Tofu"},
+    "item1": {"quantity": "1 lbs", "ingredient": "Tofu"},
     "item2": {"quantity": "1/4 cup", "ingredient": "starch (or flour)"},
-    "item3": {"quantity": "4 tbsp", "ingredient": "peanut, olive, or canola oil"},
-    "item4": {"quantity": "3-4", "ingredient": "garlic cloves, pressed"},
+    "item3": {"quantity": "4 tbsp", "ingredient": "olive oil, or canola oil"},
+    "item4": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
     "item5": {"quantity": "1/4 cup", "ingredient": "onion"},
     "item6": {"quantity": "3 tbsp", "ingredient": "ketchup"},
     "item7": {"quantity": "2 tbsp", "ingredient": "honey"},
     "item8": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5)"},
     "item9": {"quantity": "3 tbsp", "ingredient": "water"},
-    "item10": {"quantity": "3-4", "ingredient": "green onions"}
+    "item10": {"quantity": "3", "ingredient": "green onions"}
   },
   "instructions": {
     "step1": "Cut tofu into chunks, and drain on a paper towel",
@@ -1343,7 +1355,7 @@
   "ingredients": {
     "section1": {
       "title": "Poke",
-      "item1": {"quantity": "1/2 lb", "ingredient": "sushi-grade ahi, salmon, or hamachi"},
+      "item1": {"quantity": "1/2 lbs", "ingredient": "sushi-grade ahi, salmon, or hamachi"},
       "item2": {"quantity": "2", "ingredient": "green onions"},
       "item3": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item4": {"quantity": "1 tsp", "ingredient": "sesame oil"},
@@ -1379,7 +1391,7 @@
   "description": "Stir fry spicy chili lime shrimp with cilantro.",
   "rating": 4.7,
   "ingredients": {
-    "item1": {"quantity": "2/3 lb", "ingredient": "shrimp"},
+    "item1": {"quantity": "2/3 lbs", "ingredient": "shrimp"},
     "item2": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
     "item3": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
     "item4": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
@@ -1421,7 +1433,7 @@
     "item8": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u9ec4\u9152) or dry sherry"},
     "item9": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item10": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
-    "item11": {"quantity": "2-3 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
+    "item11": {"quantity": "2 tbsp", "ingredient": "Soyaki or teriyaki sauce"},
     "item12": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
     "item13": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
     "item14": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
@@ -1444,24 +1456,25 @@
   "cooktime": "20 minutes",
   "category": ["Asian", "Chicken"],
   "description": "Stir fry orange chicken loaded with veggies.",
+  "nutrition": {"carbohydrate": 28, "protein": 36, "calories": 430, "fat": 18, "sodium": 533},
   "rating": 4.7,
   "ingredients": {
     "section1": {
       "title": "Chicken",
-      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "canola oil, or olive oil"}
     },
     "section2": {
       "title":"Veggies",
-      "item1": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"},
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
       "item2": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
-      "item3": {"quantity": "6-8", "ingredient": "shitake or crimini mushrooms, sliced"},
-      "item4": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
-      "item5": {"quantity": "3-5", "ingredient": "scallions, finely chopped"},
+      "item3": {"quantity": "4 oz", "ingredient": "shitake mushrooms, sliced"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "shallot, chopped"},
+      "item5": {"quantity": "4", "ingredient": "green onions, chopped"},
       "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item7": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
-      "item8": {"quantity": "1 can", "ingredient": "sliced water chestnuts"}
+      "item8": {"quantity": "8 oz", "ingredient": "water chestnuts, sliced"}
     },
     "section3": {
       "title":"Orange sauce",
@@ -1505,13 +1518,13 @@
   "ingredients": {
     "section1": {
       "title": "Chicken",
-      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "canola oil, or olive oil"}
     },
     "section2": {
       "title":"Marinade",
-      "item1": {"quantity": "1 tbsp", "ingredient": "olive and/or canola oil"},
+      "item1": {"quantity": "1 tbsp", "ingredient": "olive oil"},
       "item2": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
       "item3": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
       "item4": {"quantity": "1/2 tsp", "ingredient": "turmeric, or 2 tsp fresh grated"},
@@ -1528,7 +1541,7 @@
     },
     "section4": {
       "title":"Yogurt Sauce",
-      "item1": {"quantity": "1/2 cup", "ingredient": "non-fat Greek yogurt"},
+      "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
       "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
       "item3": {"quantity": "2 tsp", "ingredient": "lemon juice"},
       "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
@@ -1577,9 +1590,9 @@
   "ingredients": {
     "section1": {
       "title": "Chicken",
-      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "canola oil, or olive oil"}
     },
     "section2": {
       "title":"Veggies",
@@ -1589,7 +1602,7 @@
       "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
       "item5": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
       "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item7": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item7": {"quantity": "2 tbsp", "ingredient": "olive oil"}
     },
     "section3": {
       "title":"Sauce",
@@ -1631,13 +1644,13 @@
   "ingredients": {
     "section1": {
       "title": "Chicken",
-      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "canola oil, or olive oil"}
     },
     "section2": {
       "title":"Sauce",
-      "item1": {"quantity": "1 tbsp", "ingredient": "olive and/or canola oil"},
+      "item1": {"quantity": "1 tbsp", "ingredient": "olive oil"},
       "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
       "item3": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
       "item4": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
@@ -1647,7 +1660,7 @@
       "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item9": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
       "item10": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
-      "item11": {"quantity": "4-6", "ingredient": "shitake or crimini mushrooms, sliced (optional)"}
+      "item11": {"quantity": "4 oz", "ingredient": "crimini mushrooms, sliced (optional)"}
     },
     "section3": {
       "title":"Garnish",
@@ -1682,19 +1695,19 @@
   "ingredients": {
     "section1": {
       "title": "Chicken",
-      "item1": {"quantity": "2", "ingredient": "large organic chicken breasts (1 1/4 pounds)"},
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
-      "item3": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"}
+      "item3": {"quantity": "2 tbsp", "ingredient": "canola oil, or olive oil"}
     },
     "section2": {
       "title":"Sauce",
-      "item1": {"quantity": "2 tbsp", "ingredient": "olive and/or canola oil"},
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
       "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
       "item3": {"quantity": "1", "ingredient": "yellow bell pepper, diced"},
       "item4": {"quantity": "1", "ingredient": "large jalapeno pepper, diced"},
       "item5": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
-      "item6": {"quantity": "2-3", "ingredient": "garlic cloves, pressed"},
-      "item7": {"quantity": "1/2 cup", "ingredient": "non-fat yogurt"},
+      "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item7": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
       "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste"},
       "item9": {"quantity": "2 tsp", "ingredient": "cumin"},
       "item10": {"quantity": "1 tsp", "ingredient": "coriander"},
@@ -1844,7 +1857,7 @@
     "item9": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
     "item11": {"quantity": "1 cup", "ingredient": "bananas, ripe"},
-    "item12": {"quantity": "1/4 cup", "ingredient": "pecans or walnut pieces (optional)"},
+    "item12": {"quantity": "1/4 cup", "ingredient": "pecans, chopped (optional)"},
     "item13": {"quantity": "1/4 cup", "ingredient": "dried apricots, chopped (optional)"},
     "item14": {"quantity": "3 tbsp", "ingredient": "milk"}
   },
@@ -1881,7 +1894,7 @@
     "item7": {"quantity": "2 tbsp", "ingredient": "milk"},
     "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
     "item9": {"quantity": "1 cup", "ingredient": "ripe bananas"},
-    "item10": {"quantity": "1/4 cup", "ingredient": "pecans or walnut pieces (optional)"}
+    "item10": {"quantity": "1/4 cup", "ingredient": "pecans, chopped (optional)"}
   },
   "instructions": {
     "step1": "Preheat oven to 350 degrees",
@@ -1921,7 +1934,7 @@
     "item11": {"quantity": "1 tsp", "ingredient": "cinnamon"},
     "item12": {"quantity": "1/2 tsp", "ingredient": "cloves"},
     "item13": {"quantity": "1/2 cup", "ingredient": "raisins"},
-    "item14": {"quantity": "1/2 cup", "ingredient": "pecans or walnut pieces (optional)"}
+    "item14": {"quantity": "1/2 cup", "ingredient": "pecans, chopped (optional)"}
   },
   "instructions": {
     "step1": "Preheat oven to 350 degrees",
@@ -2060,7 +2073,7 @@
     "item5": {"quantity": "1/4 cup", "ingredient": "sugar"},
     "item6": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
-    "item8": {"quantity": "1/4 cup", "ingredient": "butter, chilled"},
+    "item8": {"quantity": "4 tbsp", "ingredient": "butter, chilled"},
     "item9": {"quantity": "1/2 cup", "ingredient": "dried apricots, chopped"},
     "item10": {"quantity": "1/2 cup", "ingredient": "pecans, chopped"}
   },
@@ -2098,7 +2111,7 @@
     "item7": {"quantity": "1 cup", "ingredient": "white flour"},
     "item8": {"quantity": "1/2 cup", "ingredient": "cornmeal"},
     "item9": {"quantity": "1 1/4 tsp", "ingredient": "bread machine or instant yeast (1 1/2 at low altitude)"},
-    "item10": {"quantity": "2-3 tbsp", "ingredient": "sunflower, pumpkin, flax seeds or cracked wheat (optional)"}
+    "item10": {"quantity": "2 tbsp", "ingredient": "sunflower, pumpkin, flax seeds or cracked wheat (optional)"}
   },
   "instructions": {
     "step1": "Measure ingredients into bread machine pan, select basic cycle to raise but not cook. Additional white flour and rise time may be needed",
