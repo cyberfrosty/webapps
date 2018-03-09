@@ -30,7 +30,7 @@ from flask_login import (LoginManager, current_user, login_required, login_user,
 from decorators import async
 from forms import (AcceptForm, ChangePasswordForm, ConfirmForm, ForgotPasswordForm,
                    InviteForm, LoginForm, RegistrationForm, VerifyForm, ResetPasswordForm,
-                   SearchForm, ResendForm, UploadForm)
+                   ResendForm, UploadForm)
 from crypto import derive_key
 from utils import (load_config, generate_timed_token, validate_timed_token, generate_user_id,
                    generate_random58_id, generate_random_int, preset_password,
@@ -608,6 +608,7 @@ def server_info():
     return jsonify({'server': url_fields.netloc, 'version': SERVER_VERSION, 'uptime': uptime})
 
 @APP.route('/api/message.email')
+#@login_required
 def message_email():
     """ Send an email message
     """
@@ -632,18 +633,13 @@ def message_email():
             return jsonify({'message.email': email, 'status': 'ok'})
     abort(404, 'Recipient or recipe not found')
 
-@APP.route('/search', methods=['GET', 'POST'])
+@APP.route('/search', methods=['GET'])
 def search_recipes():
     """ Search recipes
     """
-    form = SearchForm()
     # GET - query parameters are in the URL
     if request.method == 'GET':
         query = get_parameter(request, 'query')
-    # POST - query parameters are in the form
-    elif form.validate_on_submit():
-        query = form.query.data
-        form.query.data = ''
     if query:
         phrases = query.split()
         if len(phrases) == 1:
@@ -663,7 +659,7 @@ def search_recipes():
     else:
         html = '<br />\n<p>Search for recipes by name and category</p>\n'
 
-    return render_template('search.html', form=form, search=RECIPE_LIST, results=html)
+    return render_template('search.html', search=RECIPE_LIST, results=html)
 
 @APP.route('/recipes', methods=['GET'])
 def recipes():

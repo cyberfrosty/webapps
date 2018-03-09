@@ -524,10 +524,6 @@ class RecipeManager(object):
             dictionary
         """
         if len(recipe_id) != 48 or not contains_only(recipe_id, '234567ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
-            for char in recipe_id:
-                if char not in '0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ':
-                    print char
-            print 'gener'
             recipe_id = generate_id(recipe_id)
         if recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
