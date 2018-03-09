@@ -1,115 +1,194 @@
 item, serving, calories, fat, carbohydrate, protein, sodium, notes
-chicken breasts,              4 oz,   120,    1,   0,  26,   50, "organic breast"
-lean ground turkey,           4 oz,   160,    8,   0,  22,   80, 93%
-salmon fillet,                7 oz,   412,   27,   0,  40,  117, "Atlantic salmon (198g)"
-shrimp,                       4 oz,    99,  0.3,   0,  24,  111, "shrimp or prawns (100g)"
+chicken breasts,               4 oz,   120,    1,   0,  26,   50, "organic breast"
+lean ground turkey,            4 oz,   160,    8,   0,  22,   80, 93%
+salmon fillet,                 7 oz,   412,   27,   0,  40,  117, "Atlantic salmon (198g)"
+shrimp,                        4 oz,    99,  0.3,   0,  24,  111, "shrimp or prawns (100g)"
+tuna,                          5 oz,   225,    9,   0,  33,  500, Wild Planet
+ahi,                           3 oz,   110,  0.5,   0,  25,   46, Sushi
+lamb,                          4 oz,   156,    8,   0,  24,   17, "lean, trimmed steak"
+tofu,                          4 oz,    88,    6, 2.2,   9,    8,
+
+rice,                         1 cup,   206,  0.5,  45, 4.3,    2, "white, long-grain, cooked"
+brown rice,                   1 cup,   218,  1.6,  46, 4.5,    2, "brown, medium-grain, cooked"
+sushi rice,                   1 cup,   280,    0,  66,   5,  704, "cooked, prepared with rice vinegar and sugar"
+macaroni,                     1 cup,   221,  1.6,  43,   8,    1, cooked
+spaghetti,                    1 cup,   221,  1.3,  43,   8,    1,
+potatoes,                         1,   163,  0.2,  37, 4.3,   13, "medium, 2 1/4 - 3 1/4, 150g"
+red garnet yams,                  1,   130,    0,  33,   2,   45, "large, diced, 200g"
 
 sugar,                        1 cup,   773,    0, 200,   0,    2,
 white sugar,                  1 cup,   773,    0, 200,   0,    2,
 brown sugar,                  1 cup,   836,    0, 216,   0,   62, packed
 dark brown sugar,             1 cup,   829,    0, 214,   0,   62, packed
 powdered sugar,               1 cup,   389,    0, 100,   0,    2, sifted
+honey,                        1 cup,  1031,    0, 279,   1,   14,
 molasses,                     1 cup,   977,  0.3, 252,   0,  125,
-rice,                         1 cup,   206,  0.5,  45, 4.3,    2, "white, long-grain, cooked"
-brown rice,                   1 cup,   218,  1.6,  46, 4.5,    2, "brown, medium-grain, cooked"
 flour,                        1 cup,   455,  1.2,  95,  13,    3, all purpose
 white flour,                  1 cup,   455,  1.2,  95,  13,    3, all purpose
 whole wheat flour,            1 cup,   408,    3,  86,  16,    2, whole wheat
 rolled oats,                  1 cup,   320,    5,  52,  14,    0, organic rolled
+cornmeal,                     1 cup,   581,  2.7, 125,  11,    0, organic
+potato starch,                1 cup,   571,  0.5, 133,  11,   88,
+corn starch,                  1 cup,   488,  0.1, 117, 0.3,   12,
+yeast,                        1 tsp,    13,  0.3, 1.6, 1.6,    2,
 baking powder,                1 tsp,     0,    0,   0,   0,  488, Bob's
 baking soda,                  1 tsp,     0,    0,   0,   0, 1259, Bob's
 chocolate chips,              1 cup,  2240,  128, 288,  16,    0, Nestle
 Andes baking chips,           10 oz,  1470,  910,  56,  14,    7, Andes
-dark chocolate,               1 oz,    177,  100,  15,   3,    0, (70%)
-unsweetened baking chocolate, 1 oz,    180,   14,   8,  16,    0, Bakers
+dark chocolate,                1 oz,   177,  100,  15,   3,    0, (70%)
+unsweetened baking chocolate,  1 oz,   180,   14,   8,  16,    0, Bakers
 vanilla,                      1 tsp,    12,    0, 0.5,   0,    0,
 Ghiradelli dark chocolate melting wafers, 1 oz, 152,10,16,1,  21,
 
-Panko bread crumbs,           1 cup,   260,    1,  52,   8,  200,
-seasoned bread crumbs,        1 cup,   460,    1,  52,   8, 1600,
+Panko bread crumbs,           1 cup,   240,    0,  48,   8,   69, Kikkoman
+seasoned bread crumbs,        1 cup,   440,    6,  80,  16, 1800, Progresso
+bread crumbs,                 1 cup,   427,    6,  78,  14,  791, Progresso
 crisp rice cereal,            1 cup,   104,    0,  23,   2,  152,
 
+water,                        1 cup,     0,    0,   0,   0,   12,
 buttermilk,                   1 cup,   120,    3,  15,  10,  280, low fat
 milk,                         1 cup,   103,  2.4,  12,   8,  107, organic 1%
 nonfat milk,                  1 cup,    83,  0.2,  12,   8,  103, organic
-nonfat milk powder,           1 tbsp,   15,    0, 2.2, 1.5,   23,
+nonfat milk powder,          1 tbsp,    15,    0, 2.2, 1.5,   23,
+evaporated milk,               4 oz,   169,   10,  13,   9,  134,
 egg,                          1 egg,    78,    5, 0.6,   6,   62, "large"
 eggs,                         1 egg,    78,    5, 0.6,   6,   62, "large"
 egg white,                    1 egg,    17,    0, 0.2, 3.6,   55, "large"
-non-fat yogurt,               1 cup,   120,    0,   9,  22,   85, "Chobani"
-non-fat Greek yogurt,         1 cup,   120,    0,   9,  22,   85, "Chobani"
-butter,                       1 tbsp,  102,   12,   0, 0.1,    2,
+nonfat yogurt,                1 cup,   120,    0,   9,  22,   85, "Chobani"
+nonfat Greek yogurt,          1 cup,   120,    0,   9,  22,   85, "Chobani"
+butter,                      1 tbsp,   102,   12,   0, 0.1,    2,
+feta cheese,                  1 cup,   396,   32,   6,  21, 1674, crumbled
+cheddar cheese,               1 cup,   455,   37, 1.4,  28,  702, shredded
+mozzarella cheese,            1 cup,   341, 22.6, 4.3,  29,  597, shredded
 
-canned pumpkin,               1 cup,   100,    1,  20,   2,    10,
-crushed tomatoes,             1 cup,   160,    3,  20,   4,   900, TJ Tuscano Marinara
-tomato paste,                 1 cup,   215,  1.2,  50,  11,   155, Kirkland organic
-diced tomatoes,               1 cup,    60,    0,  12,   2,   280, Kirkland organic
-fire roasted diced tomatoes,  1 cup,    60,    0,  12,   2,   580, Hunt's
-water chestnuts,              8 oz,    120,    0,  28,   0,   20,
+canned pumpkin,               1 cup,   100,    1,  20,   2,   10,
+crushed tomatoes,             1 cup,   160,    3,  20,   4,  900, TJ Tuscano Marinara
+tomato paste,                 1 cup,   215,  1.2,  50,  11,  155, Kirkland organic
+diced tomatoes,               1 cup,    60,    0,  12,   2,  280, Kirkland organic
+fire roasted diced tomatoes,  1 cup,    60,    0,  12,   2,  580, Hunt's
+sun-dried tomatoes,           1 cup,   234,   15,  26,   6,  293,
+water chestnuts,               8 oz,   120,    0,  28,   0,   20,
 stuffed green olives,         1 cup,   188, 19.5,   6, 1.5, 1970,
-roasted red peppers,          8 oz,     80,    0,  16,   0,  360, TJs
-marinated artichoke hearts,   1 oz,     30,    2,   3,   1,  105, Kirkland
+roasted red peppers,           8 oz,    80,    0,  16,   0,  360, TJs
+marinated artichoke hearts,    1 oz,    30,    2,   3,   1,  105, Kirkland
+tomatillos,                    1 oz,     6,    0,   1,   0,   37, La Costena
+chickpeas,                    1 cup,   729,   12, 121,  39,   48,
+cream of mushroom soup,       1 cup,    96,    6,   8, 1.6,  843,
 
-shitake mushrooms,            4 oz,     34,  0.5,   7, 2.2,    9, 100g
-crimini mushrooms,            4 oz,     22,  0.1, 4.3, 2.5,    6, 100g
-white mushrooms,              4 oz,     22,  0.1, 4.3, 2.5,    6, 100g
+shitake mushrooms,             4 oz,    34,  0.5,   7, 2.2,    9, 100g
+crimini mushrooms,             4 oz,    22,  0.1, 4.3, 2.5,    6, 100g
+white mushrooms,               4 oz,    22,  0.1, 4.3, 2.5,    6, 100g
 
-olive oil,                    1 tbsp,  119, 13.5,   0,   0,    0, extra virgin
-canola oil,                   1 tbsp,  124, 13.6,   0,   0,    0,
-coconut oil,                  1 tbsp,  117, 13.6,   0,   0,    0,
-sesame oil,                   1 tbsp,  120, 13.6,   0,   0,    0,
+olive oil,                   1 tbsp,   119, 13.5,   0,   0,    0, extra virgin
+canola oil,                  1 tbsp,   124, 13.6,   0,   0,    0,
+coconut oil,                 1 tbsp,   117, 13.6,   0,   0,    0,
+sesame oil,                  1 tbsp,   120, 13.6,   0,   0,    0,
 
 diced strawberries,           1 cup,    54,  0.5,  13, 1.1,    2,
 grated apple,                 1 cup,    65,  0.2,  17, 0.3,    2,
-diced pear,                   1 cup,    92,  0.2,  25, 0.6,    2,
-banana,                       1,       105,  0.4,  27, 1.3,    1,
-tomato,                       1,        22,  0.2, 4.8, 1.1,    6, medium (2-3/5 dia 123g)
-avocado,                      1,       322,   29,  17,   4,   14,
-lemon juice,                  1 tbsp,    7,    0,   2,   0,    0,
+pear,                         1 cup,    92,  0.2,  25, 0.6,    2, diced
+banana,                           1,   105,  0.4,  27, 1.3,    1,
+bananas,                      1 cup,   200,  0.7,  51, 2.5,    2, mashed
+avocado,                          1,   322,   29,  17,   4,   14,
+dried apricots,               1 cup,   314,  0.7,  81, 4.4,   13,
+lemon juice,                 1 tbsp,     7,    0,   2,   0,    0,
+
 reduced sodium chicken stock, 1 cup,    10,    0,   1,   1,  570,
 
+lime,                             1,    20,  0.1,   7, 0.5,    1, 2 inch dia
+lemon,                            1,    17,  0.2,   5, 0.6,    1, 2 1/8 inch dia
+large orange,                     1,    87,  0.2,  22, 1.7,    0, 1 1/16 inch dia
 raisins,                      1 cup,   434,  0.7, 115, 4.5,   16,
-apricot jam,                  1 tbsp,   48,    0,  13, 0.1,    8,
+apricot jam,                 1 tbsp,    48,    0,  13, 0.1,    8,
 
 garlic,                       1 tsp,     4,    0, 0.9, 0.2,    0, 1 clove
-garlic clove,                 1 clove,   4,    0, 0.9, 0.2,    0, 1 tsp
-garlic cloves,                1 clove,   4,    0, 0.9, 0.2,    0, 1 tsp
+garlic clove,                     1,     4,    0, 0.9, 0.2,    0, 1 tsp
+garlic cloves,                    1,     4,    0, 0.9, 0.2,    0, 1 tsp
 onion,                        1 cup,    44,    0,  10, 1.2,    4, 1 medium (2-1/2" 110g)
+red onion,                    1 cup,    67,  0.1,  16, 1.5,    5,
 ginger,                       1 tsp,     2,    0, 0.4,   0,    0, 1 tsp
-green bell pepper,            1 pepper,  33, 0.3,   8, 1.4,    5, large (3 3/4: long)
-red bell pepper,              1 pepper,  50, 0.4,  12, 1.9,    4, large (3 3/4: long)
-yellow bell pepper,           1 pepper,  50, 0.4,  12, 1.9,    4, large (3 3/4: long)
-orange bell pepper,           1 pepper,  50, 0.4,  12, 1.9,    4, large (3 3/4: long)
-cauliflower,                  1 head,   146, 1.6,  29,  11,  176, medium head (5-6 dia 588g)
-carrots,                      1 carrot,  25, 0.1,   6, 0.6,   42, medium carrot (6 long 61g)
-green beans,                  1 cup,     31, 0.1,   7, 1.8,    6, half inch pieces (100g)
-shallot,                      1 tbsp,     7,   0, 1.7, 0.3,    1, chopped (10g)
-green onions,                 1,          5,   0, 1.1, 0.3,    2, 1 medium
-spinach,                      1 cup,       7,   0, 1.1, 0.9,   24, 1 cup (30g)
+green bell pepper,                1,    33,  0.3,   8, 1.4,    5, large (3 3/4: long)
+red bell pepper,                  1,    50,  0.4,  12, 1.9,    4, large (3 3/4: long)
+yellow bell pepper,               1,    50,  0.4,  12, 1.9,    4, large (3 3/4: long)
+orange bell pepper,               1,    50,  0.4,  12, 1.9,    4, large (3 3/4: long)
+jalapeno pepper,                  1,     4,  0.1, 0.9, 0.1,    3, medium (19g)
+green chillies,               1 cup,    60,  0.4,  14,   3,   10, chopped or diced
+cauliflower,                      1,   146,  1.6,  29,  11,  176, medium head (5-6 dia 588g)
+carrots,                          1,    25,  0.1,   6, 0.6,   42, medium carrot (6 long 61g)
+green beans,                  1 cup,    31,  0.1,   7, 1.8,    6, half inch pieces (100g)
+shallot,                     1 tbsp,     7,    0, 1.7, 0.3,    1, chopped (10g)
+green onions,                     1,     5,    0, 1.1, 0.3,    2, 1 medium
+lettuce,                      1 cup,     5,  0.1, 0.6, 0.4,    7, 1 cup (28g)
+spinach,                      1 cup,     7,    0, 1.1, 0.9,   24, 1 cup (30g)
+cucumber,                     1 cup,     8,  0.1, 1.9, 0.3,    1, 1 cup sliced (100g)
+tomato,                       1 cup,    32,  0.4,   7, 1.6,    9, 1 cup chopped or sliced (180g)
+
+fresh basil,                 2 tbsp,     1,    0, 0.1, 0.2,    0, chopped
+fresh cilantro,               1 cup,     4,    0, 0.6, 0.3,    7,
+fresh parsley,                1 cup,     1,    0,   0,   0,    2,
 
 cinnamon,                     1 tsp,     6,    0, 2.1, 0.1,    0,
+pumpkin pie spice,            1 tsp,     6,    0, 2.1, 0.1,    0,
 mesquite seasoning,           1 tsp,     0,    0,   0,   0,  440, Kirkland Signature
 salt,                         1 tsp,     0,    0,   0,   0, 2325,
 garlic salt,                  1 tsp,     0,    0,   0,   0, 1960,
+allspice,                     1 tsp,     5,  0.2, 1.4, 0.1,    1,
+cardamom,                     1 tsp,     6,  0.1, 1.4, 0.2,    0,
+coriander,                    1 tsp,     2,    0,   0,   0,    1,
+cumin,                        1 tsp,     0,    0,   0,   0,    0,
+garlic powder,                1 tsp,    10,    0, 2.3, 0.5,    2,
+onion powder,                 1 tsp,     8,    0, 1.9, 0.2,    2,
+no-salt seasoning,            1 tsp,     9,    0, 1.9, 0.2,    2,
+chili powder,                1 tbsp,    24,  1.2,   4,   1,   76,
+cayenne,                     1 tbsp,    17,  0.9,   3, 0.6,    2,
+smoked paprika,              1 tbsp,     0,    0,   0,   0,    0,
+nutmeg,                       1 tsp,    11,  0.8, 1.1, 0.1,    0,
+black pepper,                 1 tsp,     6,  0.1, 1.5, 0.2,    0,
+lemon pepper,                 1 tsp,     0,    0,   0,   0,  210, McCormick
+ranch seasoning,              1 tsp,     5,    1,   0,   0,  135, Hidden Valley
+cloves,                       1 tsp,     6,  0.3, 1.4, 0.1,    6,
+turmeric,                     1 tsp,     8,  0.2, 1.4, 0.2,    1,
+dill weed,                   1 tbsp,     8,  0.1, 1.7, 0.6,    6,
+basil,                       1 tbsp,    11,  0.2, 2.1,   1,    3,
+oregano,                     1 tbsp,     9,  0.3, 1.9, 0.3,    0,
+thyme,                       1 tbsp,    12,  0.3, 2.7, 0.4,    2,
+Italian seasoning,           1 tbsp,    11,  0.3, 2.7, 0.4,    2,
+Thai seasoning,              1 tbsp,    11,  0.3, 2.7, 0.4,    2,
+Za'atar,                     1 tbsp,    20,    1,   2,   1,  200,
 
 Sambal Oelek,                 1 tsp,     0,    0,   1,   0,  110, Huy Fong
 Sriracha,                     1 tsp,     0,    0,   1,   0,   80, Huy Fong
+Frank's Red Hot,              1 tsp,     0,    0,   0,   0,  180,
+Pace Picante,                 2 tbsp,    8,    0,   2,   0,  250,
+Hatch Green Chile,            1 cup,   181,    0,  40,  10,   30,
+Thai red curry paste,        1 tbsp,    20,    0,   3,   1,  350, Thai Kitchen
+Thai sweet chili sauce,      1 tbsp,    30,    0, 7.5,   1,   30, Thai Kitchen
 
-teriyaki sauce,               1 tbsp,   16,    0, 2.8, 1.1,  690,
-Soyaki,                       1 tbsp,   40,    2,   5,   1,  490, Trader Joes
-soy sauce,                    1 tbsp,    5,    0,   0,   1,  490,
-Mirin,                        1 tbsp,   36,    0, 6.1,   1,    0,
-Gochujang,                    1 tbsp,   45,    0,  10,   1,  510,
-seasoned rice vinegar,        1 tbsp,   25,    0,   6,   1,  530,
-apple cider vinegar,          1 tbsp,    3,    0, 0.1,   1,    1,
+ketchup,                     1 tbsp,    19,    0, 4.5, 0.2,  154,
+hoisin sauce,                1 tbsp,    40,    0,   9, 0.5,  255, Kikkoman
+black bean sauce,            1 tbsp,    23,  0.6,   3, 1.5,  645, Kikkoman
+teriyaki sauce,              1 tbsp,    16,    0, 2.8, 1.1,  690,
+Soyaki,                      1 tbsp,    40,    2,   5,   1,  490, Trader Joes
+soy sauce,                   1 tbsp,     5,    0,   0,   1,  490,
+Mirin,                       1 tbsp,    36,    0, 6.1,   1,    0,
+Gochujang,                   1 tbsp,    45,    0,  10,   1,  510,
+Wasabi,                       1 tsp,    15,    1,   3,   0,  115,
+Furikake,                    1 tbsp,    30,  0.5,   5,   0,  140,
+seasoned rice vinegar,       1 tbsp,    25,    0,   6,   1,  530,
+apple cider vinegar,         1 tbsp,     3,    0, 0.1,   1,    1,
+red wine vinegar,            1 tbsp,     3,    0,   0,   0,    0,
+balsamic vinegar,            1 tbsp,    14,    0, 2.7, 0.1,    4,
 orange juice,                 1 cup,   111,  0.5,  26, 1.7,    2,
 lemon juice,                  1 cup,    53,  0.6,  17, 0.9,    2,
 lime juice,                   1 cup,    60,  0.2,  20,   1,    5,
-Edmundo wine,                 1 tbsp,   10,    0,   0,   0,   95,
+Edmundo wine,                1 tbsp,    10,    0,   0,   0,   95,
+Shaoxing wine,               1 tbsp,    10,    0,   0,   0,   95,
 
-sesame seeds,                 1 tbsp,   52,  4.5, 2.1, 1.6,    1,
+sesame seeds,                1 tbsp,    52,  4.5, 2.1, 1.6,    1,
 pecans,                       1 cup,   684,   71,  14,   9,    0, 1 cup halves (99g)
 almonds,                      1 cup,   529,   45,  20,  20,    1, 1 cup sliced (92g)
 peanuts,                      1 cup,   854,   73,  31,  35,    9, 1 cup dry roasted unsalted (146g)
 coconut,                      1 cup,   283,   27,  12, 2.7,   16, 1 cup shredded (80g)
 pine nuts,                    1 cup,   909,   92,  18,  18,    3, 1 cup (135g)
+tahini,                      1 tbsp,    89,    8, 3.2, 2.6,   17,
+peanut butter,               1 tbsp,    94,    8,   3,   4,    5,

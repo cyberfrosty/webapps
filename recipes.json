@@ -8,7 +8,7 @@
   "yield": "Serves 40",
   "category": ["Nuts", "Dessert"],
   "description": "Spice coated pecans for the holidays, snacking, or anytime.",
-  "nutrition": {"carbohydrate": 3, "protein": 1, "calories": 74, "fat": 7, "sodium": 118},
+  "nutrition": {"carbohydrate": 3, "protein": 1, "calories": 74, "fat": 7, "sodium": 119},
   "rating": 4.76,
   "ingredients": {
     "item1": {"quantity": "4 cups", "ingredient": "pecans, halves"},
@@ -16,7 +16,7 @@
     "item3": {"quantity": "2 tsp", "ingredient": "water"},
     "item4": {"quantity": "1/4 cup", "ingredient": "brown sugar"},
     "item5": {"quantity": "1/4 cup", "ingredient": "smoked paprika"},
-    "item6": {"quantity": "1/2 tsp", "ingredient": "cayenne or &frac34; tsp ancho chili"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "cayenne, or &frac34; tsp ancho chili"},
     "item7": {"quantity": "2 tsp", "ingredient": "salt"},
     "item8": {"quantity": "1 tsp", "ingredient": "coriander"},
     "item9": {"quantity": "1/2 tsp", "ingredient": "cumin"},
@@ -43,7 +43,7 @@
   "yield": "Makes 20",
   "category": ["Chocolate", "Dessert"],
   "description": "Deliciously crunchy chocolate treats for after dinner or with coffee.",
-  "nutrition": {"carbohydrate": 13, "protein": 2, "calories": 112, "fat": 16, "sodium": 8},
+  "nutrition": {"carbohydrate": 9, "protein": 2, "calories": 84, "fat": 14, "sodium": 8},
   "rating": 4.4,
   "ingredients": {
     "item1": {"quantity": "2/3 cup", "ingredient": "crisp rice cereal, or corn flakes"},
@@ -71,21 +71,22 @@
   "date": "November 22, 2017",
   "preptime": "20 minutes",
   "cooktime": "1 hour",
-  "yield": "Makes 1 pie",
+  "yield": "Serves 12",
   "category": ["Pie", "Dessert"],
   "description": "Whole wheat crust and traditionally spiced pumpkin filling.",
+  "nutrition": {"carbohydrate": 36, "protein": 5, "calories": 247, "fat": 11, "sodium": 129},
   "rating": 4.6,
   "ingredients": {
     "section1": {
       "title": "Pumpkin Filling",
-        "item1": {"quantity": "3 cups", "ingredient": "pumpkin puree"},
+        "item1": {"quantity": "3 cups", "ingredient": "canned pumpkin"},
         "item2": {"quantity": "3/4 cup", "ingredient": "honey"},
         "item3": {"quantity": "2 tbsp", "ingredient": "molasses"},
         "item4": {"quantity": "3 tsp", "ingredient": "cinnamon"},
         "item5": {"quantity": "1/2 tsp", "ingredient": "cloves"},
         "item6": {"quantity": "1 1/2 tsp", "ingredient": "ginger"},
         "item7": {"quantity": "4", "ingredient": "eggs"},
-        "item8": {"quantity": "1 can", "ingredient": "evaporated milk (12 oz)"}
+        "item8": {"quantity": "1 medium can", "ingredient": "evaporated milk, (12 oz)"}
     },
     "section2": {
       "title": "Pie Shell",
@@ -93,7 +94,7 @@
         "item2": {"quantity": "2 tbsp", "ingredient": "white flour"},
         "item2": {"quantity": "1/2 tsp", "ingredient": "salt (less or none if using salted butter)"},
         "item3": {"quantity": "1/2 cup", "ingredient": "butter, (well chilled)"},
-        "item4": {"quantity": "4 tbsp", "ingredient": "ice water (an additional 1-2 tbsp may be required)"}
+        "item4": {"quantity": "4 tbsp", "ingredient": "water, iced (an additional 1-2 tbsp may be required)"}
     }
   },
   "instructions": {
@@ -195,13 +196,14 @@
   "yield": "Serves 6",
   "category": ["Dinner", "Seafood"],
   "description": "Tuna noodle casserole.",
+  "nutrition": {"carbohydrate": 27, "protein": 13, "calories": 224, "fat": 7, "sodium": 322},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "3 cups", "ingredient": "macaroni (about 8 oz)"},
-    "item2": {"quantity": "1 can", "ingredient": "tuna in water, drained (5-6 oz)"},
-    "item3": {"quantity": "1 can", "ingredient": "cream of mushroom soup, or celery soup (10.5 oz)"},
-    "item4": {"quantity": "1/3 can", "ingredient": "milk (use soup can)"},
-    "item5": {"quantity": "1/2 cup", "ingredient": "cheese, grated (save 2-3 tbsp for topping)"},
+    "item2": {"quantity": "5 oz", "ingredient": "tuna, 1 can in water drained"},
+    "item3": {"quantity": "1 cup", "ingredient": "cream of mushroom soup, or celery soup (10.5 oz)"},
+    "item4": {"quantity": "1/3 can", "ingredient": "nonfat milk, (use soup can)"},
+    "item5": {"quantity": "1/2 cup", "ingredient": "cheddar cheese, grated (save 2-3 tbsp for topping)"},
     "item6": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "garlic or celery powder/salt (optional)"}
   },
@@ -227,7 +229,7 @@
   "yield": "Makes 12",
   "category": ["Crepes", "Dessert"],
   "description": "Swedish pancakes (or crepes), rolled up with your favorite fillings.",
-  "nutrition": {"carbohydrate": 44, "protein": 4, "calories": 225, "fat": 3, "sodium": 40},
+  "nutrition": {"carbohydrate": 44, "protein": 4, "calories": 225, "fat": 4, "sodium": 89},
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "2 1/4 cup", "ingredient": "milk"},
@@ -259,11 +261,11 @@
   "yield": "Makes 1",
   "category": ["Breakfast"],
   "description": "Oven baked pancakes with fresh lemon juice and powdered sugar.",
-  "nutrition": {"carbohydrate": 41, "protein": 11, "calories": 390, "fat": 18, "sodium": 107},
+  "nutrition": {"carbohydrate": 43, "protein": 11, "calories": 371, "fat": 17, "sodium": 91},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1/4 cup", "ingredient": "flour"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "milk"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "nonfat milk"},
     "item3": {"quantity": "1", "ingredient": "egg"},
     "item4": {"quantity": "1 tbsp", "ingredient": "butter, melted"},
     "item5": {"quantity": "1/4 tsp", "ingredient": "cinnamon"},
@@ -289,7 +291,7 @@
   "yield": "Makes 16",
   "category": ["Chocolate", "Dessert"],
   "description": "Decedent fudge brownies with chocolate chips and not too much butter.",
-  "nutrition": {"carbohydrate": 24, "protein": 4, "calories": 214, "fat": 13, "sodium": 9},
+  "nutrition": {"carbohydrate": 25, "protein": 4, "calories": 200, "fat": 11, "sodium": 9},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "butter"},
@@ -320,7 +322,7 @@
   "yield": "Makes 32",
   "category": ["Chocolate", "Dessert"],
   "description": "Blonde brownies with chocolate chips and not too much butter.",
-  "nutrition": {"carbohydrate": 25, "protein": 1, "calories": 167, "fat": 6, "sodium": 38},
+  "nutrition": {"carbohydrate": 25, "protein": 2, "calories": 161, "fat": 6, "sodium": 57},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "2 cups", "ingredient": "white flour"},
@@ -353,7 +355,7 @@
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables"],
   "description": "Asian style carrots with ginger and teriyaki.",
-  "nutrition": {"carbohydrate": 10, "protein": 1, "calories": 87, "fat": 4, "sodium": 408},
+  "nutrition": {"carbohydrate": 11, "protein": 2, "calories": 88, "fat": 5, "sodium": 408},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "6", "ingredient": "carrots, organic (360g)"},
@@ -381,7 +383,7 @@
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables"],
   "description": "Asian style green beans with sesame seeds.",
-  "nutrition": {"carbohydrate": 7, "protein": 2, "calories": 73, "fat": 4, "sodium": 251},
+  "nutrition": {"carbohydrate": 8, "protein": 3, "calories": 74, "fat": 4, "sodium": 251},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "4 cups", "ingredient": "green beans, about 1 lb"},
@@ -409,7 +411,7 @@
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables"],
   "description": "Spicy Asian style green beans with sesame seeds.",
-  "nutrition": {"carbohydrate": 9, "protein": 2, "calories": 82, "fat": 4, "sodium": 411},
+  "nutrition": {"carbohydrate": 10, "protein": 3, "calories": 82, "fat": 4, "sodium": 411},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "4 cups", "ingredient": "green beans, about 1 lb"},
@@ -439,7 +441,7 @@
   "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables"],
   "description": "Spicy Mediterranean style carrots with cilantro.",
-  "nutrition": {"carbohydrate": 9, "protein": 0, "calories": 97, "fat": 6, "sodium": 63},
+  "nutrition": {"carbohydrate": 10, "protein": 1, "calories": 101, "fat": 7, "sodium": 83},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "6", "ingredient": "carrots, organic (360g)"},
@@ -447,7 +449,7 @@
     "item3": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item4": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
     "item5": {"quantity": "1 tsp", "ingredient": "Za'atar"},
-    "item6": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"},
     "item7": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"}
   },
   "instructions": {
@@ -465,15 +467,15 @@
   "yield": "Serves 4",
   "description": "Your basic guacamole as you like.",
   "category": ["Latin", "Mexican", "Appetizer"],
-  "nutrition": {"carbohydrate": 5, "protein": 1, "calories": 87, "fat": 7, "sodium": 5},
+  "nutrition": {"carbohydrate": 6, "protein": 1, "calories": 88, "fat": 7, "sodium": 190},
   "rating": 4.4,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "avocado"},
     "item2": {"quantity": "1 tbsp", "ingredient": "lemon juice, or lime juice"},
-    "item3": {"quantity": "2 tbsp", "ingredient": "Picante or other salsa"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "Pace Picante, or other salsa"},
     "item4": {"quantity": "1/4 tsp", "ingredient": "garlic salt"},
     "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
-    "item6": {"quantity": "1", "ingredient": "tomato, diced and drained"},
+    "item6": {"quantity": "1/2 cup", "ingredient": "tomato, diced and drained"},
     "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
   },
   "instructions": {
@@ -492,7 +494,7 @@
   "yield": "Serves 4",
   "category": ["Latin", "Mexican", "Turkey"],
   "description": "Mexican seasoned lean ground turkey for burritos, tacos and many other dishes.",
-  "nutrition": {"carbohydrate": 2, "protein": 22, "calories": 195, "fat": 11, "sodium": 218},
+  "nutrition": {"carbohydrate": 3, "protein": 22, "calories": 203, "fat": 12, "sodium": 183},
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
@@ -501,11 +503,12 @@
     "item4": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
     "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
-    "item7": {"quantity": "1/2 tsp", "ingredient": "cumin"},
-    "item8": {"quantity": "1 tsp", "ingredient": "oregano"},
-    "item9": {"quantity": "2 tsp", "ingredient": "chili powder"},
-    "item10": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper, (optional)"},
-    "item11": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
+    "item7": {"quantity": "2 tbsp", "ingredient": "Pace Picante, or other salsa"},
+    "item8": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+    "item9": {"quantity": "1 tsp", "ingredient": "oregano"},
+    "item10": {"quantity": "2 tsp", "ingredient": "chili powder"},
+    "item11": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper, (optional)"},
+    "item12": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
   },
   "instructions": {
     "step1": "In a large skillet, saute onion in olive oil over low heat until translucent",
@@ -527,7 +530,7 @@
   "cooktime": "1 hour 15 minutes",
   "category": ["Latin", "Cuban", "Turkey"],
   "description": "Cuban style picadillo made with lean ground turkey, almonds, olives, raisins and green pepper.",
-  "nutrition": {"carbohydrate": 21, "protein": 26, "calories": 351, "fat": 18, "sodium": 457},
+  "nutrition": {"carbohydrate": 21, "protein": 26, "calories": 354, "fat": 18, "sodium": 461},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
@@ -541,7 +544,7 @@
     "item9": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item10": {"quantity": "1/2 tsp", "ingredient": "oregano"},
     "item11": {"quantity": "1 tsp", "ingredient": "chili powder"},
-    "item12": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper, (optional)"},
+    "item12": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper, (optional)"},
     "item13": {"quantity": "1/4 cup", "ingredient": "apple cider vinegar"},
     "item14": {"quantity": "1/2 cup", "ingredient": "Edmundo wine, (Moscato, Chablis or other sweet white wine)"},
     "item15": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
@@ -568,11 +571,12 @@
   "yield": "Serves 6",
   "category": ["Latin", "Mexican"],
   "description": "Vegetarian green chili or with pork if preferred.",
+  "nutrition": {"carbohydrate": 17, "protein": 4, "calories": 119, "fat": 5, "sodium": 93},
   "rating": 4.8,
   "ingredients": {
-    "item1": {"quantity": "1 can (12 oz)", "ingredient": "tomatillos, drained"},
-    "item2": {"quantity": "1 can (7 oz)", "ingredient": "whole green chilies, drained"},
-    "item3": {"quantity": "1 jar (12 oz)", "ingredient": "Hatch green chili or salsa"},
+    "item1": {"quantity": "1 medium can", "ingredient": "tomatillos, drained (12-14 oz)"},
+    "item2": {"quantity": "1 small can", "ingredient": "green chillies, drained (7 oz)"},
+    "item3": {"quantity": "1 medium jar", "ingredient": "Hatch Green Chile, or green salsa (12 oz)"},
     "item4": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
     "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
     "item6": {"quantity": "3/4 cup", "ingredient": "reduced sodium chicken stock"},
@@ -600,13 +604,14 @@
   "yield": "Serves 6",
   "category": ["Mediterranean", "Moroccan"],
   "description": "Moroccan spiced lamb chunks.",
+  "nutrition": {"carbohydrate": 1, "protein": 24, "calories": 223, "fat": 15, "sodium": 68},
   "rating": 4.8,
   "ingredients": {
-    "item1": {"quantity": "1 1/2 pounds", "ingredient": "Lamb or beef, trimmed"},
+    "item1": {"quantity": "1 1/2 lbs", "ingredient": "lamb, or beef, trimmed"},
     "item2": {"quantity": "3 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "2 tsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
     "item4": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
-    "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "cumin"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
     "item8": {"quantity": "1/2 tsp", "ingredient": "ginger"},
@@ -616,8 +621,8 @@
     "item12": {"quantity": "1/4 tsp", "ingredient": "cloves"},
     "item13": {"quantity": "1/4 tsp", "ingredient": "nutmeg"},
     "item14": {"quantity": "1/4 tsp", "ingredient": "allspice"},
-    "item15": {"quantity": "1/2 cup", "ingredient": "beer, wine or chicken stock"},
-    "item16": {"quantity": "1 tbsp", "ingredient": "vinegar"},
+    "item15": {"quantity": "1/2 cup", "ingredient": "reduced sodium chicken stock, beer, wine"},
+    "item16": {"quantity": "1 tbsp", "ingredient": "red wine vinegar"},
     "item17": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, or toasted almond slices (optional)"}
   },
   "instructions": {
@@ -639,7 +644,7 @@
   "yield": "Serves 6",
   "category": ["Mediterranean", "Moroccan", "Turkey"],
   "description": "Moroccan spiced sauce with lean ground turkey meatballs.",
-  "nutrition": {"carbohydrate": 19, "protein": 26, "calories": 357, "fat": 17, "sodium": 790},
+  "nutrition": {"carbohydrate": 19, "protein": 26, "calories": 358, "fat": 17, "sodium": 780},
   "rating": 5.0,
   "ingredients": {
     "section1": {
@@ -692,7 +697,7 @@
   "yield": "Serves 4",
   "category": ["Mediterranean", "Vegetables"],
   "description": "Pan roasted cauliflower.",
-  "nutrition": {"carbohydrate": 11, "protein": 3, "calories": 156, "fat": 11, "sodium": 254},
+  "nutrition": {"carbohydrate": 12, "protein": 4, "calories": 154, "fat": 11, "sodium": 267},
   "rating": 4.6,
   "ingredients": {
     "item1": {"quantity": "1 head", "ingredient": "cauliflower"},
@@ -700,7 +705,7 @@
     "item3": {"quantity": "1 clove", "ingredient": "garlic, pressed"},
     "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item5": {"quantity": "1/4 cup", "ingredient": "seasoned bread crumbs"},
-    "item6": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper, (optional)"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper, (optional)"},
     "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"},
     "item8": {"quantity": "1", "ingredient": "lime, cut into wedges (optional)"}
   },
@@ -721,7 +726,7 @@
   "yield": "Serves 4",
   "category": ["Vegetables"],
   "description": "Sauteed spinach with pine nuts.",
-  "nutrition": {"carbohydrate": 4, "protein": 3, "calories": 132, "fat": 13, "sodium": 32},
+  "nutrition": {"carbohydrate": 4, "protein": 3, "calories": 132, "fat": 13, "sodium": 277},
   "rating": 3.5,
   "ingredients": {
     "item1": {"quantity": "5 cups", "ingredient": "spinach, fresh and washed"},
@@ -750,7 +755,7 @@
   "cooktime": "10 minutes",
   "category": ["Breakfast", "Turkey"],
   "description": "Breakfast sausage patties made with lean ground turkey.",
-  "nutrition": {"carbohydrate": 2, "protein": 8, "calories": 92, "fat": 5, "sodium": 176},
+  "nutrition": {"carbohydrate": 4, "protein": 8, "calories": 93, "fat": 5, "sodium": 257},
   "rating": 4.5,
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
@@ -781,7 +786,7 @@
   "yield": "Serves 6",
   "category": ["Mediterranean", "Pasta", "Turkey", "Italian"],
   "description": "Marinara sauce and Italian style meatballs made with lean ground turkey.",
-  "nutrition": {"carbohydrate": 27, "protein": 21, "calories": 342, "fat": 13, "sodium": 823},
+  "nutrition": {"carbohydrate": 31, "protein": 22, "calories": 347, "fat": 13, "sodium": 841},
   "rating": 4.8,
   "ingredients": {
     "section1": {
@@ -823,7 +828,7 @@
   "yield": "Serves 4",
   "category": ["Mediterranean", "Pasta", "Chicken"],
   "description": "Stir fry Mediterranean chicken with roasted red peppers, artichokes and sun dried tomatoes.",
-  "nutrition": {"carbohydrate": 25, "protein": 37, "calories": 454, "fat": 22, "sodium": 486},
+  "nutrition": {"carbohydrate": 29, "protein": 37, "calories": 479, "fat": 24, "sodium": 511},
   "rating": 4.3,
   "ingredients": {
     "section1": {
@@ -836,7 +841,7 @@
       "title": "Veggies",
         "item1": {"quantity": "3 tbsp", "ingredient": "olive oil"},
         "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
-        "item3": {"quantity": "1/3 cup", "ingredient": "sun dried tomatoes"},
+        "item3": {"quantity": "1/3 cup", "ingredient": "sun-dried tomatoes"},
         "item4": {"quantity": "8 oz", "ingredient": "roasted red peppers, drained and chopped (12oz jar)"},
         "item5": {"quantity": "8 oz", "ingredient": "marinated artichoke hearts, drained and chopped (15oz jar)"},
         "item6": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
@@ -866,18 +871,19 @@
   "preptime": "20 minutes",
   "cooktime": "20 minutes",
   "totaltime": "3 hours",
-  "yield": "Makes 2 pizzas",
+  "yield": "Serves 6",
   "category": ["Mediterranean", "Italian"],
   "description": "Baked or grilled pizza with whole wheat crust and your favorite toppings.",
+  "nutrition": {"carbohydrate": 71, "protein": 16, "calories": 438, "fat": 10, "sodium": 580},
   "rating": 4.9,
   "ingredients": {
     "section1": {
       "title": "Crust",
         "item1": {"quantity": "1 1/2 cups", "ingredient": "whole wheat flour"},
         "item2": {"quantity": "2 1/2 cups", "ingredient": "white flour"},
-        "item3": {"quantity": "1 tsp", "ingredient": "yeast (same amount for 1 or 2 pizzas)"},
-        "item4": {"quantity": "2 tbsp", "ingredient": "sugar or honey"},
-        "item5": {"quantity": "2/3 cup", "ingredient": "lukewarm water (per pizza)"},
+        "item3": {"quantity": "2 tsp", "ingredient": "yeast, (same amount for 1 or 2 pizzas)"},
+        "item4": {"quantity": "2 tbsp", "ingredient": "sugar, or honey"},
+        "item5": {"quantity": "2/3 cup", "ingredient": "water, lukewarm (per pizza)"},
         "item6": {"quantity": "2 tbsp", "ingredient": "olive oil"}
     },
     "section2": {
@@ -889,6 +895,10 @@
         "item5": {"quantity": "1 tsp", "ingredient": "thyme"},
         "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"},
         "item7": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
+    },
+    "section3": {
+      "title": "Topping",
+        "item1": {"quantity": "1 can", "ingredient": "mozzarella cheese"}
     }
   },
   "instructions": {
@@ -910,14 +920,14 @@
   "preptime": "5 minutes",
   "cooktime": "15 minutes",
   "yield": "Serves 2",
-  "nutrition": {"carbohydrate": 0, "protein": 40, "calories": 412, "fat": 27, "sodium": 557},
   "category": ["Seafood"],
   "description": "Grilled salmon on the grill or seared in a pan with mesquite.",
+  "nutrition": {"carbohydrate": 0, "protein": 40, "calories": 414, "fat": 27, "sodium": 563},
   "rating": 4.9,
   "ingredients": {
     "item1": {"quantity": "14 oz", "ingredient": "salmon fillet"},
     "item2": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
-    "item3": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
+    "item3": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"}
   },
   "instructions": {
     "step1": "Heat non-stick pan or grill to 325-350 degrees",
@@ -935,14 +945,15 @@
   "yield": "Makes 8",
   "category": ["Seafood"],
   "description": "Salmon cakes made from leftovers with a delicious yogurt sauce.",
+  "nutrition": {"carbohydrate": 4, "protein": 20, "calories": 241, "fat": 16, "sodium": 237},
   "rating": 4.2,
   "ingredients": {
     "section1": {
       "title": "Salmon Cakes",
-        "item1": {"quantity": "1 1/2 lbs", "ingredient": "leftover seasoned salmon fillets"},
+        "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet, leftover or cooked and cooled"},
         "item2": {"quantity": "1", "ingredient": "egg"},
         "item3": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
-        "item4": {"quantity": "2-3 tbsp", "ingredient": "canola oil"}
+        "item4": {"quantity": "2 tbsp", "ingredient": "canola oil"}
     },
     "section2": {
       "title": "Yogurt Sauce",
@@ -950,7 +961,7 @@
         "item2": {"quantity": "2 tsp", "ingredient": "ranch seasoning"},
         "item3": {"quantity": "1/2 tsp", "ingredient": "lemon pepper"},
         "item4": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
-        "item5": {"quantity": "1/4 tsp", "ingredient": "dill"}
+        "item5": {"quantity": "1/4 tsp", "ingredient": "dill weed"}
     }
   },
   "instructions": {
@@ -973,6 +984,7 @@
   "yield": "Serves 6",
   "category": ["Seafood", "Thai"],
   "description": "Spicy Thai seasoned salmon baked in foil.",
+  "nutrition": {"carbohydrate": 4, "protein": 31, "calories": 326, "fat": 21, "sodium": 214},
   "rating": 4.9,
   "ingredients": {
     "item1": {"quantity": "2 lbs", "ingredient": "salmon fillet"},
@@ -981,10 +993,10 @@
     "item4": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item5": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
     "item6": {"quantity": "2 tsp", "ingredient": "Sriracha"},
-    "item7": {"quantity": "1 tbsp", "ingredient": "sweet chili sauce, Hoisin or sweet and sour sauce"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "Thai sweet chili sauce, hoisin or sweet and sour sauce"},
     "item8": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item9": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"},
-    "item10": {"quantity": "1", "ingredient": "lime cut into wedges"}
+    "item10": {"quantity": "1", "ingredient": "lime, cut into wedges"}
   },
   "instructions": {
     "step1": "Heat oven to 400 degrees, cover large cooking sheet with foil and spray with non-stick",
@@ -1003,9 +1015,10 @@
   "yield": "Serves 8",
   "category": ["Mediterranean", "Appetizer"],
   "description": "Homemade hummus with canned or cooked chickpeas.",
+  "nutrition": {"carbohydrate": 32, "protein": 10, "calories": 208, "fat": 5, "sodium": 261},
   "rating": 4.6,
   "ingredients": {
-    "item1": {"quantity": "2 cans", "ingredient": "chickpeas, drained"},
+    "item1": {"quantity": "2 cups", "ingredient": "chickpeas, drained"},
     "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
     "item3": {"quantity": "4 tbsp", "ingredient": "lemon juice"},
     "item4": {"quantity": "1 tbsp", "ingredient": "red wine vinegar"},
@@ -1032,13 +1045,14 @@
   "yield": "Serves 4",
   "category": ["Breakfast"],
   "description": "Home fries, low fat, crunchy and delicious.",
+  "nutrition": {"carbohydrate": 33, "protein": 4, "calories": 243, "fat": 11, "sodium": 282},
   "rating": 4.1,
   "ingredients": {
-    "item1": {"quantity": "2", "ingredient": "large russet or golden potatoes"},
+    "item1": {"quantity": "3", "ingredient": "potatoes, russet or golden, medium size or 2 large"},
     "item2": {"quantity": "3 tbsp", "ingredient": "canola oil"},
     "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
     "item4": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
-    "item5": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"}
+    "item5": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"}
   },
   "instructions": {
     "step1": "Wash, then dice potatoes, removing any bruised or bad sections",
@@ -1057,16 +1071,17 @@
   "yield": "Serves 4",
   "category": ["Vegetables"],
   "description": "Sweet potato fries that are low fat and crunchy.",
+  "nutrition": {"carbohydrate": 28, "protein": 1, "calories": 174, "fat": 7, "sodium": 721},
   "rating": 4.1,
   "ingredients": {
-    "item1": {"quantity": "2", "ingredient": "large red garnet yams"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "white flour or 2 tbsp cornstarch"},
+    "item1": {"quantity": "2", "ingredient": "red garnet yams"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "corn starch, or potato starch or (1/4 cup flour)"},
     "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item5": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
     "item6": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
-    "item7": {"quantity": "1/2 tsp", "ingredient": "chipotle or cayenne pepper"},
-    "item8": {"quantity": "1 tsp", "ingredient": "sea salt"}
+    "item7": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"},
+    "item8": {"quantity": "1 tsp", "ingredient": "salt"}
   },
   "instructions": {
     "step1": "Wash, then cut yams into fries, removing any bruised or bad sections",
@@ -1090,7 +1105,7 @@
   "cooktime": "25 minutes",
   "time": "45 minutes",
   "description": "Sweet and spicy Korean style meatballs made with lean ground turkey.",
-  "nutrition": {"carbohydrate": 25, "protein": 25, "calories": 305, "fat": 12, "sodium": 324},
+  "nutrition": {"carbohydrate": 25, "protein": 25, "calories": 303, "fat": 12, "sodium": 313},
   "category": ["Asian", "Turkey"],
   "rating": 4.5,
   "ingredients": {
@@ -1132,6 +1147,7 @@
   "cooktime": "25 minutes",
   "time": "45 minutes",
   "description": "Sweet and spicy Mongolian style meatballs made with lean ground turkey.",
+  "nutrition": {"carbohydrate": 16, "protein": 26, "calories": 281, "fat": 13, "sodium": 515},
   "category": ["Asian", "Turkey"],
   "rating": 4.5,
   "ingredients": {
@@ -1154,9 +1170,9 @@
       "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item4": {"quantity": "2 tbsp", "ingredient": "Soyaki, or teriyaki sauce and 1 tsp ginger"},
       "item5": {"quantity": "1/2 cup", "ingredient": "water"},
-      "item6": {"quantity": "2 tbsp", "ingredient": "hoisin"},
+      "item6": {"quantity": "2 tbsp", "ingredient": "hoisin sauce"},
       "item7": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
-      "item8": {"quantity": "1 tsp", "ingredient": "red chili powder"}
+      "item8": {"quantity": "1 tsp", "ingredient": "chili powder"}
     }
   },
   "instructions": {
@@ -1178,7 +1194,7 @@
   "cooktime": "25 minutes",
   "time": "45 minutes",
   "description": "Thai meatballs made with lean ground turkey in a spicy red peanut curry sauce.",
-  "nutrition": {"calories": 240, "fat": 7, "protein": 31, "carbohydrate": 10, "sodium": 580},
+  "nutrition": {"carbohydrate": 13, "protein": 31, "calories": 394, "fat": 25, "sodium": 350},
   "category": ["Asian", "Turkey"],
   "rating": 4.5,
   "ingredients": {
@@ -1203,7 +1219,7 @@
       "item5": {"quantity": "3 tbsp", "ingredient": "Thai red curry paste"},
       "item6": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
       "item7": {"quantity": "1/2 cup", "ingredient": "peanut butter"},
-      "item8": {"quantity": "1/4 cup", "ingredient": "broth, wine or just water"}
+      "item8": {"quantity": "1/4 cup", "ingredient": "reduced sodium chicken stock, wine or just water"}
     }
   },
   "instructions": {
@@ -1226,6 +1242,7 @@
   "cooktime": "20 minutes",
   "date": "February 21, 2018",
   "description": "Greek meatballs (Keftedes) made with lean ground turkey served with Tzatziki, cucumber and tomato salad",
+  "nutrition": {"carbohydrate": 22, "protein": 29, "calories": 373, "fat": 21, "sodium": 882},
   "category": ["Mediterranean", "Turkey"],
   "rating": 4.3,
   "ingredients": {
@@ -1235,7 +1252,7 @@
       "item2": {"quantity": "1", "ingredient": "egg"},
       "item3": {"quantity": "1/4 cup", "ingredient": "red onion, finely chopped"},
       "item4": {"quantity": "1/4 cup", "ingredient": "fresh parsley, finely chopped"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "fresh mint or spearmint leaves, finely chopped (optional)"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "fresh mint, or spearmint leaves, finely chopped (optional)"},
       "item6": {"quantity": "2 cloves", "ingredient": "garlic"},
       "item7": {"quantity": "1 tsp", "ingredient": "oregano"},
       "item8": {"quantity": "1 tsp", "ingredient": "garlic salt"},
@@ -1246,7 +1263,7 @@
     "section2": {
       "title":"Tzatziki Sauce",
       "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
-      "item2": {"quantity": "1/2 cup", "ingredient": "Diced cucumbers, peeled and deseeded"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "cucumber, peeled, deseeded and diced"},
       "item3": {"quantity": "1 clove", "ingredient": "garlic"},
       "item4": {"quantity": "2 tsp", "ingredient": "lemon juice"},
       "item5": {"quantity": "1 tsp", "ingredient": "apple cider vinegar"},
@@ -1256,10 +1273,10 @@
     },
     "section3": {
       "title":"Greek Salad",
-      "item1": {"quantity": "2 cups", "ingredient": "Lettuce"},
-      "item2": {"quantity": "1/2 cup", "ingredient": "Greek feta cheese"},
-      "item3": {"quantity": "1 cup", "ingredient": "Diced cucumbers"},
-      "item4": {"quantity": "1/2 cup", "ingredient": "Tomato wedges"},
+      "item1": {"quantity": "2 cups", "ingredient": "lettuce"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "feta cheese"},
+      "item3": {"quantity": "1 cup", "ingredient": "cucumber, diced"},
+      "item4": {"quantity": "1/2 cup", "ingredient": "tomato, cut into wedges"},
       "item5": {"quantity": "2 tbsp", "ingredient": "olive oil"},
       "item6": {"quantity": "2 tsp", "ingredient": "lemon juice"}
     }
@@ -1283,6 +1300,7 @@
   "cooktime": "25 minutes",
   "date": "February 1, 2018",
   "description": "Spicy buffalo style meatballs made with lean ground turkey make a great appetizer or main course.",
+  "nutrition": {"carbohydrate": 14, "protein": 26, "calories": 246, "fat": 10, "sodium": 892},
   "category": ["Latin", "Turkey"],
   "rating": 3.7,
   "ingredients": {
@@ -1322,11 +1340,12 @@
   "cooktime": "10 minutes",
   "time": "20 minutes",
   "description": "Sweet and spicy Korean tofu",
+  "nutrition": {"carbohydrate": 27, "protein": 11, "calories": 310, "fat": 20, "sodium": 259},
   "category": ["Asian", "Tofu"],
   "rating": 4.5,
   "ingredients": {
-    "item1": {"quantity": "1 lbs", "ingredient": "Tofu"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "starch (or flour)"},
+    "item1": {"quantity": "1 lbs", "ingredient": "tofu"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "potato starch (or flour)"},
     "item3": {"quantity": "4 tbsp", "ingredient": "olive oil, or canola oil"},
     "item4": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
     "item5": {"quantity": "1/4 cup", "ingredient": "onion"},
@@ -1355,24 +1374,25 @@
   "preptime": "15 minutes",
   "category": ["Asian", "Seafood"],
   "description": "Hawaiian style poke bowl.",
+  "nutrition": {"carbohydrate": 33, "protein": 30, "calories": 363, "fat": 13, "sodium": 426},
   "rating": 4.3,
   "ingredients": {
     "section1": {
       "title": "Poke",
-      "item1": {"quantity": "1/2 lbs", "ingredient": "sushi-grade ahi, salmon, or hamachi"},
+      "item1": {"quantity": "6 oz", "ingredient": "ahi, salmon, or hamachi"},
       "item2": {"quantity": "2", "ingredient": "green onions"},
       "item3": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item4": {"quantity": "1 tsp", "ingredient": "sesame oil"},
       "item5": {"quantity": "1 tsp", "ingredient": "Mirin (\u5473\u9182) or seasoned rice vinegar"},
-      "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek or Sriracha"},
+      "item6": {"quantity": "1 tsp", "ingredient": "Sambal Oelek, or Sriracha"},
       "item7": {"quantity": "1 tsp", "ingredient": "Wasabi (\u308f\u3055\u3073)"},
       "item8": {"quantity": "2 tsp", "ingredient": "sesame seeds"}
     },
     "section2": {
       "title": "Bowl",
-      "item1": {"quantity": "1 cup", "ingredient": "cooked brown rice"},
-      "item2": {"quantity": "1 cup", "ingredient": "seaweed salad, or shredded lettuce"},
-      "item3": {"quantity": "1", "ingredient": "sliced avocado, or cucumber"},
+      "item1": {"quantity": "1 cup", "ingredient": "brown rice"},
+      "item2": {"quantity": "1 cup", "ingredient": "lettuce, or seaweed salad"},
+      "item3": {"quantity": "1/2", "ingredient": "avocado, sliced"},
       "item4": {"quantity": "1/2 tsp", "ingredient": "Furikake (\u3075\u308a\u304b\u3051)"}
     }
   },
@@ -1393,6 +1413,7 @@
   "cooktime": "5 minutes",
   "category": ["Asian", "Seafood", "Thai"],
   "description": "Stir fry spicy chili lime shrimp with cilantro.",
+  "nutrition": {"carbohydrate": 8, "protein": 33, "calories": 235, "fat": 10, "sodium": 303},
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "2/3 lbs", "ingredient": "shrimp"},
@@ -1405,8 +1426,7 @@
     "item8": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped (optional)"},
     "item9": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item10": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
-    "item11": {"quantity": "1 pkg", "ingredient": "udon, soba or rice noodles"},
-    "item12": {"quantity": "1", "ingredient": "lime cut into wedges"}
+    "item11": {"quantity": "1", "ingredient": "lime, cut into wedges"}
   },
   "instructions": {
     "step1": "Peel shrimp under running water, set aside",
@@ -1426,7 +1446,7 @@
   "time": "30 minutes",
   "category": ["Asian", "Seafood"],
   "description": "Tender chunks of salmon in a spicy ginger teriyaki sauce",
-  "nutrition": {"carbohydrate": 6, "protein": 36, "calories": 433, "fat": 29, "sodium": 516},
+  "nutrition": {"carbohydrate": 6, "protein": 36, "calories": 434, "fat": 29, "sodium": 516},
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
@@ -1462,7 +1482,7 @@
   "cooktime": "20 minutes",
   "category": ["Asian", "Chicken"],
   "description": "Stir fry orange chicken loaded with veggies.",
-  "nutrition": {"carbohydrate": 28, "protein": 36, "calories": 430, "fat": 18, "sodium": 533},
+  "nutrition": {"carbohydrate": 28, "protein": 36, "calories": 431, "fat": 19, "sodium": 534},
   "rating": 4.7,
   "ingredients": {
     "section1": {
@@ -1493,7 +1513,7 @@
     "section4": {
       "title":"Garnish",
       "item1": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
-      "item2": {"quantity": "1 tsp ", "ingredient": "green onion top, thinly sliced"}
+      "item2": {"quantity": "1 tsp ", "ingredient": "green onion top, thinly sliced (optional)"}
     }
   },
   "instructions": {
@@ -1520,6 +1540,7 @@
   "totaltime": "2 hours 35 minutes",
   "category": ["Mediterranean", "Chicken"],
   "description": "Traditional grilled chicken shawarma or try it as a stir fry.",
+  "nutrition": {"carbohydrate": 23, "protein": 39, "calories": 378, "fat": 16, "sodium": 167},
   "rating": 4.7,
   "ingredients": {
     "section1": {
@@ -1539,7 +1560,7 @@
       "item7": {"quantity": "1 tsp", "ingredient": "coriander"},
       "item8": {"quantity": "1 tsp", "ingredient": "cumin"},
       "item9": {"quantity": "2 tsp", "ingredient": "smoked paprika"},
-      "item10": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Sriracha, or 1 tsp cayenne"}
+      "item10": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek, or Sriracha, or 1 tsp cayenne"}
     },
     "section3": {
       "title":"Garnish",
@@ -1592,6 +1613,7 @@
   "time": "45 minutes",
   "category": ["Asian", "Chicken"],
   "description": "Stir fry Szechuan chicken loaded with veggies.",
+  "nutrition": {"carbohydrate": 17, "protein": 36, "calories": 382, "fat": 19, "sodium": 651},
   "rating": 4.4,
   "ingredients": {
     "section1": {
@@ -1602,8 +1624,8 @@
     },
     "section2": {
       "title":"Veggies",
-      "item1": {"quantity": "1", "ingredient": "large red bell pepper, julienne or diced"},
-      "item2": {"quantity": "1", "ingredient": "large jalapeno pepper, julienne or diced"},
+      "item1": {"quantity": "1", "ingredient": "red bell pepper, julienne or diced"},
+      "item2": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced"},
       "item3": {"quantity": "1/4 cup", "ingredient": "onion, finely chopped"},
       "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
       "item5": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
@@ -1615,7 +1637,7 @@
       "item1": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
       "item2": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
       "item3": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-      "item4": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek or Sriracha"}
+      "item4": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek, or Sriracha"}
     },
     "section4": {
       "title":"Garnish",
@@ -1646,6 +1668,7 @@
   "cooktime": "15 minutes",
   "category": ["Asian", "Chicken"],
   "description": "Stir fry sesame chicken with mushrooms.",
+  "nutrition": {"carbohydrate": 16, "protein": 36, "calories": 357, "fat": 16, "sodium": 726},
   "rating": 3.8,
   "ingredients": {
     "section1": {
@@ -1662,7 +1685,7 @@
       "item4": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
       "item5": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
       "item6": {"quantity": "1 tbsp", "ingredient": "black bean sauce"},
-      "item7": {"quantity": "1 tbsp", "ingredient": "Hoisin sauce"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "hoisin sauce"},
       "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item9": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
       "item10": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
@@ -1671,7 +1694,7 @@
     "section3": {
       "title":"Garnish",
       "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
-      "item2": {"quantity": "1 tbsp", "ingredient": "green onion, chopped"}
+      "item2": {"quantity": "1 tbsp", "ingredient": "green onions, chopped"}
     }
   },
   "instructions": {
@@ -1697,6 +1720,7 @@
   "cooktime": "15 minutes",
   "category": ["Asian", "Chicken", "Indian"],
   "description": "Healthy variation on a North Indian style chicken curry (Kadai/Karahi).",
+  "nutrition": {"carbohydrate": 18, "protein": 38, "calories": 359, "fat": 15, "sodium": 137},
   "rating": 4.6,
   "ingredients": {
     "section1": {
@@ -1710,7 +1734,7 @@
       "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
       "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
       "item3": {"quantity": "1", "ingredient": "yellow bell pepper, diced"},
-      "item4": {"quantity": "1", "ingredient": "large jalapeno pepper, diced"},
+      "item4": {"quantity": "2", "ingredient": "jalapeno pepper, diced"},
       "item5": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
       "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item7": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
@@ -1752,7 +1776,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with diced strawberries and/or blueberries.",
-  "nutrition": {"carbohydrate": 36, "protein": 12, "calories": 295, "fat": 11, "sodium": 223},
+  "nutrition": {"carbohydrate": 36, "protein": 12, "calories": 295, "fat": 12, "sodium": 224},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -1783,7 +1807,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with grated apple and spices.",
-  "nutrition": {"carbohydrate": 44, "protein": 11, "calories": 324, "fat": 11, "sodium": 223},
+  "nutrition": {"carbohydrate": 44, "protein": 12, "calories": 324, "fat": 12, "sodium": 224},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -1815,7 +1839,7 @@
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk pancakes with diced pear and spices.",
-  "nutrition": {"carbohydrate": 34, "protein": 11, "calories": 288, "fat": 11, "sodium": 223},
+  "nutrition": {"carbohydrate": 39, "protein": 12, "calories": 306, "fat": 12, "sodium": 225},
   "rating": 4.5,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -1850,6 +1874,7 @@
   "cooktime": "20 minutes",
   "category": ["Breakfast"],
   "description": "Whole wheat banana muffins.",
+  "nutrition": {"carbohydrate": 27, "protein": 4, "calories": 178, "fat": 6, "sodium": 211},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -1863,9 +1888,9 @@
     "item9": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
     "item11": {"quantity": "1 cup", "ingredient": "bananas, ripe"},
-    "item12": {"quantity": "1/4 cup", "ingredient": "pecans, chopped (optional)"},
+    "item12": {"quantity": "1/4 cup", "ingredient": "pecans or walnuts, chopped (optional)"},
     "item13": {"quantity": "1/4 cup", "ingredient": "dried apricots, chopped (optional)"},
-    "item14": {"quantity": "3 tbsp", "ingredient": "milk"}
+    "item14": {"quantity": "3 tbsp", "ingredient": "nonfat milk"}
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees",
@@ -1884,11 +1909,12 @@
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/BananaBread.jpg",
   "date": "June 22, 2017",
-  "yield": "Makes 1 loaf",
+  "yield": "Serves 12",
   "preptime": "10 minutes",
   "cooktime": "60 minutes",
   "category": ["Bread"],
   "description": "Banana bread with pecans.",
+  "nutrition": {"carbohydrate": 29, "protein": 3, "calories": 196, "fat": 7, "sodium": 115},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1 3/4 cups", "ingredient": "white flour"},
@@ -1897,10 +1923,10 @@
     "item4": {"quantity": "2/3 cup", "ingredient": "sugar"},
     "item5": {"quantity": "1/3 cup", "ingredient": "canola oil"},
     "item6": {"quantity": "2", "ingredient": "eggs"},
-    "item7": {"quantity": "2 tbsp", "ingredient": "milk"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "nonfat milk"},
     "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
-    "item9": {"quantity": "1 cup", "ingredient": "ripe bananas"},
-    "item10": {"quantity": "1/4 cup", "ingredient": "pecans, chopped (optional)"}
+    "item9": {"quantity": "1 cup", "ingredient": "bananas, ripe"},
+    "item10": {"quantity": "1/4 cup", "ingredient": "pecans or walnuts, chopped (optional)"}
   },
   "instructions": {
     "step1": "Preheat oven to 350 degrees",
@@ -1920,11 +1946,12 @@
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/OrangePumpkinBread.jpg",
   "date": "February 19, 2018",
-  "yield": "Makes 1 loaf",
+  "yield": "Serves 12",
   "preptime": "15 minutes",
   "cooktime": "60 minutes",
   "category": ["Bread"],
   "description": "Orange pumpkin bread, made with a whole orange, raisins and pecans.",
+  "nutrition": {"carbohydrate": 41, "protein": 4, "calories": 243, "fat": 7, "sodium": 284},
   "rating": 4.4,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "large orange"},
@@ -1967,11 +1994,12 @@
   "cooktime": "20 minutes",
   "category": ["Breakfast"],
   "description": "Whole wheat muffins with spiced pumpkin.",
+  "nutrition": {"carbohydrate": 25, "protein": 4, "calories": 167, "fat": 6, "sodium": 197},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "1/4 cup", "ingredient": "canola oil"},
-    "item3": {"quantity": "1/2 cup", "ingredient": "milk"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "nonfat milk"},
     "item4": {"quantity": "1 tbsp", "ingredient": "vanilla"},
     "item5": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
     "item6": {"quantity": "1 cup", "ingredient": "white flour"},
@@ -1981,9 +2009,8 @@
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
     "item11": {"quantity": "1 tbsp", "ingredient": "pumpkin pie spice"},
     "item12": {"quantity": "1/2 cup", "ingredient": "canned pumpkin"},
-    "item13": {"quantity": "1/4 cup", "ingredient": "pecan or walnut pieces (optional)"},
-    "item14": {"quantity": "1/4 cup", "ingredient": "chocolate chips (optional)"},
-    "item15": {"quantity": "3 tbsp", "ingredient": "milk"}
+    "item13": {"quantity": "1/4 cup", "ingredient": "pecans or walnuts, chopped (optional)"},
+    "item14": {"quantity": "1/4 cup", "ingredient": "chocolate chips (optional)"}
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees",
@@ -2001,19 +2028,19 @@
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/ButtermilkWaffles.jpg",
   "date": "July 9, 2017",
-  "yield": "Serves 2",
+  "yield": "Makes 5",
   "preptime": "10 minutes",
   "cooktime": "5 minutes",
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Buttermilk whole wheat waffles.",
-  "nutrition": {"carbohydrate": 42, "protein": 14, "calories": 403, "fat": 19, "sodium": 274},
+  "nutrition": {"carbohydrate": 17, "protein": 6, "calories": 160, "fat": 8, "sodium": 107},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "2 tbsp", "ingredient": "canola oil"},
     "item3": {"quantity": "3/4 cup", "ingredient": "buttermilk"},
-    "item4": {"quantity": "3 tbsp", "ingredient": "milk"},
+    "item4": {"quantity": "3 tbsp", "ingredient": "nonfat milk"},
     "item5": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
     "item6": {"quantity": "2 tbsp", "ingredient": "white flour"},
     "item7": {"quantity": "1/3 cup", "ingredient": "rolled oats"},
@@ -2032,20 +2059,20 @@
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/PumpkinWaffles.jpg",
   "date": "May 5, 2017",
-  "yield": "Serves 2",
+  "yield": "Makes 5",
   "preptime": "10 minutes",
   "cooktime": "5 minutes",
   "totaltime": "45 minutes",
   "category": ["Breakfast"],
   "description": "Whole wheat waffles with spiced pumpkin.",
-  "nutrition": {"carbohydrate": 42, "protein": 14, "calories": 405, "fat": 19, "sodium": 246},
+  "nutrition": {"carbohydrate": 18, "protein": 5, "calories": 160, "fat": 7, "sodium": 94},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
     "item2": {"quantity": "1/4 cup", "ingredient": "canned pumpkin"},
     "item3": {"quantity": "2 tbsp", "ingredient": "canola oil"},
     "item4": {"quantity": "1/2 cup", "ingredient": "buttermilk"},
-    "item5": {"quantity": "1/4 cup", "ingredient": "milk"},
+    "item5": {"quantity": "3 tbsp", "ingredient": "nonfat milk"},
     "item6": {"quantity": "1/2 cup", "ingredient": "whole wheat flour"},
     "item7": {"quantity": "2 tbsp", "ingredient": "white flour"},
     "item8": {"quantity": "1/3 cup", "ingredient": "rolled oats"},
@@ -2070,6 +2097,7 @@
   "cooktime": "20 minutes",
   "category": ["Breakfast"],
   "description": "Low fat scones with apricots and whole wheat flour.",
+  "nutrition": {"carbohydrate": 27, "protein": 5, "calories": 172, "fat": 5, "sodium": 158},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "eggs"},
@@ -2081,7 +2109,7 @@
     "item7": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
     "item8": {"quantity": "4 tbsp", "ingredient": "butter, chilled"},
     "item9": {"quantity": "1/2 cup", "ingredient": "dried apricots, chopped"},
-    "item10": {"quantity": "1/2 cup", "ingredient": "pecans, chopped"}
+    "item10": {"quantity": "1/2 cup", "ingredient": "pecans, chopped (optional)"}
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees",
@@ -2100,23 +2128,24 @@
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/AnadamaBread.jpg",
   "date": "December 11, 2018",
-  "yield": "Makes 1 loaf",
+  "yield": "Makes 1",
   "preptime": "10 minutes",
   "cooktime": "35 minutes",
   "totaltime": "3 hours 15 minutes",
   "category": ["Bread"],
   "description": "Whole wheat bread with molasses and cornmeal.",
+  "nutrition": {"carbohydrate": 468, "protein": 71, "calories": 2436, "fat": 38, "sodium": 3640},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1 1/2 cups", "ingredient": "water"},
-    "item2": {"quantity": "1/4 cup", "ingredient": "nonfat dry milk or buttermilk"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "nonfat milk powder, or buttermilk"},
     "item3": {"quantity": "1 1/2 tsp", "ingredient": "salt"},
     "item4": {"quantity": "1/4 cup", "ingredient": "molasses"},
     "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
     "item6": {"quantity": "2 3/4 cups", "ingredient": "whole wheat flour"},
     "item7": {"quantity": "1 cup", "ingredient": "white flour"},
     "item8": {"quantity": "1/2 cup", "ingredient": "cornmeal"},
-    "item9": {"quantity": "1 1/4 tsp", "ingredient": "bread machine or instant yeast (1 1/2 at low altitude)"},
+    "item9": {"quantity": "1 1/4 tsp", "ingredient": "yeast, bread machine or instant (1 1/2 at low altitude)"},
     "item10": {"quantity": "2 tbsp", "ingredient": "sunflower, pumpkin, flax seeds or cracked wheat (optional)"}
   },
   "instructions": {

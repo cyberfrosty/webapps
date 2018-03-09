@@ -359,6 +359,9 @@ class RecipeManager(object):
         index = 1
         while 'item' + str(index) in ingredients:
             item = ingredients.get('item' + str(index))
+            if 'optional' in item.get('ingredient'):
+                index += 1
+                continue
             measure = item.get('quantity').split()
             name = item.get('ingredient').split(',')[0]
             paren = name.find('(')
@@ -411,8 +414,8 @@ class RecipeManager(object):
                         elif measure[1] == 'lbs' and size == 'oz':
                             quantity *= 16
                 quantity = quantity / float(serving)
-                print '{} quantity {}, serving {}, factor {}'.format(quantity, serving, factor, name)
                 scale = factor * quantity
+                #print '{} quantity, {} calories, {}'.format(quantity, scale * float(ingredient.get('calories')), name)
                 calories += scale * float(ingredient.get('calories'))
                 fat += scale * float(ingredient.get('fat'))
                 carbohydrate += scale * float(ingredient.get('carbohydrate'))
@@ -423,6 +426,11 @@ class RecipeManager(object):
         return {'calories': calories, 'fat': fat, 'carbohydrate': carbohydrate,
                 'protein': protein, 'sodium': sodium}
 
+    def check_nutrition(self):
+        for recipe_id in self.recipes:
+            recipe = self.recipes[recipe_id]
+            print '{} {}'.format(recipe['title'], json.dumps(self.count_calories(recipe_id)))
+        
     def build_navigation_list(self, category=None):
         """ Build an accordian navigation list
         """
@@ -515,7 +523,11 @@ class RecipeManager(object):
         Returns:
             dictionary
         """
-        if len(recipe_id) != 48 or not contains_only(recipe_id, '0123456789ABCDEFGHJKMNPQRSTVWXYZ'):
+        if len(recipe_id) != 48 or not contains_only(recipe_id, '234567ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+            for char in recipe_id:
+                if char not in '0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ':
+                    print char
+            print 'gener'
             recipe_id = generate_id(recipe_id)
         if recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
@@ -675,8 +687,10 @@ def main():
     print add_times('45 mins', '2 hours')
     #print manager.get_rendered_gallery()
     #print manager.get_rendered_gallery('Asian')
-    print json.dumps(manager.count_calories('Meatball Marinara'))
-    print json.dumps(manager.count_calories('Mediterranean Chicken'))
+    #print json.dumps(manager.count_calories('Banana Muffins'))
+    #print json.dumps(manager.count_calories('Apricot Scones'))
+    #print json.dumps(manager.count_calories('Anadama Bread'))
+    manager.check_nutrition()
 
 if __name__ == '__main__':
     main()
