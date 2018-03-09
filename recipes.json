@@ -1180,7 +1180,7 @@
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 15-20 minutes",
     "step3": "Meanwhile in medium sauce pan mix glaze ingredients, and simmer for 8-10 minutes until sauce begins to thicken",
     "step4": "Add cooked meatballs and toss until coated",
-    "step4": "Garnish with green onions ans sesame seeds",
+    "step5": "Garnish with green onions and sesame seeds",
     "step5": "Serve over noodles or rice"
   }
 },
@@ -1194,7 +1194,7 @@
   "cooktime": "25 minutes",
   "time": "45 minutes",
   "description": "Thai meatballs made with lean ground turkey in a spicy red peanut curry sauce.",
-  "nutrition": {"carbohydrate": 13, "protein": 31, "calories": 394, "fat": 25, "sodium": 350},
+  "nutrition": {"carbohydrate": 9, "protein": 26, "calories": 269, "fat": 14, "sodium": 319},
   "category": ["Asian", "Turkey"],
   "rating": 4.5,
   "ingredients": {
@@ -1218,8 +1218,9 @@
       "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
       "item5": {"quantity": "3 tbsp", "ingredient": "Thai red curry paste"},
       "item6": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
-      "item7": {"quantity": "1/2 cup", "ingredient": "peanut butter"},
-      "item8": {"quantity": "1/4 cup", "ingredient": "reduced sodium chicken stock, wine or just water"}
+      "item8": {"quantity": "1/2 tsp", "ingredient": "curry powder"},
+      "item9": {"quantity": "1/2 cup", "ingredient": "peanut butter"},
+      "item10": {"quantity": "1/4 cup", "ingredient": "reduced sodium chicken stock, wine or just water"}
     }
   },
   "instructions": {
@@ -1227,7 +1228,7 @@
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
     "step3": "In a medium sauce pan, saute onion in coconut oil over low heat until translucent",
     "step4": "Add garlic and ginger to onions, saute for a few minutes",
-    "step5": "Add Thai seasoning, paste and peanut butter, stir until smooth, reduce heat and simmer for 5 minutes",
+    "step5": "Add curry powder, Thai seasoning, paste and peanut butter, stir until smooth, reduce heat and simmer for 5 minutes",
     "step6": "Transfer meatballs and sauce to a medium bowl and toss until coated",
     "step7": "Serve over rice with lime wedges and cilantro"
   }
@@ -1450,12 +1451,12 @@
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
-    "item2": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-    "item3": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
-    "item4": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
-    "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
-    "item6": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
-    "item7": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
+    "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
+    "item6": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
+    "item7": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item8": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u9ec4\u9152) or dry sherry"},
     "item9": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item10": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
@@ -1465,11 +1466,50 @@
     "item14": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
   },
   "instructions": {
-    "step1": "Remove skin and cut salmon into 1 inch chunks",
-    "step2": "Combine chili sauces and liquids in measuring cup and mix",
-    "step3": "Heat coconut and sesame oil in wok, add shallot and ginger, saute for a minute or two",
-    "step4": "Add Thai seasoning, liquid mixture and salmon, cook for 5-10 minutes covered, stirring gently several times to coat salmon and ensure even cooking",
-    "step5": "Remove from heat as soon as salmon flakes, let rest for a few minutes before serving over rice with sesame seed and cilantro garnish"
+    "step1": "Remove skin and cut salmon into chunks",
+    "step2": "Combine chile sauces, sesame oil and liquids in measuring cup and mix",
+    "step3": "Heat coconut oil in wok, add shallot, garlic and ginger, saute for a minute or two",
+    "step4": "Add Thai seasoning, then liquid mixture, simmer for 5 minutes",
+    "step5": "Add salmon, cook for 5-10 minutes covered, stirring gently several times to coat salmon and ensure even cooking",
+    "step6": "Remove from heat as soon as salmon flakes, let rest for a few minutes before serving over rice with sesame seed and cilantro garnish"
+  }
+},
+{
+  "title": "Salmon Curry",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SalmonCurry.jpg",
+  "date": "March 9, 2018",
+  "yield": "Serves 4",
+  "preptime": "10 minutes",
+  "cooktime": "10 minutes",
+  "time": "30 minutes",
+  "category": ["Asian", "Seafood"],
+  "description": "Tender chunks of salmon in a spicy lowfat curry sauce",
+  "nutrition": {"carbohydrate": 7, "protein": 37, "calories": 439, "fat": 29, "sodium": 449},
+  "rating": 4.7,
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "shallot, or onion, chopped"},
+    "item4": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
+    "item6": {"quantity": "2 tsp", "ingredient": "Thai red curry paste"},
+    "item7": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
+    "item8": {"quantity": "1 tsp", "ingredient": "curry powder"},
+    "item9": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+    "item10": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u9ec4\u9152) or dry sherry"},
+    "item11": {"quantity": "2 tbsp", "ingredient": "Soyaki, or teriyaki sauce and 1 tsp ginger"},
+    "item12": {"quantity": "2 tsp", "ingredient": "Sriracha"},
+    "item13": {"quantity": "3 tbsp", "ingredient": "nonfat Greek yogurt"},
+    "item14": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
+  },
+  "instructions": {
+    "step1": "Remove skin and cut salmon into chunks",
+    "step2": "Combine curry paste, Sriracha, sesame oil and liquids in measuring cup and mix",
+    "step3": "Heat coconut oil in wok, add shallot, garlic and ginger, saute for a minute or two",
+    "step4": "Add curry and Thai seasoning, then liquid mixture and yogurt, simmer for 5 minutes",
+    "step5": "Add salmon, cook for 5-10 minutes covered, stirring gently several times to coat salmon and ensure even cooking",
+    "step6": "Remove from heat as soon as salmon flakes, let rest for a few minutes before serving over rice with cilantro garnish"
   }
 },
 {
