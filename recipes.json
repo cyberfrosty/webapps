@@ -2168,13 +2168,13 @@
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/AnadamaBread.jpg",
   "date": "December 11, 2018",
-  "yield": "Makes 1",
+  "yield": "Makes 24",
   "preptime": "10 minutes",
   "cooktime": "35 minutes",
   "totaltime": "3 hours 15 minutes",
   "category": ["Bread"],
-  "description": "Whole wheat bread with molasses and cornmeal.",
-  "nutrition": {"carbohydrate": 468, "protein": 71, "calories": 2436, "fat": 38, "sodium": 3640},
+  "description": "Whole wheat bread with molasses and cornmeal, makes a 12 inch loaf.",
+  "nutrition": {"carbohydrate": 19, "protein": 3, "calories": 101, "fat": 2, "sodium": 152},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1 1/2 cups", "ingredient": "water"},
@@ -2194,6 +2194,37 @@
     "step3": "Cover and let rise for about an hour until dough has doubled in size",
     "step4": "Preheat oven to 350 degrees and bake bread for 35 minutes (rolls for 15-20 minutes)",
     "step5": "Remove from pan and place on a cooling rack"
+  },
+  "notes": "Rolls or buns may be made using 60g portions of dough rolled in small amount of cornmeal for extra crunch."
+},
+{
+  "title": "Grilled Turkey Sandwich",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/AnadamaBread.jpg",
+  "date": "March 9, 2018",
+  "yield": "Makes 1",
+  "preptime": "4 minutes",
+  "cooktime": "6 minutes",
+  "category": ["Bread"],
+  "description": "Grilled turkey sandwich with a pickle, fruit and treat.",
+  "nutrition": {"carbohydrate": 79, "protein": 21, "calories": 514, "fat": 29, "sodium": 1047},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "2", "ingredient": "whole wheat bread slices, 1/2 inch"},
+    "item2": {"quantity": "1 tsp", "ingredient": "mustard"},
+    "item3": {"quantity": "2 oz", "ingredient": "sliced turkey"},
+    "item4": {"quantity": "1 tsp", "ingredient": "olive oil"},
+    "item5": {"quantity": "1", "ingredient": "pickle spear, or 2 tbsp sauerkraut"},
+    "item6": {"quantity": "1/2", "ingredient": "honey crisp apple"},
+    "item7": {"quantity": "1", "ingredient": "mandarin orange"},
+    "item8": {"quantity": "1", "ingredient": "chocolate chip cookie"}
+  },
+  "instructions": {
+    "step1": "Cut 2 slices of bread about 1/2 inches thick, spread mustard and any spicy addtions (jerk, lime relish)",
+    "step2": "Add 2oz of lean organic turkey or other sandwich meat",
+    "step3": "Heat panini press or electric skillet to 325 degrees, use about 1/2 tsp of olive oil on each side",
+    "step4": "Grill until browned as you like, flipping once or tiwice to get it just right",
+    "step5": "Serve with a pickle, fruit and a treat"
   },
   "notes": "Rolls or buns may be made using 60g portions of dough rolled in small amount of cornmeal for extra crunch."
 }]
