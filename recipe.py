@@ -237,7 +237,7 @@ def render_recipe_summary(recipe, makeit=False):
             html += render_nutrition(recipe['nutrition'])
         if 'rating' in recipe:
             rating = recipe['rating']
-            reviews = 1
+            reviews = 2
             html += '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
             html += '  <meta itemprop="ratingValue" content="' + str(rating) + '">\n'
             html += '  <meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
@@ -687,8 +687,8 @@ def main():
     print add_times('45 mins', '2 hours')
     #print manager.get_rendered_gallery()
     #print manager.get_rendered_gallery('Asian')
-    print json.dumps(manager.count_calories('Grilled Turkey Sandwich'))
-    print json.dumps(manager.count_calories('Anadama Bread'))
+    print json.dumps(manager.count_calories('Apple Granola Bread'))
+    print json.dumps(manager.count_calories('Crusty Italian Bread'))
     #manager.check_nutrition()
 
 if __name__ == '__main__':

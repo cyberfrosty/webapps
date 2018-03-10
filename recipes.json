@@ -1107,7 +1107,7 @@
   "description": "Sweet and spicy Korean style meatballs made with lean ground turkey.",
   "nutrition": {"carbohydrate": 25, "protein": 25, "calories": 303, "fat": 12, "sodium": 313},
   "category": ["Asian", "Turkey"],
-  "rating": 4.5,
+  "rating": 4.7,
   "ingredients": {
     "section1": {
       "title": "Meatballs",
@@ -1132,7 +1132,7 @@
   "instructions": {
     "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
-    "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss until coated",
+    "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss gently until coated",
     "step4": "Garnish with chopped chives or green ends of onions",
     "step5": "Serve over noodles or rice"
   }
@@ -1140,16 +1140,16 @@
 {
   "title": "Mongolian Meatballs",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/KoreanMeatballs.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/MongolianMeatballs.jpg",
   "date": "March 7, 2018",
   "yield": "Serves 6",
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
   "time": "45 minutes",
   "description": "Sweet and spicy Mongolian style meatballs made with lean ground turkey.",
-  "nutrition": {"carbohydrate": 16, "protein": 26, "calories": 281, "fat": 13, "sodium": 515},
+  "nutrition": {"carbohydrate": 18, "protein": 26, "calories": 290, "fat": 13, "sodium": 501},
   "category": ["Asian", "Turkey"],
-  "rating": 4.5,
+  "rating": 4.7,
   "ingredients": {
     "section1": {
       "title": "Meatballs",
@@ -1158,7 +1158,7 @@
       "item3": {"quantity": "4", "ingredient": "green onions, chopped"},
       "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
       "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item6": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
       "item7": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u9ec4\u9152) or dry sherry"},
       "item8": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
       "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
@@ -1168,20 +1168,20 @@
       "item1": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
       "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item4": {"quantity": "2 tsp", "ingredient": "turmeric, fresh grated (optional)"},
       "item4": {"quantity": "2 tbsp", "ingredient": "Soyaki, or teriyaki sauce and 1 tsp ginger"},
       "item5": {"quantity": "1/2 cup", "ingredient": "water"},
       "item6": {"quantity": "2 tbsp", "ingredient": "hoisin sauce"},
-      "item7": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
+      "item7": {"quantity": "3 tbsp", "ingredient": "brown sugar"},
       "item8": {"quantity": "1 tsp", "ingredient": "chili powder"}
     }
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 15-20 minutes",
-    "step3": "Meanwhile in medium sauce pan mix glaze ingredients, and simmer for 8-10 minutes until sauce begins to thicken",
-    "step4": "Add cooked meatballs and toss until coated",
-    "step5": "Garnish with green onions and sesame seeds",
-    "step5": "Serve over noodles or rice"
+    "step3": "In a wok pan mix glaze ingredients, and simmer for 8-10 minutes until sauce begins to thicken",
+    "step4": "Add cooked meatballs and toss gently until coated",
+    "step5": "Serve over rice or quinoa"
   }
 },
 {
@@ -1196,7 +1196,7 @@
   "description": "Thai meatballs made with lean ground turkey in a spicy red peanut curry sauce.",
   "nutrition": {"carbohydrate": 9, "protein": 26, "calories": 269, "fat": 14, "sodium": 319},
   "category": ["Asian", "Turkey"],
-  "rating": 4.5,
+  "rating": 4.4,
   "ingredients": {
     "section1": {
       "title": "Meatballs",
@@ -1229,7 +1229,7 @@
     "step3": "In a medium sauce pan, saute onion in coconut oil over low heat until translucent",
     "step4": "Add garlic and ginger to onions, saute for a few minutes",
     "step5": "Add curry powder, Thai seasoning, paste and peanut butter, stir until smooth, reduce heat and simmer for 5 minutes",
-    "step6": "Transfer meatballs and sauce to a medium bowl and toss until coated",
+    "step6": "Transfer meatballs and sauce to a medium bowl and toss gently until coated",
     "step7": "Serve over rice with lime wedges and cilantro"
   }
 },
@@ -1245,7 +1245,7 @@
   "description": "Greek meatballs (Keftedes) made with lean ground turkey served with Tzatziki, cucumber and tomato salad",
   "nutrition": {"carbohydrate": 22, "protein": 29, "calories": 373, "fat": 21, "sodium": 882},
   "category": ["Mediterranean", "Turkey"],
-  "rating": 4.3,
+  "rating": 4.2,
   "ingredients": {
     "section1": {
       "title": "Meatballs",
@@ -1303,7 +1303,7 @@
   "description": "Spicy buffalo style meatballs made with lean ground turkey make a great appetizer or main course.",
   "nutrition": {"carbohydrate": 14, "protein": 26, "calories": 246, "fat": 10, "sodium": 892},
   "category": ["Latin", "Turkey"],
-  "rating": 3.7,
+  "rating": 3.6,
   "ingredients": {
     "section1": {
       "title": "Meatballs",
@@ -1327,7 +1327,7 @@
   "instructions": {
     "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
-    "step3": "Meanwhile in medium bowl mix sauce ingredients, add cooked meatballs and toss until coated",
+    "step3": "Meanwhile in medium bowl mix sauce ingredients, add cooked meatballs and toss gently until coated",
     "step4": "Serve as appetizers or with beans and rice"
   }
 },
@@ -1343,7 +1343,7 @@
   "description": "Sweet and spicy Korean tofu",
   "nutrition": {"carbohydrate": 27, "protein": 11, "calories": 310, "fat": 20, "sodium": 259},
   "category": ["Asian", "Tofu"],
-  "rating": 4.5,
+  "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "tofu"},
     "item2": {"quantity": "1/4 cup", "ingredient": "potato starch (or flour)"},
@@ -2196,6 +2196,70 @@
     "step5": "Remove from pan and place on a cooling rack"
   },
   "notes": "Rolls or buns may be made using 60g portions of dough rolled in small amount of cornmeal for extra crunch."
+},
+{
+  "title": "Apple Granola Bread",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/AppleGranolaBread.jpg",
+  "date": "March 10, 2018",
+  "yield": "Makes 24",
+  "preptime": "10 minutes",
+  "cooktime": "35 minutes",
+  "totaltime": "3 hours 15 minutes",
+  "category": ["Bread"],
+  "description": "Naturally sweetened with apples and raisins, makes a 12 inch loaf.",
+  "nutrition": {"carbohydrate": 22, "protein": 3, "calories": 111, "fat": 2, "sodium": 125},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 cup", "ingredient": "unsweetened apple juice, or use 1/2 cup each apple and orange juice"},
+    "item2": {"quantity": "2/3 cup", "ingredient": "unsweetened applesauce"},
+    "item3": {"quantity": "1 1/4 tsp", "ingredient": "salt"},
+    "item4": {"quantity": "2 tbsp", "ingredient": "honey"},
+    "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
+    "item6": {"quantity": "1 1/4 cups", "ingredient": "whole wheat flour"},
+    "item7": {"quantity": "2 1/4 cups", "ingredient": "white flour"},
+    "item8": {"quantity": "3/4 cup", "ingredient": "raisins"},
+    "item9": {"quantity": "1/2 cup", "ingredient": "unsweetened granola"},
+    "item10": {"quantity": "1 1/4 tsp", "ingredient": "cinnamon"},
+    "item11": {"quantity": "1 1/2 tsp", "ingredient": "yeast, bread machine or instant"}
+  },
+  "instructions": {
+    "step1": "Measure ingredients into bread machine pan, select basic cycle to raise but not cook. Additional white flour and rise time may be needed",
+    "step2": "Remove from pan, roll to remove bubbles form into loaf and place into bread pan coated with non-stick spray",
+    "step3": "Cover and let rise for about an hour until dough has doubled in size",
+    "step4": "Preheat oven to 350 degrees and bake bread for 35 minutes (rolls for 15-20 minutes)",
+    "step5": "Remove from pan and place on a cooling rack"
+  }
+},
+{
+  "title": "Crusty Italian Bread",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/CrustyItalianBread.jpg",
+  "date": "March 10, 2018",
+  "yield": "Makes 24",
+  "preptime": "10 minutes",
+  "cooktime": "25 minutes",
+  "totaltime": "2 hours 45 minutes",
+  "category": ["Bread"],
+  "description": "Old world style bread to serve with any meal, makes 2 loaves.",
+  "nutrition": {"carbohydrate": 15, "protein": 2, "calories": 77, "fat": 1, "sodium": 98},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 cups", "ingredient": "water"},
+    "item2": {"quantity": "1 tsp", "ingredient": "salt"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "sugar"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "canola oil"},
+    "item5": {"quantity": "3 2/3 cups", "ingredient": "white flour"},
+    "item6": {"quantity": "1 1/4 tsp", "ingredient": "yeast, bread machine or instant (1 1/2 at low altitude)"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "cracked wheat or sesame seeds (optional)"}
+  },
+  "instructions": {
+    "step1": "Measure ingredients into bread machine pan, select basic cycle to raise but not cook. Additional white flour and rise time may be needed",
+    "step2": "Remove from pan, divide the dough in half, and form each half into a 10 by 4 by 2 inch loaf slightly flattened on top",
+    "step3": "Cover and let rise for about an hour until dough has doubled in size, add several diagonal cuts with a lame knife",
+    "step4": "Preheat oven to 375 degrees and bake bread for 20-25 minutes until loaves are browning and sound hollow when tapped on the bottom",
+    "step5": "Remove from pan, place on a cooling rack, and dust with flour"
+  }
 },
 {
   "title": "Grilled Turkey Sandwich",
