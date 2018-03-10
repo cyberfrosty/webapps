@@ -592,8 +592,12 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = ['Kadai Chicken', 'Greek Meatballs', 'Orange Pumpkin Bread', 'Thai Meatballs']
+        latest = ['Salmon Curry', 'Kadai Chicken', 'Greek Meatballs', 'Orange Pumpkin Bread']
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table. Simple recipes that are quick to make and great as leftovers so you can enjoy life outside the kitchen. Nutrition information is calculated from USDA database and specific package labels.</p>"
+        html += '<table>\n<tr><th></th><th>Calories</th><th>Fat (g)</th><th>Carbohydrate</th><th>Protein</th><th>Sodium (mg)</th><th>Fiber (g)</th></tr>\n'
+        #html += '<tr><th>Female</th><td>1800</td><td>20-35</td><td>130</td><td>46</td><td>1300-2300</td><td>21</td></tr>\n'
+        #html += '<tr><th>Male</th><td>2300</td><td>20-35</td><td>130</td><td>56</td><td>1300-2300</td><td>30</td></tr>\n'
+        html += '<tr><th>%DV</th><td>2000</td><td>&lt; 65</td><td>300</td><td>50</td><td>&lt; 2300</td><td>&gt; 25</td></tr></table>\n'
         for item in latest:
             html += '<br />\n<h3>' + item + '</h3>\n'
             recipe = self.get_recipe(item)
@@ -683,10 +687,9 @@ def main():
     print add_times('45 mins', '2 hours')
     #print manager.get_rendered_gallery()
     #print manager.get_rendered_gallery('Asian')
-    #print json.dumps(manager.count_calories('Banana Muffins'))
-    #print json.dumps(manager.count_calories('Apricot Scones'))
-    #print json.dumps(manager.count_calories('Anadama Bread'))
-    manager.check_nutrition()
+    print json.dumps(manager.count_calories('Grilled Turkey Sandwich'))
+    print json.dumps(manager.count_calories('Anadama Bread'))
+    #manager.check_nutrition()
 
 if __name__ == '__main__':
     main()
