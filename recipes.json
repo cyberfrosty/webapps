@@ -30,7 +30,8 @@
     "step4": "Mix nuts in egg white until evenly moist",
     "step5": "Add dry ingredients in two batches, stirring until nuts are coated in spice",
     "step6": "Spread mixture onto 2 large baking sheets that are lined with parchment paper",
-    "step7": "Cook for 20-25 minutes, rotating pans once to ensure even cooking"
+    "step7": "Cook for 20-25 minutes, rotating pans once to ensure even cooking",
+    "step8": "When cool enough to touch but still warm, separate any pecans that have become stuck together"
   }
 },
 {
@@ -60,8 +61,8 @@
     "item12": {"quantity": "1/2 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
-    "step1": "Combine vinegar, lime juice and brown sugar in a medium suce pan",
-    "step2": "Cover and cook over medium heat for 5 minutes, stirring occasionally to disolve sugar",
+    "step1": "Combine vinegar, lime juice and brown sugar in a medium sauce pan",
+    "step2": "Cover and cook over medium heat for 5 minutes, stirring occasionally to dissolve sugar",
     "step3": "Add onion and simmer for 10 minutes",
     "step4": "Add all of the remaining ingredients, except for the peaches and cook for 10 minutes",
     "step5": "Add peaches and cook for 10 minutes",
@@ -610,7 +611,7 @@
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1 medium can", "ingredient": "tomatillos, drained (12-14 oz)"},
-    "item2": {"quantity": "1 small can", "ingredient": "green chillies, drained (7 oz)"},
+    "item2": {"quantity": "1 small can", "ingredient": "green chilies, drained (7 oz)"},
     "item3": {"quantity": "1 medium jar", "ingredient": "Hatch Green Chile, or green salsa (12 oz)"},
     "item4": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
     "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
@@ -1502,7 +1503,7 @@
   },
   "instructions": {
     "step1": "Remove skin and cut salmon into chunks",
-    "step2": "Combine chile sauces, sesame oil and liquids in measuring cup and mix",
+    "step2": "Combine chili sauces, sesame oil and liquids in measuring cup and mix",
     "step3": "Heat coconut oil in wok, add shallot, garlic and ginger, saute for a minute or two",
     "step4": "Add Thai seasoning, then liquid mixture, simmer for 5 minutes",
     "step5": "Add salmon, cook for 5-10 minutes covered, stirring gently several times to coat salmon and ensure even cooking",
@@ -1519,7 +1520,7 @@
   "cooktime": "10 minutes",
   "time": "30 minutes",
   "category": ["Asian", "Seafood"],
-  "description": "Tender chunks of salmon in a spicy lowfat curry sauce",
+  "description": "Tender chunks of salmon in a spicy low fat curry sauce",
   "nutrition": {"carbohydrate": 7, "protein": 37, "calories": 439, "fat": 29, "sodium": 449},
   "rating": 4.7,
   "ingredients": {
@@ -2389,10 +2390,10 @@
     "item8": {"quantity": "1", "ingredient": "chocolate chip cookie"}
   },
   "instructions": {
-    "step1": "Cut 2 slices of bread about 1/2 inches thick, spread mustard and any spicy addtions (jerk, lime relish)",
+    "step1": "Cut 2 slices of bread about 1/2 inches thick, spread mustard and any spicy additions (jerk, lime relish)",
     "step2": "Add 2oz of lean organic turkey or other sandwich meat",
     "step3": "Heat panini press or electric skillet to 325 degrees, use about 1/2 tsp of olive oil on each side",
-    "step4": "Grill until browned as you like, flipping once or tiwice to get it just right",
+    "step4": "Grill until browned as you like, flipping once or twice to get it just right",
     "step5": "Serve with a pickle, fruit and a treat"
   },
   "notes": "Rolls or buns may be made using 60g portions of dough rolled in small amount of cornmeal for extra crunch."
