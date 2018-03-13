@@ -34,6 +34,41 @@
   }
 },
 {
+  "title": "Peach Chutney",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/KadaiChicken.jpg",
+  "date": "March 12, 2018",
+  "preptime": "15 minutes",
+  "cooktime": "35 minutes",
+  "yield": "Makes 10",
+  "category": ["Dessert"],
+  "description": "Sweet and spicy chutney as a side or with bread.",
+  "nutrition": {"carbohydrate": 20, "protein": 2, "calories": 83, "fat": 0, "sodium": 125},
+  "rating": 4.4,
+  "ingredients": {
+    "item1": {"quantity": "1/2 cup", "ingredient": "apple cider vinegar"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "brown sugar"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "lime juice"},
+    "item4": {"quantity": "1/2 cup", "ingredient": "onion, chopped"},
+    "item5": {"quantity": "1", "ingredient": "red bell pepper, chopped"},
+    "item6": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+    "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item9": {"quantity": "1/3 cup", "ingredient": "raisins"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "salt"},
+    "item11": {"quantity": "2 1/2 cups", "ingredient": "canned peaches"},
+    "item12": {"quantity": "1/2 tsp", "ingredient": "red pepper flakes, (optional)"}
+  },
+  "instructions": {
+    "step1": "Combine vinegar, lime juice and brown sugar in a medium suce pan",
+    "step2": "Cover and cook over medium heat for 5 minutes, stirring occasionally to disolve sugar",
+    "step3": "Add onion and simmer for 10 minutes",
+    "step4": "Add all of the remaining ingredients, except for the peaches and cook for 10 minutes",
+    "step5": "Add peaches and cook for 10 minutes",
+    "step6": "The lid may be removed during the last 10 minutes to reduce the liquid as needed"
+  }
+},
+{
   "title": "Chocolate Crunchies",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/ChocolateCrunchies.jpg",
@@ -1242,7 +1277,7 @@
   "preptime": "20 minutes",
   "cooktime": "20 minutes",
   "date": "February 21, 2018",
-  "description": "Greek meatballs (Keftedes) made with lean ground turkey served with Tzatziki, cucumber and tomato salad",
+  "description": "Greek meatballs (Keftedes) made with lean ground turkey served with Tzatziki, cucumber and tomato salad.",
   "nutrition": {"carbohydrate": 22, "protein": 29, "calories": 373, "fat": 21, "sodium": 882},
   "category": ["Mediterranean", "Turkey"],
   "rating": 4.2,
@@ -2174,12 +2209,12 @@
   "totaltime": "3 hours 15 minutes",
   "category": ["Bread"],
   "description": "Whole wheat bread with molasses and cornmeal, makes a 12 inch loaf.",
-  "nutrition": {"carbohydrate": 19, "protein": 3, "calories": 101, "fat": 2, "sodium": 152},
+  "nutrition": {"carbohydrate": 19, "protein": 3, "calories": 101, "fat": 2, "sodium": 103},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1 1/2 cups", "ingredient": "water"},
     "item2": {"quantity": "1/4 cup", "ingredient": "nonfat milk powder, or buttermilk"},
-    "item3": {"quantity": "1 1/2 tsp", "ingredient": "salt"},
+    "item3": {"quantity": "1 tsp", "ingredient": "salt"},
     "item4": {"quantity": "1/4 cup", "ingredient": "molasses"},
     "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
     "item6": {"quantity": "2 3/4 cups", "ingredient": "whole wheat flour"},
@@ -2190,12 +2225,46 @@
   },
   "instructions": {
     "step1": "Measure ingredients into bread machine pan, select basic cycle to raise but not cook. Additional white flour and rise time may be needed",
-    "step2": "Remove from pan, roll to remove bubbles form into loaf and place into bread pan coated with non-stick spray",
+    "step2": "Remove from pan, roll to remove bubbles form into loaf and place into large bread pan coated with non-stick spray",
     "step3": "Cover and let rise for about an hour until dough has doubled in size",
     "step4": "Preheat oven to 350 degrees and bake bread for 35 minutes (rolls for 15-20 minutes)",
     "step5": "Remove from pan and place on a cooling rack"
   },
   "notes": "Rolls or buns may be made using 60g portions of dough rolled in small amount of cornmeal for extra crunch."
+},
+{
+  "title": "Cumin Rye Bread",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/AnadamaBread.jpg",
+  "date": "December 11, 2018",
+  "yield": "Makes 24",
+  "preptime": "10 minutes",
+  "cooktime": "35 minutes",
+  "totaltime": "3 hours 15 minutes",
+  "category": ["Bread"],
+  "description": "Lighter rye bread with cumin, or fennel and anise, makes a 12 inch loaf.",
+  "nutrition": {"carbohydrate": 19, "protein": 3, "calories": 101, "fat": 1, "sodium": 107},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 cups", "ingredient": "water"},
+    "item2": {"quantity": "1/3 cup", "ingredient": "nonfat milk powder, or buttermilk"},
+    "item3": {"quantity": "1 tsp", "ingredient": "salt"},
+    "item4": {"quantity": "3 tbsp", "ingredient": "corn syrup"},
+    "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
+    "item6": {"quantity": "2 1/2 cups", "ingredient": "flour"},
+    "item7": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
+    "item8": {"quantity": "1 cup", "ingredient": "rye flour"},
+    "item9": {"quantity": "1 tbsp", "ingredient": "cumin"},
+    "item10": {"quantity": "2 tsp", "ingredient": "fennel (optional)"},
+    "item11": {"quantity": "1 tsp", "ingredient": "yeast, bread machine or instant (1 1/4 at low altitude)"}
+  },
+  "instructions": {
+    "step1": "Measure ingredients into bread machine pan, select basic cycle to raise but not cook. Additional white flour and rise time may be needed",
+    "step2": "Remove from pan, roll to remove bubbles form into loaf and place into large bread pan coated with non-stick spray",
+    "step3": "Cover and let rise for about an hour until dough has doubled in size",
+    "step4": "Preheat oven to 350 degrees and bake bread for 35 minutes",
+    "step5": "Remove from pan and place on a cooling rack"
+  }
 },
 {
   "title": "Apple Granola Bread",
@@ -2208,12 +2277,12 @@
   "totaltime": "3 hours 15 minutes",
   "category": ["Bread"],
   "description": "Naturally sweetened with apples and raisins, makes a 12 inch loaf.",
-  "nutrition": {"carbohydrate": 22, "protein": 3, "calories": 111, "fat": 2, "sodium": 125},
+  "nutrition": {"carbohydrate": 22, "protein": 3, "calories": 111, "fat": 2, "sodium": 101},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1 cup", "ingredient": "unsweetened apple juice, or use 1/2 cup each apple and orange juice"},
     "item2": {"quantity": "2/3 cup", "ingredient": "unsweetened applesauce"},
-    "item3": {"quantity": "1 1/4 tsp", "ingredient": "salt"},
+    "item3": {"quantity": "1 tsp", "ingredient": "salt"},
     "item4": {"quantity": "2 tbsp", "ingredient": "honey"},
     "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
     "item6": {"quantity": "1 1/4 cups", "ingredient": "whole wheat flour"},
@@ -2221,14 +2290,50 @@
     "item8": {"quantity": "3/4 cup", "ingredient": "raisins"},
     "item9": {"quantity": "1/2 cup", "ingredient": "unsweetened granola"},
     "item10": {"quantity": "1 1/4 tsp", "ingredient": "cinnamon"},
-    "item11": {"quantity": "1 1/2 tsp", "ingredient": "yeast, bread machine or instant"}
+    "item11": {"quantity": "1 1/4 tsp", "ingredient": "yeast, bread machine or instant (1 1/2 at low altitude)"}
   },
   "instructions": {
     "step1": "Measure ingredients into bread machine pan, select basic cycle to raise but not cook. Additional white flour and rise time may be needed",
-    "step2": "Remove from pan, roll to remove bubbles form into loaf and place into bread pan coated with non-stick spray",
+    "step2": "Remove from pan, roll to remove bubbles form into loaf and place into large bread pan coated with non-stick spray",
     "step3": "Cover and let rise for about an hour until dough has doubled in size",
     "step4": "Preheat oven to 350 degrees and bake bread for 35 minutes (rolls for 15-20 minutes)",
     "step5": "Remove from pan and place on a cooling rack"
+  }
+},
+{
+  "title": "Coffee Raisin Bread",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/AppleGranolaBread.jpg",
+  "date": "March 10, 2018",
+  "yield": "Makes 24",
+  "preptime": "10 minutes",
+  "cooktime": "35 minutes",
+  "totaltime": "3 hours 15 minutes",
+  "category": ["Bread"],
+  "description": "Enjoy this rich dark and delicious bread with a cup of coffee, makes a 12 inch loaf.",
+  "nutrition": {"carbohydrate": 17, "protein": 2, "calories": 87, "fat": 1, "sodium": 98},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 1/3 cups", "ingredient": "coffee, freshly brewed at room temperature (or 1 T instant espresso)"},
+    "item2": {"quantity": "1 tsp", "ingredient": "salt"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
+    "item4": {"quantity": "2 tbsp", "ingredient": "canola oil"},
+    "item5": {"quantity": "2 cups", "ingredient": "whole wheat flour"},
+    "item6": {"quantity": "1 cup", "ingredient": "white flour"},
+    "item7": {"quantity": "1 cup", "ingredient": "raisins"},
+    "item8": {"quantity": "1 1/2 tsp", "ingredient": "cinnamon"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "allspice"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "ginger"},
+    "item11": {"quantity": "1/4 tsp", "ingredient": "cloves"},
+    "item12": {"quantity": "1 1/4 tsp", "ingredient": "yeast, bread machine or instant (1 1/2 at low altitude)"}
+  },
+  "instructions": {
+    "step1": "Measure all ingredients except raisins into bread machine pan, select basic cycle to raise but not cook. Additional white flour and rise time may be needed",
+    "step2": "Select sweet cycle, and remember to add raisins at the add ingredient cycle",
+    "step3": "Remove from pan, roll to remove bubbles form into loaf and place into large bread pan coated with non-stick spray",
+    "step4": "Cover and let rise for about an hour until dough has doubled in size",
+    "step5": "Preheat oven to 350 degrees and bake bread for 35 minutes (rolls for 15-20 minutes)",
+    "step6": "Remove from pan and place on a cooling rack"
   }
 },
 {
