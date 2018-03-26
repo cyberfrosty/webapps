@@ -35,6 +35,45 @@
   }
 },
 {
+  "title": "Almond Vanilla Granola",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/SpicedPecans.jpg",
+  "date": "March 23, 2018",
+  "preptime": "20 minutes",
+  "cooktime": "25 minutes",
+  "yield": "Serves 40",
+  "category": ["Nuts", "Dessert"],
+  "description": "Toasted granola with almonds, coconut and vanilla.",
+  "nutrition": {"carbohydrate": 9, "protein": 2, "calories": 63, "fat": 2, "sodium": 16},
+  "rating": 4.76,
+  "ingredients": {
+    "item1": {"quantity": "1 cup", "ingredient": "almonds, sliced"},
+    "item2": {"quantity": "1", "ingredient": "egg white"},
+    "item3": {"quantity": "3 cups", "ingredient": "rolled oats"},
+    "item4": {"quantity": "1/2 cup", "ingredient": "muesli"},
+    "item5": {"quantity": "1/3 cup", "ingredient": "buckwheat groats"},
+    "item6": {"quantity": "1/4 cup", "ingredient": "sugar"},
+    "item7": {"quantity": "1/3 cup", "ingredient": "coconut"},
+    "item8": {"quantity": "1/4 tsp", "ingredient": "salt"},
+    "item9": {"quantity": "1 1/2 tsp", "ingredient": "cinnamon"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "nutmeg"},
+    "item11": {"quantity": "1/3 cup", "ingredient": "honey"},
+    "item12": {"quantity": "3 tsp", "ingredient": "coconut oil"},
+    "item13": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
+    "item14": {"quantity": "1/2 tsp", "ingredient": "almond extract"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 300 degrees",
+    "step2": "Mix dry ingredients in a large bowl",
+    "step3": "Melt coconut oil, and add honey and sugar, mixing until disolved",
+    "step4": "Froth egg white with a wire whisk",
+    "step5": "Add liquids and forthed egg white to dry ingredients, stirring until coated",
+    "step6": "Spread mixture onto 2 large baking sheets that are lined with parchment paper",
+    "step7": "Cook for 20-22 minutes, rotating pans and flipping once to ensure even cooking"
+  },
+  "notes": "Add dried berries when serving to keep them fresher."
+},
+{
   "title": "Peach Chutney",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/KadaiChicken.jpg",
