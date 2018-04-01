@@ -37,7 +37,7 @@
 {
   "title": "Almond Vanilla Granola",
   "chef": "Susan",
-  "image": "https://snowyrangesolutions.com/static/img/SpicedPecans.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/AlmondVanillaGranola.jpg",
   "date": "March 23, 2018",
   "preptime": "20 minutes",
   "cooktime": "25 minutes",
@@ -65,9 +65,9 @@
   "instructions": {
     "step1": "Preheat oven to 300 degrees",
     "step2": "Mix dry ingredients in a large bowl",
-    "step3": "Melt coconut oil, and add honey and sugar, mixing until disolved",
+    "step3": "Melt coconut oil, and add honey and sugar, mixing until dissolved",
     "step4": "Froth egg white with a wire whisk",
-    "step5": "Add liquids and forthed egg white to dry ingredients, stirring until coated",
+    "step5": "Add liquids and frothed egg white to dry ingredients, stirring until coated",
     "step6": "Spread mixture onto 2 large baking sheets that are lined with parchment paper",
     "step7": "Cook for 20-22 minutes, rotating pans and flipping once to ensure even cooking"
   },
@@ -196,11 +196,10 @@
 {
   "title": "Death Bars",
   "chef": "Erika",
-  "image": "https://snowyrangesolutions.com/static/img/Pfeffernusse.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/DeathBars.jpg",
   "date": "March 30, 2017",
   "preptime": "10 minutes",
-  "cooktime": "15 minutes",
-  "totaltime": "3 hours",
+  "cooktime": "20 minutes",
   "yield": "Makes 36",
   "category": ["Cookies"],
   "description": "Peanut butter and chocolate chip bars.",
@@ -221,16 +220,16 @@
     "step3": "Beat in baking soda",
     "step4": "Mix in toffee bits and chocolate chips",
     "step5": "Line 9x9 inch pan with foil, pour mixture into pan and smooth with spatula",
-    "step6": "Bake for 20-20 minutes, cool and cut into bars"
+    "step6": "Bake for 20-22 minutes, cool and cut into bars"
   }
 },
 {
-  "title": "Ginger Snaps",
+  "title": "Ginger Cookies",
   "chef": "Erika",
-  "image": "https://snowyrangesolutions.com/static/img/Pfeffernusse.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/GingerCookies.jpg",
   "date": "November 22, 2017",
   "preptime": "10 minutes",
-  "cooktime": "15 minutes",
+  "cooktime": "10 minutes",
   "totaltime": "3 hours",
   "yield": "Makes 48",
   "category": ["Cookies"],
@@ -257,7 +256,7 @@
     "step3": "Add liquid mixture to dry ingredients and mix well, chill for several hours",
     "step4": "Preheat oven to 350 degrees",
     "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
-    "step6": "Bake for 8-9 minutes"
+    "step6": "Bake for 9-10 minutes"
   }
 },
 {
@@ -268,10 +267,10 @@
   "preptime": "10 minutes",
   "cooktime": "15 minutes",
   "totaltime": "3 hours",
-  "yield": "Makes 48",
+  "yield": "Makes 60",
   "category": ["Cookies"],
   "description": "German Pfeffernusse cookies.",
-  "nutrition": {"carbohydrate": 12, "protein": 1, "calories": 79, "fat": 3, "sodium": 4},
+  "nutrition": {"carbohydrate": 12, "protein": 1, "calories": 70, "fat": 2, "sodium": 4},
   "rating": 4.6,
   "ingredients": {
     "item1": {"quantity": "4 cups", "ingredient": "flour"},
@@ -281,7 +280,7 @@
     "item5": {"quantity": "1/2 tsp", "ingredient": "nutmeg"},
     "item6": {"quantity": "1/2 tsp", "ingredient": "ginger"},
     "item7": {"quantity": "1/2 cup", "ingredient": "canola oil"},
-    "item8": {"quantity": "1/3 cup", "ingredient": "molasses"},
+    "item8": {"quantity": "3/4 cup", "ingredient": "molasses"},
     "item9": {"quantity": "2", "ingredient": "eggs"},
     "item10": {"quantity": "1/4 cup", "ingredient": "powdered sugar"}
   },
@@ -672,27 +671,28 @@
   "cooktime": "1 hour 15 minutes",
   "category": ["Latin", "Cuban", "Turkey"],
   "description": "Cuban style picadillo made with lean ground turkey, almonds, olives, raisins and green pepper.",
-  "nutrition": {"carbohydrate": 21, "protein": 26, "calories": 354, "fat": 18, "sodium": 461},
+  "nutrition": {"carbohydrate": 22, "protein": 26, "calories": 357, "fat": 18, "sodium": 467},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
     "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1 cup", "ingredient": "onion, chopped"},
     "item4": {"quantity": "1", "ingredient": "green bell pepper, chopped"},
-    "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-    "item6": {"quantity": "1 tbsp", "ingredient": "brown sugar"},
-    "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
-    "item8": {"quantity": "1/2 tsp", "ingredient": "cloves"},
-    "item9": {"quantity": "1/2 tsp", "ingredient": "cumin"},
-    "item10": {"quantity": "1/2 tsp", "ingredient": "oregano"},
-    "item11": {"quantity": "1 tsp", "ingredient": "chili powder"},
-    "item12": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper, (optional)"},
+    "item5": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced"},
+    "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "brown sugar"},
+    "item8": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "cloves"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+    "item11": {"quantity": "1 tsp", "ingredient": "oregano"},
+    "item12": {"quantity": "2 tsp", "ingredient": "chili powder"},
     "item13": {"quantity": "1/4 cup", "ingredient": "apple cider vinegar"},
     "item14": {"quantity": "1/2 cup", "ingredient": "Edmundo wine, (Moscato, Chablis or other sweet white wine)"},
     "item15": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
     "item16": {"quantity": "1/2 cup", "ingredient": "stuffed green olives, chopped"},
     "item17": {"quantity": "1/2 cup", "ingredient": "raisins"},
-    "item18": {"quantity": "1/2 cup", "ingredient": "almonds, slivered or sliced and blanched"}
+    "item18": {"quantity": "1/2 cup", "ingredient": "almonds, slivered or sliced and blanched"},
+    "item19": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
   },
   "instructions": {
     "step1": "In a large skillet, saute onion in olive oil over low heat until translucent",
@@ -700,7 +700,7 @@
     "step3": "In a separate skillet cook meat until browned, flipping and chopping to make crumbles",
     "step4": "Add meat and spices to veggies, stir to coat",
     "step5": "Add liquids, olives, almonds and raisins, and simmer for an hour",
-    "step6": "Serve over rice with black beans"
+    "step6": "Serve over rice and black beans with cilantro garnish"
   }
 },
 {
