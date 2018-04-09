@@ -535,7 +535,7 @@
   "preptime": "5 minutes",
   "cooktime": "10 minutes",
   "yield": "Serves 4",
-  "category": ["Asian", "Vegetables"],
+  "category": ["Asian", "Chinese", "Vegetables"],
   "similar": ["Spicy Green Beans", "Ginger Carrots", "Sauteed Spinach"],
   "description": "Asian style green beans with sesame seeds.",
   "nutrition": {"carbohydrate": 8, "protein": 3, "calories": 74, "fat": 4, "sodium": 251},
@@ -1332,7 +1332,7 @@
       "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
       "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
       "item6": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
-      "item7": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u9ec4\u9152) or dry sherry"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
       "item8": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
       "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
     },
@@ -1515,7 +1515,7 @@
   "cooktime": "10 minutes",
   "time": "20 minutes",
   "category": ["Asian", "Vegetarian"],
-  "similar": ["Korean Meatballs", "Spicy Green Beans", "Roasted Caulifower"],
+  "similar": ["Korean Meatballs", "Spicy Green Beans", "Roasted Cauliflower"],
   "description": "Sweet and spicy Korean tofu",
   "nutrition": {"carbohydrate": 27, "protein": 11, "calories": 310, "fat": 20, "sodium": 259},
   "rating": 4.1,
@@ -1635,7 +1635,7 @@
     "item5": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
     "item6": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item7": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-    "item8": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u9ec4\u9152) or dry sherry"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
     "item9": {"quantity": "1 tsp", "ingredient": "Sriracha"},
     "item10": {"quantity": "1 tsp", "ingredient": "Sambal Oelek"},
     "item11": {"quantity": "2 tbsp", "ingredient": "Soyaki, or teriyaki sauce and 1 tsp ginger"},
@@ -1774,7 +1774,7 @@
     "item7": {"quantity": "1 tsp", "ingredient": "Thai seasoning"},
     "item8": {"quantity": "1 tsp", "ingredient": "curry powder"},
     "item9": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-    "item10": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u9ec4\u9152) or dry sherry"},
+    "item10": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
     "item11": {"quantity": "2 tbsp", "ingredient": "Soyaki, or teriyaki sauce and 1 tsp ginger"},
     "item12": {"quantity": "2 tsp", "ingredient": "Sriracha"},
     "item13": {"quantity": "3 tbsp", "ingredient": "nonfat Greek yogurt"},
@@ -1790,6 +1790,124 @@
   }
 },
 {
+  "title": "Chestnut Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ChestnutChicken.jpg",
+  "date": "April 8, 2018",
+  "yield": "Serves 4",
+  "preptime": "20 minutes",
+  "cooktime": "40 minutes",
+  "category": ["Asian", "Carrots", "Chicken", "Chinese"],
+  "similar": ["Szechuan Chicken", "Orange Chicken", "Korean Meatballs"],
+  "description": "Stir fry chicken with chestnuts and carrots (\u677f\u6817\u70e7\u9e21).",
+  "nutrition": {"carbohydrate": 43, "protein": 37, "calories": 505, "fat": 19, "sodium": 526},
+  "rating": 4.9,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Veggies",
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+      "item2": {"quantity": "1/4 cup", "ingredient": "red onion, diced"},
+      "item3": {"quantity": "5", "ingredient": "carrots, organic (300g), cut into 1cm slices"},
+      "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
+      "item5": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
+      "item6": {"quantity": "3 tbsp", "ingredient": "ginger, grated or minced"},
+      "item7": {"quantity": "1 cup", "ingredient": "roasted chestnuts"}
+    },
+    "section3": {
+      "title":"Sauce",
+      "item1": {"quantity": "1 1/2 cup", "ingredient": "reduced sodium chicken stock"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "sugar"},
+      "item4": {"quantity": "3 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152)"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek, (optional)"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item7": {"quantity": "1/4 tsp", "ingredient": "five spice, or star anise"},
+      "item8": {"quantity": "1 tbsp", "ingredient": "corn starch, mixed with 3 tbsp water"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine soy sauce, wine, chili, sesame oil and sugar in a measuring cup and mix",
+    "step2": "Prepare veggies, and cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step3": "Heat 2 tbsp olive oil in wok, add onion and carrot, saute for 10 minutes or until onion and carrots start to brown",
+    "step4": "Add ginger, garlic and chestnuts, saute for a couple minutes",
+    "step5": "Add chicken stock, bring to a boil, reduce heat and simmer while cooking chicken",
+    "step6": "Add oil to large non-stick skillet and preheat over medium heat",
+    "step7": "Place chicken into skillet and turn up heat to medium-high",
+    "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step9": "Add sauce mixture to veggies and bring to low boil",
+    "step10": "Add chicken to mixture, stir to coat evenly, simmer uncovered for 5 minutes",
+    "step11": "Add corn starch and simmer until desired thickness",
+    "step12": "Serve over rice, garnish with cilantro"
+  }
+},
+{
+  "title": "Chili Mango Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ChestnutChicken.jpg",
+  "date": "April 8, 2018",
+  "yield": "Serves 4",
+  "preptime": "20 minutes",
+  "cooktime": "40 minutes",
+  "category": ["Asian", "Chinese"],
+  "similar": ["Szechuan Chicken", "Orange Chicken", "Chestnut Chicken"],
+  "description": "Stir fry chicken with mango and bell pepper (\u9999\u8fa3\u8292\u679c\u96de).",
+  "nutrition": {"carbohydrate": 19, "protein": 36, "calories": 419, "fat": 26, "sodium": 338},
+  "rating": 4.4,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Fruit and Veggies",
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
+      "item3": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "shallot, chopped"},
+      "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+      "item6": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item7": {"quantity": "1", "ingredient": "mango, peeled, pitted and chopped"},
+      "item8": {"quantity": "1", "ingredient": "bird eye chili, chopped or chili flakes"}
+    },
+    "section3": {
+      "title":"Sauce",
+      "item1": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "oyster sauce"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152)"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine soy sauce, oyster sauce, wine, and sesame oil in a measuring cup and mix",
+    "step2": "Prepare fruit and veggies",
+    "step3": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step4": "Add 2 tbsp oil to large non-stick skillet and preheat over medium heat",
+    "step5": "Heat 2 tbsp olive oil in wok, add onion, saute for 5 minutes",
+    "step6": "Add ginger, garlic and green pepper, saute for a couple minutes",
+    "step7": "Place chicken into skillet and turn up heat to medium-high",
+    "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step9": "Add chicken and sauce mixture to wok, stir-fry for a couple minutes",
+    "step10": "Add Mango and stir-fry for 1 minute",
+    "step11": "Serve over rice, garnish with cilantro"
+  }
+},
+{
   "title": "Orange Chicken",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/OrangeChicken.jpg",
@@ -1797,8 +1915,8 @@
   "yield": "Serves 4",
   "preptime": "20 minutes",
   "cooktime": "20 minutes",
-  "category": ["Asian", "Chicken"],
-  "similar": ["Szechuan Chicken", "Orange Chicken", "Korean Meatballs"],
+  "category": ["Asian", "Chicken", "Chinese"],
+  "similar": ["Szechuan Chicken", "Chestnut Chicken", "Korean Meatballs"],
   "description": "Stir fry orange chicken loaded with veggies.",
   "nutrition": {"carbohydrate": 28, "protein": 36, "calories": 431, "fat": 19, "sodium": 534},
   "rating": 4.7,
@@ -1930,9 +2048,9 @@
   "preptime": "15 minutes",
   "cooktime": "15 minutes",
   "time": "45 minutes",
-  "category": ["Asian", "Chicken"],
+  "category": ["Asian", "Chicken", "Chinese"],
   "similar": ["Sesame Chicken", "Orange Chicken"],
-  "description": "Stir fry Szechuan chicken loaded with veggies.",
+  "description": "Stir fry Szechuan style chicken loaded with veggies.",
   "nutrition": {"carbohydrate": 17, "protein": 36, "calories": 382, "fat": 19, "sodium": 651},
   "rating": 4.4,
   "ingredients": {
@@ -1945,7 +2063,7 @@
     "section2": {
       "title":"Veggies",
       "item1": {"quantity": "1", "ingredient": "red bell pepper, julienne or diced"},
-      "item2": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced"},
+      "item2": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced, green bell pepper can also be used"},
       "item3": {"quantity": "1/4 cup", "ingredient": "onion, finely chopped"},
       "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
       "item5": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
@@ -1976,7 +2094,8 @@
     "step8": "Add sauce mixture to veggies and bring to low boil",
     "step9": "Add chicken to wok and stir to coat evenly",
     "step10": "Serve over rice, garnish with sesame seeds and green onions"
-  }
+  },
+  "notes": "To make this more traditionally, fry 2 tbsp Szechuan peppercorns and a handful of dried red chili's in the wok before adding the veggies."
 },
 {
   "title": "Sesame Chicken",
@@ -1986,7 +2105,7 @@
   "yield": "Serves 4",
   "preptime": "15 minutes",
   "cooktime": "15 minutes",
-  "category": ["Asian", "Chicken"],
+  "category": ["Asian", "Chicken", "Chinese"],
   "similar": ["Szechuan Chicken", "Orange Chicken"],
   "description": "Stir fry sesame chicken with mushrooms.",
   "nutrition": {"carbohydrate": 16, "protein": 36, "calories": 357, "fat": 16, "sodium": 726},
@@ -2110,7 +2229,7 @@
   "instructions": {
     "step1": "Beat egg in flat bottom mixing bowl",
     "step2": "Beat in milk and add cinnamon",
-    "step3": "Add butter to pan, spead evenly as it is heating, dip to coat both sides of each piece of bread and add to pan before butter gets hot",
+    "step3": "Add butter to pan, spread evenly as it is heating, dip to coat both sides of each piece of bread and add to pan before butter gets hot",
     "step4": "Cook in non-stick skillet at 300 degrees, for 3-4 minutes per side",
     "step5": "Serve with powdered sugar, honey or maple syrup"
   }
