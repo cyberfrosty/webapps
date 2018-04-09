@@ -121,6 +121,7 @@ lime,                             1,    20,  0.1,   7, 0.5,    1, 2 inch dia
 lemon,                            1,    17,  0.2,   5, 0.6,    1, 2 1/8 inch dia
 large orange,                     1,    87,  0.2,  22, 1.7,    0, 1 1/16 inch dia
 raisins,                      1 cup,   434,  0.7, 115, 4.5,   16,
+cranberries,                  1 cup,   369,  1.5,  99,   0,    3, dried and sweetened
 apricot jam,                 1 tbsp,    48,    0,  13, 0.1,    8,
 
 garlic,                       1 tsp,     4,    0, 0.9, 0.2,    0, 1 clove
@@ -183,7 +184,7 @@ Za'atar,                     1 tbsp,    20,    1,   2,   1,  200,
 Sambal Oelek,                 1 tsp,     0,    0,   1,   0,  110, Huy Fong
 Sriracha,                     1 tsp,     0,    0,   1,   0,   80, Huy Fong
 Frank's Red Hot,              1 tsp,     0,    0,   0,   0,  180,
-Pace Picante,                 2 tbsp,    8,    0,   2,   0,  250,
+Pace Picante,                2 tbsp,     8,    0,   2,   0,  250,
 Hatch Green Chile,            1 cup,   181,    0,  40,  10,   30,
 Thai red curry paste,        1 tbsp,    20,    0,   3,   1,  350, Thai Kitchen
 Thai sweet chili sauce,      1 tbsp,    30,    0, 7.5,   1,   30, Thai Kitchen
@@ -212,6 +213,11 @@ Edmundo wine,                1 tbsp,    10,    0,   0,   0,   95,
 Shaoxing wine,               1 tbsp,    10,    0,   0,   0,   95,
 
 sesame seeds,                1 tbsp,    52,  4.5, 2.1, 1.6,    1,
+poppy seeds,                 1 tbsp,    46,  3.7, 2.5, 1.6,    2,
+caraway seeds,               1 tbsp,    22,    1, 3.3, 1.3,    1,
+fennel seeds,                1 tbsp,    20,    1,   3,   1,    5,
+flaxseed,                    1 tbsp,    55,  4.3,   3, 1.9,    3,
+pepitas,                      1 cup,   285,   12,  34,  12,   12,
 pecans,                       1 cup,   684,   71,  14,   9,    0, 1 cup halves (99g)
 almonds,                      1 cup,   529,   45,  20,  20,    1, 1 cup sliced (92g)
 peanuts,                      1 cup,   854,   73,  31,  35,    9, 1 cup dry roasted unsalted (146g)
