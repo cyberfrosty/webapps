@@ -576,7 +576,8 @@ def get_ip_address(request):
         request: HTTP request
     """
     if 'X-Forwarded-For' in request.headers:
-        remote_addr = request.headers.getlist("X-Forwarded-For")[0].rpartition(' ')[-1]
+        # X-Forwarded-For: <client>, <proxy1>, <proxy2>
+        remote_addr = request.headers.get("X-Forwarded-For").split(',')[0]
     else:
         remote_addr = request.remote_addr or 'untrackable'
     return remote_addr
@@ -617,6 +618,27 @@ def get_user_agent(request):
     else:
         remote_agent = "No user agent"
     return remote_agent
+
+def compare_dicts(dict1, dict2):
+    """ Recursively compare dict1 with dict2
+    Args:
+        dict1 is the master copy
+        dict2
+    Returns:
+        True if successful
+    """
+    if not isinstance(dict1, dict) or not isinstance(dict2, dict):
+        return False
+    for key in dict1:
+        if key in dict2:
+            if isinstance(dict1[key], dict) and isinstance(dict2[key], dict):
+                if not compare_dicts(dict1[key], dict2[key]):
+                    return False
+            elif dict1[key] != dict2[key]:
+                return False
+        else:
+            return False
+    return True
 
 def merge_dicts(dict1, dict2):
     """ Recursively merge dict2 into dict1
@@ -906,6 +928,11 @@ def main():
             print('{} is not a valid code'.format(code))
 
     print(sanitize_name('<script>function addEventListeners(element, eventList, listener) {'))
+    for xforward in ['2001:db8:85a3:8d3:1319:8a2e:370:7348',
+                     '203.0.113.195',
+                     '203.0.113.195, 70.41.3.18',
+                     '203.0.113.195, 70.41.3.18, 150.172.238.178']:
+        print('<' + xforward.split(',')[0] + '>')
 
 if __name__ == '__main__':
     main()
