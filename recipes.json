@@ -443,7 +443,7 @@
   "category": ["Chocolate", "Dessert", "Bars"],
   "similar": ["Chocolate Crunchies", "Blonde Brownies", "Pfeffernusse"],
   "description": "Decedent fudge brownies with chocolate chips and not too much butter.",
-  "nutrition": {"carbohydrate": 25, "protein": 4, "calories": 200, "fat": 11, "sodium": 9},
+  "nutrition": {"carbohydrate": 24, "protein": 4, "calories": 200, "fat": 11, "sodium": 9},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "butter"},
@@ -731,11 +731,11 @@
   "yield": "Serves 6",
   "category": ["Latin", "Mexican"],
   "description": "Vegetarian green chili or with pork if preferred.",
-  "nutrition": {"carbohydrate": 17, "protein": 4, "calories": 119, "fat": 5, "sodium": 93},
+  "nutrition": {"carbohydrate": 16, "protein": 4, "calories": 115, "fat": 5, "sodium": 161},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1 medium can", "ingredient": "tomatillos, drained (12-14 oz)"},
-    "item2": {"quantity": "1 small can", "ingredient": "green chilies, drained (7 oz)"},
+    "item2": {"quantity": "1 small can", "ingredient": "green chili's, drained (4 oz)"},
     "item3": {"quantity": "1 medium jar", "ingredient": "Hatch Green Chile, or green salsa (12 oz)"},
     "item4": {"quantity": "1/3 cup", "ingredient": "onion, chopped"},
     "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
@@ -999,7 +999,7 @@
   "category": ["Mediterranean", "Pasta", "Chicken", "Tomatoes"],
   "similar": ["Hummus", "Greek Meatballs", "Pizza"],
   "description": "Stir fry Mediterranean chicken with roasted red peppers, artichokes and sun dried tomatoes.",
-  "nutrition": {"carbohydrate": 29, "protein": 37, "calories": 479, "fat": 24, "sodium": 511},
+  "nutrition": {"carbohydrate": 29, "protein": 37, "calories": 476, "fat": 24, "sodium": 511},
   "rating": 4.3,
   "ingredients": {
     "section1": {
@@ -1321,7 +1321,7 @@
   "category": ["Asian", "Turkey"],
   "similar": ["Thai Meatballs", "Cilantro Chile Lime Shrimp", "Thai Baked Salmon"],
   "description": "Sweet and spicy Mongolian style meatballs made with lean ground turkey.",
-  "nutrition": {"carbohydrate": 18, "protein": 26, "calories": 290, "fat": 13, "sodium": 501},
+  "nutrition": {"carbohydrate": 18, "protein": 26, "calories": 291, "fat": 13, "sodium": 501},
   "rating": 4.7,
   "ingredients": {
     "section1": {
@@ -1664,7 +1664,7 @@
   "category": ["African", "Chicken", "Tomatoes"],
   "similar": ["Salmon Curry", "Durban Fish Curry", "Moroccan Meatballs"],
   "description": "Tender chunks of chicken in a South African style curry sauce.",
-  "nutrition": {"carbohydrate": 46, "protein": 39, "calories": 531, "fat": 18, "sodium": 1016},
+  "nutrition": {"carbohydrate": 46, "protein": 39, "calories": 559, "fat": 21, "sodium": 1016},
   "rating": 4.7,
   "ingredients": {
     "section1": {
@@ -1721,7 +1721,7 @@
   "category": ["African", "Seafood", "Tomatoes"],
   "similar": ["Salmon Curry", "Durban Chicken Curry", "Moroccan Meatballs"],
   "description": "Tender chunks of fish in a South African style curry sauce.",
-  "nutrition": {"carbohydrate": 17, "protein": 37, "calories": 494, "fat": 30, "sodium": 669},
+  "nutrition": {"carbohydrate": 18, "protein": 37, "calories": 501, "fat": 31, "sodium": 671},
   "rating": 4.7,
   "ingredients": {
     "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet, or white fish"},
@@ -1918,7 +1918,7 @@
   "category": ["Asian", "Chicken", "Chinese"],
   "similar": ["Szechuan Chicken", "Chestnut Chicken", "Korean Meatballs"],
   "description": "Stir fry orange chicken loaded with veggies.",
-  "nutrition": {"carbohydrate": 28, "protein": 36, "calories": 431, "fat": 19, "sodium": 534},
+  "nutrition": {"carbohydrate": 28, "protein": 36, "calories": 428, "fat": 19, "sodium": 534},
   "rating": 4.7,
   "ingredients": {
     "section1": {
@@ -1977,7 +1977,7 @@
   "category": ["Mediterranean", "Chicken"],
   "similar": ["Mediterranean Chicken", "Greek Meatballs"],
   "description": "Traditional grilled chicken shawarma or try it as a stir fry.",
-  "nutrition": {"carbohydrate": 23, "protein": 39, "calories": 378, "fat": 16, "sodium": 167},
+  "nutrition": {"carbohydrate": 23, "protein": 39, "calories": 375, "fat": 16, "sodium": 167},
   "rating": 4.7,
   "ingredients": {
     "section1": {
@@ -2051,7 +2051,7 @@
   "category": ["Asian", "Chicken", "Chinese"],
   "similar": ["Sesame Chicken", "Orange Chicken"],
   "description": "Stir fry Szechuan style chicken loaded with veggies.",
-  "nutrition": {"carbohydrate": 17, "protein": 36, "calories": 382, "fat": 19, "sodium": 651},
+  "nutrition": {"carbohydrate": 17, "protein": 36, "calories": 380, "fat": 19, "sodium": 651},
   "rating": 4.4,
   "ingredients": {
     "section1": {
@@ -2108,7 +2108,7 @@
   "category": ["Asian", "Chicken", "Chinese"],
   "similar": ["Szechuan Chicken", "Orange Chicken"],
   "description": "Stir fry sesame chicken with mushrooms.",
-  "nutrition": {"carbohydrate": 16, "protein": 36, "calories": 357, "fat": 16, "sodium": 726},
+  "nutrition": {"carbohydrate": 16, "protein": 36, "calories": 354, "fat": 16, "sodium": 726},
   "rating": 3.8,
   "ingredients": {
     "section1": {
@@ -2161,7 +2161,7 @@
   "category": ["Asian", "Chicken", "Indian"],
   "similar": ["Durban Chicken Curry", "Salmon Curry"],
   "description": "Healthy variation on a North Indian style chicken curry (Kadai/Karahi).",
-  "nutrition": {"carbohydrate": 18, "protein": 38, "calories": 359, "fat": 15, "sodium": 137},
+  "nutrition": {"carbohydrate": 18, "protein": 38, "calories": 357, "fat": 15, "sodium": 137},
   "rating": 4.6,
   "ingredients": {
     "section1": {
@@ -2347,7 +2347,7 @@
   "category": ["Breakfast"],
   "similar": ["Apricot Scones", "Orange Pumpkin Bread", "Coffee Raisin Bread"],
   "description": "Whole wheat banana muffins.",
-  "nutrition": {"carbohydrate": 25, "protein": 4, "calories": 178, "fat": 6, "sodium": 209},
+  "nutrition": {"carbohydrate": 25, "protein": 4, "calories": 168, "fat": 6, "sodium": 209},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -2575,7 +2575,7 @@
   "category": ["Breakfast"],
   "similar": ["Banana Muffins", "Strawberry Pancakes", "Oven Pancakes"],
   "description": "Low fat scones with apricots and whole wheat flour.",
-  "nutrition": {"carbohydrate": 27, "protein": 5, "calories": 172, "fat": 5, "sodium": 158},
+  "nutrition": {"carbohydrate": 26, "protein": 5, "calories": 172, "fat": 5, "sodium": 157},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "eggs"},
@@ -2736,7 +2736,7 @@
   "category": ["Bread", "Yeast"],
   "similar": ["Anadama Bread", "Cumin Rye Bread"],
   "description": "Hearty rye bread with crunch from a variety of seeds, makes a 12 inch loaf.",
-  "nutrition": {"carbohydrate": 17, "protein": 3, "calories": 98, "fat": 2, "sodium": 103},
+  "nutrition": {"carbohydrate": 18, "protein": 3, "calories": 115, "fat": 4, "sodium": 103},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1 1/2 cups", "ingredient": "water"},
@@ -2810,7 +2810,7 @@
   "category": ["Bread", "Yeast"],
   "similar": ["Apple Granola Bread", "Coffee Raisin Bread"],
   "description": "Enjoy this sweet bread as toast, french toast or with peanut butter, makes a 12 inch loaf.",
-  "nutrition": {"carbohydrate": 18, "protein": 3, "calories": 115, "fat": 4, "sodium": 103},
+  "nutrition": {"carbohydrate": 22, "protein": 3, "calories": 120, "fat": 3, "sodium": 80},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1 1/4 cups", "ingredient": "bananas, ripe and mashed"},
@@ -2848,7 +2848,7 @@
   "category": ["Bread", "Yeast"],
   "similar": ["Apple Granola Bread", "Chocolate Banana Loaf"],
   "description": "Enjoy this rich dark and delicious bread with a cup of coffee, makes a 12 inch loaf.",
-  "nutrition": {"carbohydrate": 17, "protein": 2, "calories": 87, "fat": 1, "sodium": 98},
+  "nutrition": {"carbohydrate": 17, "protein": 2, "calories": 87, "fat": 1, "sodium": 99},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1 1/3 cups", "ingredient": "coffee, freshly brewed at room temperature (or 1 T instant espresso)"},
