@@ -87,9 +87,14 @@ def add_times(time_value1, time_value2):
     if minutes and minutes > 0:
         duration += int(minutes.group(1))
     if duration >= 120:
-        total_time = '{} hours {} minutes'.format(duration / 60, duration % 60)
-    elif duration >= 60:
+        if duration % 60 > 0:
+            total_time = '{} hours {} minutes'.format(duration / 60, duration % 60)
+        else:
+            total_time = '{} hours'.format(duration / 60)
+    elif duration > 60:
         total_time = '1 hour {} minutes'.format(duration % 60)
+    elif duration == 60:
+        total_time = '1 hour'
     else:
         total_time = '{} minutes'.format(duration)
     return total_time
@@ -314,11 +319,15 @@ class RecipeManager(object):
             print('Load of recipe file failed:', err.message)
 
     def load_nutrition(self, csvfile='nutrition.csv'):
+        """ Load the CSV file with nutrition information
+        """
         nutrition = read_csv(csvfile)
         for ingredient in nutrition:
             self.ingredients[ingredient['item']] = ingredient
 
     def count_calories(self, title):
+        """ Count the nutrition values for a recipe
+        """
         recipe = self.get_recipe(title)
         if not recipe or 'error' in recipe:
             print 'Recipe not found: {}'.format(title)
@@ -351,6 +360,8 @@ class RecipeManager(object):
         return nutrition
 
     def count_nutrition(self, ingredients, factor, verbose=False):
+        """ Count the nutrition values for a group of ingredients scaled by servings factor
+        """
         calories = 0.0
         fat = 0.0
         carbohydrate = 0.0
@@ -428,13 +439,15 @@ class RecipeManager(object):
                 'protein': protein, 'sodium': sodium}
 
     def check_nutrition(self):
+        """ Check the posted nutrition values with freshley calculated ones
+        """
         for recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
             current_nutrition = recipe.get('nutrition')
             calculated_nutrition = self.count_calories(recipe_id)
             if not compare_dicts(current_nutrition, calculated_nutrition):
                 print '{} {}'.format(recipe.get('title'), json.dumps(calculated_nutrition))
-        
+
     def build_navigation_list(self, category=None):
         """ Build an accordian navigation list
         """
@@ -705,6 +718,8 @@ def main():
     print add_times('45 mins', '1 hour 20 minutes')
     print add_times('45 mins', '25 minutes')
     print add_times('45 mins', '2 hours')
+    print add_times('20 mins', '40 minutes')
+    print add_times('60 mins', '2 hours')
     #print manager.get_rendered_gallery()
     #print manager.get_rendered_gallery('Asian')
     #print json.dumps(manager.count_calories('French Bread'))
