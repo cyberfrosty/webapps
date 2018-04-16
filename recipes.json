@@ -1853,15 +1853,15 @@
 {
   "title": "Chili Mango Chicken",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/ChestnutChicken.jpg",
-  "date": "April 8, 2018",
+  "image": "https://snowyrangesolutions.com/static/img/ChiliMangoChicken.jpg",
+  "date": "April 16, 2018",
   "yield": "Serves 4",
   "preptime": "20 minutes",
   "cooktime": "40 minutes",
   "category": ["Asian", "Chinese", "Chicken"],
   "similar": ["Szechuan Chicken", "Orange Chicken", "Chestnut Chicken"],
-  "description": "Stir fry chicken with mango and bell pepper (\u9999\u8fa3\u8292\u679c\u96de).",
-  "nutrition": {"carbohydrate": 19, "protein": 36, "calories": 419, "fat": 26, "sodium": 338},
+  "description": "Stir fry chicken with mango and bell pepper.",
+  "nutrition": {"carbohydrate": 18, "protein": 36, "calories": 413, "fat": 26, "sodium": 276},
   "rating": 4.4,
   "ingredients": {
     "section1": {
@@ -1873,18 +1873,17 @@
     "section2": {
       "title":"Fruit and Veggies",
       "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
-      "item2": {"quantity": "1/2 cup", "ingredient": "onion, diced"},
+      "item2": {"quantity": "2 tbsp", "ingredient": "shallot, chopped"},
       "item3": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
-      "item4": {"quantity": "2 tbsp", "ingredient": "shallot, chopped"},
+      "item4": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced"},
       "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
       "item6": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
-      "item7": {"quantity": "1", "ingredient": "mango, peeled, pitted and chopped"},
-      "item8": {"quantity": "1", "ingredient": "bird eye chili, chopped or chili flakes"}
+      "item7": {"quantity": "1", "ingredient": "mango, peeled, pitted and chopped"}
     },
     "section3": {
       "title":"Sauce",
       "item1": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
-      "item2": {"quantity": "1 tbsp", "ingredient": "oyster sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
       "item3": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152)"},
       "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"}
     },
@@ -1894,12 +1893,12 @@
     }
   },
   "instructions": {
-    "step1": "Combine soy sauce, oyster sauce, wine, and sesame oil in a measuring cup and mix",
+    "step1": "Combine soy sauce, Sriracha, wine, and sesame oil in a measuring cup and mix",
     "step2": "Prepare fruit and veggies",
     "step3": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
     "step4": "Add 2 tbsp oil to large non-stick skillet and preheat over medium heat",
-    "step5": "Heat 2 tbsp olive oil in wok, add onion, saute for 5 minutes",
-    "step6": "Add ginger, garlic and green pepper, saute for a couple minutes",
+    "step5": "Heat 2 tbsp olive oil in wok, add shallots and peppers, saute for a few minutes",
+    "step6": "Add ginger and garlic, saute for a couple minutes",
     "step7": "Place chicken into skillet and turn up heat to medium-high",
     "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
     "step9": "Add chicken and sauce mixture to wok, stir-fry for a couple minutes",
@@ -2637,6 +2636,40 @@
   "notes": "Rolls or buns may be made using 60g portions of dough rolled in small amount of cornmeal for extra crunch."
 },
 {
+  "title": "Corn Bread",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/CornBread.jpg",
+  "date": "April 14, 2018",
+  "yield": "Makes 12",
+  "preptime": "5 minutes",
+  "cooktime": "20 minutes",
+  "category": ["Bread", "Quick"],
+  "similar": ["Anadama Bread", "Five Seed Rye Bread"],
+  "description": "Crunchy cornmeal bread, muffins or sticks.",
+  "nutrition": {"carbohydrate": 23, "protein": 4, "calories": 163, "fat": 6, "sodium": 265},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 cup", "ingredient": "flour"},
+    "item2": {"quantity": "1 cup", "ingredient": "cornmeal"},
+    "item3": {"quantity": "2 tbsp", "ingredient": "sugar"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "salt"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "baking powder"},
+    "item6": {"quantity": "1/4 tsp", "ingredient": "baking soda"},
+    "item7": {"quantity": "2", "ingredient": "eggs"},
+    "item8": {"quantity": "1 cup", "ingredient": "lowfat milk"},
+    "item9": {"quantity": "1 tbsp", "ingredient": "honey"},
+    "item10": {"quantity": "1/4 cup", "ingredient": "canola oil"}
+  },
+  "instructions": {
+    "step1": "Stir together flour, cornmeal, sugar, baking powder, baking soda and salt",
+    "step2": "Add eggs, milk, honey and oil",
+    "step3": "Beat just till smooth, not over beat",
+    "step4": "Spoon or pour into greased 9x9x2 pan, muffin or stick  pan",
+    "step5": "Preheat oven to 425 degrees and bake bread for 12 minutes (muffins) or 20 minutes for bread",
+    "step6": "Allow to cool enough to handle then remove from pan and place on a cooling rack"
+  }
+},
+{
   "title": "Cumin Rye Bread",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/AnadamaBread.jpg",
@@ -2972,12 +3005,13 @@
 {
   "title": "Grilled Turkey Sandwich",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/AnadamaBread.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/GrilledTurkeySandwich.jpg",
   "date": "March 9, 2018",
   "yield": "Makes 1",
   "preptime": "4 minutes",
   "cooktime": "6 minutes",
-  "category": ["Sandwich", "Turkey"],
+  "category": ["Lunch"],
+  "similar": ["Anadama Bread", "Cumin Rye Bread"],
   "description": "Grilled turkey sandwich with a pickle, fruit and treat.",
   "nutrition": {"carbohydrate": 79, "protein": 21, "calories": 514, "fat": 29, "sodium": 1047},
   "rating": 4.3,
@@ -2997,6 +3031,5 @@
     "step3": "Heat panini press or electric skillet to 325 degrees, use about 1/2 tsp of olive oil on each side",
     "step4": "Grill until browned as you like, flipping once or twice to get it just right",
     "step5": "Serve with a pickle, fruit and a treat"
-  },
-  "notes": "Rolls or buns may be made using 60g portions of dough rolled in small amount of cornmeal for extra crunch."
+  }
 }]
