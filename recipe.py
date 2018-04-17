@@ -275,6 +275,7 @@ class RecipeManager(object):
     def load_recipes(self, infile):
         """ Load json data for recipes
             [
+              { "include": "cookies.json" }
               {
               "title": "Korean Meatballs",
               "ingredients": {
@@ -311,7 +312,9 @@ class RecipeManager(object):
             with open(infile) as json_file:
                 recipes = json.load(json_file)
                 for recipe in recipes:
-                    if 'title' in recipe and 'ingredients' in recipe and 'instructions' in recipe:
+                    if 'include' in recipe:
+                        self.load_recipes(recipe['include'])
+                    elif 'title' in recipe and 'ingredients' in recipe and 'instructions' in recipe:
                         recipe_id = generate_id(recipe['title'])
                         print "Loaded " + recipe['title']
                         self.recipes[recipe_id] = recipe
