@@ -196,9 +196,11 @@ def render_recipe_summary(recipe, makeit=False):
         html += '<meta itemprop="url" content="' + url + '" />\n'
     if 'image' in recipe:
         image, ext = os.path.splitext(recipe['image'])
+        if image.endswith('_hd'):
+            image = image.replace('_hd', '')
         small = image + '_small' + ext
         medium = image + '_medium' + ext
-        large = image + ext
+        large = recipe['image']
     else:
         image = '/img/' + title.replace(' ', '')
         small = image + '_small.jpg'
@@ -628,7 +630,7 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = ['Chili Mango Chicken', 'Corn Bread', 'Chestnut Chicken', 'Durban Fish Curry', 'Ginger Cookies', 'Almond Vanilla Granola']
+        latest = ['Korean Chili Chicken', 'Pumpkin Maple Granola', 'Mexican Pizza', 'Chili Mango Chicken', 'Corn Bread', 'Chestnut Chicken', 'Durban Fish Curry']
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table. Simple recipes that are quick to make and great as leftovers so you can enjoy life outside the kitchen. Nutrition information is calculated from USDA database and specific package labels.</p>"
         html += '<table>\n<tr><th></th><th>Calories</th><th>Fat (g)</th><th>Carbohydrate</th><th>Protein</th><th>Sodium (mg)</th><th>Fiber (g)</th></tr>\n'
         #html += '<tr><th>Female</th><td>1800</td><td>20-35</td><td>130</td><td>46</td><td>1300-2300</td><td>21</td></tr>\n'

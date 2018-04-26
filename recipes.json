@@ -46,29 +46,29 @@
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/AlmondVanillaGranola.jpg",
   "date": "March 23, 2018",
-  "preptime": "20 minutes",
+  "preptime": "15 minutes",
   "cooktime": "25 minutes",
-  "yield": "Serves 40",
+  "yield": "Serves 20",
   "category": ["Nuts", "Dessert"],
   "similar": ["Spiced Pecans", "Apple Granola Bread", "Apricot Scones"],
   "description": "Toasted granola with almonds, coconut and vanilla.",
-  "nutrition": {"carbohydrate": 9, "protein": 2, "calories": 63, "fat": 2, "sodium": 16},
+  "nutrition": {"carbohydrate": 18, "protein": 3, "calories": 92, "fat": 1, "sodium": 30},
   "rating": 4.76,
   "ingredients": {
-    "item1": {"quantity": "1 cup", "ingredient": "almonds, sliced"},
-    "item2": {"quantity": "1", "ingredient": "egg white"},
-    "item3": {"quantity": "3 cups", "ingredient": "rolled oats"},
-    "item4": {"quantity": "1/2 cup", "ingredient": "muesli"},
-    "item5": {"quantity": "1/3 cup", "ingredient": "buckwheat groats"},
-    "item6": {"quantity": "1/4 cup", "ingredient": "sugar"},
-    "item7": {"quantity": "1/3 cup", "ingredient": "coconut"},
-    "item8": {"quantity": "1/4 tsp", "ingredient": "salt"},
-    "item9": {"quantity": "1 1/2 tsp", "ingredient": "cinnamon"},
-    "item10": {"quantity": "1/2 tsp", "ingredient": "nutmeg"},
-    "item11": {"quantity": "1/3 cup", "ingredient": "honey"},
-    "item12": {"quantity": "3 tsp", "ingredient": "coconut oil"},
-    "item13": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
-    "item14": {"quantity": "1/2 tsp", "ingredient": "almond extract"}
+    "item1": {"quantity": "3 cups", "ingredient": "rolled oats"},
+    "item2": {"quantity": "1/2 cup", "ingredient": "muesli"},
+    "item3": {"quantity": "1/3 cup", "ingredient": "buckwheat groats"},
+    "item4": {"quantity": "1/4 cup", "ingredient": "sugar"},
+    "item5": {"quantity": "1/3 cup", "ingredient": "coconut"},
+    "item6": {"quantity": "1/4 tsp", "ingredient": "salt"},
+    "item7": {"quantity": "1 1/2 tsp", "ingredient": "cinnamon"},
+    "item8": {"quantity": "1/2 tsp", "ingredient": "nutmeg"},
+    "item9": {"quantity": "1/3 cup", "ingredient": "honey"},
+    "item11": {"quantity": "3 tsp", "ingredient": "coconut oil"},
+    "item12": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
+    "item13": {"quantity": "1/2 tsp", "ingredient": "almond extract"},
+    "item14": {"quantity": "1 cup", "ingredient": "almonds, sliced"},
+    "item15": {"quantity": "1", "ingredient": "egg white"}
   },
   "instructions": {
     "step1": "Preheat oven to 300 degrees",
@@ -79,7 +79,45 @@
     "step6": "Spread mixture onto 2 large baking sheets that are lined with parchment paper",
     "step7": "Cook for 20-22 minutes, rotating pans and flipping once to ensure even cooking"
   },
-  "notes": "Add dried berries when serving to keep them fresher."
+  "notes": "Add dried cranberries, cherries or other dried fruit when serving to keep them fresher."
+},
+{
+  "title": "Pumpkin Maple Granola",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/PumpkinMapleGranola_hd.jpg",
+  "date": "March 23, 2018",
+  "preptime": "15 minutes",
+  "cooktime": "25 minutes",
+  "yield": "Serves 20",
+  "category": ["Nuts", "Dessert"],
+  "similar": ["Spiced Pecans", "Apple Granola Bread", "Apricot Scones"],
+  "description": "Toasted granola with almonds, coconut and vanilla.",
+  "nutrition": {"carbohydrate": 15, "protein": 3, "calories": 107, "fat": 4, "sodium": 41},
+  "rating": 4.76,
+  "ingredients": {
+    "item1": {"quantity": "2 1/2 cups", "ingredient": "rolled oats"},
+    "item2": {"quantity": "1/2 cup", "ingredient": "muesli"},
+    "item3": {"quantity": "1/4 cup", "ingredient": "buckwheat groats"},
+    "item4": {"quantity": "1/4 cup", "ingredient": "sugar"},
+    "item5": {"quantity": "2 tsp", "ingredient": "pumpkin pie spice"},
+    "item6": {"quantity": "1/4 tsp", "ingredient": "salt"},
+    "item7": {"quantity": "3 tsp", "ingredient": "olive oil"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "maple syrup"},
+    "item9": {"quantity": "1/3 cup", "ingredient": "canned pumpkin"},
+    "item10": {"quantity": "1", "ingredient": "egg white"},
+    "item11": {"quantity": "2/3 cup", "ingredient": "pecans"},
+    "item12": {"quantity": "1/3 tsp", "ingredient": "pepitas"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 300 degrees",
+    "step2": "Mix dry ingredients in a large bowl",
+    "step3": "Mix oil, syrup and canned pumpkin until smooth",
+    "step4": "Froth egg white with a wire whisk",
+    "step5": "Add liquids and frothed egg white to dry ingredients, stirring until coated",
+    "step6": "Spread mixture onto 2 large baking sheets that are lined with parchment paper",
+    "step7": "Cook for 25-30 minutes, rotating pans and flipping once to ensure even cooking"
+  },
+  "notes": "Add dried cranberries, cherries or other dried fruit when serving to keep them fresher."
 },
 {
   "title": "Peach Chutney",
@@ -878,10 +916,10 @@
   "preptime": "20 minutes",
   "cooktime": "20 minutes",
   "totaltime": "3 hours",
-  "yield": "Serves 6",
+  "yield": "Serves 8",
   "category": ["Mediterranean", "Italian", "Tomatoes"],
   "description": "Baked or grilled pizza with whole wheat crust and your favorite toppings.",
-  "nutrition": {"carbohydrate": 71, "protein": 16, "calories": 438, "fat": 10, "sodium": 580},
+  "nutrition": {"carbohydrate": 53, "protein": 12, "calories": 329, "fat": 8, "sodium": 435},
   "rating": 4.9,
   "ingredients": {
     "section1": {
@@ -905,7 +943,58 @@
     },
     "section3": {
       "title": "Topping",
-        "item1": {"quantity": "1 can", "ingredient": "mozzarella cheese"}
+        "item1": {"quantity": "1 cup", "ingredient": "mozzarella cheese"}
+    }
+  },
+  "instructions": {
+    "step1": "Make dough for crust, using bread machine or hand kneaded, coat with olive oil, cover and let rise until double (1-2 hours)",
+    "step2": "In a medium mixing bowl, add crushed tomatoes, garlic salt and seasoning",
+    "step3": "Using mortar and pestle grind dried herbs, add to sauce mixture and mix, set aside for 20-30 minutes before use",
+    "step4": "Preheat oven to 400 degrees, coat pizza pans with olive oil and sprinkle with corn meal",
+    "step5": "Divide dough in half and form 2 crusts, let rise for 5-10 minutes while oven heats",
+    "step6": "Pre bake crusts for 10-15 minutes, until some browning starts, make small cuts after 5 minutes to help prevent bubbles",
+    "step7": "Let crust cool for a few minutes, spread with sauce, add toppings and cheese to taste",
+    "step8": "Bake until cheese is starting to brown, cool on rack, cut into slices and enjoy"
+  },
+  "notes": "Recipe makes 2 large pizzas, but may be cut in half to make just one."
+},
+{
+  "title": "Mexican Pizza",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/MexicanPizza_hd.jpg",
+  "date": "April 21, 2018",
+  "preptime": "20 minutes",
+  "cooktime": "20 minutes",
+  "totaltime": "3 hours",
+  "yield": "Serves 4",
+  "category": ["Latin", "Turkey", "Tomatoes"],
+  "description": "Baked or grilled pizza with whole wheat crust and your favorite Mexican toppings.",
+  "nutrition": {"carbohydrate": 53, "protein": 11, "calories": 340, "fat": 10, "sodium": 794},
+  "rating": 4.3,
+  "ingredients": {
+    "section1": {
+      "title": "Crust",
+        "item1": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
+        "item2": {"quantity": "1 cups", "ingredient": "white flour"},
+        "item2": {"quantity": "1/2 cup", "ingredient": "cornmeal"},
+        "item3": {"quantity": "2 tsp", "ingredient": "yeast, (same amount for 1 or 2 pizzas)"},
+        "item4": {"quantity": "2 tbsp", "ingredient": "honey, or sugar"},
+        "item5": {"quantity": "1/3 cup", "ingredient": "water, lukewarm (per pizza)"},
+        "item6": {"quantity": "1 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title": "Sauce",
+        "item1": {"quantity": "1 can", "ingredient": "crushed tomatoes (28 oz)"},
+        "item2": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+        "item3": {"quantity": "1 tsp", "ingredient": "oregano"},
+        "item4": {"quantity": "1 tsp", "ingredient": "basil"},
+        "item5": {"quantity": "1 tsp", "ingredient": "thyme"},
+        "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"},
+        "item7": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
+    },
+    "section3": {
+      "title": "Topping",
+        "item1": {"quantity": "1/2 cup", "ingredient": "monterey jack cheese"}
     }
   },
   "instructions": {
@@ -1661,7 +1750,7 @@
       "item2": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item3": {"quantity": "1 tbsp", "ingredient": "sugar"},
       "item4": {"quantity": "3 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152)"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek, (optional)"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek, (optional or reduced amount)"},
       "item6": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
       "item7": {"quantity": "1/4 tsp", "ingredient": "five spice, or star anise"},
       "item8": {"quantity": "1 tbsp", "ingredient": "corn starch, mixed with 3 tbsp water"}
@@ -1697,7 +1786,7 @@
   "category": ["Asian", "Chinese", "Chicken"],
   "similar": ["Szechuan Chicken", "Orange Chicken", "Chestnut Chicken"],
   "description": "Stir fry chicken with mango and bell pepper.",
-  "nutrition": {"carbohydrate": 18, "protein": 36, "calories": 413, "fat": 26, "sodium": 276},
+  "nutrition": {"carbohydrate": 18, "protein": 36, "calories": 414, "fat": 26, "sodium": 276},
   "rating": 4.4,
   "ingredients": {
     "section1": {
@@ -1721,7 +1810,8 @@
       "item1": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item2": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
       "item3": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152)"},
-      "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"}
+      "item4": {"quantity": "1 tbsp", "ingredient": "lime juice"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "sesame oil"}
     },
     "section4": {
       "title":"Garnish",
@@ -2032,14 +2122,75 @@
     "step3": "Combine yogurt and tomato paste in a small bowl",
     "step4": "Add 2 tbsp oil to a large non-stick skillet and preheat over medium heat",
     "step5": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
-    "step6": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
-    "step7": "Turn on wok to medium, let onion cook for 5 minutes, then add spices and stir occasionally and kept covered",
+    "step6": "Turn on wok to medium, let onion cook for 5 minutes, then add spices and stir occasionally and kept covered",
+    "step7": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
     "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
     "step9": "Add chicken to wok, stir to coat chicken, and cook for 2 minutes",
     "step10": "Add yogurt mixture to wok. stir to coat everything, and cook for 2 minutes",
     "step11": "Serve over rice, garnish with cilantro, coriander leaves or thinly sliced peppers"
   },
   "notes": "Garam masala may be used instead of individual spices (2 tbsp)."
+},
+{
+  "title": "Korean Chili Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanChiliChicken_hd.jpg",
+  "date": "April 25, 2018",
+  "yield": "Serves 4",
+  "preptime": "20 minutes",
+  "cooktime": "15 minutes",
+  "category": ["Asian", "Carrots"],
+  "similar": ["Chestnut Chicken", "Orange Chicken", "Korean Meatballs"],
+  "description": "Sweet and spicy Korean style chicken with carrots.",
+  "nutrition": {"carbohydrate": 32, "protein": 37, "calories": 402, "fat": 14, "sodium": 503},
+  "rating": 4.9,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Veggies",
+      "item1": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
+      "item2": {"quantity": "1/4 cup", "ingredient": "red onion, diced"},
+      "item3": {"quantity": "5", "ingredient": "carrots, organic (300g), cut into 1cm slices"},
+      "item4": {"quantity": "3", "ingredient": "green onions, chopped"},
+      "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item6": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item7": {"quantity": "2 tsp", "ingredient": "chili powder, or Korean red powder (mild chili powder)"},
+      "item8": {"quantity": "1 tsp", "ingredient": "smoked paprika"}
+    },
+    "section3": {
+      "title":"Sauce",
+      "item1": {"quantity": "1 tbsp", "ingredient": "fish sauce"},
+      "item2": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "lemon juice, or lime juice"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "honey"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "Sriracha, (optional or reduced amount)"},
+      "item7": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+      "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "green onions, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine sauce ingredients in a measuring cup and mix",
+    "step2": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step3": "Add 1 tbsp coconut oil to a wok, then layer onion, carrots, green onion, garlic and ginger",
+    "step4": "Add 2 tbsp oil to a large non-stick skillet and preheat over medium heat",
+    "step5": "Turn on wok to medium, let onion and carrots cook for 7-8 minutes stirring occasionally and kept covered",
+    "step6": "Place chicken into skillet and turn up heat to medium-high",
+    "step7": "Add sauce mixture and chili powders, bring to a boil, reduce heat and simmer while cooking chicken",
+    "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step9": "Add chicken to mixture, stir to coat evenly, and cook for 2 minutes",
+    "step10": "Serve over rice, garnish with sesame seeds and green onion tops"
+  }
 },
 {
   "title": "French Toast",
