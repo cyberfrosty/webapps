@@ -1,6 +1,11 @@
 # webapps
 Web applications
 
+### Trouble shooting and logs
+    /var/log/uwsgi.log         # Has startup and operation data for the Flask application and uwsgi
+    /var/log/nginx/access.log  # HTTP access and error logs
+    /var/log/auth.log          # SSH and other connection attempts
+
 ### Update Linux
     sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y; apt-get autoclean -y'
 
