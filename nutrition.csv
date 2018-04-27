@@ -8,6 +8,7 @@ tuna,                          5 oz,   225,    9,   0,  33,  500, Wild Planet
 ahi,                           3 oz,   110,  0.5,   0,  25,   46, Sushi
 lamb,                          4 oz,   156,    8,   0,  24,   17, "lean, trimmed steak"
 tofu,                          4 oz,    88,    6, 2.2,   9,    8,
+meat crumbles,                 4 oz,   203,   12,   3,  22,  183, cyberfrosty
 
 rice,                         1 cup,   206,  0.5,  45, 4.3,    2, "white, long-grain, cooked"
 brown rice,                   1 cup,   218,  1.6,  46, 4.5,    2, "brown, medium-grain, cooked"
@@ -93,6 +94,7 @@ stuffed green olives,         1 cup,   188, 19.5,   6, 1.5, 1970,
 roasted red peppers,           8 oz,    80,    0,  16,   0,  360, TJs
 marinated artichoke hearts,    1 oz,    30,    2,   3,   1,  105, Kirkland
 tomatillos,                    1 oz,     6,    0,   1,   0,   37, La Costena
+pickled jalapenos,           1 tbsp,     2,    0,   0,   0,  135, La Costena
 chickpeas,                    1 cup,   729,   12, 121,  39,   48,
 cream of mushroom soup,       1 cup,    96,    6,   8, 1.6,  843,
 
@@ -201,6 +203,7 @@ mustard,                      1 tsp,     5,    0,   0,   0,  120, Grey Poupon
 pickle spear,                 1 tsp,     5,    0,   0,   0,  280, Klaussen
 hoisin sauce,                1 tbsp,    40,    0,   9, 0.5,  255, Kikkoman
 oyster sauce,                1 tbsp,     9,    0,   2, 0.2,  492,
+fish sauce,                  1 tbsp,     6,    0, 0.7, 0.9, 1413,
 black bean sauce,            1 tbsp,    23,  0.6,   3, 1.5,  645, Kikkoman
 teriyaki sauce,              1 tbsp,    16,    0, 2.8, 1.1,  690,
 Soyaki,                      1 tbsp,    40,    2,   5,   1,  490, Trader Joes

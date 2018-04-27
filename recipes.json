@@ -48,11 +48,11 @@
   "date": "March 23, 2018",
   "preptime": "15 minutes",
   "cooktime": "25 minutes",
-  "yield": "Serves 20",
+  "yield": "Serves 16",
   "category": ["Nuts", "Dessert"],
-  "similar": ["Spiced Pecans", "Apple Granola Bread", "Apricot Scones"],
+  "similar": ["Spiced Pecans", "Apple Granola Bread", "Pumpkin Maple Granola"],
   "description": "Toasted granola with almonds, coconut and vanilla.",
-  "nutrition": {"carbohydrate": 18, "protein": 3, "calories": 92, "fat": 1, "sodium": 30},
+  "nutrition": {"carbohydrate": 24, "protein": 5, "calories": 172, "fat": 7, "sodium": 41},
   "rating": 4.76,
   "ingredients": {
     "item1": {"quantity": "3 cups", "ingredient": "rolled oats"},
@@ -64,11 +64,11 @@
     "item7": {"quantity": "1 1/2 tsp", "ingredient": "cinnamon"},
     "item8": {"quantity": "1/2 tsp", "ingredient": "nutmeg"},
     "item9": {"quantity": "1/3 cup", "ingredient": "honey"},
-    "item11": {"quantity": "3 tsp", "ingredient": "coconut oil"},
-    "item12": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
-    "item13": {"quantity": "1/2 tsp", "ingredient": "almond extract"},
-    "item14": {"quantity": "1 cup", "ingredient": "almonds, sliced"},
-    "item15": {"quantity": "1", "ingredient": "egg white"}
+    "item10": {"quantity": "3 tbsp", "ingredient": "coconut oil"},
+    "item11": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
+    "item12": {"quantity": "1/2 tsp", "ingredient": "almond extract"},
+    "item13": {"quantity": "1 cup", "ingredient": "almonds, sliced"},
+    "item14": {"quantity": "1", "ingredient": "egg white"}
   },
   "instructions": {
     "step1": "Preheat oven to 300 degrees",
@@ -88,11 +88,11 @@
   "date": "March 23, 2018",
   "preptime": "15 minutes",
   "cooktime": "25 minutes",
-  "yield": "Serves 20",
+  "yield": "Serves 16",
   "category": ["Nuts", "Dessert"],
-  "similar": ["Spiced Pecans", "Apple Granola Bread", "Apricot Scones"],
+  "similar": ["Spiced Pecans", "Apple Granola Bread", "Almond Vanilla Granola"],
   "description": "Toasted granola with almonds, coconut and vanilla.",
-  "nutrition": {"carbohydrate": 15, "protein": 3, "calories": 107, "fat": 4, "sodium": 41},
+  "nutrition": {"carbohydrate": 19, "protein": 4, "calories": 148, "fat": 7, "sodium": 51},
   "rating": 4.76,
   "ingredients": {
     "item1": {"quantity": "2 1/2 cups", "ingredient": "rolled oats"},
@@ -101,12 +101,12 @@
     "item4": {"quantity": "1/4 cup", "ingredient": "sugar"},
     "item5": {"quantity": "2 tsp", "ingredient": "pumpkin pie spice"},
     "item6": {"quantity": "1/4 tsp", "ingredient": "salt"},
-    "item7": {"quantity": "3 tsp", "ingredient": "olive oil"},
+    "item7": {"quantity": "3 tbsp", "ingredient": "coconut oil"},
     "item8": {"quantity": "1/4 cup", "ingredient": "maple syrup"},
     "item9": {"quantity": "1/3 cup", "ingredient": "canned pumpkin"},
     "item10": {"quantity": "1", "ingredient": "egg white"},
     "item11": {"quantity": "2/3 cup", "ingredient": "pecans"},
-    "item12": {"quantity": "1/3 tsp", "ingredient": "pepitas"}
+    "item12": {"quantity": "1/3 cup", "ingredient": "pepitas"}
   },
   "instructions": {
     "step1": "Preheat oven to 300 degrees",
@@ -330,7 +330,7 @@
     "item8": {"quantity": "3/4 cup", "ingredient": "white flour"}
   },
   "instructions": {
-    "step1": "Grease 8x2x2 inch baking pan, preheat oven to 350 degrees",
+    "step1": "Grease a 8x2x2 inch baking pan, preheat oven to 350 degrees",
     "step2": "In medium bowl partially melt chocolate, add butter and finish melting, stir in sugar",
     "step3": "Add eggs and vanilla, beat lightly until just blended (do not over mix)",
     "step4": "Stir in flour, chocolate chips and nuts",
@@ -364,12 +364,49 @@
     "item10": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"}
   },
   "instructions": {
-    "step1": "Grease 13x9x2 inch baking pan, preheat oven to 350 degrees",
+    "step1": "Grease a 13x9x2 inch baking pan, preheat oven to 350 degrees",
     "step2": "In medium bowl combine flour, baking powder and salt",
     "step3": "Melt butter, stir in sugar, add eggs and vanilla, beat lightly until just blended (do not over mix)",
     "step4": "Stir in flour, chocolate chips and nuts",
     "step5": "Spread batter in pan, bake for 25 minutes",
     "step6": "Cut into bars while still warm"
+  }
+},
+{
+  "title": "Gingerbread Cake",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/GingerbreadCake_hd.jpg",
+  "date": "April 22, 2018",
+  "preptime": "10 minutes",
+  "cooktime": "30 minutes",
+  "yield": "Serves 8",
+  "category": ["Dessert"],
+  "similar": ["Pumpkin Pie", "Swedish Pancakes"],
+  "description": "Gingerbread cake topped with powdered sugar.",
+  "nutrition": {"carbohydrate": 42, "protein": 3, "calories": 272, "fat": 10, "sodium": 128},
+  "rating": 4.2,
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 cups", "ingredient": "flour"},
+    "item2": {"quantity": "1 tsp", "ingredient": "cinnamon"},
+    "item3": {"quantity": "1 tsp", "ingredient": "ginger"},
+    "item4": {"quantity": "1/4 tsp", "ingredient": "allspice"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "cloves"},
+    "item6": {"quantity": "1/2 tsp", "ingredient": "baking powder"},
+    "item7": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
+    "item8": {"quantity": "1/3 cup", "ingredient": "canola oil"},
+    "item9": {"quantity": "1/4 cup", "ingredient": "brown sugar"},
+    "item10": {"quantity": "1", "ingredient": "egg"},
+    "item11": {"quantity": "1/2 cup", "ingredient": "molasses"},
+    "item12": {"quantity": "1/2 cup", "ingredient": "water, boiling"},
+    "item13": {"quantity": "2 tbsp", "ingredient": "powdered sugar"}
+  },
+  "instructions": {
+    "step1": "Grease and lightly flour a 9 inch cake pan or two 6 inch cake pans, preheat oven to 350 degrees",
+    "step2": "In medium bowl combine flour, spices, baking powder and soda",
+    "step4": "In a mixer bowl, beat egg, oil and sugar",
+    "step4": "Add dry ingredients and water alternately to mixture, beating after each addition",
+    "step5": "Turn into prepared pan and bake for 30-35 minutes or till done",
+    "step6": "Cool for 10 minutes, remove from pan, serve warm with dusting of powdered sugar"
   }
 },
 {
@@ -525,7 +562,7 @@
   "cooktime": "15 minutes",
   "yield": "Serves 4",
   "category": ["Latin", "Mexican", "Turkey"],
-  "similar": ["Guacamole", "Green Chili"],
+  "similar": ["Guacamole", "Green Chili", "Mexican Pizza"],
   "description": "Mexican seasoned lean ground turkey for burritos, tacos and many other dishes.",
   "nutrition": {"carbohydrate": 3, "protein": 22, "calories": 203, "fat": 12, "sodium": 183},
   "rating": 4.1,
@@ -918,6 +955,7 @@
   "totaltime": "3 hours",
   "yield": "Serves 8",
   "category": ["Mediterranean", "Italian", "Tomatoes"],
+  "similar": ["Mediterranean Chicken", "Meatball Marinara", "Mexican Pizza"],
   "description": "Baked or grilled pizza with whole wheat crust and your favorite toppings.",
   "nutrition": {"carbohydrate": 53, "protein": 12, "calories": 329, "fat": 8, "sodium": 435},
   "rating": 4.9,
@@ -968,33 +1006,39 @@
   "totaltime": "3 hours",
   "yield": "Serves 4",
   "category": ["Latin", "Turkey", "Tomatoes"],
+  "similar": ["Meat Crumbles", "Guacamole", "Pizza"],
   "description": "Baked or grilled pizza with whole wheat crust and your favorite Mexican toppings.",
-  "nutrition": {"carbohydrate": 53, "protein": 11, "calories": 340, "fat": 10, "sodium": 794},
+  "nutrition": {"carbohydrate": 73, "protein": 14, "calories": 425, "fat": 10, "sodium": 96},
   "rating": 4.3,
   "ingredients": {
     "section1": {
       "title": "Crust",
         "item1": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
-        "item2": {"quantity": "1 cups", "ingredient": "white flour"},
-        "item2": {"quantity": "1/2 cup", "ingredient": "cornmeal"},
-        "item3": {"quantity": "2 tsp", "ingredient": "yeast, (same amount for 1 or 2 pizzas)"},
-        "item4": {"quantity": "2 tbsp", "ingredient": "honey, or sugar"},
-        "item5": {"quantity": "1/3 cup", "ingredient": "water, lukewarm (per pizza)"},
-        "item6": {"quantity": "1 tbsp", "ingredient": "olive oil"}
+        "item2": {"quantity": "1 cup", "ingredient": "white flour"},
+        "item3": {"quantity": "1/2 cup", "ingredient": "cornmeal"},
+        "item4": {"quantity": "2 tsp", "ingredient": "yeast, (same amount for 1 or 2 pizzas)"},
+        "item5": {"quantity": "2 tbsp", "ingredient": "honey, or sugar"},
+        "item6": {"quantity": "1/3 cup", "ingredient": "water, lukewarm (per pizza)"},
+        "item7": {"quantity": "1 tbsp", "ingredient": "olive oil"}
     },
     "section2": {
       "title": "Sauce",
-        "item1": {"quantity": "1 can", "ingredient": "crushed tomatoes (28 oz)"},
-        "item2": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-        "item3": {"quantity": "1 tsp", "ingredient": "oregano"},
-        "item4": {"quantity": "1 tsp", "ingredient": "basil"},
-        "item5": {"quantity": "1 tsp", "ingredient": "thyme"},
-        "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"},
-        "item7": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
+        "item1": {"quantity": "2 tbsp", "ingredient": "tomato paste"},
+        "item2": {"quantity": "1 tsp", "ingredient": "chili powder"},
+        "item3": {"quantity": "1 tsp", "ingredient": "cumin"},
+        "item4": {"quantity": "1/4 tsp", "ingredient": "garlic powder, or 1/2 tsp no-salt seasoning (onion, garlic powders)"},
+        "item5": {"quantity": "1/4 tsp", "ingredient": "oregano, ground"},
+        "item6": {"quantity": "1/4 tsp", "ingredient": "black pepper, (optional)"},
+        "item7": {"quantity": "1/4 tsp", "ingredient": "cinnamon, (optional)"}
     },
     "section3": {
       "title": "Topping",
-        "item1": {"quantity": "1/2 cup", "ingredient": "monterey jack cheese"}
+        "item1": {"quantity": "1/2 cup", "ingredient": "meat crumbles"},
+        "item2": {"quantity": "1/2 cup", "ingredient": "monterey jack cheese"},
+        "item3": {"quantity": "1/4 cup", "ingredient": "tomato, diced (optional)"},
+        "item4": {"quantity": "1/4 cup", "ingredient": "pickled jalapenos, (optional)"},
+        "item5": {"quantity": "1/2 cup", "ingredient": "lettuce, (optional)"}
+
     }
   },
   "instructions": {
@@ -1006,7 +1050,8 @@
     "step6": "Pre bake crusts for 10-15 minutes, until some browning starts, make small cuts after 5 minutes to help prevent bubbles",
     "step7": "Let crust cool for a few minutes, spread with sauce, add toppings and cheese to taste",
     "step8": "Bake until cheese is starting to brown, cool on rack, cut into slices and enjoy"
-  }
+  },
+  "notes": "Refried beans can be used for the sauce, seasoned as desired and add some cream cheese."
 },
 {
   "title": "Grilled Salmon",
@@ -1223,7 +1268,7 @@
       "item1": {"quantity": "1/2 cup", "ingredient": "apricot jam"},
       "item2": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
       "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-      "item3": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5)"}
+      "item3": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"}
     }
   },
   "instructions": {
@@ -1452,7 +1497,7 @@
     "item5": {"quantity": "1/4 cup", "ingredient": "onion"},
     "item6": {"quantity": "3 tbsp", "ingredient": "ketchup"},
     "item7": {"quantity": "2 tbsp", "ingredient": "honey"},
-    "item8": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5)"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
     "item9": {"quantity": "3 tbsp", "ingredient": "water"},
     "item10": {"quantity": "3", "ingredient": "green onions"}
   },
@@ -2142,7 +2187,7 @@
   "category": ["Asian", "Carrots"],
   "similar": ["Chestnut Chicken", "Orange Chicken", "Korean Meatballs"],
   "description": "Sweet and spicy Korean style chicken with carrots.",
-  "nutrition": {"carbohydrate": 32, "protein": 37, "calories": 402, "fat": 14, "sodium": 503},
+  "nutrition": {"carbohydrate": 34, "protein": 37, "calories": 413, "fat": 14, "sodium": 631},
   "rating": 4.9,
   "ingredients": {
     "section1": {
@@ -2164,14 +2209,13 @@
     },
     "section3": {
       "title":"Sauce",
-      "item1": {"quantity": "1 tbsp", "ingredient": "fish sauce"},
-      "item2": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
-      "item3": {"quantity": "1 tbsp", "ingredient": "lemon juice, or lime juice"},
-      "item4": {"quantity": "2 tbsp", "ingredient": "honey"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
-      "item6": {"quantity": "1 tbsp", "ingredient": "Sriracha, (optional or reduced amount)"},
-      "item7": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-      "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste"}
+      "item1": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "lemon juice, or lime juice"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "honey"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
+      "item6": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "tomato paste"}
     },
     "section4": {
       "title":"Garnish",
