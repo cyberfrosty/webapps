@@ -73,7 +73,7 @@
   "preptime": "10 minutes",
   "cooktime": "20 minutes",
   "yield": "Makes 36",
-  "category": ["Chocolate", "Cookies"],
+  "category": ["Chocolate", "Cookies", "Dessert"],
   "similar": ["Fudge Brownies", "Blonde Brownies", "Chocolate Crunchies"],
   "description": "Peanut butter and chocolate chip bars.",
   "nutrition": {"carbohydrate": 14, "protein": 2, "calories": 126, "fat": 7, "sodium": 59},
