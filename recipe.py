@@ -453,6 +453,19 @@ class RecipeManager(object):
             if not compare_dicts(current_nutrition, calculated_nutrition):
                 print '{} {}'.format(recipe.get('title'), json.dumps(calculated_nutrition))
 
+    def check_similar(self):
+        """ Check that the recipe has similar recipes and that they all exist
+        """
+        for recipe_id in self.recipes:
+            recipe = self.recipes[recipe_id]
+            if 'similar' in recipe:
+                for item in recipe['similar']:
+                    similar = self.get_recipe(item)
+                    if not similar or 'title' not in similar:
+                        print '{} {} not found'.format(recipe.get('title'), item)
+            else:
+                print '{} no similar recipes'.format(recipe.get('title'))
+
     def build_navigation_list(self, category=None):
         """ Build an accordian navigation list
         """
@@ -461,12 +474,15 @@ class RecipeManager(object):
         for category in ['Asian', 'Bread', 'Breakfast', 'Dessert', 'Latin', 'Mediterranean', 'Seafood', 'Vegetables']:
             html += '<button class="accordion">{}</button>\n'.format(category)
             html += '<div class="panel">\n'
+            titles = []
             for recipe_id in self.recipes:
                 recipe = self.recipes[recipe_id]
                 if category in recipe['category']:
-                    title = recipe['title']
-                    url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
-                    html += '  <a href="{}">{}</a><br>\n'.format(url, title)
+                    titles.append(recipe['title'])
+            titles.sort()
+            for title in titles:
+                url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
+                html += '  <a href="{}">{}</a><br>\n'.format(url, title)
             html += '</div>\n'
         html += '</div><!--/siderbar-module-inset-->\n'
         return html
@@ -479,18 +495,19 @@ class RecipeManager(object):
             html for quick search list
         """
         html = ''
+        titles = []
         if matches:
             for item in matches:
                 recipe = self.get_recipe(item)
-                title = recipe['title']
-                url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
-                html += '<li><a href="{}">{}</a></li>\n'.format(url, title)
+                titles.append(recipe['title'])
         else:
             for recipe_id in self.recipes:
                 recipe = self.recipes[recipe_id]
-                title = recipe['title']
-                url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
-                html += '<li><a href="{}">{}</a></li>\n'.format(url, title)
+                titles.append(recipe['title'])
+        titles.sort()
+        for title in titles:
+            url = '/recipes?recipe={}'.format(title.replace(' ', '%20'))
+            html += '<li><a href="{}">{}</a></li>\n'.format(url, title)
         return html
 
     def render_recipe(self, recipe, mode='read'):
@@ -630,7 +647,7 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = ['Korean Chili Chicken', 'Pumpkin Maple Granola', 'Mexican Pizza', 'Chili Mango Chicken', 'Corn Bread', 'Chestnut Chicken', 'Durban Fish Curry']
+        latest = ['Korean Chili Chicken', 'Gingerbread Cake', 'Pumpkin Maple Granola', 'Mexican Pizza', 'Chili Mango Chicken', 'Corn Bread']
         html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table. Simple recipes that are quick to make and great as leftovers so you can enjoy life outside the kitchen. Nutrition information is calculated from USDA database and specific package labels.</p>"
         html += '<table>\n<tr><th></th><th>Calories</th><th>Fat (g)</th><th>Carbohydrate</th><th>Protein</th><th>Sodium (mg)</th><th>Fiber (g)</th></tr>\n'
         #html += '<tr><th>Female</th><td>1800</td><td>20-35</td><td>130</td><td>46</td><td>1300-2300</td><td>21</td></tr>\n'
@@ -729,6 +746,7 @@ def main():
     #print manager.get_rendered_gallery('Asian')
     #print json.dumps(manager.count_calories('French Bread'))
     manager.check_nutrition()
+    manager.check_similar()
 
 if __name__ == '__main__':
     main()
