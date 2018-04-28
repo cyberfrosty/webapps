@@ -87,13 +87,13 @@ function searchInit() {
 function searchList(event) {
   const char = event.which || event.keyCode;
   const input = document.getElementById('searchPhrase');
-  const filter = input.value.toUpperCase().trim();
+  const filter = input.value.toUpperCase();
   let displayed = 0;
   const max_shown = 10; // Never show more than 10 items in dropdown
   if (char === 13) {
     $("#search").modal("hide");
     if (filter.length > 0) {
-      const params = '?query=' + encodeURIComponent(filter);
+      const params = '?query=' + encodeURIComponent(filter.trim());
       // Strip any existing query parameters from url of current page
       let href = window.location.href.split('?')[0];;
       // If not already on search page, redirect to the search page
