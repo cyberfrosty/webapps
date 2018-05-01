@@ -208,8 +208,8 @@ def render_recipe_summary(recipe, makeit=False):
         large = image + '.jpg'
     if 'image' in recipe or os.path.isfile('static' + large):
         html += '<img  itemprop="image" src="' + large + '" alt="' + title + '" ' \
-                'srcset="' + large + ' 1120w,' + medium + ' 720w,' + small + ' 400w" ' \
-                'sizes="(min-width: 40em) calc(66.6vw - 4em) 100vw">\n'
+                'srcset="' + large + ' 1400w,' + medium + ' 768w,' + small + ' 576w" ' \
+                'sizes="(max-width: 576px) 500px, (max-width: 768px) 650px, 1400px">\n'
         html += '</div><!--/col-sm-6-->\n'
         html += '<div class="col-sm-6">\n'
         if 'description' in recipe:
@@ -520,7 +520,7 @@ class RecipeManager(object):
 
         html = render_recipe_summary(recipe)
         html += '<div class="row">\n'
-        html += '<div class="col-sm-8">\n'
+        html += '<div class="col-sm-6">\n'
 
         html += '<i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;<strong>Ingredients</strong>\n'
         ingredients = recipe['ingredients']
@@ -533,6 +533,8 @@ class RecipeManager(object):
                 section = 'section' + str(count)
         else:
             html += render_ingredients(ingredients)
+        html += '</div><!--/col-sm-6-->\n'
+        html += '<div class="col-sm-6">\n'
         html += '<i class="fa fa-tasks fa-fw" aria-hidden="true"></i> <strong>Instructions</strong>\n'
         instructions = recipe.get('instructions')
         if 'section1' in instructions:
@@ -548,10 +550,7 @@ class RecipeManager(object):
             html += '<i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>&nbsp;<strong>Notes</strong>\n'
             html += '<p>' + recipe['notes'] + '</p>\n'
 
-        html += '</div><!--/col-sm-8-->\n'
-        html += '<div class="col-sm-4">\n'
-        html += self.build_navigation_list()
-        html += '</div><!--/col-sm-4-->\n'
+        html += '</div><!--/col-sm-6-->\n'
         html += '</div><!--/row-->\n'
         if 'similar' in recipe:
             html += '<hr />\n<h5>Some Related Recipes</h5>\n'
@@ -622,7 +621,7 @@ class RecipeManager(object):
         html = ''
         if len(matches) < 3:
             for item in matches:
-                html += '<br />\n<h3>' + item + '</h3>\n'
+                html += '<br />\n<h4 class="caption">' + item + '</h4>\n'
                 recipe = self.get_recipe(item)
                 html += render_recipe_summary(recipe, True)
         else:
@@ -647,14 +646,22 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = ['Korean Chili Chicken', 'Gingerbread Cake', 'Pumpkin Maple Granola', 'Mexican Pizza', 'Chili Mango Chicken', 'Corn Bread']
-        html = "<p>Search or navigate to the best of our family favorite recipes. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table. Simple recipes that are quick to make and great as leftovers so you can enjoy life outside the kitchen. Nutrition information is calculated from USDA database and specific package labels.</p>"
+        latest = ['Korean Broiled Salmon', 'Korean Chili Chicken', 'Gingerbread Cake', 'Pumpkin Maple Granola', 'Mexican Pizza', 'Chili Mango Chicken', 'Corn Bread']
+        html = '<div class="row">\n'
+        html += '<div class="col-sm-4">\n'
+        html += self.build_navigation_list()
+        html += '</div><!--/col-sm-4-->\n'
+        html += '<div class="col-sm-8">\n'
+        html += "<p>Navigate or search by category, title and ingredients. You won't find anything with bacon or cream, just healthy and delicious with a tendency towards the spicy side of life. Mild red chili powder can be substituted for the hot stuff or left out entirely in most cases and your favorite hot sauce added at the table. Recipes are consistant and easy to make. Nutrition information is calculated from USDA database and specific package labels.</p>\n"
+        html += '<h4 class="caption">USDA 2000 calorie diet recommendations</h4>\n'
         html += '<table>\n<tr><th></th><th>Calories</th><th>Fat (g)</th><th>Carbohydrate</th><th>Protein</th><th>Sodium (mg)</th><th>Fiber (g)</th></tr>\n'
         #html += '<tr><th>Female</th><td>1800</td><td>20-35</td><td>130</td><td>46</td><td>1300-2300</td><td>21</td></tr>\n'
         #html += '<tr><th>Male</th><td>2300</td><td>20-35</td><td>130</td><td>56</td><td>1300-2300</td><td>30</td></tr>\n'
         html += '<tr><th>%DV</th><td>2000</td><td>&lt; 65</td><td>300</td><td>50</td><td>&lt; 2300</td><td>&gt; 25</td></tr></table>\n'
+        html += '</div><!--/col-sm-8-->\n'
+        html += '</div><!--/row-->\n'
         for item in latest:
-            html += '<br />\n<h3>' + item + '</h3>\n'
+            html += '<br />\n<h4 class="caption">' + item + '</h4>\n'
             recipe = self.get_recipe(item)
             html += render_recipe_summary(recipe, True)
         return html

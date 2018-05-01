@@ -3,15 +3,15 @@
 {% block content %}
 
 <div class="container" itemscope itemtype="http://schema.org/Recipe">
+  {% if title %}
   <div class="page-header">
-    {% if title %}
-      <h3 itemprop="name">
-      {{ title | safe }}
-      </h3>
-    {% else %}
-      <h3>New Recipes</h3>
-    {% endif %}
+    <h4 itemprop="name">
+    {{ title | safe }}
+    </h4>
   </div>
+  {% else %}
+  <br />
+  {% endif %}
   {% if recipe %}
     {{ recipe | safe }}
   {% else %}

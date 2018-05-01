@@ -12,6 +12,11 @@ body {
   padding-bottom: 40px;
 }
 
+.caption h4 {
+  align: left;
+  padding-left: 15px;
+}
+
 
 #wrapper { box-shadow:0 0 8px rgba(0,0,0,0.25); }
 #wrapper.well { background:#fff; border-radius:0; }
@@ -22,6 +27,7 @@ body {
   width: 100%;
   padding: 3px 0;
   overflow: hidden;
+  border-radius: 3px;
 }
 
 .gal table {
@@ -29,9 +35,14 @@ body {
   cell-padding: 0px;
 }
 
-.gal td {
+.gal table tbody tr td {
   padding: 2px;
   border-bottom: none;
+}
+
+.gal table tbody tr td figure {
+  display: block;
+  border-radius: 4px;
 }
 
 figcaption {
@@ -54,7 +65,7 @@ figcaption {
 
 .recipe img {
   border-radius: 4px;
-  width: 400px;
+  width: 100%;
 }
 
 .carousel {
@@ -102,12 +113,12 @@ span.fa.fa-chevron-right {
   right: 5%;
 }
 
-.avatar img {
+.avatar {
   margin: 10 40 10 40; /* Centered */
   max-height: 200px;
   width: auto;
-  border: 4px solid #ddd; /* Add a grey border */
-  border-radius: 4px;
+  border: 2px solid #ddd; /* Add a grey border */
+  border-radius: 8px;
 }
 
 /* Navbar collapsed on mobile, except tablets in landscape */
@@ -592,14 +603,14 @@ button.accordion.active:after {
   transition: max-height 0.2s ease-out;
 }
 
-.modal-header, h4, .close {
-  background-color: #f9f9f9;
+.modal-header h4 {
+  color: #777777;
   text-align: center;
   font-size: 15 px;
 }
-.modal-title, h4, .close {
+.modal-title h4 {
   background-color: #f9f9f9;
-  text-align: center;
+  align: center;
   font-size: 15 px;
 }
 .modal-footer {
