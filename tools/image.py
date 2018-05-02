@@ -39,7 +39,7 @@ def orient_image(srcfile, orientation):
         # EXIF orientation is degrees clockwise, image.rotate is degrees counter clockwise
         if 'CW' in orientation and 'CCW' not in orientation:
             rotation = rotation * -1
-        print(rotation)
+        print('Orient {}'.format(rotation))
     # rotate image
     img = Image.open(srcfile)
     size = (img.size[0] / 2, img.size[1] / 2)
@@ -81,6 +81,7 @@ def parse_options():
     """
     parser = argparse.ArgumentParser(description='Image processing app')
     parser.add_argument('-f', '--file', action="store")
+    parser.add_argument('-r', '--rotate', action="store")
     parser.add_argument('command', action='store', help='info, process')
     return parser.parse_args()
 
@@ -89,16 +90,20 @@ def main():
     """
     options = parse_options()
     srcfile = options.file
+    orientation = options.rotate
+    if not srcfile:
+        print('No image file specified, use -f <image>')
     if srcfile.endswith('.jpg'):
-        exif_command = "exiftool -j '%s'" % srcfile
-        exif = json.loads(subprocess.check_output(shlex.split(exif_command), stderr=subprocess.PIPE))
-        orientation = 'None'
-        if 'Orientation' in exif[0]:
-            orientation = exif[0]['Orientation']
-        if 'ImageWidth' in exif[0]:
-            width = exif[0]['ImageWidth']
-        if 'ImageHeight' in exif[0]:
-            height = exif[0]['ImageHeight']
+        if not orientation:
+            exif_command = "exiftool -j '%s'" % srcfile
+            exif = json.loads(subprocess.check_output(shlex.split(exif_command), stderr=subprocess.PIPE))
+            orientation = 'None'
+            if 'Orientation' in exif[0]:
+                orientation = exif[0]['Orientation']
+            if 'ImageWidth' in exif[0]:
+                width = exif[0]['ImageWidth']
+            if 'ImageHeight' in exif[0]:
+                height = exif[0]['ImageHeight']
 
         if options.command == 'info':
             print('Width={} Height={} Orientation={}'.format(width, height, orientation))
