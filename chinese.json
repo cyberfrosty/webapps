@@ -1,0 +1,289 @@
+[
+{
+  "title": "Chestnut Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ChestnutChicken.jpg",
+  "date": "April 8, 2018",
+  "yield": "Serves 4",
+  "preptime": "20 minutes",
+  "cooktime": "40 minutes",
+  "category": ["Asian", "Carrots", "Chicken", "Chinese"],
+  "similar": ["Szechuan Chicken", "Orange Chicken", "Korean Meatballs"],
+  "description": "Stir fry chicken with chestnuts and carrots (\u677f\u6817\u70e7\u9e21).",
+  "nutrition": {"carbohydrate": 43, "protein": 37, "calories": 505, "fat": 19, "sodium": 526},
+  "rating": 4.9,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Veggies",
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+      "item2": {"quantity": "1/4 cup", "ingredient": "red onion, diced"},
+      "item3": {"quantity": "5", "ingredient": "carrots, organic (300g), cut into 1cm slices"},
+      "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
+      "item5": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
+      "item6": {"quantity": "3 tbsp", "ingredient": "ginger, grated or minced"},
+      "item7": {"quantity": "1 cup", "ingredient": "roasted chestnuts"}
+    },
+    "section3": {
+      "title":"Sauce",
+      "item1": {"quantity": "1 1/2 cup", "ingredient": "reduced sodium chicken stock"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "sugar"},
+      "item4": {"quantity": "3 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152)"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek, (optional or reduced amount)"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item7": {"quantity": "1/4 tsp", "ingredient": "five spice, or star anise"},
+      "item8": {"quantity": "1 tbsp", "ingredient": "corn starch, mixed with 3 tbsp water"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine soy sauce, wine, chili, sesame oil and sugar in a measuring cup and mix",
+    "step2": "Prepare veggies, and cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step3": "Heat 2 tbsp olive oil in wok, add onion and carrot, saute for 10 minutes or until onion and carrots start to brown",
+    "step4": "Add ginger, garlic and chestnuts, saute for a couple minutes",
+    "step5": "Add chicken stock, bring to a boil, reduce heat and simmer while cooking chicken",
+    "step6": "Add oil to large non-stick skillet and preheat over medium heat",
+    "step7": "Place chicken into skillet and turn up heat to medium-high",
+    "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step9": "Add sauce mixture to veggies and bring to low boil",
+    "step10": "Add chicken to mixture, stir to coat evenly, simmer uncovered for 5 minutes",
+    "step11": "Add corn starch and simmer until desired thickness",
+    "step12": "Serve over rice, garnish with cilantro"
+  }
+},
+{
+  "title": "Chili Mango Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ChiliMangoChicken.jpg",
+  "date": "April 16, 2018",
+  "yield": "Serves 4",
+  "preptime": "20 minutes",
+  "cooktime": "40 minutes",
+  "category": ["Asian", "Chinese", "Chicken"],
+  "similar": ["Korean Chili Chicken", "Orange Chicken", "Chestnut Chicken"],
+  "description": "Stir fry chicken with mango and bell pepper.",
+  "nutrition": {"carbohydrate": 18, "protein": 36, "calories": 414, "fat": 26, "sodium": 276},
+  "rating": 4.4,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Fruit and Veggies",
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+      "item2": {"quantity": "2 tbsp", "ingredient": "shallot, chopped"},
+      "item3": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
+      "item4": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced"},
+      "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
+      "item6": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item7": {"quantity": "1", "ingredient": "mango, peeled, pitted and chopped"}
+    },
+    "section3": {
+      "title":"Sauce",
+      "item1": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152)"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "lime juice"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "sesame oil"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine soy sauce, Sriracha, wine, and sesame oil in a measuring cup and mix",
+    "step2": "Prepare fruit and veggies",
+    "step3": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step4": "Add 2 tbsp oil to large non-stick skillet and preheat over medium heat",
+    "step5": "Heat 2 tbsp olive oil in wok, add shallots and peppers, saute for a few minutes",
+    "step6": "Add ginger and garlic, saute for a couple minutes",
+    "step7": "Place chicken into skillet and turn up heat to medium-high",
+    "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step9": "Add chicken and sauce mixture to wok, stir-fry for a couple minutes",
+    "step10": "Add Mango and stir-fry for 1 minute",
+    "step11": "Serve over rice, garnish with cilantro"
+  }
+},
+{
+  "title": "Orange Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/OrangeChicken.jpg",
+  "date": "September 24, 2016",
+  "yield": "Serves 4",
+  "preptime": "20 minutes",
+  "cooktime": "20 minutes",
+  "category": ["Asian", "Chicken", "Chinese"],
+  "similar": ["Szechuan Chicken", "Chestnut Chicken", "Korean Meatballs"],
+  "description": "Stir fry orange chicken loaded with veggies.",
+  "nutrition": {"carbohydrate": 28, "protein": 36, "calories": 428, "fat": 19, "sodium": 534},
+  "rating": 4.7,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Veggies",
+      "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+      "item2": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
+      "item3": {"quantity": "4 oz", "ingredient": "shitake mushrooms, sliced"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "shallot, chopped"},
+      "item5": {"quantity": "4", "ingredient": "green onions, chopped"},
+      "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item8": {"quantity": "8 oz", "ingredient": "water chestnuts, sliced"}
+    },
+    "section3": {
+      "title":"Orange sauce",
+      "item1": {"quantity": "1/2 cup", "ingredient": "orange juice"},
+      "item2": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tsp ", "ingredient": "green onion top, thinly sliced (optional)"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine orange sauce ingredients in measuring cup and mix",
+    "step2": "Prepare veggies and place into wok",
+    "step3": "Add oil to large non-stick skillet and preheat over medium heat",
+    "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step5": "Place chicken into skillet and turn up heat to medium-high",
+    "step6": "Turn heat to medium for veggies, stirring occasionally and kept covered",
+    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step8": "Add sauce mixture to veggies and bring to low boil",
+    "step9": "Add chicken to mixture, stir to coat evenly, turn off heat, leave covered for a few minutes",
+    "step10": "Serve over rice, garnish with sesame seeds and green onions"
+  }
+},
+{
+  "title": "Sesame Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SesameChicken.jpg",
+  "date": "March 30, 2016",
+  "yield": "Serves 4",
+  "preptime": "15 minutes",
+  "cooktime": "15 minutes",
+  "category": ["Asian", "Chicken", "Chinese"],
+  "similar": ["Szechuan Chicken", "Orange Chicken"],
+  "description": "Stir fry sesame chicken with mushrooms.",
+  "nutrition": {"carbohydrate": 16, "protein": 36, "calories": 354, "fat": 16, "sodium": 726},
+  "rating": 3.8,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Sauce",
+      "item1": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "black bean sauce"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "hoisin sauce"},
+      "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item9": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item10": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
+      "item11": {"quantity": "4 oz", "ingredient": "crimini mushrooms, sliced (optional)"}
+    },
+    "section3": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "green onions, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Add oils for sauce, shallots, and mushrooms to wok",
+    "step2": "Combine the remaining sauce ingredients in measuring cup and mix",
+    "step3": "Add oil to large non-stick skillet and preheat over medium heat",
+    "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step5": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
+    "step6": "Turn on wok to medium low, stirring occasionally and kept covered",
+    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step8": "Add sauce mixture to wok and bring to low boil",
+    "step9": "Add chicken to wok, stir to coat evenly, turn off heat, leave uncovered for a few minutes",
+    "step10": "Serve over rice, garnish with sesame seeds and green onions"
+  }
+},
+{
+  "title": "Szechuan Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SzechuanChicken.jpg",
+  "date": "January 7, 2018",
+  "yield": "Serves 4",
+  "preptime": "15 minutes",
+  "cooktime": "15 minutes",
+  "time": "45 minutes",
+  "category": ["Asian", "Chicken", "Chinese"],
+  "similar": ["Korean Chili Chicken", "Orange Chicken"],
+  "description": "Stir fry Szechuan style chicken loaded with veggies.",
+  "nutrition": {"carbohydrate": 17, "protein": 36, "calories": 380, "fat": 19, "sodium": 651},
+  "rating": 4.4,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Veggies",
+      "item1": {"quantity": "1", "ingredient": "red bell pepper, julienne or diced"},
+      "item2": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced, green bell pepper can also be used"},
+      "item3": {"quantity": "1/4 cup", "ingredient": "onion, finely chopped"},
+      "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section3": {
+      "title":"Sauce",
+      "item1": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek, or Sriracha"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tsp", "ingredient": "green onions"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine sauce ingredients in measuring cup and mix",
+    "step2": "Add 2 tbsp oil to a wok, then layer onion, peppers, garlic and ginger",
+    "step3": "Add 2 tbsp oil to large non-stick skillet and preheat over medium heat",
+    "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step5": "Place chicken into skillet and turn up heat to medium-high",
+    "step6": "Turn heat to medium for veggies, stirring occasionally and kept covered",
+    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step8": "Add sauce mixture to veggies and bring to low boil",
+    "step9": "Add chicken to wok and stir to coat evenly",
+    "step10": "Serve over rice, garnish with sesame seeds and green onions"
+  },
+  "notes": "To make this more traditionally, fry 2 tbsp Szechuan peppercorns and a handful of dried red chili's in the wok before adding the veggies."
+}
+]

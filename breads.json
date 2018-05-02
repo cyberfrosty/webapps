@@ -9,7 +9,7 @@
   "category": ["Breakfast"],
   "similar": ["Banana Muffins", "Strawberry Pancakes", "Oven Pancakes"],
   "description": "Low fat scones with apricots and whole wheat flour.",
-  "nutrition": {"carbohydrate": 26, "protein": 5, "calories": 172, "fat": 5, "sodium": 157},
+  "nutrition": {"carbohydrate": 27, "protein": 5, "calories": 172, "fat": 5, "sodium": 158},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "eggs"},

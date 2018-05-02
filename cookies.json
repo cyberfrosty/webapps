@@ -97,6 +97,72 @@
   }
 },
 {
+  "title": "Fudge Brownies",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/FudgeBrownies.jpg",
+  "date": "August 12, 2017",
+  "preptime": "15 minutes",
+  "cooktime": "30 minutes",
+  "yield": "Makes 16",
+  "category": ["Chocolate", "Dessert", "Bars"],
+  "similar": ["Chocolate Crunchies", "Blonde Brownies", "Pfeffernusse"],
+  "description": "Decedent fudge brownies with chocolate chips and not too much butter.",
+  "nutrition": {"carbohydrate": 24, "protein": 4, "calories": 200, "fat": 11, "sodium": 9},
+  "rating": 4.8,
+  "ingredients": {
+    "item1": {"quantity": "1/2 cup", "ingredient": "butter"},
+    "item2": {"quantity": "2 oz", "ingredient": "unsweetened baking chocolate"},
+    "item3": {"quantity": "1 cup", "ingredient": "sugar"},
+    "item4": {"quantity": "2", "ingredient": "eggs"},
+    "item5": {"quantity": "1 tsp", "ingredient": "vanilla"},
+    "item6": {"quantity": "1/3 cup", "ingredient": "chocolate chips"},
+    "item7": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"},
+    "item8": {"quantity": "3/4 cup", "ingredient": "white flour"}
+  },
+  "instructions": {
+    "step1": "Grease a 8x2x2 inch baking pan, preheat oven to 350 degrees",
+    "step2": "In medium bowl partially melt chocolate, add butter and finish melting, stir in sugar",
+    "step3": "Add eggs and vanilla, beat lightly until just blended (do not over mix)",
+    "step4": "Stir in flour, chocolate chips and nuts",
+    "step5": "Spread batter in pan, bake for 30 minutes",
+    "step6": "Cool, cut into bars"
+  }
+},
+{
+  "title": "Blonde Brownies",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/BlondeBrownies.jpg",
+  "date": "February 19, 2018",
+  "preptime": "15 minutes",
+  "cooktime": "25 minutes",
+  "yield": "Makes 32",
+  "category": ["Chocolate", "Dessert", "Bars"],
+  "similar": ["Fudge Brownies", "Pfeffernusse"],
+  "description": "Blonde brownies with chocolate chips and not too much butter.",
+  "nutrition": {"carbohydrate": 25, "protein": 2, "calories": 161, "fat": 6, "sodium": 57},
+  "rating": 4.8,
+  "ingredients": {
+    "item1": {"quantity": "2 cups", "ingredient": "white flour"},
+    "item2": {"quantity": "2 tsp", "ingredient": "baking powder"},
+    "item3": {"quantity": "1/4 tsp", "ingredient": "salt"},
+    "item4": {"quantity": "1/4 cup", "ingredient": "butter"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "canola oil"},
+    "item6": {"quantity": "2 cups", "ingredient": "brown sugar, packed"},
+    "item7": {"quantity": "2", "ingredient": "eggs"},
+    "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
+    "item9": {"quantity": "2/3 cup", "ingredient": "chocolate chips"},
+    "item10": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"}
+  },
+  "instructions": {
+    "step1": "Grease a 13x9x2 inch baking pan, preheat oven to 350 degrees",
+    "step2": "In medium bowl combine flour, baking powder and salt",
+    "step3": "Melt butter, stir in sugar, add eggs and vanilla, beat lightly until just blended (do not over mix)",
+    "step4": "Stir in flour, chocolate chips and nuts",
+    "step5": "Spread batter in pan, bake for 25 minutes",
+    "step6": "Cut into bars while still warm"
+  }
+},
+{
   "title": "Ginger Cookies",
   "chef": "Erika",
   "image": "https://snowyrangesolutions.com/static/img/GingerCookies.jpg",

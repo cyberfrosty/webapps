@@ -4,6 +4,7 @@
   "vault": "Vault",
   "aws_region": "us-west-2",
   "domain": "cyberfrosty.com",
+  "events": "/tmp/events.log",
   "hmac_secret": "server secret to derive hmac key",
   "user_id_hmac": "server secret to derive user id hmac key",
   "encryption_secret": "server secret to derive PII encryption key"

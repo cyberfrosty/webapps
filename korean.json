@@ -1,0 +1,178 @@
+[
+{
+  "title": "Korean Meatballs",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanMeatballs.jpg",
+  "date": "October 8, 2017",
+  "yield": "Serves 6",
+  "preptime": "10 minutes",
+  "cooktime": "25 minutes",
+  "time": "45 minutes",
+  "category": ["Asian", "Korean", "Turkey"],
+  "similar": ["Korean Chili Chicken", "Korean Tofu", "Orange Chicken"],
+  "description": "Sweet and spicy Korean style meatballs made with lean ground turkey.",
+  "nutrition": {"carbohydrate": 25, "protein": 25, "calories": 303, "fat": 12, "sodium": 313},
+  "rating": 4.7,
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+      "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
+      "item2": {"quantity": "2", "ingredient": "eggs"},
+      "item3": {"quantity": "4", "ingredient": "green onions"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
+      "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
+      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+      "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+      "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
+    },
+    "section2": {
+      "title":"Spicy Apricot Glaze",
+      "item1": {"quantity": "1/2 cup", "ingredient": "apricot jam"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"}
+    }
+  },
+  "instructions": {
+    "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
+    "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
+    "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss gently until coated",
+    "step4": "Garnish with chopped chives or thinly sliced green onion tops",
+    "step5": "Serve over noodles or rice"
+  }
+},
+{
+  "title": "Korean Chili Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanChiliChicken_hd.jpg",
+  "date": "April 25, 2018",
+  "yield": "Serves 4",
+  "preptime": "20 minutes",
+  "cooktime": "15 minutes",
+  "category": ["Asian", "Carrots", "Chicken"],
+  "similar": ["Chestnut Chicken", "Orange Chicken", "Korean Meatballs"],
+  "description": "Sweet and spicy Korean style chicken with carrots.",
+  "nutrition": {"carbohydrate": 34, "protein": 37, "calories": 413, "fat": 14, "sodium": 631},
+  "rating": 4.9,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Veggies",
+      "item1": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
+      "item2": {"quantity": "1/4 cup", "ingredient": "red onion, diced"},
+      "item3": {"quantity": "5", "ingredient": "carrots, organic (300g), cut into 1cm slices"},
+      "item4": {"quantity": "3", "ingredient": "green onions, chopped"},
+      "item5": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item6": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item7": {"quantity": "2 tsp", "ingredient": "chili powder, or Korean red powder (mild chili powder)"},
+      "item8": {"quantity": "1 tsp", "ingredient": "smoked paprika"}
+    },
+    "section3": {
+      "title":"Sauce",
+      "item1": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "lemon juice, or lime juice"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "honey"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
+      "item6": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "tomato paste"}
+    },
+    "section4": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "green onions, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Combine sauce ingredients in a measuring cup and mix",
+    "step2": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step3": "Add 1 tbsp coconut oil to a wok, then layer onion, carrots, green onion, garlic and ginger",
+    "step4": "Add 2 tbsp oil to a large non-stick skillet and preheat over medium heat",
+    "step5": "Turn on wok to medium, let onion and carrots cook for 7-8 minutes stirring occasionally and kept covered",
+    "step6": "Place chicken into skillet and turn up heat to medium-high",
+    "step7": "Add sauce mixture and chili powders, bring to a boil, reduce heat and simmer while cooking chicken",
+    "step8": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step9": "Add chicken to mixture, stir to coat evenly, and cook for 2 minutes",
+    "step10": "Serve over rice, garnish with sesame seeds and green onion tops"
+  }
+},
+{
+  "title": "Korean Tofu",
+  "chef": "\ubbfc\uc120",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanTofu.jpg",
+  "date": "February 25, 2018",
+  "yield": "Serves 4",
+  "preptime": "10 minutes",
+  "cooktime": "10 minutes",
+  "time": "20 minutes",
+  "category": ["Asian", "Korean", "Vegetarian"],
+  "similar": ["Korean Meatballs", "Spicy Green Beans", "Roasted Cauliflower"],
+  "description": "Sweet and spicy Korean tofu",
+  "nutrition": {"carbohydrate": 27, "protein": 11, "calories": 310, "fat": 20, "sodium": 259},
+  "rating": 4.1,
+  "ingredients": {
+    "item1": {"quantity": "1 lbs", "ingredient": "tofu"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "potato starch (or flour)"},
+    "item3": {"quantity": "4 tbsp", "ingredient": "olive oil"},
+    "item4": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
+    "item5": {"quantity": "1/4 cup", "ingredient": "onion"},
+    "item6": {"quantity": "3 tbsp", "ingredient": "ketchup"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "honey"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
+    "item9": {"quantity": "3 tbsp", "ingredient": "water"},
+    "item10": {"quantity": "3", "ingredient": "green onions"}
+  },
+  "instructions": {
+    "step1": "Cut tofu into chunks, and drain on a paper towel",
+    "step2": "Place starch into a plastic bag, add tofu and shake to coat",
+    "step3": "Add 3 tbsp oil to medium non-stick skillet and preheat over medium heat",
+    "step4": "Place tofu into skillet and turn up heat to medium-high",
+    "step5": "Meanwhile in another pan, saute onion and garlic until starting to brown",
+    "step6": "Add the ketchup, honey, Gochujang and water, bring to a boil",
+    "step7": "Mix to coat tofu with sauce, serve over rice and garnish with thinly sliced green onion tops"
+  }
+},
+{
+  "title": "Korean Broiled Salmon",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanBroiledSalmon_hd.jpg",
+  "date": "April 29, 2018",
+  "yield": "Serves 4",
+  "preptime": "15 minutes",
+  "cooktime": "5 minutes",
+  "time": " 1 hour 30 minutes",
+  "category": ["Asian", "Fish", "Korean", "Seafood"],
+  "similar": ["Grilled Salmon", "Thai Soyaki Salmon", "Korean Chili Chicken"],
+  "description": "Tender salmon fillets broiled to perfection in a spicy Korean inspired marinade.",
+  "nutrition": {"carbohydrate": 10, "protein": 36, "calories": 411, "fat": 24, "sodium": 597},
+  "rating": 4.7,
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 lbs", "ingredient": "salmon fillet"},
+    "item2": {"quantity": "3", "ingredient": "green onions, chopped"},
+    "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "honey"},
+    "item6": {"quantity": "1 tbsp", "ingredient": "lemon juice"},
+    "item7": {"quantity": "1 tsp", "ingredient": "sesame oil"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
+    "item9": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
+    "item10": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"}
+  },
+  "instructions": {
+    "step1": "Combine marinade ingredients in a bowl or large zip-lock bag",
+    "step2": "Cut salmon into strips, add to marinade and massage until thoroughly coated",
+    "step3": "Marinate for at least an hour",
+    "step4": "Make a foil boat using 2 layers with edges turned up enough to keep marinade and juices contained",
+    "step5": "Heat grill with broiler on high, and cook for 3-5 minutes until salmon flakes (130 degrees)",
+    "step6": "An oven using broiler setting for 3-5 minutes works well too",
+    "step7": "Let rest for a few minutes before serving over rice with green onion or sesame seed garnish"
+  },
+  "notes": "This cooks fast so try roasted garlic or microwaving garlic cloves for a minute if it's too raw."
+}
+]
