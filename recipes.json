@@ -510,7 +510,7 @@
   "yield": "Serves 4",
   "description": "Your basic guacamole as you like.",
   "category": ["Latin", "Mexican", "Appetizer", "Avocado"],
-  "similar": ["Hummus", "Meat Crumbles"],
+  "similar": ["Hummus", "Mexican Turkey Crumbles"],
   "nutrition": {"carbohydrate": 6, "protein": 1, "calories": 88, "fat": 7, "sodium": 190},
   "rating": 4.4,
   "ingredients": {
@@ -529,9 +529,9 @@
   }
 },
 {
-  "title": "Meat Crumbles",
+  "title": "Mexican Turkey Crumbles",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/MeatCrumbles.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/MexicanTurkeyCrumbles.jpg",
   "date": "May 14, 2017",
   "preptime": "5 minutes",
   "cooktime": "15 minutes",
@@ -574,7 +574,7 @@
   "preptime": "15 minutes",
   "cooktime": "1 hour 15 minutes",
   "category": ["Latin", "Turkey", "Tomatoes"],
-  "similar": ["Meat Crumbles", "Mongolian Meatballs", "Korean Chili Chicken"],
+  "similar": ["Mexican Turkey Crumbles", "Mongolian Meatballs", "Korean Chili Chicken"],
   "description": "Cuban style picadillo made with lean ground turkey, almonds, olives, raisins and green pepper.",
   "nutrition": {"carbohydrate": 22, "protein": 26, "calories": 357, "fat": 18, "sodium": 467},
   "rating": 4.8,
@@ -611,7 +611,7 @@
 {
   "title": "Green Chili",
   "chef": "Susan",
-  "image": "https://snowyrangesolutions.com/static/img/MeatCrumbles.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/MexicanTurkeyCrumbles.jpg",
   "date": "August 12, 2017",
   "preptime": "10 minutes",
   "cooktime": "30 minutes",
@@ -817,11 +817,40 @@
     "item4": {"quantity": "1/4 tsp", "ingredient": "black pepper, (optional)"}
   },
   "instructions": {
-    "step1": "Wash and trim ends of zucchini and slice lengthwise",
+    "step1": "Trim ends of zucchini and slice lengthwise",
     "step2": "Preheat grill on medium heat",
     "step3": "Spread oil on a serving plate, sprinkle zucchini with garlic salt and pepper, place cut side down in oil and move around to coat",
     "step4": "Place zucchini on grill in a pattern",
     "step5": "Cook for 3-5 minutes, then check and shift the pattern and cook for another few minutes until done"
+  }
+},
+{
+  "title": "Japanese Broiled Eggplant",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/JapaneseBroiledEggplant_hd.jpg",
+  "date": "May 4, 2018",
+  "preptime": "10 minutes",
+  "cooktime": "10 minutes",
+  "yield": "Serves 6",
+  "category": ["Asian", "Japanese"],
+  "similar": ["Poke Bowl", "Durban Chicken Curry", "Korean Tofu"],
+  "description": "Miso glazed eggplant that is lowfat and easy to broil or grill.",
+  "nutrition": {"carbohydrate": 17, "protein": 4, "calories": 138, "fat": 6, "sodium": 427},
+  "rating": 4.8,
+  "ingredients": {
+    "item1": {"quantity": "2", "ingredient": "eggplant, medium size"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "Miso (\u307f\u305d)"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "Sake (\u9152), Mirin (\u5473\u9182), or white wine"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "brown sugar"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "sesame seeds"}
+  },
+  "instructions": {
+    "step1": "Whisk Miso, Mirin, Sake and brown sugar together until smooth in a small bowl",
+    "step2": "Cut eggplant lengthwise and score with crosshatches, spread olive oil on a plate and coat cut sides",
+    "step3": "If using a grill with broiler, heat grill on medium high, and cook for 3-4 minutes on cut side. Rotate and turn on broiler, cook for 3-4 minutes, then flip to skin side down, spread Miso mixture evenly on cut side and cook for 3-4 minutes until bubbling and browning",
+    "step4": "When using an oven, cook in a large pan with a little extra oil skin side down for 3-4 minutes, turn over and cook for 3-4 minutes, then place on a cookie sheet covered in foil, spread Miso mixture evenly on cut side and broil for 3-4 minutes until bubbling and browning"
   }
 },
 {
@@ -835,19 +864,20 @@
   "category": ["Dinner", "Turkey"],
   "similar": ["Diced Potatoes", "Grilled Zucchini", "Anadama Bread"],
   "description": "Seasoned burgers made with lean ground turkey.",
-  "nutrition": {"carbohydrate": 0, "protein": 22, "calories": 160, "fat": 8, "sodium": 80},
+  "nutrition": {"carbohydrate": 44, "protein": 29, "calories": 394, "fat": 11, "sodium": 853},
   "rating": 4.5,
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
-    "item2": {"quantity": "1 tsp", "ingredient": "garlic salt"},
-    "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
+    "item2": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
+    "item3": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
     "item4": {"quantity": "2 tsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
     "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper, (optional)"},
     "item6": {"quantity": "2 tsp", "ingredient": "Sambal Oelek, (optional)"},
-    "item7": {"quantity": "1/3 cup", "ingredient": "seasoned bread crumbs"}
+    "item7": {"quantity": "1/4 cup", "ingredient": "seasoned bread crumbs"},
+    "item8": {"quantity": "4", "ingredient": "whole wheat buns"}
   },
   "instructions": {
-    "step1": "In a medium bowl, mix all ingredients until evenly distributed using a fork or hands",
+    "step1": "In a medium bowl, mix all burger ingredients until evenly distributed using a fork or hands",
     "step2": "Preheat grill on medium heat",
     "step3": "Form into patties, spray grill lightly with non-stick and place burgers on the grill",
     "step4": "Cook for about 5 minutes per side until browned and done"
@@ -864,7 +894,7 @@
   "category": ["Breakfast", "Turkey"],
   "similar": ["Strawberry Pancakes", "Buttermilk Waffles", "Diced Potatoes"],
   "description": "Breakfast sausage patties made with lean ground turkey.",
-  "nutrition": {"carbohydrate": 4, "protein": 8, "calories": 93, "fat": 5, "sodium": 257},
+  "nutrition": {"carbohydrate": 3, "protein": 8, "calories": 87, "fat": 5, "sodium": 232},
   "rating": 4.5,
   "ingredients": {
     "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
@@ -875,7 +905,7 @@
     "item6": {"quantity": "1/4 tsp", "ingredient": "black pepper, (optional)"},
     "item7": {"quantity": "1 tsp", "ingredient": "Sambal Oelek, (optional)"},
     "item8": {"quantity": "1 tsp", "ingredient": "oregano, fennel seeds, or marjoram (optional)"},
-    "item9": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
+    "item9": {"quantity": "1/3 cup", "ingredient": "seasoned bread crumbs"}
   },
   "instructions": {
     "step1": "Using mortar and pestle grind dried herbs and seeds",
@@ -1039,7 +1069,7 @@
   "totaltime": "3 hours",
   "yield": "Serves 4",
   "category": ["Latin", "Turkey", "Tomatoes"],
-  "similar": ["Meat Crumbles", "Guacamole", "Pizza"],
+  "similar": ["Mexican Turkey Crumbles", "Guacamole", "Pizza"],
   "description": "Baked or grilled pizza with whole wheat crust and your favorite Mexican toppings.",
   "nutrition": {"carbohydrate": 73, "protein": 14, "calories": 425, "fat": 10, "sodium": 96},
   "rating": 4.3,
@@ -1440,7 +1470,7 @@
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
   "category": ["Latin", "Turkey"],
-  "similar": ["Meat Crumbles", "Thai Meatballs", "Cilantro Chile Lime Shrimp"],
+  "similar": ["Mexican Turkey Crumbles", "Thai Meatballs", "Cilantro Chile Lime Shrimp"],
   "description": "Spicy buffalo style meatballs made with lean ground turkey make a great appetizer or main course.",
   "nutrition": {"carbohydrate": 14, "protein": 26, "calories": 246, "fat": 10, "sodium": 892},
   "rating": 3.6,

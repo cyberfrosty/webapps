@@ -103,6 +103,41 @@
   }
 },
 {
+  "title": "Korean Turkey Crumbles",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanTurkeyCrumbles_hd.jpg",
+  "date": "May 4, 2018",
+  "yield": "Serves 6",
+  "preptime": "10 minutes",
+  "cooktime": "30 minutes",
+  "category": ["Asian", "Korean"],
+  "similar": ["Korean Meatballs", "Korean Chili Chicken", "Japanese Broiled Eggplant"],
+  "description": "Korean style ground turkey for rice bowls or Kimchi burritos.",
+  "nutrition": {"carbohydrate": 14, "protein": 24, "calories": 260, "fat": 13, "sodium": 420},
+  "rating": 4.6,
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1/4 cup", "ingredient": "red onion"},
+    "item4": {"quantity": "3", "ingredient": "green onions"},
+    "item5": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+    "item7": {"quantity": "1/4 cup", "ingredient": "tomato paste"},
+    "item8": {"quantity": "3 tbsp", "ingredient": "brown sugar"},
+    "item9": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
+    "item10": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
+    "item11": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
+    "item12": {"quantity": "1 tbsp", "ingredient": "sesame oil"}
+  },
+  "instructions": {
+    "step1": "In a large skillet, saute onion in olive oil over low heat until translucent",
+    "step2": "Add meat to pan and cook until browned, flipping and chopping to make crumbles",
+    "step3": "Add the rest of the ingredients and mix thoroughly",
+    "step4": "Simmer covered for 20-30 minutes, removing lid towards the end if there is extra moisture",
+    "step5": "Serve over rice and garnish with thinly sliced green onion tops"
+  }
+},
+{
   "title": "Korean Tofu",
   "chef": "\ubbfc\uc120",
   "image": "https://snowyrangesolutions.com/static/img/KoreanTofu.jpg",

@@ -50,6 +50,7 @@ almond extract,               1 tsp,     0,    0,   0,   0,    0,
 Ghiradelli dark chocolate melting wafers, 1 oz, 152,10,16,1,  21,
 
 whole wheat bread slices,         1,   101,  1.5,  19,   3,  152, Anadama bread
+whole wheat buns,                 1,   202,    3,  38,   6,  304, Anadama bread (65g)
 french bread slices,              1,    77,    1,  15,   2,   98, Crusty Italian bread
 chocolate chip cookie,            1,   100,   21,  12,   1,   41, Andes
 
@@ -153,6 +154,7 @@ lettuce,                      1 cup,     5,  0.1, 0.6, 0.4,    7, 1 cup (28g)
 spinach,                      1 cup,     7,    0, 1.1, 0.9,   24, 1 cup (30g)
 cucumber,                     1 cup,     8,  0.1, 1.9, 0.3,    1, 1 cup sliced (100g)
 tomato,                       1 cup,    32,  0.4,   7, 1.6,    9, 1 cup chopped or sliced (180g)
+eggplant,                         1,   136,    1,  32,   5,   11, 1 medium (548g)
 zucchini,                         1,    33,  0.6,   6, 2.4,   16, 1 medium (196g)
 
 fresh basil,                 2 tbsp,     1,    0, 0.1, 0.2,    0, chopped
@@ -212,7 +214,9 @@ teriyaki sauce,              1 tbsp,    16,    0, 2.8, 1.1,  690,
 Soyaki,                      1 tbsp,    40,    2,   5,   1,  490, Trader Joes
 soy sauce,                   1 tbsp,     5,    0,   0,   1,  490,
 Mirin,                       1 tbsp,    36,    0, 6.1,   1,    0,
+Sake,                        1 tbsp,    39,    0, 1.5, 0.1,    1,
 Gochujang,                   1 tbsp,    45,    0,  10,   1,  510,
+Miso,                        1 tbsp,    34,    1, 4.3, 2.2,  634,
 Wasabi,                       1 tsp,    15,    1,   3,   0,  115,
 Furikake,                    1 tbsp,    30,  0.5,   5,   0,  140,
 seasoned rice vinegar,       1 tbsp,    25,    0,   6,   1,  530,
