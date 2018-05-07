@@ -646,7 +646,7 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = ['Korean Turkey Crumbles', 'Japanese Broiled Eggplant', 'Korean Broiled Salmon', 'Korean Chili Chicken', 'Gingerbread Cake', 'Pumpkin Maple Granola']
+        latest = ['Durban Chicken Curry', 'Savory Green Beans', 'Korean Turkey Crumbles', 'Japanese Broiled Eggplant', 'Korean Broiled Salmon', 'Korean Chili Chicken']
         html = '<div class="row">\n'
         html += '<div class="col-sm-4">\n'
         html += self.build_navigation_list()

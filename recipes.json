@@ -383,15 +383,15 @@
 {
   "title": "Savory Green Beans",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/SesameGreenBeans.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/SavoryGreenBeans_hd.jpg",
   "date": "May 4, 2018",
-  "preptime": "5 minutes",
-  "cooktime": "10 minutes",
+  "preptime": "10 minutes",
+  "cooktime": "15 minutes",
   "yield": "Serves 4",
   "category": ["Vegetables", "Prunes"],
   "similar": ["Spicy Green Beans", "Sesame Green Beans", "Sauteed Spinach"],
-  "description": "Sweet and savory green beans with dried plums.",
-  "nutrition": {"carbohydrate": 22, "protein": 2, "calories": 117, "fat": 4, "sodium": 263},
+  "description": "Savory green beans with dried plums.",
+  "nutrition": {"carbohydrate": 22, "protein": 2, "calories": 126, "fat": 4, "sodium": 102},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "4 cups", "ingredient": "green beans, about 1 lb"},
@@ -399,12 +399,11 @@
     "item3": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
     "item4": {"quantity": "1 tbsp", "ingredient": "shallot, thinly sliced"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "marjoram"},
-    "item6": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
-    "item7": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
-    "item8": {"quantity": "1/2 cup", "ingredient": "dried plums, diced"},
-    "item9": {"quantity": "1/4 cup", "ingredient": "dry sherry, dry white wine, or Shaoxing wine (\u7d39\u8208\u9152)"},
-    "item10": {"quantity": "1/4 cup", "ingredient": "pine nuts, (optional)"},
-    "item11": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, (optional)"}
+    "item6": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "dried plums, diced"},
+    "item8": {"quantity": "1/4 cup", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152), dry sherry, or dry white wine"},
+    "item9": {"quantity": "1/4 cup", "ingredient": "pine nuts, (optional)"},
+    "item10": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
     "step1": "Wash, trim ends and cut beans into 3-4 cm pieces, steam until tender",
@@ -419,7 +418,7 @@
   "image": "https://snowyrangesolutions.com/static/img/SesameGreenBeans.jpg",
   "date": "August 12, 2017",
   "preptime": "5 minutes",
-  "cooktime": "10 minutes",
+  "cooktime": "15 minutes",
   "yield": "Serves 4",
   "category": ["Asian", "Chinese", "Vegetables"],
   "similar": ["Spicy Green Beans", "Ginger Carrots", "Sauteed Spinach"],
@@ -448,7 +447,7 @@
   "image": "https://snowyrangesolutions.com/static/img/SpicyGreenBeans.jpg",
   "date": "June 7, 2017",
   "preptime": "10 minutes",
-  "cooktime": "10 minutes",
+  "cooktime": "15 minutes",
   "yield": "Serves 4",
   "category": ["Asian", "Vegetables"],
   "similar": ["Sesame Green Beans", "Spicy Cilantro Carrots", "Ginger Carrots"],
@@ -1615,16 +1614,16 @@
 {
   "title": "Durban Chicken Curry",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/SalmonCurry.jpg",
-  "date": "April 4, 2018",
+  "image": "https://snowyrangesolutions.com/static/img/DurbanChickenCurry_hd.jpg",
+  "date": "May 6, 2018",
   "yield": "Serves 4",
-  "preptime": "10 minutes",
-  "cooktime": "10 minutes",
+  "preptime": "15 minutes",
+  "cooktime": "1 hour 15 minutes",
   "time": "30 minutes",
   "category": ["African", "Chicken", "Tomatoes"],
   "similar": ["Kadai Chicken", "Durban Fish Curry", "Moroccan Meatballs"],
   "description": "Tender chunks of chicken in a South African style curry sauce.",
-  "nutrition": {"carbohydrate": 46, "protein": 39, "calories": 559, "fat": 21, "sodium": 1016},
+  "nutrition": {"carbohydrate": 46, "protein": 39, "calories": 560, "fat": 21, "sodium": 1016},
   "rating": 4.7,
   "ingredients": {
     "section1": {
@@ -1638,23 +1637,22 @@
       "item1": {"quantity": "3 tbsp", "ingredient": "olive oil"},
       "item2": {"quantity": "1 cup", "ingredient": "onion, diced"},
       "item3": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item4": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
-      "item5": {"quantity": "1/2 cup", "ingredient": "reduced sodium chicken stock"},
-      "item6": {"quantity": "1/4 cup", "ingredient": "apple cider vinegar"},
-      "item7": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"},
-      "item8": {"quantity": "2 tbsp", "ingredient": "curry powder"},
-      "item9": {"quantity": "1 tsp", "ingredient": "turmeric, or 1 tbsp fresh grated"},
-      "item10": {"quantity": "1 tsp", "ingredient": "cinnamon"},
-      "item11": {"quantity": "1 tsp", "ingredient": "cumin"},
-      "item12": {"quantity": "1 tsp", "ingredient": "ginger"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "ginger, grated or minced"},
+      "item5": {"quantity": "1 large can", "ingredient": "crushed tomatoes"},
+      "item6": {"quantity": "1/2 cup", "ingredient": "reduced sodium chicken stock"},
+      "item7": {"quantity": "1/4 cup", "ingredient": "apple cider vinegar"},
+      "item8": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"},
+      "item9": {"quantity": "2 tbsp", "ingredient": "curry powder"},
+      "item10": {"quantity": "1 tsp", "ingredient": "turmeric, or 1 tbsp fresh grated"},
+      "item11": {"quantity": "1 tsp", "ingredient": "cinnamon"},
+      "item12": {"quantity": "1 tsp", "ingredient": "cumin"},
       "item13": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
       "item14": {"quantity": "4", "ingredient": "bay leaves"},
       "item15": {"quantity": "1/4 cup", "ingredient": "apricot jam"}
     },
     "section3": {
       "title":"Garnish",
-      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"},
-      "item2": {"quantity": "1 tsp ", "ingredient": "green onion top, thinly sliced (optional)"}
+      "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"}
     }
   },
   "instructions": {
@@ -1666,7 +1664,7 @@
     "step6": "Place chicken into skillet and turn up heat to medium-high",
     "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
     "step8": "Add chicken to sauce and simmer covered for an hour or so, stirring as needed",
-    "step9": "Serve over rice, garnish with cilantro and green onions"
+    "step9": "Serve over penne pasta, couscous or rice, and garnish with cilantro"
   }
 },
 {
@@ -1675,8 +1673,8 @@
   "image": "https://snowyrangesolutions.com/static/img/DurbanFishCurry.jpg",
   "date": "April 4, 2018",
   "yield": "Serves 4",
-  "preptime": "10 minutes",
-  "cooktime": "10 minutes",
+  "preptime": "15 minutes",
+  "cooktime": "25 minutes",
   "time": "30 minutes",
   "category": ["African", "Seafood", "Tomatoes"],
   "similar": ["Salmon Curry", "Durban Chicken Curry", "Moroccan Meatballs"],

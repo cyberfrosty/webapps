@@ -286,7 +286,7 @@
     "item3": {"quantity": "1 tsp", "ingredient": "salt"},
     "item4": {"quantity": "3 tbsp", "ingredient": "corn syrup"},
     "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
-    "item6": {"quantity": "2 1/2 cups", "ingredient": "flour"},
+    "item6": {"quantity": "2 1/2 cups", "ingredient": "white flour"},
     "item7": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
     "item8": {"quantity": "1 cup", "ingredient": "rye flour"},
     "item9": {"quantity": "1 tbsp", "ingredient": "cumin"},
@@ -323,7 +323,7 @@
         "item3": {"quantity": "3/4 tsp", "ingredient": "salt"},
         "item4": {"quantity": "2 tbsp", "ingredient": "brown sugar, packed"},
         "item5": {"quantity": "1 tbsp", "ingredient": "butter, at room temperature"},
-        "item6": {"quantity": "3 1/2 cups", "ingredient": "flour"},
+        "item6": {"quantity": "3 1/2 cups", "ingredient": "white flour"},
         "item7": {"quantity": "3/4 tsp", "ingredient": "yeast, bread machine or instant"}
     },
     "section2": {
@@ -374,7 +374,7 @@
     "item3": {"quantity": "1 tsp", "ingredient": "salt"},
     "item4": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
     "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
-    "item6": {"quantity": "2 1/4 cups", "ingredient": "flour"},
+    "item6": {"quantity": "2 1/4 cups", "ingredient": "white flour"},
     "item7": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
     "item8": {"quantity": "3/4 cup", "ingredient": "rye flour"},
     "item9": {"quantity": "1/4 cup", "ingredient": "flaxseed, cracked"},
@@ -576,7 +576,7 @@
   "category": ["Bread", "Yeast"],
   "similar": ["Anadama Bread", "Cumin Rye Bread"],
   "description": "Enjoy this savory bread with sandwiches, makes a 12 inch loaf.",
-  "nutrition": {"carbohydrate": 16, "protein": 2, "calories": 85, "fat": 1, "sodium": 80},
+  "nutrition": {"carbohydrate": 15, "protein": 2, "calories": 82, "fat": 2, "sodium": 80},
   "rating": 4.3,
   "ingredients": {
     "item1": {"quantity": "1 1/3 cups", "ingredient": "Pace Picante"},
@@ -584,8 +584,8 @@
     "item3": {"quantity": "3/4 tsp", "ingredient": "salt"},
     "item4": {"quantity": "1 tbsp", "ingredient": "sugar"},
     "item5": {"quantity": "2 tbsp", "ingredient": "canola oil"},
-    "item6": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
-    "item7": {"quantity": "2 1/2 cups", "ingredient": "white flour"},
+    "item6": {"quantity": "2 1/2 cups", "ingredient": "whole wheat flour"},
+    "item7": {"quantity": "1 cup", "ingredient": "white flour"},
     "item8": {"quantity": "1/4 cup", "ingredient": "cornmeal"},
     "item9": {"quantity": "2 tbsp", "ingredient": "pepitas"},
     "item10": {"quantity": "1 tsp", "ingredient": "yeast, bread machine or instant (1 1/4 at low altitude)"}
