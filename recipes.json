@@ -1616,19 +1616,19 @@
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/DurbanChickenCurry_hd.jpg",
   "date": "May 6, 2018",
-  "yield": "Serves 4",
+  "yield": "Serves 6",
   "preptime": "15 minutes",
   "cooktime": "1 hour 15 minutes",
   "time": "30 minutes",
   "category": ["African", "Chicken", "Tomatoes"],
   "similar": ["Kadai Chicken", "Durban Fish Curry", "Moroccan Meatballs"],
   "description": "Tender chunks of chicken in a South African style curry sauce.",
-  "nutrition": {"carbohydrate": 46, "protein": 39, "calories": 560, "fat": 21, "sodium": 1016},
+  "nutrition": {"carbohydrate": 31, "protein": 30, "calories": 393, "fat": 14, "sodium": 685},
   "rating": 4.7,
   "ingredients": {
     "section1": {
       "title": "Chicken",
-      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item1": {"quantity": "1 1/2 lbs", "ingredient": "chicken breasts, (organic)"},
       "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
       "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
     },
