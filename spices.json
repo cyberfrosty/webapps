@@ -1,0 +1,90 @@
+[{
+  "title": "Japanese Curry Powder",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/JapaneseCurryPowder.jpg",
+  "date": "January 18, 2018",
+  "yield": "Makes 4",
+  "preptime": "10 minutes",
+  "cooktime": "20 minutes",
+  "category": ["Spice"],
+  "similar": ["Sausage Seasoning", "Ras el Hanout", "Oven Pancakes"],
+  "description": "Japanese curry powder spice bland.",
+  "nutrition": {"carbohydrate": 27, "protein": 5, "calories": 172, "fat": 5, "sodium": 158},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 1/2 tbsp", "ingredient": "turmeric"},
+    "item2": {"quantity": "2 tsp", "ingredient": "coriander"},
+    "item3": {"quantity": "1 1/2 tsp", "ingredient": "cumin"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "cardamom"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "cloves"},
+    "item6": {"quantity": "1 tsp", "ingredient": "cayenne"},
+    "item7": {"quantity": "1/8 tsp", "ingredient": "black pepper"},
+    "item8": {"quantity": "1 1/2 tsp", "ingredient": "fenugreek"},
+    "item8": {"quantity": "1/2 tsp", "ingredient": "cinnamon (optional)"}
+  },
+  "instructions": {
+    "step1": "Mix all spices togther and store in airtight container"
+  }
+},
+{
+  "title": "Ras el Hanout",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/JapaneseCurryPowder.jpg",
+  "date": "January 18, 2018",
+  "yield": "Makes 4",
+  "preptime": "10 minutes",
+  "cooktime": "20 minutes",
+  "category": ["Spice"],
+  "similar": ["Sausage Seasoning", "Moroccan Meatballs", "Red Lamb"],
+  "description": "Moroccan spice bland.",
+  "nutrition": {"carbohydrate": 27, "protein": 5, "calories": 172, "fat": 5, "sodium": 158},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 tbsp", "ingredient": "smoked paprika"},
+    "item2": {"quantity": "2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
+    "item4": {"quantity": "2 tsp", "ingredient": "cumin"},
+    "item5": {"quantity": "2 tsp", "ingredient": "cinnamon"},
+    "item6": {"quantity": "2 tsp", "ingredient": "ginger"},
+    "item7": {"quantity": "2 tsp", "ingredient": "turmeric"},
+    "item8": {"quantity": "1 tsp", "ingredient": "cardamom"},
+    "item9": {"quantity": "1 tsp", "ingredient": "coriander"},
+    "item10": {"quantity": "1 tsp", "ingredient": "cloves"},
+    "item11": {"quantity": "1 tsp", "ingredient": "nutmeg"},
+    "item12": {"quantity": "1 tsp", "ingredient": "allspice"}
+  },
+  "instructions": {
+    "step1": "Mix all spices togther and store in airtight container"
+  },
+  "notes": "Toasting cardamom pods, coriander, cumin and anise seeds, allspice berries and peppercorns in a small skillet then processing all spices together is the traditional method." 
+},
+{
+  "title": "Sausage Seasoning",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/SausageSeasoning.jpg",
+  "date": "January 18, 2018",
+  "yield": "Makes 4",
+  "preptime": "10 minutes",
+  "cooktime": "20 minutes",
+  "category": ["Spice"],
+  "similar": ["Turkey Sausage", "Ras el Hanout", "Oven Pancakes"],
+  "description": "Moroccan spice bland.",
+  "nutrition": {"carbohydrate": 27, "protein": 5, "calories": 172, "fat": 5, "sodium": 158},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 tbsp", "ingredient": "smoked paprika"},
+    "item2": {"quantity": "1 tsp", "ingredient": "chipotle, or cayenne pepper"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "garlic salt"},
+    "item4": {"quantity": "1 tsp", "ingredient": "black pepper"},
+    "item5": {"quantity": "2 tsp", "ingredient": "sage"},
+    "item6": {"quantity": "2 tsp", "ingredient": "thyme"},
+    "item7": {"quantity": "1 tsp", "ingredient": "marjoram"},
+    "item8": {"quantity": "1/2 tsp", "ingredient": "cloves (optional)"},
+    "item9": {"quantity": "1 tsp", "ingredient": "ginger (optional)"}
+  },
+  "instructions": {
+    "step1": "Mix all spices togther and store in airtight container"
+  },
+  "notes": "Toasting cardamom pods, coriander, cumin and anise seeds, allspice berries and peppercorns in a small skillet then processing all spices together is the traditional method." 
+}
+]

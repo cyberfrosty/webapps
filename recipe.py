@@ -400,6 +400,8 @@ class RecipeManager(object):
                 quantity += 0.333
             elif measure[0] == '1/4':
                 quantity += 0.25
+            elif measure[0] == '1/8':
+                quantity += 0.125
             elif len(measure) > 1 and (measure[1] == 'can' or measure[1] == 'jar'):
                 if measure[0] == 'small':
                     quantity *= 0.75  # 6oz can
