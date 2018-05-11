@@ -623,7 +623,10 @@ def message_email():
         if recipe is not None and 'error' not in recipe:
             image = recipe.get('image')
             if image:
-                image = image.replace(".jpg", "_small.jpg")
+                if image.endswith('_hd'):
+                    image = image.replace('_hd', '_small')
+                else:
+                    image = image.replace(".jpg", "_small.jpg")
             link = url_for('recipes', recipe=title.replace(' ', '%20'), _external=True)
             user = account.get('user') or email
             inviter = "Frosty" #current_user.get_user()
@@ -632,6 +635,21 @@ def message_email():
                        user=user, intro=intro, link=link, image=image, signature='Enjoy<br />,{}'.format(inviter))
             return jsonify({'message.email': email, 'status': 'ok'})
     abort(404, 'Recipient or recipe not found')
+
+@APP.route('/api/recipe.post')
+#@login_required
+def recipe_post():
+    """ Post one or more new recipes
+    """
+    recipe = get_parameter(request, 'recipe')
+    if recipe is None:
+        abort(400, 'Invalid input, recipe expected')
+    userid = generate_user_id(CONFIG.get('user_id_hmac'), current_user.get_email())
+    account = USERS.get_item('id', userid)
+    if account and 'error' not in account:
+        RECIPE_MANAGER.load_recipes(recipe)
+        return jsonify({'recipe.post': recipe, 'status': 'ok'})
+    abort(404, 'Recipe not found')
 
 @APP.route('/search', methods=['GET'])
 def search_recipes():
