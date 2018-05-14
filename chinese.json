@@ -25,8 +25,8 @@
       "item2": {"quantity": "1/4 cup", "ingredient": "red onion, diced"},
       "item3": {"quantity": "5", "ingredient": "carrots, organic (300g), cut into 1cm slices"},
       "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
-      "item5": {"quantity": "3", "ingredient": "garlic cloves, pressed"},
-      "item6": {"quantity": "3 tbsp", "ingredient": "ginger, grated or minced"},
+      "item5": {"quantity": "3", "ingredient": "cloves garlic, pressed"},
+      "item6": {"quantity": "3 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
       "item7": {"quantity": "1 cup", "ingredient": "roasted chestnuts"}
     },
     "section3": {
@@ -86,8 +86,8 @@
       "item2": {"quantity": "2 tbsp", "ingredient": "shallot, chopped"},
       "item3": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
       "item4": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced"},
-      "item5": {"quantity": "1", "ingredient": "garlic cloves, pressed"},
-      "item6": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item5": {"quantity": "1", "ingredient": "cloves garlic, pressed"},
+      "item6": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
       "item7": {"quantity": "1", "ingredient": "mango, peeled, pitted and chopped"}
     },
     "section3": {
@@ -128,7 +128,7 @@
   "category": ["Asian", "Chicken", "Chinese"],
   "similar": ["Szechuan Chicken", "Chestnut Chicken", "Korean Meatballs"],
   "description": "Stir fry orange chicken loaded with veggies.",
-  "nutrition": {"carbohydrate": 28, "protein": 36, "calories": 428, "fat": 19, "sodium": 534},
+  "nutrition": {"carbohydrate": 29, "protein": 36, "calories": 429, "fat": 19, "sodium": 534},
   "rating": 4.7,
   "ingredients": {
     "section1": {
@@ -144,17 +144,18 @@
       "item3": {"quantity": "4 oz", "ingredient": "shitake mushrooms, sliced"},
       "item4": {"quantity": "2 tbsp", "ingredient": "shallot, chopped"},
       "item5": {"quantity": "4", "ingredient": "green onions, chopped"},
-      "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item7": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item6": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
       "item8": {"quantity": "8 oz", "ingredient": "water chestnuts, sliced"}
     },
     "section3": {
       "title":"Orange sauce",
       "item1": {"quantity": "1/2 cup", "ingredient": "orange juice"},
-      "item2": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
-      "item3": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
-      "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"}
+      "item2": {"quantity": "1 tsp", "ingredient": "orange peel, or 2 tbsp orange marmalade"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "seasoned rice vinegar"},
+      "item5": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"}
     },
     "section4": {
       "title":"Garnish",
@@ -204,8 +205,8 @@
       "item5": {"quantity": "1 tbsp", "ingredient": "Sriracha"},
       "item6": {"quantity": "1 tbsp", "ingredient": "black bean sauce"},
       "item7": {"quantity": "1 tbsp", "ingredient": "hoisin sauce"},
-      "item8": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
-      "item9": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
+      "item8": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
+      "item9": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
       "item10": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
       "item11": {"quantity": "4 oz", "ingredient": "crimini mushrooms, sliced (optional)"}
     },
@@ -255,8 +256,8 @@
       "item2": {"quantity": "2", "ingredient": "jalapeno pepper, julienne or diced, green bell pepper can also be used"},
       "item3": {"quantity": "1/4 cup", "ingredient": "onion, finely chopped"},
       "item4": {"quantity": "4", "ingredient": "green onions, chopped"},
-      "item5": {"quantity": "2 tbsp", "ingredient": "ginger, grated or minced"},
-      "item6": {"quantity": "2", "ingredient": "garlic cloves, pressed"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
+      "item6": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
       "item7": {"quantity": "2 tbsp", "ingredient": "olive oil"}
     },
     "section3": {

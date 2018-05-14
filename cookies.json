@@ -10,7 +10,7 @@
   "category": ["Chocolate", "Cookies"],
   "similar": ["Chocolate Crunchies", "Blonde Brownies", "Pfeffernusse"],
   "description": "Mint chocolate chip cookies made with Andes mints.",
-  "nutrition": {"carbohydrate": 14, "protein": 1, "calories": 93, "fat": 4, "sodium": 43},
+  "nutrition": {"carbohydrate": 14, "protein": 1, "calories": 100, "fat": 4, "sodium": 43},
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "2 2/3 cups", "ingredient": "flour"},
@@ -21,13 +21,12 @@
     "item6": {"quantity": "3/4 cup", "ingredient": "dark brown sugar"},
     "item7": {"quantity": "2", "ingredient": "eggs"},
     "item8": {"quantity": "2 tsp", "ingredient": "vanilla"},
-    "item9": {"quantity": "1 cup", "ingredient": "Andes baking chips, 10oz package"},
-    "item10": {"quantity": "1/4 cup", "ingredient": "powdered sugar"}
+    "item9": {"quantity": "1 1/3 cup", "ingredient": "Andes baking chips, 10oz package"}
   },
   "instructions": {
     "step1": "Combine flour and baking powders in a bowl",
     "step2": "Beat butter, sugars, vanilla and eggs until mixed",
-    "step3": "Mix in Andes chunks, then flour mixture, form into a ball and chill for several hours",
+    "step3": "Mix in Andes chunks, then flour mixture, form into a ball and chill for at least an hour",
     "step4": "Preheat oven to 350 degrees",
     "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
     "step6": "Bake for 10-12 minutes, cool on pan for 2 minutes and then move to cooling rack"

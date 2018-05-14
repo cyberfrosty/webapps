@@ -272,6 +272,7 @@ class RecipeManager(object):
         self.config = config
         self.recipes = {}
         self.ingredients = {}
+        self.references = {}
         self.database = DynamoDB(config, 'Recipes')
 
     def load_recipes(self, infile):
@@ -323,6 +324,24 @@ class RecipeManager(object):
         except (IOError, ValueError) as err:
             print('Load of recipe file failed:', err.message)
 
+    def load_references(self, infile):
+        """ Load json data for sauces, spice mixtures and other referenced items
+        Args:
+            file: json file to load
+        """
+        try:
+            with open(infile) as json_file:
+                items = json.load(json_file)
+                for item in items:
+                    if 'include' in item:
+                        self.load_references(item['include'])
+                    elif 'title' in item and 'ingredients' in item:
+                        print "Loaded " + item['title']
+                        self.references[item['title']] = item
+        except (IOError, ValueError) as err:
+            print('Load of reference file failed:', err.message)
+
+
     def load_nutrition(self, csvfile='nutrition.csv'):
         """ Load the CSV file with nutrition information
         """
@@ -346,7 +365,14 @@ class RecipeManager(object):
             section = 'section1'
             count = 1
             while section in ingredients:
-                section_nutrition = self.count_nutrition(ingredients[section], factor)
+                items = ingredients[section]
+                if 'reference' in items:
+                    reference = self.references.get(items['reference'])
+                    if reference:
+                        items = reference.get('ingredients')
+                    else:
+                        print('Reference {} not found'.format(items['reference']))
+                section_nutrition = self.count_nutrition(items, factor)
                 nutrition['calories'] += section_nutrition['calories']
                 nutrition['fat'] += section_nutrition['fat']
                 nutrition['carbohydrate'] += section_nutrition['carbohydrate']
@@ -530,7 +556,13 @@ class RecipeManager(object):
             section = 'section1'
             count = 1
             while section in ingredients:
-                html += render_ingredients(ingredients[section])
+                items = ingredients[section]
+                if 'reference' in items:
+                    reference = self.references.get(items['reference'])
+                    if reference:
+                        items = reference.get('ingredients')
+                        items['title'] = reference.get('title')
+                html += render_ingredients(items)
                 count = count + 1
                 section = 'section' + str(count)
         else:
@@ -731,6 +763,7 @@ def main():
     """ Unit tests
     """
     manager = RecipeManager('noneedtomeasure')
+    manager.load_references('sauces.json')
     manager.load_recipes('recipes.json')
     manager.load_nutrition('nutrition.csv')
     print manager.match_recipe_by_category('asian')
