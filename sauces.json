@@ -1,0 +1,42 @@
+[{
+  "title":"Tzatziki Sauce",
+  "ingredients": {
+    "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
+    "item2": {"quantity": "1/2 cup", "ingredient": "cucumber, peeled, deseeded and diced"},
+    "item3": {"quantity": "1", "ingredient": "clove garlic, pressed"},
+    "item4": {"quantity": "2 tsp", "ingredient": "lemon juice"},
+    "item5": {"quantity": "1 tsp", "ingredient": "apple cider vinegar"},
+    "item6": {"quantity": "2 tsp", "ingredient": "olive oil"},
+    "item7": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
+    "item8": {"quantity": "1/4 tsp", "ingredient": "black pepper"}
+  }
+},
+{
+  "title":"Tahini Yogurt Sauce",
+    "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
+    "item3": {"quantity": "2 tsp", "ingredient": "lemon juice"},
+    "item4": {"quantity": "1", "ingredient": "clove garlic, pressed"},
+    "item5": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
+},
+{
+  "title": "Ranch Yogurt Sauce",
+  "ingredients": {
+    "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
+    "item2": {"quantity": "2 tsp", "ingredient": "ranch seasoning"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "lemon pepper"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "dill weed"}
+  }
+},
+{
+  "title": "Dijon Yogurt Sauce",
+  "ingredients": {
+    "item1": {"quantity": "3/4 cup", "ingredient": "nonfat Greek yogurt"},
+    "item2": {"quantity": "1 1/2 tbsp", "ingredient": "Dijon mustard"},
+    "item2": {"quantity": "2 tsp", "ingredient": "ranch seasoning"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "lemon pepper"},
+    "item4": {"quantity": "1/4 tsp", "ingredient": "celery seed"},
+    "item5": {"quantity": "1/8 tsp", "ingredient": "black pepper"}
+  }
+}]

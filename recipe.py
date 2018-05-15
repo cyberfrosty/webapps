@@ -764,6 +764,7 @@ def main():
     """
     manager = RecipeManager('noneedtomeasure')
     manager.load_references('sauces.json')
+    manager.load_references('spices.json')
     manager.load_recipes('recipes.json')
     manager.load_nutrition('nutrition.csv')
     print manager.match_recipe_by_category('asian')

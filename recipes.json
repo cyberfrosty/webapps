@@ -1385,9 +1385,9 @@
       "item4": {"quantity": "1 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
       "item5": {"quantity": "3 tbsp", "ingredient": "Thai red curry paste"},
       "item6": {"quantity": "1/2 tsp", "ingredient": "Thai seasoning"},
-      "item8": {"quantity": "1/2 tsp", "ingredient": "curry powder"},
-      "item9": {"quantity": "1/2 cup", "ingredient": "peanut butter"},
-      "item10": {"quantity": "1/4 cup", "ingredient": "reduced sodium chicken stock, wine or just water"}
+      "item7": {"quantity": "1/2 tsp", "ingredient": "curry powder"},
+      "item8": {"quantity": "1/2 cup", "ingredient": "peanut butter"},
+      "item9": {"quantity": "1/4 cup", "ingredient": "reduced sodium chicken stock, wine or just water"}
     }
   },
   "instructions": {
