@@ -428,11 +428,12 @@
   "ingredients": {
     "item1": {"quantity": "4 cups", "ingredient": "green beans, about 1 lb"},
     "item2": {"quantity": "1", "ingredient": "clove garlic, pressed"},
-    "item3": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-    "item4": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
-    "item5": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
-    "item6": {"quantity": "2 tsp", "ingredient": "sesame seeds"},
-    "item7": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, (optional)"}
+    "item3": {"quantity": "1 tbsp", "ingredient": "shallot, thinly sliced"},
+    "item4": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+    "item7": {"quantity": "2 tsp", "ingredient": "sesame seeds"},
+    "item8": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
     "step1": "Wash, trim ends and cut beans into 3-4 cm pieces, steam until tender",

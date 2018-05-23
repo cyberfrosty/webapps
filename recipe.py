@@ -675,6 +675,22 @@ class RecipeManager(object):
             html += '</div>\n'
         return html
 
+    def get_sample_recipes(self):
+        """ Get HTML rendered recipe summaries for latest postings
+        Returns:
+            HTML for recipe
+        """
+        samples = ['Korean Meatballs', 'Durban Chicken Curry', 'Savory Green Beans', 'Blonde Brownies', 'Orange Chicken', 'Apricot Scones']
+        html = '<div class="row">\n'
+        html += '<div class="col-sm-4">\n'
+        html += self.build_navigation_list()
+        html += '</div><!--/col-sm-4-->\n'
+        html += '<div class="col-sm-8">\n'
+        html += self.get_recipe_list(samples)
+        html += '</div><!--/col-sm-8-->\n'
+        html += '</div><!--/row-->\n'
+        return html
+
     def get_latest_recipe(self):
         """ Get HTML rendered recipe summaries for latest postings
         Returns:

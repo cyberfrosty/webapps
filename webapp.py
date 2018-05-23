@@ -674,9 +674,11 @@ def search_recipes():
         if len(matches) > 0:
             html = RECIPE_MANAGER.get_recipe_list(matches)
         else:
-            html = '<br />\n<p>No matches found for search string</p>\n'
+            html = '<br />\n<p>No recipes found for search string, try the navigator or another search.</p>\n'
+            html += RECIPE_MANAGER.get_sample_recipes()
     else:
-        html = '<br />\n<p>Search for recipes by name and category</p>\n'
+        html = '<br />\n<p>Search for recipes by name and category or try the navigator.</p>\n'
+        html += RECIPE_MANAGER.get_sample_recipes()
 
     return render_template('search.html', search=RECIPE_LIST, results=html)
 
