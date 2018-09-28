@@ -423,7 +423,7 @@
   "category": ["Asian", "Chinese", "Vegetables"],
   "similar": ["Spicy Green Beans", "Ginger Carrots", "Sauteed Spinach"],
   "description": "Asian style green beans with sesame seeds.",
-  "nutrition": {"carbohydrate": 8, "protein": 3, "calories": 74, "fat": 4, "sodium": 251},
+  "nutrition": {"carbohydrate": 8, "protein": 3, "calories": 75, "fat": 4, "sodium": 251},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "4 cups", "ingredient": "green beans, about 1 lb"},
@@ -694,7 +694,7 @@
   "category": ["Mediterranean", "Turkey", "Tomatoes"],
   "similar": ["Red Lamb", "Mongolian Meatballs", "Roasted Cauliflower"],
   "description": "Moroccan spiced sauce with lean ground turkey meatballs.",
-  "nutrition": {"carbohydrate": 19, "protein": 26, "calories": 358, "fat": 17, "sodium": 780},
+  "nutrition": {"carbohydrate": 19, "protein": 26, "calories": 359, "fat": 17, "sodium": 782},
   "rating": 5.0,
   "ingredients": {
     "section1": {
@@ -749,7 +749,7 @@
   "category": ["Mediterranean", "Vegetables"],
   "similar": ["Spicy Green Beans", "Spicy Cilantro Carrots", "Moroccan Meatballs"],
   "description": "Pan roasted cauliflower.",
-  "nutrition": {"carbohydrate": 12, "protein": 4, "calories": 154, "fat": 11, "sodium": 267},
+  "nutrition": {"carbohydrate": 13, "protein": 4, "calories": 155, "fat": 11, "sodium": 270},
   "rating": 4.6,
   "ingredients": {
     "item1": {"quantity": "1 head", "ingredient": "cauliflower"},
