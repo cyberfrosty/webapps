@@ -33,6 +33,77 @@
   }
 },
 {
+  "title": "Chocolate Chip Banana Cookies",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/ChocolateChipBananaCookies.jpg",
+  "date": "August 18, 2018",
+  "preptime": "10 minutes",
+  "cooktime": "14 minutes",
+  "yield": "Makes 32",
+  "category": ["Banana", "Cookies"],
+  "similar": ["Pumpkin Muffins", "Blonde Brownies", "Banana Cranberry Cookies"],
+  "description": "Banana cookies with chocolate chips",
+  "nutrition": {"carbohydrate": 17, "protein": 1, "calories": 123, "fat": 6, "sodium": 59},
+  "rating": 4.1,
+  "ingredients": {
+    "item1": {"quantity": "1 1/4 cups", "ingredient": "flour"},
+    "item2": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item3": {"quantity": "1/8 tsp", "ingredient": "baking soda"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "salt"},
+    "item5": {"quantity": "1/3 cup", "ingredient": "butter, softened"},
+    "item6": {"quantity": "1/2 cup", "ingredient": "sugar"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "bananas, ripe and mashed"},
+    "item8": {"quantity": "1", "ingredient": "eggs"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
+    "item10": {"quantity": "1 cup", "ingredient": "chocolate chips"},
+    "item11": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"}
+  },
+  "instructions": {
+    "step1": "Combine flour and baking powders in a bowl",
+    "step2": "Beat butter, sugar, vanilla and egg until mixed",
+    "step3": "Stir in flour, chocolate chips and nuts",
+    "step4": "Preheat oven to 350 degrees",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step6": "Bake for 12-16 minutes, cool on pan for 2 minutes and then move to cooling rack"
+  }
+},
+{
+  "title": "Banana Cranberry Cookies",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/BananaCranberryCookies.jpg",
+  "date": "August 18, 2018",
+  "preptime": "10 minutes",
+  "cooktime": "14 minutes",
+  "yield": "Makes 32",
+  "category": ["Banana", "Cookies"],
+  "similar": ["Banana Muffins", "Blonde Brownies", "Chocolate Chip Banana Cookies"],
+  "description": "Whole wheat banana cookies with cranberries",
+  "nutrition": {"carbohydrate": 10, "protein": 1, "calories": 60, "fat": 2, "sodium": 59},
+  "rating": 4.1,
+  "ingredients": {
+    "item1": {"quantity": "3/4 cups", "ingredient": "flour"},
+    "item2": {"quantity": "1/2 cups", "ingredient": "whole wheat flour"},
+    "item3": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item4": {"quantity": "1/8 tsp", "ingredient": "baking soda"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "salt"},
+    "item6": {"quantity": "1/3 cup", "ingredient": "butter, softened"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "sugar"},
+    "item8": {"quantity": "1/2 cup", "ingredient": "bananas, ripe and mashed"},
+    "item9": {"quantity": "1", "ingredient": "eggs"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
+    "item11": {"quantity": "2/3 cup", "ingredient": "cranberries, dried"},
+    "item12": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"}
+  },
+  "instructions": {
+    "step1": "Combine flour and baking powders in a bowl",
+    "step2": "Beat butter, sugar, vanilla and egg until mixed",
+    "step3": "Stir in flour, chocolate chips and nuts",
+    "step4": "Preheat oven to 350 degrees",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step6": "Bake for 12-16 minutes, cool on pan for 2 minutes and then move to cooling rack"
+  }
+},
+{
   "title": "Chocolate Crunchies",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/ChocolateCrunchies.jpg",
