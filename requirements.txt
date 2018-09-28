@@ -1,7 +1,7 @@
-boto3==1.4.4
+boto3==1.7.58
 botocore==1.5.7
 cffi==1.9.1
-cryptography==1.7.2
+cryptography==2.2.2
 Flask==0.12
 Flask-Login==0.4.0
 Flask-Mail==0.9.1
@@ -15,10 +15,13 @@ itsdangerous==0.24
 Jinja2==2.9.5
 oauth2client==4.0.0
 oauthlib==1.0.3
-pycrypto==2.6.1
-pytz==2016.10
-simplejson==3.10.0
+pyOpenSSL==18.0.0
+pyotp==2.2.6
+pytz==2018.5
+simplejson==3.16.0
 uWSGI==2.0.14
 Werkzeug==0.11.15
 WTForms==2.1
+regex==2018.7.11
+requests==2.19.1
 
