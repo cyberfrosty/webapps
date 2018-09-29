@@ -33,7 +33,7 @@
   }
 },
 {
-  "title": "Chocolate Chip Banana Cookies",
+  "title": "Banana Chocolate Chip Cookies",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/BananaCookies_hd.jpg",
   "date": "August 18, 2018",
@@ -41,7 +41,7 @@
   "cooktime": "14 minutes",
   "yield": "Makes 32",
   "category": ["Banana", "Cookies"],
-  "similar": ["Pumpkin Muffins", "Blonde Brownies", "Banana Cranberry Cookies"],
+  "similar": ["Chocolate Banana Loaf", "Blonde Brownies", "Banana Cranberry Cookies"],
   "description": "Banana cookies with chocolate chips",
   "nutrition": {"carbohydrate": 17, "protein": 1, "calories": 123, "fat": 6, "sodium": 59},
   "rating": 4.1,
@@ -76,7 +76,7 @@
   "cooktime": "14 minutes",
   "yield": "Makes 32",
   "category": ["Banana", "Cookies"],
-  "similar": ["Banana Muffins", "Blonde Brownies", "Chocolate Chip Banana Cookies"],
+  "similar": ["Banana Muffins", "Apricot Scones", "Banana Chocolate Chip Cookies"],
   "description": "Whole wheat banana cookies with cranberries",
   "nutrition": {"carbohydrate": 10, "protein": 1, "calories": 60, "fat": 2, "sodium": 59},
   "rating": 4.1,
