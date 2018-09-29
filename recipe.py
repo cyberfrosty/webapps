@@ -18,6 +18,7 @@ from utils import generate_id, contains_only, read_csv, compare_dicts
 
 TBSP2CUP = 0.0625
 TSP2CUP = 0.020833
+latest = ['Moroccan Chicken', 'Banana Cranberry Cookies', 'Thai Meatballs', 'Durban Chicken Curry', 'Savory Green Beans', 'Korean Turkey Crumbles', 'Japanese Broiled Eggplant']
 
 def render_ingredients(ingredients):
     """ Render recipe ingredients as HTML
@@ -494,6 +495,14 @@ class RecipeManager(object):
             else:
                 print '{} no similar recipes'.format(recipe.get('title'))
 
+    def check_latest(self):
+        """ Check that the recipe has similar recipes and that they all exist
+        """
+        for item in latest:
+            recipe = self.get_recipe(item)
+            if not recipe or 'title' not in recipe:
+                print 'Latest {} {} not found'.format(recipe.get('title'), item)
+
     def build_navigation_list(self, category=None):
         """ Build an accordian navigation list
         """
@@ -696,7 +705,6 @@ class RecipeManager(object):
         Returns:
             HTML for recipe
         """
-        latest = ['Moroccan Chicken', 'Banana Cranbery Cookies', 'Thai Meatballs', 'Durban Chicken Curry', 'Savory Green Beans', 'Korean Turkey Crumbles', 'Japanese Broiled Eggplant']
         html = '<div class="row">\n'
         html += '<div class="col-sm-4">\n'
         html += self.build_navigation_list()
@@ -806,6 +814,7 @@ def main():
     #print json.dumps(manager.count_calories('French Bread'))
     manager.check_nutrition()
     manager.check_similar()
+    manager.check_latest()
 
 if __name__ == '__main__':
     main()
