@@ -82,7 +82,7 @@ def parse_options():
     parser = argparse.ArgumentParser(description='Image processing app')
     parser.add_argument('-f', '--file', action="store")
     parser.add_argument('-r', '--rotate', action="store")
-    parser.add_argument('command', action='store', help='info, process')
+    parser.add_argument('command', action='store', help='info, process, upload')
     return parser.parse_args()
 
 def main():
@@ -110,6 +110,17 @@ def main():
         elif options.command == 'process':
             img = orient_image(srcfile, orientation)
             create_srcset(srcfile, img)
+        elif options.command == 'upload':
+            thumbfile = srcfile.replace('.jpg', '_thumb.jpg')
+            smallfile = srcfile.replace('.jpg', '_small.jpg')
+            mediumfile = srcfile.replace('.jpg', '_medium.jpg')
+            hdfile = srcfile.replace('.jpg', '_hd.jpg')
+            command = 'aws s3 cp {} s3://snowyrangesolutions.com/static/img/{}'.format(smallfile, smallfile)
+            print(subprocess.check_output(shlex.split(command), stderr=subprocess.STDOUT))
+            command = 'aws s3 cp {} s3://snowyrangesolutions.com/static/img/{}'.format(mediumfile, mediumfile)
+            print(subprocess.check_output(shlex.split(command), stderr=subprocess.STDOUT))
+            command = 'aws s3 cp {} s3://snowyrangesolutions.com/static/img/{}'.format(hdfile, hdfile)
+            print(subprocess.check_output(shlex.split(command), stderr=subprocess.STDOUT))
 
 if __name__ == '__main__':
     main()
