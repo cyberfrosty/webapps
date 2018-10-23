@@ -1655,6 +1655,41 @@
   }
 },
 {
+  "title": "Japanese Turkey Curry",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/JapaneseTurkeyCurry_hd.jpg",
+  "date": "October 22, 2018",
+  "yield": "Serves 6",
+  "preptime": "15 minutes",
+  "cooktime": "1 hour 15 minutes",
+  "category": ["African", "Chicken", "Tomatoes"],
+  "similar": ["Kadai Chicken", "Durban Chicken Curry", "Moroccan Meatballs"],
+  "description": "Potatoes, vegetables and ground turkey in a Japanese style curry sauce.",
+  "nutrition": {"carbohydrate": 20, "protein": 18, "calories": 262, "fat": 12, "sodium": 169},
+  "rating": 4.7,
+  "ingredients": {
+    "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
+    "item2": {"quantity": "3 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1 cup", "ingredient": "red onion, diced"},
+    "item4": {"quantity": "2", "ingredient": "potatoes, russet or golden, medium size or 1 large"},
+    "item5": {"quantity": "1/2 head", "ingredient": "cauliflower"},
+    "item6": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
+    "item7": {"quantity": "1 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
+    "item8": {"quantity": "1 cup", "ingredient": "reduced sodium chicken stock"},
+    "item9": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
+    "item10": {"quantity": "2 tbsp", "ingredient": "curry powder"}
+  },
+  "instructions": {
+    "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
+    "step2": "Add meat to pan and cook until browned, flipping and chopping to make crumbles",
+    "step3": "Add garlic and ginger, saute for 2 minutes",
+    "step4": "Add dry spices and mix thoroughly to coat meat",
+    "step5": "Add potatoes, chicken stock and cooking wine. Bring to a low boil and simmer for 30 minutes",
+    "step6": "Add cauliflower and any other vegetables, simmer for 20-30 minutes until done adding water as needed",
+    "step7": "Serve with rice"
+  }
+},
+{
   "title": "Durban Chicken Curry",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/DurbanChickenCurry_hd.jpg",
