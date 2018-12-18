@@ -13,6 +13,8 @@ Process a jpg image to orient and resize for a responsive srcset
 from __future__ import print_function
 
 import argparse
+import sys
+import os.path
 import json
 import shlex
 import subprocess
@@ -92,7 +94,9 @@ def main():
     srcfile = options.file
     orientation = options.rotate
     if not srcfile:
-        print('No image file specified, use -f <image>')
+        sys.exit('No image file specified, use -f <image>')
+    if not os.path.isfile(srcfile):
+        sys.exit('Specified image file not found: {}'.format(srcfile))
     if srcfile.endswith('.jpg'):
         if not orientation:
             exif_command = "exiftool -j '%s'" % srcfile
