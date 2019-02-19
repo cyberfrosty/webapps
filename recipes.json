@@ -1785,6 +1785,60 @@
   }
 },
 {
+  "title": "Durban Style Meatballs",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/DurbanStyleMeatballs_hd.jpg",
+  "date": "February 12, 2019",
+  "preptime": "25 minutes",
+  "cooktime": "1 hour",
+  "yield": "Serves 6",
+  "category": ["African", "Turkey", "Tomatoes"],
+  "similar": ["Durban Chicken Curry", "Moroccan Meatballs", "Savory Green Beans"],
+  "description": "Meatballs in a spicy South African tomato sauce.",
+  "nutrition": {"carbohydrate": 21, "protein": 19, "calories": 315, "fat": 15, "sodium": 755},
+  "rating": 4.8,
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+        "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
+        "item2": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+        "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
+        "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+        "item5": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
+        "item6": {"quantity": "1", "ingredient": "egg"}
+    },
+    "section2": {
+      "title": "Sauce",
+        "item1": {"quantity": "3 tbsp", "ingredient": "olive oil"},
+        "item2": {"quantity": "1", "ingredient": "onion, chopped"},
+        "item3": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
+        "item4": {"quantity": "1 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
+        "item5": {"quantity": "2 tsp", "ingredient": "fennel seeds"},
+        "item6": {"quantity": "1 tsp", "ingredient": "cumin seeds"},
+        "item7": {"quantity": "1 tbsp", "ingredient": "curry powder"},
+        "item8": {"quantity": "1 tsp", "ingredient": "cumin"},
+        "item9": {"quantity": "1 tsp", "ingredient": "cinnamon"},
+        "item10": {"quantity": "1 tsp", "ingredient": "cardamom"},
+        "item11": {"quantity": "1 tsp", "ingredient": "turmeric, or 2 tsp fresh grated"},
+        "item12": {"quantity": "1/2 tsp", "ingredient": "cloves"},
+        "item13": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
+        "item14": {"quantity": "1/2 cup", "ingredient": "reduced sodium chicken stock"},
+        "item15": {"quantity": "1 large can", "ingredient": "crushed tomatoes, (28oz)"},
+        "item16": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, or toasted almond slices (optional)"}
+    }
+  },
+  "instructions": {
+    "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
+    "step2": "Add seeds, garlic and ginger, saute for a few minutes",
+    "step3": "Mix dry spices in mortar or small bowl",
+    "step4": "Add crushed tomatoes, stock, spices, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
+    "step5": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
+    "step6": "Form into 1 inch balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
+    "step7": "Cook for another 20-30 minutes stirring gently, uncovering as desired for sauce consistency",
+    "step8": "Remove from heat and serve over shaped pasta or couscous with garnish"
+  }
+},
+{
   "title": "Salmon Curry",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/SalmonCurry.jpg",
