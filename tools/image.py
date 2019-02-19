@@ -6,8 +6,9 @@ Copyright (c) 2017 Alan Frost, Inc. All rights reserved.
 
 Process a jpg image to orient and resize for a responsive srcset
 
-> python image.py -f image.jpy info
-> python image.py -f image.jpy process
+> python image.py -f image.jpg info
+> python image.py -f image.jpg process
+> python image.py -f image.jpg upload
 """
 
 from __future__ import print_function
