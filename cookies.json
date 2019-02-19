@@ -79,15 +79,15 @@
   "category": ["Japanese", "Dessert"],
   "similar": ["Chocolate Banana Loaf", "Banana Bread", "Banana Chocolate Chip Cookies"],
   "description": "Hawaiian local-style treat made with coconut and butter in a rice flour base",
-  "nutrition": {"carbohydrate": 21, "protein": 2, "calories": 145, "fat": 6, "sodium": 47},
+  "nutrition": {"carbohydrate": 30, "protein": 2, "calories": 188, "fat": 7, "sodium": 48},
   "rating": 4.1,
   "ingredients": {
-    "item1": {"quantity": "1 lbs", "ingredient": "Mochiko"},
+    "item1": {"quantity": "2 3/4 cups", "ingredient": "Mochiko, (450g)"},
     "item2": {"quantity": "1 3/4 cups", "ingredient": "sugar"},
     "item3": {"quantity": "1 1/2 tsp", "ingredient": "baking powder"},
     "item4": {"quantity": "4", "ingredient": "eggs"},
     "item5": {"quantity": "1 medium can", "ingredient": "evaporated milk, (12 oz)"},
-    "item6": {"quantity": "1 2/3 cups", "ingredient": "coconut milk, lite (13.5 oz can)"},
+    "item6": {"quantity": "1 medium can", "ingredient": "lite coconut milk, (13.5 oz)"},
     "item7": {"quantity": "1/2 cup", "ingredient": "butter, melted"},
     "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
     "item9": {"quantity": "1/3 cup", "ingredient": "coconut, flakes or shredded"}
