@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta http-equiv="content-style-type" content="text/css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="apple-itunes-app" content="app-id=761389261, affiliate-data=, app-argument=">
+  <meta property="twitter:account_id" content="4503599627902758" />
+  <title>Paintings by Susan Frost</title>
+    <!-- meta -->
+    <meta property="og:url" content="https://susanafrost.com/paintings.html">
+    <meta property="og:site_name" content="Susan Frost">
+    <meta property="og:title" content="Paintings by Susan Frost">
+    <meta property="og:description" content="Susan Frost works of art">
+    <meta property="og:image" content="static/img/logo.png">
+    <meta property="twitter:site:id" content="13334762">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Paintings by Susan Frost">
+    <meta property="twitter:description" content="Susan Frost works of art">
+    <meta property="twitter:image:src" content="static/img/logo.png">
+    <meta name="description" content="Susan Frost works of art">
+    <meta name="author" content="Susan Frost">
+    <link rel="shortcut icon" type="image/x-icon" href="https://susanafrost.com/static/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="https://susanafrost.com/static/img/favicon.ico" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <!-- Custom styles -->
+    <link href="static/css/custom.css" rel="stylesheet" media="screen">
+
+</head>
+<body onload="searchInit()">
+
+<div id="search" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Search</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <input id="searchPhrase" type="text" onkeyup="searchList(event)" placeholder="Search for artwork.." />
+          <ul id="searchList">
+<li><a href="gallery.html?slide=0">Gigging with Grandma</a></li>
+<li><a href="gallery.html?slide=1">Astrid Breathes in Life</a></li>
+<li><a href="gallery.html?slide=2">Exam Room #3</a></li>
+<li><a href="gallery.html?slide=3">Workers Comp Clinic</a></li>
+<li><a href="gallery.html?slide=4">I Want to Be There</a></li>
+<li><a href="gallery.html?slide=5">Two Brothers</a></li>
+<li><a href="gallery.html?slide=6">Please Mommy</a></li>
+<li><a href="gallery.html?slide=7">Night Ship</a></li>
+<li><a href="gallery.html?slide=8">Pigmy Owl</a></li>
+<li><a href="gallery.html?slide=9">Sun Flower</a></li>
+<li><a href="gallery.html?slide=10">Pelican Sunset</a></li>
+<li><a href="gallery.html?slide=11">Snake Doctor</a></li>
+<li><a href="gallery.html?slide=12">Diamond Snake</a></li>
+<li><a href="gallery.html?slide=13">Great Horned Owl</a></li>
+<li><a href="gallery.html?slide=14">Kissing Kestrels</a></li>
+<li><a href="gallery.html?slide=15">Song Bird</a></li>
+<li><a href="gallery.html?slide=16">Sixteen</a></li>
+<li><a href="gallery.html?slide=17">Stuck</a></li>
+<li><a href="gallery.html?slide=18">Dark Core</a></li>
+<li><a href="gallery.html?slide=19">Bison Eye</a></li>
+<li><a href="gallery.html?slide=20">Mother Owl</a></li>
+<li><a href="gallery.html?slide=21">Sorrow Tree</a></li>
+<li><a href="gallery.html?slide=22">The Forge</a></li>
+<li><a href="gallery.html?slide=23">Oceanic Creation</a></li>
+<li><a href="gallery.html?slide=24">Strong Horse</a></li>
+<li><a href="gallery.html?slide=25">Strong Horse</a></li>
+<li><a href="gallery.html?slide=26">Strong Horse</a></li>
+<li><a href="gallery.html?slide=27">Cute Owl</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-dark navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html"/><i class="fa fa-diamond" aria-hidden="true"></i></a>
+      <a class="navbar-toggle nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-navicon fa-lg" aria-hidden="true"></i></a>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li><a class="nav-link" href="ceramics.html"><i class="fa fa-coffee fa-fw" aria-hidden="true"></i> Ceramics</a></li>
+        <li><a class="nav-link" href="drawings.html"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Drawings</a></li>
+        <li><a class="nav-link" href="paintings.html"><i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i> Paintings</a></li>
+        <li><a class="nav-link" href="prints.html"><i class="fa fa-print fa-fw" aria-hidden="true"></i> Prints</a></li>
+      </ul>
+      <button type="button" class="navbar-toggle nav-link" data-toggle="modal" data-target="#search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+      <a class="navbar-toggle nav-link" href="bio.html"><i class="fa fa-paw fa-lg" aria-hidden="true"></i></a>
+      <a class="navbar-toggle nav-link" href="gallery.html"><i class="fa fa-cubes fa-lg" aria-hidden="true"></i></a>
+    </div>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <!-- buttons visible on full-size screen only -->
+      <ul class="nav navbar-nav">
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/bio.html"><i class="fa fa-paw fa-lg" aria-hidden="true"></i></a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/gallery.html"><i class="fa fa-cubes fa-lg" aria-hidden="true"></i></a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/ceramics.html"><i class="fa fa-coffee fa-lg" aria-hidden="true"></i>&nbsp;Ceramics</a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/drawings.html"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i>&nbsp;Drawings</a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/paintings.html"><i class="fa fa-paint-brush fa-lg" aria-hidden="true"></i>&nbsp;Paintings</a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/prints.html"><i class="fa fa-print fa-lg" aria-hidden="true"></i>&nbsp;Prints</a></li>
+        <li><a class="nav-item nav-link" data-toggle="modal" href="#search"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <section class="slide-wrapper">
+    <div class="container">
+      <div id="artCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+
+        <!-- Indicators -->
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item item0 active">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/TwoBrothers_hd.jpg">
+                <picture>
+                  <source srcset="static/img/TwoBrothers_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/TwoBrothers_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/TwoBrothers_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/TwoBrothers_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Two Brothers</h3>
+                  <p>Oil on Canvas, 16x20, 2013</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item1">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/BurrowingOwls_hd.jpg">
+                <picture>
+                  <source srcset="static/img/BurrowingOwls_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/BurrowingOwls_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/BurrowingOwls_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/BurrowingOwls_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Please Mommy</h3>
+                  <p>Oil on Canvas, 14x14, 2013</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item2">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/NightShip_hd.jpg">
+                <picture>
+                  <source srcset="static/img/NightShip_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/NightShip_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/NightShip_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/NightShip_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Night Ship</h3>
+                  <p>Oil on Canvas, 20x16, 2013</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item3">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/PigmyOwl_hd.jpg">
+                <picture>
+                  <source srcset="static/img/PigmyOwl_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/PigmyOwl_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/PigmyOwl_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/PigmyOwl_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Pigmy Owl</h3>
+                  <p>Oil on Canvas, 11x14, 2013</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item4">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Sunflower_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Sunflower_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Sunflower_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Sunflower_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Sunflower_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Sun Flower</h3>
+                  <p>Oil on Canvas, 12x12, 2012</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item5">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Pelican_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Pelican_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Pelican_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Pelican_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Pelican_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Pelican Sunset</h3>
+                  <p>Oil on Canvas, 16x12, 2012</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item6">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/SongBird_hd.jpg">
+                <picture>
+                  <source srcset="static/img/SongBird_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/SongBird_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/SongBird_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/SongBird_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Song Bird</h3>
+                  <p>Oil on Canvas, 6x6, 2012</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item7">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Erika_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Erika_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Erika_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Erika_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Erika_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Sixteen</h3>
+                  <p>Oil on Canvas, 24x30, 2014</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item8">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Abstract1_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Abstract1_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Abstract1_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Abstract1_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Abstract1_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Dark Core</h3>
+                  <p>Oil on Canvas, 16x20, 2016</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item9">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/BisonEye_hd.jpg">
+                <picture>
+                  <source srcset="static/img/BisonEye_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/BisonEye_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/BisonEye_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/BisonEye_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Bison Eye</h3>
+                  <p>Oil on Canvas, 12x12, 2015</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item10">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/OwlEye_hd.jpg">
+                <picture>
+                  <source srcset="static/img/OwlEye_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/OwlEye_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/OwlEye_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/OwlEye_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Mother Owl</h3>
+                  <p>Oil on Canvas, 14x11, 2016</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item11">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Abstract2_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Abstract2_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Abstract2_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Abstract2_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Abstract2_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Sorrow Tree</h3>
+                  <p>Oil on Canvas, 16x20, 2017</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item12">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Abstract3_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Abstract3_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Abstract3_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Abstract3_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Abstract3_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>The Forge</h3>
+                  <p>Oil on Canvas, 16x20, 2017</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item13">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Abstract4_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Abstract4_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Abstract4_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Abstract4_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Abstract4_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Oceanic Creation</h3>
+                  <p>Oil on Canvas, 36x24, 2017</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item14">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Pod1_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Pod1_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Pod1_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Pod1_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Pod1_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Pod One</h3>
+                  <p>Acrylic on Canvas, 16x20, 2018</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item15">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Pod2_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Pod2_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Pod2_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Pod2_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Pod2_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Pod Two</h3>
+                  <p>Acrylic on Canvas, 16x20, 2018</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item16">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Pod3_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Pod3_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Pod3_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Pod3_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Pod3_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Pod Three</h3>
+                  <p>Acrylic on Canvas, 16x20, 2018</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item item17">
+            <div class="fill" style=" background-color:#48c3af;">
+              <div class="inner-content">
+                <div class="carousel-img">
+                <a href="static/img/Pod4_hd.jpg">
+                <picture>
+                  <source srcset="static/img/Pod4_hd.jpg" media="(min-width: 1400px)">
+                  <source srcset="static/img/Pod4_medium.jpg" media="(min-width: 768px)">
+                  <source srcset="static/img/Pod4_small.jpg" media="(min-width: 576px)">
+                  <img srcset="static/img/Pod4_small.jpg" alt="responsive image" class="img img-responsive">
+                </picture>
+                </a>
+                </div>
+                <div class="carousel-desc">
+                  <h3>Pod Four</h3>
+                  <p>Acrylic on Canvas, 16x20, 2018</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#artCarousel" data-slide="prev">
+            <span class="fa fa-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#artCarousel" data-slide="next">
+            <span class="fa fa-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+      <div class="col-sm-8">
+        <div class="f-b">&copy; 2012-2018 Susan A. Frost. All Rights Reserved.</div>
+      </div>
+      <div class="col-sm-4">
+        <div class="footer-widget-social">
+          &nbsp;<a data-toggle="tooltip" title="Back to top" href="#top"><i class="fa fa-chevron-up fa-lg"></i></a>
+          &nbsp;<a data-toggle="tooltip" title="Facebook" href="https://facebook.com"><i class="fa fa-facebook-square fa-lg"></i></a>
+          &nbsp;<a data-toggle="tooltip" title="Instagram" href="https://instagram.com"><i class="fa fa-instagram fa-lg"></i></a>
+          &nbsp;<a data-toggle="tooltip" title="Pinterest" href="https://pinterest.com/frostyalan"><i class="fa fa-pinterest-square fa-lg"></i></a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/3142141c42.js"></script>
+  <script src="static/js/main.js" type="text/javascript"></script>
+  <script async defer data-pin-hover="true" data-pin-round="true" data-pin-tall="true" src="//assets.pinterest.com/js/pinit.js"></script>
+</body>
+</html>
+

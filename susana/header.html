@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta http-equiv="content-style-type" content="text/css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="apple-itunes-app" content="app-id=761389261, affiliate-data=, app-argument=">
+  <meta property="twitter:account_id" content="4503599627902758" />
+  <title>$title</title>
+    <!-- meta -->
+    <meta property="og:url" content="https://susanafrost.com$page">
+    <meta property="og:site_name" content="Susan Frost">
+    <meta property="og:title" content="$title">
+    <meta property="og:description" content="Susan Frost works of art">
+    <meta property="og:image" content="static/img/logo.png">
+    <meta property="twitter:site:id" content="13334762">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="$title">
+    <meta property="twitter:description" content="Susan Frost works of art">
+    <meta property="twitter:image:src" content="static/img/logo.png">
+    <meta name="description" content="Susan Frost works of art">
+    <meta name="author" content="Susan Frost">
+    <link rel="shortcut icon" type="image/x-icon" href="https://susanafrost.com/static/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="https://susanafrost.com/static/img/favicon.ico" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <!-- Custom styles -->
+    <link href="static/css/custom.css" rel="stylesheet" media="screen">
+
+</head>
+<body onload="searchInit()">
+
+<div id="search" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Search</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <input id="searchPhrase" type="text" onkeyup="searchList(event)" placeholder="Search for artwork.." />
+          <ul id="searchList">
+<li><a href="gallery.html?slide=0">Gigging with Grandma</a></li>
+<li><a href="gallery.html?slide=1">Astrid Breathes in Life</a></li>
+<li><a href="gallery.html?slide=2">Exam Room #3</a></li>
+<li><a href="gallery.html?slide=3">Workers Comp Clinic</a></li>
+<li><a href="gallery.html?slide=4">I Want to Be There</a></li>
+<li><a href="gallery.html?slide=5">Two Brothers</a></li>
+<li><a href="gallery.html?slide=6">Please Mommy</a></li>
+<li><a href="gallery.html?slide=7">Night Ship</a></li>
+<li><a href="gallery.html?slide=8">Pigmy Owl</a></li>
+<li><a href="gallery.html?slide=9">Sun Flower</a></li>
+<li><a href="gallery.html?slide=10">Pelican Sunset</a></li>
+<li><a href="gallery.html?slide=11">Snake Doctor</a></li>
+<li><a href="gallery.html?slide=12">Diamond Snake</a></li>
+<li><a href="gallery.html?slide=13">Great Horned Owl</a></li>
+<li><a href="gallery.html?slide=14">Kissing Kestrels</a></li>
+<li><a href="gallery.html?slide=15">Song Bird</a></li>
+<li><a href="gallery.html?slide=16">Sixteen</a></li>
+<li><a href="gallery.html?slide=17">Stuck</a></li>
+<li><a href="gallery.html?slide=18">Dark Core</a></li>
+<li><a href="gallery.html?slide=19">Bison Eye</a></li>
+<li><a href="gallery.html?slide=20">Mother Owl</a></li>
+<li><a href="gallery.html?slide=21">Sorrow Tree</a></li>
+<li><a href="gallery.html?slide=22">The Forge</a></li>
+<li><a href="gallery.html?slide=23">Oceanic Creation</a></li>
+<li><a href="gallery.html?slide=24">Strong Horse</a></li>
+<li><a href="gallery.html?slide=25">Strong Horse</a></li>
+<li><a href="gallery.html?slide=26">Strong Horse</a></li>
+<li><a href="gallery.html?slide=27">Cute Owl</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-dark navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html"/><i class="fa fa-diamond" aria-hidden="true"></i></a>
+      <a class="navbar-toggle nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-navicon fa-lg" aria-hidden="true"></i></a>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li><a class="nav-link" href="ceramics.html"><i class="fa fa-coffee fa-fw" aria-hidden="true"></i> Ceramics</a></li>
+        <li><a class="nav-link" href="drawings.html"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Drawings</a></li>
+        <li><a class="nav-link" href="paintings.html"><i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i> Paintings</a></li>
+        <li><a class="nav-link" href="prints.html"><i class="fa fa-print fa-fw" aria-hidden="true"></i> Prints</a></li>
+      </ul>
+      <button type="button" class="navbar-toggle nav-link" data-toggle="modal" data-target="#search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+      <a class="navbar-toggle nav-link" href="bio.html"><i class="fa fa-paw fa-lg" aria-hidden="true"></i></a>
+      <a class="navbar-toggle nav-link" href="gallery.html"><i class="fa fa-cubes fa-lg" aria-hidden="true"></i></a>
+    </div>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <!-- buttons visible on full-size screen only -->
+      <ul class="nav navbar-nav">
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/bio.html"><i class="fa fa-paw fa-lg" aria-hidden="true"></i></a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/gallery.html"><i class="fa fa-cubes fa-lg" aria-hidden="true"></i></a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/ceramics.html"><i class="fa fa-coffee fa-lg" aria-hidden="true"></i>&nbsp;Ceramics</a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/drawings.html"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i>&nbsp;Drawings</a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/paintings.html"><i class="fa fa-paint-brush fa-lg" aria-hidden="true"></i>&nbsp;Paintings</a></li>
+        <li><a class="nav-item nav-link" href="https://susanafrost.com/prints.html"><i class="fa fa-print fa-lg" aria-hidden="true"></i>&nbsp;Prints</a></li>
+        <li><a class="nav-item nav-link" data-toggle="modal" href="#search"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
