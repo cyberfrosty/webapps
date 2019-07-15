@@ -103,6 +103,58 @@
   }
 },
 {
+  "title": "Tomato Carrot Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/TomatoCarrotChicken_hd.jpg",
+  "date": "July 2, 2019",
+  "yield": "Serves 4",
+  "preptime": "20 minutes",
+  "cooktime": "15 minutes",
+  "category": ["Asian", "Carrots", "Korean"],
+  "similar": ["Korean Chili Chicken", "Orange Chicken", "Korean Meatballs"],
+  "description": "Savory and spicy Korean style chicken with carrots.",
+  "nutrition": {"carbohydrate": 32, "protein": 37, "calories": 433, "fat": 18, "sodium": 407},
+  "rating": 4.9,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Veggies and sauce",
+      "item1": {"quantity": "2 tbsp", "ingredient": "coconut oil, or olive oil"},
+      "item2": {"quantity": "7", "ingredient": "carrots, organic (450g), cut into 1cm slices"},
+      "item3": {"quantity": "4 oz", "ingredient": "crimini mushrooms, sliced (optional)"},
+      "item4": {"quantity": "5", "ingredient": "green onions, chopped"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
+      "item6": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
+      "item7": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
+      "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste"},
+      "item9": {"quantity": "2 tsp", "ingredient": "chili powder, or Korean red powder (mild chili powder)"},
+      "item10": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
+      "item11": {"quantity": "1 tsp", "ingredient": "sesame oil"}
+    },
+    "section3": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "green onions, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step2": "Add 2 tbsp coconut oil to a wok, then layer onion, carrots, green onion, garlic and ginger",
+    "step3": "Add 2 tbsp oil to a large non-stick skillet and preheat over medium heat",
+    "step4": "Turn on wok to medium, let onion and carrots cook for 7-8 minutes stirring occasionally and kept covered",
+    "step5": "Place chicken into skillet and turn up heat to medium-high",
+    "step6": "Add sauce ingredients, bring to a boil, reduce heat and simmer while cooking chicken",
+    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step8": "Add chicken to mixture, stir to coat evenly, and cook for 2 minutes",
+    "step9": "Serve over rice, garnish with sesame seeds and green onion tops"
+  }
+},
+{
   "title": "Korean Turkey Crumbles",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/KoreanTurkeyCrumbles_hd.jpg",
