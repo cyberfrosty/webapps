@@ -51,3 +51,7 @@ Web applications
     docker login -u username -p password
     docker push frosty308/recipes
     docker logout
+
+### Upload photo
+    image.py -f TomatoCarrotChicken.jpg -r 0 process
+    image.py -f TomatoCarrotChicken.jpg -r 0 upload
