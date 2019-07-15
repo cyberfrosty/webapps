@@ -46,7 +46,7 @@
   "category": ["Breakfast"],
   "similar": ["Apricot Scones", "Orange Pumpkin Bread", "Coffee Raisin Bread"],
   "description": "Whole wheat banana muffins.",
-  "nutrition": {"carbohydrate": 25, "protein": 4, "calories": 166, "fat": 6, "sodium": 209},
+  "nutrition": {"carbohydrate": 23, "protein": 4, "calories": 158, "fat": 6, "sodium": 209},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "1", "ingredient": "egg"},
@@ -56,7 +56,7 @@
     "item5": {"quantity": "3/4 cup", "ingredient": "whole wheat flour"},
     "item6": {"quantity": "1 cup", "ingredient": "white flour"},
     "item7": {"quantity": "1/2 cup", "ingredient": "rolled oats"},
-    "item8": {"quantity": "1/4 cup", "ingredient": "white sugar"},
+    "item8": {"quantity": "2 tbsp", "ingredient": "white sugar"},
     "item9": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item10": {"quantity": "1 tsp", "ingredient": "baking soda"},
     "item11": {"quantity": "1 cup", "ingredient": "bananas, ripe and mashed"},
@@ -200,7 +200,7 @@
 {
   "title": "Anadama Bread",
   "chef": "Susan",
-  "image": "https://snowyrangesolutions.com/static/img/AnadamaBread.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/AnadamaBread_hd.jpg",
   "date": "December 11, 2018",
   "yield": "Makes 24",
   "preptime": "10 minutes",

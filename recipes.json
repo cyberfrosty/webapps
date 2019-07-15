@@ -1061,6 +1061,51 @@
   "notes": "When using sun dried tomatoes in oil, add them with the onion and skip the olive oil. Fresh chopped basil makes a nice addition when adding the chicken to the sauce."
 },
 {
+  "title": "Balsamic Tomato Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/BalsamicTomatoChicken_hd.jpg",
+  "date": "June 17, 2019",
+  "preptime": "15 minutes",
+  "cooktime": "45 minutes",
+  "yield": "Serves 4",
+  "category": ["Mediterranean", "Pasta", "Chicken", "Tomatoes"],
+  "similar": ["Mediterranean Chicken", "Greek Meatballs", "Pizza"],
+  "description": "Stir fry Mediterranean chicken with balsamic reduction and sun dried tomatoes.",
+  "nutrition": {"carbohydrate": 27, "protein": 37, "calories": 417, "fat": 18, "sodium": 820},
+  "rating": 4.3,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+      "item4": {"quantity": "2 tsp", "ingredient": "Italian seasoning"},
+      "item5": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
+    },
+    "section2": {
+      "title": "Sauce",
+        "item1": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+        "item2": {"quantity": "1/4 cup", "ingredient": "shallot, thinly sliced"},
+        "item3": {"quantity": "1/2 cup", "ingredient": "sun-dried tomatoes"},
+        "item4": {"quantity": "3", "ingredient": "cloves garlic, pressed"},
+        "item5": {"quantity": "1/4 cup", "ingredient": "balsamic vinegar"},
+        "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"}
+    }
+  },
+  "instructions": {
+    "step1": "In a medium sauce pan, saute shallot in olive oil over low heat until translucent",
+    "step2": "Using mortar and pestle grind dried herbs, add along with garlic and sun dried tomatoes to sauce pan",
+    "step3": "Simmer for a couple minutes, add balsamic, reduce heat, cover as needed and reduce to desired consistency",
+    "step4": "Add oil to large non-stick skillet and preheat over medium heat",
+    "step5": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step6": "Place chicken into skillet and turn up heat to medium-high",
+    "step7": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step8": "Add chicken to sauce mixture, stir to coat evenly, turn off heat, leave covered for a few minutes",
+    "step9": "Serve over pasta with fresh grated Parmesan cheese"
+  },
+  "notes": "When using sun dried tomatoes in oil, add them with the shallot and skip the olive oil."
+},
+{
   "title": "Pizza",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/Pizza_hd.jpg",
