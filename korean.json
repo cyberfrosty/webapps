@@ -81,7 +81,7 @@
       "item4": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
       "item5": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
       "item6": {"quantity": "1 tsp", "ingredient": "sesame oil"},
-      "item7": {"quantity": "2 tbsp", "ingredient": "tomato paste"}
+      "item7": {"quantity": "2 tbsp", "ingredient": "tomato paste, or ketchup"}
     },
     "section4": {
       "title":"Garnish",
@@ -131,7 +131,7 @@
       "item5": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
       "item6": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
       "item7": {"quantity": "1 medium can", "ingredient": "diced tomatoes, (15oz)"},
-      "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste"},
+      "item8": {"quantity": "2 tbsp", "ingredient": "tomato paste, or ketchup"},
       "item9": {"quantity": "2 tsp", "ingredient": "chili powder, or Korean red powder (mild chili powder)"},
       "item10": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
       "item11": {"quantity": "1 tsp", "ingredient": "sesame oil"}
@@ -174,7 +174,7 @@
     "item4": {"quantity": "3", "ingredient": "green onions"},
     "item5": {"quantity": "3", "ingredient": "cloves garlic, pressed"},
     "item6": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
-    "item7": {"quantity": "1/4 cup", "ingredient": "tomato paste"},
+    "item7": {"quantity": "1/4 cup", "ingredient": "tomato paste, or ketchup"},
     "item8": {"quantity": "3 tbsp", "ingredient": "brown sugar"},
     "item9": {"quantity": "3 tbsp", "ingredient": "soy sauce"},
     "item10": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
