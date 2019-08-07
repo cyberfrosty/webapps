@@ -103,6 +103,43 @@
   }
 },
 {
+  "title": "Sweet and Spicy Shrimp",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/CilantroChileLimeShrimp.jpg",
+  "date": "August 6, 2019",
+  "yield": "Serves 4",
+  "preptime": "25 minutes",
+  "cooktime": "10 minutes",
+  "category": ["Asian", "Seafood", "Korean"],
+  "similar": ["Poke Bowl", "Thai Soyaki Salmon", "Cilantro Chili Lime Shrimp"],
+  "description": "Stir fry sweet and spicy chili shrimp with mini bell peppers.",
+  "nutrition": {"carbohydrate": 16, "protein": 26, "calories": 259, "fat": 10, "sodium": 630},
+  "rating": 4.6,
+  "ingredients": {
+    "item1": {"quantity": "1 lbs", "ingredient": "shrimp"},
+    "item2": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
+    "item3": {"quantity": "1/2 cup", "ingredient": "red onion, chopped"},
+    "item4": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
+    "item5": {"quantity": "3", "ingredient": "cloves garlic, pressed"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "Soyaki, or teriyaki sauce"},
+    "item7": {"quantity": "1/2 cup", "ingredient": "tomato sauce"},
+    "item8": {"quantity": "1 tbsp", "ingredient": "lime juice"},
+    "item9": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or dry sherry"},
+    "item10": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
+    "item11": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+    "item12": {"quantity": "2 tsp", "ingredient": "olive oil"},
+    "item13": {"quantity": "1", "ingredient": "yellow bell pepper, diced"}
+  },
+  "instructions": {
+    "step1": "Peel shrimp under running water, set aside to drain",
+    "step2": "Heat coconut oil in wok, add onion and ginger saute for several minutes, add garlic",
+    "step3": "In a large skillet, saute peppers in olive oil over medium high heat until edges are browning",
+    "step4": "Mix liquids in a small bowl or measuiring cup, add to to wok and bring to a low boil",
+    "step5": "Add shrimp, cook for 5 minutes covered, stirring several times to coat shrimp",
+    "step6": "Remove from heat, serve over rice or noodles with peppers"
+  }
+},
+{
   "title": "Tomato Carrot Chicken",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/TomatoCarrotChicken_hd.jpg",
