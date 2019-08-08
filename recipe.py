@@ -18,7 +18,7 @@ from utils import generate_id, contains_only, read_csv, compare_dicts
 
 TBSP2CUP = 0.0625
 TSP2CUP = 0.020833
-latest = ['Balsamic Tomato Chicken', 'Tomato Carrot Chicken', 'Durban Style Meatballs', 'Moroccan Chicken', 'Banana Cranberry Cookies', 'Japanese Broiled Eggplant']
+latest = ['Strawberry Frozen Yogurt', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken', 'Durban Style Meatballs', 'Moroccan Chicken']
 
 def render_ingredients(ingredients):
     """ Render recipe ingredients as HTML

@@ -68,6 +68,33 @@
   }
 },
 {
+  "title": "Strawberry Frozen Yogurt",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/StrawberryFroyo_hd.jpg",
+  "date": "August 4, 2019",
+  "preptime": "10 minutes",
+  "cooktime": "30 minutes",
+  "totaltime": "1 1/2 hours",
+  "yield": "Makes 8",
+  "category": ["Dessert"],
+  "similar": ["Chocolate Banana Loaf", "Banana Bread", "Banana Chocolate Chip Cookies"],
+  "description": "Strawberry frozen yogurt",
+  "nutrition": {"carbohydrate": 17, "protein": 0, "calories": 71, "fat": 0, "sodium": 1},
+  "rating": 4.8,
+  "ingredients": {
+    "item1": {"quantity": "2 cups", "ingredient": "diced strawberries, (450 grams)"},
+    "item2": {"quantity": "1/2 cups", "ingredient": "sugar"},
+    "item3": {"quantity": "1 tbsp", "ingredient": "Grand Marnier"},
+    "item9": {"quantity": "1 1/2 cup", "ingredient": "nonfat vanilla Greek yogurt"}
+  },
+  "instructions": {
+    "step1": "Mix sugar and strawberries in a bowl and let rest for 30-60 minutes until juicy",
+    "step2": "Add yogurt and mix",
+    "step3": "Pulse in a blender until desired consistancy, smooth or some strawberries chunks",
+    "step4": "Chill for 30 minutes, pour into ice cream maker and follow manufacturer's directions"
+  }
+},
+{
   "title": "Butter Mochi",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/LoadedBananaCake_hd.jpg",
