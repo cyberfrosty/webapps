@@ -242,7 +242,7 @@
   "yield": "Makes 36",
   "category": ["Chocolate", "Cookies", "Dessert"],
   "similar": ["Fudge Brownies", "Blonde Brownies", "Chocolate Crunchies"],
-  "description": "Peanut butter and chocolate chip bars.",
+  "description": "Death bars, best enjoyed straight from the freezer, or heated in the microwave for a few seconds",
   "nutrition": {"carbohydrate": 14, "protein": 2, "calories": 126, "fat": 7, "sodium": 59},
   "rating": 4.6,
   "ingredients": {
@@ -257,8 +257,8 @@
   "instructions": {
     "step1": "Preheat oven to 350 degrees",
     "step2": "In a mixing bowl combine peanut butter, sugar, egg and vanilla, beat lightly until just blended (do not over mix)",
-    "step3": "Beat in baking soda",
-    "step4": "Mix in toffee bits and chocolate chips",
+    "step3": "Mix in baking soda",
+    "step4": "Add toffee bits and chocolate chips",
     "step5": "Line 9x9 inch pan with foil, pour mixture into pan and smooth with spatula",
     "step6": "Bake for 20-22 minutes, cool and cut into bars"
   }
@@ -273,7 +273,7 @@
   "yield": "Makes 16",
   "category": ["Chocolate", "Dessert", "Bars"],
   "similar": ["Chocolate Crunchies", "Blonde Brownies", "Pfeffernusse"],
-  "description": "Decedent fudge brownies with chocolate chips and not too much butter.",
+  "description": "Decadent fudge brownies with chocolate chips and not too much butter.",
   "nutrition": {"carbohydrate": 24, "protein": 4, "calories": 200, "fat": 11, "sodium": 9},
   "rating": 4.8,
   "ingredients": {
