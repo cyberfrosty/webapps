@@ -56,7 +56,7 @@
     "item8": {"quantity": "1", "ingredient": "eggs"},
     "item9": {"quantity": "3 tbsp", "ingredient": "buttermilk"},
     "item10": {"quantity": "1/3 cup", "ingredient": "cranberries, dried or fresh/frozen"},
-    "item11": {"quantity": "1/3 cup", "ingredient": "chocolate chips"},
+    "item11": {"quantity": "1/3 cup", "ingredient": "semi-sweet chocolate chips"},
     "item12": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"}
   },
   "instructions": {
@@ -79,13 +79,13 @@
   "category": ["Dessert"],
   "similar": ["Chocolate Banana Loaf", "Banana Bread", "Banana Chocolate Chip Cookies"],
   "description": "Strawberry frozen yogurt",
-  "nutrition": {"carbohydrate": 17, "protein": 0, "calories": 71, "fat": 0, "sodium": 1},
+  "nutrition": {"carbohydrate": 21, "protein": 4, "calories": 103, "fat": 0, "sodium": 18},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "2 cups", "ingredient": "diced strawberries, (450 grams)"},
     "item2": {"quantity": "1/2 cups", "ingredient": "sugar"},
     "item3": {"quantity": "1 tbsp", "ingredient": "Grand Marnier"},
-    "item9": {"quantity": "1 1/2 cup", "ingredient": "nonfat vanilla Greek yogurt"}
+    "item4": {"quantity": "1 1/2 cup", "ingredient": "nonfat vanilla Greek yogurt"}
   },
   "instructions": {
     "step1": "Mix sugar and strawberries in a bowl and let rest for 30-60 minutes until juicy",
@@ -152,7 +152,7 @@
     "item7": {"quantity": "1/2 cup", "ingredient": "bananas, ripe and mashed"},
     "item8": {"quantity": "1", "ingredient": "eggs"},
     "item9": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
-    "item10": {"quantity": "1 cup", "ingredient": "chocolate chips"},
+    "item10": {"quantity": "1 cup", "ingredient": "semi-sweet chocolate chips"},
     "item11": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"}
   },
   "instructions": {
@@ -209,7 +209,7 @@
   "totaltime": "1 hour 10 minutes",
   "yield": "Makes 20",
   "category": ["Cookies", "Dessert"],
-  "similar": ["Fudge Brownies", "Blonde Brownies", "Death Bars"],
+  "similar": ["Fudge Brownies", "Blonde Brownies", "Chocolate Peanut Butter Toffee Bars"],
   "description": "Deliciously crunchy chocolate treats for after dinner or with coffee.",
   "nutrition": {"carbohydrate": 9, "protein": 2, "calories": 84, "fat": 14, "sodium": 8},
   "rating": 4.4,
@@ -220,7 +220,7 @@
     "item4": {"quantity": "1/3 cup", "ingredient": "coconut, flakes or shredded"},
     "item5": {"quantity": "2 oz", "ingredient": "dark chocolate, (70%)"},
     "item6": {"quantity": "2 oz", "ingredient": "Ghiradelli dark chocolate melting wafers"},
-    "item7": {"quantity": "1/4 cup", "ingredient": "chocolate chips, (optional)"}
+    "item7": {"quantity": "1/4 cup", "ingredient": "semi-sweet chocolate chips, (optional)"}
   },
   "instructions": {
     "step1": "Melt dark chocolate in medium bowl, being careful to heat only enough to melt",
@@ -233,7 +233,7 @@
   "notes": "Cashews, pepitas and other nuts may be substituted or mixed with peanuts."
 },
 {
-  "title": "Death Bars",
+  "title": "Chocolate Peanut Butter Toffee Bars",
   "chef": "Erika",
   "image": "https://snowyrangesolutions.com/static/img/DeathBars.jpg",
   "date": "March 30, 2017",
@@ -252,11 +252,11 @@
     "item4": {"quantity": "1 tbsp", "ingredient": "vanilla"},
     "item5": {"quantity": "1 tsp", "ingredient": "baking soda"},
     "item6": {"quantity": "3/4 cup", "ingredient": "Heath toffee bits"},
-    "item7": {"quantity": "1/2 cup", "ingredient": "chocolate chips"}
+    "item7": {"quantity": "1/2 cup", "ingredient": "semi-sweet chocolate chips"}
   },
   "instructions": {
     "step1": "Preheat oven to 350 degrees",
-    "step2": "In a mixing bowl combine peanut butter, sugar, egg and vanilla until full incorporated",
+    "step2": "In a mixing bowl combine peanut butter, sugar, egg and vanilla, beat lightly until just blended (do not over mix)",
     "step3": "Beat in baking soda",
     "step4": "Mix in toffee bits and chocolate chips",
     "step5": "Line 9x9 inch pan with foil, pour mixture into pan and smooth with spatula",
@@ -282,7 +282,7 @@
     "item3": {"quantity": "1 cup", "ingredient": "sugar"},
     "item4": {"quantity": "2", "ingredient": "eggs"},
     "item5": {"quantity": "1 tsp", "ingredient": "vanilla"},
-    "item6": {"quantity": "1/3 cup", "ingredient": "chocolate chips"},
+    "item6": {"quantity": "1/3 cup", "ingredient": "semi-sweet chocolate chips"},
     "item7": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"},
     "item8": {"quantity": "3/4 cup", "ingredient": "white flour"}
   },
@@ -317,7 +317,7 @@
     "item6": {"quantity": "2 cups", "ingredient": "brown sugar, packed"},
     "item7": {"quantity": "2", "ingredient": "eggs"},
     "item8": {"quantity": "1 tsp", "ingredient": "vanilla"},
-    "item9": {"quantity": "2/3 cup", "ingredient": "chocolate chips"},
+    "item9": {"quantity": "2/3 cup", "ingredient": "semi-sweet chocolate chips"},
     "item10": {"quantity": "1/3 cup", "ingredient": "pecans, chopped (optional)"}
   },
   "instructions": {
