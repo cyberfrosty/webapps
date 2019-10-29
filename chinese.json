@@ -230,6 +230,56 @@
   }
 },
 {
+  "title": "Cashew Chicken",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/CashewChicken_hd.jpg",
+  "date": "October 12, 2019",
+  "yield": "Serves 4",
+  "preptime": "15 minutes",
+  "cooktime": "15 minutes",
+  "category": ["Asian", "Chicken", "Chinese"],
+  "similar": ["Szechuan Chicken", "Sesame Chicken"],
+  "description": "Stir fry cashew chicken.",
+  "nutrition": {"carbohydrate": 23, "protein": 38, "calories": 429, "fat": 21, "sodium": 662},
+  "rating": 3.8,
+  "ingredients": {
+    "section1": {
+      "title": "Chicken",
+      "item1": {"quantity": "1 1/4 lbs", "ingredient": "chicken breasts, (organic)"},
+      "item2": {"quantity": "1/3 cup", "ingredient": "white flour"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
+    },
+    "section2": {
+      "title":"Sauce",
+      "item1": {"quantity": "1 tbsp", "ingredient": "coconut oil, or olive oil"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "cashews, raw"},
+      "item3": {"quantity": "1", "ingredient": "orange bell pepper, julienne or diced"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
+      "item5": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
+      "item6": {"quantity": "1/4 cup", "ingredient": "Soyaki, or teriyaki sauce"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "Shaoxing wine (\u7d39\u8208\u9152)"},
+      "item8": {"quantity": "2 tsp", "ingredient": "Worcestershire sauce"},
+      "item9": {"quantity": "2 tsp", "ingredient": "Sambal Oelek, or Sriracha"}
+    },
+    "section3": {
+      "title":"Garnish",
+      "item1": {"quantity": "1 tbsp", "ingredient": "sesame seeds"},
+      "item2": {"quantity": "1 tbsp", "ingredient": "green onions, chopped"}
+    }
+  },
+  "instructions": {
+    "step1": "Saute cashews, bell pepper, and shallots over medium heat in a wok",
+    "step2": "Combine the remaining sauce ingredients in measuring cup and mix",
+    "step3": "Add oil to large non-stick skillet and preheat over medium heat",
+    "step4": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
+    "step5": "Place chicken into skillet, spread evenly and turn up heat to medium-high",
+    "step6": "Cook chicken until almost done, flipping once and breaking up bunches to ensure even cooking",
+    "step7": "Add garlic and sauce mixture to wok and bring to low boil",
+    "step8": "Add chicken to wok, stir to coat evenly, turn off heat, leave uncovered for a few minutes",
+    "step10": "Serve over rice, garnish with sesame seeds and green onions"
+  }
+},
+{
   "title": "Szechuan Chicken",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/SzechuanChicken.jpg",
