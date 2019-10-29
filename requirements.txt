@@ -20,7 +20,7 @@ pyotp==2.2.6
 pytz==2018.5
 simplejson==3.16.0
 uWSGI==2.0.14
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 WTForms==2.1
 regex==2018.7.11
 requests==2.21.0
