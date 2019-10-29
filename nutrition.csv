@@ -42,6 +42,7 @@ yeast,                        1 tsp,    13,  0.3, 1.6, 1.6,    2,
 baking powder,                1 tsp,     0,    0,   0,   0,  488, Bob's
 baking soda,                  1 tsp,     0,    0,   0,   0, 1259, Bob's
 chocolate chips,              1 cup,  2240,  128, 288,  16,    0, Nestle
+semi-sweet chocolate chips,   1 cup,  2240,  128, 288,  16,    0, Nestle
 Andes baking chips,           1 cup,  1173,   75, 123,  11,  107, Andes
 Heath toffee bits,            1 cup,  1280,   80, 144,   0,  880,
 dark chocolate,                1 oz,   177,  100,  15,   3,    0, (70%)
@@ -220,6 +221,7 @@ black bean sauce,            1 tbsp,    23,  0.6,   3, 1.5,  645, Kikkoman
 teriyaki sauce,              1 tbsp,    16,    0, 2.8, 1.1,  690,
 Soyaki,                      1 tbsp,    40,    2,   5,   1,  490, Trader Joes
 soy sauce,                   1 tbsp,     5,    0,   0,   1,  490,
+Worcestershire sauce,        1 tbsp,    13,    0, 3.3,   1,  167,
 Mirin,                       1 tbsp,    36,    0, 6.1,   1,    0,
 Sake,                        1 tbsp,    39,    0, 1.5, 0.1,    1,
 Gochujang,                   1 tbsp,    45,    0,  10,   1,  510,
@@ -248,6 +250,7 @@ black mustard seeds,         1 tbsp,    32,  2.3, 1.8, 2.3,    1,
 flaxseed,                    1 tbsp,    55,  4.3,   3, 1.9,    3,
 pepitas,                      1 cup,   285,   12,  34,  12,   12,
 pecans,                       1 cup,   684,   71,  14,   9,    0, 1 cup halves (99g)
+cashews,                      1 cup,   600,   48,  32,  20,    0, 1 cup raw
 almonds,                      1 cup,   529,   45,  20,  20,    1, 1 cup sliced (92g)
 peanuts,                      1 cup,   854,   73,  31,  35,    9, 1 cup dry roasted unsalted (146g)
 coconut,                      1 cup,   283,   27,  12, 2.7,   16, 1 cup shredded (80g)
