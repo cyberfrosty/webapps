@@ -97,7 +97,7 @@
 {
   "title": "Butter Mochi",
   "chef": "Susan",
-  "image": "https://snowyrangesolutions.com/static/img/LoadedBananaCake_hd.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/ButterMochi_hd.jpg",
   "date": "September 17, 2018",
   "preptime": "10 minutes",
   "cooktime": "1 hour",
@@ -235,14 +235,14 @@
 {
   "title": "Chocolate Peanut Butter Toffee Bars",
   "chef": "Erika",
-  "image": "https://snowyrangesolutions.com/static/img/DeathBars.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/DeathBars_hd.jpg",
   "date": "March 30, 2017",
   "preptime": "10 minutes",
   "cooktime": "20 minutes",
   "yield": "Makes 36",
   "category": ["Chocolate", "Cookies", "Dessert"],
   "similar": ["Fudge Brownies", "Blonde Brownies", "Chocolate Crunchies"],
-  "description": "Death bars, best enjoyed straight from the freezer, or heated in the microwave for a few seconds",
+  "description": "Also known as Death bars, best enjoyed straight from the freezer, or heated in the microwave for a few seconds",
   "nutrition": {"carbohydrate": 14, "protein": 2, "calories": 126, "fat": 7, "sodium": 59},
   "rating": 4.6,
   "ingredients": {
@@ -261,7 +261,8 @@
     "step4": "Add toffee bits and chocolate chips",
     "step5": "Line 9x9 inch pan with foil, pour mixture into pan and smooth with spatula",
     "step6": "Bake for 20-22 minutes, cool and cut into bars"
-  }
+  },
+  "notes": "That's right there is no flour in these."
 },
 {
   "title": "Fudge Brownies",
