@@ -18,7 +18,7 @@ from utils import generate_id, contains_only, read_csv, compare_dicts
 
 TBSP2CUP = 0.0625
 TSP2CUP = 0.020833
-latest = ['Cashew Chicken', 'Strawberry Frozen Yogurt', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken', 'Durban Style Meatballs', 'Moroccan Chicken']
+latest = ['Cashew Chicken', 'Gingerbread Scones', 'Strawberry Frozen Yogurt', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken', 'Durban Style Meatballs', 'Moroccan Chicken']
 
 def render_ingredients(ingredients):
     """ Render recipe ingredients as HTML
@@ -180,6 +180,34 @@ def render_instructions(instructions, mode):
         html += '</p>\n'
     return html
 
+def get_image_srcset(recipe):
+    """ Generate HTML for image srcset
+    Args:
+        recipe: dictionary
+    Returns:
+        HTML
+    """
+
+    html = ''
+    title = recipe['title']
+    if 'image' in recipe:
+        image, ext = os.path.splitext(recipe['image'])
+        if image.endswith('_hd'):
+            image = image.replace('_hd', '')
+        small = image + '_small' + ext
+        medium = image + '_medium' + ext
+        large = recipe['image']
+    else:
+        image = '/img/' + title.replace(' ', '')
+        small = image + '_small.jpg'
+        medium = image + '_medium.jpg'
+        large = image + '.jpg'
+    if 'image' in recipe or os.path.isfile('static' + large):
+        html = '<img itemprop="image" src="' + large + '" alt="' + title + '" ' \
+               'srcset="' + large + ' 1400w,' + medium + ' 768w,' + small + ' 576w" ' \
+               'sizes="(max-width: 576px) 500px, (max-width: 768px) 650px, 1400px">\n'
+    return html
+
 def render_recipe_summary(recipe, makeit=False):
     """ Render a recipe as HTML
     Args:
@@ -195,74 +223,59 @@ def render_recipe_summary(recipe, makeit=False):
     url = '/recipes?recipe=' + title.replace(' ', '%20')
     if not makeit:
         html += '<meta itemprop="url" content="' + url + '" />\n'
-    if 'image' in recipe:
-        image, ext = os.path.splitext(recipe['image'])
-        if image.endswith('_hd'):
-            image = image.replace('_hd', '')
-        small = image + '_small' + ext
-        medium = image + '_medium' + ext
-        large = recipe['image']
-    else:
-        image = '/img/' + title.replace(' ', '')
-        small = image + '_small.jpg'
-        medium = image + '_medium.jpg'
-        large = image + '.jpg'
-    if 'image' in recipe or os.path.isfile('static' + large):
-        html += '<img  itemprop="image" src="' + large + '" alt="' + title + '" ' \
-                'srcset="' + large + ' 1400w,' + medium + ' 768w,' + small + ' 576w" ' \
-                'sizes="(max-width: 576px) 500px, (max-width: 768px) 650px, 1400px">\n'
-        html += '</div><!--/col-sm-6-->\n'
-        html += '<div class="col-sm-6">\n'
-        if 'description' in recipe:
-            html += '<div itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</div>\n'
-        if 'chef' in recipe:
-            html += '<div itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</div>\n'
-        if 'yield' in recipe:
-            yields = recipe['yield']
-            if 'Serves' in yields:
-                icon = '<i class="fa fa-group fa-fw" aria-hidden="true">'
+    html += get_image_srcset(recipe)
+    html += '</div><!--/col-sm-6-->\n'
+    html += '<div class="col-sm-6">\n'
+    if 'description' in recipe:
+        html += '<div itemprop="description"><i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['description'] + '</div>\n'
+    if 'chef' in recipe:
+        html += '<div itemprop="author"><i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>&nbsp;Chef ' + recipe['chef'] + '</div>\n'
+    if 'yield' in recipe:
+        yields = recipe['yield']
+        if 'Serves' in yields:
+            icon = '<i class="fa fa-group fa-fw" aria-hidden="true">'
+        else:
+            icon = '<i class="fa fa-clone fa-fw" aria-hidden="true">'
+        html += '<div itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</div>\n'
+    total_time = None
+    if 'preptime' in recipe:
+        html += render_time('prepTime', recipe['preptime'])
+        total_time = recipe['preptime']
+    if 'cooktime' in recipe:
+        html += render_time('cookTime', recipe['cooktime'])
+        total_time = add_times(total_time, recipe['cooktime']) if total_time else recipe['cooktime']
+    if 'totaltime' in recipe:
+        html += render_time('totalTime', recipe['totaltime'])
+    elif 'time' in recipe:
+        html += render_time('totalTime', recipe['time'])
+    elif total_time:
+        html += render_time('totalTime', total_time)
+    if 'date' in recipe:
+        posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
+        html += '<div itemprop="datePublished" content="' + posted + '">'
+        html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</div>\n'
+    if 'nutrition' in recipe:
+        html += render_nutrition(recipe['nutrition'])
+    if 'rating' in recipe:
+        rating = recipe['rating']
+        reviews = 2
+        html += '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
+        html += '  <meta itemprop="ratingValue" content="' + str(rating) + '">\n'
+        html += '  <meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
+        for i in range(5):
+            if rating > 0.75:
+                html += '  <span class="fa fa-star star-checked"></span>\n'
+            elif rating > 0.25:
+                html += '  <span class="fa fa-star-half-o star-checked"></span>\n'
             else:
-                icon = '<i class="fa fa-clone fa-fw" aria-hidden="true">'
-            html += '<div itemprop="recipeYield">' + icon + '</i>&nbsp;' + yields + '</div>\n'
-        total_time = None
-        if 'preptime' in recipe:
-            html += render_time('prepTime', recipe['preptime'])
-            total_time = recipe['preptime']
-        if 'cooktime' in recipe:
-            html += render_time('cookTime', recipe['cooktime'])
-            total_time = add_times(total_time, recipe['cooktime']) if total_time else recipe['cooktime']
-        if 'totaltime' in recipe:
-            html += render_time('totalTime', recipe['totaltime'])
-        elif 'time' in recipe:
-            html += render_time('totalTime', recipe['time'])
-        elif total_time:
-            html += render_time('totalTime', total_time)
-        if 'date' in recipe:
-            posted = datetime.strptime(recipe['date'], '%B %d, %Y').strftime('%Y-%m-%d')
-            html += '<div itemprop="datePublished" content="' + posted + '">'
-            html += '<i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;' + recipe['date'] + '</div>\n'
-        if 'nutrition' in recipe:
-            html += render_nutrition(recipe['nutrition'])
-        if 'rating' in recipe:
-            rating = recipe['rating']
-            reviews = 2
-            html += '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">\n'
-            html += '  <meta itemprop="ratingValue" content="' + str(rating) + '">\n'
-            html += '  <meta itemprop="reviewCount" content="' + str(reviews) + '">\n'
-            for i in range(5):
-                if rating > 0.75:
-                    html += '  <span class="fa fa-star star-checked"></span>\n'
-                elif rating > 0.25:
-                    html += '  <span class="fa fa-star-half-o star-checked"></span>\n'
-                else:
-                    html += '  <span class="fa fa-star-o"></span>\n'
-                rating -= 1.0
-            html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings\n</div>\n'
-        if makeit:
-            html += '<a class="btn btn-primary" href="' + url + '" role="button"><i class="fa fa-external-link" aria-hidden="true"></i> Make it</a>\n'
-        html += '</div><!--/col-sm-6-->\n'
-        html += '</div><!--/row-->\n'
-        return html
+                html += '  <span class="fa fa-star-o"></span>\n'
+            rating -= 1.0
+        html += ' ' + str(recipe['rating']) + '   (' + str(reviews) + ') user ratings\n</div>\n'
+    if makeit:
+        html += '<a class="btn btn-primary" href="' + url + '" role="button"><i class="fa fa-external-link" aria-hidden="true"></i> Make it</a>\n'
+    html += '</div><!--/col-sm-6-->\n'
+    html += '</div><!--/row-->\n'
+    return html
 
 
 class RecipeManager(object):
@@ -601,13 +614,12 @@ class RecipeManager(object):
             for item in recipe['similar']:
                 similar = self.get_recipe(item)
                 title = similar['title']
-                image = 'https://snowyrangesolutions.com/static/img/' + title.replace(" ", "") + '_small.jpg'
                 html += '<table><tr><td>\n'
                 html += '<figure>\n'
                 html += '<figcaption>' + title + '</figcaption>\n'
                 link = '/recipes?recipe=' + title.replace(" ", "%20")
                 html += '<a href="' + link + '" title="' + title + '">\n'
-                html += '<img src="' + image + '" alt="' + title + '"></a>\n'
+                html += get_image_srcset(recipe)
                 html += '</figure>\n'
                 html += '</td></tr></table>\n'
             html += '</div>\n'
@@ -672,13 +684,12 @@ class RecipeManager(object):
             for item in matches:
                 recipe = self.get_recipe(item)
                 title = recipe['title']
-                image = 'https://snowyrangesolutions.com/static/img/' + title.replace(" ", "") + '_small.jpg'
                 html += '<table><tr><td>\n'
                 html += '<figure>\n'
                 html += '<figcaption>' + title + '</figcaption>\n'
                 link = '/recipes?recipe=' + title.replace(" ", "%20")
                 html += '<a href="' + link + '" title="' + title + '">\n'
-                html += '<img src="' + image + '" alt="' + title + '"></a>\n'
+                html += get_image_srcset(recipe)
                 html += '</figure>\n'
                 html += '</td></tr></table>\n'
             html += '</div>\n'
@@ -771,13 +782,12 @@ class RecipeManager(object):
             for recipe_id in self.recipes:
                 recipe = self.recipes[recipe_id]
                 title = recipe['title']
-                image = 'https://snowyrangesolutions.com/static/img/' + title.replace(" ", "") + '_small.jpg'
                 html += '<table><tr><td>\n'
                 html += '<figure>\n'
                 html += '<figcaption>' + title + '</figcaption>\n'
                 link = '/recipes?recipe=' + title.replace(" ", "%20")
                 html += '<a href="' + link + '" title="' + title + '">\n'
-                html += '<img src="' + image + '" alt="' + title + '"></a>\n'
+                html += get_image_srcset(recipe)
                 html += '</figure>\n'
                 html += '</td></tr></table>\n'
             html += '</div>\n'
