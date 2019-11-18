@@ -75,6 +75,42 @@
   }
 },
 {
+  "title": "Whole Wheat Biscuits",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/WholeWheatBiscuits_hd.jpg",
+  "date": "November 17, 2019",
+  "yield": "Makes 12",
+  "preptime": "10 minutes",
+  "cooktime": "12 minutes",
+  "category": ["Breakfast"],
+  "similar": ["Banana Muffins", "Apricot Scones", "Oven Pancake"],
+  "description": "Flaky and delicious whole wheat biscuits.",
+  "nutrition": {"carbohydrate": 16, "protein": 3, "calories": 130, "fat": 7, "sodium": 201},
+  "rating": 4.3,
+  "ingredients": {
+    "item1": {"quantity": "1 cup", "ingredient": "whole wheat flour"},
+    "item2": {"quantity": "1 cup", "ingredient": "white flour"},
+    "item3": {"quantity": "2 tsp", "ingredient": "baking powder"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "salt, increase to 1/2 tsp if using unsalted butter"},
+    "item6": {"quantity": "6 tbsp", "ingredient": "butter, chilled"},
+    "item7": {"quantity": "3/4 cup", "ingredient": "buttermilk"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 425 degrees",
+    "step2": "Mix dry ingredients, cut butter in with pastry knife",
+    "step3": "Use your hands to flatten chunks of butter",
+    "step4": "Add buttermilk and stir with a fork until dough gathers into a large lump, add additional buttermilk if needed",
+    "step5": "Turn out dough onto floured surface, pat or roll to 2 cm thick",
+    "step6": "Fold and pat at least 6 times, this step is key for the flaking texture",
+    "step7": "Roll or pat to 2 cm thick",
+    "step8": "Use a biscuit cutter or knife to form biscuits",
+    "step9": "Place on heavy cooking sheet about 1 inch apart",
+    "step10": "Bake for 10-12 minutes, until golden brown"
+  },
+  "notes": "Can be made with 100% whole wheat flour"
+},
+{
   "title": "Banana Muffins",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/BananaMuffins.jpg",

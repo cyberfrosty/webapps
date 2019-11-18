@@ -18,7 +18,7 @@ from utils import generate_id, contains_only, read_csv, compare_dicts
 
 TBSP2CUP = 0.0625
 TSP2CUP = 0.020833
-latest = ['Cashew Chicken', 'Gingerbread Scones', 'Strawberry Frozen Yogurt', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken', 'Durban Style Meatballs', 'Moroccan Chicken']
+latest = ['Whole Wheat Biscuits', 'Cashew Chicken', 'Gingerbread Scones', 'Strawberry Frozen Yogurt', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken', 'Durban Style Meatballs', 'Moroccan Chicken']
 
 def render_ingredients(ingredients):
     """ Render recipe ingredients as HTML
@@ -619,7 +619,7 @@ class RecipeManager(object):
                 html += '<figcaption>' + title + '</figcaption>\n'
                 link = '/recipes?recipe=' + title.replace(" ", "%20")
                 html += '<a href="' + link + '" title="' + title + '">\n'
-                html += get_image_srcset(recipe)
+                html += get_image_srcset(similar)
                 html += '</figure>\n'
                 html += '</td></tr></table>\n'
             html += '</div>\n'
