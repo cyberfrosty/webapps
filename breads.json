@@ -92,7 +92,7 @@
     "item2": {"quantity": "1 cup", "ingredient": "white flour"},
     "item3": {"quantity": "2 tsp", "ingredient": "baking powder"},
     "item4": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
-    "item5": {"quantity": "1/4 tsp", "ingredient": "salt, increase to 1/2 tsp if using unsalted butter"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "salt, double when using unsalted butter"},
     "item6": {"quantity": "6 tbsp", "ingredient": "butter, chilled"},
     "item7": {"quantity": "3/4 cup", "ingredient": "buttermilk"}
   },
@@ -108,7 +108,7 @@
     "step9": "Place on heavy cooking sheet about 1 inch apart",
     "step10": "Bake for 10-12 minutes, until golden brown"
   },
-  "notes": "Can be made with 100% whole wheat flour"
+  "notes": "Can be made with 100% whole wheat flour."
 },
 {
   "title": "Banana Muffins",
