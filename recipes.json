@@ -359,10 +359,10 @@
   "preptime": "5 minutes",
   "cooktime": "20 minutes",
   "yield": "Serves 2",
-  "category": ["Mediter", "Vegetables"],
+  "category": ["Mediterranean", "Vegetables"],
   "similar": ["Sesame Green Beans", "Spicy Cilantro Carrots", "Roasted Cauliflower"],
   "description": "Oven roasted brussel sprouts with parmesan cheese.",
-  "nutrition": {"carbohydrate": 11, "protein": 2, "calories": 88, "fat": 5, "sodium": 408},
+  "nutrition": {"carbohydrate": 13, "protein": 6, "calories": 207, "fat": 16, "sodium": 701},
   "rating": 4.2,
   "ingredients": {
     "item1": {"quantity": "2 cups", "ingredient": "brussel sprouts, about 10"},
