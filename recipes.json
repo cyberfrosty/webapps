@@ -352,6 +352,38 @@
   }
 },
 {
+  "title": "Parmesan Roasted Brussel Sprouts",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/ParmesanRoastedBrusselSprouts_hd.jpg",
+  "date": "November 29, 2019",
+  "preptime": "5 minutes",
+  "cooktime": "20 minutes",
+  "yield": "Serves 2",
+  "category": ["Mediter", "Vegetables"],
+  "similar": ["Sesame Green Beans", "Spicy Cilantro Carrots", "Roasted Cauliflower"],
+  "description": "Oven roasted brussel sprouts with parmesan cheese.",
+  "nutrition": {"carbohydrate": 11, "protein": 2, "calories": 88, "fat": 5, "sodium": 408},
+  "rating": 4.2,
+  "ingredients": {
+    "item1": {"quantity": "2 cups", "ingredient": "brussel sprouts, about 10"},
+    "item2": {"quantity": "2 tbsp", "ingredient": "olive oil"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
+    "item4": {"quantity": "1/4 tsp", "ingredient": "black pepper, freshly ground"},
+    "item5": {"quantity": "2 tbsp", "ingredient": "parmesan cheese, grated"},
+    "item6": {"quantity": "2 tbsp", "ingredient": "seasoned bread crumbs"}
+  },
+  "instructions": {
+    "step1": "Preheat oven to 425 degrees",
+    "step2": "Wash, trim ends and cut brussel sprouts in half",
+    "step3": "In a medium bowl drizzle olive oil over brussel sprouts and toss to coat",
+    "step4": "Sprinkle with garlic salt and pepper, toss to coat",
+    "step5": "Sprinkle with parmesan cheese and toss to coat",
+    "step6": "Sprinkle with bread crumbs, toss to coat and dump out onto baking sheet",
+    "step7": "Arrange up or down in a single layer",
+    "step8": "Bake for 18-20 minutes until turning golden brown on top"
+  }
+},
+{
   "title": "Ginger Carrots",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/GingerCarrots.jpg",
