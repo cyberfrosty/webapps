@@ -30,13 +30,23 @@
   }
 },
 {
+  "title": "Greek Yogurt Sauce",
+  "ingredients": {
+    "item1": {"quantity": "3/4 cup", "ingredient": "nonfat Greek yogurt"},
+    "item2": {"quantity": "1 tsp", "ingredient": "lime juice"},
+    "item2": {"quantity": "1 1/2 tbsp", "ingredient": "Dijon mustard, or horse radish"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "roasted lime peel"},
+    "item5": {"quantity": "1 tsp", "ingredient": "Greek seasoning"}
+  }
+},
+{
   "title": "Dijon Yogurt Sauce",
   "ingredients": {
     "item1": {"quantity": "3/4 cup", "ingredient": "nonfat Greek yogurt"},
     "item2": {"quantity": "1 1/2 tbsp", "ingredient": "Dijon mustard"},
-    "item2": {"quantity": "2 tsp", "ingredient": "ranch seasoning"},
-    "item3": {"quantity": "1/2 tsp", "ingredient": "lemon pepper"},
-    "item4": {"quantity": "1/4 tsp", "ingredient": "celery seed"},
-    "item5": {"quantity": "1/8 tsp", "ingredient": "black pepper"}
+    "item3": {"quantity": "2 tsp", "ingredient": "ranch seasoning"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "lemon pepper"},
+    "item5": {"quantity": "1/4 tsp", "ingredient": "celery seed"},
+    "item6": {"quantity": "1/8 tsp", "ingredient": "black pepper"}
   }
 }]
