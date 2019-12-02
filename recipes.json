@@ -585,7 +585,7 @@
     "item9": {"quantity": "1 tsp", "ingredient": "oregano"},
     "item10": {"quantity": "2 tsp", "ingredient": "chili powder"},
     "item11": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper, (optional)"},
-    "item12": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
+    "item12": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika (optional)"}
   },
   "instructions": {
     "step1": "In a large skillet, saute onion in olive oil over low heat until translucent",
@@ -756,7 +756,7 @@
   },
   "instructions": {
     "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
-    "step2": "Mix dry spices in mortar or small bowl",
+    "step2": "Mix dry spices in mortar or small bowl (note that 2 tbsp Ras el Hanout may be used for sauce spices)",
     "step3": "Add tomato sauce, garlic, spices, stir to mix and cook covered over low heat while cooking the chicken, stirring as needed to prevent sticking",
     "step4": "Add oil to large non-stick skillet and preheat over medium heat",
     "step5": "Cut chicken into pieces, trimming fat as required, coat with flour in plastic bag",
@@ -785,7 +785,7 @@
         "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
         "item2": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
         "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
-        "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+        "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
         "item5": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
         "item6": {"quantity": "2 tbsp", "ingredient": "coriander, chopped (optional)"},
         "item7": {"quantity": "1", "ingredient": "egg"}
@@ -838,7 +838,7 @@
     "item1": {"quantity": "1 head", "ingredient": "cauliflower"},
     "item2": {"quantity": "3 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
-    "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+    "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "chili powder, Aleppo, ancho or chipotle"},
     "item6": {"quantity": "1/4 cup", "ingredient": "seasoned bread crumbs"},
     "item7": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped (optional)"},
@@ -1169,7 +1169,7 @@
         "item4": {"quantity": "1 tsp", "ingredient": "basil"},
         "item5": {"quantity": "1 tsp", "ingredient": "thyme"},
         "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"},
-        "item7": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, (optional)"}
+        "item7": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika (optional)"}
     },
     "section3": {
       "title": "Topping",
@@ -1330,7 +1330,7 @@
     "item5": {"quantity": "1 tsp", "ingredient": "Thai red curry paste"},
     "item6": {"quantity": "2 tsp", "ingredient": "Sriracha"},
     "item7": {"quantity": "1 tbsp", "ingredient": "Thai sweet chili sauce, hoisin or sweet and sour sauce"},
-    "item8": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+    "item8": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
     "item9": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, chopped"},
     "item10": {"quantity": "1", "ingredient": "lime, cut into wedges"}
   },
@@ -1388,7 +1388,7 @@
   "ingredients": {
     "item1": {"quantity": "3", "ingredient": "potatoes, russet or golden, medium size or 2 large"},
     "item2": {"quantity": "3 tbsp", "ingredient": "canola oil"},
-    "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning"},
+    "item3": {"quantity": "2 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
     "item4": {"quantity": "1/4 cup", "ingredient": "bread crumbs"},
     "item5": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"}
   },
@@ -1416,7 +1416,7 @@
     "item1": {"quantity": "2", "ingredient": "red garnet yams"},
     "item2": {"quantity": "2 tbsp", "ingredient": "corn starch, or potato starch or (1/4 cup flour)"},
     "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"},
-    "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+    "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
     "item5": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
     "item6": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
     "item7": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"},
@@ -1602,7 +1602,7 @@
       "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
       "item4": {"quantity": "2 tsp", "ingredient": "garlic salt"},
       "item5": {"quantity": "1 tsp", "ingredient": "onion powder"},
-      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
       "item7": {"quantity": "1 tsp", "ingredient": "smoked paprika"},
       "item8": {"quantity": "1/2 tsp", "ingredient": "black pepper"},
       "item9": {"quantity": "1 cup", "ingredient": "Panko bread crumbs"}
@@ -1880,7 +1880,7 @@
         "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
         "item2": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
         "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
-        "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+        "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
         "item5": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
         "item6": {"quantity": "1", "ingredient": "egg"}
     },
