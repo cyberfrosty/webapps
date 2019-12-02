@@ -1,5 +1,6 @@
 [{
   "title":"Tzatziki Sauce",
+  "category": ["Sauce", "Yogurt"],
   "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
     "item2": {"quantity": "1/2 cup", "ingredient": "cucumber, peeled, deseeded and diced"},
@@ -13,14 +14,18 @@
 },
 {
   "title":"Tahini Yogurt Sauce",
+  "category": ["Sauce", "Yogurt"],
+  "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
     "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
     "item3": {"quantity": "2 tsp", "ingredient": "lemon juice"},
     "item4": {"quantity": "1", "ingredient": "clove garlic, pressed"},
     "item5": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
+  }
 },
 {
   "title": "Ranch Yogurt Sauce",
+  "category": ["Sauce", "Yogurt"],
   "ingredients": {
     "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
     "item2": {"quantity": "2 tsp", "ingredient": "ranch seasoning"},
@@ -31,16 +36,18 @@
 },
 {
   "title": "Greek Yogurt Sauce",
+  "category": ["Sauce", "Yogurt"],
   "ingredients": {
     "item1": {"quantity": "3/4 cup", "ingredient": "nonfat Greek yogurt"},
     "item2": {"quantity": "1 tsp", "ingredient": "lime juice"},
-    "item2": {"quantity": "1 1/2 tbsp", "ingredient": "Dijon mustard, or horse radish"},
-    "item3": {"quantity": "1/2 tsp", "ingredient": "roasted lime peel"},
+    "item3": {"quantity": "1 1/2 tbsp", "ingredient": "Dijon mustard, or horse radish"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "roasted lime peel"},
     "item5": {"quantity": "1 tsp", "ingredient": "Greek seasoning"}
   }
 },
 {
   "title": "Dijon Yogurt Sauce",
+  "category": ["Sauce", "Yogurt"],
   "ingredients": {
     "item1": {"quantity": "3/4 cup", "ingredient": "nonfat Greek yogurt"},
     "item2": {"quantity": "1 1/2 tbsp", "ingredient": "Dijon mustard"},
