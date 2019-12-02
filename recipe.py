@@ -768,6 +768,39 @@ class RecipeManager(object):
                     break
         return matches
 
+    def match_reference_by_category(self, phrase):
+        """ Find references that match the phrase in their categories (e.g. 'Yogurt')
+        Args:
+            phrase to search for
+        Returns:
+            list of reference titles
+        """
+        matches = set()
+        for reference_id in self.references:
+            reference = self.references[reference_id]
+            for item in reference.get('category'):
+                if re.search(phrase, item, re.IGNORECASE):
+                    matches.add(reference['title'])
+                    break
+        return matches
+
+    def match_reference_by_title(self, phrase):
+        """ Find references that match the phrase in their title (e.g. 'Lime')
+        Args:
+            phrase to search for
+        Returns:
+            list of reference titles
+        """
+        matches = set()
+        for reference_id in self.references:
+            reference = self.references[reference_id]
+            words = reference.get('title').split()
+            for word in words:
+                if re.search(phrase, word, re.IGNORECASE):
+                    matches.add(reference['title'])
+                    break
+        return matches
+
     def get_rendered_gallery(self, matches=None):
         """ Render an image gallery of recipe pictures
         Args:
@@ -807,6 +840,8 @@ def main():
     veggies = manager.match_recipe_by_category('veg')
     med = manager.match_recipe_by_category('med')
     print veggies.union(med)
+    print manager.match_reference_by_category('yog')
+    print manager.match_reference_by_title('ranch')
 
     print render_time('prepTime', '20 mins')
     print render_time('prepTime', '20 minutes')
