@@ -21,7 +21,7 @@
       "item3": {"quantity": "4", "ingredient": "green onions"},
       "item4": {"quantity": "1 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
       "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
-      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning"},
+      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
       "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
       "item8": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
       "item9": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
@@ -38,8 +38,60 @@
     "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
     "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss gently until coated",
-    "step4": "Garnish with chopped chives or thinly sliced green onion tops",
-    "step5": "Serve over noodles or rice"
+    "step4": "Serve over noodles or rice",
+    "step5": "Garnish with chopped chives or thinly sliced green onion tops"
+  }
+},
+{
+  "title": "Korean Meatball Marinara",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanMeatballMarinara.jpg",
+  "date": "November 30, 2019",
+  "yield": "Serves 4",
+  "preptime": "10 minutes",
+  "cooktime": "25 minutes",
+  "time": "45 minutes",
+  "category": ["Asian", "Korean", "Turkey"],
+  "similar": ["Korean Chili Chicken", "Durban Chicken Curry", "Moroccan Meatballs"],
+  "description": "Korean style meatballs in spicy marinara sauce.",
+  "nutrition": {"carbohydrate": 32, "protein": 28, "calories": 471, "fat": 22, "sodium": 1016},
+  "rating": 4.7,
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+      "item1": {"quantity": "1 lbs", "ingredient": "lean ground turkey"},
+      "item2": {"quantity": "1", "ingredient": "egg"},
+      "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
+      "item5": {"quantity": "1 tsp", "ingredient": "garlic salt"},
+      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
+      "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+      "item9": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
+    },
+    "section2": {
+      "title":"Marinara Sauce",
+      "item1": {"quantity": "2 tbsp", "ingredient": "coconut oil, or olive oil"},
+      "item2": {"quantity": "1/2 cup", "ingredient": "red onion, finely chopped"},
+      "item3": {"quantity": "2 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
+      "item4": {"quantity": "3", "ingredient": "cloves garlic, pressed"},
+      "item5": {"quantity": "1 large can", "ingredient": "crushed tomatoes, (28oz)"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "Mirin (\u5473\u9182), Shaoxing wine (\u7d39\u8208\u9152) or wine vinegar"},
+      "item7": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
+      "item8": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item9": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"},
+      "item10": {"quantity": "1/2 tsp", "ingredient": "chili powder, Aleppo, ancho or chipotle"},
+      "item11": {"quantity": "1/2 tsp", "ingredient": "cumin"},
+      "item12": {"quantity": "1/2 tsp", "ingredient": "cinnamon"}
+    }
+  },
+  "instructions": {
+    "step1": "In a large sauce pan, saute onion in olive oil over low heat until translucent",
+    "step2": "Add ginger and garlic, saute for a couple minutes",
+    "step3": "Add crushed tomatoes and remaining ingredients, stir to mix and cook covered over low heat for 20-30 minutes, stirring as needed to prevent sticking",
+    "step4": "In a large bowl combine meatball ingredients, mixing thoroughly, add bread crumbs until desired texture is achieved",
+    "step5": "Form into 1 inch balls and lightly brown in non-stick skillet, add to sauce, gently pushing into mixture",
+    "step6": "Simmer for another 20-30 minutes stirring gently to keep from sticking",
+    "step7": "Serve over pasta or rice",
+    "step8": "Garnish with chopped chives or thinly sliced green onion tops"
   }
 },
 {
