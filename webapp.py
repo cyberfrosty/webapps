@@ -51,8 +51,8 @@ RECIPE_MANAGER.load_references('sauces.json')
 RECIPE_LIST = RECIPE_MANAGER.build_search_list()
 VAULT_MANAGER = VaultManager(CONFIG)
 EVENT_MANAGER = EventManager(CONFIG)
-SNS = SNS('FrostyWeb')
-SES = SES('Alan Frost <alan@cyberfrosty.com>')
+#SNS = SNS('FrostyWeb')
+#SES = SES('Alan Frost <alan@cyberfrosty.com>')
 
 # Log exceptions and errors to /var/log/cyberfrosty.log
 # 2017-05-11 08:29:26,696 ERROR webapp:main [Errno 51] Network is unreachable
@@ -94,11 +94,12 @@ def send_email(recipient, subject, action, **kwargs):
     template = env.get_template('email/' + action + '.html')
     html = template.render(title=subject, **kwargs)
 
-    with APP.app_context():
-        try:
-            SES.send_email(recipient, subject, html, text)
-        except ClientError as err:
-            print(err.response['Error']['Message'])
+    #with APP.app_context():
+    #    try:
+    #        SES.send_email(recipient, subject, html, text)
+    #    except ClientError as err:
+    #        print(err.response['Error']['Message'])
+    print(subject)
 
 @async
 def send_text(phone, msg):
