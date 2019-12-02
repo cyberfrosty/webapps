@@ -1291,12 +1291,7 @@
         "item4": {"quantity": "2 tbsp", "ingredient": "canola oil"}
     },
     "section2": {
-      "title": "Yogurt Sauce",
-        "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
-        "item2": {"quantity": "2 tsp", "ingredient": "ranch seasoning"},
-        "item3": {"quantity": "1/2 tsp", "ingredient": "lemon pepper"},
-        "item4": {"quantity": "1/2 tsp", "ingredient": "garlic salt"},
-        "item5": {"quantity": "1/4 tsp", "ingredient": "dill weed"}
+      "reference": "Ranch Yogurt Sauce"
     }
   },
   "instructions": {
@@ -1975,7 +1970,7 @@
       "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"}
     },
     "section2": {
-      "title":"Marinade",
+      "title": "Marinade",
       "item1": {"quantity": "1 tbsp", "ingredient": "olive oil"},
       "item2": {"quantity": "2 tbsp", "ingredient": "shallot, or 2 green onions, chopped"},
       "item3": {"quantity": "3", "ingredient": "cloves garlic, pressed"},
@@ -1992,12 +1987,7 @@
       "item1": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
     },
     "section4": {
-      "title":"Yogurt Sauce",
-      "item1": {"quantity": "1/2 cup", "ingredient": "nonfat Greek yogurt"},
-      "item2": {"quantity": "2 tbsp", "ingredient": "tahini"},
-      "item3": {"quantity": "2 tsp", "ingredient": "lemon juice"},
-      "item4": {"quantity": "1", "ingredient": "cloves garlic, pressed"},
-      "item5": {"quantity": "1 tbsp", "ingredient": "fresh cilantro, chopped"}
+      "reference": "Tahini Yogurt Sauce"
     }
   },
   "instructions": {
