@@ -39,7 +39,7 @@ def derive_key(password, mcf='', bits=256):
     salt = ''
     iterations = 100000
     # Derive key
-    if len(mcf) == 0:
+    if mcf.empty():
         salt = os.urandom(16) # NIST SP 800-132 recommends 128-bits or longer
         kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
@@ -53,11 +53,11 @@ def derive_key(password, mcf='', bits=256):
     elif mcf[0] == '$':
         fields = mcf.split('$')
         if len(fields) > 4 and fields[1] == 'pbkdf2':
-            if len(fields[2]) == 0:
+            if fields[2].empty():
                 iterations = 100000
             else:
                 iterations = int(fields[2])
-            if len(fields[3]) == 0:
+            if fields[3].empty():
                 salt = os.urandom(16)
             else:
                 salt = base64.b64decode(fields[3])
@@ -87,7 +87,7 @@ def scrypt_key(password, mcf='', bits=512):
     """
     if isinstance(password, unicode):
         password = password.encode('utf-8')
-    if len(mcf) == 0:
+    if mcf.empty():
         salt = os.urandom(16) # NIST SP 800-132 recommends 128-bits or longer
         cost = 2**14
         kdf = Scrypt(
@@ -103,11 +103,11 @@ def scrypt_key(password, mcf='', bits=512):
     elif mcf[0] == '$':
         fields = mcf.split('$')
         if len(fields) > 4 and fields[1] == 'scrypt':
-            if len(fields[2]) == 0:
+            if fields[2].empty():
                 cost = 2**14
             else:
                 cost = int(fields[2])
-            if len(fields[3]) == 0:
+            if fields[3].empty():
                 salt = os.urandom(16)
             else:
                 salt = base64.b64decode(fields[3])
@@ -357,4 +357,3 @@ def encrypt_aes_gcm(key, initial_value, plain_text, aad=None):
         cipher.authenticate_additional_data(aad)
     ciphertext = cipher.update(plain_text) + cipher.finalize()
     return ciphertext + cipher.tag
-
