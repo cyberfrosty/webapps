@@ -7,12 +7,13 @@ Copyright (c) 2017-2018 Alan Frost. All rights reserved.
 Manage.py methods for initialization, starting and stopping servers
 """
 
+from __future__ import print_function
 import argparse
 import base64
 import os
 import re
 import subprocess
-import simplejson as json
+import json
 import requests
 from awsutils import DynamoDB
 from crypto import derive_key, encrypt_aes_gcm
@@ -27,10 +28,10 @@ def get_pid(port):
         portid = ':' + str(port)
         servers = subprocess.check_output(['lsof', '-i', portid])
     except subprocess.CalledProcessError, err:
-        #print err + ' not running'
+        #print(err + ' not running')
         return None
     except OSError, err:
-        print 'lsof command not found', err
+        print('lsof command not found', err)
         return None
 
     try:
@@ -73,11 +74,11 @@ def import_vault(csv_filename, password):
         contents = contents[:-1] + ']'
         payload = iv + encrypt_aes_gcm(key, iv, contents)
         contents = base64.b64encode(payload)
-        print contents
-        print mcf
+        print(contents)
+        print(mcf)
     else:
         for item in items:
-            print json.dumps(item)
+            print(json.dumps(item))
 
 def stop_server(service, port):
     """ Stop server listening on port
@@ -88,9 +89,9 @@ def stop_server(service, port):
     pid = get_pid(port)
     if pid:
         subprocess.check_output(['kill', '-15', str(pid)], stderr=subprocess.STDOUT)
-        print service + ': stopped on port', port
+        print(service + ': stopped on port', port)
     else:
-        print service + ': no process listening on port', port
+        print(service + ': no process listening on port', port)
 
 def start_http(config):
     """ Start HTTP server
@@ -100,7 +101,7 @@ def start_http(config):
     port = config.get('port', 8080)
     pid = get_pid(port)
     if pid:
-        print 'HTTP: process', pid, 'already listening on port', port
+        print('HTTP: process', pid, 'already listening on port', port)
     else:
         subprocess.Popen(['python', 'webapp.py'])
 
@@ -149,11 +150,11 @@ def check_http(site):
                 info['latency'] = response.elapsed.total_seconds()
             except ValueError as err:
                 info = {'latency': response.elapsed.total_seconds()}
-            print json.dumps(info)
+            print(json.dumps(info))
         else:
-            print response.status_code, response.elapsed.total_seconds()
+            print(response.status_code, response.elapsed.total_seconds())
     except requests.ConnectionError as err:
-        print err
+        print(err)
 
 def main():
     """ Main program

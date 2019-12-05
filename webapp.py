@@ -17,7 +17,7 @@ from datetime import datetime
 import time
 from urlparse import urlparse, urljoin
 import pytz
-import simplejson as json
+import json
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect
 import jinja2

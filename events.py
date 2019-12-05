@@ -10,7 +10,7 @@ Utility methods
 from __future__ import print_function
 
 from time import time
-import simplejson as json
+import json
 
 from utils import (base58encode_int, generate_random_int)
 

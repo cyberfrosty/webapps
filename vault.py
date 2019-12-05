@@ -12,7 +12,7 @@ from __future__ import print_function
 
 import os
 import base64
-import simplejson as json
+import json
 from crypto import derive_key, decrypt_aes_gcm, encrypt_aes_gcm
 from utils import generate_user_id, load_config, merge_dicts, read_csv
 from awsutils import DynamoDB
