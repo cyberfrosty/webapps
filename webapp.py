@@ -16,7 +16,6 @@ import socket
 from datetime import datetime
 import time
 from urlparse import urlparse, urljoin
-import pytz
 import json
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect
@@ -27,6 +26,7 @@ from flask import (Flask, make_response, request, render_template, redirect, jso
                    abort, flash, url_for)
 from flask_login import (LoginManager, current_user, login_required, login_user, logout_user,
                          fresh_login_required)
+import pytz
 from decorators import async
 from forms import (AcceptForm, ChangePasswordForm, ConfirmForm, ForgotPasswordForm,
                    InviteForm, LoginForm, RegistrationForm, VerifyForm, ResetPasswordForm,
@@ -670,9 +670,9 @@ def search_recipes():
             for phrase in phrases:
                 wmatch = RECIPE_MANAGER.match_recipe_by_category(phrase)
                 wmatch = wmatch.union(RECIPE_MANAGER.match_recipe_by_title(phrase))
-                matches = matches.intersection(wmatch) if len(matches) > 0 else wmatch
+                matches = matches.intersection(wmatch) if matches else wmatch
         title = 'Search Results ({}, found {})'.format(query, len(matches))
-        if len(matches) > 0:
+        if matches:
             html = RECIPE_MANAGER.get_recipe_list(matches)
         else:
             html = '<br />\n<p>No recipes matching search phrase "{}". Try the recipe navigator or another search.</p>\n'.format(query)
@@ -697,10 +697,10 @@ def recipes():
         EVENT_MANAGER.web_event('recipes', userid, **{"recipe": recipe})
         html = RECIPE_MANAGER.get_rendered_recipe(recipe)
         return render_template('recipes.html', search=RECIPE_LIST, recipe=html, title=recipe)
-    else:
-        EVENT_MANAGER.web_event('recipes', userid)
-        html = RECIPE_MANAGER.get_latest_recipe()
-        return render_template('recipes.html', search=RECIPE_LIST, recipe=html)
+
+    EVENT_MANAGER.web_event('recipes', userid)
+    html = RECIPE_MANAGER.get_latest_recipe()
+    return render_template('recipes.html', search=RECIPE_LIST, recipe=html)
 
 @APP.route('/gallery')
 def gallery():

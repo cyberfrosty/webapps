@@ -80,7 +80,8 @@ class EventManager(object):
 
     def web_event(self, action, uid, **kwargs):
         """ Make and log a web event
-            event: {"uid": "SZO2HM6...", "type": "recipe", "ts": 1472597386, "recipe": "Korean Meatballs"}
+            event: {"uid": "SZO2HM6...", "type": "recipe", "ts": 1472597386,
+                    "recipe": "Korean Meatballs"}
         Args:
             action: recipe, change
             uid: User account identifier
@@ -94,7 +95,8 @@ class EventManager(object):
 
     def error_event(self, action, uid, message, **kwargs):
         """ Make and log an error event
-            event: {"uid": "SZO2HM6...", "type": "login", "ts": 1472597386, "error": "Unable to validate"}
+            event: {"uid": "SZO2HM6...", "type": "login", "ts": 1472597386,
+                    "error": "Unable to validate"}
         Args:
             action: login, change
             uid: User account identifier
@@ -114,18 +116,18 @@ class EventManager(object):
             uid: User account identifier
         Return:
             event: {"eid": "n6uQRCGv", "type": "file.upload", "ts": "1472597386.405150",
-                    "account": "SZO2HM6...", "account":"alan"}
+                    "uid": "SZO2HM6..."}
         """
         event = dict(type=action,
                      eid=event_nonce(),
-                     account=account,
+                     uid=uid,
                      ts=get_timestamp())
         if kwargs is not None:
             for key, value in kwargs.iteritems():
                 event[key] = value
         self.log_event(event)
 
-    def replyto_event(self, nonce, account, **kwargs):
+    def replyto_event(self, nonce, uid, **kwargs):
         """ Make a reply event
         Args:
             nonce: matching id reply is in reponse to
@@ -139,7 +141,7 @@ class EventManager(object):
         """
         event = dict(type='reply',
                      eid=nonce,
-                     account=account,
+                     uid=uid,
                      ts=get_timestamp())
         if kwargs is not None:
             for key, value in kwargs.iteritems():
@@ -186,4 +188,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

@@ -60,6 +60,11 @@ def init_env(config):
         database.create_table('id')
 
 def import_vault(csv_filename, password):
+    """ Import vault content from CSV file
+    Args:
+        csv_filename
+        password
+    """
     safebox = csv_filename.replace('.csv', '')
     items = read_csv(csv_filename)
     if password:

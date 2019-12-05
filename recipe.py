@@ -8,6 +8,7 @@ Implementation of Recipe manager
 
 """
 
+from __future__ import print_function
 from datetime import datetime
 import re
 import os
@@ -18,7 +19,7 @@ from utils import generate_id, contains_only, read_csv, compare_dicts
 
 TBSP2CUP = 0.0625
 TSP2CUP = 0.020833
-latest = ['Parmesan Roasted Brussel Sprouts', 'Whole Wheat Biscuits', 'Cashew Chicken', 'Gingerbread Scones', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken']
+latest = ['Korean Meatball Marinara', 'Parmesan Roasted Brussel Sprouts', 'Whole Wheat Biscuits', 'Cashew Chicken', 'Gingerbread Scones', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken']
 
 def render_ingredients(ingredients):
     """ Render recipe ingredients as HTML
@@ -216,7 +217,6 @@ def render_recipe_summary(recipe, makeit=False):
         HTML
     """
 
-    image = ''
     html = '<div class="row recipe">\n'
     html += '<div class="col-sm-6">\n'
     title = recipe['title']
@@ -516,7 +516,7 @@ class RecipeManager(object):
             if not recipe or 'title' not in recipe:
                 print('Latest {} {} not found'.format(recipe.get('title'), item))
 
-    def build_navigation_list(self, category=None):
+    def build_navigation_list(self):
         """ Build an accordian navigation list
         """
         html = '<div class="sidebar-module-inset">\n'
@@ -651,8 +651,7 @@ class RecipeManager(object):
             recipe_id = generate_id(recipe['title'])
             recipe['id'] = recipe_id
             return self.database.put_item(recipe)
-        else:
-            return dict(error='Missing recipe title')
+        return dict(error='Missing recipe title')
 
     def get_rendered_recipe(self, recipe_id):
         """ Get HTML rendered recipe
@@ -663,8 +662,11 @@ class RecipeManager(object):
         """
 
         recipe = self.get_recipe(recipe_id)
-        if recipe is not None and 'error' not in recipe:
-            return self.render_recipe(recipe)
+        if recipe is None:
+            return {'error': 'recipe not found: ' + recipe_id}
+        if 'error' in recipe:
+            return recipe
+        return self.render_recipe(recipe)
 
     def get_recipe_list(self, matches):
         """ Get HTML rendered recipe summaries for search match
@@ -863,4 +865,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

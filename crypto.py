@@ -39,7 +39,7 @@ def derive_key(password, mcf='', bits=256):
     salt = ''
     iterations = 100000
     # Derive key
-    if mcf.empty():
+    if not mcf:
         salt = os.urandom(16) # NIST SP 800-132 recommends 128-bits or longer
         kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
@@ -53,11 +53,11 @@ def derive_key(password, mcf='', bits=256):
     elif mcf[0] == '$':
         fields = mcf.split('$')
         if len(fields) > 4 and fields[1] == 'pbkdf2':
-            if fields[2].empty():
+            if not fields[2]:
                 iterations = 100000
             else:
                 iterations = int(fields[2])
-            if fields[3].empty():
+            if not fields[3]:
                 salt = os.urandom(16)
             else:
                 salt = base64.b64decode(fields[3])
@@ -87,7 +87,7 @@ def scrypt_key(password, mcf='', bits=512):
     """
     if isinstance(password, unicode):
         password = password.encode('utf-8')
-    if mcf.empty():
+    if not mcf:
         salt = os.urandom(16) # NIST SP 800-132 recommends 128-bits or longer
         cost = 2**14
         kdf = Scrypt(
@@ -103,11 +103,11 @@ def scrypt_key(password, mcf='', bits=512):
     elif mcf[0] == '$':
         fields = mcf.split('$')
         if len(fields) > 4 and fields[1] == 'scrypt':
-            if fields[2].empty():
+            if not fields[2]:
                 cost = 2**14
             else:
                 cost = int(fields[2])
-            if fields[3].empty():
+            if not fields[3]:
                 salt = os.urandom(16)
             else:
                 salt = base64.b64decode(fields[3])
