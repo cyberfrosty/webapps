@@ -1,5 +1,52 @@
 [
 {
+  "title": "Vietnamese Meatballs",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/VietnameseMeatballs_hd.jpg",
+  "date": "December 5, 2019",
+  "yield": "Serves 4",
+  "preptime": "10 minutes",
+  "cooktime": "25 minutes",
+  "time": "45 minutes",
+  "category": ["Asian", "Turkey"],
+  "similar": ["Korean Meatballs", "Korean Tofu", "Orange Chicken"],
+  "description": "Sweet and spicy Vietnamese style meatballs made with lean ground turkey.",
+  "nutrition": {"carbohydrate": 20, "protein": 30, "calories": 357, "fat": 18, "sodium": 1142},
+  "rating": 4.7,
+  "ingredients": {
+    "section1": {
+      "title": "Meatballs",
+      "item1": {"quantity": "1 lb", "ingredient": "lean ground turkey"},
+      "item2": {"quantity": "1", "ingredient": "egg"},
+      "item3": {"quantity": "3", "ingredient": "green onions, finely chopped"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "fresh cilantro, finely chopped"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "fresh mint, finely chopped"},
+      "item6": {"quantity": "1 tbsp", "ingredient": "fresh ginger, finely grated"},
+      "item7": {"quantity": "1 tbsp", "ingredient": "fish sauce"},
+      "item8": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, crushed"},
+      "item9": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
+      "item10": {"quantity": "1 tsp", "ingredient": "lime zest, pressed"},
+      "item11": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
+      "item12": {"quantity": "1/2 cup", "ingredient": "unsalted peanuts, chopped"}
+    },
+    "section2": {
+      "title":"Glaze",
+      "item1": {"quantity": "1 tbsp", "ingredient": "Sambal Oelek"},
+      "item2": {"quantity": "2 tbsp", "ingredient": "soy sauce"},
+      "item3": {"quantity": "1 tbsp", "ingredient": "fish sauce"},
+      "item4": {"quantity": "2 tbsp", "ingredient": "lime juice"},
+      "item5": {"quantity": "2 tbsp", "ingredient": "sugar"}
+    }
+  },
+  "instructions": {
+    "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
+    "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
+    "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss gently until coated",
+    "step4": "Serve over noodles or rice",
+    "step5": "Garnish with chopped peanuts, cilantro and mint"
+  }
+},
+{
   "title": "Korean Meatballs",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/KoreanMeatballs.jpg",
@@ -19,7 +66,7 @@
       "item1": {"quantity": "1 1/2 lbs", "ingredient": "lean ground turkey"},
       "item2": {"quantity": "2", "ingredient": "eggs"},
       "item3": {"quantity": "4", "ingredient": "green onions"},
-      "item4": {"quantity": "1 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "fresh ginger, finely grated"},
       "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
       "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
       "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
@@ -45,7 +92,7 @@
 {
   "title": "Korean Meatball Marinara",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/KoreanMeatballMarinara.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/KoreanMeatballMarinara_hd.jpg",
   "date": "November 30, 2019",
   "yield": "Serves 4",
   "preptime": "10 minutes",
