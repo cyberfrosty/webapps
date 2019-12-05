@@ -19,7 +19,7 @@ from utils import generate_id, contains_only, read_csv, compare_dicts
 
 TBSP2CUP = 0.0625
 TSP2CUP = 0.020833
-latest = ['Korean Meatball Marinara', 'Parmesan Roasted Brussel Sprouts', 'Whole Wheat Biscuits', 'Cashew Chicken', 'Gingerbread Scones', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken']
+latest = ['Vietnamese Meatballs', 'Korean Meatball Marinara', 'Parmesan Roasted Brussel Sprouts', 'Whole Wheat Biscuits', 'Cashew Chicken', 'Gingerbread Scones', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken']
 
 def render_ingredients(ingredients):
     """ Render recipe ingredients as HTML
@@ -469,7 +469,7 @@ class RecipeManager(object):
                             quantity *= 3
                         elif measure[1] == 'tsp' and size == 'tbsp':
                             quantity /= 3
-                        elif measure[1] == 'lbs' and size == 'oz':
+                        elif measure[1][:2] == 'lb' and size == 'oz':
                             quantity *= 16
                 quantity = quantity / float(serving)
                 scale = factor * quantity
