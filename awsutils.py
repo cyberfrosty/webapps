@@ -14,7 +14,7 @@ from datetime import datetime
 import hashlib
 import hmac
 import pytz
-import simplejson as json
+import json
 import boto3
 from botocore.exceptions import ClientError
 from utils import preset_password

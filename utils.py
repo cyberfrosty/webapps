@@ -19,7 +19,7 @@ import sys
 import time
 import uuid
 import regex
-import simplejson as json
+import json
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 from cryptography.hazmat.primitives.twofactor.hotp import HOTP
 from cryptography.hazmat.primitives.twofactor.totp import TOTP
