@@ -13,10 +13,10 @@ import base64
 from datetime import datetime
 import hashlib
 import hmac
-import pytz
 import json
 import boto3
 from botocore.exceptions import ClientError
+import pytz
 from utils import preset_password
 
 CONFIG_DNS_TTL = 60 # TTL (Time To Live) in seconds tells DNS servers how long to cache
@@ -266,6 +266,7 @@ class SNS(object):
         if self.topic is not None:
             resp = self.topic.publish(Message=message)
             return resp['MessageId']
+        return {'error': 'No topic to publish to'}
 
     def subscribe(self, protocol, end_point):
         """ Subscribe to our topic.
@@ -276,6 +277,7 @@ class SNS(object):
         if self.topic is not None:
             response = self.topic.subscribe(Protocol=protocol, Endpoint=end_point)
             return response
+        return {'error': 'No topic to subscribe to'}
 
     def send_sms(self, number, message):
         """ Send an SMS message to the phone number
@@ -338,6 +340,7 @@ class Route53(object):
                     return_message = 'You should only have a single value for'\
                     ' your dynamic record.  You currently have more than one.'
                     return {'error': return_message}
+        return {'error': 'No matching records found'}
 
     def set_dns_records(self, route_53_zone_id, public_ip):
         """ Set DNS record for specified name using Route53
@@ -420,14 +423,15 @@ class Route53(object):
             return route53_get_response
         else:
             route53_ip = route53_get_response['message']
+
         # If the client's current IP matches the current DNS record
         # in Route 53 there is nothing left to do.
         if route53_ip == public_ip:
             return {'message': 'IP address matches current Route53 DNS record'}
+
         # If the IP addresses do not match or if the record does not exist,
         # Tell Route 53 to set the DNS record.
-        else:
-            return self.set_dns_records(route_53_zone_id, public_ip)
+        return self.set_dns_records(route_53_zone_id, public_ip)
 
 class S3(object):
     """ Base class for access to AWS S3.
@@ -466,11 +470,11 @@ class S3(object):
                     Bucket=bucket,
                     CreateBucketConfiguration={'LocationConstraint': location},
                 )
-                return dict(status='ok')
             except ClientError as err:
                 return dict(error=err.message)
         else:
             return dict(error='Bucket exists: ' + bucket)
+        return dict(status='ok')
 
     def delete_bucket(self, bucket):
         """ Delete a bucket.
@@ -482,9 +486,11 @@ class S3(object):
                 for key in self.sss.Bucket(bucket).objects.all():
                     key.delete()
                 self.sss.Bucket(bucket).delete()
-                return dict(status='ok')
             except ClientError as err:
                 return dict(error=err.message)
+        else:
+            return dict(error='Bucket does not exist: ' + bucket)
+        return dict(status='ok')
 
     def upload_data(self, data, bucket, key, metadata=None):
         """ Upload a data to bucket.
