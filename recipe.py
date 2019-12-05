@@ -11,7 +11,7 @@ Implementation of Recipe manager
 from datetime import datetime
 import re
 import os
-import simplejson as json
+import json
 
 from awsutils import DynamoDB
 from utils import generate_id, contains_only, read_csv, compare_dicts
@@ -333,7 +333,7 @@ class RecipeManager(object):
                         self.load_recipes(recipe['include'])
                     elif 'title' in recipe and 'ingredients' in recipe and 'instructions' in recipe:
                         recipe_id = generate_id(recipe['title'])
-                        print "Loaded " + recipe['title']
+                        print("Loaded " + recipe['title'])
                         self.recipes[recipe_id] = recipe
         except (IOError, ValueError) as err:
             print('Load of recipe file failed:', err.message)
@@ -350,7 +350,7 @@ class RecipeManager(object):
                     if 'include' in item:
                         self.load_references(item['include'])
                     elif 'title' in item and 'ingredients' in item:
-                        print "Loaded " + item['title']
+                        print("Loaded " + item['title'])
                         self.references[item['title']] = item
         except (IOError, ValueError) as err:
             print('Load of reference file failed:', err.message)
@@ -368,7 +368,7 @@ class RecipeManager(object):
         """
         recipe = self.get_recipe(title)
         if not recipe or 'error' in recipe:
-            print 'Recipe not found: {}'.format(title)
+            print('Recipe not found: {}'.format(title))
             return
         serves, people = recipe.get('yield').split()
         factor = 1.0 / float(people)
@@ -454,7 +454,7 @@ class RecipeManager(object):
                 quantity += float(measure[0])
 
             if name not in self.ingredients:
-                print name
+                print(name)
             else:
                 ingredient = self.ingredients.get(name)
                 serving = ingredient.get('serving')
@@ -474,13 +474,13 @@ class RecipeManager(object):
                 quantity = quantity / float(serving)
                 scale = factor * quantity
                 if verbose:
-                    print '{} quantity, {} calories, {}'.format(quantity, scale * float(ingredient.get('calories')), name)
+                    print('{} quantity, {} calories, {}'.format(quantity, scale * float(ingredient.get('calories')), name))
                 calories += scale * float(ingredient.get('calories'))
                 fat += scale * float(ingredient.get('fat'))
                 carbohydrate += scale * float(ingredient.get('carbohydrate'))
                 protein += scale * float(ingredient.get('protein'))
                 sodium += scale * float(ingredient.get('sodium'))
-                #print '{} {} {} {} {}'.format(calories, fat, carbohydrate, protein, sodium)
+                #print('{} {} {} {} {}'.format(calories, fat, carbohydrate, protein, sodium))
             index += 1
         return {'calories': calories, 'fat': fat, 'carbohydrate': carbohydrate,
                 'protein': protein, 'sodium': sodium}
@@ -493,7 +493,7 @@ class RecipeManager(object):
             current_nutrition = recipe.get('nutrition')
             calculated_nutrition = self.count_calories(recipe_id)
             if not compare_dicts(current_nutrition, calculated_nutrition):
-                print '{} {}'.format(recipe.get('title'), json.dumps(calculated_nutrition))
+                print('{} {}'.format(recipe.get('title'), json.dumps(calculated_nutrition)))
 
     def check_similar(self):
         """ Check that the recipe has similar recipes and that they all exist
@@ -504,9 +504,9 @@ class RecipeManager(object):
                 for item in recipe['similar']:
                     similar = self.get_recipe(item)
                     if not similar or 'title' not in similar:
-                        print '{} {} not found'.format(recipe.get('title'), item)
+                        print('{} {} not found'.format(recipe.get('title'), item))
             else:
-                print '{} no similar recipes'.format(recipe.get('title'))
+                print('{} no similar recipes'.format(recipe.get('title')))
 
     def check_latest(self):
         """ Check that the recipe has similar recipes and that they all exist
@@ -514,7 +514,7 @@ class RecipeManager(object):
         for item in latest:
             recipe = self.get_recipe(item)
             if not recipe or 'title' not in recipe:
-                print 'Latest {} {} not found'.format(recipe.get('title'), item)
+                print('Latest {} {} not found'.format(recipe.get('title'), item))
 
     def build_navigation_list(self, category=None):
         """ Build an accordian navigation list
@@ -834,29 +834,29 @@ def main():
     manager.load_references('spices.json')
     manager.load_recipes('recipes.json')
     manager.load_nutrition('nutrition.csv')
-    print manager.match_recipe_by_category('asian')
-    print manager.match_recipe_by_category('turk')
-    print manager.match_recipe_by_title('thai')
+    print(manager.match_recipe_by_category('asian'))
+    print(manager.match_recipe_by_category('turk'))
+    print(manager.match_recipe_by_title('thai'))
     veggies = manager.match_recipe_by_category('veg')
     med = manager.match_recipe_by_category('med')
-    print veggies.union(med)
-    print manager.match_reference_by_category('yog')
-    print manager.match_reference_by_title('ranch')
+    print(veggies.union(med))
+    print(manager.match_reference_by_category('yog'))
+    print(manager.match_reference_by_title('ranch'))
 
-    print render_time('prepTime', '20 mins')
-    print render_time('prepTime', '20 minutes')
-    print render_time('cookTime', '1 hour')
-    print render_time('totalTime', '3 hours')
-    print render_time('totalTime', '1 hour 20 mins')
-    print render_time('totalTime', '1 hour 20 minutes')
-    print add_times('45 mins', '1 hour 20 minutes')
-    print add_times('45 mins', '25 minutes')
-    print add_times('45 mins', '2 hours')
-    print add_times('20 mins', '40 minutes')
-    print add_times('60 mins', '2 hours')
-    #print manager.get_rendered_gallery()
-    #print manager.get_rendered_gallery('Asian')
-    #print json.dumps(manager.count_calories('French Bread'))
+    print(render_time('prepTime', '20 mins'))
+    print(render_time('prepTime', '20 minutes'))
+    print(render_time('cookTime', '1 hour'))
+    print(render_time('totalTime', '3 hours'))
+    print(render_time('totalTime', '1 hour 20 mins'))
+    print(render_time('totalTime', '1 hour 20 minutes'))
+    print(add_times('45 mins', '1 hour 20 minutes'))
+    print(add_times('45 mins', '25 minutes'))
+    print(add_times('45 mins', '2 hours'))
+    print(add_times('20 mins', '40 minutes'))
+    print(add_times('60 mins', '2 hours'))
+    #print(manager.get_rendered_gallery())
+    #print(manager.get_rendered_gallery('Asian'))
+    #print(json.dumps(manager.count_calories('French Bread')))
     manager.check_nutrition()
     manager.check_similar()
     manager.check_latest()
