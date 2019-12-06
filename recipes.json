@@ -716,6 +716,43 @@
   }
 },
 {
+  "title": "Lamb Kofta",
+  "chef": "Alan",
+  "image": "https://snowyrangesolutions.com/static/img/GreekMeatballs.jpg",
+  "date": "December 9, 2019",
+  "preptime": "20 minutes",
+  "cooktime": "10 minutes",
+  "yield": "Serves 6",
+  "category": ["Mediterranean", "Moroccan"],
+  "similar": ["Red Lamb", "Roasted Cauliflower", "Spicy Cilantro Carrots"],
+  "description": "Middle Eastern lamb kofta with fragrant spices and roasted nuts.",
+  "nutrition": {"carbohydrate": 3, "protein": 17, "calories": 153, "fat": 9, "sodium": 17},
+  "rating": 4.8,
+  "ingredients": {
+    "item1": {"quantity": "1/4 cup", "ingredient": "pine nuts"},
+    "item2": {"quantity": "1/4 cup", "ingredient": "walnuts nuts, (optional)"},
+    "item3": {"quantity": "1 lb", "ingredient": "lamb, ground"},
+    "item4": {"quantity": "1", "ingredient": "red bell pepper, diced"},
+    "item5": {"quantity": "1", "ingredient": "jalapeno pepper, diced"},
+    "item6": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, or parsley, chopped"},
+    "item7": {"quantity": "1 tsp", "ingredient": "chili powder, Aleppo, ancho or chipotle"},
+    "item8": {"quantity": "1 tsp", "ingredient": "cumin"},
+    "item9": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
+    "item10": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
+    "item11": {"quantity": "1/4 tsp", "ingredient": "cloves"}
+  },
+  "instructions": {
+    "step1": "Use a food processor with pulse until the nuts are finely chopped",
+    "step2": "Transfer nuts to a small dry skillet and cook for 5-6 minutes until lightly browned. Remove from pan and set aside",
+    "step3": "Use the food processor to mince onion, garlic, peppers and cilantro. Drain any excess liquid",
+    "step4": "Add veggies to nuts, along with spices and the ground lamb",
+    "step5": "Mix thoroughly and form into patties about 2 inches in diameter and 1/2 inch thick",
+    "step6": "Preheat the grill to medium high heat, or a skillet to medium heat",
+    "step7": "Cook covered until browned on each side, about 4 minutes per side or until cooked through",
+    "step8": "Serve with pita bread, tzatziki and hummus"
+  }
+},
+{
   "title": "Moroccan Chicken",
   "chef": "Alan",
   "image": "https://snowyrangesolutions.com/static/img/MoroccanChicken_hd.jpg",
