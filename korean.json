@@ -25,9 +25,8 @@
       "item7": {"quantity": "1 tbsp", "ingredient": "fish sauce"},
       "item8": {"quantity": "1/4 tsp", "ingredient": "red pepper flakes, crushed"},
       "item9": {"quantity": "2", "ingredient": "cloves garlic, pressed"},
-      "item10": {"quantity": "1 tsp", "ingredient": "lime zest, pressed"},
-      "item11": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"},
-      "item12": {"quantity": "1/2 cup", "ingredient": "unsalted peanuts, chopped"}
+      "item10": {"quantity": "1 tsp", "ingredient": "lime zest"},
+      "item11": {"quantity": "1/2 cup", "ingredient": "Panko bread crumbs"}
     },
     "section2": {
       "title":"Glaze",
@@ -36,14 +35,18 @@
       "item3": {"quantity": "1 tbsp", "ingredient": "fish sauce"},
       "item4": {"quantity": "2 tbsp", "ingredient": "lime juice"},
       "item5": {"quantity": "2 tbsp", "ingredient": "sugar"}
+    },
+    "section3": {
+      "title":"Garnish",
+      "item1": {"quantity": "1/2 cup", "ingredient": "unsalted peanuts, chopped"}
     }
   },
   "instructions": {
     "step1": "Preheat oven to 400 degrees, line baking sheet with parchment",
     "step2": "In a large bowl mix all the meatball ingredients, form into 1 inch balls, place on baking sheet, cook for 20-25 minutes",
-    "step3": "Meanwhile in medium bowl mix glaze ingredients, add cooked meatballs and toss gently until coated",
-    "step4": "Serve over noodles or rice",
-    "step5": "Garnish with chopped peanuts, cilantro and mint"
+    "step3": "Mix glaze ingredients in a measuring cup or small bowl",
+    "step4": "Add cooked meatballs to a serving bowl, drizzle with glaze and toss gently until coated",
+    "step5": "Serve over noodles or rice and garnish with chopped peanuts and mint"
   }
 },
 {
