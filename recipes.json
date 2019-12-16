@@ -718,7 +718,7 @@
 {
   "title": "Lamb Kofta",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/GreekMeatballs.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/LambKofta_hd.jpg",
   "date": "December 9, 2019",
   "preptime": "20 minutes",
   "cooktime": "10 minutes",
@@ -726,7 +726,7 @@
   "category": ["Mediterranean", "Moroccan"],
   "similar": ["Red Lamb", "Roasted Cauliflower", "Spicy Cilantro Carrots"],
   "description": "Middle Eastern lamb kofta with fragrant spices and roasted nuts.",
-  "nutrition": {"carbohydrate": 3, "protein": 17, "calories": 153, "fat": 9, "sodium": 17},
+  "nutrition": {"carbohydrate": 3, "protein": 17, "calories": 153, "fat": 9, "sodium": 405},
   "rating": 4.8,
   "ingredients": {
     "item1": {"quantity": "1/4 cup", "ingredient": "pine nuts"},
@@ -734,12 +734,13 @@
     "item3": {"quantity": "1 lb", "ingredient": "lamb, ground"},
     "item4": {"quantity": "1", "ingredient": "red bell pepper, diced"},
     "item5": {"quantity": "1", "ingredient": "jalapeno pepper, diced"},
-    "item6": {"quantity": "1/4 cup", "ingredient": "fresh cilantro, or parsley, chopped"},
-    "item7": {"quantity": "1 tsp", "ingredient": "chili powder, Aleppo, ancho or chipotle"},
-    "item8": {"quantity": "1 tsp", "ingredient": "cumin"},
-    "item9": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
-    "item10": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
-    "item11": {"quantity": "1/4 tsp", "ingredient": "cloves"}
+    "item6": {"quantity": "1/4 cup", "ingredient": "fresh parsley, or cilantro, chopped"},
+    "item7": {"quantity": "1 tsp", "ingredient": "salt"},
+    "item8": {"quantity": "1 tsp", "ingredient": "chili powder, Aleppo, ancho or chipotle"},
+    "item9": {"quantity": "1 tsp", "ingredient": "cumin"},
+    "item10": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
+    "item11": {"quantity": "1/4 tsp", "ingredient": "cardamom"},
+    "item12": {"quantity": "1/4 tsp", "ingredient": "cloves"}
   },
   "instructions": {
     "step1": "Use a food processor with pulse until the nuts are finely chopped",
@@ -749,7 +750,7 @@
     "step5": "Mix thoroughly and form into patties about 2 inches in diameter and 1/2 inch thick",
     "step6": "Preheat the grill to medium high heat, or a skillet to medium heat",
     "step7": "Cook covered until browned on each side, about 4 minutes per side or until cooked through",
-    "step8": "Serve with pita bread, tzatziki and hummus"
+    "step8": "Garnish with fresh mint leaves and serve with pita bread, tzatziki and hummus"
   }
 },
 {
@@ -1434,7 +1435,7 @@
 {
   "title": "Sweet Potato Fries",
   "chef": "Alan",
-  "image": "https://snowyrangesolutions.com/static/img/SweeyPotatoFries.jpg",
+  "image": "https://snowyrangesolutions.com/static/img/SweetPotatoFries_hd.jpg",
   "date": "October 12, 2017",
   "preptime": "10 minutes",
   "cooktime": "25 minutes",
@@ -1442,20 +1443,18 @@
   "category": ["Vegetables"],
   "similar": ["Diced Potatoes", "Salmon Cakes", "Roasted Cauliflower"],
   "description": "Sweet potato fries that are low fat and crunchy.",
-  "nutrition": {"carbohydrate": 28, "protein": 1, "calories": 174, "fat": 7, "sodium": 721},
+  "nutrition": {"carbohydrate": 20, "protein": 1, "calories": 141, "fat": 7, "sodium": 626},
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "2", "ingredient": "red garnet yams"},
     "item2": {"quantity": "2 tbsp", "ingredient": "corn starch, or potato starch or (1/4 cup flour)"},
     "item3": {"quantity": "2 tbsp", "ingredient": "olive oil"},
     "item4": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
-    "item5": {"quantity": "1 tbsp", "ingredient": "no-salt seasoning (onion, garlic powders)"},
-    "item6": {"quantity": "2 tbsp", "ingredient": "brown sugar"},
-    "item7": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"},
-    "item8": {"quantity": "1 tsp", "ingredient": "salt"}
+    "item5": {"quantity": "1/2 tsp", "ingredient": "chili powder, chipotle or cayenne pepper"},
+    "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"}
   },
   "instructions": {
-    "step1": "Wash, then cut yams into fries, removing any bruised or bad sections",
+    "step1": "Wash, peel and cut yams into fries, removing any bruised or bad sections",
     "step2": "Soak yams in cold water for an hour, drain and pat dry",
     "step3": "Heat oven to 400-425 degrees, cover large cooking sheet with foil and spray with non-stick",
     "step4": "Coat yams with flour or cornstarch using plastic bag",
