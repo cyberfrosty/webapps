@@ -6,11 +6,11 @@
   "preptime": "10 minutes",
   "cooktime": "12 minutes",
   "totaltime": "3 hours",
-  "yield": "Makes 48",
+  "yield": "Makes 24",
   "category": ["Cookies"],
-  "similar": ["Andes Chunk Cookies", "Blonde Brownies", "Pfeffernusse"],
-  "description": "Mint chocolate chip cookies made with Andes mints.",
-  "nutrition": {"carbohydrate": 14, "protein": 1, "calories": 100, "fat": 4, "sodium": 43},
+  "similar": ["Pumpkin Maple Granola", "Ginger Cookies", "Spiced Pecans"],
+  "description": "Lemon cookies.",
+  "nutrition": {"carbohydrate": 11, "protein": 1, "calories": 90, "fat": 5, "sodium": 28},
   "rating": 4.1,
   "ingredients": {
     "item1": {"quantity": "1 1/4 cups", "ingredient": "flour"},
@@ -33,7 +33,8 @@
     "step6": "Preheat oven to 350 degrees",
     "step7": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step8": "Bake for 10-12 minutes, cool on pan for 2 minutes and then move to cooling rack"
-  }
+  },
+  "notes": "Egg whites can be used to make granola and spiced pecans."
 },
 {
   "title": "Andes Chunk Cookies",
