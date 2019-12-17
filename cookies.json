@@ -1,4 +1,41 @@
 [{
+  "title": "Egg Yolk Lemon Cookies",
+  "chef": "Susan",
+  "image": "https://snowyrangesolutions.com/static/img/LemonCookies_hd.jpg",
+  "date": "December 15, 2019",
+  "preptime": "10 minutes",
+  "cooktime": "12 minutes",
+  "totaltime": "3 hours",
+  "yield": "Makes 48",
+  "category": ["Cookies"],
+  "similar": ["Andes Chunk Cookies", "Blonde Brownies", "Pfeffernusse"],
+  "description": "Mint chocolate chip cookies made with Andes mints.",
+  "nutrition": {"carbohydrate": 14, "protein": 1, "calories": 100, "fat": 4, "sodium": 43},
+  "rating": 4.1,
+  "ingredients": {
+    "item1": {"quantity": "1 1/4 cups", "ingredient": "flour"},
+    "item2": {"quantity": "1/2 tsp", "ingredient": "cream of tartar"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
+    "item4": {"quantity": "1/2 cup", "ingredient": "butter, softened"},
+    "item5": {"quantity": "3/4 cup", "ingredient": "sugar"},
+    "item6": {"quantity": "3", "ingredient": "egg yolks"},
+    "item7": {"quantity": "1/2 tsp", "ingredient": "vanilla"},
+    "item8": {"quantity": "1/4 tsp", "ingredient": "lemon extract"},
+    "item9": {"quantity": "1/4 tsp", "ingredient": "orange extract"},
+    "item10": {"quantity": "1/4 tsp", "ingredient": "lemon zest"}
+  },
+  "instructions": {
+    "step1": "Cream butter and sugar",
+    "step2": "Separately, beat 3 egg yolks, vanilla, lemon and orange extracts",
+    "step3": "Combine butter and sugar mixture with egg mixture",
+    "step4": "Separately, whisk flour, baking soda and cream of tartar",
+    "step5": "Add flour mixture to combined butter and egg mixture. Make into a ball and chill for at least an hour",
+    "step6": "Preheat oven to 350 degrees",
+    "step7": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
+    "step8": "Bake for 10-12 minutes, cool on pan for 2 minutes and then move to cooling rack"
+  }
+},
+{
   "title": "Andes Chunk Cookies",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/AndesChunkCookies.jpg",
@@ -28,7 +65,7 @@
     "step2": "Beat butter, sugars, vanilla and eggs until mixed",
     "step3": "Mix in Andes chunks, then flour mixture, form into a ball and chill for at least an hour",
     "step4": "Preheat oven to 350 degrees",
-    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step6": "Bake for 10-12 minutes, cool on pan for 2 minutes and then move to cooling rack"
   }
 },
@@ -160,7 +197,7 @@
     "step2": "Beat butter, sugar, vanilla and egg until mixed",
     "step3": "Stir in flour, chocolate chips and nuts",
     "step4": "Preheat oven to 350 degrees",
-    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step6": "Bake for 12-16 minutes, cool on pan for 2 minutes and then move to cooling rack"
   }
 },
@@ -196,7 +233,7 @@
     "step2": "Beat butter, sugar, vanilla and egg until mixed",
     "step3": "Stir in flour, chocolate chips and nuts",
     "step4": "Preheat oven to 350 degrees",
-    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step6": "Bake for 12-16 minutes, cool on pan for 2 minutes and then move to cooling rack"
   }
 },
@@ -363,7 +400,7 @@
     "step2": "Mix egg, brown sugar, oil, molasses and vanilla until smooth",
     "step3": "Add liquid mixture to dry ingredients and mix well, chill for several hours",
     "step4": "Preheat oven to 350 degrees",
-    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step6": "Bake for 9-10 minutes"
   }
 },
@@ -398,7 +435,7 @@
     "step2": "In a 2 cup measuring cup, lightly beat eggs, add oil and molasses, stir to combine",
     "step3": "Add liquid mixture to dry ingredients and mix well, chill for several hours",
     "step4": "Preheat oven to 350 degrees",
-    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking liner",
+    "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step6": "Bake for 12-14 minutes, cool and coat with powdered sugar"
   }
 },
