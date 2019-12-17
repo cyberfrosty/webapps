@@ -41,6 +41,7 @@ corn starch,                  1 cup,   488,  0.1, 117, 0.3,   12,
 yeast,                        1 tsp,    13,  0.3, 1.6, 1.6,    2,
 baking powder,                1 tsp,     0,    0,   0,   0,  488, Bob's
 baking soda,                  1 tsp,     0,    0,   0,   0, 1259, Bob's
+cream of tartar,              1 tsp,     8,    0, 1.8,   0,    2,
 chocolate chips,              1 cup,  2240,  128, 288,  16,    0, Nestle
 semi-sweet chocolate chips,   1 cup,  2240,  128, 288,  16,    0, Nestle
 Andes baking chips,           1 cup,  1173,   75, 123,  11,  107, Andes
@@ -49,6 +50,8 @@ dark chocolate,                1 oz,   177,  100,  15,   3,    0, (70%)
 unsweetened baking chocolate,  1 oz,   180,   14,   8,  16,    0, Bakers
 vanilla,                      1 tsp,    12,    0, 0.5,   0,    0,
 almond extract,               1 tsp,     0,    0,   0,   0,    0,
+lemon extract,                1 tsp,     0,    0,   0,   0,    0,
+orange extract,               1 tsp,     0,    0,   0,   0,    0,
 Ghiradelli dark chocolate melting wafers, 1 oz, 152,10,16,1,  21,
 
 whole wheat bread slices,         1,   101,  1.5,  19,   3,  152, Anadama bread
@@ -238,6 +241,7 @@ red wine vinegar,            1 tbsp,     3,    0,   0,   0,    0,
 balsamic vinegar,            1 tbsp,    14,    0, 2.7, 0.1,    4,
 orange juice,                 1 cup,   111,  0.5,  26, 1.7,    2,
 lemon juice,                  1 cup,    53,  0.6,  17, 0.9,    2,
+lemon zest,                  1 tbsp,   2.8,    0,   1, 0.1,  0.4,
 lime juice,                   1 cup,    60,  0.2,  20,   1,    5,
 lime zest,                   1 tbsp,   2.8,    0,   1, 0.1,  0.4,
 Edmundo wine,                1 tbsp,    10,    0,   0,   0,   95,
