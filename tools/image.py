@@ -36,7 +36,7 @@ def orient_image(srcfile, orientation):
         image
     """
     rotation = 0
-    degrees = ''.join(filter(str.isdigit, orientation.encode('utf-8')))
+    degrees = ''.join(filter(str.isdigit, orientation))
     if degrees:
         rotation = int(degrees)
         # EXIF orientation is degrees clockwise, image.rotate is degrees counter clockwise
@@ -84,7 +84,7 @@ def parse_options():
     """
     parser = argparse.ArgumentParser(description='Image processing app')
     parser.add_argument('-f', '--file', action="store")
-    parser.add_argument('-r', '--rotate', action="store")
+    parser.add_argument('-r', '--rotate', action="store", default='0')
     parser.add_argument('command', action='store', help='info, process, upload')
     return parser.parse_args()
 
