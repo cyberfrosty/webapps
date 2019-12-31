@@ -80,8 +80,8 @@
       "title":"Spicy Apricot Glaze",
       "item1": {"quantity": "1/2 cup", "ingredient": "apricot jam"},
       "item2": {"quantity": "1 tbsp", "ingredient": "soy sauce"},
-      "item2": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
-      "item3": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"}
+      "item3": {"quantity": "1 tbsp", "ingredient": "sesame oil"},
+      "item4": {"quantity": "1 tbsp", "ingredient": "Gochujang (\uace0\ucd94\uc7a5), or Sriracha"}
     }
   },
   "instructions": {
@@ -110,11 +110,11 @@
       "title": "Meatballs",
       "item1": {"quantity": "1 lb", "ingredient": "lean ground turkey"},
       "item2": {"quantity": "1", "ingredient": "egg"},
-      "item5": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
-      "item5": {"quantity": "1 tsp", "ingredient": "garlic salt"},
-      "item6": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
-      "item7": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
-      "item9": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
+      "item3": {"quantity": "2 tsp", "ingredient": "Sambal Oelek"},
+      "item4": {"quantity": "1 tsp", "ingredient": "garlic salt"},
+      "item5": {"quantity": "1 tsp", "ingredient": "mesquite seasoning, or smoked paprika"},
+      "item6": {"quantity": "1/4 tsp", "ingredient": "black pepper"},
+      "item7": {"quantity": "1/2 cup", "ingredient": "seasoned bread crumbs"}
     },
     "section2": {
       "title":"Marinara Sauce",
