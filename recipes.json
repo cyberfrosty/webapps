@@ -172,7 +172,7 @@
   "category": ["Pie", "Dessert"],
   "similar": ["Gingerbread Cake", "Pumpkin Maple Granola", "Pumpkin Waffles"],
   "description": "Whole wheat crust and traditionally spiced pumpkin filling.",
-  "nutrition": {"carbohydrate": 36, "protein": 5, "calories": 248, "fat": 11, "sodium": 129},
+  "nutrition": {"carbohydrate": 37, "protein": 5, "calories": 252, "fat": 11, "sodium": 129},
   "rating": 4.6,
   "ingredients": {
     "section1": {

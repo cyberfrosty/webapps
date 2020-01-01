@@ -45,7 +45,7 @@ baking soda,                  1 tsp,     0,    0,   0,   0, 1259, Bob's
 cream of tartar,              1 tsp,     8,    0, 1.8,   0,    2,
 chocolate chips,              1 cup,  2240,  128, 288,  16,    0, Nestle
 semi-sweet chocolate chips,   1 cup,  2240,  128, 288,  16,    0, Nestle
-bitter-sweet chocolate,        1 oz,   151, 11.3,  15, 1.9,    0, Ghirardelli 60% Cacao
+bittersweet chocolate,         1 oz,   151, 11.3,  15, 1.9,    0, Ghirardelli 60% Cacao
 Ghiradelli dark chocolate melting wafers, 1 oz, 152,10,16,1,  21,
 unsweetened cocoa powder,    1 tbsp,    11,  0.7,   3,   1,    1,
 Andes baking chips,           1 cup,  1173,   75, 123,  11,  107, Andes
@@ -81,6 +81,8 @@ lite coconut milk,            1 cup,   150, 13.5,   6,   3,   45,
 egg,                          1 egg,    78,    5, 0.6,   6,   62, "large"
 eggs,                         1 egg,    78,    5, 0.6,   6,   62, "large"
 egg white,                    1 egg,    17,    0, 0.2, 3.6,   55, "large"
+egg whites,                   1 egg,    17,    0, 0.2, 3.6,   55, "large"
+egg yolk,                     1 egg,    61,    5, 0.4, 2.4,    7, "large"
 egg yolks,                    1 egg,    61,    5, 0.4, 2.4,    7, "large"
 nonfat yogurt,                1 cup,   120,    0,   9,  22,   85, "Chobani"
 nonfat Greek yogurt,          1 cup,   120,    0,   9,  22,   85, "Chobani"
