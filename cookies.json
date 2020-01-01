@@ -1,4 +1,43 @@
 [{
+  "title": "Chocolate Spice Cookies",
+  "chef": "Erika",
+  "image": "https://snowyrangesolutions.com/static/img/ChocolateSpiceCookies_hd.jpg",
+  "date": "December 29, 2019",
+  "preptime": "10 minutes",
+  "cooktime": "15 minutes",
+  "totaltime": "1 hours",
+  "yield": "Makes 30",
+  "category": ["Cookies"],
+  "similar": ["Egg Yolk Lemon Cookies", "Ginger Cookies", "Tahini Cookies"],
+  "description": "Basler Brunsli (Swiss traditional spiced chocolate cookies).",
+  "nutrition": {"carbohydrate": 11, "protein": 1, "calories": 90, "fat": 5, "sodium": 28},
+  "rating": 4.1,
+  "ingredients": {
+    "item1": {"quantity": "1 3/4 cups", "ingredient": "almonds, sliced or slivered"},
+    "item2": {"quantity": "1 cup", "ingredient": "confectioners' sugar"},
+    "item3": {"quantity": "4 oz", "ingredient": "bittersweet chocolate, chopped or ~2/3 cup chocolate chips"},
+    "item4": {"quantity": "1/4 cup", "ingredient": "sugar"},
+    "item5": {"quantity": "3 tbsp", "ingredient": "unsweetened cocoa powder"},
+    "item6": {"quantity": "1 tsp", "ingredient": "cinnamon"},
+    "item7": {"quantity": "1/4 tsp", "ingredient": "salt"},
+    "item8": {"quantity": "2", "ingredient": "egg whites"},
+    "item9": {"quantity": "1/4 tsp", "ingredient": "vanilla extract"},
+    "item10": {"quantity": "1/2 cup", "ingredient": "sugar"}
+  },
+  "instructions": {
+    "step1": "Process almonds and confectioners' sugar in a food processor until almonds are finely ground",
+    "step2": "Add chocolate, 1/4 cup sugar, cocoa, cinnamon and salt. Process until chocolate is finely ground",
+    "step3": "Add egg whites and vanilla, pulse until dough forms. Transfer dough to parchment paper and knead to form a smooth ball. Chill for 10 minutes until no longer sticky",
+    "step4": "Preheat oven to 325 degrees",
+    "step5": "Roll dough to 1/4 inch thickness between two sheets of parchment paper",
+    "step6": "Spread 1/2 cup sugar in shallow bowl",
+    "step7": "Cut into stars and dip to coat both sides with sugar",
+    "step8": "Place stars on parchment lined cookie sheet or silicon baking mat",
+    "step9": "Bake for 12-15 minutes, cool on pan for 15 minutes and then move to cooling rack"
+  },
+  "notes": "Egg yolks can be used to make egg yolk lemon cookies."
+},
+{
   "title": "Egg Yolk Lemon Cookies",
   "chef": "Susan",
   "image": "https://snowyrangesolutions.com/static/img/LemonCookies_hd.jpg",
