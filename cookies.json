@@ -68,7 +68,7 @@
     "step2": "Separately, beat 3 egg yolks, vanilla, lemon and orange extracts",
     "step3": "Combine butter and sugar mixture with egg mixture",
     "step4": "Separately, whisk flour, baking soda and cream of tartar",
-    "step5": "Add flour mixture to combined butter and egg mixture. Make into a ball and chill for at least an hour",
+    "step5": "Add flour mixture to combined butter and egg mixture. Make into a ball, cover and chill dough for at least an hour",
     "step6": "Preheat oven to 350 degrees",
     "step7": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step8": "Bake for 10-12 minutes, cool on pan for 2 minutes and then move to cooling rack"
@@ -103,7 +103,7 @@
   "instructions": {
     "step1": "Combine flour and baking powders in a bowl",
     "step2": "Beat butter, sugars, vanilla and eggs until mixed",
-    "step3": "Mix in Andes chunks, then flour mixture, form into a ball and chill for at least an hour",
+    "step3": "Mix in Andes chunks, then flour mixture, form into a ball, cover and chill dough for at least an hour",
     "step4": "Preheat oven to 350 degrees",
     "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step6": "Bake for 10-12 minutes, cool on pan for 2 minutes and then move to cooling rack"
@@ -437,11 +437,48 @@
   },
   "instructions": {
     "step1": "Combine dry ingredients in a large mixing bowl",
-    "step2": "Mix egg, brown sugar, oil, molasses and vanilla until smooth",
-    "step3": "Add liquid mixture to dry ingredients and mix well, chill for several hours",
+    "step2": "Measure oil then molasses and mix with egg, brown sugar, and vanilla until smooth",
+    "step3": "Add liquid mixture to dry ingredients and mix well. Cover and chill dough for several hours",
     "step4": "Preheat oven to 350 degrees",
     "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step6": "Bake for 9-10 minutes"
+  }
+},
+{
+  "title": "Rolled Ginger Cookies",
+  "chef": "Erika",
+  "image": "https://snowyrangesolutions.com/static/img/RolledGingerCookies_hd.jpg",
+  "date": "December 23, 2019",
+  "preptime": "10 minutes",
+  "cooktime": "10 minutes",
+  "totaltime": "3 hours",
+  "yield": "Makes 48",
+  "category": ["Cookies"],
+  "similar": ["Ginger Cookies", "Pfeffernusse", "Blonde Brownies"],
+  "description": "Rolled ginger cutout cookies.",
+  "nutrition": {"carbohydrate": 9, "protein": 1, "calories": 62, "fat": 2, "sodium": 42},
+  "rating": 4.6,
+  "ingredients": {
+    "item1": {"quantity": "2 1/2 cups", "ingredient": "flour"},
+    "item2": {"quantity": "1 tsp", "ingredient": "baking powder"},
+    "item3": {"quantity": "1/2 tsp", "ingredient": "baking soda"},
+    "item4": {"quantity": "1/2 tsp", "ingredient": "cinnamon"},
+    "item5": {"quantity": "1/2 tsp", "ingredient": "cloves"},
+    "item6": {"quantity": "1 tsp", "ingredient": "ginger"},
+    "item7": {"quantity": "1", "ingredient": "egg"},
+    "item8": {"quantity": "1/2 cup", "ingredient": "sugar"},
+    "item9": {"quantity": "1/2 cup", "ingredient": "canola oil"},
+    "item10": {"quantity": "1/2 cup", "ingredient": "molasses"},
+    "item11": {"quantity": "1 tbsp", "ingredient": "vinegar"}
+  },
+  "instructions": {
+    "step1": "Measure oil then molasses, add sugar, baking powders and spices. Beat with electric mixer until combined, scraping the sides as needed",
+    "step2": "Beat in molasses, egg, and vinegar until combined",
+    "step3": "Beat in as much flour as you can and then stir in any remaining flour",
+    "step4": "Divide dough in half, cover and chill for several hours",
+    "step5": "Preheat oven to 375 degrees",
+    "step6": "Roll dough to 1/8 inch thickness on a lightly floured surface. Cut into desired shapes and place on greased cookie sheet or silicon baking mat",
+    "step7": "Bake for 6-10 minutes"
   }
 },
 {
@@ -473,7 +510,7 @@
   "instructions": {
     "step1": "Combine dry ingredients in a large mixing bowl",
     "step2": "In a 2 cup measuring cup, lightly beat eggs, add oil and molasses, stir to combine",
-    "step3": "Add liquid mixture to dry ingredients and mix well, chill for several hours",
+    "step3": "Add liquid mixture to dry ingredients and mix well. Cover and chill dough for several hours",
     "step4": "Preheat oven to 350 degrees",
     "step5": "Make 1 inch balls and drop onto greased cookie sheet or silicon baking mat",
     "step6": "Bake for 12-14 minutes, cool and coat with powdered sugar"
