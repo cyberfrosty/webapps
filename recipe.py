@@ -19,7 +19,7 @@ from utils import generate_id, contains_only, read_csv, compare_dicts
 
 TBSP2CUP = 0.0625
 TSP2CUP = 0.020833
-latest = ['Egg Yolk Lemon Cookies', 'Lamb Kofta', 'Vietnamese Meatballs', 'Korean Meatball Marinara', 'Parmesan Roasted Brussel Sprouts', 'Whole Wheat Biscuits', 'Cashew Chicken', 'Gingerbread Scones', 'Sweet and Spicy Shrimp', 'Balsamic Tomato Chicken', 'Tomato Carrot Chicken']
+latest = ['Rolled Ginger Cookies', 'Chocolate Spice Cookies', 'Egg Yolk Lemon Cookies', 'Lamb Kofta', 'Vietnamese Meatballs', 'Korean Meatball Marinara', 'Parmesan Roasted Brussel Sprouts', 'Whole Wheat Biscuits', 'Cashew Chicken']
 
 def render_ingredients(ingredients):
     """ Render recipe ingredients as HTML
