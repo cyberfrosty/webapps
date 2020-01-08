@@ -1048,7 +1048,7 @@
   "category": ["Mediterranean", "Pasta", "Turkey", "Italian", "Spaghetti", "Carrots", "Tomatoes"],
   "similar": ["Crusty Italian Bread", "Greek Meatballs", "Pizza"],
   "description": "Marinara sauce and Italian style meatballs made with lean ground turkey.",
-  "nutrition": {"carbohydrate": 31, "protein": 22, "calories": 347, "fat": 13, "sodium": 841},
+  "nutrition": {"carbohydrate": 69, "protein": 29, "calories": 543, "fat": 14, "sodium": 842},
   "rating": 4.8,
   "ingredients": {
     "section1": {
@@ -1069,6 +1069,10 @@
         "item8": {"quantity": "1 tbsp", "ingredient": "oregano"},
         "item9": {"quantity": "2 tbsp", "ingredient": "basil"},
         "item10": {"quantity": "1 tbsp", "ingredient": "thyme"}
+    },
+    "section3": {
+      "title": "Spaghetti",
+        "item1": {"quantity": "6 cups", "ingredient": "spaghetti, cooked (55 grams dry per serving)"}
     }
   },
   "instructions": {
@@ -1095,7 +1099,7 @@
   "category": ["Mediterranean", "Pasta", "Chicken", "Tomatoes"],
   "similar": ["Hummus", "Greek Meatballs", "Pizza"],
   "description": "Stir fry Mediterranean chicken with roasted red peppers, artichokes and sun dried tomatoes.",
-  "nutrition": {"carbohydrate": 29, "protein": 37, "calories": 476, "fat": 24, "sodium": 511},
+  "nutrition": {"carbohydrate": 67, "protein": 44, "calories": 672, "fat": 25, "sodium": 512},
   "rating": 4.3,
   "ingredients": {
     "section1": {
@@ -1115,6 +1119,10 @@
         "item7": {"quantity": "3", "ingredient": "cloves garlic, pressed"},
         "item8": {"quantity": "2 tbsp", "ingredient": "Italian seasoning"},
         "item9": {"quantity": "2 tbsp", "ingredient": "fresh basil, chopped (optional)"}
+    },
+    "section3": {
+      "title": "Pasta",
+        "item1": {"quantity": "4 cups", "ingredient": "pasta, cooked (55 grams dry per serving)"}
     }
   },
   "instructions": {
@@ -1141,7 +1149,7 @@
   "category": ["Mediterranean", "Pasta", "Chicken", "Tomatoes"],
   "similar": ["Mediterranean Chicken", "Greek Meatballs", "Pizza"],
   "description": "Stir fry Mediterranean chicken with balsamic reduction and sun dried tomatoes.",
-  "nutrition": {"carbohydrate": 22, "protein": 36, "calories": 389, "fat": 17, "sodium": 707},
+  "nutrition": {"carbohydrate": 60, "protein": 43, "calories": 585, "fat": 18, "sodium": 708},
   "rating": 4.3,
   "ingredients": {
     "section1": {
@@ -1160,6 +1168,10 @@
         "item4": {"quantity": "3", "ingredient": "cloves garlic, pressed"},
         "item5": {"quantity": "1/4 cup", "ingredient": "balsamic vinegar"},
         "item6": {"quantity": "1 tsp", "ingredient": "garlic salt"}
+    },
+    "section3": {
+      "title": "Pasta",
+        "item1": {"quantity": "4 cups", "ingredient": "pasta, cooked (55 grams dry per serving)"}
     }
   },
   "instructions": {
