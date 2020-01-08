@@ -456,7 +456,7 @@
   "category": ["Cookies"],
   "similar": ["Ginger Cookies", "Pfeffernusse", "Blonde Brownies"],
   "description": "Rolled ginger cutout cookies.",
-  "nutrition": {"carbohydrate": 9, "protein": 1, "calories": 62, "fat": 2, "sodium": 42},
+  "nutrition": {"carbohydrate": 10, "protein": 1, "calories": 65, "fat": 2, "sodium": 26},
   "rating": 4.6,
   "ingredients": {
     "item1": {"quantity": "2 1/2 cups", "ingredient": "flour"},
