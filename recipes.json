@@ -401,9 +401,10 @@
     "item2": {"quantity": "1 tbsp", "ingredient": "olive oil"},
     "item3": {"quantity": "1 tsp", "ingredient": "sesame oil"},
     "item4": {"quantity": "1", "ingredient": "clove garlic, pressed"},
-    "item5": {"quantity": "1 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
-    "item6": {"quantity": "2 tbsp", "ingredient": "teriyaki sauce"},
-    "item7": {"quantity": "1/2 tsp", "ingredient": "red pepper flakes, (optional)"}
+    "item5": {"quantity": "1 tbsp", "ingredient": "shallot, thinly sliced"},
+    "item6": {"quantity": "1 tbsp", "ingredient": "fresh ginger, peeled and grated or minced"},
+    "item7": {"quantity": "2 tbsp", "ingredient": "teriyaki sauce"},
+    "item8": {"quantity": "1/2 tsp", "ingredient": "red pepper flakes, (optional)"}
   },
   "instructions": {
     "step1": "Wash, trim ends and cut carrots into 1 cm slices",
