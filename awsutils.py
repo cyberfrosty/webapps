@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017-2018 Alan Frost. All rights reserved.
+Copyright (c) 2017-2021 Alan Frost. All rights reserved.
 
 AWS Utility classes for DynamoDB, S3, SES, SNS and Route 53
 """
