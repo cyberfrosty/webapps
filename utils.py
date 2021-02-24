@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2017-2018 Alan Frost, Inc. All rights reserved.
+Copyright (c) 2017-2021 Alan Frost, Inc. All rights reserved.
 
 Utility methods
 """
@@ -18,7 +18,7 @@ import string
 import sys
 import time
 import uuid
-import regex
+import re
 import json
 from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 from cryptography.hazmat.primitives.twofactor.hotp import HOTP
@@ -28,12 +28,15 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.twofactor import InvalidToken
 from crypto import derive_key, hkdf_key, encrypt_aes_gcm, decrypt_aes_gcm, hash_sha256, hmac_sha256
 
+if sys.version_info.major == 3:
+    unicode = str
+
 # HOTP https://tools.ietf.org/html/rfc4226
 # TOTP https://tools.ietf.org/html/rfc6238
 
 HKDF_SALT = base64.b64decode('MTIzNDU2Nzg5MGFiY2RlZmdoaWprbG1ub3BxcnN0dXY=')
-HDKF_INFO = 'frosty.alan'
-HMAC_INFO = 'FrostyWeb'
+HDKF_INFO = b'frosty.alan'
+HMAC_INFO = b'FrostyWeb'
 
 # Bitcoin compatible base58 encoding
 B58ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
@@ -115,7 +118,9 @@ def base58encode(source):
     Return:
         base58 encoded string
     """
-    if not isinstance(source, bytes):
+    if isinstance(source, unicode):
+        source = source.encode('utf-8')
+    elif not isinstance(source, bytes):
         raise TypeError("a bytes-like object is required, not '%s'" %
                         type(string).__name__)
 
@@ -127,7 +132,7 @@ def base58encode(source):
     iseq = lambda s: [ord(ordinal) for ordinal in s] if bytes == str else lambda s: s
 
     pos, acc = 1, 0
-    for char in iseq(reversed(source)):
+    for char in source:
         acc += pos * char
         pos = pos << 8
 
@@ -245,7 +250,7 @@ def check_name(name):
         exclude_set = ('<', '>', '(', ')', '"', '%', '#', '&', '*', '?', '\\', '/')
         if name[:2] == '\\u':
             name = name.decode('unicode-escape')
-        if regex.match(ur'^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$', name):
+        if regex.match(r'^([\p{L}\p{M}\p{N}\p{P}\p{Zs}]){2,32}$', name):
             if isinstance(name, unicode):
                 name = name.encode('utf-8')
             for letter in name:
@@ -317,9 +322,9 @@ def create_signed_request(secret, method, path, params, time_stamp):
     """
     algorithm = 'HMAC_SHA256'
     key = get_hmac_signing_key(secret, str(time_stamp))
-    param_hash = base64.b16encode(hash_sha256(params))
+    param_hash = base64.b16encode(hash_sha256(params)).decode('ascii')
     msg = algorithm + '\n' + str(time_stamp) + '\n' + method + '\n' + path + '\n' + param_hash
-    signature = base64.b16encode(hmac_sha256(key, msg))
+    signature = base64.b16encode(hmac_sha256(key, msg)).decode('ascii')
     return signature
     #authorization_header = algorithm + ' ' + 'SignedHeaders=' + signed_headers + ', ' + 'Signature=' + signature
     #if method == 'POST' or method == 'PUT' or method == 'PATCH':
@@ -346,7 +351,7 @@ def validate_signed_request(secret, method, path, params, time_stamp, signature)
         return False
     algorithm = 'HMAC_SHA256'
     key = get_hmac_signing_key(secret, str(time_stamp))
-    param_hash = base64.b16encode(hash_sha256(params))
+    param_hash = base64.b16encode(hash_sha256(params)).decode('ascii')
     msg = algorithm + '\n' + str(time_stamp) + '\n' + method + '\n' + path + '\n' + param_hash
     signed = base64.b16encode(hmac_sha256(key, msg))
     return signed == signature
@@ -362,6 +367,8 @@ def get_hmac_signing_key(secret, time_stamp):
     """
     if isinstance(secret, unicode):
         secret = secret.encode('utf-8')
+    if isinstance(time_stamp, unicode):
+        time_stamp = time_stamp.encode('utf-8')
     return hmac_sha256(HMAC_INFO + secret, time_stamp)
 
 def encrypt_pii(secret, params):
@@ -536,7 +543,7 @@ def generate_code(secret):
     if isinstance(secret, unicode):
         secret = secret.encode('utf-8')
     code = os.urandom(28)
-    access_code = base64.b64encode(code + hmac_sha256(secret, code), '-_')
+    access_code = base64.b64encode(code + hmac_sha256(secret, code), b'-_')
     return access_code
 
 def validate_code(secret, access_code):
@@ -548,9 +555,10 @@ def validate_code(secret, access_code):
     if isinstance(access_code, unicode):
         access_code = access_code.encode('utf-8')
     try:
-        code = base64.b64decode(access_code, '-_')
+        code = base64.b64decode(access_code, b'-_')
         return code[28:] == hmac_sha256(secret, code[:28])
-    except TypeError:
+    #except TypeError:
+    except:
         pass
     return None
 
@@ -563,8 +571,8 @@ def get_access_id(access_code):
     if isinstance(access_code, unicode):
         access_code = access_code.encode('utf-8')
     try:
-        hashed = hash_sha256(base64.b64decode(access_code, '-_'))
-        index = base64.b64encode(hashed[1:31], '-_')
+        hashed = hash_sha256(base64.b64decode(access_code, b'-_'))
+        index = base64.b64encode(hashed[1:31], b'-_')
         return index
     except TypeError:
         pass
@@ -731,6 +739,8 @@ def generate_address_code(secret, identifier):
     Return:
         16 digit base32 code
     """
+    if isinstance(identifier, unicode):
+        identifier = identifier.encode('utf-8')
     code = os.urandom(5)
     address = base64.b32encode(code + hmac_sha256(secret, code + identifier)[:5])
     return address
@@ -744,6 +754,8 @@ def validate_address_code(secret, address, identifier):
     Return:
         True if the address code is valid for the user
     """
+    if isinstance(identifier, unicode):
+        identifier = identifier.encode('utf-8')
     # The address code may come in as unicode, which has to be converted before b64decode
     if isinstance(address, unicode):
         code = address.encode('utf-8')
@@ -800,9 +812,11 @@ def generate_user_id(key, user):
 def contains_only(input_chars, valid_chars):
     """ Check a string to see if it contains only the specified character set
     """
-    all_chars = string.maketrans('', '')
-    has_only = lambda s, valid_chars: not s.translate(all_chars, valid_chars)
-    return has_only(input_chars, valid_chars)
+    valid_regex = re.compile(valid_chars)
+    if not isinstance(input_chars, str):
+        input_chars = "".join(map(chr, input_chars))
+    search = valid_regex.search(input_chars)
+    return not bool(search)
 
 def main():
     """ Unit tests
@@ -829,11 +843,11 @@ def main():
     print(get_access_id(code))
     if validate_code(secret, code):
         print('validated')
-    code = code[1:] + 'a'
+    code = code[1:] + b'a'
     if validate_code(secret, code):
         print('validated')
     if validate_code(secret, code[1:]):
-        print('validated')
+        print('ERROR: validated')
 
     confirm_tok = generate_token('yuki@gmail.com', secret, 'confirm')
     print(confirm_tok)
@@ -884,8 +898,8 @@ def main():
         print('TOTP validated', code)
     print(generate_totp_uri(secret, 'yuki@gmail.com'))
 
-    pii = encrypt_pii('madman', {'email':'yuki@gmail.com', 'phone':'7754321238'})
-    print(decrypt_pii('madman', pii))
+    pii = encrypt_pii(b'madman', {'email':'yuki@gmail.com', 'phone':'7754321238'})
+    print(decrypt_pii(b'madman', pii))
 
     code = generate_address_code(secret, 'yuki:dev1')
     if validate_address_code(secret, code, 'yuki:dev1'):
