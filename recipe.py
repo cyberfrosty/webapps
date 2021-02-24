@@ -78,15 +78,15 @@ def add_times(time_value1, time_value2):
     duration = 0
     minutes = re.search(r'(\d{1,2}) [Mm]in', time_value1)
     hours = re.search(r'(\d{1,2}) [Hh]our', time_value1)
-    if hours and hours > 0:
+    if hours and int(hours.group(1)) > 0:
         duration += int(hours.group(1)) * 60
-    if minutes and minutes > 0:
+    if minutes and int(minutes.group(1)) > 0:
         duration += int(minutes.group(1))
     minutes = re.search(r'(\d{1,2}) [Mm]in', time_value2)
     hours = re.search(r'(\d{1,2}) [Hh]our', time_value2)
-    if hours and hours > 0:
+    if hours and int(hours.group(1)) > 0:
         duration += int(hours.group(1)) * 60
-    if minutes and minutes > 0:
+    if minutes and int(minutes.group(1)) > 0:
         duration += int(minutes.group(1))
     if duration >= 120:
         if duration % 60 > 0:
@@ -118,6 +118,8 @@ def render_nutrition(nutrition):
         html += ', <span itemprop="carbohydrateContent">{}g carb</span>'.format(nutrition['carbohydrate'])
     if 'protein' in nutrition:
         html += ', <span itemprop="proteinContent">{}g protein</span>'.format(nutrition['protein'])
+    if 'fiber' in nutrition:
+        html += ', <span itemprop="fiberContent">{}mg fiber</span>'.format(nutrition['fiber'])
     if 'sodium' in nutrition:
         html += ', <span itemprop="sodiumContent">{}mg sodium</span>'.format(nutrition['sodium'])
     if 'serving' in nutrition:
@@ -136,9 +138,9 @@ def render_time(time_property, time_value):
     minutes = re.search(r'(\d{1,2}) [Mm]in', time_value)
     hours = re.search(r'(\d{1,2}) [Hh]our', time_value)
     duration = 'PT'
-    if hours and hours > 0:
+    if hours and int(hours.group(1)) > 0:
         duration += str(hours.group(1)) + 'H'
-    if minutes and minutes > 0:
+    if minutes and int(minutes.group(1)) > 0:
         duration += str(minutes.group(1)) + 'M'
     if time_property == 'prepTime':
         time_value = time_value + ' preparation'
@@ -375,7 +377,7 @@ class RecipeManager(object):
         ingredients = recipe.get('ingredients')
         if 'section1' in ingredients:
             nutrition = {'calories': 0.0, 'fat': 0.0, 'carbohydrate': 0.0,
-                         'protein': 0.0, 'sodium': 0.0}
+                         'protein': 0.0, 'fiber': 0.0, 'sodium': 0.0}
             section = 'section1'
             count = 1
             while section in ingredients:
@@ -391,6 +393,7 @@ class RecipeManager(object):
                 nutrition['fat'] += section_nutrition['fat']
                 nutrition['carbohydrate'] += section_nutrition['carbohydrate']
                 nutrition['protein'] += section_nutrition['protein']
+                nutrition['fiber'] += section_nutrition['fiber']
                 nutrition['sodium'] += section_nutrition['sodium']
                 count = count + 1
                 section = 'section' + str(count)
@@ -401,6 +404,7 @@ class RecipeManager(object):
         nutrition['fat'] = int(round(nutrition['fat']))
         nutrition['carbohydrate'] = int(round(nutrition['carbohydrate']))
         nutrition['protein'] = int(round(nutrition['protein']))
+        nutrition['fiber'] = int(round(nutrition['fiber']))
         nutrition['sodium'] = int(round(nutrition['sodium']))
         return nutrition
 
@@ -411,6 +415,7 @@ class RecipeManager(object):
         fat = 0.0
         carbohydrate = 0.0
         protein = 0.0
+        fiber = 0.0
         sodium = 0.0
         index = 1
         while 'item' + str(index) in ingredients:
@@ -479,14 +484,15 @@ class RecipeManager(object):
                 fat += scale * float(ingredient.get('fat'))
                 carbohydrate += scale * float(ingredient.get('carbohydrate'))
                 protein += scale * float(ingredient.get('protein'))
+                fiber += scale * float(ingredient.get('fiber'))
                 sodium += scale * float(ingredient.get('sodium'))
-                #print('{} {} {} {} {}'.format(calories, fat, carbohydrate, protein, sodium))
+                #print('{} {} {} {} {} {}'.format(calories, fat, carbohydrate, protein, fiber, sodium))
             index += 1
         return {'calories': calories, 'fat': fat, 'carbohydrate': carbohydrate,
-                'protein': protein, 'sodium': sodium}
+                'protein': protein, 'fiber': fiber, 'sodium': sodium}
 
     def check_nutrition(self):
-        """ Check the posted nutrition values with freshley calculated ones
+        """ Check the posted nutrition values against the calculated ones
         """
         for recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
@@ -632,7 +638,7 @@ class RecipeManager(object):
         Returns:
             dictionary
         """
-        if len(recipe_id) != 48 or not contains_only(recipe_id, '234567ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+        if len(recipe_id) != 48 or not contains_only(recipe_id, r'[^2-7A-Z.]'):
             recipe_id = generate_id(recipe_id)
         if recipe_id in self.recipes:
             recipe = self.recipes[recipe_id]
