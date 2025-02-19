@@ -1,0 +1,207 @@
+/* Custom styles for Queens of Goodness */
+
+.text-primary {
+  color: #004aad !important; /* Change to your desired hex color */
+}
+
+html {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+}
+
+body {     
+/*  background: #ffc909; */
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 70px;
+  color: #004aad;
+
+  --s: 14px; /* control the size*/
+  --c1: #ffc909;
+  --c2: #ffbc09;
+  
+  --c:#0000,var(--c1) .5deg 119.5deg,#0000 120deg;
+  --g1:conic-gradient(from  60deg at 56.25% calc(425%/6),var(--c));
+  --g2:conic-gradient(from 180deg at 43.75% calc(425%/6),var(--c));
+  --g3:conic-gradient(from -60deg at 50%   calc(175%/12),var(--c));
+  background:
+    var(--g1),var(--g1) var(--s) calc(1.73*var(--s)),
+    var(--g2),var(--g2) var(--s) calc(1.73*var(--s)),
+    var(--g3) var(--s) 0,var(--g3) 0 calc(1.73*var(--s))
+    var(--c2);
+  background-size: calc(2*var(--s)) calc(3.46*var(--s));
+}
+
+h4.bolder {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.row {
+  padding-top: 12px;
+}
+
+footer {
+/*  background: #f1dfc5; */
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+
+/*
+background:
+radial-gradient(circle farthest-side at 0% 50%,#ffc909 23.5%,rgba(40,166,17,0) 0)21px 30px,
+radial-gradient(circle farthest-side at 0% 50%,#e6a322 24%,rgba(40,166,17,0) 0)19px 30px,
+linear-gradient(#ffc909 14%,rgba(40,166,17,0) 0, rgba(40,166,17,0) 85%,#ffc909 0)0 0,
+linear-gradient(150deg,#ffc909 24%,#e6a322 0,#e6a322 26%,rgba(40,166,17,0) 0,rgba(40,166,17,0) 74%,#e6a322 0,#e6a322 76%,#ffc909 0)0 0,
+linear-gradient(30deg,#ffc909 24%,#e6a322 0,#e6a322 26%,rgba(40,166,17,0) 0,rgba(40,166,17,0) 74%,#e6a322 0,#e6a322 76%,#ffc909 0)0 0,
+linear-gradient(90deg,#e6a322 2%,#ffc909 0,#ffc909 98%,#e6a322 0%)0 0 #ffc909;
+background-size: 40px 60px;
+*/
+}
+
+.footer-link {
+    color: #004aad;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #0d6efd;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.card {
+  background-color: #f1dfc5;
+  font-family: 'Rubik Condensed', sans-serif;
+  color: #004aad;
+  padding: 0px;
+}
+
+.card-header {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-img-top {
+  width: 100%; 
+  height: 250px; 
+  object-fit: cover;
+  object-position: 25% 50%; 
+}
+
+.tg-card {
+  background-color: #e6a322;
+}
+
+.navbar {
+  background: #e6a322;
+  font-family: 'Rubik', sans-serif;
+  padding-bottom: 4px;
+} 
+  
+.dropdown-menu {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #f1dfc5;
+  border: none;
+  -webkit-border-radius: 5px 5px 5px 5px ;
+  -moz-border-radius: 5px 5px 5px 5px ;
+  border-radius: 5px 5px 5px 5px ; 
+}
+
+.dropdown-item {
+  background-color: #f1dfc5;
+}
+
+.offcanvas {
+  background-color: #f1dfc5;
+} 
+  
+.cropped-ofc {
+  width: 350px; 
+  height: 150px; 
+  object-fit: cover;
+  object-position: 25% 45%; 
+}
+
+div.imagetiles { padding: 1px;}
+div.imagetiles div.col-lg-3.col-md-3.col-sm-3.col-xs-6{ padding: 5px;}
+
+.img-center {
+  text-align: center; 
+  border-radius: 4px;
+  max-height: 500px;
+  width: 100%; 
+  object-fit: cover;
+  background-color: f1dfc5;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.overlay-text-ul {
+  position: absolute;
+  top: 6%;
+  left: 8%;
+  transform: translate(-8%, -6%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3); /* Transparent background for text */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.overlay-text-ll {
+  position: absolute;
+  bottom: 3%;
+  left: 10%;
+  transform: translate(-10%, -3%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3); /* Transparent background for text */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.footer {
+  border-top: 1px solid #004aad;
+  position: absolute;
+  bottom: 0; 
+  width: 100%;
+  height: 40px;
+  padding-top: 12px;
+  padding-right: 12px;
+  padding-left: 12px;
+  background-color: #e4ab34;
+  font-size: 12px;
+} 
+
