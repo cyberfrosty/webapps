@@ -32,8 +32,10 @@
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel=canonical href="https://queensofgoodness.com/bees.html">
-    <link rel="shortcut icon" type="image/x-icon" href="https://queensofgoodness.com/static/img/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="https://queensofgoodness.com/static/img/favicon.ico">
+    <link rel="shortcut icon" type="image/svg+xml" href="static/img/icon.svg">
+    <link rel="icon" href="static/img/favicon.ico" media="(prefers-color-scheme: light)" sizes="32x32">
+    <link rel="icon" href="static/img/favicon-dark.ico" media="(prefers-color-scheme: dark)" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="static/img/icon.svg">
 
     <!-- Bootstrap CSS, Font Awesome, Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -51,7 +53,7 @@
       <a class="navbar-brand" href="index.html">
       </a>
       <a class="navbar-brand" href="index.html">
-        <img src="static/img/LogoWordmark.svg" height="50" alt="Queens of Goodness">
+        <img src="static/img/Queens-Of-Goodness-Horizontal-Logo-transparent-bg.svg" height="45" alt="Queens of Goodness">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -59,7 +61,7 @@
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-            <img src="static/img/LogoWordmark.svg" height="42" alt="Queens of Goodness"></h5>
+            <img src="static/img/Queens-Of-Goodness-Horizontal-Logo-transparent-bg.svg" height="42" alt="Queens of Goodness"></h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -71,30 +73,47 @@
               <a class="nav-link" href="bees.html">Education</a>
             </li>
             <li class="nav-item d-none d-lg-block">
-              <a class="nav-link" href="shop.html">Shop Local</a>
+              <a class="nav-link" href="events.html">Events</a>
+            </li>
+            <li class="nav-item d-none d-lg-block">
+              <a class="nav-link" href="shop.html">Shop</a>
             </li>
             <li class="nav-item d-none d-lg-block">
               <a class="nav-link" href="about.html">About</a>
             </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link" href="products.html">
-                <img src="static/img/Product%20stack.jpg" class="img-fluid cropped-ofc" alt="Products">
-                <p class="text-center">Premium Creamed Honey</p>
-              </a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link" href="bees.html">
-                <img src="static/img/Bee%20on%20Dandilion.png" class="img-fluid cropped-ofc">
-                <p class="text-center">Education & Events</p>
-              </a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link" href="about.html">
-                <img src="static/img/SinksSmoker.jpg" class="img-fluid cropped-ofc">
-                <p class="text-center">About Our Company</p>
-              </a>
-            </li>
           </ul>
+          <hr class="d-lg-none">
+          <table class="d-lg-none burger-table" width=100%>
+            <tbody>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="products.html">Products</a>
+                </td>
+              </tr>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="bees.html">Education</a>
+                </td>
+              </tr>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="events.html">Events</a>
+                </td>
+              </tr>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="shop.html">Shop</a>
+                </td>
+              </tr>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="about.html">About</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr class="d-lg-none">
+          <img src="static/img/Bee%20on%20Dandilion.png" class="img-fluid cropped-ofc d-lg-none">
         </div>
       </div>
     </div>
@@ -103,10 +122,18 @@
   <body>
     <div class="container-xl" id="hero">
 
+      <div class="row g-3">
+        <div class="image-container">
+          <img src="static/img/KidsLookingFrame.jpg" class="img-fluid img-banner">
+          <div class="overlay-text-ul">
+            <h2>Education</h2>
+          </div>
+        </div>
+      </div>
       <div class="row row-cols-1 row-cols-md-2 g-3">
         <div class="col">
           <div class="card h-100">
-            <div class="card-header text-center">Education & Events</div>
+            <div class="card-header text-center">Classes & Events</div>
             <img class="card-img-top" src="static/img/HoneyBeeDay24.jpeg" alt="Honey Bee Day 24">
             <div class="card-body">
               <h5 class="card-title text-center">Beekeeping Classes & Events</h5>
@@ -117,7 +144,7 @@
               </ul>
             </div>
             <div class="card-footer text-center">
-              <a class="learn-more" href="honey.html">Learn More</a>
+              <a class="learn-more" href="events.html">Learn More</a>
             </div>
           </div>
         </div>
@@ -206,26 +233,26 @@
 
     <footer>
       <div class="container text-primary">
-        <div class="row row-cols-1 row-cols-sm-2 g-3">
-          <div class="col">
-            <h5 class="mb-4">Quick Links</h5>
-            <ul class="list-unstyled">
-              <li class="mb-2"><a href="products.html" class="footer-link"><p>Our Products</p></a></li>
-              <li class="mb-2"><a href="bees.html" class="footer-link"><p>Education & Events</p></a></li>
-              <li class="mb-2"><a href="shop.html" class="footer-link"><p>Shop Local</p></a></li>
-              <li class="mb-2"><a href="about.html" class="footer-link"><p>About Our Company</p></a></li>
-            </ul>
-          </div>
-          <div class="col">
-            <h5 class="mb-4"><img src="static/img/LogoWordmark.svg" height="48" alt=""></h5>
-            <p>Raw Local Honey & Premium Ingredients<br>
+        <div class="row row-cols-2 row-cols-sm-2 g-3">
+          <div class="col-8">
+            <h5 class="mb-4 text-center"><img src="static/img/Queens-Of-Goodness-Horizontal-Logo-transparent-bg.svg" height="48" alt=""></h5>
+            <p class="text-center">Raw Local Honey & Premium Ingredients<br>
               -- nutritious freeze-dried whole fruits --<br>
-              -- fair-trade and single origin spices --</p>
+              -- fair-trade & single origin spices --</p>
             <div class="social-links">
               <a href="https://www.facebook.com/profile.php?id=61556597102293" class="social-icon bg-primary"><i class="fab fa-facebook-f fa-lg"></i></a>
               <a href="https://instagram.com/QueensofGoodness" class="social-icon bg-danger"><i class="fab fa-instagram fa-lg"></i></a>
               <a href="mailto:susan@queensofgoodness.com" class="social-icon bg-info"><i class="fas fa-envelope fa-lg"></i></a>
             </div>
+          </div>
+          <div class="col-4">
+            <ul class="list-unstyled">
+              <li class="footer-item"><a href="products.html" class="footer-link"><p>Products</p></a></li>
+              <li class="footer-item"><a href="bees.html" class="footer-link"><p>Education</p></a></li>
+              <li class="footer-item"><a href="events.html" class="footer-link"><p>Events</p></a></li>
+              <li class="footer-item"><a href="shop.html" class="footer-link"><p>Shop</p></a></li>
+              <li class="footer-item"><a href="about.html" class="footer-link"><p>About</p></a></li>
+            </ul>
           </div>
 
         </div>

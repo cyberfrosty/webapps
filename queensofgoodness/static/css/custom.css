@@ -44,6 +44,15 @@ h4.bolder {
   padding-top: 12px;
 }
 
+.logo-table tr {
+  border-bottom: 1px solid #004aad;
+}
+
+.logo-table td {
+  padding-top: 4px;
+  padding-bottom: 6px;
+}
+
 footer {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -62,13 +71,19 @@ background-size: 40px 60px;
 }
 
 .footer-link {
-    color: #004aad;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: #004aad;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #8192fe;
+  color: #8192fe;
+}
+
+.footer-item {
+  padding-left: 16px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .learn-more {
@@ -192,9 +207,42 @@ background-size: 40px 60px;
   color: #f1dfc5;
 }
 
-.navbar-light-icon {
-  border-color: #004aad;
+.burger-table {
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.burger-table tr {
+  border-bottom: 1px solid #e6a322;
+}
+
+.burger-table tbody a {
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
   color: #004aad;
+  padding: 20px 10px
+  transition: all 0.25s ease-out;
+}
+
+.burger-table tbody tr:hover a, tr:focus a {
+  color: #ffc909;
+  background: #004aad;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,75,173, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+  border-color: #004aad;
+  border-width: 2px;
+}
+
+.navbar-toggler:active, .navbar-toggler:focus, .navbar-toggler-icon:focus{
+  outline: none!important;
+  box-shadow: none;
 }
 
 .dropdown-menu {
@@ -212,7 +260,7 @@ background-size: 40px 60px;
 }
 
 .offcanvas {
-  background-color: #f1dfc5;
+  background-color: #e6a322;
 } 
   
 .cropped-ofc {

@@ -32,8 +32,10 @@
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel=canonical href="https://queensofgoodness.com/about.html">
-    <link rel="shortcut icon" type="image/x-icon" href="https://queensofgoodness.com/static/img/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="https://queensofgoodness.com/static/img/favicon.ico">
+    <link rel="shortcut icon" type="image/svg+xml" href="static/img/icon.svg">
+    <link rel="icon" href="static/img/favicon.ico" media="(prefers-color-scheme: light)" sizes="32x32">
+    <link rel="icon" href="static/img/favicon-dark.ico" media="(prefers-color-scheme: dark)" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="static/img/icon.svg">
 
     <!-- Bootstrap CSS, Font Awesome, Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -51,7 +53,7 @@
       <a class="navbar-brand" href="index.html">
       </a>
       <a class="navbar-brand" href="index.html">
-        <img src="static/img/LogoWordmark.svg" height="50" alt="Queens of Goodness">
+        <img src="static/img/Queens-Of-Goodness-Horizontal-Logo-transparent-bg.svg" height="45" alt="Queens of Goodness">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -59,7 +61,7 @@
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-            <img src="static/img/LogoWordmark.svg" height="42" alt="Queens of Goodness"></h5>
+            <img src="static/img/Queens-Of-Goodness-Horizontal-Logo-transparent-bg.svg" height="42" alt="Queens of Goodness"></h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -71,36 +73,47 @@
               <a class="nav-link" href="bees.html">Education</a>
             </li>
             <li class="nav-item d-none d-lg-block">
-              <a class="nav-link" href="shop.html">Shop Local</a>
+              <a class="nav-link" href="events.html">Events</a>
+            </li>
+            <li class="nav-item d-none d-lg-block">
+              <a class="nav-link" href="shop.html">Shop</a>
             </li>
             <li class="nav-item d-none d-lg-block">
               <a class="nav-link" href="about.html">About</a>
             </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link" href="about.html">
-                <img src="static/img/SinksSmoker.jpg" class="img-fluid cropped-ofc">
-                <p class="text-center">About Our Company</p>
-              </a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link" href="products.html">
-                <img src="static/img/Product%20stack.jpg" class="img-fluid cropped-ofc" alt="Products">
-                <p class="text-center">Premium Creamed Honey</p>
-              </a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link" href="bees.html">
-                <img src="static/img/Bee%20on%20Dandilion.png" class="img-fluid cropped-ofc">
-                <p class="text-center">Education & Events</p>
-              </a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link" href="honey.html">
-                <img src="static/img/Jars%20of%20Honey.jpg" class="img-fluid cropped-ofc">
-                <p class="text-center">Know Your Honey</p>
-              </a>
-            </li>
           </ul>
+          <hr class="d-lg-none">
+          <table class="d-lg-none burger-table" width=100%>
+            <tbody>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="products.html">Products</a>
+                </td>
+              </tr>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="bees.html">Education</a>
+                </td>
+              </tr>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="events.html">Events</a>
+                </td>
+              </tr>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="shop.html">Shop</a>
+                </td>
+              </tr>
+              <tr class="nav-item d-lg-none">
+                <td>
+                  <a class="burger-link" href="about.html">About</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr class="d-lg-none">
+          <img src="static/img/Bee%20on%20Dandilion.png" class="img-fluid cropped-ofc d-lg-none">
         </div>
       </div>
     </div>
@@ -109,10 +122,18 @@
   <body>
     <div class="container-xl" id="hero">
       <div class="row g-3">
+        <div class="image-container">
+          <img src="static/img/SinksHives_hd.jpg" class="img-fluid img-banner">
+          <div class="overlay-text-ul">
+            <h2>About</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3">
         <div class="card bl-card">
           <div class="card-body">
-            <p>Queens of Goodness began with a love for bees, a passion for science, and a dedication to creating products that nourish the body and support the environment. After retiring from a career as a NASA researcher, I turned my focus to beekeeping, where I saw firsthand the incredible impact that healthy bees have on our ecosystems. From that experience, I knew I wanted to create something special—something that not only celebrates the beauty and importance of honeybees but also shares their benefits with others. -- Susan</p>
-
+            <h5>Queens of Goodness began with a love for bees, a passion for science,
+              and a dedication to creating products that nourish the body and support the environment.</h5>
           </div>
         </div>
       </div>
@@ -120,36 +141,46 @@
         <div class="col">
           <div class="card h-100">
             <div class="card-header text-center">Our Honey</div>
+            <img class="card-img-top" src="static/img/SinksSmoker.jpg">
             <div class="card-body">
-              <img class="card-img-top" src="static/img/SinksHives_hd.jpg">
-              <p>We are beekeepers and all of our honey is harvested from hives in Wyoming, a state known for its clean air and abundant wildflowers. We work closely with local beekeepers who share our commitment to sustainable, ethical practices. Each jar of creamed honey is carefully crafted to preserve its natural enzymes, antioxidants, and health benefits, ensuring that you receive a product that is both delicious and good for you.</p>
+              <h5 class="card-title text-center">Raw Local Honey</h5>
+              <p class="card-text">We are beekeepers and all of our honey is
+                harvested from hives in Wyoming, a state known for its clean air and abundant
+                wildflowers. We work closely with local beekeepers who share our commitment to
+                sustainable, ethical practices. Each jar of creamed raw honey is carefully
+                crafted to preserve its natural enzymes, antioxidants, and health benefits,
+                ensuring that you receive a product that is both delicious and good for you.</p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
             <div class="card-header text-center">Our Mission</div>
+            <img class="card-img-top" src="static/img/AOW.jpeg" alt="Academy of the Winds">
             <div class="card-body">
-              <img class="card-img-top" src="static/img/AOW.jpeg" alt="Academy of the Winds">
-              <p>At Queens of Goodness, we aim to make a positive impact in everything we do. From reducing the consumption of refined sugars to raising awareness about the importance of supporting local beekeepers, we want to empower our customers to make healthier, more informed choices. We believe in the power of food to nourish not just the body, but the soul, and our products reflect that belief in every jar.</p>
+              <h5 class="card-title text-center">Education & Informed Choices</h5>
+              <p class="card-text">At Queens of Goodness, we aim to make a positive
+                impact in everything we do. From reducing the consumption of refined sugars to
+                raising awareness about the importance of supporting local beekeepers, we want to
+                empower our customers to make healthier, more informed choices. We believe in the
+                power of food to nourish not just the body, but the soul, and our products
+                reflect that belief in every jar.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="row row-cols-1 row-cols-sm-2 g-3">
+      <div class="row row-cols-1 row-cols-md-2 g-3">
         <div class="col">
-          <div class="card h-100" id="ShopLocal">
-            <div class="card-header text-center">Shop Local</div>
-            <div class="card-body text-center">
-              <a href="https://eatwyoming.com" target="_blank" rel="noopener noreferrer">
-                <img src="static/img/EatWyoLogo-1.png" class="img-fluid" width=50%>
-              </a>
-              <a href="https://meadowlarklander.org" target="_blank" rel="noopener noreferrer">
-                <img src="static/img/MeadowlarkLogo-Final.png" class="img-fluid">
-              </a>
-              <a href="https://www.facebook.com/p/Fremont-Local-Market-100084811015487/" target="_blank" rel="noopener noreferrer">
-                <img src="static/img/FremontLocal.png" class="img-fluid" width=75%>
-              </a>
+          <div class="card h-100">
+            <div class="card-header text-center">Our Story</div>
+            <img class="card-img-top" src="static/img/Nat'l%20Honey%20Bee%20Day%202024.jpeg">
+            <div class="card-body">
+              <h5 class="card-title text-center">Beekeeping</h5>
+              <p class="card-text">After retiring from a career as a NASA researcher, I turned my
+                focus to beekeeping, where I saw firsthand the incredible impact that healthy bees
+                have on our ecosystems. From that experience, I knew I wanted to create something
+                special—something that not only celebrates the beauty and importance of honeybees
+                but also shares their benefits with others. -- Susan</p>
             </div>
           </div>
         </div>
@@ -157,17 +188,15 @@
           <div class="card h-100">
             <div class="card-header text-center">Support Pollinators</div>
             <div class="card-body">
-              <table>
+              <table class="logo-table">
                 <tr>
                   <td>
                     <a href="https://www.xerces.org" target="_blank" rel="noopener noreferrer">
-                      <img src="static/img/XS-2024-web-logo.png" class="img-fluid" width=50%>
+                      <img src="static/img/XS-2024-web-logo.png" class="img-fluid" width=70%>
                     </a>
                   </td>
                   <td>
-                    <a href="https://www.pollinatorstewardship.org" target="_blank" rel="noopener noreferrer">
-                      <img src="static/img/Pollinator%20Stewardship%20Council.png" class="img-fluid">
-                    </a>
+                    Xerces Society for Invertebrate Conservation promotes the conservation of invertebrates and their habitats
                   </td>
                 </tr>
                 <tr>
@@ -177,14 +206,33 @@
                     </a>
                   </td>
                   <td>
+                    Project Apis m. promotes science driven solutions for the beekeeping community
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://www.pollinatorstewardship.org" target="_blank" rel="noopener noreferrer">
+                      <img src="static/img/Pollinator%20Stewardship%20Council.png" class="img-fluid" width=40%>
+                    </a>
+                  </td>
+                  <td>
+                    Pollinator Stewardship Council, Inc. works to defend pollinators from the adverse impacts of pesticides
+                  </td>
+                </tr>
+                <tr>
+                  </td>
+                  <td>
                     <a href="https://www.pollinator.org" target="_blank" rel="noopener noreferrer">
                       <img src="static/img/PollinatorLogo-Tag2@2x.png" class="img-fluid">
                     </a>
                   </td>
+                  <td>
+                    Pollinator Partnership promotes the health of pollinators, through conservation, education, and research
+                  </td>
                 </tr>
               </table>
             </div>
-            <div class="card-footer">1% of profits donated for pollinators & outreach</div>
+            <div class="card-footer text-center">1% of our profits donated for pollinators & outreach</div>
           </div>
         </div>
       </div>
@@ -192,26 +240,26 @@
 
     <footer>
       <div class="container text-primary">
-        <div class="row row-cols-1 row-cols-sm-2 g-3">
-          <div class="col">
-            <h5 class="mb-4">Quick Links</h5>
-            <ul class="list-unstyled">
-              <li class="mb-2"><a href="products.html" class="footer-link"><p>Our Products</p></a></li>
-              <li class="mb-2"><a href="bees.html" class="footer-link"><p>Education & Events</p></a></li>
-              <li class="mb-2"><a href="shop.html" class="footer-link"><p>Shop Local</p></a></li>
-              <li class="mb-2"><a href="about.html" class="footer-link"><p>About Our Company</p></a></li>
-            </ul>
-          </div>
-          <div class="col">
-            <h5 class="mb-4"><img src="static/img/LogoWordmark.svg" height="48" alt=""></h5>
-            <p>Raw Local Honey & Premium Ingredients<br>
+        <div class="row row-cols-2 row-cols-sm-2 g-3">
+          <div class="col-8">
+            <h5 class="mb-4 text-center"><img src="static/img/Queens-Of-Goodness-Horizontal-Logo-transparent-bg.svg" height="48" alt=""></h5>
+            <p class="text-center">Raw Local Honey & Premium Ingredients<br>
               -- nutritious freeze-dried whole fruits --<br>
-              -- fair-trade and single origin spices --</p>
+              -- fair-trade & single origin spices --</p>
             <div class="social-links">
               <a href="https://www.facebook.com/profile.php?id=61556597102293" class="social-icon bg-primary"><i class="fab fa-facebook-f fa-lg"></i></a>
               <a href="https://instagram.com/QueensofGoodness" class="social-icon bg-danger"><i class="fab fa-instagram fa-lg"></i></a>
               <a href="mailto:susan@queensofgoodness.com" class="social-icon bg-info"><i class="fas fa-envelope fa-lg"></i></a>
             </div>
+          </div>
+          <div class="col-4">
+            <ul class="list-unstyled">
+              <li class="footer-item"><a href="products.html" class="footer-link"><p>Products</p></a></li>
+              <li class="footer-item"><a href="bees.html" class="footer-link"><p>Education</p></a></li>
+              <li class="footer-item"><a href="events.html" class="footer-link"><p>Events</p></a></li>
+              <li class="footer-item"><a href="shop.html" class="footer-link"><p>Shop</p></a></li>
+              <li class="footer-item"><a href="about.html" class="footer-link"><p>About</p></a></li>
+            </ul>
           </div>
 
         </div>
