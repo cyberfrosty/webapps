@@ -19,7 +19,7 @@ body {
   color: #004aad;
 
   --s: 14px; /* control the size*/
-  --c1: #ffc909;
+  --c1: #ffc908;
   --c2: #ffbc09;
   
   --c:#0000,var(--c1) .5deg 119.5deg,#0000 120deg;
@@ -98,6 +98,10 @@ background-size: 40px 60px;
 .learn-more:hover {
   background-color: #e6a322;
   color: #004aad;
+}
+
+.social-links {
+  text-align: center;
 }
 
 .social-icon {
@@ -183,12 +187,21 @@ background-size: 40px 60px;
 }
 
 .l-card {
-  background-color: #ffda52;
+  background-color: #f7c91c;
 }
 
 .ps-card {
   background-color: #ff761e;
 }
+
+.hs-card {
+  background-color: #ff5758;
+}
+
+.c-card {
+  background-color: #dc7549;
+}
+
 
 .navbar {
   background: #e6a322;
