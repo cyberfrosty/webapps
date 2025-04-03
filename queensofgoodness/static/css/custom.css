@@ -11,7 +11,7 @@ html {
 }
 
 body {     
-/*  background: #ffc909; */
+/*  background: #ffc908; */
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -60,12 +60,12 @@ footer {
 
 /*
 background:
-radial-gradient(circle farthest-side at 0% 50%,#ffc909 23.5%,rgba(40,166,17,0) 0)21px 30px,
+radial-gradient(circle farthest-side at 0% 50%,#ffc908 23.5%,rgba(40,166,17,0) 0)21px 30px,
 radial-gradient(circle farthest-side at 0% 50%,#e6a322 24%,rgba(40,166,17,0) 0)19px 30px,
-linear-gradient(#ffc909 14%,rgba(40,166,17,0) 0, rgba(40,166,17,0) 85%,#ffc909 0)0 0,
-linear-gradient(150deg,#ffc909 24%,#e6a322 0,#e6a322 26%,rgba(40,166,17,0) 0,rgba(40,166,17,0) 74%,#e6a322 0,#e6a322 76%,#ffc909 0)0 0,
-linear-gradient(30deg,#ffc909 24%,#e6a322 0,#e6a322 26%,rgba(40,166,17,0) 0,rgba(40,166,17,0) 74%,#e6a322 0,#e6a322 76%,#ffc909 0)0 0,
-linear-gradient(90deg,#e6a322 2%,#ffc909 0,#ffc909 98%,#e6a322 0%)0 0 #ffc909;
+linear-gradient(#ffc908 14%,rgba(40,166,17,0) 0, rgba(40,166,17,0) 85%,#ffc908 0)0 0,
+linear-gradient(150deg,#ffc908 24%,#e6a322 0,#e6a322 26%,rgba(40,166,17,0) 0,rgba(40,166,17,0) 74%,#e6a322 0,#e6a322 76%,#ffc908 0)0 0,
+linear-gradient(30deg,#ffc908 24%,#e6a322 0,#e6a322 26%,rgba(40,166,17,0) 0,rgba(40,166,17,0) 74%,#e6a322 0,#e6a322 76%,#ffc908 0)0 0,
+linear-gradient(90deg,#e6a322 2%,#ffc908 0,#ffc908 98%,#e6a322 0%)0 0 #ffc908;
 background-size: 40px 60px;
 */
 }
@@ -76,6 +76,12 @@ background-size: 40px 60px;
   transition: color 0.3s ease;
 }
 
+.footer-link-active {
+  color: #8192fe;
+  text-decoration: none;
+  font-weight: 800;
+}
+
 .footer-link:hover {
   color: #8192fe;
 }
@@ -84,6 +90,16 @@ background-size: 40px 60px;
   padding-left: 16px;
   font-size: 18px;
   font-weight: 600;
+}
+
+.footer-block {
+  background-color: #e6a322;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 6px;
+  padding-bottom: 8px;
+  margin-top: 12px;
 }
 
 .learn-more {
@@ -158,7 +174,7 @@ background-size: 40px 60px;
   width: 100%; 
   height: 250px; 
   object-fit: cover;
-  object-position: 25% 50%; 
+  object-position: 25% 50%;
 }
 
 .lt-card {
@@ -240,7 +256,7 @@ background-size: 40px 60px;
 }
 
 .burger-table tbody tr:hover a, tr:focus a {
-  color: #ffc909;
+  color: #ffc908;
   background: #004aad;
 }
 
