@@ -102,6 +102,23 @@ background-size: 40px 60px;
   margin-top: 12px;
 }
 
+@media screen and (max-width: 600px) {
+  .footer-block {
+    font-size: 16px;
+  }
+}
+
+.copyright {
+  padding-top: 6px;
+}
+
+@media screen and (max-width: 600px) {
+  .copyright {
+    padding-top: 6px;
+    font-size: 12px;
+  }
+}
+
 .learn-more {
   text-decoration: none;
   display: inline-block;
