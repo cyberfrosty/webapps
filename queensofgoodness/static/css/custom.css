@@ -138,13 +138,13 @@ background-size: 40px 60px;
 }
 
 .social-icon {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
     text-align: center;
     color: #fff;
     display: inline-block;
-    margin: 0 8px;
+    margin: 0 4px;
     transition: all 0.3s ease;
 }
 
@@ -251,6 +251,9 @@ background-size: 40px 60px;
   background-color: #dc7549;
 }
 
+.text-green { color: #38a169; }
+.text-blue { color: #004aad; }
+.text-red { color: #f56565; }
 
 .navbar {
   background: #e6a322;
@@ -489,9 +492,66 @@ div.imagetiles div.col-lg-3.col-md-3.col-sm-3.col-xs-6{ padding: 5px;}
   .panel {
     width: 50%;
   }
+}
 @media only screen and (max-width: 768px) {
   .panel {
     width: 100%;
   }
 }
+
+/* FAQ styles */
+.accordion-item {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-button {
+  padding: 12px 8px 8px 12px;
+  font-weight: 600;
+  color: #004aad;
+  background-color: transparent;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #004aad;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+  background-color: #e6a322;
+}
+
+.accordion-button:hover {
+  background-color: #e6a322;
+  color: #004aad;
+}
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-body {
+  padding: 6px 0 8px 6px;
+  background-color: #f1dfc5;
+}
+
+/* Contact form validation */
+.invalid-feedback,
+.empty-feedback {
+  display: none;
+}
+
+.was-validated :placeholder-shown:invalid ~ .empty-feedback {
+  display: block;
+}
+
+.was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.is-invalid,
+.was-validated :invalid {
+  border-color: #dc3545;
 }
