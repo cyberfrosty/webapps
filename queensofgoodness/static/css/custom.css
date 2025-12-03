@@ -210,6 +210,13 @@ background-size: 40px 60px;
   object-position: 25% 50%;
 }
 
+.card-video-top {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: 25% 50%;
+}
+
 .lt-card {
   background-color: #f1dfc5;
 }
