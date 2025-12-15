@@ -258,6 +258,18 @@ background-size: 40px 60px;
   background-color: #dc7549;
 }
 
+.ingredients {
+  margin-bottom: 6px;
+  padding-top: 6px;
+  padding-left: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredients {
+    min-height: 52px;
+  }
+}
+
 .text-green { color: #38a169; }
 .text-blue { color: #004aad; }
 .text-red { color: #f56565; }
