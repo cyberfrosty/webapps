@@ -55,7 +55,7 @@ h4.bolder {
 
 footer {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 
 /*
@@ -88,28 +88,29 @@ background-size: 40px 60px;
 
 .footer-item {
   padding-left: 16px;
-  font-size: 18px;
   font-weight: 600;
 }
 
 .footer-block {
   background-color: #e6a322;
   border-radius: 4px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   padding-top: 6px;
-  padding-bottom: 8px;
-  margin-top: 12px;
+  padding-bottom: 2px;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 600px) {
   .footer-block {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
 .copyright {
-  padding-top: 6px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: center;
 }
 
 @media screen and (max-width: 600px) {
