@@ -1,23 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://queensofgoodness.com/index.html</loc> 
-    <lastmod>2025-02-18</lastmod> 
+    <loc>https://queensofgoodness.com/index.html</loc>
+    <lastmod>2026-01-05</lastmod>
   </url>
   <url>
-    <loc>https://queensofgoodness.com/about.html</loc> 
-    <lastmod>2025-02-18</lastmod> 
+    <loc>https://queensofgoodness.com/about.html</loc>
+    <lastmod>2026-01-05</lastmod>
   </url>
   <url>
-    <loc>https://queensofgoodness.com/bees.html</loc> 
-    <lastmod>2025-02-18</lastmod> 
+    <loc>https://queensofgoodness.com/bees.html</loc>
+    <lastmod>2026-01-05</lastmod>
   </url>
   <url>
-    <loc>https://queensofgoodness.com/honey.html</loc> 
-    <lastmod>2025-02-18</lastmod> 
+    <loc>https://queensofgoodness.com/honey.html</loc>
+    <lastmod>2026-01-05</lastmod>
   </url>
   <url>
-    <loc>https://queensofgoodness.com/products.html</loc> 
-    <lastmod>2025-02-18</lastmod> 
+    <loc>https://queensofgoodness.com/products.html</loc>
+    <lastmod>2026-01-05</lastmod>
+  </url>
+  <url>
+    <loc>https://queensofgoodness.com/shop.html</loc>
+    <lastmod>2026-01-05</lastmod>
+  </url>
+  <url>
+    <loc>https://queensofgoodness.com/faq.html</loc>
+    <lastmod>2026-01-05</lastmod>
+  </url>
+  <url>
+    <loc>https://queensofgoodness.com/events.html</loc>
+    <lastmod>2026-01-05</lastmod>
+  </url>
+  <url>
+    <loc>https://queensofgoodness.com/privacy.html</loc>
+    <lastmod>2026-01-05</lastmod>
+  </url>
+  <url>
+    <loc>https://queensofgoodness.com/terms.html</loc>
+    <lastmod>2026-01-05</lastmod>
+  </url>
+  <url>
+    <loc>https://queensofgoodness.com/disclaimer.html</loc>
+    <lastmod>2026-01-05</lastmod>
   </url>
 </urlset>
