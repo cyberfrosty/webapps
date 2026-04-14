@@ -211,6 +211,11 @@ background-size: 40px 60px;
   object-position: 25% 50%;
 }
 
+.card-img-center {
+  width: 100%;
+  object-fit: cover;
+}
+
 .card-video-top {
   width: 100%;
   height: auto;
