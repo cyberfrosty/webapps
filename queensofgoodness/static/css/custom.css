@@ -263,8 +263,20 @@ background-size: 40px 60px;
   background-color: #ff761e;
 }
 
-.hs-card {
-  background-color: #ff5758;
+.chai-card {
+  background-color: #b3842c;
+}
+
+.es-card {
+  background-color: #be408a;
+}
+
+.tc-card {
+  background-color: #c774a2;
+}
+
+.mango-card {
+  background-color: #ffc455;
 }
 
 .c-card {
