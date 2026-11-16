@@ -10,7 +10,16 @@ html {
   min-height: 100%;
 }
 
-body {     
+body {
+  background: #fefafa;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 70px;
+  color: #004aad;
+}
+
+hexbody {
 /*  background: #ffc908; */
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -132,6 +141,15 @@ background-size: 40px 60px;
 .learn-more:hover {
   background-color: #e6a322;
   color: #004aad;
+}
+
+.list-link {
+  color: white;
+  text-decoration: none;
+}
+
+.list-link:hover {
+  color: #00006d;
 }
 
 .social-links {
