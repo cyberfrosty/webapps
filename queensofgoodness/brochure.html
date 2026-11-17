@@ -16,7 +16,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Queens of Goodness">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://queensofgoodness.com/index.html">
+    <meta property="og:url" content="https://queensofgoodness.com/brochure.html">
     <meta property="og:site_name" content="Queens of Goodness">
     <meta property="og:description" content="Premium creamed raw honey with gourmet spices and whole freeze-dried fruits">
     <meta property="og:image" content="static/img/logo.svg">
@@ -31,7 +31,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="bingbot" content="noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel=canonical href="https://queensofgoodness.com/index.html">
+    <link rel=canonical href="https://queensofgoodness.com/brochure.html">
     <link rel="shortcut icon" type="image/svg+xml" href="static/img/icon.svg">
     <link rel="icon" href="static/img/favicon.ico" media="(prefers-color-scheme: light)" sizes="32x32">
     <link rel="icon" href="static/img/favicon-dark.ico" media="(prefers-color-scheme: dark)" sizes="32x32">
@@ -46,21 +46,23 @@
 
   </head>
 
-  <body>
+ <nav class="navbar navbar-light navbar-expand-lg border-bottom fixed-top justify-content-center">
+      <a class="navbar-brand" href="/">
+        <img src="static/img/TwoBees.svg" height="36" alt="Queens of Goodness">
+      </a>
+  </nav>
+
+  <brochure>
     <div class="trifold">
       <div class="panel">
         <div class="card tg-card">
-          <div class="card-header text-center">
-            <a href="https://queensofgoodness.com"><img src="static/img/TwoBees.png" height="48" alt="Queens of Goodness">
-            </a>
-          </div>
-          <div class="card-body text-center">
+          <div class="card-header card-logo text-center">
             <b>RETAILER BROCHURE</b>
           </div>
         </div>
         <br>
         <div>
-          <a href="https://queensofgoodness.com/products.html"><img class="img-fluid img-center" src="static/img/ProductStack.avif" alt="Product Display"></a></p>
+          <a href="https://queensofgoodness.com/products.html"><img class="img-fluid img-panel" src="static/img/ProductRow.avif" alt="Product Display"></a></p>
         </div>
         <br>
         <div class="card bl-card">
@@ -88,12 +90,7 @@
       </div>
       <div class="panel">
         <div>
-          <div class="image-container">
-            <div class="overlay-text-ct">
-              <h4>Golden Milk</h4>
-            </div>
-            <img src="static/img/GoldenMilk.avif" alt="Golden Milk" class="img-fluid img-center">
-          </div>
+          <img src="static/img/GoldenMilk.avif" alt="Golden Milk" class="img-fluid img-panel">
         </div>
         <br>
         <div class="card bl-card">
@@ -120,7 +117,7 @@
       </div>
       <div class="panel">
         <div>
-          <img src="static/img/ElderberryOatmeal.avif" class="img-fluid img-center">
+          <img src="static/img/ElderberryOatmeal.avif" class="img-fluid img-panel">
         </div>
         <br>
         <div class="card bl-card">
@@ -142,7 +139,7 @@
         </div>
         <br>
         <div>
-          <img class="img-center" height="200" src="static/img/1.jpg" alt="Bees on honeycomb">
+          <img class="img-center img-panel" src="static/img/Cider.avif" alt="Elderberry Spicad Cidere">
         </div>
       </div>
       <div class="panel">
@@ -191,21 +188,11 @@
       </div>
       <div class="panel">
         <div>
-          <div class="image-container">
-            <img class="img-fluid img-center" src="static/img/HoneyBeeDay24.jpeg" alt="National Honey Bee Day posters and demonstrations">
-            <div class="overlay-text-cb">
-              <h4>Community Outreach</h4>
-            </div>
-          </div>
+          <img class="img-fluid img-panel" src="static/img/HoneyBeeDay24.jpeg" alt="National Honey Bee Day posters and demonstrations">
         </div>
         <br>
         <div>
-          <div class="image-container">
-            <img src="static/img/LocalHive.jpg" class="img-fluid img-center">
-            <div class="overlay-text-cb">
-              <h4>Our Bees</h4>
-            </div>
-          </div>
+          <img src="static/img/LocalHive.jpg" class="img-fluid img-panel">
         </div>
         <br>
         <div class="card tg-card">
@@ -221,5 +208,5 @@
         </div>
       </div>
     </div>
-  </body>
+  </brochure>
 </html>

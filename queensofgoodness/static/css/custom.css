@@ -15,7 +15,15 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  padding-top: 70px;
+  padding-top: 50px;
+  color: #004aad;
+}
+
+brochure {
+  background: #fefaf2;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
   color: #004aad;
 }
 
@@ -179,6 +187,13 @@ background-size: 40px 60px;
   padding: 0px;
 }
 
+.card-logo {
+  background-color: #e6a322;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #004aad;
+  padding: 20px;
+}
+
 .card-link:hover  {
   color: #f1dfc5;
 }
@@ -320,7 +335,7 @@ background-size: 40px 60px;
 .navbar {
   background: #e6a322;
   font-family: 'Roboto', sans-serif;
-  padding-bottom: 1px;
+  padding-bottom: 5px;
   color: #004aad;
 } 
 
@@ -543,17 +558,20 @@ div.imagetiles div.col-lg-3.col-md-3.col-sm-3.col-xs-6{ padding: 5px;}
 .trifold {
   display: flex;
   flex-wrap: wrap; /* Allows panels to wrap to next line on smaller screens */
-  max-width: 1200px;  /* Example max width for a trifold */
+  max-width: 1600px;  /* Example max width for a trifold */
   margin: 0 auto;  /* Center the brochure */
   box-sizing: border-box;
   font-size: 18px;
+  background: #f1dfc5;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .panel {
   width: calc(100% / 3); /*  Three equal panels */
   padding: 20px;
   box-sizing: border-box; /* include padding in width */
-  border: 2px solid #e4ab34;
+  border: 0.5px solid #004aad;
 }
 
 /* Media query for smaller screens to make panels stack vertically*/
@@ -565,6 +583,7 @@ div.imagetiles div.col-lg-3.col-md-3.col-sm-3.col-xs-6{ padding: 5px;}
 @media only screen and (max-width: 768px) {
   .panel {
     width: 100%;
+    border: none;
   }
 }
 
